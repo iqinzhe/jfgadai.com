@@ -1,4 +1,5 @@
 /* ==================== 评估页面专用样式 ==================== */
+/* 注意：通用样式已在 main.css 中定义 */
 
 /* 头部 */
 .assessment-header {
@@ -40,7 +41,7 @@
   border-radius: var(--border-radius);
 }
 
-/* 横幅 */
+/* 评估页面横幅 */
 .assessment-banner {
   background: linear-gradient(135deg, rgba(15, 76, 129, 0.9), rgba(245, 197, 66, 0.2));
   padding: 3rem 0;
@@ -148,7 +149,7 @@
   100% { box-shadow: 0 0 0 0 rgba(245, 197, 66, 0); }
 }
 
-/* 评估表单 */
+/* 评估表单容器 */
 .assessment-container {
   padding: 2rem 0;
 }
