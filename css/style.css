@@ -589,3 +589,62 @@ footer {
     max-width: 100% !important;
   }
 }
+
+/* 在现有的css/styles.css末尾添加 */
+
+/* =========================
+   JavaScript交互样式
+   ========================= */
+
+/* 滚动状态 */
+body.scrolled {
+  padding-top: 60px; /* 如果有固定header */
+}
+
+body.scrolling-down .header {
+  transform: translateY(-100%);
+}
+
+body.scrolling-up .header {
+  transform: translateY(0);
+}
+
+/* 键盘导航 */
+.tab-navigation :focus-visible {
+  outline: 3px solid var(--secondary-color);
+  outline-offset: 2px;
+}
+
+/* 字体加载状态 */
+.fonts-loading .logo,
+.fonts-loading h1,
+.fonts-loading h2,
+.fonts-loading h3 {
+  visibility: hidden;
+}
+
+.fonts-loaded {
+  /* 字体加载完成后的样式 */
+}
+
+.fonts-fallback {
+  /* 字体加载失败后的样式 */
+}
+
+/* 页面加载状态 */
+.page-loaded .loading-placeholder {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 按钮悬停状态 */
+.btn.hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .btn.hover {
+    transform: none; /* 移动端禁用悬停效果 */
+  }
+}
