@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="fonts-loading">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,53 +16,33 @@
   
   <title>JF Gadai | Dana Cepat dengan Tenang</title>
   
-  <!-- 预加载 FontFaceObserver -->
-  <link rel="preload" href="js/fontfaceobserver.js" as="script">
-  
-  <!-- Google Fonts (备用方案，如果本地字体不可用) -->
+  <!-- Google Fonts (备用方案) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   
-  <!-- CSS 文件 -->
+  <!-- CSS 文件 - 重要：使用正确的文件名 style.css -->
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
   
   <!-- 预加载关键资源 -->
-  <link rel="preload" href="css/styles.css" as="style">
+  <link rel="preload" href="css/style.css" as="style">
   <link rel="preload" href="css/fonts.css" as="style">
   <link rel="preload" href="fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/poppins-semibold.woff2" as="font" type="font/woff2" crossorigin>
   
-  <!-- 内联关键CSS（优化首屏渲染） -->
+  <!-- 关键内联样式 - 防止无样式内容闪现 -->
   <style>
-    /* 关键CSS - 确保首屏内容快速显示 */
-    .fonts-loading {
-      visibility: hidden;
-    }
-    
-    .fonts-loaded .hero-content {
-      animation: fadeIn 0.6s ease-out forwards;
-    }
-    
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    /* 确保字体加载前文本可见 */
+    /* 基础保障 */
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0b2c4a 0%, #0e4b6e 100%);
+      color: white;
+      margin: 0;
+      min-height: 100vh;
     }
     
     .fonts-loaded body {
-      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
     
     .fonts-loaded h1,
@@ -74,61 +54,6 @@
 </head>
 
 <body>
-  <!-- Font Loading State -->
-  <script>
-    // 初始字体加载状态
-    document.documentElement.classList.add('fonts-loading');
-    
-    // 加载FontFaceObserver库
-    window.addEventListener('load', function() {
-      // 加载完成后执行字体检测
-      setTimeout(function() {
-        if (typeof FontFaceObserver !== 'undefined') {
-          initFontLoading();
-        } else {
-          // 如果FontFaceObserver加载失败，使用回退方案
-          document.documentElement.classList.remove('fonts-loading');
-          document.documentElement.classList.add('fonts-fallback');
-        }
-      }, 100);
-    });
-    
-    function initFontLoading() {
-      // 创建字体观察器
-      const interRegular = new FontFaceObserver('Inter', {
-        weight: 400
-      });
-      
-      const interSemiBold = new FontFaceObserver('Inter', {
-        weight: 600
-      });
-      
-      const poppinsSemiBold = new FontFaceObserver('Poppins', {
-        weight: 600
-      });
-      
-      // 等待所有字体加载完成
-      Promise.all([
-        interRegular.load(null, 4000), // 4秒超时
-        interSemiBold.load(null, 4000),
-        poppinsSemiBold.load(null, 4000)
-      ]).then(function() {
-        // 字体加载成功
-        document.documentElement.classList.remove('fonts-loading');
-        document.documentElement.classList.add('fonts-loaded');
-        console.log('所有自定义字体已加载完成');
-        
-        // 触发自定义事件（如果需要）
-        document.dispatchEvent(new CustomEvent('fontsLoaded'));
-      }).catch(function() {
-        // 字体加载失败
-        document.documentElement.classList.remove('fonts-loading');
-        document.documentElement.classList.add('fonts-fallback');
-        console.log('自定义字体加载失败，使用回退字体');
-      });
-    }
-  </script>
-  
   <!-- Hero Section -->
   <section class="hero" id="hero">
     <div class="container">
@@ -147,12 +72,10 @@
         
         <div class="cta-group fade-in delay-3">
           <a href="https://wa.me/6289515692586" target="_blank" class="btn btn-primary" rel="noopener noreferrer" aria-label="Konsultasi via WhatsApp">
-            <img src="icons/phone-icon.svg" alt="" width="20" height="20" class="icon">
-            Konsultasi via WhatsApp
+            <span class="icon">📱</span> Konsultasi via WhatsApp
           </a>
           <a href="#lokasi" class="btn btn-secondary" aria-label="Cek Lokasi dan Layanan">
-            <img src="icons/laptop-icon.svg" alt="" width="20" height="20" class="icon">
-            Cek Lokasi & Layanan
+            <span class="icon">📍</span> Cek Lokasi & Layanan
           </a>
         </div>
       </div>
@@ -223,9 +146,8 @@
           <p class="area-highlight">Bangil & Gempol</p>
           <p>Melayani radius ±15 km dari pusat kota Bangil</p>
           <p><small>Kunjungi kami untuk konsultasi langsung</small></p>
-          <a href="https://maps.google.com/?q=Bangil" target="_blank" class="btn btn-secondary" style="margin-top: var(--spacing-md);" rel="noopener noreferrer" aria-label="Lihat di Google Maps">
-            <img src="icons/camera-icon.svg" alt="" width="20" height="20" class="icon">
-            Lihat di Google Maps
+          <a href="https://maps.google.com/?q=Bangil" target="_blank" class="btn btn-secondary" style="margin-top: 1.5rem;" rel="noopener noreferrer" aria-label="Lihat di Google Maps">
+            <span class="icon">🗺️</span> Lihat di Google Maps
           </a>
         </div>
       </div>
@@ -241,20 +163,17 @@
         
         <div class="contact-info">
           <a href="tel:+6289515692586" class="contact-link" aria-label="Telepon kami">
-            <img src="icons/phone-icon.svg" alt="" width="16" height="16">
-            +62 895-1569-2586
+            <span class="icon">📞</span> +62 895-1569-2586
           </a>
           <a href="https://wa.me/6289515692586" target="_blank" class="contact-link" rel="noopener noreferrer" aria-label="Hubungi via WhatsApp">
-            <img src="icons/laptop-icon.svg" alt="" width="16" height="16">
-            WhatsApp
+            <span class="icon">💬</span> WhatsApp
           </a>
           <a href="https://maps.google.com/?q=Bangil" target="_blank" class="contact-link" rel="noopener noreferrer" aria-label="Lihat lokasi di Google Maps">
-            <img src="icons/camera-icon.svg" alt="" width="16" height="16">
-            Bangil, Pasuruan
+            <span class="icon">📍</span> Bangil, Pasuruan
           </a>
         </div>
         
-        <p class="company-info" style="margin-top: var(--spacing-lg); font-size: 0.9rem;">
+        <p class="company-info" style="margin-top: 2rem; font-size: 0.9rem;">
           Jam Operasional: Senin - Sabtu: 08:00 - 17:00 | Minggu: 09:00 - 15:00
         </p>
       </div>
@@ -262,7 +181,43 @@
   </footer>
 
   <!-- JavaScript 文件 -->
-  <script src="js/fontfaceobserver.js" defer></script>
   <script src="js/main.js" defer></script>
+  
+  <!-- 简化的字体加载脚本 -->
+  <script>
+    // 字体加载状态管理
+    (function() {
+      const html = document.documentElement;
+      
+      // 初始状态
+      html.classList.add('fonts-loading');
+      
+      // 使用 fonts API 检测字体加载
+      if ('fonts' in document) {
+        document.fonts.ready.then(() => {
+          html.classList.remove('fonts-loading');
+          html.classList.add('fonts-loaded');
+          console.log('字体加载完成');
+        }).catch(() => {
+          // 如果出错，使用回退
+          setTimeout(() => {
+            html.classList.remove('fonts-loading');
+            html.classList.add('fonts-fallback');
+          }, 1000);
+        });
+      } else {
+        // 不支持 fonts API 的浏览器
+        setTimeout(() => {
+          html.classList.remove('fonts-loading');
+          html.classList.add('fonts-loaded');
+        }, 1000);
+      }
+      
+      // 页面加载完成
+      window.addEventListener('load', () => {
+        html.classList.add('page-loaded');
+      });
+    })();
+  </script>
 </body>
 </html>
