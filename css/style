@@ -1,0 +1,63 @@
+/* =========================
+   Fonts (Local, Optimized)
+   ========================= */
+
+/* Inter - Regular (400) */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter - SemiBold (600) */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Poppins - SemiBold (600) */
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================
+   Global Font Rules
+   ========================= */
+
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #1f2937;
+}
+
+/* Headings & Hero Text */
+h1,
+.hero-title {
+  font-family: "Poppins", "Inter", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h2,
+h3 {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+
+/* Buttons & Call To Action */
+button,
+.btn,
+.cta {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
