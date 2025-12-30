@@ -1,303 +1,524 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raja Gadai - Pegadaian Elektronik Terpercaya</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JF Gadai | Dana Cepat dengan Tenang</title>
+  
+  <!-- Google Fonts (备用方案，如果本地字体不可用) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* =========================
+       CSS Reset & Variables
+       ========================= */
+    :root {
+      --primary-color: #0f4c81;
+      --primary-dark: #0c3d67;
+      --secondary-color: #f5c542;
+      --secondary-dark: #e0b339;
+      --light-color: #ffffff;
+      --dark-color: #0b2c4a;
+      --text-light: #e6f3fb;
+      --text-muted: #cfe3f2;
+      --bg-gradient: linear-gradient(135deg, #0b2c4a, #0e4b6e);
+      --bg-light: rgba(255, 255, 255, 0.08);
+      --bg-dark: rgba(0, 0, 0, 0.28);
+      --border-radius: 14px;
+      --border-radius-sm: 12px;
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 1.5rem;
+      --spacing-lg: 2rem;
+      --spacing-xl: 3rem;
+    }
     
-    <!-- CSS 文件引用 -->
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/styles.css">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     
-    <!-- 预加载关键字体 -->
-    <link rel="preload" href="fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/inter-semibold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/poppins-semibold.woff2" as="font" type="font/woff2" crossorigin>
+    html {
+      scroll-behavior: smooth;
+    }
     
-    <!-- 网站图标 Favicon 配置 -->
-    <!-- 图标文件在 icons/ 目录下 -->
-    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-    <link rel="manifest" href="icons/site.webmanifest">
-    <link rel="shortcut icon" href="favicon.ico">  <!-- favicon.ico在根目录 -->
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      background: var(--bg-gradient);
+      color: var(--light-color);
+      min-height: 100vh;
+    }
     
-    <!-- 元标签 -->
-    <meta name="description" content="Raja Gadai - Pegadaian elektronik terpercaya dengan proses cepat, taksiran tinggi, dan dana cair dalam 15 menit. Terdaftar dan diawasi OJK.">
-    <meta name="keywords" content="pegadaian, gadai elektronik, pinjaman cepat, dana instan, gadai hp, gadai laptop">
+    /* =========================
+       Typography
+       ========================= */
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      line-height: 1.3;
+    }
     
-    <!-- Open Graph 社交媒体分享优化 -->
-    <meta property="og:title" content="Raja Gadai - Pegadaian Elektronik Terpercaya">
-    <meta property="og:description" content="Dapatkan dana mudah & instan dengan menjaminkan elektronik Anda. Proses cepat hanya 15 menit!">
-    <meta property="og:image" content="icons/android-chrome-512x512.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rajagadai.id">
+    h1 {
+      font-size: 3rem;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin-bottom: var(--spacing-lg);
+      color: var(--secondary-color);
+      position: relative;
+      padding-bottom: var(--spacing-sm);
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--secondary-color);
+      border-radius: 2px;
+    }
+    
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    p {
+      font-size: 1.05rem;
+      margin-bottom: var(--spacing-sm);
+      color: var(--text-muted);
+    }
+    
+    .highlight {
+      color: var(--secondary-color);
+    }
+    
+    /* =========================
+       Layout & Containers
+       ========================= */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-md);
+    }
+    
+    .section {
+      margin: var(--spacing-xl) 0;
+    }
+    
+    /* =========================
+       Header & Hero
+       ========================= */
+    header.hero {
+      padding: var(--spacing-xl) 0;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: var(--spacing-md);
+      color: var(--secondary-color);
+      display: inline-block;
+      padding: var(--spacing-sm) var(--spacing-lg);
+      border: 2px solid var(--secondary-color);
+      border-radius: var(--border-radius);
+    }
+    
+    .tagline {
+      font-size: 1.8rem;
+      font-weight: 300;
+      line-height: 1.4;
+      margin-bottom: var(--spacing-sm);
+      color: var(--text-light);
+    }
+    
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    /* =========================
+       Buttons
+       ========================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .btn-primary {
+      background-color: var(--secondary-color);
+      color: var(--dark-color);
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--secondary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--light-color);
+      border: 2px solid var(--secondary-color);
+    }
+    
+    .btn-secondary:hover {
+      background-color: rgba(245, 197, 66, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .cta-group {
+      display: flex;
+      gap: var(--spacing-md);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: var(--spacing-lg);
+    }
+    
+    /* =========================
+       Features & Services
+       ========================= */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-lg);
+    }
+    
+    .feature-card {
+      background: var(--bg-light);
+      backdrop-filter: blur(10px);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.12);
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-md);
+      display: inline-block;
+    }
+    
+    /* =========================
+       Service Area
+       ========================= */
+    .service-area {
+      text-align: center;
+      margin-top: var(--spacing-xl);
+      padding: var(--spacing-lg);
+      background: var(--bg-light);
+      border-radius: var(--border-radius);
+      border-left: 4px solid var(--secondary-color);
+    }
+    
+    .area-highlight {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin: var(--spacing-sm) 0;
+    }
+    
+    /* =========================
+       Footer
+       ========================= */
+    footer {
+      text-align: center;
+      padding: var(--spacing-xl) var(--spacing-md);
+      margin-top: var(--spacing-xl);
+      background: rgba(0, 0, 0, 0.3);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .copyright {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .company-info {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    
+    /* =========================
+       Responsive Design
+       ========================= */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .tagline {
+        font-size: 1.4rem;
+      }
+      
+      .logo {
+        font-size: 2rem;
+        padding: var(--spacing-xs) var(--spacing-md);
+      }
+      
+      .cta-group {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+      }
+      
+      .feature-card {
+        padding: var(--spacing-md);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      .tagline {
+        font-size: 1.2rem;
+      }
+      
+      .container {
+        padding: 0 var(--spacing-sm);
+      }
+    }
+    
+    /* =========================
+       Animation Effects
+       ========================= */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.8s ease forwards;
+    }
+    
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+    
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+    
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+  </style>
 </head>
+
 <body>
-    <!-- 页面头部 -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="/">
-                        <!-- Logo使用图标目录下的文件 -->
-                        <div class="logo-container">
-                            <img src="icons/android-chrome-192x192.png" alt="Raja Gadai Logo" class="logo-image" width="40" height="40">
-                            <div class="logo-text">
-                                <h1 class="logo-title">Raja Gadai</h1>
-                                <p class="logo-subtitle">Pegadaian Elektronik</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
-                <!-- 导航菜单 -->
-                <nav class="main-nav">
-                    <ul class="nav-list">
-                        <li class="nav-item"><a href="#home" class="nav-link">Beranda</a></li>
-                        <li class="nav-item"><a href="#layanan" class="nav-link">Layanan</a></li>
-                        <li class="nav-item"><a href="#proses" class="nav-link">Proses</a></li>
-                        <li class="nav-item"><a href="#lokasi" class="nav-link">Lokasi</a></li>
-                        <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
-                        <li class="nav-item"><a href="#kontak" class="nav-link">Kontak</a></li>
-                    </ul>
-                </nav>
-                
-                <!-- 联系信息和营业时间 -->
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span class="icon">📞</span>
-                        <div class="contact-details">
-                            <p class="hours">Buka Setiap Hari</p>
-                            <p class="phone">Jam 08.00 - 21.00</p>
-                        </div>
-                    </div>
-                    <a href="tel:+622112345678" class="btn btn-primary">Hubungi Kami</a>
-                </div>
-            </div>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-content fade-in">
+        <div class="logo">JF Gadai</div>
+        
+        <h1 class="tagline">
+          Dana Datang Cepat,<br>
+          <span class="highlight">Hati Tetap Tenang</span>
+        </h1>
+        
+        <p class="subtitle">
+          Layanan gadai terpercaya di Bangil & sekitarnya.<br>
+          Proses jelas, dana cair di hari yang sama.
+        </p>
+        
+        <div class="cta-group">
+          <a href="https://wa.me/6289515692586" target="_blank" class="btn btn-primary">
+            <span>💬</span> Konsultasi via WhatsApp
+          </a>
+          <a href="#lokasi" class="btn btn-secondary">
+            <span>📍</span> Cek Lokasi & Layanan
+          </a>
         </div>
-    </header>
+      </div>
+    </div>
+  </header>
 
-    <!-- 主要内容区域 -->
-    <main>
-        <!-- 英雄区域 -->
-        <section class="hero" id="home">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h2 class="hero-title">Butuh Uang? <span class="highlight">Gadai Elektronik Solusinya</span></h2>
-                        <p class="hero-subtitle">Raja Gadai siap membantu setiap hari untuk menyediakan solusi untuk segala kebutuhan mendesak Anda.</p>
-                        
-                        <div class="hero-stats">
-                            <div class="stat">
-                                <span class="stat-number">300+</span>
-                                <span class="stat-label">Cabang di Indonesia</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">15</span>
-                                <span class="stat-label">Menit Dana Cair</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">95%</span>
-                                <span class="stat-label">Taksiran Tinggi</span>
-                            </div>
-                        </div>
-                        
-                        <div class="hero-buttons">
-                            <a href="#lokasi" class="btn btn-secondary">Cari Cabang Terdekat</a>
-                            <a href="#layanan" class="btn btn-outline">Lihat Layanan</a>
-                        </div>
-                    </div>
-                    
-                    <div class="hero-image">
-                        <!-- 产品图片来自images/目录 -->
-                        <img src="images/hero-illustration.png" alt="Gadai Elektronik Mudah" class="hero-illustration">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 服务展示区域 -->
-        <section class="services" id="layanan">
-            <div class="container">
-                <h2 class="section-title">Jaminkan Elektronik Anda</h2>
-                <p class="section-subtitle">Dapatkan Dana Mudah & Instan</p>
-                
-                <div class="services-grid">
-                    <!-- 服务项 1 - HP -->
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <!-- UI图标来自icons/目录 -->
-                            <img src="icons/phone-icon.svg" alt="HP" width="48" height="48">
-                        </div>
-                        <h3 class="service-title">HP</h3>
-                        <p class="service-desc">Semua merk smartphone dan tablet</p>
-                    </div>
-                    
-                    <!-- 服务项 2 - Laptop -->
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <img src="icons/laptop-icon.svg" alt="Laptop" width="48" height="48">
-                        </div>
-                        <h3 class="service-title">Laptop</h3>
-                        <p class="service-desc">Laptop dan notebook semua merk</p>
-                    </div>
-                    
-                    <!-- 服务项 3 - Kamera -->
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <img src="icons/camera-icon.svg" alt="Kamera" width="48" height="48">
-                        </div>
-                        <h3 class="service-title">Kamera</h3>
-                        <p class="service-desc">Kamera DSLR, mirrorless, dan aksi</p>
-                    </div>
-                    
-                    <!-- 服务项 4 - TV -->
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <img src="icons/tv-icon.svg" alt="TV" width="48" height="48">
-                        </div>
-                        <h3 class="service-title">TV</h3>
-                        <p class="service-desc">Televisi LED, OLED, dan Smart TV</p>
-                    </div>
-                    
-                    <!-- 服务项 5 - PS -->
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <img src="icons/ps-icon.svg" alt="PS" width="48" height="48">
-                        </div>
-                        <h3 class="service-title">PS</h3>
-                        <p class="service-desc">PlayStation 4, PlayStation 5</p>
-                    </div>
-                    
-                    <!-- 服务项 6 - Smartwatch -->
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <img src="icons/watch-icon.svg" alt="Smartwatch" width="48" height="48">
-                        </div>
-                        <h3 class="service-title">Smartwatch</h3>
-                        <p class="service-desc">Apple Watch, Samsung Galaxy Watch</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 产品展示区域 -->
-        <section class="products">
-            <div class="container">
-                <h2 class="section-title">Produk yang Dapat Dijaminkan</h2>
-                <div class="products-grid">
-                    <div class="product-item">
-                        <!-- 产品图片来自images/目录 -->
-                        <img src="images/product-phone.jpg" alt="Smartphone" class="product-image">
-                        <div class="product-info">
-                            <h3>Smartphone</h3>
-                            <p>iPhone, Samsung, Xiaomi, dll.</p>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <img src="images/product-laptop.jpg" alt="Laptop" class="product-image">
-                        <div class="product-info">
-                            <h3>Laptop</h3>
-                            <p>MacBook, ThinkPad, Gaming Laptop</p>
-                        </div>
-                    </div>
-                    <!-- 更多产品... -->
-                </div>
-            </div>
-        </section>
-
-        <!-- 优势区域 -->
-        <section class="advantages">
-            <div class="container">
-                <h2 class="section-title">Kenapa Harus di Raja Gadai?</h2>
-                
-                <div class="advantages-grid">
-                    <div class="advantage-card">
-                        <!-- 使用Unicode字符或SVG图标 -->
-                        <div class="advantage-icon">⏱️</div>
-                        <h3 class="advantage-title">Proses Cepat</h3>
-                        <p class="advantage-desc">15 Menit Dana Langsung Cair</p>
-                    </div>
-                    
-                    <div class="advantage-card">
-                        <div class="advantage-icon">💰</div>
-                        <h3 class="advantage-title">Taksiran Tinggi</h3>
-                        <p class="advantage-desc">Sampai Dengan 95% dari Nilai Barang</p>
-                    </div>
-                    
-                    <div class="advantage-card">
-                        <div class="advantage-icon">📄</div>
-                        <h3 class="advantage-title">Persyaratan Mudah</h3>
-                        <p class="advantage-desc">Cukup dengan KTP/SIM</p>
-                    </div>
-                    
-                    <div class="advantage-card">
-                        <div class="advantage-icon">🛡️</div>
-                        <h3 class="advantage-title">Jaminan Aman</h3>
-                        <p class="advantage-desc">Barang Terlindungi & Disegel</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- OJK认证区域 -->
-        <section class="certification">
-            <div class="container">
-                <div class="ojk-badge">
-                    <!-- OJK认证图标，可以在icons/或coins/目录 -->
-                    <img src="icons/ojk-certified.png" alt="Diawasi OJK" width="60" height="60">
-                    <div class="ojk-text">
-                        <h3>Berizin dan Diawasi OJK</h3>
-                        <p>Raja Gadai merupakan perusahaan gadai terpercaya karena terdaftar dan diawasi Otoritas Jasa Keuangan.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- 页面底部 -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="icons/android-chrome-192x192.png" alt="Raja Gadai Logo" width="50" height="50">
-                        <div class="footer-logo-text">
-                            <h3>Raja Gadai</h3>
-                            <p>Pegadaian Amanah & Terpercaya</p>
-                        </div>
-                    </div>
-                    <p class="footer-desc">Raja Gadai adalah tempat pegadaian elektronik terbaik dengan taksiran tertinggi. Dengan lebih dari 300 cabang di Indonesia.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-title">Kontak Kami</h4>
-                    <ul class="footer-contact">
-                        <li>📞 (021) 1234-5678</li>
-                        <li>✉️ info@rajagadai.id</li>
-                        <li>📍 Jakarta, Indonesia</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-title">Jam Operasional</h4>
-                    <ul class="footer-hours">
-                        <li>Setiap Hari: 08.00 - 21.00</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p class="copyright">© 2024 Raja Gadai. Semua hak dilindungi.</p>
-                <p class="disclaimer">Raja Gadai terdaftar dan diawasi OJK.</p>
-            </div>
+  <main class="container">
+    <!-- Services Section -->
+    <section class="section" id="layanan">
+      <h2 class="fade-in">Layanan Kami</h2>
+      <div class="features-grid">
+        <div class="feature-card fade-in delay-1">
+          <div class="feature-icon">💎</div>
+          <h3>Gadai Barang</h3>
+          <p>Emas, elektronik, kendaraan, dan barang bernilai lainnya dengan penilaian yang adil.</p>
         </div>
-    </footer>
+        
+        <div class="feature-card fade-in delay-2">
+          <div class="feature-icon">⚡</div>
+          <h3>Pencairan Cepat</h3>
+          <p>Proses sederhana tanpa prosedur rumit. Dana cair dalam waktu singkat.</p>
+        </div>
+        
+        <div class="feature-card fade-in delay-3">
+          <div class="feature-icon">🛡️</div>
+          <h3>Aman & Terjaga</h3>
+          <p>Barang disimpan dengan sistem keamanan modern dan pencatatan yang terstruktur.</p>
+        </div>
+        
+        <div class="feature-card fade-in delay-1">
+          <div class="feature-icon">💯</div>
+          <h3>Bunga Transparan</h3>
+          <p>Tidak ada biaya tersembunyi. Semua biaya dijelaskan dengan jelas sejak awal.</p>
+        </div>
+      </div>
+    </section>
 
-    <!-- JavaScript 文件引用 -->
-    <script src="js/main.js"></script>
+    <!-- Why Choose Us Section -->
+    <section class="section" id="mengapa">
+      <h2 class="fade-in">Mengapa JF Gadai?</h2>
+      <div class="features-grid">
+        <div class="feature-card fade-in delay-1">
+          <div class="feature-icon">❤️</div>
+          <h3>Pendekatan Manusiawi</h3>
+          <p>Kami memahami kondisi pelanggan dan memberikan solusi yang sesuai kebutuhan.</p>
+        </div>
+        
+        <div class="feature-card fade-in delay-2">
+          <div class="feature-icon">🤝</div>
+          <h3>Lokal & Terpercaya</h3>
+          <p>Melayani masyarakat sekitar dengan reputasi yang dijaga selama bertahun-tahun.</p>
+        </div>
+        
+        <div class="feature-card fade-in delay-3">
+          <div class="feature-icon">🔒</div>
+          <h3>Privasi Dijamin</h3>
+          <p>Data dan transaksi pelanggan dijaga kerahasiaannya dengan sistem yang aman.</p>
+        </div>
+      </div>
+
+      <!-- Service Area -->
+      <div class="service-area fade-in" id="lokasi">
+        <div class="feature-icon">📍</div>
+        <h3>Area Layanan</h3>
+        <p class="area-highlight">Bangil & Gempol</p>
+        <p>Melayani radius ±15 km dari pusat kota Bangil</p>
+        <p><small>Kunjungi kami untuk konsultasi langsung</small></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p class="copyright">© 2025 <span class="highlight">JF Gadai</span></p>
+      <p class="company-info">Layanan Keuangan Non-Bank • Bangil & Gempol</p>
+      <p class="company-info" style="margin-top: 1rem;">
+        📞 <a href="tel:+6289515692586" style="color: var(--secondary-color); text-decoration: none;">+62 895-1569-2586</a> • 
+        📍 <a href="https://maps.google.com/?q=Bangil" target="_blank" style="color: var(--secondary-color); text-decoration: none;">Bangil, Pasuruan</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple fade-in animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+          }
+        });
+      }, observerOptions);
+      
+      // Observe all sections
+      document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+      });
+      
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
