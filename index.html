@@ -5,62 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JF Gadai | Layanan Gadai Terpercaya</title>
   <style>
-    /* 基础重置 */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* ==================== 基础样式 ==================== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     
     :root {
       --primary-color: #0f4c81;
       --primary-dark: #0c3d67;
       --secondary-color: #f5c542;
       --secondary-dark: #e0b339;
-      --accent-color: #ff6b6b;
       --light-color: #ffffff;
       --dark-color: #0b2c4a;
       --text-light: #e6f3fb;
       --text-muted: #cfe3f2;
-      
-      --bg-gradient: linear-gradient(135deg, #0b2c4a 0%, #0e4b6e 100%);
-      --bg-gradient-light: linear-gradient(135deg, #0e4b6e 0%, #1a6798 100%);
-      --bg-gradient-hero: linear-gradient(135deg, #0b2c4a 0%, #0f4c81 100%);
-      
-      --bg-light: rgba(255, 255, 255, 0.08);
-      --bg-dark: rgba(0, 0, 0, 0.28);
       --border-radius: 14px;
-      --border-radius-sm: 12px;
       --border-radius-lg: 20px;
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
-      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
       --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
-      --spacing-xs: 0.5rem;
       --spacing-sm: 1rem;
       --spacing-md: 1.5rem;
       --spacing-lg: 2rem;
       --spacing-xl: 2.5rem;
-      --spacing-xxl: 4rem;
-      
-      --grid-gap: 1.5rem;
-    }
-    
-    html {
-      scroll-behavior: smooth;
     }
     
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg-gradient) fixed;
+      background: linear-gradient(135deg, #0b2c4a 0%, #0e4b6e 100%) fixed;
       color: var(--light-color);
       line-height: 1.6;
-      overflow-x: hidden;
     }
     
-    /* 全屏横幅 */
+    /* ==================== 修正：横幅高度 ==================== */
     .full-banner {
       width: 100%;
-      height: 100vh;
+      height: 70vh; /* 改为70vh，不会超出屏幕 */
       overflow: hidden;
       position: relative;
     }
@@ -68,31 +44,24 @@
     .full-banner img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center;
+      object-fit: contain; /* 确保图片完整显示 */
+      object-position: center top;
       display: block;
     }
     
-    /* 内容包装器 */
-    .content-wrapper {
-      position: relative;
-      z-index: 1;
-      background: var(--bg-gradient);
-    }
-    
-    /* 快速操作栏 - 减少间距 */
+    /* ==================== 快速操作栏 ==================== */
     .quick-actions {
       display: flex;
       justify-content: center;
       gap: var(--spacing-lg);
-      margin: var(--spacing-lg) auto; /* 减小了间距 */
+      margin: var(--spacing-md) auto; /* 进一步减小间距 */
       max-width: 1200px;
       padding: 0 var(--spacing-lg);
       flex-wrap: wrap;
     }
     
     .quick-action-card {
-      background: var(--bg-light);
+      background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(10px);
       border-radius: var(--border-radius-lg);
       padding: var(--spacing-xl);
@@ -102,10 +71,6 @@
       max-width: 400px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
     
     .quick-action-card:hover {
@@ -115,23 +80,9 @@
       background: rgba(255, 255, 255, 0.12);
     }
     
-    .action-icon {
-      font-size: 3rem;
-      margin-bottom: var(--spacing-md);
-    }
-    
-    .action-title {
-      color: var(--secondary-color);
-      font-size: 1.5rem;
-      margin-bottom: var(--spacing-sm);
-      font-weight: 700;
-    }
-    
-    .action-description {
-      color: var(--text-muted);
-      margin-bottom: var(--spacing-lg);
-      font-size: 0.95rem;
-    }
+    .action-icon { font-size: 3rem; margin-bottom: var(--spacing-md); }
+    .action-title { color: var(--secondary-color); font-size: 1.5rem; margin-bottom: var(--spacing-sm); font-weight: 700; }
+    .action-description { color: var(--text-muted); margin-bottom: var(--spacing-lg); font-size: 0.95rem; }
     
     .action-btn {
       display: inline-flex;
@@ -171,19 +122,19 @@
       box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
     }
     
-    /* 不对称五宫格布局 */
+    /* ==================== 不对称五宫格 ==================== */
     .asymmetric-grid {
       display: grid;
       grid-template-columns: 1fr 2fr 1fr;
       grid-template-rows: auto auto;
-      gap: var(--grid-gap);
+      gap: 1.5rem;
       margin: var(--spacing-xl) auto;
       max-width: 1400px;
       padding: 0 var(--spacing-lg);
     }
     
     .grid-item {
-      background: var(--bg-light);
+      background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(10px);
       border-radius: var(--border-radius-lg);
       padding: var(--spacing-xl);
@@ -202,41 +153,21 @@
       margin-bottom: var(--spacing-md);
       font-size: 1.5rem;
       border-bottom: 2px solid var(--secondary-color);
-      padding-bottom: var(--spacing-xs);
+      padding-bottom: 0.5rem;
       display: inline-block;
     }
     
-    /* 左侧：我们的服务 */
-    .our-services {
-      grid-column: 1;
-      grid-row: 1;
+    /* 网格位置 */
+    .our-services { grid-column: 1; grid-row: 1; }
+    .business-process { 
+      grid-column: 2; 
+      grid-row: 1 / span 2; 
+      min-height: 500px; /* 减少最小高度 */
+      background: linear-gradient(135deg, rgba(15, 76, 129, 0.3), rgba(245, 197, 66, 0.1)); 
     }
-    
-    /* 中间：业务流程 */
-    .business-process {
-      grid-column: 2;
-      grid-row: 1 / span 2;
-      min-height: 600px;
-      background: linear-gradient(135deg, rgba(15, 76, 129, 0.3), rgba(245, 197, 66, 0.1));
-    }
-    
-    /* 右侧：业务条件 */
-    .conditions {
-      grid-column: 3;
-      grid-row: 1;
-    }
-    
-    /* 左下：为什么选择我们 */
-    .why-choose-us {
-      grid-column: 1;
-      grid-row: 2;
-    }
-    
-    /* 右下：联系我们表单 */
-    .contact-form-section {
-      grid-column: 3;
-      grid-row: 2;
-    }
+    .conditions { grid-column: 3; grid-row: 1; }
+    .why-choose-us { grid-column: 1; grid-row: 2; }
+    .contact-form-section { grid-column: 3; grid-row: 2; }
     
     /* 列表样式 */
     .service-list, .condition-list, .reason-list {
@@ -250,12 +181,6 @@
       align-items: center;
       gap: var(--spacing-sm);
       color: var(--text-light);
-    }
-    
-    .service-list li:last-child,
-    .condition-list li:last-child,
-    .reason-list li:last-child {
-      border-bottom: none;
     }
     
     .list-icon {
@@ -272,8 +197,8 @@
     
     .process-step {
       position: relative;
-      padding: var(--spacing-lg);
-      margin-bottom: var(--spacing-lg);
+      padding: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
       background: rgba(255, 255, 255, 0.05);
       border-radius: var(--border-radius);
       border-left: 4px solid var(--secondary-color);
@@ -295,15 +220,6 @@
       justify-content: center;
       font-weight: bold;
       font-size: 1.1rem;
-    }
-    
-    .process-step h3 {
-      color: var(--light-color);
-      margin-bottom: var(--spacing-sm);
-    }
-    
-    .process-step p {
-      color: var(--text-muted);
     }
     
     /* 表单样式 */
@@ -347,7 +263,7 @@
     .form-note {
       font-size: 0.85rem;
       color: var(--secondary-color);
-      margin-top: var(--spacing-xs);
+      margin-top: 0.5rem;
       font-style: italic;
     }
     
@@ -369,10 +285,10 @@
       box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
     }
     
-    /* 页脚样式 */
+    /* ==================== 页脚 ==================== */
     footer {
       background: rgba(11, 44, 74, 0.9);
-      margin-top: var(--spacing-xxl);
+      margin-top: 4rem;
       padding: var(--spacing-xl) 0;
       border-top: 2px solid var(--secondary-color);
     }
@@ -423,91 +339,53 @@
       color: var(--secondary-color);
     }
     
-    /* 动画 */
+    /* ==================== 动画 ==================== */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
       animation: fadeIn 0.6s ease forwards;
     }
     
-    .delay-1 {
-      animation-delay: 0.2s;
-    }
-    
-    .delay-2 {
-      animation-delay: 0.4s;
-    }
-    
-    .delay-3 {
-      animation-delay: 0.6s;
-    }
-    
-    .delay-4 {
-      animation-delay: 0.8s;
-    }
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
     
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
     
-    /* 响应式设计 */
+    /* ==================== 响应式设计 ==================== */
     @media (max-width: 1200px) {
       .asymmetric-grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;
       }
       
-      .business-process {
-        grid-column: 1 / span 2;
-        grid-row: 1;
+      .business-process { 
+        grid-column: 1 / span 2; 
+        grid-row: 1; 
+        min-height: auto; 
       }
+      .our-services { grid-column: 1; grid-row: 2; }
+      .conditions { grid-column: 2; grid-row: 2; }
+      .why-choose-us { grid-column: 1; grid-row: 3; }
+      .contact-form-section { grid-column: 2; grid-row: 3; }
       
-      .our-services {
-        grid-column: 1;
-        grid-row: 2;
-      }
-      
-      .conditions {
-        grid-column: 2;
-        grid-row: 2;
-      }
-      
-      .why-choose-us {
-        grid-column: 1;
-        grid-row: 3;
-      }
-      
-      .contact-form-section {
-        grid-column: 2;
-        grid-row: 3;
-      }
-      
-      .quick-actions {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .quick-action-card {
-        width: 100%;
-        max-width: 500px;
-      }
+      .quick-actions { flex-direction: column; align-items: center; }
+      .quick-action-card { width: 100%; max-width: 500px; }
     }
     
     @media (max-width: 768px) {
+      .full-banner {
+        height: 60vh; /* 手机端更低 */
+      }
+      
       .asymmetric-grid {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(5, auto);
         gap: var(--spacing-lg);
       }
       
-      .business-process,
-      .our-services,
-      .conditions,
-      .why-choose-us,
-      .contact-form-section {
+      .business-process, .our-services, .conditions, .why-choose-us, .contact-form-section {
         grid-column: 1;
       }
       
@@ -517,212 +395,216 @@
       .why-choose-us { grid-row: 4; }
       .contact-form-section { grid-row: 5; }
       
-      .quick-action-card {
-        min-width: 100%;
-      }
+      .quick-action-card { min-width: 100%; }
+      .contact-info { flex-direction: column; gap: var(--spacing-md); }
       
-      .full-banner {
-        height: 80vh;
-      }
-      
-      .contact-info {
-        flex-direction: column;
-        gap: var(--spacing-md);
+      .quick-actions {
+        margin: var(--spacing-sm) auto; /* 手机端间距更小 */
+        padding: 0 var(--spacing-sm);
       }
     }
     
     @media (max-width: 480px) {
-      :root {
-        --spacing-md: 1rem;
-        --spacing-lg: 1.5rem;
-        --spacing-xl: 2rem;
+      :root { 
+        --spacing-sm: 0.8rem; 
+        --spacing-md: 1.2rem; 
+        --spacing-lg: 1.5rem; 
+        --spacing-xl: 1.8rem; 
       }
       
-      .full-banner {
-        height: 70vh;
+      .full-banner { 
+        height: 50vh; /* 小屏幕更低 */
       }
       
-      .quick-actions {
-        margin: var(--spacing-md) auto;
+      .quick-actions { 
+        margin: 1rem auto; 
       }
       
-      .grid-item {
-        padding: var(--spacing-lg);
+      .grid-item { 
+        padding: var(--spacing-lg); 
+      }
+      
+      .action-btn {
+        min-width: 180px;
+        padding: 0.7rem 1.2rem;
       }
     }
     
-    /* 大屏幕优化 */
-    @media (min-width: 1920px) {
+    /* 横幅高度测试辅助 */
+    @media (min-height: 800px) {
       .full-banner {
-        height: 85vh;
+        height: 65vh;
+      }
+    }
+    
+    @media (min-height: 1000px) {
+      .full-banner {
+        height: 60vh;
       }
     }
   </style>
 </head>
 <body>
-  <!-- 全屏横幅图片 -->
+  <!-- 修正后的横幅 -->
   <section class="full-banner">
     <img src="images/101.jpeg" alt="JF Gadai - Tetap Maju di Saat Sulit">
   </section>
 
-  <!-- 主要内容区域 -->
-  <div class="content-wrapper">
-    <!-- 快速操作栏 -->
-    <section class="quick-actions">
-      <div class="quick-action-card fade-in delay-1">
-        <div class="action-icon">📱</div>
-        <h3 class="action-title">Konsultasi via WhatsApp</h3>
-        <p class="action-description">Chat langsung dengan tim kami untuk konsultasi gratis dan penawaran terbaik.</p>
-        <a href="https://wa.me/6289515692586" target="_blank" class="action-btn whatsapp" rel="noopener noreferrer">
-          <span>Buka WhatsApp</span>
-        </a>
-      </div>
-      
-      <div class="quick-action-card fade-in delay-2">
-        <div class="action-icon">📍</div>
-        <h3 class="action-title">Cek Lokasi & Layanan</h3>
-        <p class="action-description">Lihat lokasi kami dan pelajari layanan lengkap yang tersedia di JF Gadai.</p>
-        <a href="#lokasi" class="action-btn location">
-          <span>Lihat Lokasi</span>
-        </a>
+  <!-- 快速操作栏 -->
+  <section class="quick-actions">
+    <div class="quick-action-card fade-in delay-1">
+      <div class="action-icon">📱</div>
+      <h3 class="action-title">Konsultasi via WhatsApp</h3>
+      <p class="action-description">Chat langsung dengan tim kami untuk konsultasi gratis dan penawaran terbaik.</p>
+      <a href="https://wa.me/6289515692586" target="_blank" class="action-btn whatsapp" rel="noopener noreferrer">
+        <span>Buka WhatsApp</span>
+      </a>
+    </div>
+    
+    <div class="quick-action-card fade-in delay-2">
+      <div class="action-icon">📍</div>
+      <h3 class="action-title">Cek Lokasi & Layanan</h3>
+      <p class="action-description">Lihat lokasi kami dan pelajari layanan lengkap yang tersedia di JF Gadai.</p>
+      <a href="#lokasi" class="action-btn location">
+        <span>Lihat Lokasi</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 不对称五宫格 -->
+  <main class="container asymmetric-grid">
+    
+    <!-- 左侧：我们的服务 -->
+    <section class="grid-item our-services">
+      <h2>🛠️ Layanan Kami</h2>
+      <ul class="service-list">
+        <li><span class="list-icon">💎</span> Gadai Emas & Perhiasan</li>
+        <li><span class="list-icon">📱</span> Gadai Elektronik</li>
+        <li><span class="list-icon">🏍️</span> Gadai Kendaraan</li>
+        <li><span class="list-icon">💍</span> Barang Berharga Lainnya</li>
+        <li><span class="list-icon">⚡</span> Pencairan Kilat</li>
+        <li><span class="list-icon">🔄</span> Perpanjangan Gadai</li>
+      </ul>
+    </section>
+    
+    <!-- 中间：业务流程 -->
+    <section class="grid-item business-process">
+      <h2>📋 Proses Mudah & Cepat</h2>
+      <div class="process-steps">
+        <div class="process-step">
+          <h3>Konsultasi Awal</h3>
+          <p>Hubungi kami via WhatsApp atau datang langsung untuk konsultasi. Kami akan memberikan penjelasan lengkap tentang proses dan persyaratan.</p>
+        </div>
+        <div class="process-step">
+          <h3>Penilaian Barang</h3>
+          <p>Tim ahli kami akan menilai barang Anda dengan fair dan transparan. Penilaian berdasarkan kondisi pasar terkini.</p>
+        </div>
+        <div class="process-step">
+          <h3>Persetujuan & Dokumen</h3>
+          <p>Setelah nilai disepakati, kami siapkan dokumen lengkap. Semua biaya dijelaskan dengan jelas tanpa hidden cost.</p>
+        </div>
+        <div class="process-step">
+          <h3>Pencairan Dana</h3>
+          <p>Dana langsung cair! Transfer ke rekening Anda atau tunai sesuai preferensi. Proses cepat, aman, dan terjamin.</p>
+        </div>
       </div>
     </section>
-
-    <!-- 不对称五宫格布局 -->
-    <main class="container asymmetric-grid">
+    
+    <!-- 右侧：业务条件 -->
+    <section class="grid-item conditions">
+      <h2>🚫 Yang Tidak Kami Terima</h2>
+      <ul class="condition-list">
+        <li><span class="list-icon">❌</span> Barang ilegal/hasil curian</li>
+        <li><span class="list-icon">❌</span> Dokumen resmi negara</li>
+        <li><span class="list-icon">❌</span> Senjata api/militer</li>
+        <li><span class="list-icon">❌</span> Narkoba & zat terlarang</li>
+        <li><span class="list-icon">❌</span> Barang rusak total</li>
+        <li><span class="list-icon">❌</span> Tanpa identitas diri</li>
+        <li><span class="list-icon">❌</span> Barang kontroversial</li>
+      </ul>
+      <p class="form-note">* Semua barang harus dalam kepemilikan sah dan bisa dibuktikan.</p>
+    </section>
+    
+    <!-- 左下：为什么选择我们 -->
+    <section class="grid-item why-choose-us">
+      <h2>⭐ Kenapa Memilih Kami?</h2>
+      <ul class="reason-list">
+        <li><span class="list-icon">✅</span> Proses cepat & transparan</li>
+        <li><span class="list-icon">✅</span> Bunga kompetitif & jelas</li>
+        <li><span class="list-icon">✅</span> Keamanan barang terjamin</li>
+        <li><span class="list-icon">✅</span> Layanan lokal terpercaya</li>
+        <li><span class="list-icon">✅</span> Tenaga profesional & ramah</li>
+        <li><span class="list-icon">✅</span> Fleksibel dalam pembayaran</li>
+        <li><span class="list-icon">✅</span> Privasi pelanggan dijaga</li>
+      </ul>
+    </section>
+    
+    <!-- 右下：联系我们表单 -->
+    <section class="grid-item contact-form-section">
+      <h2>📝 Konsultasi Gratis</h2>
+      <p class="form-note">Isi form ini untuk mendapatkan penawaran khusus dan konsultasi gratis!</p>
       
-      <!-- 左侧：我们的服务 -->
-      <section class="grid-item our-services">
-        <h2>🛠️ Layanan Kami</h2>
-        <ul class="service-list">
-          <li><span class="list-icon">💎</span> Gadai Emas & Perhiasan</li>
-          <li><span class="list-icon">📱</span> Gadai Elektronik</li>
-          <li><span class="list-icon">🏍️</span> Gadai Kendaraan</li>
-          <li><span class="list-icon">💍</span> Barang Berharga Lainnya</li>
-          <li><span class="list-icon">⚡</span> Pencairan Kilat</li>
-          <li><span class="list-icon">🔄</span> Perpanjangan Gadai</li>
-        </ul>
-      </section>
-      
-      <!-- 中间：业务流程 -->
-      <section class="grid-item business-process">
-        <h2>📋 Proses Mudah & Cepat</h2>
-        <div class="process-steps">
-          <div class="process-step">
-            <h3>Konsultasi Awal</h3>
-            <p>Hubungi kami via WhatsApp atau datang langsung untuk konsultasi. Kami akan memberikan penjelasan lengkap tentang proses dan persyaratan.</p>
-          </div>
-          <div class="process-step">
-            <h3>Penilaian Barang</h3>
-            <p>Tim ahli kami akan menilai barang Anda dengan fair dan transparan. Penilaian berdasarkan kondisi pasar terkini.</p>
-          </div>
-          <div class="process-step">
-            <h3>Persetujuan & Dokumen</h3>
-            <p>Setelah nilai disepakati, kami siapkan dokumen lengkap. Semua biaya dijelaskan dengan jelas tanpa hidden cost.</p>
-          </div>
-          <div class="process-step">
-            <h3>Pencairan Dana</h3>
-            <p>Dana langsung cair! Transfer ke rekening Anda atau tunai sesuai preferensi. Proses cepat, aman, dan terjamin.</p>
-          </div>
+      <form class="contact-form" id="consultationForm">
+        <div class="form-group">
+          <label for="name">Nama Lengkap</label>
+          <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda" required>
         </div>
-      </section>
-      
-      <!-- 右侧：业务条件 -->
-      <section class="grid-item conditions">
-        <h2>🚫 Yang Tidak Kami Terima</h2>
-        <ul class="condition-list">
-          <li><span class="list-icon">❌</span> Barang ilegal/hasil curian</li>
-          <li><span class="list-icon">❌</span> Dokumen resmi negara</li>
-          <li><span class="list-icon">❌</span> Senjata api/militer</li>
-          <li><span class="list-icon">❌</span> Narkoba & zat terlarang</li>
-          <li><span class="list-icon">❌</span> Barang rusak total</li>
-          <li><span class="list-icon">❌</span> Tanpa identitas diri</li>
-          <li><span class="list-icon">❌</span> Barang kontroversial</li>
-        </ul>
-        <p class="form-note">* Semua barang harus dalam kepemilikan sah dan bisa dibuktikan.</p>
-      </section>
-      
-      <!-- 左下：为什么选择我们 -->
-      <section class="grid-item why-choose-us">
-        <h2>⭐ Kenapa Memilih Kami?</h2>
-        <ul class="reason-list">
-          <li><span class="list-icon">✅</span> Proses cepat & transparan</li>
-          <li><span class="list-icon">✅</span> Bunga kompetitif & jelas</li>
-          <li><span class="list-icon">✅</span> Keamanan barang terjamin</li>
-          <li><span class="list-icon">✅</span> Layanan lokal terpercaya</li>
-          <li><span class="list-icon">✅</span> Tenaga profesional & ramah</li>
-          <li><span class="list-icon">✅</span> Fleksibel dalam pembayaran</li>
-          <li><span class="list-icon">✅</span> Privasi pelanggan dijaga</li>
-        </ul>
-      </section>
-      
-      <!-- 右下：联系我们表单 -->
-      <section class="grid-item contact-form-section">
-        <h2>📝 Konsultasi Gratis</h2>
-        <p class="form-note">Isi form ini untuk mendapatkan penawaran khusus dan konsultasi gratis!</p>
         
-        <form class="contact-form" id="consultationForm">
-          <div class="form-group">
-            <label for="name">Nama Lengkap</label>
-            <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="phone">Nomor WhatsApp</label>
-            <input type="tel" id="phone" class="form-control" placeholder="Contoh: 081234567890" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="item">Jenis Barang</label>
-            <select id="item" class="form-control" required>
-              <option value="">-- Pilih jenis barang --</option>
-              <option value="emas">Emas/Perhiasan</option>
-              <option value="elektronik">Elektronik (HP, Laptop, dll)</option>
-              <option value="kendaraan">Kendaraan (Motor, Mobil)</option>
-              <option value="lainnya">Barang Berharga Lainnya</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label for="message">Catatan/Kebutuhan Khusus</label>
-            <textarea id="message" class="form-control" rows="3" placeholder="Deskripsi singkat barang atau kebutuhan khusus..."></textarea>
-          </div>
-          
-          <button type="submit" class="submit-btn">
-            📩 Dapatkan Penawaran Spesial
-          </button>
-          
-          <p class="form-note">* Dengan mengisi form, Anda berhak mendapatkan konsultasi gratis dan potongan biaya administrasi 50%!</p>
-        </form>
-      </section>
-    </main>
-
-    <!-- 页脚 -->
-    <footer id="lokasi">
-      <div class="container">
-        <div class="footer-content">
-          <p class="copyright">© 2025 <span class="highlight">JF Gadai</span></p>
-          <p class="company-info">Layanan Keuangan Non-Bank • Bangil & Gempol</p>
-          
-          <div class="contact-info">
-            <a href="tel:+6289515692586" class="contact-link">
-              <span>📞</span> +62 895-1569-2586
-            </a>
-            <a href="https://wa.me/6289515692586" target="_blank" class="contact-link" rel="noopener noreferrer">
-              <span>💬</span> WhatsApp
-            </a>
-            <a href="https://maps.google.com/?q=Bangil" target="_blank" class="contact-link" rel="noopener noreferrer">
-              <span>📍</span> Bangil, Pasuruan
-            </a>
-          </div>
-          
-          <p class="company-info" style="margin-top: 2rem; font-size: 0.9rem;">
-            Jam Operasional: Senin - Sabtu: 08:00 - 17:00 | Minggu: 09:00 - 15:00
-          </p>
+        <div class="form-group">
+          <label for="phone">Nomor WhatsApp</label>
+          <input type="tel" id="phone" class="form-control" placeholder="Contoh: 081234567890" required>
         </div>
+        
+        <div class="form-group">
+          <label for="item">Jenis Barang</label>
+          <select id="item" class="form-control" required>
+            <option value="">-- Pilih jenis barang --</option>
+            <option value="emas">Emas/Perhiasan</option>
+            <option value="elektronik">Elektronik (HP, Laptop, dll)</option>
+            <option value="kendaraan">Kendaraan (Motor, Mobil)</option>
+            <option value="lainnya">Barang Berharga Lainnya</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Catatan/Kebutuhan Khusus</label>
+          <textarea id="message" class="form-control" rows="3" placeholder="Deskripsi singkat barang atau kebutuhan khusus..."></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">
+          📩 Dapatkan Penawaran Spesial
+        </button>
+        
+        <p class="form-note">* Dengan mengisi form, Anda berhak mendapatkan konsultasi gratis dan potongan biaya administrasi 50%!</p>
+      </form>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer id="lokasi">
+    <div class="container">
+      <div class="footer-content">
+        <p class="copyright">© 2025 <span class="highlight">JF Gadai</span></p>
+        <p class="company-info">Layanan Keuangan Non-Bank • Bangil & Gempol</p>
+        
+        <div class="contact-info">
+          <a href="tel:+6289515692586" class="contact-link">
+            <span>📞</span> +62 895-1569-2586
+          </a>
+          <a href="https://wa.me/6289515692586" target="_blank" class="contact-link" rel="noopener noreferrer">
+            <span>💬</span> WhatsApp
+          </a>
+          <a href="https://maps.google.com/?q=Bangil" target="_blank" class="contact-link" rel="noopener noreferrer">
+            <span>📍</span> Bangil, Pasuruan
+          </a>
+        </div>
+        
+        <p class="company-info" style="margin-top: 2rem; font-size: 0.9rem;">
+          Jam Operasional: Senin - Sabtu: 08:00 - 17:00 | Minggu: 09:00 - 15:00
+        </p>
       </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   <script>
     // 表单处理
@@ -775,6 +657,30 @@
         }
       });
     });
+    
+    // 横幅高度调整（可选）
+    function adjustBannerHeight() {
+      const banner = document.querySelector('.full-banner');
+      const screenHeight = window.innerHeight;
+      const screenWidth = window.innerWidth;
+      
+      // 根据屏幕宽高比调整
+      if (screenWidth < 768) {
+        // 手机端：横幅更小
+        banner.style.height = '50vh';
+      } else if (screenHeight > 900) {
+        // 高屏幕：适中高度
+        banner.style.height = '65vh';
+      } else {
+        // 标准屏幕：默认高度
+        banner.style.height = '70vh';
+      }
+    }
+    
+    // 窗口大小变化时调整
+    window.addEventListener('resize', adjustBannerHeight);
+    // 页面加载时调整
+    window.addEventListener('load', adjustBannerHeight);
   </script>
 </body>
 </html>
