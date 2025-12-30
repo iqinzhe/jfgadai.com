@@ -648,3 +648,89 @@ body.scrolling-up .header {
     transform: none; /* 移动端禁用悬停效果 */
   }
 }
+
+/* 在现有CSS文件末尾添加 */
+
+/* =========================
+   FontFaceObserver 相关样式
+   ========================= */
+
+/* 字体加载状态 */
+.fonts-loading {
+  opacity: 0.99; /* 保持可见但模糊 */
+}
+
+.fonts-loading body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  visibility: visible;
+}
+
+.fonts-loaded {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.fonts-loaded body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  animation: fontFadeIn 0.5s ease-out;
+}
+
+.fonts-loaded h1,
+.fonts-loaded h2,
+.fonts-loaded h3,
+.fonts-loaded h4,
+.fonts-loaded .logo {
+  font-family: "Poppins", sans-serif;
+  animation: fontFadeIn 0.5s ease-out 0.1s both;
+}
+
+.fonts-fallback body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+}
+
+.fonts-fallback h1,
+.fonts-fallback h2,
+.fonts-fallback h3,
+.fonts-fallback h4 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 700;
+}
+
+@keyframes fontFadeIn {
+  from {
+    opacity: 0.8;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   页面加载状态
+   ========================= */
+.page-loaded .fonts-loading {
+  opacity: 1;
+}
+
+/* =========================
+   滚动状态
+   ========================= */
+.scrolled {
+  --scroll-padding: 60px;
+}
+
+.scrolling-down {
+  transition: transform 0.3s ease;
+}
+
+.scrolling-up {
+  transition: transform 0.3s ease;
+}
+
+/* =========================
+   键盘导航
+   ========================= */
+.keyboard-navigation :focus-visible {
+  outline: 3px solid var(--secondary-color) !important
