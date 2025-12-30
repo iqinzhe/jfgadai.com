@@ -10,8 +10,8 @@
   <title>JF Gadai | Dana Cepat dengan Tenang - Bangil & Gempol</title>
   
   <!-- Preload critical resources -->
-  <link rel="preload" href="inter-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="poppins-semibold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/poppins-semibold.woff2" as="font" type="font/woff2" crossorigin>
   
   <!-- CSS Files -->
   <link rel="stylesheet" href="fonts.css">
@@ -185,9 +185,8 @@
 
   <!-- JavaScript -->
   <script>
-    // Enhanced Intersection Observer for animations
     document.addEventListener('DOMContentLoaded', function() {
-      // Intersection Observer for fade-in animations
+      // Intersection Observer for animations
       const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -100px 0px'
@@ -216,7 +215,6 @@
           
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
-            // Calculate offset for fixed elements
             const headerHeight = 0;
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
@@ -226,13 +224,12 @@
               behavior: 'smooth'
             });
             
-            // Update URL hash
             history.pushState(null, null, targetId);
           }
         });
       });
       
-      // Add loading state to buttons
+      // WhatsApp button loading state
       document.querySelectorAll('.btn-primary').forEach(button => {
         button.addEventListener('click', function(e) {
           if (this.href.includes('wa.me')) {
@@ -243,29 +240,14 @@
           }
         });
       });
-      
-      // Add subtle parallax effect to hero
-      window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        if (hero) {
-          hero.style.transform = `translateY(${scrolled * 0.05}px)`;
-        }
-      });
-      
-      // Keyboard navigation improvements
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          document.activeElement.blur();
-        }
-      });
     });
     
-    // Performance optimization: Defer non-critical images
-    window.addEventListener('load', function() {
-      // Remove preload class
-      document.body.classList.remove('loading');
-    });
+    // Font loading optimization
+    if ('fonts' in document) {
+      document.fonts.load('1em "Inter"').then(() => {
+        document.body.classList.add('fonts-loaded');
+      });
+    }
   </script>
 </body>
 </html>
