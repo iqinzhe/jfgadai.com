@@ -3,6 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JF Gadai - Layanan gadai terpercaya di Bangil & sekitarnya. Proses jelas, dana cair di hari yang sama.">
+  <meta name="keywords" content="gadai, dana cepat, Bangil, Gempol, pinjaman, emas, barang gadai">
+  <meta name="author" content="JF Gadai">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="icons/site.webmanifest">
+  
   <title>JF Gadai | Dana Cepat dengan Tenang</title>
   
   <!-- Google Fonts (备用方案，如果本地字体不可用) -->
@@ -10,515 +21,190 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   
-  <style>
-    /* =========================
-       CSS Reset & Variables
-       ========================= */
-    :root {
-      --primary-color: #0f4c81;
-      --primary-dark: #0c3d67;
-      --secondary-color: #f5c542;
-      --secondary-dark: #e0b339;
-      --light-color: #ffffff;
-      --dark-color: #0b2c4a;
-      --text-light: #e6f3fb;
-      --text-muted: #cfe3f2;
-      --bg-gradient: linear-gradient(135deg, #0b2c4a, #0e4b6e);
-      --bg-light: rgba(255, 255, 255, 0.08);
-      --bg-dark: rgba(0, 0, 0, 0.28);
-      --border-radius: 14px;
-      --border-radius-sm: 12px;
-      --spacing-xs: 0.5rem;
-      --spacing-sm: 1rem;
-      --spacing-md: 1.5rem;
-      --spacing-lg: 2rem;
-      --spacing-xl: 3rem;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      font-weight: 400;
-      line-height: 1.6;
-      background: var(--bg-gradient);
-      color: var(--light-color);
-      min-height: 100vh;
-    }
-    
-    /* =========================
-       Typography
-       ========================= */
-    h1, h2, h3 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      line-height: 1.3;
-    }
-    
-    h1 {
-      font-size: 3rem;
-      margin-bottom: var(--spacing-sm);
-    }
-    
-    h2 {
-      font-size: 2rem;
-      margin-bottom: var(--spacing-lg);
-      color: var(--secondary-color);
-      position: relative;
-      padding-bottom: var(--spacing-sm);
-    }
-    
-    h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: var(--secondary-color);
-      border-radius: 2px;
-    }
-    
-    h3 {
-      font-size: 1.25rem;
-      margin-bottom: var(--spacing-sm);
-    }
-    
-    p {
-      font-size: 1.05rem;
-      margin-bottom: var(--spacing-sm);
-      color: var(--text-muted);
-    }
-    
-    .highlight {
-      color: var(--secondary-color);
-    }
-    
-    /* =========================
-       Layout & Containers
-       ========================= */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 var(--spacing-md);
-    }
-    
-    .section {
-      margin: var(--spacing-xl) 0;
-    }
-    
-    /* =========================
-       Header & Hero
-       ========================= */
-    header.hero {
-      padding: var(--spacing-xl) 0;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .logo {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: var(--spacing-md);
-      color: var(--secondary-color);
-      display: inline-block;
-      padding: var(--spacing-sm) var(--spacing-lg);
-      border: 2px solid var(--secondary-color);
-      border-radius: var(--border-radius);
-    }
-    
-    .tagline {
-      font-size: 1.8rem;
-      font-weight: 300;
-      line-height: 1.4;
-      margin-bottom: var(--spacing-sm);
-      color: var(--text-light);
-    }
-    
-    .subtitle {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: var(--spacing-lg);
-    }
-    
-    /* =========================
-       Buttons
-       ========================= */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.9rem 2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
-    }
-    
-    .btn-primary {
-      background-color: var(--secondary-color);
-      color: var(--dark-color);
-    }
-    
-    .btn-primary:hover {
-      background-color: var(--secondary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
-    }
-    
-    .btn-secondary {
-      background-color: transparent;
-      color: var(--light-color);
-      border: 2px solid var(--secondary-color);
-    }
-    
-    .btn-secondary:hover {
-      background-color: rgba(245, 197, 66, 0.1);
-      transform: translateY(-2px);
-    }
-    
-    .cta-group {
-      display: flex;
-      gap: var(--spacing-md);
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: var(--spacing-lg);
-    }
-    
-    /* =========================
-       Features & Services
-       ========================= */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--spacing-lg);
-      margin-top: var(--spacing-lg);
-    }
-    
-    .feature-card {
-      background: var(--bg-light);
-      backdrop-filter: blur(10px);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-lg);
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-      background: rgba(255, 255, 255, 0.12);
-    }
-    
-    .feature-icon {
-      font-size: 2.5rem;
-      margin-bottom: var(--spacing-md);
-      display: inline-block;
-    }
-    
-    /* =========================
-       Service Area
-       ========================= */
-    .service-area {
-      text-align: center;
-      margin-top: var(--spacing-xl);
-      padding: var(--spacing-lg);
-      background: var(--bg-light);
-      border-radius: var(--border-radius);
-      border-left: 4px solid var(--secondary-color);
-    }
-    
-    .area-highlight {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--secondary-color);
-      margin: var(--spacing-sm) 0;
-    }
-    
-    /* =========================
-       Footer
-       ========================= */
-    footer {
-      text-align: center;
-      padding: var(--spacing-xl) var(--spacing-md);
-      margin-top: var(--spacing-xl);
-      background: rgba(0, 0, 0, 0.3);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .footer-content {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    .copyright {
-      font-size: 1rem;
-      color: var(--text-muted);
-      margin-bottom: var(--spacing-sm);
-    }
-    
-    .company-info {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-    
-    /* =========================
-       Responsive Design
-       ========================= */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-      
-      h2 {
-        font-size: 1.8rem;
-      }
-      
-      .tagline {
-        font-size: 1.4rem;
-      }
-      
-      .logo {
-        font-size: 2rem;
-        padding: var(--spacing-xs) var(--spacing-md);
-      }
-      
-      .cta-group {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .btn {
-        width: 100%;
-        max-width: 300px;
-      }
-      
-      .features-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-      }
-      
-      .feature-card {
-        padding: var(--spacing-md);
-      }
-    }
-    
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-      
-      h2 {
-        font-size: 1.5rem;
-      }
-      
-      .tagline {
-        font-size: 1.2rem;
-      }
-      
-      .container {
-        padding: 0 var(--spacing-sm);
-      }
-    }
-    
-    /* =========================
-       Animation Effects
-       ========================= */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .fade-in {
-      animation: fadeIn 0.8s ease forwards;
-    }
-    
-    .delay-1 {
-      animation-delay: 0.2s;
-    }
-    
-    .delay-2 {
-      animation-delay: 0.4s;
-    }
-    
-    .delay-3 {
-      animation-delay: 0.6s;
-    }
-  </style>
+  <!-- CSS 文件 -->
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- 预加载关键资源 -->
+  <link rel="preload" href="css/styles.css" as="style">
+  <link rel="preload" href="css/fonts.css" as="style">
+  <link rel="preload" href="fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/poppins-semibold.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 
 <body>
+  <!-- Font Loading State -->
+  <script>
+    document.documentElement.classList.add('fonts-loading');
+    document.fonts.ready.then(function() {
+      document.documentElement.classList.remove('fonts-loading');
+      document.documentElement.classList.add('fonts-loaded');
+    });
+  </script>
+  
   <!-- Hero Section -->
-  <header class="hero">
+  <section class="hero" id="hero">
     <div class="container">
-      <div class="hero-content fade-in">
-        <div class="logo">JF Gadai</div>
+      <div class="hero-content">
+        <div class="logo fade-in">JF Gadai</div>
         
-        <h1 class="tagline">
+        <h1 class="tagline fade-in delay-1">
           Dana Datang Cepat,<br>
           <span class="highlight">Hati Tetap Tenang</span>
         </h1>
         
-        <p class="subtitle">
+        <p class="subtitle fade-in delay-2">
           Layanan gadai terpercaya di Bangil & sekitarnya.<br>
           Proses jelas, dana cair di hari yang sama.
         </p>
         
-        <div class="cta-group">
-          <a href="https://wa.me/6289515692586" target="_blank" class="btn btn-primary">
-            <span>💬</span> Konsultasi via WhatsApp
+        <div class="cta-group fade-in delay-3">
+          <a href="https://wa.me/6289515692586" target="_blank" class="btn btn-primary" rel="noopener noreferrer" aria-label="Konsultasi via WhatsApp">
+            <img src="icons/phone-icon.svg" alt="" width="20" height="20" class="icon">
+            Konsultasi via WhatsApp
           </a>
-          <a href="#lokasi" class="btn btn-secondary">
-            <span>📍</span> Cek Lokasi & Layanan
+          <a href="#lokasi" class="btn btn-secondary" aria-label="Cek Lokasi dan Layanan">
+            <img src="icons/laptop-icon.svg" alt="" width="20" height="20" class="icon">
+            Cek Lokasi & Layanan
           </a>
         </div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main class="container">
+  <main>
     <!-- Services Section -->
     <section class="section" id="layanan">
-      <h2 class="fade-in">Layanan Kami</h2>
-      <div class="features-grid">
-        <div class="feature-card fade-in delay-1">
-          <div class="feature-icon">💎</div>
-          <h3>Gadai Barang</h3>
-          <p>Emas, elektronik, kendaraan, dan barang bernilai lainnya dengan penilaian yang adil.</p>
-        </div>
-        
-        <div class="feature-card fade-in delay-2">
-          <div class="feature-icon">⚡</div>
-          <h3>Pencairan Cepat</h3>
-          <p>Proses sederhana tanpa prosedur rumit. Dana cair dalam waktu singkat.</p>
-        </div>
-        
-        <div class="feature-card fade-in delay-3">
-          <div class="feature-icon">🛡️</div>
-          <h3>Aman & Terjaga</h3>
-          <p>Barang disimpan dengan sistem keamanan modern dan pencatatan yang terstruktur.</p>
-        </div>
-        
-        <div class="feature-card fade-in delay-1">
-          <div class="feature-icon">💯</div>
-          <h3>Bunga Transparan</h3>
-          <p>Tidak ada biaya tersembunyi. Semua biaya dijelaskan dengan jelas sejak awal.</p>
+      <div class="container">
+        <h2 class="fade-in">Layanan Kami</h2>
+        <div class="features-grid">
+          <article class="feature-card fade-in delay-1">
+            <div class="feature-icon">💎</div>
+            <h3>Gadai Barang</h3>
+            <p>Emas, elektronik, kendaraan, dan barang bernilai lainnya dengan penilaian yang adil.</p>
+          </article>
+          
+          <article class="feature-card fade-in delay-2">
+            <div class="feature-icon">⚡</div>
+            <h3>Pencairan Cepat</h3>
+            <p>Proses sederhana tanpa prosedur rumit. Dana cair dalam waktu singkat.</p>
+          </article>
+          
+          <article class="feature-card fade-in delay-3">
+            <div class="feature-icon">🛡️</div>
+            <h3>Aman & Terjaga</h3>
+            <p>Barang disimpan dengan sistem keamanan modern dan pencatatan yang terstruktur.</p>
+          </article>
+          
+          <article class="feature-card fade-in delay-4">
+            <div class="feature-icon">💯</div>
+            <h3>Bunga Transparan</h3>
+            <p>Tidak ada biaya tersembunyi. Semua biaya dijelaskan dengan jelas sejak awal.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- Why Choose Us Section -->
     <section class="section" id="mengapa">
-      <h2 class="fade-in">Mengapa JF Gadai?</h2>
-      <div class="features-grid">
-        <div class="feature-card fade-in delay-1">
-          <div class="feature-icon">❤️</div>
-          <h3>Pendekatan Manusiawi</h3>
-          <p>Kami memahami kondisi pelanggan dan memberikan solusi yang sesuai kebutuhan.</p>
+      <div class="container">
+        <h2 class="fade-in">Mengapa JF Gadai?</h2>
+        <div class="features-grid">
+          <article class="feature-card fade-in delay-1">
+            <div class="feature-icon">❤️</div>
+            <h3>Pendekatan Manusiawi</h3>
+            <p>Kami memahami kondisi pelanggan dan memberikan solusi yang sesuai kebutuhan.</p>
+          </article>
+          
+          <article class="feature-card fade-in delay-2">
+            <div class="feature-icon">🤝</div>
+            <h3>Lokal & Terpercaya</h3>
+            <p>Melayani masyarakat sekitar dengan reputasi yang dijaga selama bertahun-tahun.</p>
+          </article>
+          
+          <article class="feature-card fade-in delay-3">
+            <div class="feature-icon">🔒</div>
+            <h3>Privasi Dijamin</h3>
+            <p>Data dan transaksi pelanggan dijaga kerahasiaannya dengan sistem yang aman.</p>
+          </article>
         </div>
-        
-        <div class="feature-card fade-in delay-2">
-          <div class="feature-icon">🤝</div>
-          <h3>Lokal & Terpercaya</h3>
-          <p>Melayani masyarakat sekitar dengan reputasi yang dijaga selama bertahun-tahun.</p>
-        </div>
-        
-        <div class="feature-card fade-in delay-3">
-          <div class="feature-icon">🔒</div>
-          <h3>Privasi Dijamin</h3>
-          <p>Data dan transaksi pelanggan dijaga kerahasiaannya dengan sistem yang aman.</p>
-        </div>
-      </div>
 
-      <!-- Service Area -->
-      <div class="service-area fade-in" id="lokasi">
-        <div class="feature-icon">📍</div>
-        <h3>Area Layanan</h3>
-        <p class="area-highlight">Bangil & Gempol</p>
-        <p>Melayani radius ±15 km dari pusat kota Bangil</p>
-        <p><small>Kunjungi kami untuk konsultasi langsung</small></p>
+        <!-- Service Area -->
+        <div class="service-area fade-in delay-4" id="lokasi">
+          <div class="area-icon">📍</div>
+          <h3>Area Layanan</h3>
+          <p class="area-highlight">Bangil & Gempol</p>
+          <p>Melayani radius ±15 km dari pusat kota Bangil</p>
+          <p><small>Kunjungi kami untuk konsultasi langsung</small></p>
+          <a href="https://maps.google.com/?q=Bangil" target="_blank" class="btn btn-secondary" style="margin-top: var(--spacing-md);" rel="noopener noreferrer" aria-label="Lihat di Google Maps">
+            <img src="icons/camera-icon.svg" alt="" width="20" height="20" class="icon">
+            Lihat di Google Maps
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-content">
-      <p class="copyright">© 2025 <span class="highlight">JF Gadai</span></p>
-      <p class="company-info">Layanan Keuangan Non-Bank • Bangil & Gempol</p>
-      <p class="company-info" style="margin-top: 1rem;">
-        📞 <a href="tel:+6289515692586" style="color: var(--secondary-color); text-decoration: none;">+62 895-1569-2586</a> • 
-        📍 <a href="https://maps.google.com/?q=Bangil" target="_blank" style="color: var(--secondary-color); text-decoration: none;">Bangil, Pasuruan</a>
-      </p>
+    <div class="container">
+      <div class="footer-content">
+        <p class="copyright">© 2025 <span class="highlight">JF Gadai</span></p>
+        <p class="company-info">Layanan Keuangan Non-Bank • Bangil & Gempol</p>
+        
+        <div class="contact-info">
+          <a href="tel:+6289515692586" class="contact-link" aria-label="Telepon kami">
+            <img src="icons/phone-icon.svg" alt="" width="16" height="16">
+            +62 895-1569-2586
+          </a>
+          <a href="https://wa.me/6289515692586" target="_blank" class="contact-link" rel="noopener noreferrer" aria-label="Hubungi via WhatsApp">
+            <img src="icons/laptop-icon.svg" alt="" width="16" height="16">
+            WhatsApp
+          </a>
+          <a href="https://maps.google.com/?q=Bangil" target="_blank" class="contact-link" rel="noopener noreferrer" aria-label="Lihat lokasi di Google Maps">
+            <img src="icons/camera-icon.svg" alt="" width="16" height="16">
+            Bangil, Pasuruan
+          </a>
+        </div>
+        
+        <p class="company-info" style="margin-top: var(--spacing-lg); font-size: 0.9rem;">
+          Jam Operasional: Senin - Sabtu: 08:00 - 17:00 | Minggu: 09:00 - 15:00
+        </p>
+      </div>
     </div>
   </footer>
 
+  <!-- JavaScript -->
+  <script src="js/main.js" defer></script>
+  
+  <!-- 内联关键交互脚本 -->
   <script>
-    // Simple fade-in animation on scroll
-    document.addEventListener('DOMContentLoaded', function() {
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
+    // 设置字体加载状态
+    (function() {
+      const html = document.documentElement;
       
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-          }
+      // 初始状态
+      html.classList.add('fonts-loading');
+      
+      // 监听字体加载完成
+      if ('fonts' in document) {
+        document.fonts.ready.then(function() {
+          html.classList.remove('fonts-loading');
+          html.classList.add('fonts-loaded');
         });
-      }, observerOptions);
+      } else {
+        // 回退方案
+        setTimeout(function() {
+          html.classList.remove('fonts-loading');
+          html.classList.add('fonts-loaded');
+        }, 1000);
+      }
       
-      // Observe all sections
-      document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
+      // 页面加载时添加动画类
+      window.addEventListener('load', function() {
+        html.classList.add('page-loaded');
       });
-      
-      // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          if (targetId === '#') return;
-          
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 80,
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
-    });
+    })();
   </script>
 </body>
 </html>
