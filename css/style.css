@@ -51,6 +51,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Font loading fallback */
+body:not(.fonts-loaded) {
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
 /* =========================
    Typography
    ========================= */
@@ -526,6 +531,10 @@ footer {
   html {
     scroll-behavior: auto;
   }
+  
+  .float-animation {
+    animation: none;
+  }
 }
 
 :focus-visible {
@@ -540,4 +549,22 @@ footer {
 .loading {
   opacity: 0.7;
   pointer-events: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
