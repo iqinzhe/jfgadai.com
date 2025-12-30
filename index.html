@@ -1,80 +1,301 @@
 <!DOCTYPE html>
-<html lang="id" class="fonts-loading">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="JF Gadai - Layanan gadai terpercaya di Bangil & sekitarnya. Proses jelas, dana cair di hari yang sama.">
-  <meta name="keywords" content="gadai, dana cepat, Bangil, Gempol, pinjaman, emas, barang gadai">
-  <meta name="author" content="JF Gadai">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-  <link rel="manifest" href="icons/site.webmanifest">
-  
-  <title>JF Gadai | Dana Cepat dengan Tenang</title>
-  
-  <!-- Google Fonts (备用方案) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-  
-  <!-- CSS 文件 - 重要：使用正确的文件名 style.css -->
-  <link rel="stylesheet" href="css/fonts.css">
+  <title>JF Gadai | Layanan Gadai Terpercaya</title>
   <link rel="stylesheet" href="css/style.css">
-  
-  <!-- 预加载关键资源 -->
-  <link rel="preload" href="css/style.css" as="style">
-  <link rel="preload" href="css/fonts.css" as="style">
-  <link rel="preload" href="fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
-  
-  <!-- 关键内联样式 - 防止无样式内容闪现 -->
   <style>
-    /* 基础保障 */
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0b2c4a 0%, #0e4b6e 100%);
-      color: white;
-      margin: 0;
-      min-height: 100vh;
+    /* 新增：不对称五宫格布局样式 */
+    
+    :root {
+      --grid-gap: 1.5rem;
+      --section-padding: 3rem;
     }
     
-    .fonts-loaded body {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* 主网格容器 */
+    .asymmetric-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-template-rows: auto auto;
+      gap: var(--grid-gap);
+      margin: var(--spacing-xxl) auto;
+      max-width: 1400px;
+      padding: 0 var(--spacing-lg);
     }
     
-    .fonts-loaded h1,
-    .fonts-loaded h2,
-    .fonts-loaded h3 {
-      font-family: "Poppins", sans-serif;
+    /* 网格项通用样式 */
+    .grid-item {
+      background: var(--bg-light);
+      backdrop-filter: blur(10px);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-xl);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .grid-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(245, 197, 66, 0.3);
+    }
+    
+    .grid-item h2 {
+      color: var(--secondary-color);
+      margin-bottom: var(--spacing-md);
+      font-size: 1.5rem;
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: var(--spacing-xs);
+      display: inline-block;
+    }
+    
+    /* 左侧：我们的服务 */
+    .our-services {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    
+    /* 中间：业务流程（最大区域） */
+    .business-process {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      min-height: 600px;
+      background: linear-gradient(135deg, rgba(15, 76, 129, 0.3), rgba(245, 197, 66, 0.1));
+    }
+    
+    /* 右侧：业务条件 */
+    .conditions {
+      grid-column: 3;
+      grid-row: 1;
+    }
+    
+    /* 左下：为什么选择我们 */
+    .why-choose-us {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    
+    /* 右下：联系我们表单 */
+    .contact-form-section {
+      grid-column: 3;
+      grid-row: 2;
+    }
+    
+    /* 服务列表样式 */
+    .service-list, .condition-list, .reason-list {
+      list-style: none;
+    }
+    
+    .service-list li, .condition-list li, .reason-list li {
+      padding: var(--spacing-sm) 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+    
+    .service-list li:last-child,
+    .condition-list li:last-child,
+    .reason-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .list-icon {
+      color: var(--secondary-color);
+      font-size: 1.2rem;
+    }
+    
+    /* 业务流程步骤 */
+    .process-steps {
+      counter-reset: step-counter;
+      margin-top: var(--spacing-lg);
+    }
+    
+    .process-step {
+      position: relative;
+      padding: var(--spacing-lg);
+      margin-bottom: var(--spacing-lg);
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius);
+      border-left: 4px solid var(--secondary-color);
+    }
+    
+    .process-step::before {
+      counter-increment: step-counter;
+      content: "0" counter(step-counter);
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      background: var(--secondary-color);
+      color: var(--dark-color);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    .process-step h3 {
+      color: var(--light-color);
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    /* 表单样式 */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .form-group label {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    .form-control {
+      padding: 0.75rem 1rem;
+      border-radius: var(--border-radius);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--light-color);
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 2px rgba(245, 197, 66, 0.2);
+    }
+    
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .form-note {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-top: var(--spacing-xs);
+      font-style: italic;
+    }
+    
+    .submit-btn {
+      background: var(--secondary-color);
+      color: var(--dark-color);
+      border: none;
+      padding: 1rem;
+      border-radius: var(--border-radius);
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: var(--spacing-sm);
+    }
+    
+    .submit-btn:hover {
+      background: var(--secondary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
+    }
+    
+    /* 横幅图片样式 */
+    .banner-section {
+      margin: var(--spacing-xl) auto;
+      max-width: 1400px;
+      padding: 0 var(--spacing-lg);
+    }
+    
+    .banner-image {
+      width: 100%;
+      height: auto;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-lg);
+      object-fit: cover;
+    }
+    
+    /* 响应式调整 */
+    @media (max-width: 1200px) {
+      .asymmetric-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+      }
+      
+      .business-process {
+        grid-column: 1 / span 2;
+        grid-row: 1;
+      }
+      
+      .our-services {
+        grid-column: 1;
+        grid-row: 2;
+      }
+      
+      .conditions {
+        grid-column: 2;
+        grid-row: 2;
+      }
+      
+      .why-choose-us {
+        grid-column: 1;
+        grid-row: 3;
+      }
+      
+      .contact-form-section {
+        grid-column: 2;
+        grid-row: 3;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .asymmetric-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, auto);
+        gap: var(--spacing-lg);
+      }
+      
+      .business-process,
+      .our-services,
+      .conditions,
+      .why-choose-us,
+      .contact-form-section {
+        grid-column: 1;
+      }
+      
+      .business-process { grid-row: 1; }
+      .our-services { grid-row: 2; }
+      .conditions { grid-row: 3; }
+      .why-choose-us { grid-row: 4; }
+      .contact-form-section { grid-row: 5; }
     }
   </style>
 </head>
-
 <body>
-  <!-- Hero Section -->
+  <!-- 现有 Hero 部分 -->
   <section class="hero" id="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="logo fade-in">JF Gadai</div>
-        
-        <h1 class="tagline fade-in delay-1">
-          Dana Datang Cepat,<br>
-          <span class="highlight">Hati Tetap Tenang</span>
+        <div class="logo">JF Gadai</div>
+        <h1 class="tagline">
+          Tetap Maju di Saat Sulit.<br>
+          <span class="highlight">JF Gadai, Sahabat Solusi Anda.</span>
         </h1>
-        
-        <p class="subtitle fade-in delay-2">
+        <p class="subtitle">
           Layanan gadai terpercaya di Bangil & sekitarnya.<br>
           Proses jelas, dana cair di hari yang sama.
         </p>
-        
-        <div class="cta-group fade-in delay-3">
-          <a href="https://wa.me/6289515692586" target="_blank" class="btn btn-primary" rel="noopener noreferrer" aria-label="Konsultasi via WhatsApp">
+        <div class="cta-group">
+          <a href="https://wa.me/6289515692586" target="_blank" class="btn btn-primary">
             <span class="icon">📱</span> Konsultasi via WhatsApp
           </a>
-          <a href="#lokasi" class="btn btn-secondary" aria-label="Cek Lokasi dan Layanan">
+          <a href="#layanan" class="btn btn-secondary">
             <span class="icon">📍</span> Cek Lokasi & Layanan
           </a>
         </div>
@@ -82,142 +303,173 @@
     </div>
   </section>
 
-  <main>
-    <!-- Services Section -->
-    <section class="section" id="layanan">
-      <div class="container">
-        <h2 class="fade-in">Layanan Kami</h2>
-        <div class="features-grid">
-          <article class="feature-card fade-in delay-1">
-            <div class="feature-icon">💎</div>
-            <h3>Gadai Barang</h3>
-            <p>Emas, elektronik, kendaraan, dan barang bernilai lainnya dengan penilaian yang adil.</p>
-          </article>
-          
-          <article class="feature-card fade-in delay-2">
-            <div class="feature-icon">⚡</div>
-            <h3>Pencairan Cepat</h3>
-            <p>Proses sederhana tanpa prosedur rumit. Dana cair dalam waktu singkat.</p>
-          </article>
-          
-          <article class="feature-card fade-in delay-3">
-            <div class="feature-icon">🛡️</div>
-            <h3>Aman & Terjaga</h3>
-            <p>Barang disimpan dengan sistem keamanan modern dan pencatatan yang terstruktur.</p>
-          </article>
-          
-          <article class="feature-card fade-in delay-4">
-            <div class="feature-icon">💯</div>
-            <h3>Bunga Transparan</h3>
-            <p>Tidak ada biaya tersembunyi. Semua biaya dijelaskan dengan jelas sejak awal.</p>
-          </article>
+  <!-- 横幅图片 -->
+  <section class="banner-section">
+    <img src="images/101.jpeg" alt="JF Gadai - Sahabat Solusi Anda" class="banner-image fade-in">
+  </section>
+
+  <!-- 不对称五宫格布局 -->
+  <main class="container asymmetric-grid">
+    
+    <!-- 左侧：我们的服务 -->
+    <section class="grid-item our-services">
+      <h2>🛠️ Layanan Kami</h2>
+      <ul class="service-list">
+        <li><span class="list-icon">💎</span> Gadai Emas & Perhiasan</li>
+        <li><span class="list-icon">📱</span> Gadai Elektronik</li>
+        <li><span class="list-icon">🏍️</span> Gadai Kendaraan</li>
+        <li><span class="list-icon">💍</span> Barang Berharga Lainnya</li>
+        <li><span class="list-icon">⚡</span> Pencairan Kilat</li>
+        <li><span class="list-icon">🔄</span> Perpanjangan Gadai</li>
+      </ul>
+    </section>
+    
+    <!-- 中间：业务流程（最大区域） -->
+    <section class="grid-item business-process">
+      <h2>📋 Proses Mudah & Cepat</h2>
+      <div class="process-steps">
+        <div class="process-step">
+          <h3>Konsultasi Awal</h3>
+          <p>Hubungi kami via WhatsApp atau datang langsung untuk konsultasi. Kami akan memberikan penjelasan lengkap tentang proses dan persyaratan.</p>
+        </div>
+        <div class="process-step">
+          <h3>Penilaian Barang</h3>
+          <p>Tim ahli kami akan menilai barang Anda dengan fair dan transparan. Penilaian berdasarkan kondisi pasar terkini.</p>
+        </div>
+        <div class="process-step">
+          <h3>Persetujuan & Dokumen</h3>
+          <p>Setelah nilai disepakati, kami siapkan dokumen lengkap. Semua biaya dijelaskan dengan jelas tanpa hidden cost.</p>
+        </div>
+        <div class="process-step">
+          <h3>Pencairan Dana</h3>
+          <p>Dana langsung cair! Transfer ke rekening Anda atau tunai sesuai preferensi. Proses cepat, aman, dan terjamin.</p>
         </div>
       </div>
     </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="section" id="mengapa">
-      <div class="container">
-        <h2 class="fade-in">Mengapa JF Gadai?</h2>
-        <div class="features-grid">
-          <article class="feature-card fade-in delay-1">
-            <div class="feature-icon">❤️</div>
-            <h3>Pendekatan Manusiawi</h3>
-            <p>Kami memahami kondisi pelanggan dan memberikan solusi yang sesuai kebutuhan.</p>
-          </article>
-          
-          <article class="feature-card fade-in delay-2">
-            <div class="feature-icon">🤝</div>
-            <h3>Lokal & Terpercaya</h3>
-            <p>Melayani masyarakat sekitar dengan reputasi yang dijaga selama bertahun-tahun.</p>
-          </article>
-          
-          <article class="feature-card fade-in delay-3">
-            <div class="feature-icon">🔒</div>
-            <h3>Privasi Dijamin</h3>
-            <p>Data dan transaksi pelanggan dijaga kerahasiaannya dengan sistem yang aman.</p>
-          </article>
+    
+    <!-- 右侧：业务条件 -->
+    <section class="grid-item conditions">
+      <h2>🚫 Yang Tidak Kami Terima</h2>
+      <ul class="condition-list">
+        <li><span class="list-icon">❌</span> Barang ilegal/hasil curian</li>
+        <li><span class="list-icon">❌</span> Dokumen resmi negara</li>
+        <li><span class="list-icon">❌</span> Senjata api/militer</li>
+        <li><span class="list-icon">❌</span> Narkoba & zat terlarang</li>
+        <li><span class="list-icon">❌</span> Barang rusak total</li>
+        <li><span class="list-icon">❌</span> Tanpa identitas diri</li>
+        <li><span class="list-icon">❌</span> Barang kontroversial</li>
+      </ul>
+      <p class="form-note">* Semua barang harus dalam kepemilikan sah dan bisa dibuktikan.</p>
+    </section>
+    
+    <!-- 左下：为什么选择我们 -->
+    <section class="grid-item why-choose-us">
+      <h2>⭐ Kenapa Memilih Kami?</h2>
+      <ul class="reason-list">
+        <li><span class="list-icon">✅</span> Proses cepat & transparan</li>
+        <li><span class="list-icon">✅</span> Bunga kompetitif & jelas</li>
+        <li><span class="list-icon">✅</span> Keamanan barang terjamin</li>
+        <li><span class="list-icon">✅</span> Layanan lokal terpercaya</li>
+        <li><span class="list-icon">✅</span> Tenaga profesional & ramah</li>
+        <li><span class="list-icon">✅</span> Fleksibel dalam pembayaran</li>
+        <li><span class="list-icon">✅</span> Privasi pelanggan dijaga</li>
+      </ul>
+    </section>
+    
+    <!-- 右下：联系我们表单 -->
+    <section class="grid-item contact-form-section">
+      <h2>📝 Konsultasi Gratis</h2>
+      <p class="form-note">Isi form ini untuk mendapatkan penawaran khusus dan konsultasi gratis!</p>
+      
+      <form class="contact-form" id="consultationForm">
+        <div class="form-group">
+          <label for="name">Nama Lengkap</label>
+          <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda" required>
         </div>
-
-        <!-- Service Area -->
-        <div class="service-area fade-in delay-4" id="lokasi">
-          <div class="area-icon">📍</div>
-          <h3>Area Layanan</h3>
-          <p class="area-highlight">Bangil & Gempol</p>
-          <p>Melayani radius ±15 km dari pusat kota Bangil</p>
-          <p><small>Kunjungi kami untuk konsultasi langsung</small></p>
-          <a href="https://maps.google.com/?q=Bangil" target="_blank" class="btn btn-secondary" style="margin-top: 1.5rem;" rel="noopener noreferrer" aria-label="Lihat di Google Maps">
-            <span class="icon">🗺️</span> Lihat di Google Maps
-          </a>
+        
+        <div class="form-group">
+          <label for="phone">Nomor WhatsApp</label>
+          <input type="tel" id="phone" class="form-control" placeholder="Contoh: 081234567890" required>
         </div>
-      </div>
+        
+        <div class="form-group">
+          <label for="item">Jenis Barang</label>
+          <select id="item" class="form-control" required>
+            <option value="">-- Pilih jenis barang --</option>
+            <option value="emas">Emas/Perhiasan</option>
+            <option value="elektronik">Elektronik (HP, Laptop, dll)</option>
+            <option value="kendaraan">Kendaraan (Motor, Mobil)</option>
+            <option value="lainnya">Barang Berharga Lainnya</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Catatan/Kebutuhan Khusus</label>
+          <textarea id="message" class="form-control" rows="3" placeholder="Deskripsi singkat barang atau kebutuhan khusus..."></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">
+          📩 Dapatkan Penawaran Spesial
+        </button>
+        
+        <p class="form-note">* Dengan mengisi form, Anda berhak mendapatkan konsultasi gratis dan potongan biaya administrasi 50%!</p>
+      </form>
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- 现有 Footer -->
   <footer>
     <div class="container">
       <div class="footer-content">
-        <p class="copyright">© 2025 <span class="highlight">JF Gadai</span></p>
-        <p class="company-info">Layanan Keuangan Non-Bank • Bangil & Gempol</p>
-        
-        <div class="contact-info">
-          <a href="tel:+6289515692586" class="contact-link" aria-label="Telepon kami">
-            <span class="icon">📞</span> +62 895-1569-2586
-          </a>
-          <a href="https://wa.me/6289515692586" target="_blank" class="contact-link" rel="noopener noreferrer" aria-label="Hubungi via WhatsApp">
-            <span class="icon">💬</span> WhatsApp
-          </a>
-          <a href="https://maps.google.com/?q=Bangil" target="_blank" class="contact-link" rel="noopener noreferrer" aria-label="Lihat lokasi di Google Maps">
-            <span class="icon">📍</span> Bangil, Pasuruan
-          </a>
-        </div>
-        
-        <p class="company-info" style="margin-top: 2rem; font-size: 0.9rem;">
-          Jam Operasional: Senin - Sabtu: 08:00 - 17:00 | Minggu: 09:00 - 15:00
-        </p>
+        <!-- ... existing footer content ... -->
       </div>
     </div>
   </footer>
 
-  <!-- JavaScript 文件 -->
-  <script src="js/main.js" defer></script>
-  
-  <!-- 简化的字体加载脚本 -->
   <script>
-    // 字体加载状态管理
-    (function() {
-      const html = document.documentElement;
+    // 表单处理脚本
+    document.getElementById('consultationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
       
-      // 初始状态
-      html.classList.add('fonts-loading');
+      const formData = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        item: document.getElementById('item').value,
+        message: document.getElementById('message').value
+      };
       
-      // 使用 fonts API 检测字体加载
-      if ('fonts' in document) {
-        document.fonts.ready.then(() => {
-          html.classList.remove('fonts-loading');
-          html.classList.add('fonts-loaded');
-          console.log('字体加载完成');
-        }).catch(() => {
-          // 如果出错，使用回退
-          setTimeout(() => {
-            html.classList.remove('fonts-loading');
-            html.classList.add('fonts-fallback');
-          }, 1000);
-        });
-      } else {
-        // 不支持 fonts API 的浏览器
-        setTimeout(() => {
-          html.classList.remove('fonts-loading');
-          html.classList.add('fonts-loaded');
-        }, 1000);
-      }
+      // 这里可以添加 AJAX 请求或 WhatsApp 集成
+      const whatsappNumber = '6289515692586';
+      const message = `Halo JF Gadai, saya ${formData.name} ingin konsultasi tentang gadai ${formData.item}. Nomor saya: ${formData.phone}. Pesan: ${formData.message || 'Tidak ada pesan tambahan'}`;
+      const encodedMessage = encodeURIComponent(message);
       
-      // 页面加载完成
-      window.addEventListener('load', () => {
-        html.classList.add('page-loaded');
+      // 重定向到 WhatsApp
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+      
+      // 重置表单
+      this.reset();
+      
+      // 显示成功消息
+      alert('Terima kasih! Anda akan diarahkan ke WhatsApp untuk konsultasi langsung.');
+    });
+    
+    // 添加滚动动画
+    const observerOptions = {
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
       });
-    })();
+    }, observerOptions);
+    
+    // 观察所有网格项
+    document.querySelectorAll('.grid-item').forEach(item => {
+      observer.observe(item);
+    });
   </script>
 </body>
 </html>
