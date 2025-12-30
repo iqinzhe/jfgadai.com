@@ -13,6 +13,45 @@
       --section-padding: 3rem;
     }
     
+    /* 新增：横幅位于最顶部 */
+    .top-banner {
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+    }
+    
+    .top-banner img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+    
+    /* 移除原有Hero样式，添加简化版头部 */
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: var(--spacing-md) var(--spacing-lg);
+      background: rgba(11, 44, 74, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--secondary-color);
+    }
+    
+    .site-header .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--secondary-color);
+      text-decoration: none;
+      display: inline-block;
+      padding: var(--spacing-xs) var(--spacing-md);
+      border: 2px solid var(--secondary-color);
+      border-radius: var(--border-radius-sm);
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
     /* 新增：横幅下的快速操作栏 */
     .quick-actions {
       display: flex;
@@ -297,22 +336,6 @@
       box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
     }
     
-    /* 横幅图片样式 */
-    .banner-section {
-      margin: var(--spacing-xl) auto;
-      max-width: 1400px;
-      padding: 0 var(--spacing-lg);
-    }
-    
-    .banner-image {
-      width: 100%;
-      height: auto;
-      border-radius: var(--border-radius-lg);
-      box-shadow: var(--shadow-lg);
-      object-fit: cover;
-      max-height: 500px;
-    }
-    
     /* 响应式调整 */
     @media (max-width: 1200px) {
       .asymmetric-grid {
@@ -380,33 +403,30 @@
       .quick-action-card {
         min-width: 100%;
       }
+      
+      .site-header {
+        padding: var(--spacing-sm);
+      }
+      
+      .site-header .logo {
+        font-size: 1.5rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
+      }
     }
   </style>
 </head>
 <body>
-  <!-- 现有 Hero 部分 -->
-  <section class="hero" id="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="logo">JF Gadai</div>
-        <h1 class="tagline">
-          Tetap Maju di Saat Sulit.<br>
-          <span class="highlight">JF Gadai, Sahabat Solusi Anda.</span>
-        </h1>
-        <p class="subtitle">
-          Layanan gadai terpercaya di Bangil & sekitarnya.<br>
-          Proses jelas, dana cair di hari yang sama.
-        </p>
-      </div>
-    </div>
+  <!-- 顶部横幅图片 -->
+  <section class="top-banner">
+    <img src="images/101.jpeg" alt="JF Gadai - Tetap Maju di Saat Sulit. JF Gadai, Sahabat Solusi Anda.">
   </section>
 
-  <!-- 横幅图片 -->
-  <section class="banner-section">
-    <img src="images/101.jpeg" alt="JF Gadai - Sahabat Solusi Anda" class="banner-image fade-in">
-  </section>
+  <!-- 简化版头部 -->
+  <header class="site-header">
+    <a href="#" class="logo">JF Gadai</a>
+  </header>
 
-  <!-- 新增：快速操作栏 -->
+  <!-- 快速操作栏 -->
   <section class="quick-actions">
     <div class="quick-action-card fade-in delay-1">
       <div class="action-icon">📱</div>
@@ -605,6 +625,18 @@
     // 观察所有网格项和快速操作卡
     document.querySelectorAll('.grid-item, .quick-action-card').forEach(item => {
       observer.observe(item);
+    });
+    
+    // 固定头部导航
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.site-header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(11, 44, 74, 0.95)';
+        header.style.backdropFilter = 'blur(15px)';
+      } else {
+        header.style.background = 'rgba(11, 44, 74, 0.9)';
+        header.style.backdropFilter = 'blur(10px)';
+      }
     });
   </script>
 </body>
