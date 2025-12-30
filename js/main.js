@@ -1,163 +1,75 @@
-// js/main.js - 简化版
-
-(function() {
-  'use strict';
+// 表单处理
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('consultationForm');
   
-  console.log('🚀 JF Gadai - 应用初始化');
-  
-  // =========================
-  // 1. 动画效果
-  // =========================
-  function initAnimations() {
-    // 平滑滚动
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
-        
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          const offset = 80; // 导航栏高度
-          const targetPosition = target.offsetTop - offset;
-          
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-    
-    // 淡入动画
-    function initFadeInAnimations() {
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        item: document.getElementById('item').value,
+        message: document.getElementById('message').value
       };
       
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('fade-in');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, observerOptions);
-        
-        document.querySelectorAll('.fade-in').forEach(el => {
-          el.classList.remove('fade-in');
-          observer.observe(el);
-        });
-      } else {
-        // 回退方案：直接显示
-        document.querySelectorAll('.fade-in').forEach((el, index) => {
-          setTimeout(() => {
-            el.classList.add('fade-in');
-          }, index * 200);
+      const whatsappNumber = '6289515692586';
+      const message = `Halo JF Gadai, saya ${formData.name} ingin konsultasi tentang gadai ${formData.item}. Nomor saya: ${formData.phone}. Pesan: ${formData.message || 'Tidak ada pesan tambahan'}`;
+      const encodedMessage = encodeURIComponent(message);
+      
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+      this.reset();
+      alert('Terima kasih! Anda akan diarahkan ke WhatsApp untuk konsultasi langsung.');
+    });
+  }
+  
+  // 滚动动画
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  // 观察所有元素
+  document.querySelectorAll('.quick-action-card, .grid-item').forEach(item => {
+    observer.observe(item);
+  });
+  
+  // 平滑滚动到位置
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
         });
       }
+    });
+  });
+  
+  // 横幅高度调整
+  function adjustBannerHeight() {
+    const banner = document.querySelector('.full-banner');
+    const screenHeight = window.innerHeight;
+    const screenWidth = window.innerWidth;
+    
+    if (screenWidth < 768) {
+      banner.style.height = '50vh';
+    } else if (screenHeight > 900) {
+      banner.style.height = '65vh';
+    } else {
+      banner.style.height = '70vh';
     }
-    
-    // 按钮悬停效果
-    function initButtonEffects() {
-      document.querySelectorAll('.btn, .contact-link').forEach(button => {
-        button.addEventListener('mouseenter', function() {
-          this.classList.add('hover');
-        });
-        
-        button.addEventListener('mouseleave', function() {
-          this.classList.remove('hover');
-        });
-      });
-    }
-    
-    initFadeInAnimations();
-    initButtonEffects();
   }
   
-  // =========================
-  // 2. WhatsApp 点击跟踪
-  // =========================
-  function initAnalytics() {
-    document.querySelectorAll('[href*="whatsapp"], [href*="wa.me"]').forEach(link => {
-      link.addEventListener('click', function() {
-        console.log('WhatsApp 咨询点击');
-        // 可以在这里添加Google Analytics跟踪
-        // if (typeof gtag !== 'undefined') {
-        //   gtag('event', 'whatsapp_click', {...});
-        // }
-      });
-    });
-  }
-  
-  // =========================
-  // 3. 性能监控
-  // =========================
-  function initPerformance() {
-    // 页面加载时间
-    window.addEventListener('load', function() {
-      if ('performance' in window) {
-        const timing = performance.timing;
-        const loadTime = timing.loadEventEnd - timing.navigationStart;
-        console.log(`⏱️ 页面加载时间: ${loadTime}ms`);
-      }
-    });
-    
-    // 页面可见性
-    document.addEventListener('visibilitychange', function() {
-      if (document.visibilityState === 'visible') {
-        console.log('👁️ 页面恢复可见');
-      }
-    });
-  }
-  
-  // =========================
-  // 4. 错误处理
-  // =========================
-  function initErrorHandling() {
-    window.addEventListener('error', function(e) {
-      console.error('页面错误:', e.message);
-    });
-    
-    window.addEventListener('unhandledrejection', function(e) {
-      console.error('Promise错误:', e.reason);
-    });
-  }
-  
-  // =========================
-  // 5. 主初始化
-  // =========================
-  function init() {
-    initAnimations();
-    initAnalytics();
-    initPerformance();
-    initErrorHandling();
-    
-    // 全局API（如果需要）
-    window.JFGadai = {
-      scrollTo: function(selector) {
-        const target = document.querySelector(selector);
-        if (target) {
-          window.scrollTo({
-            top: target.offsetTop - 80,
-            behavior: 'smooth'
-          });
-        }
-      }
-    };
-    
-    console.log('✅ JF Gadai 应用初始化完成');
-  }
-  
-  // =========================
-  // 启动应用
-  // =========================
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-  
-})();
+  // 窗口大小变化时调整
+  window.addEventListener('resize', adjustBannerHeight);
+  window.addEventListener('load', adjustBannerHeight);
+});
