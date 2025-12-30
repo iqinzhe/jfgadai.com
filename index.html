@@ -16,8 +16,8 @@
   
   <title>JF Gadai | Dana Cepat dengan Tenang</title>
   
-  <!-- FontFaceObserver CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.1.0/fontfaceobserver.standalone.js"></script>
+  <!-- 预加载 FontFaceObserver -->
+  <link rel="preload" href="js/fontfaceobserver.js" as="script">
   
   <!-- Google Fonts (备用方案，如果本地字体不可用) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,16 +33,100 @@
   <link rel="preload" href="css/fonts.css" as="style">
   <link rel="preload" href="fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/poppins-semibold.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <!-- 内联关键CSS（优化首屏渲染） -->
+  <style>
+    /* 关键CSS - 确保首屏内容快速显示 */
+    .fonts-loading {
+      visibility: hidden;
+    }
+    
+    .fonts-loaded .hero-content {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* 确保字体加载前文本可见 */
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    
+    .fonts-loaded body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+    }
+    
+    .fonts-loaded h1,
+    .fonts-loaded h2,
+    .fonts-loaded h3 {
+      font-family: "Poppins", sans-serif;
+    }
+  </style>
 </head>
 
 <body>
   <!-- Font Loading State -->
   <script>
+    // 初始字体加载状态
     document.documentElement.classList.add('fonts-loading');
-    document.fonts.ready.then(function() {
-      document.documentElement.classList.remove('fonts-loading');
-      document.documentElement.classList.add('fonts-loaded');
+    
+    // 加载FontFaceObserver库
+    window.addEventListener('load', function() {
+      // 加载完成后执行字体检测
+      setTimeout(function() {
+        if (typeof FontFaceObserver !== 'undefined') {
+          initFontLoading();
+        } else {
+          // 如果FontFaceObserver加载失败，使用回退方案
+          document.documentElement.classList.remove('fonts-loading');
+          document.documentElement.classList.add('fonts-fallback');
+        }
+      }, 100);
     });
+    
+    function initFontLoading() {
+      // 创建字体观察器
+      const interRegular = new FontFaceObserver('Inter', {
+        weight: 400
+      });
+      
+      const interSemiBold = new FontFaceObserver('Inter', {
+        weight: 600
+      });
+      
+      const poppinsSemiBold = new FontFaceObserver('Poppins', {
+        weight: 600
+      });
+      
+      // 等待所有字体加载完成
+      Promise.all([
+        interRegular.load(null, 4000), // 4秒超时
+        interSemiBold.load(null, 4000),
+        poppinsSemiBold.load(null, 4000)
+      ]).then(function() {
+        // 字体加载成功
+        document.documentElement.classList.remove('fonts-loading');
+        document.documentElement.classList.add('fonts-loaded');
+        console.log('所有自定义字体已加载完成');
+        
+        // 触发自定义事件（如果需要）
+        document.dispatchEvent(new CustomEvent('fontsLoaded'));
+      }).catch(function() {
+        // 字体加载失败
+        document.documentElement.classList.remove('fonts-loading');
+        document.documentElement.classList.add('fonts-fallback');
+        console.log('自定义字体加载失败，使用回退字体');
+      });
+    }
   </script>
   
   <!-- Hero Section -->
@@ -177,37 +261,8 @@
     </div>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- JavaScript 文件 -->
+  <script src="js/fontfaceobserver.js" defer></script>
   <script src="js/main.js" defer></script>
-  
-  <!-- 内联关键交互脚本 -->
-  <script>
-    // 设置字体加载状态
-    (function() {
-      const html = document.documentElement;
-      
-      // 初始状态
-      html.classList.add('fonts-loading');
-      
-      // 监听字体加载完成
-      if ('fonts' in document) {
-        document.fonts.ready.then(function() {
-          html.classList.remove('fonts-loading');
-          html.classList.add('fonts-loaded');
-        });
-      } else {
-        // 回退方案
-        setTimeout(function() {
-          html.classList.remove('fonts-loading');
-          html.classList.add('fonts-loaded');
-        }, 1000);
-      }
-      
-      // 页面加载时添加动画类
-      window.addEventListener('load', function() {
-        html.classList.add('page-loaded');
-      });
-    })();
-  </script>
 </body>
 </html>
