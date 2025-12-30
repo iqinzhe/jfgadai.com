@@ -1,143 +1,233 @@
 // js/main.js
-// JF Gadai - Main JavaScript
+// JF Gadai - Main JavaScript with FontFaceObserver
 
 (function() {
   'use strict';
   
   // ========================================
-  // 配置和全局变量
+  // 配置
   // ========================================
-  const config = {
+  const CONFIG = {
+    fonts: {
+      timeout: 4000, // 字体加载超时时间（毫秒）
+      retryCount: 2  // 重试次数
+    },
     animation: {
       threshold: 0.1,
       rootMargin: '0px 0px -100px 0px'
     },
-    scrollOffset: 80,
-    whatsappNumber: '6289515692586',
-    googleMapsQuery: 'Bangil, Pasuruan'
+    scrollOffset: 80
   };
   
   // ========================================
-  // DOM 元素缓存
+  // 状态管理
+  // ========================================
+  const STATE = {
+    fontsLoaded: false,
+    pageLoaded: false,
+    animationsInitialized: false
+  };
+  
+  // ========================================
+  // DOM 缓存
   // ========================================
   const DOM = {
     html: document.documentElement,
-    body: document.body,
-    heroSection: document.getElementById('hero'),
-    serviceArea: document.getElementById('lokasi')
+    body: document.body
   };
   
   // ========================================
-  // 工具函数
+  // 字体管理器
   // ========================================
-  const utils = {
-    // 节流函数
-    throttle: function(func, limit) {
-      let inThrottle;
-      return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-          func.apply(context, args);
-          inThrottle = true;
-          setTimeout(() => inThrottle = false, limit);
+  const FontManager = {
+    // 需要加载的字体配置
+    fontConfigs: [
+      {
+        family: 'Inter',
+        weight: 400,
+        style: 'normal'
+      },
+      {
+        family: 'Inter',
+        weight: 600,
+        style: 'normal'
+      },
+      {
+        family: 'Poppins',
+        weight: 600,
+        style: 'normal'
+      },
+      {
+        family: 'Poppins',
+        weight: 700,
+        style: 'normal'
+      }
+    ],
+    
+    // 初始化字体加载
+    init() {
+      if (typeof FontFaceObserver === 'undefined') {
+        console.warn('FontFaceObserver未加载，使用回退方案');
+        this.fallback();
+        return;
+      }
+      
+      this.loadFontsWithRetry();
+    },
+    
+    // 使用重试机制加载字体
+    async loadFontsWithRetry(retryCount = CONFIG.fonts.retryCount) {
+      try {
+        await this.loadFonts();
+        this.onSuccess();
+      } catch (error) {
+        console.warn(`字体加载失败，剩余重试次数: ${retryCount}`, error);
+        
+        if (retryCount > 0) {
+          // 等待一段时间后重试
+          await this.delay(1000);
+          await this.loadFontsWithRetry(retryCount - 1);
+        } else {
+          this.onFailure();
         }
-      };
+      }
     },
     
-    // 防抖函数
-    debounce: function(func, wait) {
-      let timeout;
-      return function executedFunction(...args) {
-        const later = () => {
-          clearTimeout(timeout);
-          func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-      };
+    // 加载所有字体
+    async loadFonts() {
+      const fontPromises = this.fontConfigs.map(config => {
+        const font = new FontFaceObserver(config.family, {
+          weight: config.weight,
+          style: config.style
+        });
+        
+        return font.load(null, CONFIG.fonts.timeout);
+      });
+      
+      await Promise.all(fontPromises);
     },
     
-    // 检测是否支持某些特性
-    supports: {
-      intersectionObserver: 'IntersectionObserver' in window,
-      smoothScroll: 'scrollBehavior' in document.documentElement.style
+    // 字体加载成功
+    onSuccess() {
+      STATE.fontsLoaded = true;
+      DOM.html.classList.remove('fonts-loading');
+      DOM.html.classList.add('fonts-loaded');
+      console.log('✅ 所有字体加载成功');
+      
+      // 触发自定义事件
+      this.emitEvent('fonts:loaded');
     },
     
-    // 生成WhatsApp链接
-    generateWhatsAppLink: function(message = 'Halo, saya tertarik dengan layanan JF Gadai. Bisa konsultasi?') {
-      const encodedMessage = encodeURIComponent(message);
-      return `https://wa.me/${config.whatsappNumber}?text=${encodedMessage}`;
+    // 字体加载失败
+    onFailure() {
+      DOM.html.classList.remove('fonts-loading');
+      DOM.html.classList.add('fonts-fallback');
+      console.log('⚠️ 字体加载失败，使用回退字体');
+      
+      // 触发自定义事件
+      this.emitEvent('fonts:failed');
     },
     
-    // 生成Google Maps链接
-    generateMapsLink: function() {
-      return `https://maps.google.com/?q=${encodeURIComponent(config.googleMapsQuery)}`;
+    // 回退方案
+    fallback() {
+      setTimeout(() => {
+        this.onSuccess(); // 即使没有FontFaceObserver也当作成功
+      }, 1000);
+    },
+    
+    // 延迟函数
+    delay(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    },
+    
+    // 触发自定义事件
+    emitEvent(eventName, detail = {}) {
+      const event = new CustomEvent(eventName, { detail });
+      document.dispatchEvent(event);
     }
   };
   
   // ========================================
-  // 动画和滚动效果
+  // 动画管理器
   // ========================================
-  const animations = {
-    init: function() {
-      if (!utils.supports.intersectionObserver) {
-        this.fallbackAnimation();
-        return;
-      }
+  const AnimationManager = {
+    observer: null,
+    
+    init() {
+      if (STATE.animationsInitialized) return;
       
       this.setupIntersectionObserver();
-      this.setupScrollEffects();
+      this.setupScrollAnimations();
+      this.setupHoverEffects();
+      
+      STATE.animationsInitialized = true;
     },
     
     // 设置Intersection Observer
-    setupIntersectionObserver: function() {
-      const observer = new IntersectionObserver((entries) => {
+    setupIntersectionObserver() {
+      if (!('IntersectionObserver' in window)) {
+        this.fallbackAnimations();
+        return;
+      }
+      
+      this.observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-            
-            // 添加浮动动画到特定元素
-            if (entry.target.classList.contains('feature-card')) {
-              setTimeout(() => {
-                entry.target.classList.add('float-animation');
-              }, 500);
-            }
-            
-            // 停止观察已动画的元素
-            observer.unobserve(entry.target);
+            this.animateElement(entry.target);
           }
         });
-      }, config.animation);
+      }, CONFIG.animation);
       
-      // 观察所有需要动画的元素
-      document.querySelectorAll('.fade-in').forEach(element => {
-        element.classList.remove('fade-in');
-        observer.observe(element);
-      });
+      // 观察需要动画的元素
+      this.observeElements();
+    },
+    
+    // 观察所有需要动画的元素
+    observeElements() {
+      const elements = document.querySelectorAll(
+        '.fade-in, .feature-card, .service-area, section'
+      );
       
-      // 观察section元素
-      document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
+      elements.forEach(element => {
+        if (element.classList.contains('fade-in')) {
+          element.classList.remove('fade-in');
+        }
+        this.observer.observe(element);
       });
     },
     
-    // 设置滚动效果
-    setupScrollEffects: function() {
-      let lastScrollTop = 0;
+    // 动画元素
+    animateElement(element) {
+      element.classList.add('fade-in');
       
-      const handleScroll = utils.throttle(() => {
+      // 为特定元素添加延迟动画
+      if (element.classList.contains('feature-card')) {
+        setTimeout(() => {
+          element.classList.add('float-animation');
+        }, 300);
+      }
+      
+      // 停止观察已动画的元素
+      this.observer.unobserve(element);
+    },
+    
+    // 设置滚动动画
+    setupScrollAnimations() {
+      let lastScrollTop = 0;
+      let ticking = false;
+      
+      const updateScrollState = () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        // 添加/移除滚动类到body
+        // 添加滚动类
         if (scrollTop > 100) {
           DOM.body.classList.add('scrolled');
         } else {
           DOM.body.classList.remove('scrolled');
         }
         
-        // 添加/移除向下滚动类
-        if (scrollTop > lastScrollTop && scrollTop > 200) {
+        // 滚动方向
+        if (scrollTop > lastScrollTop) {
           DOM.body.classList.add('scrolling-down');
           DOM.body.classList.remove('scrolling-up');
         } else {
@@ -146,286 +236,315 @@
         }
         
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-      }, 100);
+        ticking = false;
+      };
       
-      window.addEventListener('scroll', handleScroll);
-      handleScroll(); // 初始调用
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(updateScrollState);
+          ticking = true;
+        }
+      });
+      
+      // 初始调用
+      updateScrollState();
     },
     
-    // 回退动画方案
-    fallbackAnimation: function() {
-      document.querySelectorAll('.fade-in').forEach((element, index) => {
-        setTimeout(() => {
-          element.classList.add('fade-in');
-        }, index * 200);
+    // 设置悬停效果
+    setupHoverEffects() {
+      // 按钮悬停效果
+      document.querySelectorAll('.btn, .contact-link').forEach(element => {
+        element.addEventListener('mouseenter', () => {
+          element.classList.add('hover');
+        });
+        
+        element.addEventListener('mouseleave', () => {
+          element.classList.remove('hover');
+        });
       });
     },
     
-    // 平滑滚动
-    smoothScroll: function(targetElement, offset = config.scrollOffset) {
-      if (!targetElement) return;
+    // 回退动画方案
+    fallbackAnimations() {
+      const elements = document.querySelectorAll('.fade-in');
       
-      if (utils.supports.smoothScroll) {
+      elements.forEach((element, index) => {
+        setTimeout(() => {
+          element.classList.add('fade-in');
+        }, index * 150);
+      });
+    },
+    
+    // 平滑滚动到元素
+    scrollToElement(selector, offset = CONFIG.scrollOffset) {
+      const element = document.querySelector(selector);
+      if (!element) return;
+      
+      const targetPosition = element.offsetTop - offset;
+      
+      if ('scrollBehavior' in document.documentElement.style) {
         window.scrollTo({
-          top: targetElement.offsetTop - offset,
+          top: targetPosition,
           behavior: 'smooth'
         });
       } else {
         // 回退方案
-        const targetPosition = targetElement.offsetTop - offset;
-        const startPosition = window.pageYOffset;
-        const distance = targetPosition - startPosition;
-        const duration = 500;
-        let start = null;
-        
-        function step(timestamp) {
-          if (!start) start = timestamp;
-          const progress = timestamp - start;
-          const percentage = Math.min(progress / duration, 1);
-          
-          // 缓动函数
-          const easeInOutCubic = t => t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1;
-          
-          window.scrollTo(0, startPosition + distance * easeInOutCubic(percentage));
-          
-          if (progress < duration) {
-            window.requestAnimationFrame(step);
-          }
-        }
-        
-        window.requestAnimationFrame(step);
+        window.scrollTo(0, targetPosition);
       }
     }
   };
   
   // ========================================
-  // 事件处理
+  // 事件管理器
   // ========================================
-  const events = {
-    init: function() {
+  const EventManager = {
+    init() {
       this.setupClickEvents();
-      this.setupFormEvents();
       this.setupKeyboardEvents();
+      this.setupAnalytics();
     },
     
     // 设置点击事件
-    setupClickEvents: function() {
-      // 平滑滚动锚点链接
+    setupClickEvents() {
+      // 平滑滚动
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
-          const targetId = anchor.getAttribute('href');
-          if (targetId === '#') return;
+          const href = anchor.getAttribute('href');
+          if (href === '#') return;
           
           e.preventDefault();
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            animations.smoothScroll(targetElement);
-          }
+          AnimationManager.scrollToElement(href);
         });
       });
       
-      // WhatsApp CTA 按钮
+      // WhatsApp 点击跟踪
       document.querySelectorAll('[href*="whatsapp"], [href*="wa.me"]').forEach(link => {
-        link.addEventListener('click', function(e) {
-          // 添加点击跟踪
-          console.log('WhatsApp点击:', this.href);
-          
-          // 可选: 发送分析事件
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'whatsapp_click', {
-              'event_category': 'engagement',
-              'event_label': 'whatsapp_consultation'
-            });
-          }
+        link.addEventListener('click', () => {
+          this.trackEvent('whatsapp_click', {
+            category: 'engagement',
+            label: 'whatsapp_consultation'
+          });
         });
       });
-      
-      // 添加悬停效果到按钮
-      document.querySelectorAll('.btn').forEach(btn => {
-        btn.addEventListener('mouseenter', function() {
-          this.classList.add('hover');
-        });
-        
-        btn.addEventListener('mouseleave', function() {
-          this.classList.remove('hover');
-        });
-      });
-    },
-    
-    // 设置表单事件（如果需要的话）
-    setupFormEvents: function() {
-      // 这里可以添加联系表单处理
-      console.log('表单事件初始化');
     },
     
     // 设置键盘事件
-    setupKeyboardEvents: function() {
+    setupKeyboardEvents() {
+      // Tab 键导航指示
       document.addEventListener('keydown', (e) => {
-        // Escape键关闭模态框（如果有的话）
-        if (e.key === 'Escape') {
-          this.closeAllModals();
-        }
-        
-        // Tab键导航焦点管理
         if (e.key === 'Tab') {
-          DOM.body.classList.add('tab-navigation');
+          DOM.body.classList.add('keyboard-navigation');
         }
       });
       
-      document.addEventListener('click', () => {
-        DOM.body.classList.remove('tab-navigation');
+      document.addEventListener('mousedown', () => {
+        DOM.body.classList.remove('keyboard-navigation');
       });
     },
     
-    // 关闭所有模态框
-    closeAllModals: function() {
-      document.querySelectorAll('.modal.open').forEach(modal => {
-        modal.classList.remove('open');
+    // 设置分析事件
+    setupAnalytics() {
+      // 页面加载完成事件
+      window.addEventListener('load', () => {
+        this.trackEvent('page_load', {
+          category: 'engagement',
+          value: performance.now()
+        });
       });
-    }
-  };
-  
-  // ========================================
-  // 字体加载处理
-  // ========================================
-  const fonts = {
-    init: function() {
-      if ('fonts' in document) {
-        // 检查关键字体是否已加载
-        const inter = new FontFaceObserver('Inter', {
-          weight: 400
+      
+      // 字体加载事件
+      document.addEventListener('fonts:loaded', () => {
+        this.trackEvent('fonts_loaded', {
+          category: 'performance'
         });
-        
-        const poppins = new FontFaceObserver('Poppins', {
-          weight: 600
-        });
-        
-        Promise.all([
-          inter.load(null, 3000),
-          poppins.load(null, 3000)
-        ]).then(() => {
-          this.onFontsLoaded();
-        }).catch(() => {
-          this.onFontsFailed();
-        });
-      } else {
-        // 不支持FontFaceObserver的回退方案
-        setTimeout(() => {
-          this.onFontsLoaded();
-        }, 1000);
+      });
+    },
+    
+    // 跟踪事件（可根据需要集成Google Analytics等）
+    trackEvent(action, params = {}) {
+      console.log('📊 事件跟踪:', { action, ...params });
+      
+      // 如果使用Google Analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', action, params);
       }
-    },
-    
-    onFontsLoaded: function() {
-      DOM.html.classList.remove('fonts-loading');
-      DOM.html.classList.add('fonts-loaded');
-      console.log('字体加载完成');
-    },
-    
-    onFontsFailed: function() {
-      DOM.html.classList.remove('fonts-loading');
-      DOM.html.classList.add('fonts-fallback');
-      console.log('字体加载失败，使用回退字体');
     }
   };
   
   // ========================================
   // 性能监控
   // ========================================
-  const performanceMonitor = {
-    init: function() {
-      if ('performance' in window) {
-        this.measureLoadTime();
-      }
-      
-      // 监听页面可见性变化
-      document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'visible') {
-          this.onPageVisible();
+  const PerformanceMonitor = {
+    init() {
+      this.measureLoadTime();
+      this.setupVisibilityListener();
+    },
+    
+    // 测量加载时间
+    measureLoadTime() {
+      window.addEventListener('load', () => {
+        const timing = performance.timing;
+        const loadTime = timing.loadEventEnd - timing.navigationStart;
+        
+        console.log(`⏱️ 页面加载时间: ${loadTime}ms`);
+        
+        // 根据加载时间调整性能预算
+        if (loadTime > 3000) {
+          console.warn('⚠️ 页面加载较慢，考虑优化资源');
         }
       });
     },
     
-    measureLoadTime: function() {
-      window.addEventListener('load', () => {
-        setTimeout(() => {
-          const timing = performance.timing;
-          const loadTime = timing.loadEventEnd - timing.navigationStart;
-          
-          console.log(`页面加载时间: ${loadTime}ms`);
-          
-          // 发送到分析工具（可选）
-          if (typeof gtag !== 'undefined' && loadTime < 10000) {
-            gtag('event', 'timing_complete', {
-              'name': 'page_load',
-              'value': loadTime,
-              'event_category': 'Performance'
-            });
-          }
-        }, 0);
+    // 设置页面可见性监听
+    setupVisibilityListener() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+          console.log('👁️ 页面恢复可见');
+          // 可以在这里添加恢复功能
+        }
       });
-    },
-    
-    onPageVisible: function() {
-      console.log('页面变为可见');
-      // 可以在这里添加恢复动画或更新数据
     }
   };
   
   // ========================================
   // 错误处理
   // ========================================
-  const errorHandler = {
-    init: function() {
-      // 全局错误捕获
-      window.addEventListener('error', (e) => {
-        this.logError(e.error || e.message, 'global_error');
-      });
-      
-      // Promise拒绝捕获
-      window.addEventListener('unhandledrejection', (e) => {
-        this.logError(e.reason, 'promise_rejection');
-      });
+  const ErrorHandler = {
+    init() {
+      window.addEventListener('error', this.handleError.bind(this));
+      window.addEventListener('unhandledrejection', this.handlePromiseRejection.bind(this));
     },
     
-    logError: function(error, type) {
-      console.error(`[${type}]`, error);
-      
-      // 这里可以添加错误报告到服务器
-      // this.reportErrorToServer(error, type);
+    handleError(event) {
+      console.error('❌ 全局错误:', event.error || event.message);
+      this.reportError(event.error, 'global_error');
     },
     
-    reportErrorToServer: function(error, type) {
-      // 实现错误报告逻辑
+    handlePromiseRejection(event) {
+      console.error('❌ Promise拒绝:', event.reason);
+      this.reportError(event.reason, 'promise_rejection');
+    },
+    
+    reportError(error, type) {
+      // 这里可以添加错误上报到服务器
+      const errorData = {
+        type,
+        message: error?.message || String(error),
+        stack: error?.stack,
+        url: window.location.href,
+        timestamp: new Date().toISOString()
+      };
+      
+      console.log('📤 错误报告:', errorData);
+      
+      // 示例：发送到错误收集服务
+      // this.sendToErrorService(errorData);
+    },
+    
+    sendToErrorService(data) {
+      // 实现错误上报逻辑
+      // fetch('/api/error-log', { method: 'POST', body: JSON.stringify(data) })
     }
   };
   
   // ========================================
-  // 主初始化函数
+  // 主初始化流程
   // ========================================
-  function init() {
-    console.log('JF Gadai - 初始化中...');
+  class App {
+    constructor() {
+      this.init();
+    }
     
-    // 初始化顺序
-    fonts.init();
-    animations.init();
-    events.init();
-    performanceMonitor.init();
-    errorHandler.init();
+    async init() {
+      console.log('🚀 JF Gadai - 应用初始化');
+      
+      try {
+        // 1. 初始化字体管理器
+        FontManager.init();
+        
+        // 2. 等待字体加载或超时
+        await this.waitForFonts();
+        
+        // 3. 初始化其他模块
+        this.initModules();
+        
+        // 4. 设置页面加载状态
+        this.setPageLoaded();
+        
+      } catch (error) {
+        console.error('初始化失败:', error);
+        this.handleInitError(error);
+      }
+    }
     
-    // 页面加载完成
-    window.addEventListener('load', () => {
+    // 等待字体加载（有超时）
+    async waitForFonts() {
+      return new Promise((resolve) => {
+        const timeout = setTimeout(() => {
+          console.log('⏰ 字体加载超时，继续初始化');
+          resolve();
+        }, 5000); // 5秒超时
+        
+        // 如果字体已加载，立即解析
+        if (STATE.fontsLoaded) {
+          clearTimeout(timeout);
+          resolve();
+          return;
+        }
+        
+        // 监听字体加载事件
+        document.addEventListener('fonts:loaded', () => {
+          clearTimeout(timeout);
+          resolve();
+        });
+        
+        document.addEventListener('fonts:failed', () => {
+          clearTimeout(timeout);
+          resolve();
+        });
+      });
+    }
+    
+    // 初始化其他模块
+    initModules() {
+      AnimationManager.init();
+      EventManager.init();
+      PerformanceMonitor.init();
+      ErrorHandler.init();
+    }
+    
+    // 设置页面加载完成状态
+    setPageLoaded() {
+      STATE.pageLoaded = true;
       DOM.html.classList.add('page-loaded');
-      console.log('页面加载完成');
-    });
+      
+      // 延迟移除加载状态，确保平滑过渡
+      setTimeout(() => {
+        DOM.html.classList.remove('fonts-loading');
+      }, 300);
+      
+      console.log('✅ 应用初始化完成');
+    }
     
-    // 导出一些有用的函数到全局（可选）
-    window.JFGadai = {
-      utils: utils,
-      scrollTo: animations.smoothScroll,
-      getWhatsAppLink: utils.generateWhatsAppLink,
-      getMapsLink: utils.generateMapsLink
-    };
+    // 处理初始化错误
+    handleInitError(error) {
+      // 确保页面仍然可用
+      DOM.html.classList.remove('fonts-loading');
+      DOM.html.classList.add('fonts-fallback');
+      DOM.html.classList.add('page-loaded');
+      
+      console.error('应用初始化错误，已启用回退模式:', error);
+    }
+    
+    // 公共API
+    static get API() {
+      return {
+        scrollTo: AnimationManager.scrollToElement,
+        trackEvent: EventManager.trackEvent,
+        getState: () => ({ ...STATE }),
+        reloadFonts: FontManager.init.bind(FontManager)
+      };
+    }
   }
   
   // ========================================
@@ -433,15 +552,14 @@
   // ========================================
   // 确保DOM已加载
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', () => {
+      window.JFApp = new App();
+    });
   } else {
-    init();
+    window.JFApp = new App();
   }
   
+  // 导出到全局
+  window.JFGadai = App.API;
+  
 })();
-
-// FontFaceObserver 回退（如果未加载）
-if (typeof FontFaceObserver === 'undefined') {
-  console.warn('FontFaceObserver未加载，使用回退字体加载策略');
-  // 可以在这里添加回退逻辑
-}
