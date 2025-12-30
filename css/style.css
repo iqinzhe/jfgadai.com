@@ -61,3 +61,69 @@ button,
   font-family: "Inter", sans-serif;
   font-weight: 600;
 }
+
+/* =========================
+   Hero CTA
+   ========================= */
+
+.hero {
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  font-size: 1.05rem;
+  color: #4b5563;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+/* Primary CTA */
+.btn-primary {
+  background-color: #0f4c81; /* 宝石蓝 / 金融感 */
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #0c3d67;
+}
+
+/* Secondary CTA */
+.btn-secondary {
+  border: 1px solid #0f4c81;
+  color: #0f4c81;
+  background-color: transparent;
+}
+
+.btn-secondary:hover {
+  background-color: #e6f0f8;
+}
+
+/* Mobile Optimization */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+}
