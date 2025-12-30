@@ -1,4 +1,5 @@
-/* styles.css */
+/* css/styles.css */
+
 /* =========================
    CSS Reset & Variables
    ========================= */
@@ -566,5 +567,25 @@ footer {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   Print Styles
+   ========================= */
+@media print {
+  .hero,
+  .cta-group,
+  .btn {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .container {
+    max-width: 100% !important;
   }
 }
