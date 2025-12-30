@@ -14,8 +14,8 @@
   <link rel="preload" href="fonts/poppins-semibold.woff2" as="font" type="font/woff2" crossorigin>
   
   <!-- CSS Files -->
-  <link rel="stylesheet" href="fonts.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/styles.css">
   
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💰</text></svg>">
@@ -25,6 +25,11 @@
   <meta property="og:description" content="Layanan gadai terpercaya di Bangil & sekitarnya. Proses jelas, dana cair di hari yang sama.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="id_ID">
+  
+  <!-- Additional Meta Tags -->
+  <meta name="theme-color" content="#0b2c4a">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
 </head>
 
 <body>
@@ -185,8 +190,16 @@
 
   <!-- JavaScript -->
   <script>
+    // Font loading optimization
+    if ('fonts' in document) {
+      document.fonts.load('1em "Inter"').then(() => {
+        document.body.classList.add('fonts-loaded');
+      });
+    }
+
+    // Enhanced Intersection Observer for animations
     document.addEventListener('DOMContentLoaded', function() {
-      // Intersection Observer for animations
+      // Intersection Observer for fade-in animations
       const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -100px 0px'
@@ -240,14 +253,36 @@
           }
         });
       });
+      
+      // Add subtle parallax effect to hero
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        if (hero) {
+          hero.style.transform = `translateY(${scrolled * 0.05}px)`;
+        }
+      });
+      
+      // Keyboard navigation improvements
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          document.activeElement.blur();
+        }
+      });
     });
     
-    // Font loading optimization
-    if ('fonts' in document) {
-      document.fonts.load('1em "Inter"').then(() => {
-        document.body.classList.add('fonts-loaded');
-      });
-    }
+    // Performance optimization
+    window.addEventListener('load', function() {
+      // Remove loading states if any
+      document.body.classList.remove('loading');
+      
+      // Measure performance
+      if ('performance' in window) {
+        const perfData = window.performance.timing;
+        const loadTime = perfData.loadEventEnd - perfData.navigationStart;
+        console.log(`Halaman dimuat dalam: ${loadTime}ms`);
+      }
+    });
   </script>
 </body>
 </html>
