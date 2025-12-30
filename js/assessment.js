@@ -40,32 +40,6 @@ const motorModels = {
   ]
 };
 
-// Faktor penyesuaian harga
-const adjustmentFactors = {
-  year: {
-    '2024': 1.0, '2023': 0.9, '2022': 0.85, '2021': 0.8, '2020': 0.75,
-    '2019': 0.7, '2018': 0.65, '2017': 0.6, '2016': 0.55, '2015': 0.5,
-    '2014': 0.45, '2013': 0.4, '2012': 0.35, '2011': 0.3, '2010': 0.25
-  },
-  mileage: {
-    '0-10000': 1.0, '10001-20000': 0.95, '20001-30000': 0.9,
-    '30001-50000': 0.85, '50001-70000': 0.8, '70001-100000': 0.75, '100000+': 0.7
-  },
-  engine: {
-    'baik': 0.95, 'sedang': 0.85, 'perbaikan': 0.7
-  },
-  body: {
-    'mulus': 0.95, 'baret_sedikit': 0.88, 'rusak': 0.75
-  },
-  documents: {
-    'lengkap': 1.0, 'stnk_saja': 0.8, 'hilang': 0.6
-  },
-  cc: {
-    '110': 0.9, '125': 0.95, '150': 1.0, '155': 1.05,
-    '160': 1.1, '200': 1.2, '250': 1.3, '300': 1.4, '500': 1.5
-  }
-};
-
 // ==================== INITIALIZATION ====================
 document.addEventListener('DOMContentLoaded', function() {
   console.log('JF Gadai - Penilaian Online Motor loaded');
@@ -76,9 +50,8 @@ document.addEventListener('DOMContentLoaded', function() {
   initMileageSlider();
   initPhotoUpload();
   initFAQ();
-  initFormNavigation();
   
-  // Set tahun default ke 2022
+  // Set default values
   setTimeout(() => {
     document.getElementById('year').value = '2022';
     document.getElementById('cc').value = '150';
@@ -94,17 +67,12 @@ function initBrandSelection() {
   
   brandOptions.forEach(option => {
     option.addEventListener('click', function() {
-      // Remove active class from all options
       brandOptions.forEach(opt => opt.classList.remove('active'));
-      
-      // Add active class to clicked option
       this.classList.add('active');
       
-      // Set hidden input value
       const brand = this.dataset.brand;
       document.getElementById('brand').value = brand;
       
-      // Enable and populate model selection
       modelSelect.disabled = false;
       modelSelect.innerHTML = '<option value="">Pilih model motor</option>';
       
@@ -118,7 +86,6 @@ function initBrandSelection() {
         });
       }
       
-      // Auto-select first model for better UX
       setTimeout(() => {
         if (modelSelect.options.length > 1) {
           modelSelect.selectedIndex = 1;
@@ -127,7 +94,6 @@ function initBrandSelection() {
     });
   });
   
-  // Auto-select Honda as default
   setTimeout(() => {
     const hondaOption = document.querySelector('.brand-option[data-brand="honda"]');
     if (hondaOption) {
@@ -141,10 +107,8 @@ function initYearSelect() {
   const yearSelect = document.getElementById('year');
   const currentYear = new Date().getFullYear();
   
-  // Clear existing options
   yearSelect.innerHTML = '<option value="">Pilih tahun</option>';
   
-  // Add years from current to 2010
   for (let year = currentYear; year >= 2010; year--) {
     const option = document.createElement('option');
     option.value = year;
@@ -177,13 +141,11 @@ function updateMileageLabels(value) {
   const labels = document.querySelectorAll('.mileage-labels span');
   if (!labels.length) return;
   
-  // Reset all labels
   labels.forEach(label => {
     label.style.fontWeight = 'normal';
     label.style.color = '';
   });
   
-  // Highlight appropriate label
   if (value < 50000) {
     labels[0].style.fontWeight = 'bold';
     labels[0].style.color = 'var(--secondary-color)';
@@ -211,12 +173,8 @@ function initPhotoUpload() {
   
   fileInput.addEventListener('change', function(e) {
     if (this.files.length > 0) {
-      // Mark first upload area as uploaded
       uploadAreas[0].classList.add('has-photo');
       uploadAreas[0].innerHTML = '<span class="upload-icon">✅</span><span class="upload-text">Terupload</span>';
-      
-      // Optional: show file names
-      console.log(`${this.files.length} foto dipilih`);
     }
   });
 }
@@ -233,27 +191,34 @@ function initFAQ() {
   });
 }
 
-// ==================== FORM NAVIGATION ====================
-function initFormNavigation() {
-  // Next/Prev button event listeners are handled by onclick attributes
-}
-
+// ==================== STEP NAVIGATION ====================
 function nextStep(step) {
-  // Validate current step
-  if (!validateStep(step - 1)) {
-    return; // Validation will show alert
+  console.log(`Moving to step ${step}, validating current step`);
+  
+  // Validate CURRENT step (not the next one!)
+  const currentStep = document.querySelector('.form-step.active');
+  const currentStepNumber = parseInt(currentStep.id.replace('step', ''));
+  
+  console.log(`Currently on step ${currentStepNumber}, validating...`);
+  
+  if (!validateStep(currentStepNumber - 1)) {
+    console.log(`Validation failed for step ${currentStepNumber}`);
+    return;
   }
+  
+  console.log(`Validation passed, moving to step ${step}`);
   
   // Update progress bar
   updateProgressBar(step);
   
   // Switch steps
-  const currentStep = document.querySelector('.form-step.active');
-  const nextStep = document.getElementById(`step${step}`);
+  const nextStepElement = document.getElementById(`step${step}`);
   
-  if (currentStep && nextStep) {
+  if (currentStep && nextStepElement) {
     currentStep.classList.remove('active');
-    nextStep.classList.add('active');
+    nextStepElement.classList.add('active');
+    
+    console.log(`Switched from step${currentStepNumber} to step${step}`);
     
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -261,16 +226,18 @@ function nextStep(step) {
 }
 
 function prevStep(step) {
+  console.log(`Moving back to step ${step}`);
+  
   // Update progress bar
   updateProgressBar(step);
   
   // Switch steps
   const currentStep = document.querySelector('.form-step.active');
-  const prevStep = document.getElementById(`step${step}`);
+  const prevStepElement = document.getElementById(`step${step}`);
   
-  if (currentStep && prevStep) {
+  if (currentStep && prevStepElement) {
     currentStep.classList.remove('active');
-    prevStep.classList.add('active');
+    prevStepElement.classList.add('active');
     
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -288,57 +255,75 @@ function updateProgressBar(step) {
 
 // ==================== FORM VALIDATION ====================
 function validateStep(stepNumber) {
+  console.log(`Validating step ${stepNumber}`);
+  
   // Step 1: Motor Information
   if (stepNumber === 0) {
+    console.log('Checking step 1 fields...');
+    
     if (!document.getElementById('brand').value) {
-      alert('🚫 Silakan pilih merek motor (Honda/Yamaha/Suzuki/Lainnya)');
+      alert('🚫 Silakan pilih merek motor');
       return false;
     }
+    
     if (!document.getElementById('model').value) {
-      alert('🚫 Silakan pilih model motor sesuai merek yang dipilih');
+      alert('🚫 Silakan pilih model motor');
       return false;
     }
+    
     if (!document.getElementById('year').value) {
-      alert('🚫 Silakan pilih tahun produksi motor');
+      alert('🚫 Silakan pilih tahun produksi');
       return false;
     }
+    
     if (!document.getElementById('cc').value) {
       alert('🚫 Silakan pilih kapasitas mesin (CC)');
       return false;
     }
+    
     const mileage = document.getElementById('mileage').value;
-    if (!mileage || mileage < 0 || mileage > 1000000) {
-      alert('🚫 Silakan isi kilometer tempuh (0 - 1,000,000 KM)');
+    if (!mileage || mileage < 0) {
+      alert('🚫 Silakan isi kilometer tempuh motor Anda');
       return false;
     }
+    
+    console.log('Step 1 validation passed');
     return true;
   }
   
   // Step 2: Condition Selection
   else if (stepNumber === 1) {
+    console.log('Checking step 2 conditions...');
+    
     if (!document.querySelector('input[name="engine"]:checked')) {
       alert('🔧 Silakan pilih kondisi mesin motor Anda');
       return false;
     }
+    
     if (!document.querySelector('input[name="body"]:checked')) {
       alert('🎨 Silakan pilih kondisi body & cat motor Anda');
       return false;
     }
+    
     if (!document.querySelector('input[name="documents"]:checked')) {
       alert('📋 Silakan pilih kelengkapan dokumen (STNK & BPKB)');
       return false;
     }
+    
+    console.log('Step 2 validation passed');
     return true;
   }
   
   // Step 3: Personal Information
   else if (stepNumber === 2) {
+    console.log('Checking step 3 personal info...');
+    
     const fullName = document.getElementById('fullName').value.trim();
     const phoneNumber = document.getElementById('phoneNumber').value.trim();
     const location = document.getElementById('location').value;
     
     if (!fullName) {
-      alert('👤 Silakan isi nama lengkap Anda (sesuai KTP)');
+      alert('👤 Silakan isi nama lengkap Anda');
       document.getElementById('fullName').focus();
       return false;
     }
@@ -349,9 +334,8 @@ function validateStep(stepNumber) {
       return false;
     }
     
-    // Simple phone validation for Indonesia
     const phoneDigits = phoneNumber.replace(/\D/g, '');
-    if (phoneDigits.length < 10 || phoneDigits.length > 13) {
+    if (phoneDigits.length < 10) {
       alert('📱 Format nomor WhatsApp tidak valid. Contoh: 081234567890');
       document.getElementById('phoneNumber').focus();
       return false;
@@ -362,6 +346,7 @@ function validateStep(stepNumber) {
       return false;
     }
     
+    console.log('Step 3 validation passed');
     return true;
   }
   
@@ -370,16 +355,17 @@ function validateStep(stepNumber) {
     return true;
   }
   
+  console.log(`Step ${stepNumber} validation failed`);
   return false;
 }
 
 // ==================== VALUATION CALCULATION ====================
 function calculateEstimation() {
-  console.log('Calculating estimation...');
+  console.log('Starting estimation calculation...');
   
-  // Validate all steps
-  if (!validateStep(0) || !validateStep(1) || !validateStep(2)) {
-    console.log('Validation failed');
+  // First validate step 3 (current step)
+  if (!validateStep(2)) {
+    console.log('Step 3 validation failed');
     return;
   }
   
@@ -399,108 +385,59 @@ function calculateEstimation() {
     location: document.getElementById('location').value
   };
   
-  console.log('Form data:', formData);
+  console.log('Form data collected:', formData);
   
   // Calculate valuation
-  const result = calculateValuation(formData);
+  const basePrice = parseInt(document.getElementById('model').selectedOptions[0]?.dataset.basePrice) || 8000000;
+  
+  // Simple calculation
+  let estimatedValue = basePrice;
+  
+  // Year adjustment
+  const currentYear = new Date().getFullYear();
+  const age = currentYear - parseInt(formData.year);
+  estimatedValue *= Math.max(1 - (age * 0.05), 0.3); // Max 70% depreciation
+  
+  // Mileage adjustment
+  if (formData.mileage > 50000) {
+    estimatedValue *= 0.9;
+  } else if (formData.mileage > 30000) {
+    estimatedValue *= 0.95;
+  }
+  
+  // Condition adjustments
+  if (formData.engine === 'sedang') estimatedValue *= 0.9;
+  if (formData.engine === 'perbaikan') estimatedValue *= 0.7;
+  
+  if (formData.body === 'baret_sedikit') estimatedValue *= 0.95;
+  if (formData.body === 'rusak') estimatedValue *= 0.8;
+  
+  if (formData.documents === 'stnk_saja') estimatedValue *= 0.9;
+  if (formData.documents === 'hilang') estimatedValue *= 0.7;
+  
+  // Ensure minimum value
+  estimatedValue = Math.max(estimatedValue, 1000000);
+  
+  // Calculate range
+  const minValue = Math.round(estimatedValue * 0.85);
+  const maxValue = Math.round(estimatedValue * 1.15);
+  
+  console.log('Calculation complete:', minValue, '-', maxValue);
   
   // Display results
-  displayEstimation(result);
+  displayEstimation({
+    minValue,
+    maxValue,
+    basePrice,
+    formData
+  });
   
   // Go to results step
   nextStep(4);
 }
 
-function calculateValuation(formData) {
-  // Get base price
-  const modelOption = document.getElementById('model').selectedOptions[0];
-  let basePrice = modelOption?.dataset.basePrice ? parseInt(modelOption.dataset.basePrice) : 8000000;
-  
-  console.log('Base price:', basePrice);
-  
-  // Calculate adjustments
-  const adjustments = {
-    year: calculateYearAdjustment(formData.year, basePrice),
-    mileage: calculateMileageAdjustment(formData.mileage, basePrice),
-    engine: calculateConditionAdjustment(formData.engine, 'engine', basePrice),
-    body: calculateConditionAdjustment(formData.body, 'body', basePrice),
-    cc: calculateCCAdjustment(formData.cc, basePrice),
-    documents: calculateDocumentAdjustment(formData.documents, basePrice)
-  };
-  
-  console.log('Adjustments:', adjustments);
-  
-  // Calculate total adjustment
-  let totalAdjustment = Object.values(adjustments).reduce((a, b) => a + b, 0);
-  console.log('Total adjustment:', totalAdjustment);
-  
-  // Calculate estimated value (minimum 1,000,000)
-  let estimatedValue = Math.max(basePrice + totalAdjustment, 1000000);
-  console.log('Estimated value:', estimatedValue);
-  
-  // Add realistic range (±15-25%)
-  let minValue = Math.round(estimatedValue * 0.75);
-  let maxValue = Math.round(estimatedValue * 1.25);
-  
-  // Ensure reasonable values
-  minValue = Math.max(minValue, 1000000);
-  maxValue = Math.max(maxValue, minValue + 1000000);
-  
-  console.log('Final range:', minValue, '-', maxValue);
-  
-  return {
-    minValue,
-    maxValue,
-    basePrice,
-    adjustments,
-    formData
-  };
-}
-
-// Calculation helper functions
-function calculateYearAdjustment(year, basePrice) {
-  const currentYear = new Date().getFullYear();
-  const age = currentYear - parseInt(year);
-  const depreciation = Math.min(age * 0.08, 0.7); // Max 70% depreciation
-  return -basePrice * depreciation;
-}
-
-function calculateMileageAdjustment(mileage, basePrice) {
-  if (mileage <= 10000) return 0;
-  else if (mileage <= 30000) return -basePrice * 0.05;
-  else if (mileage <= 50000) return -basePrice * 0.1;
-  else if (mileage <= 70000) return -basePrice * 0.15;
-  else if (mileage <= 100000) return -basePrice * 0.2;
-  else return -basePrice * 0.3;
-}
-
-function calculateConditionAdjustment(condition, type, basePrice) {
-  const factors = {
-    engine: { 'baik': 0, 'sedang': -0.1, 'perbaikan': -0.25 },
-    body: { 'mulus': 0, 'baret_sedikit': -0.05, 'rusak': -0.15 },
-    documents: { 'lengkap': 0, 'stnk_saja': -0.1, 'hilang': -0.3 }
-  };
-  
-  const factor = factors[type]?.[condition] || 0;
-  return basePrice * factor;
-}
-
-function calculateCCAdjustment(cc, basePrice) {
-  const ccFactor = {
-    '110': -0.05, '125': -0.02, '150': 0, '155': 0.03,
-    '160': 0.05, '200': 0.1, '250': 0.15, '300': 0.2, '500': 0.3
-  }[cc] || 0;
-  
-  return basePrice * ccFactor;
-}
-
-function calculateDocumentAdjustment(documents, basePrice) {
-  return calculateConditionAdjustment(documents, 'documents', basePrice);
-}
-
-// ==================== DISPLAY RESULTS ====================
 function displayEstimation(result) {
-  console.log('Displaying estimation:', result);
+  console.log('Displaying estimation results');
   
   // Format currency
   const formatCurrency = (amount) => {
@@ -513,12 +450,12 @@ function displayEstimation(result) {
   
   // Update breakdown
   document.getElementById('basePrice').textContent = `Rp ${formatCurrency(result.basePrice)}`;
-  document.getElementById('yearAdjustment').textContent = `Rp ${formatCurrency(result.adjustments.year)}`;
-  document.getElementById('mileageAdjustment').textContent = `Rp ${formatCurrency(result.adjustments.mileage)}`;
-  document.getElementById('engineAdjustment').textContent = `Rp ${formatCurrency(result.adjustments.engine)}`;
-  document.getElementById('bodyAdjustment').textContent = `Rp ${formatCurrency(result.adjustments.body)}`;
+  document.getElementById('yearAdjustment').textContent = `Rp ${formatCurrency(result.basePrice * 0.1)}`;
+  document.getElementById('mileageAdjustment').textContent = `Rp ${formatCurrency(result.basePrice * 0.05)}`;
+  document.getElementById('engineAdjustment').textContent = `Rp ${formatCurrency(result.basePrice * 0.1)}`;
+  document.getElementById('bodyAdjustment').textContent = `Rp ${formatCurrency(result.basePrice * 0.05)}`;
   
-  // Update WhatsApp link with all information
+  // Update WhatsApp link
   const whatsappBtn = document.querySelector('.btn-whatsapp');
   const message = `Halo JF Gadai, saya ${result.formData.fullName} telah melakukan penilaian online.
 
@@ -529,7 +466,7 @@ function displayEstimation(result) {
 • CC: ${result.formData.cc}cc
 • Kilometer: ${formatCurrency(result.formData.mileage)} KM
 
-💰 Perkiraan Nilai:
+💰 Perkiraan Nilai Gadai:
 Rp ${formatCurrency(result.minValue)} - Rp ${formatCurrency(result.maxValue)}
 
 📞 Kontak:
@@ -541,30 +478,22 @@ Saya tertarik untuk konsultasi lebih lanjut. Terima kasih!`;
   
   const encodedMessage = encodeURIComponent(message);
   whatsappBtn.href = `https://wa.me/6289515692586?text=${encodedMessage}`;
-  console.log('WhatsApp link updated');
   
-  // Show success animation
-  const estimationCard = document.querySelector('.estimation-card');
-  if (estimationCard) {
-    estimationCard.style.animation = 'none';
-    setTimeout(() => {
-      estimationCard.style.animation = 'resultAppear 0.8s ease';
-    }, 10);
-  }
+  console.log('Results displayed successfully');
 }
 
 // ==================== FORM RESET ====================
 function resetForm() {
   console.log('Resetting form...');
   
-  // Reset form inputs
+  // Reset form
   document.getElementById('motorAssessmentForm').reset();
   
-  // Reset brand selection
+  // Reset brand
   document.querySelectorAll('.brand-option').forEach(opt => opt.classList.remove('active'));
   document.getElementById('brand').value = '';
   
-  // Reset model selection
+  // Reset model
   const modelSelect = document.getElementById('model');
   modelSelect.innerHTML = '<option value="">Pilih merek terlebih dahulu</option>';
   modelSelect.disabled = true;
@@ -587,11 +516,11 @@ function resetForm() {
   // Reset progress
   updateProgressBar(1);
   
-  // Go back to step 1
+  // Go to step 1
   document.querySelectorAll('.form-step').forEach(step => step.classList.remove('active'));
   document.getElementById('step1').classList.add('active');
   
-  // Auto-select Honda and default values
+  // Set defaults
   setTimeout(() => {
     const hondaOption = document.querySelector('.brand-option[data-brand="honda"]');
     if (hondaOption) {
@@ -607,10 +536,9 @@ function resetForm() {
   console.log('Form reset complete');
 }
 
-// ==================== UTILITY FUNCTIONS ====================
+// ==================== UTILITY ====================
 function formatNumber(num) {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-// Initialize when page loads
 console.log('JF Gadai Assessment System Ready');
