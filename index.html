@@ -6,53 +6,58 @@
   <title>JF Gadai | Layanan Gadai Terpercaya</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* 新增：不对称五宫格布局样式 */
+    /* =========================
+       重置样式确保横幅完整显示
+       ========================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+    }
     
     :root {
       --grid-gap: 1.5rem;
       --section-padding: 3rem;
     }
     
-    /* 新增：横幅位于最顶部 */
-    .top-banner {
-      width: 100%;
-      height: auto;
+    /* =========================
+       横幅图片 - 完整显示，无遮挡
+       ========================= */
+    .full-banner {
+      width: 100vw;
+      height: 100vh;
       overflow: hidden;
+      position: relative;
+      margin: 0;
+      padding: 0;
     }
     
-    .top-banner img {
+    .full-banner img {
       width: 100%;
-      height: auto;
-      object-fit: cover;
+      height: 100%;
+      object-fit: contain;
+      object-position: top;
       display: block;
     }
     
-    /* 移除原有Hero样式，添加简化版头部 */
-    .site-header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      padding: var(--spacing-md) var(--spacing-lg);
-      background: rgba(11, 44, 74, 0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 2px solid var(--secondary-color);
+    /* =========================
+       确保横幅后内容正常显示
+       ========================= */
+    .content-wrapper {
+      background: linear-gradient(135deg, #0b2c4a 0%, #0e4b6e 100%);
+      position: relative;
+      z-index: 1;
+      margin-top: 0;
     }
     
-    .site-header .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--secondary-color);
-      text-decoration: none;
-      display: inline-block;
-      padding: var(--spacing-xs) var(--spacing-md);
-      border: 2px solid var(--secondary-color);
-      border-radius: var(--border-radius-sm);
-      background: rgba(255, 255, 255, 0.1);
-    }
-    
-    /* 新增：横幅下的快速操作栏 */
+    /* =========================
+       快速操作栏
+       ========================= */
     .quick-actions {
       display: flex;
       justify-content: center;
@@ -64,7 +69,7 @@
     }
     
     .quick-action-card {
-      background: var(--bg-light);
+      background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(10px);
       border-radius: var(--border-radius-lg);
       padding: var(--spacing-xl);
@@ -82,7 +87,7 @@
     
     .quick-action-card:hover {
       transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
       border-color: rgba(245, 197, 66, 0.3);
       background: rgba(255, 255, 255, 0.12);
     }
@@ -100,7 +105,7 @@
     }
     
     .action-description {
-      color: var(--text-muted);
+      color: #cfe3f2;
       margin-bottom: var(--spacing-lg);
       font-size: 0.95rem;
     }
@@ -122,18 +127,18 @@
     
     .action-btn.whatsapp {
       background-color: var(--secondary-color);
-      color: var(--dark-color);
+      color: #0b2c4a;
     }
     
     .action-btn.whatsapp:hover {
-      background-color: var(--secondary-dark);
+      background-color: #e0b339;
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(245, 197, 66, 0.4);
     }
     
     .action-btn.location {
       background-color: transparent;
-      color: var(--light-color);
+      color: white;
       border: 2px solid var(--secondary-color);
     }
     
@@ -143,7 +148,9 @@
       box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
     }
     
-    /* 主网格容器 */
+    /* =========================
+       不对称五宫格布局
+       ========================= */
     .asymmetric-grid {
       display: grid;
       grid-template-columns: 1fr 2fr 1fr;
@@ -154,9 +161,8 @@
       padding: 0 var(--spacing-lg);
     }
     
-    /* 网格项通用样式 */
     .grid-item {
-      background: var(--bg-light);
+      background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(10px);
       border-radius: var(--border-radius-lg);
       padding: var(--spacing-xl);
@@ -166,7 +172,7 @@
     
     .grid-item:hover {
       transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
       border-color: rgba(245, 197, 66, 0.3);
     }
     
@@ -211,7 +217,7 @@
       grid-row: 2;
     }
     
-    /* 服务列表样式 */
+    /* 列表样式 */
     .service-list, .condition-list, .reason-list {
       list-style: none;
     }
@@ -222,6 +228,7 @@
       display: flex;
       align-items: center;
       gap: var(--spacing-sm);
+      color: #e6f3fb;
     }
     
     .service-list li:last-child,
@@ -233,6 +240,7 @@
     .list-icon {
       color: var(--secondary-color);
       font-size: 1.2rem;
+      min-width: 24px;
     }
     
     /* 业务流程步骤 */
@@ -257,7 +265,7 @@
       top: -15px;
       left: -15px;
       background: var(--secondary-color);
-      color: var(--dark-color);
+      color: #0b2c4a;
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -269,8 +277,12 @@
     }
     
     .process-step h3 {
-      color: var(--light-color);
+      color: white;
       margin-bottom: var(--spacing-sm);
+    }
+    
+    .process-step p {
+      color: #cfe3f2;
     }
     
     /* 表单样式 */
@@ -287,7 +299,7 @@
     }
     
     .form-group label {
-      color: var(--text-muted);
+      color: #cfe3f2;
       font-size: 0.9rem;
     }
     
@@ -296,7 +308,7 @@
       border-radius: var(--border-radius);
       border: 1px solid rgba(255, 255, 255, 0.2);
       background: rgba(255, 255, 255, 0.08);
-      color: var(--light-color);
+      color: white;
       font-family: inherit;
       transition: all 0.3s ease;
     }
@@ -320,7 +332,7 @@
     
     .submit-btn {
       background: var(--secondary-color);
-      color: var(--dark-color);
+      color: #0b2c4a;
       border: none;
       padding: 1rem;
       border-radius: var(--border-radius);
@@ -331,12 +343,14 @@
     }
     
     .submit-btn:hover {
-      background: var(--secondary-dark);
+      background: #e0b339;
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
     }
     
-    /* 响应式调整 */
+    /* =========================
+       响应式调整
+       ========================= */
     @media (max-width: 1200px) {
       .asymmetric-grid {
         grid-template-columns: 1fr 1fr;
@@ -404,183 +418,190 @@
         min-width: 100%;
       }
       
-      .site-header {
-        padding: var(--spacing-sm);
+      /* 移动端横幅调整 */
+      .full-banner {
+        height: 70vh;
       }
-      
-      .site-header .logo {
-        font-size: 1.5rem;
-        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+    
+    @media (max-width: 480px) {
+      .full-banner {
+        height: 60vh;
+      }
+    }
+    
+    /* 大屏幕优化 */
+    @media (min-width: 1920px) {
+      .full-banner {
+        height: 80vh;
       }
     }
   </style>
 </head>
 <body>
-  <!-- 顶部横幅图片 -->
-  <section class="top-banner">
-    <img src="images/101.jpeg" alt="JF Gadai - Tetap Maju di Saat Sulit. JF Gadai, Sahabat Solusi Anda.">
+  <!-- 全屏横幅图片 - 无任何遮挡 -->
+  <section class="full-banner">
+    <img src="images/101.jpeg" alt="JF Gadai - Tetap Maju di Saat Sulit">
   </section>
 
-  <!-- 简化版头部 -->
-  <header class="site-header">
-    <a href="#" class="logo">JF Gadai</a>
-  </header>
-
-  <!-- 快速操作栏 -->
-  <section class="quick-actions">
-    <div class="quick-action-card fade-in delay-1">
-      <div class="action-icon">📱</div>
-      <h3 class="action-title">Konsultasi via WhatsApp</h3>
-      <p class="action-description">Chat langsung dengan tim kami untuk konsultasi gratis dan penawaran terbaik.</p>
-      <a href="https://wa.me/6289515692586" target="_blank" class="action-btn whatsapp" rel="noopener noreferrer">
-        <span>Buka WhatsApp</span>
-      </a>
-    </div>
-    
-    <div class="quick-action-card fade-in delay-2">
-      <div class="action-icon">📍</div>
-      <h3 class="action-title">Cek Lokasi & Layanan</h3>
-      <p class="action-description">Lihat lokasi kami dan pelajari layanan lengkap yang tersedia di JF Gadai.</p>
-      <a href="#lokasi" class="action-btn location">
-        <span>Lihat Lokasi</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- 不对称五宫格布局 -->
-  <main class="container asymmetric-grid">
-    
-    <!-- 左侧：我们的服务 -->
-    <section class="grid-item our-services">
-      <h2>🛠️ Layanan Kami</h2>
-      <ul class="service-list">
-        <li><span class="list-icon">💎</span> Gadai Emas & Perhiasan</li>
-        <li><span class="list-icon">📱</span> Gadai Elektronik</li>
-        <li><span class="list-icon">🏍️</span> Gadai Kendaraan</li>
-        <li><span class="list-icon">💍</span> Barang Berharga Lainnya</li>
-        <li><span class="list-icon">⚡</span> Pencairan Kilat</li>
-        <li><span class="list-icon">🔄</span> Perpanjangan Gadai</li>
-      </ul>
-    </section>
-    
-    <!-- 中间：业务流程（最大区域） -->
-    <section class="grid-item business-process">
-      <h2>📋 Proses Mudah & Cepat</h2>
-      <div class="process-steps">
-        <div class="process-step">
-          <h3>Konsultasi Awal</h3>
-          <p>Hubungi kami via WhatsApp atau datang langsung untuk konsultasi. Kami akan memberikan penjelasan lengkap tentang proses dan persyaratan.</p>
-        </div>
-        <div class="process-step">
-          <h3>Penilaian Barang</h3>
-          <p>Tim ahli kami akan menilai barang Anda dengan fair dan transparan. Penilaian berdasarkan kondisi pasar terkini.</p>
-        </div>
-        <div class="process-step">
-          <h3>Persetujuan & Dokumen</h3>
-          <p>Setelah nilai disepakati, kami siapkan dokumen lengkap. Semua biaya dijelaskan dengan jelas tanpa hidden cost.</p>
-        </div>
-        <div class="process-step">
-          <h3>Pencairan Dana</h3>
-          <p>Dana langsung cair! Transfer ke rekening Anda atau tunai sesuai preferensi. Proses cepat, aman, dan terjamin.</p>
-        </div>
+  <!-- 主要内容区域 -->
+  <div class="content-wrapper">
+    <!-- 快速操作栏 -->
+    <section class="quick-actions">
+      <div class="quick-action-card fade-in delay-1">
+        <div class="action-icon">📱</div>
+        <h3 class="action-title">Konsultasi via WhatsApp</h3>
+        <p class="action-description">Chat langsung dengan tim kami untuk konsultasi gratis dan penawaran terbaik.</p>
+        <a href="https://wa.me/6289515692586" target="_blank" class="action-btn whatsapp" rel="noopener noreferrer">
+          <span>Buka WhatsApp</span>
+        </a>
       </div>
-    </section>
-    
-    <!-- 右侧：业务条件 -->
-    <section class="grid-item conditions">
-      <h2>🚫 Yang Tidak Kami Terima</h2>
-      <ul class="condition-list">
-        <li><span class="list-icon">❌</span> Barang ilegal/hasil curian</li>
-        <li><span class="list-icon">❌</span> Dokumen resmi negara</li>
-        <li><span class="list-icon">❌</span> Senjata api/militer</li>
-        <li><span class="list-icon">❌</span> Narkoba & zat terlarang</li>
-        <li><span class="list-icon">❌</span> Barang rusak total</li>
-        <li><span class="list-icon">❌</span> Tanpa identitas diri</li>
-        <li><span class="list-icon">❌</span> Barang kontroversial</li>
-      </ul>
-      <p class="form-note">* Semua barang harus dalam kepemilikan sah dan bisa dibuktikan.</p>
-    </section>
-    
-    <!-- 左下：为什么选择我们 -->
-    <section class="grid-item why-choose-us">
-      <h2>⭐ Kenapa Memilih Kami?</h2>
-      <ul class="reason-list">
-        <li><span class="list-icon">✅</span> Proses cepat & transparan</li>
-        <li><span class="list-icon">✅</span> Bunga kompetitif & jelas</li>
-        <li><span class="list-icon">✅</span> Keamanan barang terjamin</li>
-        <li><span class="list-icon">✅</span> Layanan lokal terpercaya</li>
-        <li><span class="list-icon">✅</span> Tenaga profesional & ramah</li>
-        <li><span class="list-icon">✅</span> Fleksibel dalam pembayaran</li>
-        <li><span class="list-icon">✅</span> Privasi pelanggan dijaga</li>
-      </ul>
-    </section>
-    
-    <!-- 右下：联系我们表单 -->
-    <section class="grid-item contact-form-section">
-      <h2>📝 Konsultasi Gratis</h2>
-      <p class="form-note">Isi form ini untuk mendapatkan penawaran khusus dan konsultasi gratis!</p>
       
-      <form class="contact-form" id="consultationForm">
-        <div class="form-group">
-          <label for="name">Nama Lengkap</label>
-          <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="phone">Nomor WhatsApp</label>
-          <input type="tel" id="phone" class="form-control" placeholder="Contoh: 081234567890" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="item">Jenis Barang</label>
-          <select id="item" class="form-control" required>
-            <option value="">-- Pilih jenis barang --</option>
-            <option value="emas">Emas/Perhiasan</option>
-            <option value="elektronik">Elektronik (HP, Laptop, dll)</option>
-            <option value="kendaraan">Kendaraan (Motor, Mobil)</option>
-            <option value="lainnya">Barang Berharga Lainnya</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="message">Catatan/Kebutuhan Khusus</label>
-          <textarea id="message" class="form-control" rows="3" placeholder="Deskripsi singkat barang atau kebutuhan khusus..."></textarea>
-        </div>
-        
-        <button type="submit" class="submit-btn">
-          📩 Dapatkan Penawaran Spesial
-        </button>
-        
-        <p class="form-note">* Dengan mengisi form, Anda berhak mendapatkan konsultasi gratis dan potongan biaya administrasi 50%!</p>
-      </form>
-    </section>
-  </main>
-
-  <!-- 现有 Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <p class="copyright">© 2025 <span class="highlight">JF Gadai</span></p>
-        <p class="company-info">Layanan Keuangan Non-Bank • Bangil & Gempol</p>
-        
-        <div class="contact-info">
-          <a href="tel:+6289515692586" class="contact-link" aria-label="Telepon kami">
-            <span class="icon">📞</span> +62 895-1569-2586
-          </a>
-          <a href="https://wa.me/6289515692586" target="_blank" class="contact-link" rel="noopener noreferrer" aria-label="Hubungi via WhatsApp">
-            <span class="icon">💬</span> WhatsApp
-          </a>
-          <a href="https://maps.google.com/?q=Bangil" target="_blank" class="contact-link" rel="noopener noreferrer" aria-label="Lihat lokasi di Google Maps">
-            <span class="icon">📍</span> Bangil, Pasuruan
-          </a>
-        </div>
-        
-        <p class="company-info" style="margin-top: 2rem; font-size: 0.9rem;">
-          Jam Operasional: Senin - Sabtu: 08:00 - 17:00 | Minggu: 09:00 - 15:00
-        </p>
+      <div class="quick-action-card fade-in delay-2">
+        <div class="action-icon">📍</div>
+        <h3 class="action-title">Cek Lokasi & Layanan</h3>
+        <p class="action-description">Lihat lokasi kami dan pelajari layanan lengkap yang tersedia di JF Gadai.</p>
+        <a href="#lokasi" class="action-btn location">
+          <span>Lihat Lokasi</span>
+        </a>
       </div>
-    </div>
-  </footer>
+    </section>
+
+    <!-- 不对称五宫格布局 -->
+    <main class="container asymmetric-grid">
+      
+      <!-- 左侧：我们的服务 -->
+      <section class="grid-item our-services">
+        <h2>🛠️ Layanan Kami</h2>
+        <ul class="service-list">
+          <li><span class="list-icon">💎</span> Gadai Emas & Perhiasan</li>
+          <li><span class="list-icon">📱</span> Gadai Elektronik</li>
+          <li><span class="list-icon">🏍️</span> Gadai Kendaraan</li>
+          <li><span class="list-icon">💍</span> Barang Berharga Lainnya</li>
+          <li><span class="list-icon">⚡</span> Pencairan Kilat</li>
+          <li><span class="list-icon">🔄</span> Perpanjangan Gadai</li>
+        </ul>
+      </section>
+      
+      <!-- 中间：业务流程（最大区域） -->
+      <section class="grid-item business-process">
+        <h2>📋 Proses Mudah & Cepat</h2>
+        <div class="process-steps">
+          <div class="process-step">
+            <h3>Konsultasi Awal</h3>
+            <p>Hubungi kami via WhatsApp atau datang langsung untuk konsultasi. Kami akan memberikan penjelasan lengkap tentang proses dan persyaratan.</p>
+          </div>
+          <div class="process-step">
+            <h3>Penilaian Barang</h3>
+            <p>Tim ahli kami akan menilai barang Anda dengan fair dan transparan. Penilaian berdasarkan kondisi pasar terkini.</p>
+          </div>
+          <div class="process-step">
+            <h3>Persetujuan & Dokumen</h3>
+            <p>Setelah nilai disepakati, kami siapkan dokumen lengkap. Semua biaya dijelaskan dengan jelas tanpa hidden cost.</p>
+          </div>
+          <div class="process-step">
+            <h3>Pencairan Dana</h3>
+            <p>Dana langsung cair! Transfer ke rekening Anda atau tunai sesuai preferensi. Proses cepat, aman, dan terjamin.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 右侧：业务条件 -->
+      <section class="grid-item conditions">
+        <h2>🚫 Yang Tidak Kami Terima</h2>
+        <ul class="condition-list">
+          <li><span class="list-icon">❌</span> Barang ilegal/hasil curian</li>
+          <li><span class="list-icon">❌</span> Dokumen resmi negara</li>
+          <li><span class="list-icon">❌</span> Senjata api/militer</li>
+          <li><span class="list-icon">❌</span> Narkoba & zat terlarang</li>
+          <li><span class="list-icon">❌</span> Barang rusak total</li>
+          <li><span class="list-icon">❌</span> Tanpa identitas diri</li>
+          <li><span class="list-icon">❌</span> Barang kontroversial</li>
+        </ul>
+        <p class="form-note">* Semua barang harus dalam kepemilikan sah dan bisa dibuktikan.</p>
+      </section>
+      
+      <!-- 左下：为什么选择我们 -->
+      <section class="grid-item why-choose-us">
+        <h2>⭐ Kenapa Memilih Kami?</h2>
+        <ul class="reason-list">
+          <li><span class="list-icon">✅</span> Proses cepat & transparan</li>
+          <li><span class="list-icon">✅</span> Bunga kompetitif & jelas</li>
+          <li><span class="list-icon">✅</span> Keamanan barang terjamin</li>
+          <li><span class="list-icon">✅</span> Layanan lokal terpercaya</li>
+          <li><span class="list-icon">✅</span> Tenaga profesional & ramah</li>
+          <li><span class="list-icon">✅</span> Fleksibel dalam pembayaran</li>
+          <li><span class="list-icon">✅</span> Privasi pelanggan dijaga</li>
+        </ul>
+      </section>
+      
+      <!-- 右下：联系我们表单 -->
+      <section class="grid-item contact-form-section">
+        <h2>📝 Konsultasi Gratis</h2>
+        <p class="form-note">Isi form ini untuk mendapatkan penawaran khusus dan konsultasi gratis!</p>
+        
+        <form class="contact-form" id="consultationForm">
+          <div class="form-group">
+            <label for="name">Nama Lengkap</label>
+            <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Nomor WhatsApp</label>
+            <input type="tel" id="phone" class="form-control" placeholder="Contoh: 081234567890" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="item">Jenis Barang</label>
+            <select id="item" class="form-control" required>
+              <option value="">-- Pilih jenis barang --</option>
+              <option value="emas">Emas/Perhiasan</option>
+              <option value="elektronik">Elektronik (HP, Laptop, dll)</option>
+              <option value="kendaraan">Kendaraan (Motor, Mobil)</option>
+              <option value="lainnya">Barang Berharga Lainnya</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Catatan/Kebutuhan Khusus</label>
+            <textarea id="message" class="form-control" rows="3" placeholder="Deskripsi singkat barang atau kebutuhan khusus..."></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">
+            📩 Dapatkan Penawaran Spesial
+          </button>
+          
+          <p class="form-note">* Dengan mengisi form, Anda berhak mendapatkan konsultasi gratis dan potongan biaya administrasi 50%!</p>
+        </form>
+      </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <p class="copyright">© 2025 <span class="highlight">JF Gadai</span></p>
+          <p class="company-info">Layanan Keuangan Non-Bank • Bangil & Gempol</p>
+          
+          <div class="contact-info">
+            <a href="tel:+6289515692586" class="contact-link" aria-label="Telepon kami">
+              <span class="icon">📞</span> +62 895-1569-2586
+            </a>
+            <a href="https://wa.me/6289515692586" target="_blank" class="contact-link" rel="noopener noreferrer" aria-label="Hubungi via WhatsApp">
+              <span class="icon">💬</span> WhatsApp
+            </a>
+            <a href="https://maps.google.com/?q=Bangil" target="_blank" class="contact-link" rel="noopener noreferrer" aria-label="Lihat lokasi di Google Maps">
+              <span class="icon">📍</span> Bangil, Pasuruan
+            </a>
+          </div>
+          
+          <p class="company-info" style="margin-top: 2rem; font-size: 0.9rem;">
+            Jam Operasional: Senin - Sabtu: 08:00 - 17:00 | Minggu: 09:00 - 15:00
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
 
   <script>
     // 表单处理脚本
@@ -594,18 +615,12 @@
         message: document.getElementById('message').value
       };
       
-      // 这里可以添加 AJAX 请求或 WhatsApp 集成
       const whatsappNumber = '6289515692586';
       const message = `Halo JF Gadai, saya ${formData.name} ingin konsultasi tentang gadai ${formData.item}. Nomor saya: ${formData.phone}. Pesan: ${formData.message || 'Tidak ada pesan tambahan'}`;
       const encodedMessage = encodeURIComponent(message);
       
-      // 重定向到 WhatsApp
       window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
-      
-      // 重置表单
       this.reset();
-      
-      // 显示成功消息
       alert('Terima kasih! Anda akan diarahkan ke WhatsApp untuk konsultasi langsung.');
     });
     
@@ -625,18 +640,6 @@
     // 观察所有网格项和快速操作卡
     document.querySelectorAll('.grid-item, .quick-action-card').forEach(item => {
       observer.observe(item);
-    });
-    
-    // 固定头部导航
-    window.addEventListener('scroll', function() {
-      const header = document.querySelector('.site-header');
-      if (window.scrollY > 100) {
-        header.style.background = 'rgba(11, 44, 74, 0.95)';
-        header.style.backdropFilter = 'blur(15px)';
-      } else {
-        header.style.background = 'rgba(11, 44, 74, 0.9)';
-        header.style.backdropFilter = 'blur(10px)';
-      }
     });
   </script>
 </body>
