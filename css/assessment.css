@@ -1018,29 +1018,42 @@
   opacity: 0.7 !important;
 }
 
-/* Yamaha Base64 Logo样式 */
-.brand-option[data-brand="yamaha"] .yamaha-logo-img {
+/* ========== 修复：Yamaha Logo经典样式 ========== */
+
+/* 经典Yamaha 3音叉Logo */
+.yamaha-classic-logo {
   width: 85px;
-  height: 34px;
-  object-fit: contain;
-  margin-bottom: 12px;
-  filter: brightness(0) invert(1); /* 确保白色显示 */
-  transition: transform 0.3s ease;
+  height: 35px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.brand-option:hover .yamaha-logo-img {
+.yamaha-classic-logo svg {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.brand-option:hover .yamaha-classic-logo svg {
   transform: scale(1.1);
 }
 
-.brand-option[data-brand="yamaha"]:hover .yamaha-logo-img {
-  filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(10deg); /* 悬停时变金色 */
+.brand-option[data-brand="yamaha"]:hover .yamaha-classic-logo svg path,
+.brand-option[data-brand="yamaha"]:hover .yamaha-classic-logo svg text {
+  fill: #f5c542; /* 悬停时变金色 */
 }
 
 /* 手机端调整 */
 @media (max-width: 480px) {
-  .brand-option[data-brand="yamaha"] .yamaha-logo-img {
+  .yamaha-classic-logo {
     width: 75px;
     height: 30px;
+  }
+  
+  .yamaha-classic-logo svg {
+    transform: scale(0.9);
   }
 }
 
