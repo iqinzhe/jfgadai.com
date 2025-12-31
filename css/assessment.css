@@ -1191,3 +1191,12 @@
     padding: 1rem 1.2rem !important;
   }
 }
+
+/* 安全连接提示（页脚通用） */
+.security-note {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+  letter-spacing: 0.3px;
+}
