@@ -1018,42 +1018,64 @@
   opacity: 0.7 !important;
 }
 
-/* ========== 修复：Yamaha Logo经典样式 ========== */
+/* ========== Yamaha Logo完全修复 ========== */
 
-/* 经典Yamaha 3音叉Logo */
-.yamaha-classic-logo {
-  width: 85px;
-  height: 35px;
-  margin-bottom: 10px;
+/* 清理所有旧的Yamaha样式 */
+.yamaha-inline-logo,
+.yamaha-fork,
+.yamaha-text,
+.yamaha-classic-logo,
+.yamaha-simple-logo,
+.yamaha-img-logo {
+  display: none !important;
+}
+
+/* 新的Yamaha Logo样式 */
+.yamaha-logo {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 12px;
+  width: 85px;
+  height: 40px;
 }
 
-.yamaha-classic-logo svg {
-  width: 100%;
-  height: 100%;
-  transition: all 0.3s ease;
+.yamaha-symbol {
+  font-size: 24px;
+  margin-bottom: 4px;
+  color: white;
 }
 
-.brand-option:hover .yamaha-classic-logo svg {
-  transform: scale(1.1);
+.yamaha-name {
+  font-family: 'Arial Black', 'Arial Bold', sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  color: white;
+  letter-spacing: 1.2px;
+  text-align: center;
 }
 
-.brand-option[data-brand="yamaha"]:hover .yamaha-classic-logo svg path,
-.brand-option[data-brand="yamaha"]:hover .yamaha-classic-logo svg text {
-  fill: #f5c542; /* 悬停时变金色 */
+/* 悬停效果 */
+.brand-option[data-brand="yamaha"]:hover .yamaha-symbol,
+.brand-option[data-brand="yamaha"]:hover .yamaha-name {
+  color: #f5c542;
 }
 
 /* 手机端调整 */
 @media (max-width: 480px) {
-  .yamaha-classic-logo {
+  .yamaha-logo {
     width: 75px;
-    height: 30px;
+    height: 35px;
   }
   
-  .yamaha-classic-logo svg {
-    transform: scale(0.9);
+  .yamaha-symbol {
+    font-size: 20px;
+  }
+  
+  .yamaha-name {
+    font-size: 12px;
+    letter-spacing: 1px;
   }
 }
 
