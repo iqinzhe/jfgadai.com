@@ -6,6 +6,42 @@
   <title>Penilaian Online Motor | JF Gadai</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/assessment.css">
+  <style>
+    /* 添加品牌Logo样式 */
+    .brand-logo-img {
+      width: 70px;
+      height: 35px;
+      object-fit: contain;
+      margin-bottom: 8px;
+      transition: transform 0.3s ease;
+    }
+    
+    .brand-option:hover .brand-logo-img {
+      transform: scale(1.1);
+    }
+    
+    .brand-option[data-brand="honda"] .brand-logo-img {
+      filter: brightness(0.9) contrast(1.1);
+    }
+    
+    .brand-option[data-brand="yamaha"] .brand-logo-img {
+      filter: contrast(1.1);
+    }
+    
+    /* 移除其他品牌的相关样式 */
+    .brand-selection {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    
+    @media (max-width: 480px) {
+      .brand-logo-img {
+        width: 60px;
+        height: 30px;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- 头部导航 -->
@@ -28,7 +64,7 @@
         </div>
         <div class="stat-item">
           <span class="stat-number">🎯</span>
-          <span class="stat-text">Akurat 95%</span>
+          <span class="stat-text">Akurat 80%</span>
         </div>
         <div class="stat-item">
           <span class="stat-number">🛡️</span>
@@ -54,25 +90,21 @@
         <div class="form-step active" id="step1">
           <h2>📋 Data Motor Anda</h2>
           
-          <!-- 品牌选择 -->
+          <!-- 品牌选择 - 已修改为正式Logo -->
           <div class="form-group">
             <label for="brand">Merek Motor</label>
             <div class="brand-selection">
               <div class="brand-option" data-brand="honda">
-                <img src="https://cdn-icons-png.flaticon.com/512/824/824239.png" alt="Honda" class="brand-icon">
+                <!-- Honda 官方Logo -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honda_Logo.svg/320px-Honda_Logo.svg.png" 
+                     alt="Honda" class="brand-logo-img">
                 <span>Honda</span>
               </div>
               <div class="brand-option" data-brand="yamaha">
-                <img src="https://cdn-icons-png.flaticon.com/512/5962/5962588.png" alt="Yamaha" class="brand-icon">
+                <!-- Yamaha 官方Logo -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Yamaha_logo.svg/320px-Yamaha_logo.svg.png" 
+                     alt="Yamaha" class="brand-logo-img">
                 <span>Yamaha</span>
-              </div>
-              <div class="brand-option" data-brand="suzuki">
-                <img src="https://cdn-icons-png.flaticon.com/512/5962/5962589.png" alt="Suzuki" class="brand-icon">
-                <span>Suzuki</span>
-              </div>
-              <div class="brand-option" data-brand="lainnya">
-                <div class="brand-icon">🏍️</div>
-                <span>Lainnya</span>
               </div>
             </div>
             <input type="hidden" id="brand" name="brand" required>
@@ -440,5 +472,46 @@
   </footer>
 
   <script src="js/assessment.js"></script>
+  <script>
+    // 简化的车型数据（只包含Honda和Yamaha）
+    const brandModels = {
+      honda: ["Beat", "Vario", "Scoopy", "PCX", "CBR", "CRF", "Revo", "Supra", "Genio", "Adv"],
+      yamaha: ["NMAX", "Aerox", "Mio", "Fino", "XMAX", "R15", "WR155", "Vega", "Jupiter", "FreeGo"]
+    };
+    
+    // 品牌选择逻辑
+    document.addEventListener('DOMContentLoaded', function() {
+      const brandOptions = document.querySelectorAll('.brand-option');
+      const brandInput = document.getElementById('brand');
+      const modelSelect = document.getElementById('model');
+      
+      brandOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          // 移除所有选中状态
+          brandOptions.forEach(opt => opt.classList.remove('selected'));
+          
+          // 添加当前选中状态
+          this.classList.add('selected');
+          
+          // 设置隐藏输入值
+          const brand = this.getAttribute('data-brand');
+          brandInput.value = brand;
+          
+          // 启用并填充车型下拉框
+          modelSelect.disabled = false;
+          modelSelect.innerHTML = '<option value="">Pilih model...</option>';
+          
+          if (brandModels[brand]) {
+            brandModels[brand].forEach(model => {
+              const option = document.createElement('option');
+              option.value = model.toLowerCase();
+              option.textContent = model;
+              modelSelect.appendChild(option);
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
