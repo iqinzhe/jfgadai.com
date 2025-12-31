@@ -185,44 +185,25 @@
         <div class="form-step active" id="step1">
           <h2>📋 Data Motor Anda</h2>
           
-          <!-- 品牌选择 - 修复版 -->
-          <div class="form-group">
-            <label for="brand">Merek Motor</label>
-            <div class="brand-selection">
-              <div class="brand-option" data-brand="honda">
-                <!-- Honda Logo -->
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honda_Logo.svg/320px-Honda_Logo.svg.png" 
-                     alt="Honda" class="brand-logo-img">
-                <span>Honda</span>
-              </div>
-              <div class="brand-option" data-brand="yamaha">
-                <!-- 内联SVG Yamaha Logo（白色带音叉） -->
-                <div class="yamaha-inline-logo">
-                  <svg viewBox="0 0 200 60" width="80" height="24">
-                    <defs>
-                      <style>
-                        .yamaha-fork { fill: #FFFFFF; }
-                        .yamaha-text { 
-                          fill: #FFFFFF; 
-                          font-family: Arial, sans-serif; 
-                          font-weight: bold; 
-                          font-size: 22px; 
-                        }
-                      </style>
-                    </defs>
-                    <!-- 音叉符号 -->
-                    <path class="yamaha-fork" d="M10,20 L10,40 L20,40 L20,30 L30,30 L30,40 L40,40 L40,20 L30,20 L30,25 L20,25 L20,20 L10,20 Z
-                                              M45,20 L45,40 L55,40 L55,25 L60,25 L60,20 L45,20 Z"/>
-                    <!-- YAMAHA文字 -->
-                    <text class="yamaha-text" x="70" y="38">YAMAHA</text>
-                  </svg>
-                </div>
-                <span>Yamaha</span>
-              </div>
-            </div>
-            <input type="hidden" id="brand" name="brand" required>
-          </div>
-
+<!-- 品牌选择 - 修复版 -->
+<div class="form-group">
+  <label for="brand">Merek Motor</label>
+  <div class="brand-selection">
+    <div class="brand-option" data-brand="honda">
+      <!-- Honda Logo -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honda_Logo.svg/320px-Honda_Logo.svg.png" 
+           alt="Honda" class="brand-logo-img">
+      <span>Honda</span>
+    </div>
+    <div class="brand-option" data-brand="yamaha">
+      <!-- 最可靠方案：Base64编码的Yamaha SVG Logo -->
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgODAiIHdpZHRoPSI4NSIgaGVpZ2h0PSIzNCI+CiAgPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTE1LDI1IEwxNSw1NSBMMjUsNTUgTDI1LDQwIEwzNSw0MCBMMzUsNTUgTDQ1LDU1IEw0NSwyNSBMMzUsMjUgTDM1LDM1IEwyNSwzNSBMMjUsMjUgTDE1LDI1IFogTTUwLDI1IEw1MCw1NSBMNjAsNTUgTDYwLDM1IEw2NSwzNSBMNjUsMjUgTDUwLDI1IFoiLz4KICA8dGV4dCB4PSI4NSIgeT0iNTIiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiNGRkZGRkYiPllBTUFIQTwvdGV4dD4KPC9zdmc+" 
+           alt="Yamaha" class="brand-logo-img yamaha-logo-img">
+      <span>Yamaha</span>
+    </div>
+  </div>
+  <input type="hidden" id="brand" name="brand" required>
+</div>
           <!-- 车型选择（动态加载） -->
           <div class="form-group">
             <label for="model">Model Motor</label>
