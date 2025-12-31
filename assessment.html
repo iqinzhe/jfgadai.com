@@ -24,6 +24,11 @@
       filter: brightness(0.9) contrast(1.1);
     }
     
+    /* Yamaha Logo 特殊样式 - 添加红色调 */
+    .brand-option[data-brand="yamaha"] .brand-logo-img {
+      filter: brightness(1.05) sepia(1) hue-rotate(-10deg) saturate(3.5);
+    }
+    
     /* 照片预览样式 */
     .upload-preview {
       position: absolute;
@@ -98,14 +103,9 @@
         padding: 1.5rem 0.8rem !important;
       }
 
-      .yamaha-inline-logo {
-        width: 70px;
-        height: 21px;
-      }
-
-      .yamaha-inline-logo svg {
-        width: 70px;
-        height: 21px;
+      .brand-logo-img {
+        width: 60px;
+        height: 30px;
       }
     }
   </style>
@@ -157,22 +157,20 @@
         <div class="form-step active" id="step1">
           <h2>📋 Data Motor Anda</h2>
           
-<!-- 品牌选择 - 完全修复版 -->
+<!-- 品牌选择 - 已修复 Yamaha Logo -->
 <div class="form-group">
   <label for="brand">Merek Motor</label>
   <div class="brand-selection">
     <div class="brand-option" data-brand="honda">
-      <!-- Honda Logo - 保持不变 -->
+      <!-- Honda Logo -->
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honda_Logo.svg/320px-Honda_Logo.svg.png" 
            alt="Honda" class="brand-logo-img">
       <span>Honda</span>
     </div>
     <div class="brand-option" data-brand="yamaha">
-      <!-- Yamaha Logo - 最简单的文字方案 -->
-      <div class="yamaha-logo">
-        <div class="yamaha-symbol">🎵</div>
-        <div class="yamaha-name">YAMAHA</div>
-      </div>
+      <!-- Yamaha Logo - 红色版本，包含三个音叉和YAMAHA文字 -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Yamaha_logo.svg/800px-Yamaha_logo.svg.png" 
+           alt="Yamaha" class="brand-logo-img">
       <span>Yamaha</span>
     </div>
   </div>
