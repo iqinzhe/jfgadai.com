@@ -48,7 +48,10 @@ body {
   width: 100%;
   height: 25vh;
   overflow: hidden;
-  position: relative;
+  position: sticky; /* 改为 sticky 固定定位 */
+  top: 0; /* 固定在顶部 */
+  z-index: 100; /* 确保在最上层 */
+  background: linear-gradient(135deg, #0b2c4a 0%, #0e4b6e 100%); /* 添加背景色，避免透明 */
 }
 
 .full-banner img {
@@ -76,7 +79,7 @@ body {
   display: flex;
   justify-content: center;
   gap: var(--spacing-md);
-  margin: var(--spacing-md) auto;
+  margin: var(--spacing-sm) auto 0; /* 上方间距减小，顶部紧贴横幅 */
   max-width: 1200px;
   padding: 0 var(--spacing-md);
   flex-wrap: wrap;
@@ -612,6 +615,7 @@ footer {
     flex-direction: column; 
     align-items: center;
     gap: var(--spacing-sm);
+    margin-top: var(--spacing-xs); /* 移动端进一步减小顶部间距 */
   }
   
   .quick-action-card { 
@@ -627,11 +631,13 @@ footer {
 
 @media (max-width: 768px) {
   .full-banner {
-    height: 60vh;
+    height: 15vh; /* 移动端保持适当高度 */
+    position: sticky; /* 移动端也固定 */
+    top: 0;
   }
   
   .quick-actions {
-    margin: 0.75rem auto;
+    margin: 0.5rem auto 0; /* 手机端顶部间距进一步减小 */
     padding: 0 var(--spacing-sm);
     gap: 0.75rem;
   }
@@ -742,16 +748,18 @@ footer {
   }
   
   .full-banner { 
-    height: 50vh;
+    height: 15vh;
   }
   
   .quick-actions { 
-    margin: 0.5rem auto;
+    margin: 0.4rem auto 0; /* 超小屏幕顶部间距最小化 */
     padding: 0 0.5rem;
+    gap: 0.5rem; /* 卡片之间的间隙也减小 */
   }
   
   .quick-action-card {
     padding: var(--spacing-sm);
+    margin-bottom: 0.25rem; /* 底部间距也减小 */
   }
   
   .action-icon {
@@ -841,4 +849,3 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-
