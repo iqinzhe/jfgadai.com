@@ -1,9 +1,4 @@
 // ==================== JF Gadai - Penilaian Online Motor ====================
-// File: js/assessment.js (专业评估系统版)
-// Tanggal: 2025
-// Fungsi: Sistem penilaian online motor untuk gadai dengan estimasi range
-
-// Database model motor Indonesia (只保留Honda和Yamaha)
 const motorModels = {
   honda: [
     { id: 'beat', name: 'Honda Beat', basePrice: 8000000 },
@@ -61,44 +56,51 @@ document.addEventListener('DOMContentLoaded', function() {
 // ==================== BRAND SELECTION ====================
 function initBrandSelection() {
   const brandOptions = document.querySelectorAll('.brand-option');
+  const brandInput = document.getElementById('brand');
   const modelSelect = document.getElementById('model');
-  
+
+  if (!brandOptions.length || !modelSelect) {
+    console.warn('Brand or model element missing');
+    return;
+  }
+
   brandOptions.forEach(option => {
-    option.addEventListener('click', function() {
+    option.addEventListener('click', function () {
       brandOptions.forEach(opt => opt.classList.remove('active'));
       this.classList.add('active');
-      
+
       const brand = this.dataset.brand;
-      document.getElementById('brand').value = brand;
-      
+
+      if (brandInput) {
+        brandInput.value = brand;
+      }
+
       modelSelect.disabled = false;
       modelSelect.innerHTML = '<option value="">Pilih model motor</option>';
-      
-      if (motorModels[brand]) {
+
+      if (motorModels && motorModels[brand]) {
         motorModels[brand].forEach(model => {
-          const option = document.createElement('option');
-          option.value = model.id;
-          option.textContent = model.name;
-          option.dataset.basePrice = model.basePrice;
-          modelSelect.appendChild(option);
+          const opt = document.createElement('option');
+          opt.value = model.id;
+          opt.textContent = model.name;
+          opt.dataset.basePrice = model.basePrice;
+          modelSelect.appendChild(opt);
         });
       }
-      
-      setTimeout(() => {
-        if (modelSelect.options.length > 1) {
-          modelSelect.selectedIndex = 1;
-        }
-      }, 100);
+
+      if (modelSelect.options.length > 1) {
+        modelSelect.selectedIndex = 1;
+      }
     });
   });
-  
-  setTimeout(() => {
-    const hondaOption = document.querySelector('.brand-option[data-brand="honda"]');
-    if (hondaOption) {
-      hondaOption.click();
-    }
-  }, 200);
+
+  // 默认选中 Honda
+  const hondaOption = document.querySelector('.brand-option[data-brand="honda"]');
+  if (hondaOption) {
+    hondaOption.click();
+  }
 }
+
 
 // ==================== YEAR SELECTION ====================
 function initYearSelect() {
