@@ -186,17 +186,17 @@
   font-size: 1.8rem;
 }
 
-/* 品牌选择 */
+/* 品牌选择 - 已修改为两列 */
 .brand-selection {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-top: 0.5rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .brand-selection {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 
@@ -217,18 +217,13 @@
 .brand-option:hover {
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
+  border-color: var(--secondary-color);
 }
 
 .brand-option.active {
   border-color: var(--secondary-color);
   background: rgba(245, 197, 66, 0.1);
-}
-
-.brand-icon {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 15px rgba(245, 197, 66, 0.2);
 }
 
 .brand-option span {
@@ -356,7 +351,7 @@
   line-height: 1.4;
 }
 
-/* 照片上传 */
+/* 照片上传 - 已修复 */
 .photo-upload {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -366,11 +361,18 @@
 
 @media (max-width: 768px) {
   .photo-upload {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-upload {
     grid-template-columns: 1fr;
   }
 }
 
 .upload-area {
+  position: relative;
   background: rgba(255, 255, 255, 0.05);
   border: 2px dashed rgba(255, 255, 255, 0.2);
   border-radius: var(--border-radius);
@@ -382,14 +384,17 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  height: 120px;
+  overflow: hidden;
 }
 
 .upload-area:hover {
   border-color: var(--secondary-color);
   background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }
 
-.upload-area.has-photo {
+.upload-area.has-image {
   border-style: solid;
   border-color: var(--secondary-color);
   background: rgba(245, 197, 66, 0.05);
@@ -398,11 +403,13 @@
 .upload-icon {
   font-size: 2rem;
   opacity: 0.7;
+  transition: opacity 0.3s ease;
 }
 
 .upload-text {
   color: var(--text-light);
   font-size: 0.9rem;
+  transition: opacity 0.3s ease;
 }
 
 /* 表单导航 */
