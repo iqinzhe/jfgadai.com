@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/assessment.css">
   <style>
-    /* 添加品牌Logo样式 */
+    /* 品牌Logo样式 */
     .brand-logo-img {
       width: 70px;
       height: 35px;
       object-fit: contain;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       transition: transform 0.3s ease;
     }
     
@@ -28,18 +28,49 @@
       filter: contrast(1.1);
     }
     
-    /* 移除其他品牌的相关样式 */
-    .brand-selection {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+    /* 照片预览样式 */
+    .upload-preview {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      display: none;
     }
     
-    @media (max-width: 480px) {
-      .brand-logo-img {
-        width: 60px;
-        height: 30px;
-      }
+    .upload-area.has-image .upload-preview {
+      display: block;
+    }
+    
+    .upload-area.has-image .upload-icon,
+    .upload-area.has-image .upload-text {
+      display: none;
+    }
+    
+    /* 移除照片按钮 */
+    .remove-photo {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 25px;
+      height: 25px;
+      background-color: rgba(231, 76, 60, 0.9);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+    }
+    
+    .upload-area.has-image:hover .remove-photo {
+      opacity: 1;
     }
   </style>
 </head>
@@ -311,7 +342,7 @@
             </select>
           </div>
 
-          <!-- 照片上传 -->
+          <!-- 照片上传 - 已修复 -->
           <div class="form-group">
             <label>Foto Motor (Opsional, tapi membantu)</label>
             <div class="photo-upload">
@@ -328,7 +359,7 @@
                 <span class="upload-text">Samping</span>
               </div>
             </div>
-            <input type="file" id="photoInput" multiple accept="image/*" style="display: none;">
+            <input type="file" id="photoInput" accept="image/*" style="display: none;">
           </div>
 
           <div class="form-note">
@@ -472,46 +503,5 @@
   </footer>
 
   <script src="js/assessment.js"></script>
-  <script>
-    // 简化的车型数据（只包含Honda和Yamaha）
-    const brandModels = {
-      honda: ["Beat", "Vario", "Scoopy", "PCX", "CBR", "CRF", "Revo", "Supra", "Genio", "Adv"],
-      yamaha: ["NMAX", "Aerox", "Mio", "Fino", "XMAX", "R15", "WR155", "Vega", "Jupiter", "FreeGo"]
-    };
-    
-    // 品牌选择逻辑
-    document.addEventListener('DOMContentLoaded', function() {
-      const brandOptions = document.querySelectorAll('.brand-option');
-      const brandInput = document.getElementById('brand');
-      const modelSelect = document.getElementById('model');
-      
-      brandOptions.forEach(option => {
-        option.addEventListener('click', function() {
-          // 移除所有选中状态
-          brandOptions.forEach(opt => opt.classList.remove('selected'));
-          
-          // 添加当前选中状态
-          this.classList.add('selected');
-          
-          // 设置隐藏输入值
-          const brand = this.getAttribute('data-brand');
-          brandInput.value = brand;
-          
-          // 启用并填充车型下拉框
-          modelSelect.disabled = false;
-          modelSelect.innerHTML = '<option value="">Pilih model...</option>';
-          
-          if (brandModels[brand]) {
-            brandModels[brand].forEach(model => {
-              const option = document.createElement('option');
-              option.value = model.toLowerCase();
-              option.textContent = model;
-              modelSelect.appendChild(option);
-            });
-          }
-        });
-      });
-    });
-  </script>
 </body>
 </html>
