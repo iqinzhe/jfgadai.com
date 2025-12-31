@@ -1,9 +1,9 @@
 // ==================== JF Gadai - Penilaian Online Motor ====================
-// File: js/assessment.js
+// File: js/assessment.js (已修复照片上传问题)
 // Tanggal: 2025
 // Fungsi: Sistem penilaian online motor untuk gadai
 
-// Database model motor Indonesia
+// Database model motor Indonesia (只保留Honda和Yamaha)
 const motorModels = {
   honda: [
     { id: 'beat', name: 'Honda Beat', basePrice: 8000000 },
@@ -26,19 +26,17 @@ const motorModels = {
     { id: 'mt15', name: 'Yamaha MT-15', basePrice: 14500000 },
     { id: 'xmax', name: 'Yamaha XMAX', basePrice: 28000000 },
     { id: 'jupiter', name: 'Yamaha Jupiter', basePrice: 7000000 }
-  ],
-  suzuki: [
-    { id: 'nex', name: 'Suzuki Nex', basePrice: 8000000 },
-    { id: 'address', name: 'Suzuki Address', basePrice: 8500000 },
-    { id: 'gsx', name: 'Suzuki GSX', basePrice: 13000000 },
-    { id: 'satria', name: 'Suzuki Satria', basePrice: 7500000 }
-  ],
-  lainnya: [
-    { id: 'vespa', name: 'Vespa', basePrice: 20000000 },
-    { id: 'kawasaki', name: 'Kawasaki', basePrice: 12000000 },
-    { id: 'lainnya', name: 'Lainnya', basePrice: 7000000 }
   ]
 };
+
+// 存储照片数据
+const photoData = {
+  uploadFront: null,
+  uploadBack: null,
+  uploadSide: null
+};
+
+let currentUploadArea = null;
 
 // ==================== INITIALIZATION ====================
 document.addEventListener('DOMContentLoaded', function() {
@@ -48,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initBrandSelection();
   initYearSelect();
   initMileageSlider();
-  initPhotoUpload();
+  initPhotoUpload(); // 已修复
   initFAQ();
   
   // Set default values
@@ -158,25 +156,107 @@ function updateMileageLabels(value) {
   }
 }
 
-// ==================== PHOTO UPLOAD ====================
+// ==================== PHOTO UPLOAD - 已修复 ====================
 function initPhotoUpload() {
   const uploadAreas = document.querySelectorAll('.upload-area');
   const fileInput = document.getElementById('photoInput');
   
   if (!uploadAreas.length || !fileInput) return;
   
+  // 为每个上传区域添加点击事件
   uploadAreas.forEach(area => {
-    area.addEventListener('click', function() {
-      fileInput.click();
+    area.addEventListener('click', function(e) {
+      // 阻止事件冒泡，防止移除按钮触发上传
+      if (e.target.closest('.remove-photo')) return;
+      
+      currentUploadArea = this.id; // 记录当前点击的区域
+      fileInput.click(); // 触发文件选择
     });
+    
+    // 添加移除照片按钮
+    const removeBtn = document.createElement('div');
+    removeBtn.className = 'remove-photo';
+    removeBtn.innerHTML = '×';
+    removeBtn.addEventListener('click', function(e) {
+      e.stopPropagation(); // 阻止冒泡
+      
+      const areaId = this.parentElement.id;
+      clearPhoto(areaId);
+    });
+    area.appendChild(removeBtn);
   });
   
+  // 文件选择变化事件
   fileInput.addEventListener('change', function(e) {
-    if (this.files.length > 0) {
-      uploadAreas[0].classList.add('has-photo');
-      uploadAreas[0].innerHTML = '<span class="upload-icon">✅</span><span class="upload-text">Terupload</span>';
+    if (!currentUploadArea || !this.files || this.files.length === 0) return;
+    
+    const file = this.files[0];
+    if (!file.type.startsWith('image/')) {
+      alert('Silakan pilih file gambar (JPG, PNG, dll.)');
+      return;
     }
+    
+    // 预览照片
+    previewPhoto(file, currentUploadArea);
+    
+    // 存储照片数据
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      photoData[currentUploadArea] = e.target.result;
+    };
+    reader.readAsDataURL(file);
+    
+    // 重置文件输入，允许再次选择同一文件
+    this.value = '';
   });
+}
+
+// 预览照片函数
+function previewPhoto(file, areaId) {
+  const area = document.getElementById(areaId);
+  if (!area) return;
+  
+  // 移除已有的预览
+  const existingPreview = area.querySelector('.upload-preview');
+  if (existingPreview) {
+    existingPreview.remove();
+  }
+  
+  // 创建新的预览
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const img = document.createElement('img');
+    img.className = 'upload-preview';
+    img.src = e.target.result;
+    img.alt = 'Preview foto motor';
+    
+    area.appendChild(img);
+    area.classList.add('has-image');
+  };
+  reader.readAsDataURL(file);
+}
+
+// 清除照片函数
+function clearPhoto(areaId) {
+  const area = document.getElementById(areaId);
+  if (!area) return;
+  
+  // 移除预览
+  const preview = area.querySelector('.upload-preview');
+  if (preview) {
+    preview.remove();
+  }
+  
+  // 移除has-image类
+  area.classList.remove('has-image');
+  
+  // 清除存储的数据
+  photoData[areaId] = null;
+}
+
+// 获取所有照片数据
+function getPhotoData() {
+  return photoData;
 }
 
 // ==================== FAQ INTERACTION ====================
@@ -507,11 +587,30 @@ function resetForm() {
   
   // Reset photos
   document.querySelectorAll('.upload-area').forEach(area => {
-    area.classList.remove('has-photo');
+    area.classList.remove('has-image');
+    const preview = area.querySelector('.upload-preview');
+    if (preview) preview.remove();
+    
     const text = area.id === 'uploadFront' ? 'Depan' : 
                  area.id === 'uploadBack' ? 'Belakang' : 'Samping';
     area.innerHTML = `<span class="upload-icon">📷</span><span class="upload-text">${text}</span>`;
+    
+    // 重新添加移除按钮
+    const removeBtn = document.createElement('div');
+    removeBtn.className = 'remove-photo';
+    removeBtn.innerHTML = '×';
+    removeBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      clearPhoto(area.id);
+    });
+    area.appendChild(removeBtn);
   });
+  
+  // 重置照片数据
+  photoData.uploadFront = null;
+  photoData.uploadBack = null;
+  photoData.uploadSide = null;
+  currentUploadArea = null;
   
   // Reset progress
   updateProgressBar(1);
