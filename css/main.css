@@ -636,7 +636,7 @@ footer {
 
 @media (max-width: 768px) {
   .full-banner {
-    height: 60vh;
+  
   }
   
   .quick-actions {
@@ -751,7 +751,7 @@ footer {
   }
   
   .full-banner { 
-    height: 50vh;
+    
   }
   
   .quick-actions { 
