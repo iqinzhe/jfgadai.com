@@ -46,37 +46,36 @@ body {
 /* ==================== 通用横幅样式 ==================== */
 .full-banner {
   width: 100%;
-  height: 180px; /* 桌面端固定高度 */
+  height: 300px; /* 改为300px，让横幅变大 */
   overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--dark-color);
+  background-color: var(--dark-color); /* 添加背景色 */
 }
 
 .full-banner img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center center; /* 改为居中 */
+  object-fit: cover; /* 改为cover，填满整个栏框 */
+  object-position: center center; /* 居中显示 */
   display: block;
 }
 
-/* 手机端调整 */
 @media (max-width: 768px) {
   .full-banner {
-    height: 120px; /* 手机端高度 */
+    height: 250px; /* 手机端也调高 */
   }
 }
 
 @media (max-width: 480px) {
   .full-banner {
-    height: 100px; /* 小手机高度 */
+    height: 200px; /* 小手机调高 */
   }
   
   .full-banner img {
-    max-width: 95%; /* 小手机留点边距 */
+    object-fit: contain; /* 小手机保持完整显示 */
   }
 }
 
