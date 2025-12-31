@@ -1018,8 +1018,6 @@
   opacity: 0.7 !important;
 }
 
-/* ========== 修复：Yamaha Logo样式 ========== */
-
 /* Yamaha Base64 Logo样式 */
 .brand-option[data-brand="yamaha"] .yamaha-logo-img {
   width: 85px;
@@ -1036,13 +1034,6 @@
 
 .brand-option[data-brand="yamaha"]:hover .yamaha-logo-img {
   filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(10deg); /* 悬停时变金色 */
-}
-
-/* 删除旧的Yamaha样式（如果存在） */
-.yamaha-inline-logo,
-.yamaha-fork,
-.yamaha-text {
-  display: none;
 }
 
 /* 手机端调整 */
