@@ -173,11 +173,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <form id="motorAssessmentForm" class="assessment-form">
-        <!-- 步骤1: 摩托车基本信息 -->
-        <div class="form-step active" id="step1">
-          <h2>📋 Data Motor Anda</h2>
-          
-<div class="brand-selection">
+
+        <div class="brand-selection">
 
   <!-- Honda -->
   <div class="brand-option active" data-brand="honda">
@@ -185,8 +182,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Honda_Logo.svg"
       alt="Honda Motor"
       class="brand-logo-img"
+      draggable="false"
     />
-    <span>Honda</span>
+    <span class="brand-name">Honda</span>
   </div>
 
   <!-- Yamaha -->
@@ -195,11 +193,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       src="https://upload.wikimedia.org/wikipedia/commons/6/69/Yamaha_logo.svg"
       alt="Yamaha Motor"
       class="brand-logo-img"
+      draggable="false"
     />
-    <span>Yamaha</span>
+    <span class="brand-name">Yamaha</span>
   </div>
 
 </div>
+
 
           <!-- 车型选择（动态加载） -->
           <div class="form-group">
