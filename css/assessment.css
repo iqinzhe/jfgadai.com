@@ -842,47 +842,32 @@
 
 /* ========== 修复：Yamaha Logo样式 ========== */
 
-/* Logo容器 */
-.brand-logo-img {
-  width: 75px;
-  height: 38px;
-  object-fit: contain;
+/* 内联Yamaha Logo样式 */
+.yamaha-inline-logo {
+  width: 80px;
+  height: 24px;
   margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.yamaha-inline-logo svg {
+  width: 100%;
+  height: 100%;
   transition: transform 0.3s ease;
 }
 
-/* Yamaha Logo备用方案 */
-.brand-option[data-brand="yamaha"] .brand-logo-img {
-  filter: none !important;
-  background-color: white;
-  padding: 4px;
-  border-radius: 4px;
+.brand-option:hover .yamaha-inline-logo svg {
+  transform: scale(1.1);
 }
 
-/* Logo加载失败时显示文字 */
-.brand-logo-img[src=""],
-.brand-logo-img:not([src]) {
-  display: none !important;
+.brand-option[data-brand="yamaha"]:hover .yamaha-fork {
+  fill: #f5c542;
 }
 
-.brand-option[data-brand="honda"] .brand-logo-fallback {
-  display: none;
-  font-family: 'Arial Black', sans-serif;
-  font-size: 1.6rem;
-  color: #E40521;
-  font-weight: 900;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-}
-
-.brand-option[data-brand="yamaha"] .brand-logo-fallback {
-  display: none;
-  font-family: 'Arial', sans-serif;
-  font-size: 1.4rem;
-  color: #003399;
-  font-weight: bold;
-  font-style: italic;
-  margin-bottom: 12px;
+.brand-option[data-brand="yamaha"]:hover .yamaha-text {
+  fill: #f5c542;
 }
 
 /* ========== 修复：响应式布局问题 ========== */
@@ -915,6 +900,10 @@
   
   .faq-question {
     font-size: 1.1rem !important;
+  }
+  
+  .faq-answer {
+    font-size: 1rem !important;
   }
 }
 
@@ -990,5 +979,18 @@
   
   .option-content {
     padding: 1.2rem 0.8rem !important;
+  }
+  
+  .yamaha-inline-logo {
+    width: 70px !important;
+    height: 21px !important;
+  }
+  
+  .yamaha-inline-logo svg {
+    transform: scale(0.9);
+  }
+  
+  .yamaha-inline-logo text {
+    font-size: 18px !important;
   }
 }
