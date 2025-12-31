@@ -63,32 +63,41 @@ document.addEventListener('DOMContentLoaded', function() {
     const screenHeight = window.innerHeight;
     const screenWidth = window.innerWidth;
     
-    // 更合理的横幅高度设置（可根据需要调整这些值）
-    if (screenWidth < 480) { // 超小手机
-      banner.style.height = '25vh'; // 约120-150px
-    } else if (screenWidth < 768) { // 手机
-      banner.style.height = '30vh'; // 约180-200px
-    } else if (screenWidth < 1024) { // 平板
-      banner.style.height = '35vh'; // 约220-250px
-    } else { // 桌面
-      // 根据屏幕高度调整
-      if (screenHeight > 1000) {
-        banner.style.height = '40vh'; // 约300px
-      } else if (screenHeight > 800) {
-        banner.style.height = '35vh'; // 约250px
-      } else {
-        banner.style.height = '30vh'; // 约200px
-      }
-    }
-    
-    // 确保图片正确显示
-    const bannerImg = banner.querySelector('img');
-    if (bannerImg) {
-      bannerImg.style.objectFit = 'contain';
-      bannerImg.style.objectPosition = 'center center';
+// ==================== 横幅高度调整（优化版） ====================
+function adjustBannerHeight() {
+  const banner = document.querySelector('.full-banner');
+  if (!banner) return;
+  
+  const screenHeight = window.innerHeight;
+  const screenWidth = window.innerWidth;
+  
+  // 调整横幅栏框高度（可根据需要修改）
+  if (screenWidth < 480) { // 超小手机
+    banner.style.height = '30vh'; // 增加高度
+  } else if (screenWidth < 768) { // 手机
+    banner.style.height = '35vh';
+  } else if (screenWidth < 1024) { // 平板
+    banner.style.height = '40vh';
+  } else { // 桌面
+    if (screenHeight > 1000) {
+      banner.style.height = '50vh'; // 大屏幕增加高度
+    } else if (screenHeight > 800) {
+      banner.style.height = '45vh';
+    } else {
+      banner.style.height = '40vh';
     }
   }
   
+  // 强制图片填满整个栏框
+  const bannerImg = banner.querySelector('img');
+  if (bannerImg) {
+    bannerImg.style.width = '100%';
+    bannerImg.style.height = '100%';
+    bannerImg.style.objectFit = 'cover'; // 确保填满
+    bannerImg.style.objectPosition = 'center center';
+    bannerImg.style.display = 'block';
+  }
+}
   // 初始化横幅高度
   adjustBannerHeight();
   
