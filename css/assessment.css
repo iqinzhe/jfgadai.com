@@ -186,15 +186,10 @@
   font-size: 1.8rem;
 }
 
-/* ===============================
-   Brand Selection (Yamaha / Honda)
-   =============================== */
-
 .brand-selection {
   display: flex;
   gap: 24px;
   justify-content: center;
-  align-items: center;
   margin: 24px 0;
 }
 
@@ -205,6 +200,7 @@
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.04);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
 }
 
 .brand-option:hover {
@@ -212,33 +208,29 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
-/* Logo 通用样式 */
+.brand-option.active {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Logo */
 .brand-logo-img {
   width: 88px;
   height: 42px;
   object-fit: contain;
   display: block;
   margin: 0 auto 8px;
+  pointer-events: none;   /* ⭐ 关键：事件交给父级 */
 }
 
-/* 文字 */
-.brand-option span {
+/* 文本 */
+.brand-name {
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.3px;
-}
-
-/* 选中状态（不使用 filter，避免 SVG 异常） */
-.brand-option.active {
-  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;   /* ⭐ 同上 */
 }
 
 /* 手机端 */
 @media (max-width: 600px) {
-  .brand-selection {
-    gap: 16px;
-  }
-
   .brand-logo-img {
     width: 72px;
     height: 36px;
