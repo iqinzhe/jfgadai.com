@@ -998,3 +998,25 @@
     padding: 1.2rem 0.8rem !important;
   }
 }
+
+/* ===============================
+   Model Motor 下拉框 深色主题修复
+   =============================== */
+
+#model {
+  background-color: #0b2c4a;   /* 深宝石蓝 */
+  color: #ffffff;              /* 文字白色 */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 下拉选项（大多数浏览器生效） */
+#model option {
+  background-color: #0b2c4a;
+  color: #ffffff;
+}
+
+/* 禁用状态 */
+#model:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
