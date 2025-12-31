@@ -91,7 +91,7 @@ body {
   
   .full-banner img {
     object-fit: contain; /* 小手机完整显示 */
-  }
+  }·
   
   /* 保持其他响应式样式不变 */
   :root { 
