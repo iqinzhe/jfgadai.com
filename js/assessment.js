@@ -58,7 +58,11 @@ function initBrandSelection() {
   const brandOptions = document.querySelectorAll('.brand-option');
   const brandInput = document.getElementById('brand');
   const modelSelect = document.getElementById('model');
-
+setTimeout(() => {
+  if (modelSelect.options.length > 1) {
+    modelSelect.selectedIndex = 1;    modelSelect.dispatchEvent(new Event('change')); // ← 关键
+  }
+}, 100);
   if (!brandOptions.length || !modelSelect) {
     console.warn('Brand or model element missing');
     return;
