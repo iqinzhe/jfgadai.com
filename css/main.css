@@ -1,3 +1,5 @@
+[file name]: main.css
+[file content begin]
 /* ==================== 基础样式 ==================== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -55,12 +57,23 @@ body {
   background-color: var(--dark-color);
 }
 
+/* 修改横幅内容容器，使其宽度与评估系统栏框一致 */
+.full-banner .container {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  padding: 0 var(--spacing-lg);
+}
+
 .full-banner img {
   width: 100%;
   height: 100%;
+  max-width: 1200px; /* 限制最大宽度与评估系统一致 */
   object-fit: cover;
   object-position: center center;
   display: block;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
 }
 
 /* 响应式调整 */
@@ -68,11 +81,23 @@ body {
   .full-banner {
     height: 220px;
   }
+  
+  .full-banner .container {
+    padding: 0 var(--spacing-lg);
+  }
 }
 
 @media (max-width: 768px) {
   .full-banner {
-    height: 180px; /* 修改这里，覆盖60vh */
+    height: 180px;
+  }
+  
+  .full-banner .container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .full-banner img {
+    border-radius: var(--border-radius);
   }
   
   /* 保持其他响应式样式不变 */
@@ -86,12 +111,17 @@ body {
 
 @media (max-width: 480px) {
   .full-banner {
-    height: 150px; /* 修改这里 */
+    height: 150px;
+  }
+  
+  .full-banner .container {
+    padding: 0 var(--spacing-sm);
   }
   
   .full-banner img {
     object-fit: contain; /* 小手机完整显示 */
-  }·
+    border-radius: calc(var(--border-radius) * 0.8);
+  }
   
   /* 保持其他响应式样式不变 */
   :root { 
@@ -661,7 +691,7 @@ footer {
 
 @media (max-width: 768px) {
   .full-banner {
-  
+    height: 180px;
   }
   
   .quick-actions {
@@ -776,7 +806,7 @@ footer {
   }
   
   .full-banner { 
-    
+    height: 150px;
   }
   
   .quick-actions { 
@@ -875,3 +905,4 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+[file content end]
