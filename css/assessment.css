@@ -186,51 +186,65 @@
   font-size: 1.8rem;
 }
 
-/* 品牌选择 - 已修改为两列 */
-.brand-selection {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-top: 0.5rem;
-}
+/* ===============================
+   Brand Selection (Yamaha / Honda)
+   =============================== */
 
-@media (max-width: 480px) {
-  .brand-selection {
-    grid-template-columns: 1fr;
-  }
+.brand-selection {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  margin: 24px 0;
 }
 
 .brand-option {
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid transparent;
-  border-radius: var(--border-radius);
-  padding: 1.5rem 1rem;
-  text-align: center;
   cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
+  text-align: center;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .brand-option:hover {
-  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
-  border-color: var(--secondary-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
-.brand-option.active {
-  border-color: var(--secondary-color);
-  background: rgba(245, 197, 66, 0.1);
-  box-shadow: 0 4px 15px rgba(245, 197, 66, 0.2);
+/* Logo 通用样式 */
+.brand-logo-img {
+  width: 88px;
+  height: 42px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 8px;
 }
 
+/* 文字 */
 .brand-option span {
-  color: var(--text-light);
+  font-size: 14px;
   font-weight: 600;
-  font-size: 0.9rem;
+  letter-spacing: 0.3px;
 }
+
+/* 选中状态（不使用 filter，避免 SVG 异常） */
+.brand-option.active {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* 手机端 */
+@media (max-width: 600px) {
+  .brand-selection {
+    gap: 16px;
+  }
+
+  .brand-logo-img {
+    width: 72px;
+    height: 36px;
+  }
+}
+
 
 /* 表单项布局 */
 .form-row {
