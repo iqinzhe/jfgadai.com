@@ -340,7 +340,15 @@ function updateProgressBar(step) {
 }
 
 // ==================== FORM VALIDATION ====================
-function validateStep(stepNumber) {
+function
+console.log('STEP1 CHECK', {
+  brand: brand.value,
+  model: model.value,
+  year: year.value,
+  cc: cc.value,
+  mileage: mileage.value
+});
+ validateStep(stepNumber) {
   console.log(`Validating step ${stepNumber}`);
   
   // Step 1: Motor Information
