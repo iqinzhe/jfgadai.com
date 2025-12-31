@@ -783,53 +783,212 @@
 
 /* ========== 修复：表单白色背景问题 ========== */
 
-/* 所有表单输入框、下拉框 */
-select, input[type="text"], input[type="number"], input[type="tel"] {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+/* 更具体的表单控件样式 */
+.assessment-container select,
+.assessment-container input[type="text"],
+.assessment-container input[type="number"],
+.assessment-container input[type="tel"] {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 2px solid rgba(255, 255, 255, 0.25) !important;
   color: white !important;
-  padding: 12px 15px !important;
-  border-radius: 8px !important;
+  padding: 14px 16px !important;
+  border-radius: 10px !important;
   font-size: 16px !important;
   width: 100% !important;
   box-sizing: border-box !important;
+  margin-top: 5px !important;
+  transition: all 0.3s ease !important;
+  font-family: inherit !important;
 }
 
-/* 下拉框箭头样式 */
-select {
+/* 下拉框样式 */
+.assessment-container select {
   appearance: none !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
   background-repeat: no-repeat !important;
-  background-position: right 15px center !important;
-  background-size: 12px !important;
-  padding-right: 40px !important;
+  background-position: right 16px center !important;
+  background-size: 16px !important;
+  padding-right: 45px !important;
+  cursor: pointer !important;
 }
 
 /* 聚焦状态 */
-select:focus, input:focus {
+.assessment-container select:focus,
+.assessment-container input[type="text"]:focus,
+.assessment-container input[type="number"]:focus,
+.assessment-container input[type="tel"]:focus {
   outline: none !important;
   border-color: #f5c542 !important;
-  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.2) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.25) !important;
 }
 
 /* 占位符颜色 */
-::placeholder {
-  color: rgba(255, 255, 255, 0.5) !important;
+.assessment-container ::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
   opacity: 1 !important;
+  font-size: 15px !important;
+}
+
+/* 禁用状态 */
+.assessment-container select:disabled {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  cursor: not-allowed !important;
+  opacity: 0.7 !important;
 }
 
 /* ========== 修复：Yamaha Logo样式 ========== */
 
-/* 确保Logo图片正常显示 */
+/* Logo容器 */
 .brand-logo-img {
-  width: 70px;
-  height: 35px;
+  width: 75px;
+  height: 38px;
   object-fit: contain;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
 }
 
-/* Yamaha Logo特殊处理 */
+/* Yamaha Logo备用方案 */
 .brand-option[data-brand="yamaha"] .brand-logo-img {
-  filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(200deg);
-  /* 将白色转换为Yamaha蓝色 */
+  filter: none !important;
+  background-color: white;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+/* Logo加载失败时显示文字 */
+.brand-logo-img[src=""],
+.brand-logo-img:not([src]) {
+  display: none !important;
+}
+
+.brand-option[data-brand="honda"] .brand-logo-fallback {
+  display: none;
+  font-family: 'Arial Black', sans-serif;
+  font-size: 1.6rem;
+  color: #E40521;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.brand-option[data-brand="yamaha"] .brand-logo-fallback {
+  display: none;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.4rem;
+  color: #003399;
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+/* ========== 修复：响应式布局问题 ========== */
+
+/* 网页端文字大小优化 */
+@media (min-width: 769px) {
+  .assessment-banner h1 {
+    font-size: 2.8rem !important;
+  }
+  
+  .assessment-banner .subtitle {
+    font-size: 1.3rem !important;
+  }
+  
+  .form-step h2 {
+    font-size: 2rem !important;
+  }
+  
+  .condition-section h3 {
+    font-size: 1.2rem !important;
+  }
+  
+  .option-title {
+    font-size: 1.1rem !important;
+  }
+  
+  .option-desc {
+    font-size: 0.9rem !important;
+  }
+  
+  .faq-question {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* 手机端间距优化 */
+@media (max-width: 768px) {
+  .assessment-banner {
+    padding: 2rem 0 1.5rem !important;
+  }
+  
+  .assessment-banner h1 {
+    font-size: 1.8rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+  
+  .assessment-banner .subtitle {
+    font-size: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .progress-bar {
+    margin: 1.5rem auto 2rem !important;
+  }
+  
+  .stats {
+    gap: 1.5rem !important;
+  }
+  
+  .stat-number {
+    font-size: 2rem !important;
+  }
+  
+  .stat-text {
+    font-size: 0.85rem !important;
+  }
+  
+  .form-step h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .form-group {
+    margin-bottom: 1.2rem !important;
+  }
+  
+  .condition-section {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .form-navigation {
+    margin-top: 2rem !important;
+    padding-top: 1.5rem !important;
+  }
+}
+
+/* 小手机优化 */
+@media (max-width: 480px) {
+  .assessment-banner {
+    padding: 1.5rem 0 1rem !important;
+  }
+  
+  .assessment-banner h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  .brand-logo-img {
+    width: 65px !important;
+    height: 32px !important;
+  }
+  
+  .condition-options {
+    gap: 0.8rem !important;
+  }
+  
+  .option-content {
+    padding: 1.2rem 0.8rem !important;
+  }
 }
