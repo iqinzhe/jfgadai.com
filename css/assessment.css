@@ -780,3 +780,56 @@
     transform: translateY(0);
   }
 }
+
+/* ========== 修复：表单白色背景问题 ========== */
+
+/* 所有表单输入框、下拉框 */
+select, input[type="text"], input[type="number"], input[type="tel"] {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  color: white !important;
+  padding: 12px 15px !important;
+  border-radius: 8px !important;
+  font-size: 16px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 下拉框箭头样式 */
+select {
+  appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 15px center !important;
+  background-size: 12px !important;
+  padding-right: 40px !important;
+}
+
+/* 聚焦状态 */
+select:focus, input:focus {
+  outline: none !important;
+  border-color: #f5c542 !important;
+  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.2) !important;
+}
+
+/* 占位符颜色 */
+::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+  opacity: 1 !important;
+}
+
+/* ========== 修复：Yamaha Logo样式 ========== */
+
+/* 确保Logo图片正常显示 */
+.brand-logo-img {
+  width: 70px;
+  height: 35px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Yamaha Logo特殊处理 */
+.brand-option[data-brand="yamaha"] .brand-logo-img {
+  filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(200deg);
+  /* 将白色转换为Yamaha蓝色 */
+}
