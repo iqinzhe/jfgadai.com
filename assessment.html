@@ -455,7 +455,7 @@
           </div>
         </div>
 
-        <!-- 步骤4: 评估结果 -->
+        <!-- 步骤4: 评估结果（优化版） -->
         <div class="form-step" id="step4">
           <h2>💰 Perkiraan Nilai Gadai</h2>
           
@@ -463,33 +463,75 @@
             <div class="estimation-card">
               <div class="estimation-header">
                 <span class="estimation-icon">🏍️</span>
-                <h3>Motor Anda Diperkirakan Bernilai</h3>
+                <h3>Perkiraan Nilai Taksiran Motor Anda</h3>
               </div>
               
               <div class="estimation-value">
-                <span class="currency">Rp</span>
-                <span id="estimatedValue" class="value">5.000.000</span>
-                <span class="range">- Rp <span id="estimatedValueMax">7.500.000</span></span>
+                <div class="value-range">
+                  <div class="range-min">
+                    <span class="range-label">Minimum</span>
+                    <span class="currency">Rp</span>
+                    <span id="estimatedValueMin" class="value">4.250.000</span>
+                  </div>
+                  <div class="range-separator">-</div>
+                  <div class="range-max">
+                    <span class="range-label">Maksimum</span>
+                    <span class="currency">Rp</span>
+                    <span id="estimatedValueMax" class="value">5.750.000</span>
+                  </div>
+                </div>
+                <div class="value-average">
+                  <span class="average-label">Nilai Tengah:</span>
+                  <span class="currency">Rp</span>
+                  <span id="estimatedValueAvg" class="value">5.000.000</span>
+                </div>
               </div>
               
               <div class="estimation-details">
-                <p><strong>Rincian Perhitungan:</strong></p>
+                <p><strong>📊 Faktor Penyesuaian:</strong></p>
                 <ul class="breakdown-list">
-                  <li>Harga dasar: <span id="basePrice">Rp 8.000.000</span></li>
-                  <li>Penyesuaian tahun: <span id="yearAdjustment">-Rp 1.000.000</span></li>
-                  <li>Penyesuaian kilometer: <span id="mileageAdjustment">-Rp 500.000</span></li>
-                  <li>Kondisi mesin: <span id="engineAdjustment">-Rp 300.000</span></li>
-                  <li>Kondisi body: <span id="bodyAdjustment">-Rp 200.000</span></li>
+                  <li>Harga dasar model: <span id="basePrice">Rp 8.000.000</span></li>
+                  <li>Penyesuaian tahun (-<span id="yearPercent">12.5</span>%): <span id="yearAdjustment">-Rp 1.000.000</span></li>
+                  <li>Penyesuaian kilometer (-<span id="mileagePercent">6.25</span>%): <span id="mileageAdjustment">-Rp 500.000</span></li>
+                  <li>Kondisi mesin (-<span id="enginePercent">3.75</span>%): <span id="engineAdjustment">-Rp 300.000</span></li>
+                  <li>Kondisi body (-<span id="bodyPercent">2.5</span>%): <span id="bodyAdjustment">-Rp 200.000</span></li>
+                  <li>Kelengkapan dokumen (-<span id="docPercent">0</span>%): <span id="docAdjustment">Rp 0</span></li>
+                  <li class="total-adjustment">
+                    <strong>Total penyesuaian:</strong> <span id="totalAdjustment">-Rp 2.000.000</span>
+                  </li>
                 </ul>
               </div>
               
+              <div class="adjustment-info">
+                <h4>🔧 Faktor yang Dapat Mempengaruhi Nilai Akhir:</h4>
+                <div class="adjustment-factors">
+                  <div class="factor-item">
+                    <span class="factor-icon">🛠️</span>
+                    <p><strong>Kondisi teknis tambahan</strong> (rem, ban, aki, dll.)</p>
+                  </div>
+                  <div class="factor-item">
+                    <span class="factor-icon">🎨</span>
+                    <p><strong>Modifikasi & aksesoris</strong> (orisinal vs modif)</p>
+                  </div>
+                  <div class="factor-item">
+                    <span class="factor-icon">📅</span>
+                    <p><strong>Permintaan pasar saat ini</strong> untuk model tertentu</p>
+                  </div>
+                  <div class="factor-item">
+                    <span class="factor-icon">📍</span>
+                    <p><strong>Lokasi & kondisi regional</strong> pasar motor bekas</p>
+                  </div>
+                </div>
+              </div>
+              
               <div class="estimation-note">
-                <p><strong>📋 Catatan:</strong></p>
+                <p><strong>📋 Catatan Penting:</strong></p>
                 <ul>
-                  <li>Nilai ini adalah perkiraan awal (70-80% akurat)</li>
-                  <li>Nilai pasti ditentukan setelah inspeksi fisik</li>
-                  <li>Dokumen lengkap (STNK+BPKB) meningkatkan nilai</li>
-                  <li>Motor lebih baru & rendah kilometer = nilai lebih tinggi</li>
+                  <li>Nilai ini adalah <strong>perkiraan awal (75-85% akurat)</strong></li>
+                  <li>Nilai pasti akan ditentukan setelah <strong>inspeksi fisik oleh ahli</strong></li>
+                  <li>Estimasi ini dapat disesuaikan <strong>±15% berdasarkan kondisi aktual</strong></li>
+                  <li>Dokumen lengkap (STNK+BPKB) dapat meningkatkan nilai <strong>10-20%</strong></li>
+                  <li>Motor <strong>lebih baru & rendah kilometer</strong> = nilai lebih tinggi</li>
                 </ul>
               </div>
             </div>
@@ -497,7 +539,7 @@
             <!-- 行动按钮 -->
             <div class="action-buttons">
               <a href="https://wa.me/6289515692586" target="_blank" class="btn-whatsapp">
-                <span>💬 Konsultasi via WhatsApp</span>
+                <span>💬 Konsultasi & Penyesuaian Nilai</span>
               </a>
               
               <button type="button" class="btn-recalculate" onclick="resetForm()">
@@ -509,23 +551,28 @@
               </a>
             </div>
 
-            <!-- 专业提示 -->
-            <div class="expert-tips">
-              <h4>💡 Tips dari Pakar JF Gadai:</h4>
-              <div class="tips-grid">
-                <div class="tip-card">
-                  <span class="tip-icon">🧹</span>
-                  <p>Bersihkan motor sebelum penilaian fisik</p>
+            <!-- 人工调整说明 -->
+            <div class="manual-adjustment">
+              <h4>👨‍🔧 Proses Penilaian Akhir oleh JF Gadai:</h4>
+              <div class="adjustment-process">
+                <div class="process-step">
+                  <div class="step-number">1</div>
+                  <p><strong>Inspeksi Fisik</strong><br>Pemeriksaan detail oleh ahli kami</p>
                 </div>
-                <div class="tip-card">
-                  <span class="tip-icon">📋</span>
-                  <p>Siapkan semua dokumen asli (STNK, BPKB, KTP)</p>
+                <div class="process-step">
+                  <div class="step-number">2</div>
+                  <p><strong>Analisis Pasar</strong><br>Bandingkan harga pasar terkini</p>
                 </div>
-                <div class="tip-card">
-                  <span class="tip-icon">⏰</span>
-                  <p>Datang di jam kerja untuk proses lebih cepat</p>
+                <div class="process-step">
+                  <div class="step-number">3</div>
+                  <p><strong>Penyesuaian Manual</strong><br>Sesuaikan dengan kondisi aktual</p>
+                </div>
+                <div class="process-step">
+                  <div class="step-number">4</div>
+                  <p><strong>Nilai Final</strong><br>Hasil taksiran yang dapat dinegosiasikan</p>
                 </div>
               </div>
+              <p class="process-note"><em>Tim kami dapat melakukan penyesuaian ±15% dari perkiraan ini berdasarkan inspeksi fisik.</em></p>
             </div>
           </div>
         </div>
