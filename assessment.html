@@ -177,28 +177,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="form-step active" id="step1">
           <h2>📋 Data Motor Anda</h2>
           
-<!-- 品牌选择 - 已修复 Yamaha Logo -->
-<div class="form-group">
-  <label for="brand">Merek Motor</label>
-  <div class="brand-selection">
-    <div class="brand-option" data-brand="honda">
-      <!-- Honda Logo -->
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honda_Logo.svg/320px-Honda_Logo.svg.png" 
-           alt="Honda" class="brand-logo-img">
-      <span>Honda</span>
-    </div>
-    <div class="brand-option" data-brand="yamaha">
-<!-- Yamaha Logo 官方 SVG（红色，音叉 + 文字） -->
-<img
-  src="https://upload.wikimedia.org/wikipedia/commons/6/69/Yamaha_logo.svg"
-  alt="Yamaha Logo"
-  class="brand-logo-img"
-/>
-<span>Yamaha</span>
-    </div>
+<div class="brand-selection">
+
+  <!-- Honda -->
+  <div class="brand-option active" data-brand="honda">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Honda_Logo.svg"
+      alt="Honda Motor"
+      class="brand-logo-img"
+    />
+    <span>Honda</span>
   </div>
-  <input type="hidden" id="brand" name="brand" required>
+
+  <!-- Yamaha -->
+  <div class="brand-option" data-brand="yamaha">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/6/69/Yamaha_logo.svg"
+      alt="Yamaha Motor"
+      class="brand-logo-img"
+    />
+    <span>Yamaha</span>
+  </div>
+
 </div>
+
           <!-- 车型选择（动态加载） -->
           <div class="form-group">
             <label for="model">Model Motor</label>
