@@ -53,23 +53,4 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-  
-  // 横幅高度调整
-  function adjustBannerHeight() {
-    const banner = document.querySelector('.full-banner');
-    const screenHeight = window.innerHeight;
-    const screenWidth = window.innerWidth;
-    
-    if (screenWidth < 768) {
-      banner.style.height = '50vh';
-    } else if (screenHeight > 900) {
-      banner.style.height = '65vh';
-    } else {
-      banner.style.height = '70vh';
-    }
-  }
-  
-  // 窗口大小变化时调整
-  window.addEventListener('resize', adjustBannerHeight);
-  window.addEventListener('load', adjustBannerHeight);
 });
