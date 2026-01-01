@@ -439,7 +439,7 @@ body {
   display: inline-block;
 }
 
-/* 修改网格位置 - 交换左下和右下格 */
+/* 网格位置 - 交换右边两个格子 */
 .our-services { grid-column: 1; grid-row: 1; }
 
 .business-process { 
@@ -449,10 +449,11 @@ body {
   background: linear-gradient(135deg, rgba(15, 76, 129, 0.3), rgba(245, 197, 66, 0.1)); 
 }
 
-.conditions { grid-column: 3; grid-row: 1; }
-/* 原左下格变右下格 */
-.why-choose-us { grid-column: 3; grid-row: 2; }
-/* 原右下格变左下格 */
+/* 右边两个格子交换：上面是为什么选择我们，下面是业务条件 */
+.why-choose-us { grid-column: 3; grid-row: 1; } /* 从第2行移到第1行 */
+.conditions { grid-column: 3; grid-row: 2; }     /* 从第1行移到第2行 */
+
+/* 左下格和右下格已经交换过，保持不变 */
 .contact-form-section { grid-column: 1; grid-row: 2; }
 
 /* 列表样式 */
@@ -668,11 +669,11 @@ footer {
     min-height: auto; 
   }
   
+  /* 中等屏幕布局也调整右边两个格子的顺序 */
   .our-services { grid-column: 1; grid-row: 2; }
-  .conditions { grid-column: 2; grid-row: 2; }
-  /* 在小屏幕上也交换位置 */
-  .why-choose-us { grid-column: 2; grid-row: 3; }
+  .why-choose-us { grid-column: 2; grid-row: 2; } /* 为什么选择我们在右上方 */
   .contact-form-section { grid-column: 1; grid-row: 3; }
+  .conditions { grid-column: 2; grid-row: 3; } /* 业务条件在右下方 */
   
   .quick-actions { 
     flex-direction: column; 
@@ -741,11 +742,11 @@ footer {
     grid-column: 1;
   }
   
-  /* 修改手机端顺序：将联系我们放到最下面 */
+  /* 手机端顺序：业务流程、我们的服务、为什么选择我们、业务条件、联系我们表单 */
   .business-process { grid-row: 1; }
   .our-services { grid-row: 2; }
-  .conditions { grid-row: 3; }
-  .why-choose-us { grid-row: 4; } /* 为什么选择我们 */
+  .why-choose-us { grid-row: 3; } /* 为什么选择我们在上面 */
+  .conditions { grid-row: 4; }     /* 业务条件在下面 */
   .contact-form-section { grid-row: 5; } /* 联系我们表单放到最下面 */
   
   .grid-item {
