@@ -741,12 +741,12 @@ footer {
     grid-column: 1;
   }
   
-  /* 在小屏幕上也保持交换后的顺序 */
+  /* 修改手机端顺序：将联系我们放到最下面 */
   .business-process { grid-row: 1; }
   .our-services { grid-row: 2; }
   .conditions { grid-row: 3; }
-  .contact-form-section { grid-row: 4; } /* 原右下格现在第4行 */
-  .why-choose-us { grid-row: 5; } /* 原左下格现在第5行 */
+  .why-choose-us { grid-row: 4; } /* 为什么选择我们 */
+  .contact-form-section { grid-row: 5; } /* 联系我们表单放到最下面 */
   
   .grid-item {
     padding: var(--spacing-lg);
