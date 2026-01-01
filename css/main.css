@@ -55,7 +55,6 @@ body {
   background-color: var(--dark-color);
 }
 
-/* 修改横幅内容容器，使其宽度与评估系统栏框一致 */
 .full-banner .container {
   width: 100%;
   max-width: 1200px;
@@ -66,7 +65,7 @@ body {
 .full-banner img {
   width: 100%;
   height: 100%;
-  max-width: 1200px; /* 限制最大宽度与评估系统一致 */
+  max-width: 1200px;
   object-fit: cover;
   object-position: center center;
   display: block;
@@ -74,7 +73,6 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
-/* 响应式调整 */
 @media (max-width: 1024px) {
   .full-banner {
     height: 220px;
@@ -97,14 +95,6 @@ body {
   .full-banner img {
     border-radius: var(--border-radius);
   }
-  
-  /* 保持其他响应式样式不变 */
-  .quick-actions {
-    margin: 0.75rem auto;
-    padding: 0 var(--spacing-sm);
-    gap: 0.75rem;
-  }
-  /* ... 其他代码保持不变 ... */
 }
 
 @media (max-width: 480px) {
@@ -117,11 +107,10 @@ body {
   }
   
   .full-banner img {
-    object-fit: contain; /* 小手机完整显示 */
+    object-fit: contain;
     border-radius: calc(var(--border-radius) * 0.8);
   }
   
-  /* 保持其他响应式样式不变 */
   :root { 
     --spacing-xs: 0.4rem; 
     --spacing-sm: 0.6rem; 
@@ -130,7 +119,6 @@ body {
     --spacing-xl: 1.5rem; 
     --spacing-xxl: 2rem;
   }
-  /* ... 其他代码保持不变 ... */
 }
 
 /* ==================== 快速操作栏 ==================== */
@@ -404,7 +392,7 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* ==================== 不对称五宫格 ==================== */
+/* ==================== 六宫格布局 ==================== */
 .asymmetric-grid {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -439,22 +427,54 @@ body {
   display: inline-block;
 }
 
-/* 网格位置 - 交换右边两个格子 */
-.our-services { grid-column: 1; grid-row: 1; }
-
-.business-process { 
-  grid-column: 2; 
-  grid-row: 1 / span 2; 
-  min-height: 500px;
-  background: linear-gradient(135deg, rgba(15, 76, 129, 0.3), rgba(245, 197, 66, 0.1)); 
+/* 评估系统卡片在六宫格中的样式 */
+.assessment-system {
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 0;
+  padding: var(--spacing-xl);
 }
 
-/* 右边两个格子交换：上面是为什么选择我们，下面是业务条件 */
-.why-choose-us { grid-column: 3; grid-row: 1; } /* 从第2行移到第1行 */
-.conditions { grid-column: 3; grid-row: 2; }     /* 从第1行移到第2行 */
+.assessment-system .assessment-card {
+  margin: 0;
+  padding: var(--spacing-xl);
+}
 
-/* 左下格和右下格已经交换过，保持不变 */
+.assessment-system .assessment-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.assessment-system .btn-assessment {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.assessment-system .assessment-stats {
+  gap: var(--spacing-lg);
+}
+
+.assessment-system .stat-number {
+  font-size: 1.8rem;
+}
+
+.assessment-system .stat-text {
+  font-size: 0.9rem;
+}
+
+/* 六宫格布局位置 */
+.our-services { grid-column: 1; grid-row: 1; }
+.assessment-system { grid-column: 2; grid-row: 1; }
+.why-choose-us { grid-column: 3; grid-row: 1; }
 .contact-form-section { grid-column: 1; grid-row: 2; }
+.business-process { 
+  grid-column: 2; 
+  grid-row: 2;
+  background: linear-gradient(135deg, rgba(15, 76, 129, 0.3), rgba(245, 197, 66, 0.1));
+  min-height: 400px;
+}
+.conditions { grid-column: 3; grid-row: 2; }
 
 /* 列表样式 */
 .service-list, .condition-list, .reason-list {
@@ -663,17 +683,21 @@ footer {
     grid-template-rows: auto auto auto;
   }
   
-  .business-process { 
+  .assessment-system { 
     grid-column: 1 / span 2; 
     grid-row: 1; 
+  }
+  
+  .business-process { 
+    grid-column: 1 / span 2; 
+    grid-row: 2; 
     min-height: auto; 
   }
   
-  /* 中等屏幕布局也调整右边两个格子的顺序 */
-  .our-services { grid-column: 1; grid-row: 2; }
-  .why-choose-us { grid-column: 2; grid-row: 2; } /* 为什么选择我们在右上方 */
-  .contact-form-section { grid-column: 1; grid-row: 3; }
-  .conditions { grid-column: 2; grid-row: 3; } /* 业务条件在右下方 */
+  .our-services { grid-column: 1; grid-row: 3; }
+  .why-choose-us { grid-column: 2; grid-row: 3; }
+  .contact-form-section { grid-column: 1; grid-row: 4; }
+  .conditions { grid-column: 2; grid-row: 4; }
   
   .quick-actions { 
     flex-direction: column; 
@@ -732,22 +756,23 @@ footer {
   
   .asymmetric-grid {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, auto);
+    grid-template-rows: repeat(6, auto);
     gap: var(--spacing-md);
     margin: var(--spacing-lg) auto;
     padding: 0 var(--spacing-md);
   }
   
-  .business-process, .our-services, .conditions, .why-choose-us, .contact-form-section {
+  .assessment-system, .business-process, .our-services, .conditions, .why-choose-us, .contact-form-section {
     grid-column: 1;
   }
   
-  /* 手机端顺序：业务流程、我们的服务、为什么选择我们、业务条件、联系我们表单 */
-  .business-process { grid-row: 1; }
-  .our-services { grid-row: 2; }
-  .why-choose-us { grid-row: 3; } /* 为什么选择我们在上面 */
-  .conditions { grid-row: 4; }     /* 业务条件在下面 */
-  .contact-form-section { grid-row: 5; } /* 联系我们表单放到最下面 */
+  /* 手机端顺序 */
+  .assessment-system { grid-row: 1; }
+  .business-process { grid-row: 2; }
+  .our-services { grid-row: 3; }
+  .why-choose-us { grid-row: 4; }
+  .contact-form-section { grid-row: 5; }
+  .conditions { grid-row: 6; }
   
   .grid-item {
     padding: var(--spacing-lg);
@@ -767,12 +792,12 @@ footer {
     padding: 0 var(--spacing-md);
   }
   
-  .assessment-card {
-    padding: var(--spacing-xl);
+  .assessment-system .assessment-card {
+    padding: var(--spacing-lg);
   }
   
-  .assessment-card h3 {
-    font-size: 1.5rem;
+  .assessment-system .assessment-card h3 {
+    font-size: 1.3rem;
   }
   
   .assessment-desc {
@@ -780,8 +805,8 @@ footer {
   }
   
   .btn-assessment {
-    padding: 1rem 2.2rem;
-    font-size: 1.1rem;
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
     width: 100%;
     max-width: 300px;
   }
@@ -791,7 +816,7 @@ footer {
   }
   
   .stat-number {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   
   .stat-text {
@@ -844,21 +869,21 @@ footer {
     padding: var(--spacing-md);
   }
   
-  .assessment-card {
-    padding: var(--spacing-lg);
+  .assessment-system .assessment-card {
+    padding: var(--spacing-md);
   }
   
-  .assessment-card h3 {
-    font-size: 1.3rem;
+  .assessment-system .assessment-card h3 {
+    font-size: 1.2rem;
   }
   
   .assessment-desc {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
   
   .btn-assessment {
-    font-size: 1rem;
-    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
+    padding: 0.8rem 1.2rem;
   }
   
   .assessment-stats {
