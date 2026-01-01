@@ -439,6 +439,7 @@ body {
   display: inline-block;
 }
 
+/* 修改网格位置 - 交换左下和右下格 */
 .our-services { grid-column: 1; grid-row: 1; }
 
 .business-process { 
@@ -449,8 +450,10 @@ body {
 }
 
 .conditions { grid-column: 3; grid-row: 1; }
-.why-choose-us { grid-column: 1; grid-row: 2; }
-.contact-form-section { grid-column: 3; grid-row: 2; }
+/* 原左下格变右下格 */
+.why-choose-us { grid-column: 3; grid-row: 2; }
+/* 原右下格变左下格 */
+.contact-form-section { grid-column: 1; grid-row: 2; }
 
 /* 列表样式 */
 .service-list, .condition-list, .reason-list {
@@ -667,8 +670,9 @@ footer {
   
   .our-services { grid-column: 1; grid-row: 2; }
   .conditions { grid-column: 2; grid-row: 2; }
-  .why-choose-us { grid-column: 1; grid-row: 3; }
-  .contact-form-section { grid-column: 2; grid-row: 3; }
+  /* 在小屏幕上也交换位置 */
+  .why-choose-us { grid-column: 2; grid-row: 3; }
+  .contact-form-section { grid-column: 1; grid-row: 3; }
   
   .quick-actions { 
     flex-direction: column; 
@@ -737,11 +741,12 @@ footer {
     grid-column: 1;
   }
   
+  /* 在小屏幕上也保持交换后的顺序 */
   .business-process { grid-row: 1; }
   .our-services { grid-row: 2; }
   .conditions { grid-row: 3; }
-  .why-choose-us { grid-row: 4; }
-  .contact-form-section { grid-row: 5; }
+  .contact-form-section { grid-row: 4; } /* 原右下格现在第4行 */
+  .why-choose-us { grid-row: 5; } /* 原左下格现在第5行 */
   
   .grid-item {
     padding: var(--spacing-lg);
@@ -903,4 +908,3 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-[file content end]
