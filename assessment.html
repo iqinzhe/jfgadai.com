@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2CPPHEVWDY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-2CPPHEVWDY');
-</script>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M2GMSNWS');</script>
-<!-- End Google Tag Manager -->>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Penilaian Online Motor | JF Gadai</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/assessment.css">
+  
+  <!-- Google Analytics & Tag Manager - Fixed -->
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),
+          dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M2GMSNWS');
+  </script>
+  <!-- End Google Tag Manager -->
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CPPHEVWDY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2CPPHEVWDY');
+  </script>
+  <!-- End Google Analytics -->
+
   <style>
     /* 品牌Logo样式 */
     .brand-logo-img {
@@ -33,14 +44,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .brand-option:hover .brand-logo-img {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
 
     .brand-option[data-brand="honda"] .brand-logo-img {
       filter: brightness(0.9) contrast(1.1);
     }
     
-    /* Yamaha Logo 特殊样式 - 添加红色调 */
+    /* Yamaha Logo 特殊样式 */
     .brand-option[data-brand="yamaha"] .brand-logo-img {
       filter: brightness(1.05) sepia(1) hue-rotate(-10deg) saturate(3.5);
     }
@@ -93,11 +104,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       opacity: 1;
     }
 
-    /* 紧急修复：确保表单控件暗色主题 */
-    .assessment-container .form-control {
-      background-color: rgba(255, 255, 255, 0.08) !important;
-      border: 2px solid rgba(255, 255, 255, 0.25) !important;
-      color: white !important;
+    /* 信任与安全提示 */
+    .trust-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 25px;
+      padding: 15px;
+      background: rgba(11, 44, 74, 0.6);
+      border-radius: 10px;
+      border-left: 4px solid var(--secondary-color);
+    }
+    
+    .trust-item {
+      flex: 1;
+      min-width: 200px;
+      padding: 10px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    
+    .trust-item strong {
+      color: var(--secondary-color);
     }
 
     /* 手机端额外优化 */
@@ -123,14 +151,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         width: 60px;
         height: 30px;
       }
+      
+      .trust-box {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
 <!-- End Google Tag Manager (noscript) -->
+
   <!-- 头部导航 -->
   <header class="assessment-header">
     <div class="container">
@@ -174,37 +208,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <form id="motorAssessmentForm" class="assessment-form">
 
-        <div class="brand-selection">
+        <!-- 步骤1: 摩托车信息 -->
+        <div class="form-step active" id="step1">
+          <h2>🏍️ Data Motor</h2>
+          
+          <!-- 品牌选择 -->
+          <div class="form-group">
+            <label>Merek Motor</label>
+            <div class="brand-selection">
+              <!-- Honda -->
+              <div class="brand-option active" data-brand="honda">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Honda_Logo.svg"
+                  alt="Honda Motor"
+                  class="brand-logo-img"
+                  draggable="false"
+                  onerror="this.onerror=null; this.src=''; this.style.display='none'; this.nextElementSibling.style.display='block';"
+                />
+                <div class="brand-logo-fallback" style="display:none">HONDA</div>
+                <span class="brand-name">Honda</span>
+              </div>
 
-  <!-- Honda -->
-  <div class="brand-option active" data-brand="honda">
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Honda_Logo.svg"
-      alt="Honda Motor"
-      class="brand-logo-img"
-      draggable="false"
-    />
-    <span class="brand-name">Honda</span>
-  </div>
+              <!-- Yamaha -->
+              <div class="brand-option" data-brand="yamaha">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/6/69/Yamaha_logo.svg"
+                  alt="Yamaha Motor"
+                  class="brand-logo-img"
+                  draggable="false"
+                  onerror="this.onerror=null; this.src=''; this.style.display='none'; this.nextElementSibling.style.display='block';"
+                />
+                <div class="brand-logo-fallback" style="display:none">YAMAHA</div>
+                <span class="brand-name">Yamaha</span>
+              </div>
+            </div>
+          </div>
+          
+          <input type="hidden" id="brand" name="brand" value="honda">
 
-  <!-- Yamaha -->
-  <div class="brand-option" data-brand="yamaha">
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/6/69/Yamaha_logo.svg"
-      alt="Yamaha Motor"
-      class="brand-logo-img"
-      draggable="false"
-    />
-    <span class="brand-name">Yamaha</span>
-  </div>
-</div>
-
- <input type="hidden" id="brand" name="brand">
           <!-- 车型选择（动态加载） -->
           <div class="form-group">
             <label for="model">Model Motor</label>
-            <select id="model" name="model" class="form-control" required disabled>
-              <option value="">Pilih merek terlebih dahulu</option>
+            <select id="model" name="model" class="form-control" required>
+              <option value="">Pilih model motor</option>
             </select>
           </div>
 
@@ -214,16 +260,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <label for="year">Tahun Produksi</label>
               <select id="year" name="year" class="form-control" required>
                 <option value="">Pilih tahun</option>
-                <option value="2024">2024</option>
-                <option value="2023">2023</option>
-                <option value="2022">2022</option>
-                <option value="2021">2021</option>
-                <option value="2020">2020</option>
-                <option value="2019">2019</option>
-                <option value="2018">2018</option>
-                <option value="2017">2017</option>
-                <option value="2016">2016</option>
-                <option value="2015">2015</option>
+                <!-- 年份将通过JS动态生成 -->
               </select>
             </div>
             
@@ -233,7 +270,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <option value="">Pilih CC</option>
                 <option value="110">110cc</option>
                 <option value="125">125cc</option>
-                <option value="150">150cc</option>
+                <option value="150" selected>150cc</option>
                 <option value="155">155cc</option>
                 <option value="160">160cc</option>
                 <option value="200">200cc</option>
@@ -247,9 +284,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <!-- 里程数 -->
           <div class="form-group">
             <label for="mileage">Kilometer Tempuh (KM)</label>
-            <input type="number" id="mileage" name="mileage" class="form-control" placeholder="Contoh: 15000" min="0" max="1000000" required>
+            <input type="number" id="mileage" name="mileage" class="form-control" placeholder="Contoh: 15000" min="0" max="1000000" value="20000" required>
             <div class="mileage-slider">
-              <input type="range" id="mileageSlider" min="0" max="100000" value="15000" step="1000">
+              <input type="range" id="mileageSlider" min="0" max="100000" value="20000" step="1000">
               <div class="mileage-labels">
                 <span>0 KM</span>
                 <span>50,000 KM</span>
@@ -372,21 +409,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- 步骤3: 个人信息和上传 -->
         <div class="form-step" id="step3">
           <h2>📝 Data Pribadi</h2>
-          <!-- 信任与安全提示（Meta / Google 审核友好） -->
-<div class="trust-box">
-  <div class="trust-item">
-    🔒 <strong>Koneksi Aman (HTTPS)</strong><br>
-    Data Anda dienkripsi & dilindungi.
-  </div>
-  <div class="trust-item">
-    👁️ <strong>Privasi Terjaga</strong><br>
-    Data tidak dibagikan ke pihak ketiga.
-  </div>
-  <div class="trust-item">
-    📍 <strong>Bisnis Lokal Terverifikasi</strong><br>
-    JF Gadai • Bangil & Gempol.
-  </div>
-</div>
+          
+          <!-- 信任与安全提示 -->
+          <div class="trust-box">
+            <div class="trust-item">
+              🔒 <strong>Koneksi Aman (HTTPS)</strong><br>
+              Data Anda dienkripsi & dilindungi.
+            </div>
+            <div class="trust-item">
+              👁️ <strong>Privasi Terjaga</strong><br>
+              Data tidak dibagikan ke pihak ketiga.
+            </div>
+            <div class="trust-item">
+              📍 <strong>Bisnis Lokal Terverifikasi</strong><br>
+              JF Gadai • Bangil & Gempol.
+            </div>
+          </div>
 
           <div class="form-row">
             <div class="form-group">
@@ -416,24 +454,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </select>
           </div>
 
-          <!-- 照片上传 - 已修复 -->
+          <!-- 照片上传 -->
           <div class="form-group">
             <label>Foto Motor (Opsional, tapi membantu)</label>
             <div class="photo-upload">
-              <div class="upload-area" id="uploadFront">
+              <div class="upload-area" id="uploadFront" data-position="depan">
                 <span class="upload-icon">📷</span>
                 <span class="upload-text">Depan</span>
+                <input type="file" accept="image/*" style="display: none;">
               </div>
-              <div class="upload-area" id="uploadBack">
+              <div class="upload-area" id="uploadBack" data-position="belakang">
                 <span class="upload-icon">📷</span>
                 <span class="upload-text">Belakang</span>
+                <input type="file" accept="image/*" style="display: none;">
               </div>
-              <div class="upload-area" id="uploadSide">
+              <div class="upload-area" id="uploadSide" data-position="samping">
                 <span class="upload-icon">📷</span>
                 <span class="upload-text">Samping</span>
+                <input type="file" accept="image/*" style="display: none;">
               </div>
             </div>
-            <input type="file" id="photoInput" accept="image/*" style="display: none;">
           </div>
 
           <div class="form-note">
@@ -530,7 +570,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <!-- 行动按钮 -->
             <div class="action-buttons">
-              <a href="https://wa.me/6289515692586" target="_blank" class="btn-whatsapp">
+              <a id="whatsappButton" href="https://wa.me/6289515692586" target="_blank" class="btn-whatsapp">
                 <span>💬 Konsultasi & Penyesuaian Nilai</span>
               </a>
               
@@ -619,9 +659,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="company-info" style="margin-top: 2rem; font-size: 0.9rem;">
           Jam Operasional: Senin-Jumat : 08:00-18:00 | Libur hari Sabtu dan Minggu
         </p>
-<p class="security-note">
-  🔒 Situs ini menggunakan koneksi aman (HTTPS).
-</p>
+        <p class="security-note">
+          🔒 Situs ini menggunakan koneksi aman (HTTPS).
+        </p>
       </div>
     </div>
   </footer>
