@@ -1,4 +1,5 @@
 // ==================== JF Gadai - Penilaian Online Motor ====================
+// 摩托车型号数据
 const motorModels = {
   honda: [
     { id: 'beat', name: 'Honda Beat', basePrice: 8000000 },
@@ -33,52 +34,95 @@ const photoData = {
 
 let currentUploadArea = null;
 
-// ==================== INITIALIZATION ====================
+// ==================== 错误处理 ====================
+// 全局错误处理
+window.addEventListener('error', function(e) {
+  console.error('Global error caught:', e.error);
+  console.error('Message:', e.message);
+  console.error('File:', e.filename);
+  console.error('Line:', e.lineno);
+  
+  // 发送错误到Google Analytics（如果可用）
+  if (window.gtag) {
+    gtag('event', 'exception', {
+      'description': e.message,
+      'fatal': true
+    });
+  }
+});
+
+// 未处理的Promise错误
+window.addEventListener('unhandledrejection', function(e) {
+  console.error('Unhandled promise rejection:', e.reason);
+});
+
+// ==================== 初始化 ====================
 document.addEventListener('DOMContentLoaded', function() {
   console.log('JF Gadai - Penilaian Online Motor loaded');
   
-  // Inisialisasi semua fungsi
-  initBrandSelection();
-  initYearSelect();
-  initMileageSlider();
-  initPhotoUpload(); // 已修复
-  initFAQ();
+  // 系统验证
+  console.log('=== 系统初始化验证开始 ===');
   
-  // Set default values
-  setTimeout(() => {
-    document.getElementById('year').value = '2022';
-    document.getElementById('cc').value = '150';
-    document.getElementById('mileage').value = '20000';
-    updateMileageLabels(20000);
-  }, 100);
+  try {
+    // 初始化所有功能
+    initBrandSelection();
+    initYearSelect();
+    initMileageSlider();
+    initPhotoUpload();
+    initFAQ();
+    
+    // 设置默认值
+    setTimeout(() => {
+      // 默认选中第一个车型
+      const modelSelect = document.getElementById('model');
+      if (modelSelect && modelSelect.options.length > 1) {
+        modelSelect.selectedIndex = 1;
+      }
+      
+      // 触发里程标签更新
+      updateMileageLabels(20000);
+    }, 100);
+    
+    // 运行系统验证
+    setTimeout(validateSystem, 500);
+    
+    console.log('✅ 系统初始化完成');
+  } catch (error) {
+    console.error('❌ 系统初始化失败:', error);
+  }
 });
 
-// ==================== BRAND SELECTION ====================
+// ==================== 品牌选择 ====================
 function initBrandSelection() {
   const brandOptions = document.querySelectorAll('.brand-option');
   const brandInput = document.getElementById('brand');
   const modelSelect = document.getElementById('model');
-setTimeout(() => {
-  if (modelSelect.options.length > 1) {
-    modelSelect.selectedIndex = 1;    modelSelect.dispatchEvent(new Event('change')); // ← 关键
-  }
-}, 100);
+  
   if (!brandOptions.length || !modelSelect) {
     console.warn('Brand or model element missing');
     return;
   }
 
+  // 品牌选择事件处理
   brandOptions.forEach(option => {
-    option.addEventListener('click', function () {
+    option.addEventListener('click', function(e) {
+      e.stopPropagation();
+      
+      // 移除其他选项的active类
       brandOptions.forEach(opt => opt.classList.remove('active'));
+      
+      // 添加active类到当前选项
       this.classList.add('active');
 
       const brand = this.dataset.brand;
+      console.log('Brand selected:', brand);
 
+      // 更新隐藏的输入字段
       if (brandInput) {
         brandInput.value = brand;
       }
 
+      // 启用车型选择并加载相应型号
       modelSelect.disabled = false;
       modelSelect.innerHTML = '<option value="">Pilih model motor</option>';
 
@@ -92,6 +136,7 @@ setTimeout(() => {
         });
       }
 
+      // 默认选择第一个型号
       if (modelSelect.options.length > 1) {
         modelSelect.selectedIndex = 1;
       }
@@ -99,57 +144,73 @@ setTimeout(() => {
   });
 
   // 默认选中 Honda
-  const hondaOption = document.querySelector('.brand-option[data-brand="honda"]');
-  if (hondaOption) {
-    hondaOption.click();
-  }
+  setTimeout(() => {
+    const hondaOption = document.querySelector('.brand-option[data-brand="honda"]');
+    if (hondaOption) {
+      hondaOption.click();
+    }
+  }, 100);
 }
 
-
-// ==================== YEAR SELECTION ====================
+// ==================== 年份选择 ====================
 function initYearSelect() {
   const yearSelect = document.getElementById('year');
   const currentYear = new Date().getFullYear();
   
-  yearSelect.innerHTML = '<option value="">Pilih tahun</option>';
+  // 清除现有选项（除了第一个）
+  while (yearSelect.options.length > 1) {
+    yearSelect.remove(1);
+  }
   
+  // 添加年份选项（从当前年份到2010年）
   for (let year = currentYear; year >= 2010; year--) {
     const option = document.createElement('option');
     option.value = year;
     option.textContent = year;
     yearSelect.appendChild(option);
   }
+  
+  // 默认选中2022年
+  yearSelect.value = '2022';
 }
 
-// ==================== MILEAGE SLIDER ====================
+// ==================== 里程滑块 ====================
 function initMileageSlider() {
   const mileageInput = document.getElementById('mileage');
   const mileageSlider = document.getElementById('mileageSlider');
   
   if (!mileageSlider) return;
   
+  // 滑块变化事件
   mileageSlider.addEventListener('input', function() {
     mileageInput.value = this.value;
     updateMileageLabels(this.value);
   });
   
+  // 输入框变化事件
   mileageInput.addEventListener('input', function() {
-    const value = Math.min(Math.max(this.value, 0), 100000);
+    let value = parseInt(this.value) || 0;
+    value = Math.min(Math.max(value, 0), 100000);
     this.value = value;
     mileageSlider.value = value;
     updateMileageLabels(value);
   });
+  
+  // 初始更新标签
+  updateMileageLabels(mileageSlider.value);
 }
 
 function updateMileageLabels(value) {
   const labels = document.querySelectorAll('.mileage-labels span');
   if (!labels.length) return;
   
+  // 重置所有标签
   labels.forEach(label => {
     label.style.fontWeight = 'normal';
     label.style.color = '';
   });
   
+  // 根据值高亮对应的标签
   if (value < 50000) {
     labels[0].style.fontWeight = 'bold';
     labels[0].style.color = 'var(--secondary-color)';
@@ -162,21 +223,47 @@ function updateMileageLabels(value) {
   }
 }
 
-// ==================== PHOTO UPLOAD - 已修复 ====================
+// ==================== 照片上传 ====================
 function initPhotoUpload() {
   const uploadAreas = document.querySelectorAll('.upload-area');
-  const fileInput = document.getElementById('photoInput');
   
-  if (!uploadAreas.length || !fileInput) return;
+  if (!uploadAreas.length) return;
   
-  // 为每个上传区域添加点击事件
+  // 为每个上传区域添加事件
   uploadAreas.forEach(area => {
+    const fileInput = area.querySelector('input[type="file"]');
+    
+    // 点击区域触发文件选择
     area.addEventListener('click', function(e) {
-      // 阻止事件冒泡，防止移除按钮触发上传
+      // 如果点击的是移除按钮，不触发文件选择
       if (e.target.closest('.remove-photo')) return;
       
-      currentUploadArea = this.id; // 记录当前点击的区域
-      fileInput.click(); // 触发文件选择
+      currentUploadArea = area.id;
+      fileInput.click();
+    });
+    
+    // 文件选择变化事件
+    fileInput.addEventListener('change', function(e) {
+      if (!currentUploadArea || !this.files || this.files.length === 0) return;
+      
+      const file = this.files[0];
+      if (!file.type.startsWith('image/')) {
+        alert('Silakan pilih file gambar (JPG, PNG, dll.)');
+        return;
+      }
+      
+      // 预览照片
+      previewPhoto(file, currentUploadArea);
+      
+      // 存储照片数据
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        photoData[currentUploadArea] = e.target.result;
+      };
+      reader.readAsDataURL(file);
+      
+      // 重置文件输入
+      this.value = '';
     });
     
     // 添加移除照片按钮
@@ -184,36 +271,10 @@ function initPhotoUpload() {
     removeBtn.className = 'remove-photo';
     removeBtn.innerHTML = '×';
     removeBtn.addEventListener('click', function(e) {
-      e.stopPropagation(); // 阻止冒泡
-      
-      const areaId = this.parentElement.id;
-      clearPhoto(areaId);
+      e.stopPropagation();
+      clearPhoto(area.id);
     });
     area.appendChild(removeBtn);
-  });
-  
-  // 文件选择变化事件
-  fileInput.addEventListener('change', function(e) {
-    if (!currentUploadArea || !this.files || this.files.length === 0) return;
-    
-    const file = this.files[0];
-    if (!file.type.startsWith('image/')) {
-      alert('Silakan pilih file gambar (JPG, PNG, dll.)');
-      return;
-    }
-    
-    // 预览照片
-    previewPhoto(file, currentUploadArea);
-    
-    // 存储照片数据
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      photoData[currentUploadArea] = e.target.result;
-    };
-    reader.readAsDataURL(file);
-    
-    // 重置文件输入，允许再次选择同一文件
-    this.value = '';
   });
 }
 
@@ -260,44 +321,48 @@ function clearPhoto(areaId) {
   photoData[areaId] = null;
 }
 
-// 获取所有照片数据
-function getPhotoData() {
-  return photoData;
-}
-
-// ==================== FAQ INTERACTION ====================
+// ==================== FAQ交互 ====================
 function initFAQ() {
   const faqQuestions = document.querySelectorAll('.faq-question');
   
   faqQuestions.forEach(question => {
     question.addEventListener('click', function() {
       const faqItem = this.parentElement;
+      
+      // 关闭其他打开的FAQ
+      document.querySelectorAll('.faq-item').forEach(item => {
+        if (item !== faqItem) {
+          item.classList.remove('active');
+        }
+      });
+      
+      // 切换当前FAQ
       faqItem.classList.toggle('active');
     });
   });
 }
 
-// ==================== STEP NAVIGATION ====================
+// ==================== 步骤导航 ====================
 function nextStep(step) {
-  console.log(`Moving to step ${step}, validating current step`);
+  console.log(`Moving to step ${step}`);
   
-  // Validate CURRENT step (not the next one!)
+  // 验证当前步骤
   const currentStep = document.querySelector('.form-step.active');
   const currentStepNumber = parseInt(currentStep.id.replace('step', ''));
   
   console.log(`Currently on step ${currentStepNumber}, validating...`);
   
-  if (!validateStep(currentStepNumber - 1)) {
+  if (!validateStep(currentStepNumber)) {
     console.log(`Validation failed for step ${currentStepNumber}`);
     return;
   }
   
   console.log(`Validation passed, moving to step ${step}`);
   
-  // Update progress bar
+  // 更新进度条
   updateProgressBar(step);
   
-  // Switch steps
+  // 切换步骤
   const nextStepElement = document.getElementById(`step${step}`);
   
   if (currentStep && nextStepElement) {
@@ -306,7 +371,7 @@ function nextStep(step) {
     
     console.log(`Switched from step${currentStepNumber} to step${step}`);
     
-    // Scroll to top
+    // 滚动到顶部
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
@@ -314,10 +379,10 @@ function nextStep(step) {
 function prevStep(step) {
   console.log(`Moving back to step ${step}`);
   
-  // Update progress bar
+  // 更新进度条
   updateProgressBar(step);
   
-  // Switch steps
+  // 切换步骤
   const currentStep = document.querySelector('.form-step.active');
   const prevStepElement = document.getElementById(`step${step}`);
   
@@ -325,7 +390,7 @@ function prevStep(step) {
     currentStep.classList.remove('active');
     prevStepElement.classList.add('active');
     
-    // Scroll to top
+    // 滚动到顶部
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
@@ -335,24 +400,16 @@ function updateProgressBar(step) {
   
   progressSteps.forEach(progressStep => {
     const stepNumber = parseInt(progressStep.dataset.step);
-    progressStep.classList.toggle('active', stepNumber === step);
+    progressStep.classList.toggle('active', stepNumber <= step);
   });
 }
 
-// ==================== FORM VALIDATION ====================
-function
-console.log('STEP1 CHECK', {
-  brand: brand.value,
-  model: model.value,
-  year: year.value,
-  cc: cc.value,
-  mileage: mileage.value
-});
- validateStep(stepNumber) {
+// ==================== 表单验证 ====================
+function validateStep(stepNumber) {
   console.log(`Validating step ${stepNumber}`);
   
-  // Step 1: Motor Information
-  if (stepNumber === 0) {
+  // Step 1: 摩托车信息
+  if (stepNumber === 1) {
     console.log('Checking step 1 fields...');
     
     if (!document.getElementById('brand').value) {
@@ -385,8 +442,8 @@ console.log('STEP1 CHECK', {
     return true;
   }
   
-  // Step 2: Condition Selection
-  else if (stepNumber === 1) {
+  // Step 2: 车况选择
+  else if (stepNumber === 2) {
     console.log('Checking step 2 conditions...');
     
     if (!document.querySelector('input[name="engine"]:checked')) {
@@ -408,8 +465,8 @@ console.log('STEP1 CHECK', {
     return true;
   }
   
-  // Step 3: Personal Information
-  else if (stepNumber === 2) {
+  // Step 3: 个人信息
+  else if (stepNumber === 3) {
     console.log('Checking step 3 personal info...');
     
     const fullName = document.getElementById('fullName').value.trim();
@@ -428,8 +485,9 @@ console.log('STEP1 CHECK', {
       return false;
     }
     
+    // 验证电话号码格式
     const phoneDigits = phoneNumber.replace(/\D/g, '');
-    if (phoneDigits.length < 10) {
+    if (phoneDigits.length < 10 || phoneDigits.length > 15) {
       alert('📱 Format nomor WhatsApp tidak valid. Contoh: 081234567890');
       document.getElementById('phoneNumber').focus();
       return false;
@@ -444,8 +502,8 @@ console.log('STEP1 CHECK', {
     return true;
   }
   
-  // Step 4: Always valid
-  else if (stepNumber === 3) {
+  // Step 4: 总是有效
+  else if (stepNumber === 4) {
     return true;
   }
   
@@ -453,23 +511,23 @@ console.log('STEP1 CHECK', {
   return false;
 }
 
-// ==================== VALUATION CALCULATION (PROFESSIONAL VERSION) ====================
+// ==================== 估价计算 ====================
 function calculateEstimation() {
   console.log('Starting professional estimation calculation...');
   
-  // First validate step 3 (current step)
-  if (!validateStep(2)) {
+  // 首先验证步骤3（当前步骤）
+  if (!validateStep(3)) {
     console.log('Step 3 validation failed');
     return;
   }
   
-  // Get form data
+  // 获取表单数据
   const formData = {
     brand: document.getElementById('brand').value,
     model: document.getElementById('model').value,
     modelName: document.getElementById('model').selectedOptions[0]?.textContent || 'Motor',
-    year: document.getElementById('year').value,
-    cc: document.getElementById('cc').value,
+    year: parseInt(document.getElementById('year').value),
+    cc: parseInt(document.getElementById('cc').value),
     mileage: parseInt(document.getElementById('mileage').value),
     engine: document.querySelector('input[name="engine"]:checked')?.value,
     body: document.querySelector('input[name="body"]:checked')?.value,
@@ -481,19 +539,19 @@ function calculateEstimation() {
   
   console.log('Form data collected:', formData);
   
-  // Calculate base valuation
+  // 计算基础估价
   const basePrice = parseInt(document.getElementById('model').selectedOptions[0]?.dataset.basePrice) || 8000000;
   
-  // Start with base price
+  // 从基础价格开始
   let estimatedValue = basePrice;
   
-  // Year adjustment (5% per year, max 70% depreciation)
+  // 年份调整（每年5%，最多70%折旧）
   const currentYear = new Date().getFullYear();
-  const age = currentYear - parseInt(formData.year);
+  const age = currentYear - formData.year;
   const yearDepreciation = Math.min(age * 0.05, 0.7);
   estimatedValue *= (1 - yearDepreciation);
   
-  // Mileage adjustment
+  // 里程调整
   let mileageDepreciation = 0;
   if (formData.mileage > 80000) {
     mileageDepreciation = 0.15;
@@ -506,63 +564,67 @@ function calculateEstimation() {
   }
   estimatedValue *= (1 - mileageDepreciation);
   
-  // Engine condition adjustments
+  // 引擎状况调整
   let engineDepreciation = 0;
   if (formData.engine === 'sedang') engineDepreciation = 0.08;
   if (formData.engine === 'perbaikan') engineDepreciation = 0.20;
   estimatedValue *= (1 - engineDepreciation);
   
-  // Body condition adjustments
+  // 车身状况调整
   let bodyDepreciation = 0;
   if (formData.body === 'baret_sedikit') bodyDepreciation = 0.05;
   if (formData.body === 'rusak') bodyDepreciation = 0.15;
   estimatedValue *= (1 - bodyDepreciation);
   
-  // Documents adjustments
+  // 文件调整
   let docDepreciation = 0;
   if (formData.documents === 'stnk_saja') docDepreciation = 0.10;
   if (formData.documents === 'hilang') docDepreciation = 0.25;
   estimatedValue *= (1 - docDepreciation);
   
-  // Ensure minimum value
+  // 确保最小值
   estimatedValue = Math.max(estimatedValue, 1000000);
   
-  // Calculate range (±15% from average for professional assessment)
-  const marketVolatility = 0.15; // 15% market fluctuation
+  // 计算范围（±15%用于专业评估）
+  const marketVolatility = 0.15; // 15%市场波动
   const minValue = Math.round(estimatedValue * (1 - marketVolatility));
   const maxValue = Math.round(estimatedValue * (1 + marketVolatility));
   
-  console.log('Professional calculation complete:', minValue, '-', maxValue, '(Range)');
-  console.log('Base price:', basePrice);
-  console.log('Adjusted value:', estimatedValue);
+  console.log('Professional calculation complete:', {
+    minValue,
+    maxValue,
+    basePrice,
+    estimatedValue
+  });
   
-  // Display results with professional range
+  // 显示结果
   displayEstimation({
     minValue,
     maxValue,
     basePrice,
     formData,
-    estimatedValue // Pass the calculated value for percentage calculations
+    estimatedValue
   });
   
-  // Go to results step
+  // 转到结果步骤
   nextStep(4);
 }
 
 function displayEstimation(result) {
   console.log('Displaying professional estimation results');
   
-  // Format currency
+  // 货币格式化
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('id-ID').format(amount);
   };
   
-  // Calculate middle value
+  // 计算中间值
   const middleValue = Math.round((result.minValue + result.maxValue) / 2);
   
-  // Calculate percentages based on actual adjustments
-  const totalAdjustment = result.basePrice - result.estimatedValue;
-  const yearPercent = result.formData.year ? Math.round((2025 - result.formData.year) * 5) : 0;
+  // 基于实际调整计算百分比
+  const currentYear = new Date().getFullYear();
+  const yearPercent = result.formData.year ? Math.round((currentYear - result.formData.year) * 5) : 0;
+  
   const mileagePercent = result.formData.mileage > 80000 ? 15 : 
                         result.formData.mileage > 50000 ? 10 :
                         result.formData.mileage > 30000 ? 5 :
@@ -580,45 +642,47 @@ function displayEstimation(result) {
   if (result.formData.documents === 'stnk_saja') docPercent = 10;
   if (result.formData.documents === 'hilang') docPercent = 25;
   
-  // Update value displays
+  // 更新价值显示
   document.getElementById('estimatedValueMin').textContent = formatCurrency(result.minValue);
   document.getElementById('estimatedValueMax').textContent = formatCurrency(result.maxValue);
   document.getElementById('estimatedValueAvg').textContent = formatCurrency(middleValue);
   
-  // Update breakdown with dynamic percentages
+  // 更新明细和动态百分比
   document.getElementById('basePrice').textContent = `Rp ${formatCurrency(result.basePrice)}`;
   
-  // Year adjustment
+  // 年份调整
   const yearAdjustmentValue = Math.round(result.basePrice * (yearPercent / 100));
   document.getElementById('yearAdjustment').textContent = `-Rp ${formatCurrency(yearAdjustmentValue)}`;
   document.getElementById('yearPercent').textContent = yearPercent;
   
-  // Mileage adjustment
+  // 里程调整
   const mileageAdjustmentValue = Math.round(result.basePrice * (mileagePercent / 100));
   document.getElementById('mileageAdjustment').textContent = `-Rp ${formatCurrency(mileageAdjustmentValue)}`;
   document.getElementById('mileagePercent').textContent = mileagePercent;
   
-  // Engine adjustment
+  // 引擎调整
   const engineAdjustmentValue = Math.round(result.basePrice * (enginePercent / 100));
   document.getElementById('engineAdjustment').textContent = `-Rp ${formatCurrency(engineAdjustmentValue)}`;
   document.getElementById('enginePercent').textContent = enginePercent;
   
-  // Body adjustment
+  // 车身调整
   const bodyAdjustmentValue = Math.round(result.basePrice * (bodyPercent / 100));
   document.getElementById('bodyAdjustment').textContent = `-Rp ${formatCurrency(bodyAdjustmentValue)}`;
   document.getElementById('bodyPercent').textContent = bodyPercent;
   
-  // Document adjustment
+  // 文件调整
   const docAdjustmentValue = Math.round(result.basePrice * (docPercent / 100));
   document.getElementById('docAdjustment').textContent = docAdjustmentValue > 0 ? `-Rp ${formatCurrency(docAdjustmentValue)}` : 'Rp 0';
   document.getElementById('docPercent').textContent = docPercent;
   
-  // Total adjustment
+  // 总调整
   const totalAdjValue = yearAdjustmentValue + mileageAdjustmentValue + engineAdjustmentValue + bodyAdjustmentValue + docAdjustmentValue;
   document.getElementById('totalAdjustment').textContent = `-Rp ${formatCurrency(totalAdjValue)}`;
   
-  // Update WhatsApp link with professional message
-  const whatsappBtn = document.querySelector('.btn-whatsapp');
+  // 更新WhatsApp链接
+  const whatsappBtn = document.getElementById('whatsappButton');
+  const locationText = document.getElementById('location').selectedOptions[0]?.textContent || result.formData.location;
+  
   const message = `Halo JF Gadai, saya ${result.formData.fullName} telah melakukan penilaian online.
 
 📋 DATA MOTOR:
@@ -643,7 +707,7 @@ Rp ${formatCurrency(result.minValue)} - Rp ${formatCurrency(result.maxValue)}
 📞 KONTAK:
 • Nama: ${result.formData.fullName}
 • WhatsApp: ${result.formData.phoneNumber}
-• Lokasi: ${document.getElementById('location').selectedOptions[0]?.textContent || result.formData.location}
+• Lokasi: ${locationText}
 
 Saya ingin melakukan konsultasi lebih lanjut dan penjadwalan inspeksi fisik untuk penyesuaian nilai yang lebih akurat. Terima kasih!`;
   
@@ -653,38 +717,64 @@ Saya ingin melakukan konsultasi lebih lanjut dan penjadwalan inspeksi fisik untu
   console.log('Professional results displayed successfully with range:', result.minValue, '-', result.maxValue);
 }
 
-// ==================== FORM RESET ====================
+// ==================== 表单重置 ====================
 function resetForm() {
   console.log('Resetting form...');
   
-  // Reset form
+  // 重置表单
   document.getElementById('motorAssessmentForm').reset();
   
-  // Reset brand
+  // 重置品牌选择
   document.querySelectorAll('.brand-option').forEach(opt => opt.classList.remove('active'));
   document.getElementById('brand').value = '';
   
-  // Reset model
+  // 重置车型选择
   const modelSelect = document.getElementById('model');
-  modelSelect.innerHTML = '<option value="">Pilih merek terlebih dahulu</option>';
-  modelSelect.disabled = true;
+  modelSelect.innerHTML = '<option value="">Pilih model motor</option>';
+  modelSelect.disabled = false;
   
-  // Reset mileage
+  // 重置年份选择
+  document.getElementById('year').value = '2022';
+  
+  // 重置里程
   document.getElementById('mileage').value = '20000';
   if (document.getElementById('mileageSlider')) {
     document.getElementById('mileageSlider').value = '20000';
   }
   updateMileageLabels(20000);
   
-  // Reset photos
+  // 重置单选按钮
+  document.querySelectorAll('input[type="radio"]').forEach(radio => {
+    radio.checked = false;
+  });
+  
+  // 重置照片
   document.querySelectorAll('.upload-area').forEach(area => {
     area.classList.remove('has-image');
     const preview = area.querySelector('.upload-preview');
     if (preview) preview.remove();
     
-    const text = area.id === 'uploadFront' ? 'Depan' : 
-                 area.id === 'uploadBack' ? 'Belakang' : 'Samping';
-    area.innerHTML = `<span class="upload-icon">📷</span><span class="upload-text">${text}</span>`;
+    // 重新添加图标和文本
+    const position = area.getAttribute('data-position');
+    const text = position === 'depan' ? 'Depan' : 
+                 position === 'belakang' ? 'Belakang' : 'Samping';
+    
+    // 清除现有内容（除了文件输入）
+    const fileInput = area.querySelector('input[type="file"]');
+    area.innerHTML = '';
+    
+    // 重新添加内容
+    const icon = document.createElement('span');
+    icon.className = 'upload-icon';
+    icon.textContent = '📷';
+    
+    const textSpan = document.createElement('span');
+    textSpan.className = 'upload-text';
+    textSpan.textContent = text;
+    
+    area.appendChild(icon);
+    area.appendChild(textSpan);
+    if (fileInput) area.appendChild(fileInput);
     
     // 重新添加移除按钮
     const removeBtn = document.createElement('div');
@@ -703,30 +793,84 @@ function resetForm() {
   photoData.uploadSide = null;
   currentUploadArea = null;
   
-  // Reset progress
+  // 重置进度条
   updateProgressBar(1);
   
-  // Go to step 1
+  // 转到步骤1
   document.querySelectorAll('.form-step').forEach(step => step.classList.remove('active'));
   document.getElementById('step1').classList.add('active');
   
-  // Set defaults
+  // 设置默认值
   setTimeout(() => {
     const hondaOption = document.querySelector('.brand-option[data-brand="honda"]');
     if (hondaOption) {
       hondaOption.click();
     }
-    document.getElementById('year').value = '2022';
     document.getElementById('cc').value = '150';
   }, 300);
   
-  // Scroll to top
+  // 滚动到顶部
   window.scrollTo({ top: 0, behavior: 'smooth' });
   
   console.log('Form reset complete');
 }
 
-// ==================== UTILITY ====================
+// ==================== 系统验证 ====================
+function validateSystem() {
+  console.log('=== 系统验证开始 ===');
+  
+  const checks = {
+    googleAnalytics: typeof gtag !== 'undefined',
+    dataLayer: typeof dataLayer !== 'undefined',
+    formValidation: typeof validateStep === 'function',
+    calculationEngine: typeof calculateEstimation === 'function',
+    photoUpload: typeof initPhotoUpload === 'function',
+    stepNavigation: typeof nextStep === 'function',
+    brandSelection: typeof initBrandSelection === 'function'
+  };
+
+  console.log('检查结果:', checks);
+  
+  const allValid = Object.values(checks).every(v => v === true);
+  
+  if (allValid) {
+    console.log('✅ 系统验证通过：所有核心功能正常');
+    
+    // 发送验证事件到Google Analytics
+    if (window.gtag) {
+      gtag('event', 'system_validated', {
+        'event_category': 'System',
+        'event_label': 'Assessment System',
+        'value': 1
+      });
+    }
+    
+    // 显示系统就绪消息
+    console.log('💰 系统已准备就绪，可以开始评估');
+    
+    return true;
+  } else {
+    console.error('❌ 系统验证失败，请检查以下功能：');
+    Object.entries(checks).forEach(([key, value]) => {
+      if (!value) console.error(`  - ${key}: 失败`);
+    });
+    
+    // 发送错误事件到Google Analytics
+    if (window.gtag) {
+      gtag('event', 'system_error', {
+        'event_category': 'System',
+        'event_label': 'Assessment System',
+        'value': 0
+      });
+    }
+    
+    return false;
+  }
+  
+  console.log('=== 系统验证结束 ===');
+}
+
+// ==================== 实用函数 ====================
 function formatNumber(num) {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
