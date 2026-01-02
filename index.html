@@ -31,6 +31,7 @@
   <meta name="description" content="JF Gadai menyediakan layanan gadai emas, kendaraan, dan elektronik terpercaya di Bangil & Gempol. Proses cepat, bunga kompetitif, aman, dan terpercaya. Cek sekarang layanan pinjaman terbaik kami.">
   <meta name="keywords" content="gadai, gadai emas, gadai motor, gadai mobil, gadai hp, pinjaman, jaminan, Bangil, Gempol, Jawa Timur">
   <meta name="author" content="JF Gadai">
+  <meta name="robots" content="index, follow">
 
   <!-- Open Graph（社交媒体分享）-->
   <meta property="og:title" content="JF Gadai | Layanan Gadai Terpercaya">
@@ -39,6 +40,7 @@
   <meta property="og:url" content="https://www.jfgadai.com">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="id_ID">
+  <meta property="og:site_name" content="JF Gadai">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.jfgadai.com">
@@ -60,7 +62,11 @@
     "telephone": "+6289515692586",
     "openingHours": "Mo-Fr 08:00-18:00",
     "url": "https://www.jfgadai.com",
-    "priceRange": "Rp"
+    "priceRange": "Rp",
+    "areaServed": {
+      "@type": "Place",
+      "name": "Bangil, Gempol, dan sekitarnya"
+    }
   }
   </script>
 
@@ -74,7 +80,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
   <!-- 全屏横幅 -->
   <section class="full-banner">
-    <img src="images/101.jpeg" alt="JF Gadai - Tetap Maju di Saat Sulit">
+    <img src="images/101.jpeg" alt="JF Gadai - Tetap Maju di Saat Sulit" loading="lazy">
   </section>
 
   <!-- 不对称六宫格 -->
@@ -102,7 +108,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           Ketahui perkiraan nilai gadai motor Honda & Yamaha Anda dalam 3 menit!
           <br><span class="highlight-text">Tanpa biaya, tanpa kewajiban.</span>
         </p>
-        <a href="assessment.html" class="btn-assessment">
+        <a href="assessment.html" class="btn-assessment" rel="noopener">
           <span>🚀 Cek Nilai Motor Sekarang</span>
         </a>
         <div class="assessment-stats">
@@ -139,22 +145,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- 左下：联系我们表单 -->
     <section class="grid-item contact-form-section">
       <h2>📝 Konsultasi Gratis</h2>
-      <p class="form-note">Isi form ini untuk mendapatkan penawaran khusus dan konsultasi gratis!</p>
+      <p class="form-intro">Isi form ini untuk mendapatkan penawaran khusus dan konsultasi gratis!</p>
       
-      <form class="contact-form" id="consultationForm">
+      <form class="contact-form" id="consultationForm" method="POST">
         <div class="form-group">
           <label for="name">Nama Lengkap</label>
-          <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda" required>
+          <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama Anda" required>
         </div>
         
         <div class="form-group">
           <label for="phone">Nomor WhatsApp</label>
-          <input type="tel" id="phone" class="form-control" placeholder="Contoh: 081234567890" required>
+          <input type="tel" id="phone" name="phone" class="form-control" placeholder="Contoh: 081234567890" required>
         </div>
         
         <div class="form-group">
           <label for="item">Jenis Barang</label>
-          <select id="item" class="form-control" required>
+          <select id="item" name="item" class="form-control" required>
             <option value="">-- Pilih jenis barang --</option>
             <option value="emas">Emas/Perhiasan</option>
             <option value="elektronik">Elektronik (HP, Laptop, dll)</option>
@@ -165,14 +171,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div class="form-group">
           <label for="message">Catatan/Kebutuhan Khusus</label>
-          <textarea id="message" class="form-control" rows="3" placeholder="Deskripsi singkat barang atau kebutuhan khusus..."></textarea>
+          <textarea id="message" name="message" class="form-control" rows="3" placeholder="Deskripsi singkat barang atau kebutuhan khusus..."></textarea>
         </div>
         
         <button type="submit" class="submit-btn">
           📩 Dapatkan Penawaran Spesial
         </button>
         
-        <p class="form-note">* Dengan mengisi form, Anda berhak mendapatkan konsultasi gratis dan potongan biaya administrasi 50%!</p>
+        <p class="form-disclaimer">* Dengan mengisi form, Anda berhak mendapatkan konsultasi gratis dan potongan biaya administrasi 50%!</p>
       </form>
     </section>
     
@@ -205,11 +211,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <ul class="condition-list">
         <li><span class="list-icon">❌</span> Barang ilegal/hasil curian</li>
         <li><span class="list-icon">❌</span> Dokumen resmi negara</li>
-        <li><span  class="list-icon">❌</span> Barang rusak total</li>
+        <li><span class="list-icon">❌</span> Barang rusak total</li>
         <li><span class="list-icon">❌</span> Tanpa identitas diri</li>
         <li><span class="list-icon">❌</span> Barang kontroversial</li>
       </ul>
-      <p class="form-note">* Semua barang harus dalam kepemilikan sah dan bisa dibuktikan.</p>
+      <p class="condition-note">* Semua barang harus dalam kepemilikan sah dan bisa dibuktikan.</p>
     </section>
   </main>
 
@@ -232,12 +238,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </a>
         </div>
         
-        <p class="company-info" style="margin-top: 2rem; font-size: 0.9rem;">
+        <p class="operating-hours">
           Jam Operasional: Senin-Jumat : 08:00-18:00 | Libur hari Sabtu dan Minggu
         </p>
-<p class="security-note">
-  🔒 Situs ini menggunakan koneksi aman (HTTPS).
-</p>
+        
+        <p class="security-note">
+          🔒 Situs ini menggunakan koneksi aman (HTTPS).
+        </p>
       </div>
     </div>
   </footer>
