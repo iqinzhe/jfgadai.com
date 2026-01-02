@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Penilaian Online Motor | JF Gadai</title>
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/assessment.css">
-  
-<head>
   <!-- Google Tag Manager -->
   <script>
   (function(w,d,s,l,i){
@@ -38,6 +31,7 @@
   <meta name="description" content="Gunakan alat assessment online JF Gadai untuk mengetahui estimasi pinjaman gadai emas, kendaraan, atau elektronik Anda dengan cepat dan aman. Proses mudah, bunga kompetitif, terpercaya di Bangil & Gempol.">
   <meta name="keywords" content="gadai, assessment, pinjaman, gadai emas, gadai motor, gadai mobil, gadai hp, Bangil, Gempol, Jawa Timur">
   <meta name="author" content="JF Gadai">
+  <meta name="robots" content="index, follow">
 
   <!-- Open Graph（社交媒体分享）-->
   <meta property="og:title" content="JF Gadai Assessment | Alat Evaluasi Pinjaman">
@@ -46,6 +40,7 @@
   <meta property="og:url" content="https://www.jfgadai.com/assessment">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="id_ID">
+  <meta property="og:site_name" content="JF Gadai">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.jfgadai.com/assessment">
@@ -54,27 +49,34 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "PawnBroker",
-    "name": "JF Gadai",
+    "@type": "WebPage",
+    "name": "Alat Assessment Motor - JF Gadai",
+    "description": "Alat assessment online untuk estimasi pinjaman gadai kendaraan di Bangil & Gempol",
     "image": "https://www.jfgadai.com/images/assessment-og.jpeg",
-    "description": "Alat assessment online untuk estimasi pinjaman gadai emas, kendaraan, atau elektronik di Bangil & Gempol",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Bangil",
-      "addressRegion": "Jawa Timur",
-      "addressCountry": "ID"
-    },
-    "telephone": "+6289515692586",
-    "openingHours": "Mo-Fr 08:00-18:00",
     "url": "https://www.jfgadai.com/assessment",
-    "priceRange": "Rp"
+    "author": {
+      "@type": "Organization",
+      "name": "JF Gadai"
+    },
+    "publisher": {
+      "@type": "PawnBroker",
+      "name": "JF Gadai",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bangil",
+        "addressRegion": "Jawa Timur",
+        "addressCountry": "ID"
+      },
+      "telephone": "+6289515692586"
+    }
   }
   </script>
 
+  <!-- CSS 文件 -->
   <link rel="stylesheet" href="css/main.css">
-</head>
+  <link rel="stylesheet" href="css/assessment.css">
 
-
+  <!-- 页面专用样式 -->
   <style>
     /* 品牌Logo样式 */
     .brand-logo-img {
@@ -155,7 +157,7 @@
       padding: 15px;
       background: rgba(11, 44, 74, 0.6);
       border-radius: 10px;
-      border-left: 4px solid var(--secondary-color);
+      border-left: 4px solid #2ecc71;
     }
     
     .trust-item {
@@ -163,11 +165,11 @@
       min-width: 200px;
       padding: 10px;
       font-size: 0.9rem;
-      color: var(--text-light);
+      color: #e0e0e0;
     }
     
     .trust-item strong {
-      color: var(--secondary-color);
+      color: #2ecc71;
     }
 
     /* 手机端额外优化 */
@@ -200,6 +202,7 @@
     }
   </style>
 </head>
+
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript>
@@ -248,7 +251,7 @@
         <div class="progress-step" data-step="4">Hasil</div>
       </div>
 
-      <form id="motorAssessmentForm" class="assessment-form">
+      <form id="motorAssessmentForm" class="assessment-form" method="POST" novalidate>
 
         <!-- 步骤1: 摩托车信息 -->
         <div class="form-step active" id="step1">
@@ -256,8 +259,8 @@
           
           <!-- 品牌选择 -->
           <div class="form-group">
-            <label>Merek Motor</label>
-            <div class="brand-selection">
+            <label for="brand-select">Merek Motor</label>
+            <div class="brand-selection" id="brand-select">
               <!-- Honda -->
               <div class="brand-option active" data-brand="honda">
                 <img
@@ -265,6 +268,7 @@
                   alt="Honda Motor"
                   class="brand-logo-img"
                   draggable="false"
+                  loading="lazy"
                   onerror="this.onerror=null; this.src=''; this.style.display='none'; this.nextElementSibling.style.display='block';"
                 />
                 <div class="brand-logo-fallback" style="display:none">HONDA</div>
@@ -278,6 +282,7 @@
                   alt="Yamaha Motor"
                   class="brand-logo-img"
                   draggable="false"
+                  loading="lazy"
                   onerror="this.onerror=null; this.src=''; this.style.display='none'; this.nextElementSibling.style.display='block';"
                 />
                 <div class="brand-logo-fallback" style="display:none">YAMAHA</div>
@@ -286,7 +291,7 @@
             </div>
           </div>
           
-          <input type="hidden" id="brand" name="brand" value="honda">
+          <input type="hidden" id="brand" name="brand" value="honda" required>
 
           <!-- 车型选择（动态加载） -->
           <div class="form-group">
@@ -476,7 +481,7 @@
             
             <div class="form-group">
               <label for="phoneNumber">Nomor WhatsApp</label>
-              <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="0812xxxxxxx" required>
+              <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="0812xxxxxxx" pattern="[0-9]{10,13}" required>
             </div>
           </div>
 
@@ -498,8 +503,8 @@
 
           <!-- 照片上传 -->
           <div class="form-group">
-            <label>Foto Motor (Opsional, tapi membantu)</label>
-            <div class="photo-upload">
+            <label for="photo-upload">Foto Motor (Opsional, tapi membantu)</label>
+            <div class="photo-upload" id="photo-upload">
               <div class="upload-area" id="uploadFront" data-position="depan">
                 <span class="upload-icon">📷</span>
                 <span class="upload-text">Depan</span>
@@ -612,7 +617,7 @@
 
             <!-- 行动按钮 -->
             <div class="action-buttons">
-              <a id="whatsappButton" href="https://wa.me/6289515692586" target="_blank" class="btn-whatsapp">
+              <a id="whatsappButton" href="https://wa.me/6289515692586" target="_blank" class="btn-whatsapp" rel="noopener noreferrer">
                 <span>💬 Konsultasi & Penyesuaian Nilai</span>
               </a>
               
@@ -698,7 +703,7 @@
           </a>
         </div>
         
-        <p class="company-info" style="margin-top: 2rem; font-size: 0.9rem;">
+        <p class="operating-hours">
           Jam Operasional: Senin-Jumat : 08:00-18:00 | Libur hari Sabtu dan Minggu
         </p>
         <p class="security-note">
