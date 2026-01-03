@@ -91,49 +91,20 @@
       transform: scale(1.05);
     }
 
+    /* Honda Logo 样式 */
     .brand-option[data-brand="honda"] .brand-logo-img {
-      filter: brightness(0.9) contrast(1.1);
+      filter: brightness(0.95) contrast(1.1) saturate(1.1);
     }
     
-/* ========== 修复：Yamaha Logo 增强可见性 ========== */
-.brand-option[data-brand="yamaha"] .brand-logo-img {
-  /* 移除原有滤镜，使用白色背景增强对比度 */
-  filter: none !important;
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 8px;
-  border-radius: 6px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-  width: 80px;
-  height: 40px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-}
-
-/* 悬停效果 */
-.brand-option[data-brand="yamaha"]:hover .brand-logo-img {
-  transform: scale(1.1);
-  background-color: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-}
-
-/* 选中状态 */
-.brand-option[data-brand="yamaha"].active .brand-logo-img {
-  border: 2px solid #f5c542;
-  background-color: white;
-  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.3);
-}
-
-/* Logo 加载失败时显示文字备选方案 */
-.brand-option[data-brand="yamaha"] .brand-logo-fallback {
-  display: none;
-  font-family: 'Arial Black', sans-serif;
-  font-size: 1.3rem;
-  color: #003399;
-  font-weight: 900;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
+    /* Yamaha Logo 样式 - 红色图标 */
+    .brand-option[data-brand="yamaha"] .brand-logo-img {
+      filter: invert(15%) sepia(100%) saturate(1800%) hue-rotate(345deg) brightness(0.95) contrast(1.2);
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 6px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
     
     /* 照片预览样式 */
     .upload-preview {
@@ -207,6 +178,56 @@
       color: #2ecc71;
     }
 
+    /* 修复下拉框样式 - 确保深色主题 */
+    select {
+      background-color: #0b2c4a !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      padding: 14px 16px !important;
+      border-radius: 10px !important;
+      font-size: 16px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      margin-top: 5px !important;
+      appearance: none !important;
+      -webkit-appearance: none !important;
+      -moz-appearance: none !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
+      background-repeat: no-repeat !important;
+      background-position: right 16px center !important;
+      background-size: 16px !important;
+      padding-right: 45px !important;
+      cursor: pointer !important;
+    }
+
+    /* 下拉选项 */
+    select option {
+      background-color: #0b2c4a !important;
+      color: #ffffff !important;
+      padding: 12px !important;
+    }
+
+    /* 焦点状态 */
+    select:focus {
+      outline: none !important;
+      border-color: #f5c542 !important;
+      background-color: #0c3357 !important;
+      box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.25) !important;
+    }
+
+    /* 悬停状态 */
+    select:hover {
+      border-color: rgba(255, 255, 255, 0.4) !important;
+    }
+
+    /* 禁用状态 */
+    select:disabled {
+      background-color: rgba(11, 44, 74, 0.5) !important;
+      color: rgba(255, 255, 255, 0.5) !important;
+      cursor: not-allowed !important;
+      opacity: 0.7 !important;
+    }
+
     /* 手机端额外优化 */
     @media (max-width: 480px) {
       .container {
@@ -229,6 +250,14 @@
       .brand-logo-img {
         width: 60px;
         height: 30px;
+      }
+      
+      /* 手机端Yamaha Logo调整 */
+      .brand-option[data-brand="yamaha"] .brand-logo-img {
+        width: 55px !important;
+        height: 28px !important;
+        padding: 4px;
+        filter: invert(15%) sepia(100%) saturate(2000%) hue-rotate(345deg) brightness(1) contrast(1.3);
       }
       
       .trust-box {
@@ -310,7 +339,7 @@
                 <span class="brand-name">Honda</span>
               </div>
 
-              <!-- Yamaha -->
+              <!-- Yamaha - 红色图标版本 -->
               <div class="brand-option" data-brand="yamaha">
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/6/69/Yamaha_logo.svg"
@@ -597,7 +626,7 @@
                 <div class="value-average">
                   <span class="average-label">Nilai Tengah:</span>
                   <span class="currency">Rp</span>
-                  <span id="estimatedValueAvg" class="value">5.000.000</span>
+                    <span id="estimatedValueAvg" class="value">5.000.000</span>
                 </div>
               </div>
               
@@ -748,6 +777,4 @@
     </div>
   </footer>
 
-  <script src="js/assessment.js"></script>
-</body>
-</html>
+  <
