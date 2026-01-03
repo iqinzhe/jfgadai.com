@@ -923,10 +923,38 @@
   }
 }
 
-/* ========== 修复：表单白色背景问题 ========== */
+/* ========== 所有修复整合在此 ========== */
 
-/* 更具体的表单控件样式 */
-.assessment-container select,
+/* 修复：所有下拉框深色主题 */
+select {
+  background-color: #0b2c4a !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 14px 16px !important;
+  border-radius: 10px !important;
+  font-size: 16px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin-top: 5px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 16px center !important;
+  background-size: 16px !important;
+  padding-right: 45px !important;
+  cursor: pointer !important;
+}
+
+/* 下拉选项 */
+select option {
+  background-color: #0b2c4a !important;
+  color: #ffffff !important;
+  padding: 12px !important;
+}
+
+/* 输入框 */
 .assessment-container input[type="text"],
 .assessment-container input[type="number"],
 .assessment-container input[type="tel"] {
@@ -940,24 +968,10 @@
   box-sizing: border-box !important;
   margin-top: 5px !important;
   transition: all 0.3s ease !important;
-  font-family: inherit !important;
 }
 
-/* 下拉框样式 */
-.assessment-container select {
-  appearance: none !important;
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: right 16px center !important;
-  background-size: 16px !important;
-  padding-right: 45px !important;
-  cursor: pointer !important;
-}
-
-/* 聚焦状态 */
-.assessment-container select:focus,
+/* 焦点状态 */
+select:focus,
 .assessment-container input[type="text"]:focus,
 .assessment-container input[type="number"]:focus,
 .assessment-container input[type="tel"]:focus {
@@ -965,6 +979,11 @@
   border-color: #f5c542 !important;
   background-color: rgba(255, 255, 255, 0.12) !important;
   box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.25) !important;
+}
+
+/* 悬停状态 */
+select:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
 }
 
 /* 占位符颜色 */
@@ -975,127 +994,53 @@
 }
 
 /* 禁用状态 */
-.assessment-container select:disabled {
-  background-color: rgba(255, 255, 255, 0.04) !important;
+select:disabled {
+  background-color: rgba(11, 44, 74, 0.5) !important;
   color: rgba(255, 255, 255, 0.5) !important;
   cursor: not-allowed !important;
   opacity: 0.7 !important;
 }
 
-/* Yamaha Logo 特殊样式 - 图标改为红色 */
+/* 修复：Yamaha Logo 红色图标 */
 .brand-option[data-brand="yamaha"] .brand-logo-img {
-  /* 使用滤镜将蓝色变为红色 */
   filter: 
-    brightness(0.9) 
-    sepia(1)           /* 添加棕褐色调 */
-    hue-rotate(330deg) /* 调整色相到红色范围 */
-    saturate(2.5)      /* 增加饱和度 */
-    contrast(1.1);     /* 增加对比度 */
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 8px;
-  border-radius: 6px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-  width: 80px;
-  height: 40px;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.3s ease;
+    brightness(0.85) 
+    sepia(1)
+    hue-rotate(345deg)
+    saturate(3)
+    contrast(1.3);
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 6px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* 悬停效果 - 图标更红 */
+/* 悬停效果 */
 .brand-option[data-brand="yamaha"]:hover .brand-logo-img {
-  transform: scale(1.1);
+  transform: scale(1.05);
   background-color: white;
   filter: 
-    brightness(0.95) 
+    brightness(0.9)
     sepia(1)
-    hue-rotate(335deg)
-    saturate(3)
-    contrast(1.2);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    hue-rotate(350deg)
+    saturate(3.5)
+    contrast(1.4);
 }
 
-/* 选中状态 - 强调红色 */
+/* 选中状态 */
 .brand-option[data-brand="yamaha"].active .brand-logo-img {
   border: 2px solid #f5c542;
   background-color: white;
-  filter: 
-    brightness(1) 
-    sepia(1)
-    hue-rotate(340deg)
-    saturate(3.5)
-    contrast(1.3);
-  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.3), 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.3);
 }
 
-/* 手机端适配 */
-@media (max-width: 600px) {
-  .brand-option[data-brand="yamaha"] .brand-logo-img {
-    width: 65px !important;
-    height: 32px !important;
-    padding: 6px;
-    filter: 
-      brightness(0.9) 
-      sepia(1)
-      hue-rotate(330deg)
-      saturate(2.8)
-      contrast(1.1);
-  }
-}
-
-@media (max-width: 480px) {
-  .brand-option[data-brand="yamaha"] .brand-logo-img {
-    width: 55px !important;
-    height: 28px !important;
-    padding: 4px;
-    filter: 
-      brightness(0.95) 
-      sepia(1)
-      hue-rotate(330deg)
-      saturate(3)
-      contrast(1.2);
-  }
-}
-
-/* 确保 Honda Logo 是红色（如果需要） */
+/* Honda Logo 增强 */
 .brand-option[data-brand="honda"] .brand-logo-img {
-  /* Honda 已经是红色，保持原样或增强 */
-  filter: brightness(0.95) contrast(1.1) saturate(1.2);
+  filter: brightness(0.95) contrast(1.1) saturate(1.1);
 }
 
-/* ========== 修复：响应式布局问题 ========== */
-
-/* 网页端文字大小优化 */
-@media (min-width: 769px) {
-  .assessment-banner h1 {
-    font-size: 2.8rem !important;
-  }
-  
-  .assessment-banner .subtitle {
-    font-size: 1.3rem !important;
-  }
-  
-  .form-step h2 {
-    font-size: 2rem !important;
-  }
-  
-  .condition-section h3 {
-    font-size: 1.2rem !important;
-  }
-  
-  .option-title {
-    font-size: 1.1rem !important;
-  }
-  
-  .option-desc {
-    font-size: 0.9rem !important;
-  }
-  
-  .faq-question {
-    font-size: 1.1rem !important;
-  }
-}
-
-/* 手机端间距优化 */
+/* 响应式优化 */
 @media (max-width: 768px) {
   .assessment-banner {
     padding: 2rem 0 1.5rem !important;
@@ -1122,31 +1067,8 @@
   .stat-number {
     font-size: 2rem !important;
   }
-  
-  .stat-text {
-    font-size: 0.85rem !important;
-  }
-  
-  .form-step h2 {
-    font-size: 1.5rem !important;
-    margin-bottom: 1.5rem !important;
-  }
-  
-  .form-group {
-    margin-bottom: 1.2rem !important;
-  }
-  
-  .condition-section {
-    margin-bottom: 1.5rem !important;
-  }
-  
-  .form-navigation {
-    margin-top: 2rem !important;
-    padding-top: 1.5rem !important;
-  }
 }
 
-/* 小手机优化 */
 @media (max-width: 480px) {
   .assessment-banner {
     padding: 1.5rem 0 1rem !important;
@@ -1163,121 +1085,5 @@
   
   .condition-options {
     gap: 0.8rem !important;
-  }
-  
-  .option-content {
-    padding: 1.2rem 0.8rem !important;
-  }
-}
-
-/* ===============================
-   Model Motor 下拉框 深色主题修复
-   =============================== */
-
-#model {
-  background-color: #0b2c4a !important;   /* 深宝石蓝 */
-  color: #ffffff !important;              /* 文字白色 */
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-}
-
-/* 下拉选项（大多数浏览器生效） */
-#model option {
-  background-color: #0b2c4a;
-  color: #ffffff;
-}
-
-/* 禁用状态 */
-#model:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* ==================== 修复所有问题 ==================== */
-
-/* 1. 修复所有下拉框白色背景问题 */
-select {
-  background-color: #0b2c4a !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  padding: 14px 16px !important;
-  border-radius: 10px !important;
-  font-size: 16px !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  margin-top: 5px !important;
-  appearance: none !important;
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: right 16px center !important;
-  background-size: 16px !important;
-  padding-right: 45px !important;
-  cursor: pointer !important;
-}
-
-select option {
-  background-color: #0b2c4a !important;
-  color: #ffffff !important;
-  padding: 12px !important;
-}
-
-select:focus {
-  outline: none !important;
-  border-color: #f5c542 !important;
-  background-color: #0c3357 !important;
-  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.25) !important;
-}
-
-select:hover {
-  border-color: rgba(255, 255, 255, 0.4) !important;
-}
-
-select:disabled {
-  background-color: rgba(11, 44, 74, 0.5) !important;
-  color: rgba(255, 255, 255, 0.5) !important;
-  cursor: not-allowed !important;
-  opacity: 0.7 !important;
-}
-
-/* 2. 修复 Yamaha Logo 可见性问题 */
-.brand-option[data-brand="yamaha"] .brand-logo-img {
-  filter: none !important;
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 8px;
-  border-radius: 6px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-  width: 80px !important;
-  height: 40px !important;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-}
-
-.brand-option[data-brand="yamaha"]:hover .brand-logo-img {
-  transform: scale(1.1);
-  background-color: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-}
-
-.brand-option[data-brand="yamaha"].active .brand-logo-img {
-  border: 2px solid #f5c542;
-  background-color: white;
-  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.3);
-}
-
-/* 手机端适配 */
-@media (max-width: 600px) {
-  .brand-option[data-brand="yamaha"] .brand-logo-img {
-    width: 65px !important;
-    height: 32px !important;
-    padding: 6px;
-  }
-}
-
-@media (max-width: 480px) {
-  .brand-option[data-brand="yamaha"] .brand-logo-img {
-    width: 55px !important;
-    height: 28px !important;
-    padding: 4px;
   }
 }
