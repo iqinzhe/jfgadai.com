@@ -27,16 +27,16 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
   <!-- SEO Meta 标签 -->
-  <title>JF Gadai | Layanan Gadai Terpercaya di Bangil & Gempol</title>
-  <meta name="description" content="JF Gadai menyediakan layanan gadai emas, kendaraan, dan elektronik terpercaya di Bangil & Gempol. Proses cepat, bunga kompetitif, aman, dan terpercaya. Cek sekarang layanan pinjaman terbaik kami.">
-  <meta name="keywords" content="gadai, gadai emas, gadai motor, gadai mobil, gadai hp, pinjaman, jaminan, Bangil, Gempol, Jawa Timur">
+  <title>JF Gadai | Layanan Gadai Motor Terpercaya di Bangil & Gempol</title>
+  <meta name="description" content="JF Gadai menyediakan layanan gadai motor cepat, aman, dan terpercaya di Bangil & Gempol. Proses mudah, bunga kompetitif, dana cair hari sama.">
+  <meta name="keywords" content="gadai motor, gadai, pinjaman motor, gadai cepat, Bangil, Gempol, Pasuruan, Jawa Timur">
   <meta name="author" content="JF Gadai">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph（社交媒体分享）-->
-  <meta property="og:title" content="JF Gadai | Layanan Gadai Terpercaya">
-  <meta property="og:description" content="Layanan gadai emas, kendaraan, dan elektronik dengan proses cepat, aman, dan terpercaya di Bangil & Gempol.">
-  <meta property="og:image" content="https://www.jfgadai.com/images/101.jpeg">
+  <meta property="og:title" content="JF Gadai | Layanan Gadai Motor Terpercaya">
+  <meta property="og:description" content="Gadai motor cepat & aman di Bangil & Gempol. Proses 1-2 jam, dana langsung cair. Bunga kompetitif 10% per bulan.">
+  <meta property="og:image" content="https://www.jfgadai.com/images/jf-gadai-og.jpg">
   <meta property="og:url" content="https://www.jfgadai.com">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="id_ID">
@@ -51,204 +51,501 @@
     "@context": "https://schema.org",
     "@type": "PawnBroker",
     "name": "JF Gadai",
-    "image": "https://www.jfgadai.com/images/101.jpeg",
-    "description": "Layanan gadai emas, kendaraan, dan elektronik terpercaya di Bangil & Gempol",
+    "description": "Layanan gadai motor terpercaya di Bangil & Gempol",
+    "image": "https://www.jfgadai.com/images/jf-gadai-logo.jpg",
+    "url": "https://www.jfgadai.com",
+    "telephone": "+6289515692586",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Bangil",
       "addressRegion": "Jawa Timur",
       "addressCountry": "ID"
     },
-    "telephone": "+6289515692586",
     "openingHours": "Mo-Fr 08:00-18:00",
-    "url": "https://www.jfgadai.com",
-    "priceRange": "Rp",
-    "areaServed": {
-      "@type": "Place",
-      "name": "Bangil, Gempol, dan sekitarnya"
-    }
+    "priceRange": "Rp 1.000.000 - Rp 50.000.000"
   }
   </script>
 
+  <!-- CSS 文件 -->
   <link rel="stylesheet" href="css/main.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- 页面专用样式 -->
+  <style>
+    /* 英雄区优化 */
+    .hero {
+      background: linear-gradient(135deg, rgba(11, 44, 74, 0.95), rgba(245, 197, 66, 0.15)),
+                  url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 6rem 0;
+      position: relative;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* CTA按钮 */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #f5c542, #e0b339);
+      color: #0b2c4a;
+      padding: 1.2rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(245, 197, 66, 0.4);
+      margin-top: 1rem;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(245, 197, 66, 0.6);
+      background: linear-gradient(135deg, #f5c542, #f0b830);
+    }
+    
+    .cta-button i {
+      font-size: 1.4rem;
+    }
+    
+    /* 特色服务 */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+    
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: #f5c542;
+      background: rgba(245, 197, 66, 0.05);
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: #f5c542;
+    }
+    
+    .feature-card h3 {
+      color: #f5c542;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    
+    /* 快速评估部分 */
+    .quick-assessment {
+      background: linear-gradient(135deg, rgba(15, 76, 129, 0.9), rgba(245, 197, 66, 0.1));
+      padding: 4rem 0;
+      border-radius: 15px;
+      margin: 4rem 0;
+    }
+    
+    .assessment-box {
+      background: rgba(11, 44, 74, 0.8);
+      border-radius: 12px;
+      padding: 2.5rem;
+      text-align: center;
+      border: 2px solid rgba(245, 197, 66, 0.3);
+    }
+    
+    /* 信任徽章 */
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 3rem 0;
+    }
+    
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 1rem 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .badge i {
+      color: #2ecc71;
+      font-size: 1.8rem;
+    }
+    
+    /* WhatsApp浮动按钮 */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    }
+    
+    /* 手机端优化 */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 4rem 0;
+      }
+      
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .features {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .feature-card {
+        padding: 1.5rem;
+      }
+      
+      .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+      }
+      
+      .trust-badges {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .assessment-box {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
 <!-- End Google Tag Manager (noscript) -->
-  <!-- 全屏横幅 -->
-  <section class="full-banner">
-    <img src="images/101.jpeg" alt="JF Gadai - Tetap Maju di Saat Sulit" loading="lazy">
+
+  <!-- WhatsApp浮动按钮 -->
+  <a href="https://wa.me/6289515692586" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- 头部导航 -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-text">JF Gadai</span>
+          <span class="logo-tagline">Layanan Gadai Terpercaya</span>
+        </div>
+        
+        <nav class="main-nav">
+          <a href="#home" class="nav-link active">Beranda</a>
+          <a href="#services" class="nav-link">Layanan</a>
+          <a href="#about" class="nav-link">Tentang Kami</a>
+          <a href="#contact" class="nav-link">Kontak</a>
+          <a href="assessment.html" class="nav-button">Assessment Online</a>
+        </nav>
+        
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 英雄区 -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Gadai Motor Cepat & Aman di Bangil & Gempol</h1>
+        <p>Dana cair dalam 1-2 jam! Proses mudah, bunga kompetitif 10% per bulan, tanpa biaya tersembunyi. Terpercaya sejak 2015.</p>
+        <a href="assessment.html" class="cta-button">
+          <i class="fas fa-calculator"></i>
+          Cek Nilai Motor Anda Sekarang
+        </a>
+      </div>
+    </div>
   </section>
 
-  <!-- 不对称六宫格 -->
-  <main class="container asymmetric-grid">
-    
-    <!-- 左侧：我们的服务 -->
-    <section class="grid-item our-services">
-      <h2>🛠️ Layanan Kami</h2>
-      <ul class="service-list">
-        <li><span class="list-icon">💎</span> Gadai Emas & Perhiasan</li>
-        <li><span class="list-icon">📱</span> Gadai Elektronik</li>
-        <li><span class="list-icon">🏍️</span> Gadai Kendaraan</li>
-        <li><span class="list-icon">💍</span> Barang Berharga Lainnya</li>
-        <li><span class="list-icon">⚡</span> Pencairan Kilat</li>
-        <li><span class="list-icon">🔄</span> Perpanjangan Gadai</li>
-      </ul>
-    </section>
-    
-    <!-- 中间上方：摩托车评估系统 -->
-    <section class="grid-item assessment-system">
-      <div class="assessment-card fade-in delay-3">
-        <div class="assessment-icon">🏍️</div>
-        <h3>Penilaian Online Motor Gratis</h3>
-        <p class="assessment-desc">
-          Ketahui perkiraan nilai gadai motor Honda & Yamaha Anda dalam 3 menit!
-          <br><span class="highlight-text">Tanpa biaya, tanpa kewajiban.</span>
-        </p>
-        <a href="assessment.html" class="btn-assessment" rel="noopener">
-          <span>🚀 Cek Nilai Motor Sekarang</span>
-        </a>
-        <div class="assessment-stats">
-          <div class="stat">
-            <span class="stat-number">⚡</span>
-            <span class="stat-text">Cepat 3 Menit</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">🎯</span>
-            <span class="stat-text">Akurat 95%</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">🛡️</span>
-            <span class="stat-text">100% Gratis</span>
-          </div>
-        </div>
+  <!-- 主要内容 -->
+  <main class="container">
+    <!-- 特色服务 -->
+    <section class="features" id="services">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Cepat & Mudah</h3>
+        <p>Proses hanya 1-2 jam, dana langsung cair hari yang sama. Tidak perlu menunggu lama.</p>
       </div>
-    </section>
-    
-    <!-- 右侧：为什么选择我们 -->
-    <section class="grid-item why-choose-us">
-      <h2>⭐ Kenapa Memilih Kami?</h2>
-      <ul class="reason-list">
-        <li><span class="list-icon">✅</span> Proses cepat & transparan</li>
-        <li><span class="list-icon">✅</span> Bunga kompetitif & jelas</li>
-        <li><span class="list-icon">✅</span> Keamanan barang terjamin</li>
-        <li><span class="list-icon">✅</span> Layanan lokal terpercaya</li>
-        <li><span class="list-icon">✅</span> Tenaga profesional & ramah</li>
-        <li><span class="list-icon">✅</span> Fleksibel dalam pembayaran</li>
-        <li><span class="list-icon">✅</span> Privasi pelanggan dijaga</li>
-      </ul>
-    </section>
-    
-    <!-- 左下：联系我们表单 -->
-    <section class="grid-item contact-form-section">
-      <h2>📝 Konsultasi Gratis</h2>
-      <p class="form-intro">Isi form ini untuk mendapatkan penawaran khusus dan konsultasi gratis!</p>
       
-      <form class="contact-form" id="consultationForm" method="POST">
-        <div class="form-group">
-          <label for="name">Nama Lengkap</label>
-          <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama Anda" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="phone">Nomor WhatsApp</label>
-          <input type="tel" id="phone" name="phone" class="form-control" placeholder="Contoh: 081234567890" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="item">Jenis Barang</label>
-          <select id="item" name="item" class="form-control" required>
-            <option value="">-- Pilih jenis barang --</option>
-            <option value="emas">Emas/Perhiasan</option>
-            <option value="elektronik">Elektronik (HP, Laptop, dll)</option>
-            <option value="kendaraan">Kendaraan (Motor, Mobil)</option>
-            <option value="lainnya">Barang Berharga Lainnya</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="message">Catatan/Kebutuhan Khusus</label>
-          <textarea id="message" name="message" class="form-control" rows="3" placeholder="Deskripsi singkat barang atau kebutuhan khusus..."></textarea>
-        </div>
-        
-        <button type="submit" class="submit-btn">
-          📩 Dapatkan Penawaran Spesial
-        </button>
-        
-        <p class="form-disclaimer">* Dengan mengisi form, Anda berhak mendapatkan konsultasi gratis dan potongan biaya administrasi 20%!</p>
-      </form>
-    </section>
-    
-    <!-- 中间下方：业务流程 -->
-    <section class="grid-item business-process">
-      <h2>📋 Proses Mudah & Cepat</h2>
-      <div class="process-steps">
-        <div class="process-step">
-          <h3>Konsultasi Awal</h3>
-          <p>Hubungi kami via WhatsApp atau datang langsung untuk konsultasi. Kami akan memberikan penjelasan lengkap tentang proses dan persyaratan.</p>
-        </div>
-        <div class="process-step">
-          <h3>Penilaian Barang</h3>
-          <p>Tim ahli kami akan menilai barang Anda dengan fair dan transparan. Penilaian berdasarkan kondisi pasar terkini.</p>
-        </div>
-        <div class="process-step">
-          <h3>Persetujuan & Dokumen</h3>
-          <p>Setelah nilai disepakati, kami siapkan dokumen lengkap. Semua biaya dijelaskan dengan jelas tanpa hidden cost.</p>
-        </div>
-        <div class="process-step">
-          <h3>Pencairan Dana</h3>
-          <p>Dana langsung cair! Transfer ke rekening Anda atau tunai sesuai preferensi. Proses cepat, aman, dan terjamin.</p>
-        </div>
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <h3>Bunga Kompetitif</h3>
+        <p>Bunga 10% per bulan, transparan tanpa biaya tersembunyi. Nilai taksir tinggi.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>Aman & Terpercaya</h3>
+        <p>Berizin resmi, dokumen aman, layanan profesional. Sudah melayani ribuan nasabah.</p>
       </div>
     </section>
-    
-    <!-- 右下：业务条件 -->
-    <section class="grid-item conditions">
-      <h2>🚫 Yang Tidak Kami Terima</h2>
-      <ul class="condition-list">
-        <li><span class="list-icon">❌</span> Barang ilegal/hasil curian</li>
-        <li><span class="list-icon">❌</span> Dokumen resmi negara</li>
-        <li><span class="list-icon">❌</span> Barang rusak total</li>
-        <li><span class="list-icon">❌</span> Tanpa identitas diri</li>
-        <li><span class="list-icon">❌</span> Barang kontroversial</li>
-      </ul>
-      <p class="condition-note">* Semua barang harus dalam kepemilikan sah dan bisa dibuktikan *</p>
+
+    <!-- 快速评估 -->
+    <section class="quick-assessment">
+      <div class="assessment-box">
+        <h2>💡 Tidak Yakin dengan Nilai Motor Anda?</h2>
+        <p>Gunakan alat assessment online kami untuk mengetahui perkiraan nilai gadai motor Anda dalam 3 menit!</p>
+        <a href="assessment.html" class="cta-button">
+          <i class="fas fa-rocket"></i>
+          Mulai Assessment Gratis
+        </a>
+      </div>
+    </section>
+
+    <!-- 信任徽章 -->
+    <div class="trust-badges">
+      <div class="badge">
+        <i class="fas fa-shield-alt"></i>
+        <div>
+          <strong>Legal & Berizin</strong>
+          <div>Bisnis resmi terdaftar</div>
+        </div>
+      </div>
+      
+      <div class="badge">
+        <i class="fas fa-user-check"></i>
+        <div>
+          <strong>10+ Tahun</strong>
+          <div>Pengalaman melayani</div>
+        </div>
+      </div>
+      
+      <div class="badge">
+        <i class="fas fa-handshake"></i>
+        <div>
+          <strong>Transparan</strong>
+          <div>Tanpa biaya tersembunyi</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 关于我们 -->
+    <section id="about" style="padding: 3rem 0; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+      <h2 style="text-align: center; color: #f5c542; margin-bottom: 2rem;">Tentang JF Gadai</h2>
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">
+          <strong>JF Gadai</strong> adalah perusahaan gadai motor terpercaya yang beroperasi di Bangil & Gempol, Pasuruan. 
+          Dengan pengalaman lebih dari 10 tahun, kami telah membantu ribuan nasabah mendapatkan dana cepat dengan proses yang mudah dan aman.
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.7;">
+          Kami mengutamakan kepercayaan dan kepuasan nasabah dengan memberikan layanan profesional, nilai taksir kompetitif, 
+          dan proses transparan tanpa biaya tersembunyi.
+        </p>
+      </div>
+    </section>
+
+    <!-- 联系信息 -->
+    <section id="contact" style="padding: 3rem 0; background: rgba(11, 44, 74, 0.5); border-radius: 12px; margin: 3rem 0;">
+      <div style="text-align: center;">
+        <h2 style="color: #f5c542; margin-bottom: 2rem;">Hubungi Kami</h2>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 2rem;">
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; color: #f5c542; margin-bottom: 0.5rem;">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div>
+              <strong>Telepon/WhatsApp</strong><br>
+              <a href="tel:+6289515692586" style="color: white; text-decoration: none;">+62 895-1569-2586</a>
+            </div>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; color: #f5c542; margin-bottom: 0.5rem;">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <strong>Lokasi</strong><br>
+              Bangil & Gempol, Pasuruan<br>
+              Jawa Timur
+            </div>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; color: #f5c542; margin-bottom: 0.5rem;">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div>
+              <strong>Jam Operasional</strong><br>
+              Senin-Jumat: 08:00-18:00<br>
+              Sabtu-Minggu: Libur
+            </div>
+          </div>
+        </div>
+        
+        <a href="https://wa.me/6289515692586" class="cta-button" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp"></i>
+          Chat via WhatsApp
+        </a>
+      </div>
     </section>
   </main>
 
   <!-- 页脚 -->
-  <footer id="lokasi">
+  <footer>
     <div class="container">
       <div class="footer-content">
-        <p class="copyright">© 2025 <span class="highlight">JF Gadai</span></p>
-        <p class="company-info">Layanan Keuangan Non-Bank • Bangil & Gempol</p>
-        
-        <div class="contact-info">
-          <a href="tel:+6289515692586" class="contact-link">
-            <span>📞</span> +62 895-1569-2586
-          </a>
-          <a href="https://wa.me/6289515692586" target="_blank" class="contact-link" rel="noopener noreferrer">
-            <span>💬</span> WhatsApp
-          </a>
-          <a href="https://maps.google.com/?q=Bangil" target="_blank" class="contact-link" rel="noopener noreferrer">
-            <span>📍</span> Bangil, Beji, Gempol
-          </a>
+        <div class="footer-section">
+          <h3>JF Gadai</h3>
+          <p>Layanan gadai motor cepat, aman, dan terpercaya di Bangil & Gempol, Pasuruan.</p>
         </div>
         
-        <p class="operating-hours">
-          Jam Operasional: Senin-Jumat : 08:00-18:00 | Libur hari Sabtu dan Minggu
-        </p>
+        <div class="footer-section">
+          <h3>Layanan</h3>
+          <ul>
+            <li><a href="assessment.html">Assessment Online</a></li>
+            <li><a href="#services">Gadai Motor</a></li>
+            <li><a href="#services">Gadai Emas</a></li>
+            <li><a href="#services">Gadai Elektronik</a></li>
+          </ul>
+        </div>
         
-        <p class="security-note">
-          🔒 Situs ini menggunakan koneksi aman (HTTPS).
+        <div class="footer-section">
+          <h3>Kontak</h3>
+          <ul>
+            <li><i class="fas fa-phone"></i> <a href="tel:+6289515692586">+62 895-1569-2586</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> Bangil & Gempol, Pasuruan</li>
+            <li><i class="fas fa-clock"></i> Senin-Jumat: 08:00-18:00</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2025 <span class="highlight">JF Gadai</span> • Layanan Gadai Motor Terpercaya</p>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">
+          <i class="fas fa-shield-alt"></i> Situs ini menggunakan koneksi aman (HTTPS)
         </p>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <!-- JavaScript -->
+  <script>
+    // 移动端菜单切换
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.querySelector('.main-nav').classList.toggle('active');
+      this.classList.toggle('active');
+    });
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // 关闭移动端菜单
+          document.querySelector('.main-nav').classList.remove('active');
+          document.querySelector('.menu-toggle').classList.remove('active');
+        }
+      });
+    });
+    
+    // 导航栏滚动效果
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(11, 44, 74, 0.98)';
+        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
+      } else {
+        header.style.background = '';
+        header.style.boxShadow = '';
+      }
+    });
+  </script>
 </body>
 </html>
