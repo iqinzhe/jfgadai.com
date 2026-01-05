@@ -18,10 +18,10 @@
 # RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN UNION DIRECTIVE 2019/790 ON COPYRIGHT
 # AND RELATED RIGHTS IN THE DIGITAL SINGLE MARKET.
 #
-# Signal declaration (communicated via standard robots.txt directives):
-# - For search: permitted (Allow: / for User-agent: *)
-# - For ai-train: prohibited (Disallow: / for specific AI training bots)
-# - For ai-input: neither explicitly granted nor prohibited
+# Content signal declaration (for human reading only):
+# - search: yes (via Allow: / for all User-agents)
+# - ai-input: not specified
+# - ai-train: no (via Disallow: / for specified AI training bots)
 
 # BEGIN Cloudflare Managed content
 User-Agent: *
