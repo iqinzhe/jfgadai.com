@@ -934,3 +934,33 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* Edukasi entry in services */
+.service-edu a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.service-edu a:hover {
+  text-decoration: underline;
+}
+
+/* Service principle intro */
+.service-edu-intro {
+  margin: 6px 0 10px 0;
+  font-size: 0.95em;
+}
+
+.service-edu-intro a {
+  text-decoration: underline;
+  color: inherit;
+}
+
+/* Homepage edukasi reference */
+.edu-reference-list a,
+.edu-reference-note {
+  text-decoration: underline;
+}
