@@ -121,7 +121,7 @@ body {
 
 /* 可选：整体基础增大 */
 body {
-  font-size: 20px;
+  font-size: 23px;
 }
 
 @media (max-width: 768px) {
@@ -129,4 +129,5 @@ body {
     font-size: 20px;
   }
 }
+
 
