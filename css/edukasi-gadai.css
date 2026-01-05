@@ -72,3 +72,62 @@ body {
     padding: 0 12px;
   }
 }
+
+/* 在现有CSS末尾添加以下代码 */
+
+/* 增大整体阅读文字 */
+.edu-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.edu-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.edu-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.edu-faq h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.edu-content li {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.edu-faq article {
+  font-size: 1.1rem;
+}
+
+.edu-faq p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.edu-summary {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.edu-summary h2,
+.edu-summary h3 {
+  font-size: 1.4rem;
+  margin-top: 0;
+}
+
+/* 可选：整体基础增大 */
+body {
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 17px;
+  }
+}
