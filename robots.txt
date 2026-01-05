@@ -52,3 +52,5 @@ Disallow: /
 User-agent: meta-externalagent
 Disallow: /
 # END Cloudflare Managed Content
+
+Sitemap: https://www.jfgadai.com/sitemap.xml
