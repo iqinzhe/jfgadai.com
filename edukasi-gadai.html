@@ -53,6 +53,7 @@ f.parentNode.insertBefore(j,f);
         background: white;
         border-radius: 12px;
         box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        color: #333; /* 确保主要内容文字为深色 */
     }
     .edu-content h1 {
         color: #0b2c4a;
@@ -72,7 +73,7 @@ f.parentNode.insertBefore(j,f);
     }
     .edu-content p, .edu-content li {
         line-height: 1.7;
-        color: #444;
+        color: #444; /* 确保段落和列表文字为深灰色 */
     }
     .edu-content ul, .edu-content ol {
         padding-left: 1.8rem;
@@ -81,12 +82,15 @@ f.parentNode.insertBefore(j,f);
     .edu-content li {
         margin-bottom: 0.7rem;
     }
+    
+    /* ✅ 修复：信息框样式 - 确保文字为深色 */
     .info-box {
         background: #e8f4fd;
         border-left: 4px solid #3498db;
         padding: 1.2rem;
         margin: 1.5rem 0;
         border-radius: 0 8px 8px 0;
+        color: #2c3e50 !important; /* 重要：强制深色文字 */
     }
     .warning-box {
         background: #fef9e7;
@@ -94,6 +98,7 @@ f.parentNode.insertBefore(j,f);
         padding: 1.2rem;
         margin: 1.5rem 0;
         border-radius: 0 8px 8px 0;
+        color: #2c3e50 !important; /* 重要：强制深色文字 */
     }
     .tip-box {
         background: #eafaf1;
@@ -101,20 +106,39 @@ f.parentNode.insertBefore(j,f);
         padding: 1.2rem;
         margin: 1.5rem 0;
         border-radius: 0 8px 8px 0;
+        color: #2c3e50 !important; /* 重要：强制深色文字 */
     }
+    
+    /* ✅ 修复并增强：对比表格样式 - 确保可读性 */
     .comparison-table {
         width: 100%;
         border-collapse: collapse;
         margin: 1.5rem 0;
-    }
-    .comparison-table th, .comparison-table td {
-        border: 1px solid #ddd;
-        padding: 0.8rem;
-        text-align: left;
+        font-size: 0.95rem;
+        color: #333 !important; /* 确保表格文字为深色 */
     }
     .comparison-table th {
         background: #f8f9fa;
+        color: #2c3e50;
+        font-weight: 600;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        text-align: left;
     }
+    .comparison-table td {
+        border: 1px solid #ddd;
+        padding: 0.9rem 1rem;
+        text-align: left;
+        color: #444 !important; /* 确保单元格文字为深色 */
+        vertical-align: top;
+    }
+    .comparison-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .comparison-table tr:hover {
+        background-color: #f1f7fd;
+    }
+    
     .back-to-home {
         display: inline-block;
         margin-top: 2rem;
@@ -124,17 +148,25 @@ f.parentNode.insertBefore(j,f);
         text-decoration: none;
         border-radius: 6px;
         font-weight: bold;
+        transition: background 0.3s;
     }
     .back-to-home:hover {
         background: #2c3e50;
     }
+    
     @media (max-width: 768px) {
         .edu-content {
             padding: 1.5rem;
             margin: 1rem auto 2rem;
         }
         .comparison-table {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            display: block;
+            overflow-x: auto;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 0.7rem 0.5rem;
+            min-width: 120px;
         }
     }
 </style>
