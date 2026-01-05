@@ -1,0 +1,74 @@
+/* ===============================
+   Edukasi Gadai – Reading Optimization
+   只作用于 edukasi 页面
+================================ */
+
+body {
+  line-height: 1.7;
+}
+
+/* 控制正文最大阅读宽度 */
+.edu-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* 标题层级更清晰 */
+.edu-content h1 {
+  margin-bottom: 12px;
+}
+
+.edu-content h2 {
+  margin-top: 36px;
+  margin-bottom: 12px;
+  padding-left: 10px;
+  border-left: 4px solid currentColor;
+}
+
+.edu-content h3 {
+  margin-top: 20px;
+  margin-bottom: 6px;
+}
+
+/* 段落呼吸感 */
+.edu-content p {
+  margin-bottom: 12px;
+}
+
+/* FAQ 块“卡片化”，降低干扰 */
+.edu-faq article {
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 6px;
+}
+
+/* FAQ 问题突出 */
+.edu-faq h3 {
+  margin-top: 0;
+  font-size: 1.05em;
+}
+
+/* 列表更易扫读 */
+.edu-content ul {
+  padding-left: 18px;
+}
+
+.edu-content li {
+  margin-bottom: 6px;
+}
+
+/* 底部总结区 */
+.edu-summary {
+  margin-top: 40px;
+  padding: 16px;
+  background: rgba(0,0,0,0.03);
+  border-radius: 6px;
+}
+
+/* 手机端再压缩行宽 */
+@media (max-width: 768px) {
+  .edu-content {
+    padding: 0 12px;
+  }
+}
