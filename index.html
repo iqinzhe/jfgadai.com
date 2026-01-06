@@ -134,30 +134,31 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
 <section class="grid-item our-services">
   <h2>🛠️ Layanan Kami</h2>
 
-  <!-- ✅ 新增：原则说明（只此一处） -->
-  <p class="service-edu-intro">
-    Seluruh layanan kami berlandaskan prinsip gadai yang aman,
-    transparan, dan sesuai praktik yang berlaku.
-    Penjelasan prinsip tersebut tersedia di
-    <a href="/edukasi-gadai.html">halaman edukasi gadai</a>.
-  </p>
+  <!-- ✅ 优化：整段内容作为教育导航 -->
+  <div class="service-edu-container">
+    <a href="/edukasi-gadai.html" class="service-edu-intro">
+      <p>
+        Seluruh layanan kami berlandaskan prinsip gadai yang aman,
+        transparan, dan sesuai praktik yang berlaku.
+        Penjelasan prinsip tersebut tersedia di halaman edukasi gadai.
+        <br><br>
+        <strong class="edu-link-text">
+          📘 Pelajari lebih lanjut tentang prinsip gadai yang aman →
+        </strong>
+      </p>
+    </a>
+  </div>
 
   <ul class="service-list">
-
-    <!-- ✅ 新增：教育入口（只此一个） -->
-    <li class="service-edu">
-      <a href="/edukasi-gadai.html">
-        <span class="list-icon">📘</span> Edukasi Gadai
-      </a>
-    </li>
-    <!-- 🔒 以下全部是你原有服务（不改、不加链接） -->
+    <!-- ✅ 原有的服务项目 -->
     <li><span class="list-icon">💎</span> Gadai Emas & Perhiasan</li>
     <li><span class="list-icon">📱</span> Gadai Elektronik</li>
     <li><span class="list-icon">🏍️</span> Gadai Kendaraan</li>
     <li><span class="list-icon">💍</span> Barang Berharga Lainnya</li>
     <li><span class="list-icon">⚡</span> Pencairan Kilat</li>
     <li><span class="list-icon">🔄</span> Perpanjangan Gadai</li>
-    </section>
+  </ul>
+</section>
     
     <!-- 中间上方：摩托车评估系统 -->
     <section class="grid-item assessment-system">
@@ -290,7 +291,12 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
             <span>📞</span> +62 895-1569-2586
           </a>
           <a href="https://wa.me/6289515692586" target="_blank" class="contact-link" rel="noopener noreferrer">
-            <span>💬</span> WhatsApp 
+            <span>💬</span> WhatsApp
+          </a>
+          <!-- 透明占位元素保持三项目布局 -->
+          <span class="contact-link placeholder-link">
+            <span>📍</span> <span class="placeholder-text">Bangil, Jawa Timur</span>
+          </span>
         </div>
         
         <p class="operating-hours">
