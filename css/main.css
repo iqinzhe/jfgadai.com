@@ -497,6 +497,45 @@ body {
   min-width: 24px;
 }
 
+/* ==================== 教育导航优化 ==================== */
+.service-edu-container {
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.service-edu-intro {
+  margin: 6px 0 10px 0;
+  font-size: 0.95em;
+  padding: 12px 15px;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(245, 197, 66, 0.3);
+  background: rgba(15, 76, 129, 0.15);
+  display: block;
+  text-decoration: none;
+  color: var(--text-light);
+}
+
+.service-edu-intro:hover {
+  background: rgba(245, 197, 66, 0.1);
+  border-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
+}
+
+.edu-link-text {
+  color: var(--secondary-color) !important;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s ease;
+}
+
+.service-edu-intro:hover .edu-link-text {
+  color: var(--secondary-dark) !important;
+}
+
 /* 业务流程步骤 */
 .process-steps {
   counter-reset: step-counter;
@@ -607,7 +646,7 @@ body {
   box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
 }
 
-/* ==================== 页脚 ==================== */
+/* ==================== 页脚优化 ==================== */
 footer {
   background: rgba(11, 44, 74, 0.9);
   margin-top: var(--spacing-xl);
@@ -635,12 +674,27 @@ footer {
   font-size: 0.95rem;
 }
 
+/* 优化联系信息布局 */
 .contact-info {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   gap: var(--spacing-xl);
   flex-wrap: wrap;
   margin-bottom: var(--spacing-lg);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* 确保三个项目等宽分布 */
+.contact-info > * {
+  flex: 1;
+  min-width: 150px;
+  max-width: 250px;
+  display: flex;
+  justify-content: center;
 }
 
 .contact-link {
@@ -651,10 +705,27 @@ footer {
   text-decoration: none;
   transition: color 0.3s ease;
   font-size: 0.95rem;
+  padding: 8px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 .contact-link:hover {
   color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* 透明占位元素 */
+.placeholder-link {
+  visibility: visible;
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.placeholder-text {
+  color: rgba(255, 255, 255, 0.4) !important;
 }
 
 /* ==================== 动画类 ==================== */
@@ -713,6 +784,10 @@ footer {
   
   .assessment-stats {
     gap: var(--spacing-xl);
+  }
+  
+  .contact-info {
+    max-width: 600px;
   }
 }
 
@@ -782,9 +857,21 @@ footer {
     font-size: 1.2rem;
   }
   
+  /* 手机端页脚优化 */
   .contact-info {
     flex-direction: column;
     gap: var(--spacing-md);
+    align-items: center;
+  }
+  
+  .contact-info > * {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .placeholder-link {
+    display: none; /* 手机端隐藏占位元素 */
   }
   
   .assessment-cta {
@@ -905,6 +992,12 @@ footer {
   text-align: center;
 }
 
+.operating-hours {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: var(--spacing-sm);
+}
+
 /* 落地页信任区块（广告审核加分） */
 .trust-box {
   margin: 1.5rem 0 1rem;
@@ -933,34 +1026,4 @@ footer {
   .trust-box {
     grid-template-columns: 1fr;
   }
-}
-
-/* Edukasi entry in services */
-.service-edu a {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.service-edu a:hover {
-  text-decoration: underline;
-}
-
-/* Service principle intro */
-.service-edu-intro {
-  margin: 6px 0 10px 0;
-  font-size: 0.95em;
-}
-
-.service-edu-intro a {
-  text-decoration: underline;
-  color: inherit;
-}
-
-/* Homepage edukasi reference */
-.edu-reference-list a,
-.edu-reference-note {
-  text-decoration: underline;
 }
