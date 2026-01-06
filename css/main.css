@@ -427,54 +427,76 @@ body {
   display: inline-block;
 }
 
+/* 桌面端布局调整 */
+/* 1. 左上：知识与服务 */
+#our-services { 
+  grid-column: 1; 
+  grid-row: 1; 
+}
+
+/* 2. 中间上方：摩托车评估系统 */
+#assessment-system { 
+  grid-column: 2; 
+  grid-row: 1; 
+}
+
+/* 3. 右上：联系我们表单（原左下） */
+#contact-form { 
+  grid-column: 3; 
+  grid-row: 1; 
+}
+
+/* 4. 左下：为什么选择我们（原右上） */
+#why-choose-us { 
+  grid-column: 1; 
+  grid-row: 2; 
+}
+
+/* 5. 中间下方：业务流程 */
+#business-process { 
+  grid-column: 2; 
+  grid-row: 2; 
+}
+
+/* 6. 右下：业务条件 */
+#conditions { 
+  grid-column: 3; 
+  grid-row: 2; 
+}
+
 /* 评估系统卡片在六宫格中的样式 */
-.assessment-system {
-  grid-column: 2;
-  grid-row: 1;
+#assessment-system {
   margin-top: 0;
   padding: var(--spacing-xl);
 }
 
-.assessment-system .assessment-card {
+#assessment-system .assessment-card {
   margin: 0;
   padding: var(--spacing-xl);
 }
 
-.assessment-system .assessment-card h3 {
+#assessment-system .assessment-card h3 {
   font-size: 1.5rem;
   margin-bottom: var(--spacing-sm);
 }
 
-.assessment-system .btn-assessment {
+#assessment-system .btn-assessment {
   padding: 1rem 2rem;
   font-size: 1.1rem;
   margin-bottom: var(--spacing-lg);
 }
 
-.assessment-system .assessment-stats {
+#assessment-system .assessment-stats {
   gap: var(--spacing-lg);
 }
 
-.assessment-system .stat-number {
+#assessment-system .stat-number {
   font-size: 1.8rem;
 }
 
-.assessment-system .stat-text {
+#assessment-system .stat-text {
   font-size: 0.9rem;
 }
-
-/* 六宫格布局位置 */
-.our-services { grid-column: 1; grid-row: 1; }
-.assessment-system { grid-column: 2; grid-row: 1; }
-.why-choose-us { grid-column: 3; grid-row: 1; }
-.contact-form-section { grid-column: 1; grid-row: 2; }
-.business-process { 
-  grid-column: 2; 
-  grid-row: 2;
-  background: linear-gradient(135deg, rgba(15, 76, 129, 0.3), rgba(245, 197, 66, 0.1));
-  min-height: 400px;
-}
-.conditions { grid-column: 3; grid-row: 2; }
 
 /* 列表样式 */
 .service-list, .condition-list, .reason-list {
@@ -783,24 +805,38 @@ footer {
 @media (max-width: 1200px) {
   .asymmetric-grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto auto auto;
   }
   
-  .assessment-system { 
+  #assessment-system { 
     grid-column: 1 / span 2; 
     grid-row: 1; 
   }
   
-  .business-process { 
-    grid-column: 1 / span 2; 
+  #our-services { 
+    grid-column: 1; 
     grid-row: 2; 
-    min-height: auto; 
   }
   
-  .our-services { grid-column: 1; grid-row: 3; }
-  .why-choose-us { grid-column: 2; grid-row: 3; }
-  .contact-form-section { grid-column: 1; grid-row: 4; }
-  .conditions { grid-column: 2; grid-row: 4; }
+  #contact-form { 
+    grid-column: 2; 
+    grid-row: 2; 
+  }
+  
+  #why-choose-us { 
+    grid-column: 1; 
+    grid-row: 3; 
+  }
+  
+  #conditions { 
+    grid-column: 2; 
+    grid-row: 3; 
+  }
+  
+  #business-process { 
+    grid-column: 1 / span 2; 
+    grid-row: 4; 
+  }
   
   .quick-actions { 
     flex-direction: column; 
@@ -862,24 +898,18 @@ footer {
   }
   
   .asymmetric-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, auto);
+    display: flex;
+    flex-direction: column;
     gap: var(--spacing-md);
-    margin: var(--spacing-lg) auto;
-    padding: 0 var(--spacing-md);
   }
   
-  .assessment-system, .business-process, .our-services, .conditions, .why-choose-us, .contact-form-section {
-    grid-column: 1;
-  }
-  
-  /* 手机端顺序 */
-  .assessment-system { grid-row: 1; }
-  .business-process { grid-row: 2; }
-  .our-services { grid-row: 3; }
-  .why-choose-us { grid-row: 4; }
-  .contact-form-section { grid-row: 5; }
-  .conditions { grid-row: 6; }
+  /* 使用 order 属性控制手机端顺序 */
+  #assessment-system { order: 1; }    /* 中间上方：摩托车评估系统 */
+  #our-services { order: 2; }         /* 左上：知识与服务 */
+  #why-choose-us { order: 3; }        /* 右上：为什么选择我们 */
+  #conditions { order: 4; }           /* 右下：业务条件 */
+  #business-process { order: 5; }     /* 中间下方：业务流程 */
+  #contact-form { order: 6; }         /* 左下：联系我们表单 */
   
   .grid-item {
     padding: var(--spacing-lg);
@@ -911,11 +941,11 @@ footer {
     padding: 0 var(--spacing-md);
   }
   
-  .assessment-system .assessment-card {
+  #assessment-system .assessment-card {
     padding: var(--spacing-lg);
   }
   
-  .assessment-system .assessment-card h3 {
+  #assessment-system .assessment-card h3 {
     font-size: 1.3rem;
   }
   
@@ -988,11 +1018,11 @@ footer {
     padding: var(--spacing-md);
   }
   
-  .assessment-system .assessment-card {
+  #assessment-system .assessment-card {
     padding: var(--spacing-md);
   }
   
-  .assessment-system .assessment-card h3 {
+  #assessment-system .assessment-card h3 {
     font-size: 1.2rem;
   }
   
