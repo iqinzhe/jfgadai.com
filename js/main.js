@@ -53,4 +53,45 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+  
+  // ==================== 新增：教育导航触摸反馈 ====================
+  const eduIntro = document.querySelector('.service-edu-intro');
+  
+  if (eduIntro) {
+    // 检测是否为触摸设备
+    const isTouchDevice = 'ontouchstart' in window || 
+                          (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
+    
+    if (isTouchDevice) {
+      // 添加触摸事件
+      eduIntro.addEventListener('touchstart', function() {
+        this.classList.add('touch-active');
+      });
+      
+      eduIntro.addEventListener('touchend', function() {
+        this.classList.remove('touch-active');
+        this.classList.add('clicked');
+        
+        // 延迟跳转，让用户看到反馈
+        setTimeout(() => {
+          window.location.href = '/edukasi-gadai.html';
+        }, 200);
+      });
+      
+      eduIntro.addEventListener('touchcancel', function() {
+        this.classList.remove('touch-active');
+      });
+    }
+    
+    // 为非触摸设备添加点击效果（可选）
+    if (!isTouchDevice) {
+      eduIntro.addEventListener('click', function() {
+        this.classList.add('clicked');
+        setTimeout(() => {
+          this.classList.remove('clicked');
+        }, 200);
+      });
+    }
+  }
+  // ==================== 新增结束 ====================
 });
