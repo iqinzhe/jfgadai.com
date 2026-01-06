@@ -130,38 +130,37 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
   <!-- 六宫格 -->
   <main class="container asymmetric-grid">
 
-  <!-- 左上：知识与服务 -->   
-<section class="grid-item our-services">
-  
-  <h2>🛠️ Layanan Kami</h2>
-  <!-- ✅ 修改：使用 div 包装链接，避免默认链接样式 -->
-  <div class="service-edu-container">
-    <div class="service-edu-intro" onclick="window.location.href='/edukasi-gadai.html'" style="cursor: pointer;">
-      <p>
-        Seluruh layanan kami berlandaskan prinsip gadai yang aman,
-        transparan, dan sesuai praktik yang berlaku.
-        Penjelasan prinsip tersebut tersedia di halaman edukasi gadai.
-        <br><br>
-        <strong class="edu-link-text">
-          📘 Pelajari lebih lanjut tentang prinsip gadai yang aman →
-        </strong>
-      </p>
-    </div>
-  </div>
+    <!-- 左上：知识与服务 -->   
+    <section class="grid-item our-services" id="our-services">
+      <h2>🛠️ Layanan Kami</h2>
+      <!-- ✅ 修改：使用 div 包装链接，避免默认链接样式 -->
+      <div class="service-edu-container">
+        <div class="service-edu-intro" onclick="window.location.href='/edukasi-gadai.html'" style="cursor: pointer;">
+          <p>
+            Seluruh layanan kami berlandaskan prinsip gadai yang aman,
+            transparan, dan sesuai praktik yang berlaku.
+            Penjelasan prinsip tersebut tersedia di halaman edukasi gadai.
+            <br><br>
+            <strong class="edu-link-text">
+              📘 Pelajari lebih lanjut tentang prinsip gadai yang aman →
+            </strong>
+          </p>
+        </div>
+      </div>
 
-  <ul class="service-list">
-    <!-- ✅ 服务项目 -->
-    <li><span class="list-icon">💎</span> Gadai Emas & Perhiasan</li>
-    <li><span class="list-icon">📱</span> Gadai Elektronik</li>
-    <li><span class="list-icon">🏍️</span> Gadai Kendaraan</li>
-    <li><span class="list-icon">💍</span> Barang Berharga Lainnya</li>
-    <li><span class="list-icon">⚡</span> Pencairan Kilat</li>
-    <li><span class="list-icon">🔄</span> Perpanjangan Gadai</li>
-  </ul>
-</section>
+      <ul class="service-list">
+        <!-- ✅ 服务项目 -->
+        <li><span class="list-icon">💎</span> Gadai Emas & Perhiasan</li>
+        <li><span class="list-icon">📱</span> Gadai Elektronik</li>
+        <li><span class="list-icon">🏍️</span> Gadai Kendaraan</li>
+        <li><span class="list-icon">💍</span> Barang Berharga Lainnya</li>
+        <li><span class="list-icon">⚡</span> Pencairan Kilat</li>
+        <li><span class="list-icon">🔄</span> Perpanjangan Gadai</li>
+      </ul>
+    </section>
     
     <!-- 中间上方：摩托车评估系统 -->
-    <section class="grid-item assessment-system">
+    <section class="grid-item assessment-system" id="assessment-system">
       <div class="assessment-card fade-in delay-3">
         <div class="assessment-icon">🏍️</div>
         <h3>Penilaian Online Motor Gratis</h3>
@@ -189,21 +188,8 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
       </div>
     </section>
     
-    <!-- 右上：为什么选择我们 -->
-    <section class="grid-item why-choose-us">
-      <h2>⭐ Kenapa Memilih Kami?</h2>
-      <ul class="reason-list">
-        <li><span class="list-icon">✅</span> Proses cepat & transparan</li>
-        <li><span class="list-icon">✅</span> Bunga kompetitif & jelas</li>
-        <li><span class="list-icon">✅</span> Keamanan barang terjamin</li>
-        <li><span class="list-icon">✅</span> Layanan lokal terpercaya</li>
-        <li><span class="list-icon">✅</span> Fleksibel dalam pembayaran</li>
-        <li><span class="list-icon">✅</span> Privasi pelanggan dijaga</li>
-      </ul>
-    </section>
-    
-    <!-- 左下：联系我们表单 -->
-    <section class="grid-item contact-form-section">
+    <!-- 右上：联系我们表单（原左下） -->
+    <section class="grid-item contact-form-section" id="contact-form">
       <h2>📝 Konsultasi Gratis</h2>
       <p class="form-intro">Isi form ini untuk mendapatkan penawaran khusus dan konsultasi gratis!</p>
       
@@ -242,8 +228,21 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
       </form>
     </section>
     
+    <!-- 左下：为什么选择我们（原右上） -->
+    <section class="grid-item why-choose-us" id="why-choose-us">
+      <h2>⭐ Kenapa Memilih Kami?</h2>
+      <ul class="reason-list">
+        <li><span class="list-icon">✅</span> Proses cepat & transparan</li>
+        <li><span class="list-icon">✅</span> Bunga kompetitif & jelas</li>
+        <li><span class="list-icon">✅</span> Keamanan barang terjamin</li>
+        <li><span class="list-icon">✅</span> Layanan lokal terpercaya</li>
+        <li><span class="list-icon">✅</span> Fleksibel dalam pembayaran</li>
+        <li><span class="list-icon">✅</span> Privasi pelanggan dijaga</li>
+      </ul>
+    </section>
+    
     <!-- 中间下方：业务流程 -->
-    <section class="grid-item business-process">
+    <section class="grid-item business-process" id="business-process">
       <h2>📋 Proses Mudah & Cepat</h2>
       <div class="process-steps">
         <div class="process-step">
@@ -266,7 +265,7 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
     </section>
     
     <!-- 右下：业务条件 -->
-    <section class="grid-item conditions">
+    <section class="grid-item conditions" id="conditions">
       <h2>🚫 Yang Tidak Kami Terima</h2>
       <ul class="condition-list">
         <li><span class="list-icon">❌</span> Barang ilegal/hasil curian</li>
