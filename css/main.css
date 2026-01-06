@@ -497,7 +497,7 @@ body {
   min-width: 24px;
 }
 
-/* ==================== 教育导航优化 ==================== */
+/* ==================== 教育导航优化（完整版） ==================== */
 .service-edu-container {
   margin-bottom: 15px;
 }
@@ -513,13 +513,32 @@ body {
   color: var(--text-light);
   cursor: pointer;
   display: block;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
+/* 网页端悬停效果 */
 .service-edu-intro:hover {
   background: rgba(245, 197, 66, 0.1);
   border-color: var(--secondary-color);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
+}
+
+/* JS触发的触摸状态 */
+.service-edu-intro.touch-active {
+  background: rgba(245, 197, 66, 0.1) !important;
+  border-color: var(--secondary-color) !important;
+  transform: translateY(-1px) !important;
+  transition: all 0.1s ease !important;
+}
+
+/* JS触发的点击状态 */
+.service-edu-intro.clicked {
+  background: rgba(245, 197, 66, 0.15) !important;
+  border-color: var(--secondary-color) !important;
+  transform: scale(0.98) !important;
+  transition: all 0.1s ease !important;
 }
 
 .edu-link-text {
@@ -531,11 +550,13 @@ body {
   transition: color 0.3s ease;
 }
 
-.service-edu-intro:hover .edu-link-text {
+.service-edu-intro:hover .edu-link-text,
+.service-edu-intro.touch-active .edu-link-text,
+.service-edu-intro.clicked .edu-link-text {
   color: var(--secondary-dark);
 }
 
-/* 手机端优化 */
+/* 手机端基础样式 */
 @media (max-width: 768px) {
   .service-edu-intro {
     padding: 10px 12px;
