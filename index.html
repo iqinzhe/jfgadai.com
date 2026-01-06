@@ -130,13 +130,12 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
   <!-- 不对称六宫格 -->
   <main class="container asymmetric-grid">
     
-    <!-- 左侧：我们的服务 -->
 <section class="grid-item our-services">
   <h2>🛠️ Layanan Kami</h2>
 
-  <!-- ✅ 优化：整段内容作为教育导航 -->
+  <!-- ✅ 修改：使用 div 包装链接，避免默认链接样式 -->
   <div class="service-edu-container">
-    <a href="/edukasi-gadai.html" class="service-edu-intro">
+    <div class="service-edu-intro" onclick="window.location.href='/edukasi-gadai.html'" style="cursor: pointer;">
       <p>
         Seluruh layanan kami berlandaskan prinsip gadai yang aman,
         transparan, dan sesuai praktik yang berlaku.
@@ -146,7 +145,7 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
           📘 Pelajari lebih lanjut tentang prinsip gadai yang aman →
         </strong>
       </p>
-    </a>
+    </div>
   </div>
 
   <ul class="service-list">
