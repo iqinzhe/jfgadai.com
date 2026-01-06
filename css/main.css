@@ -500,7 +500,6 @@ body {
 /* ==================== 教育导航优化 ==================== */
 .service-edu-container {
   margin-bottom: 15px;
-  cursor: pointer;
 }
 
 .service-edu-intro {
@@ -511,9 +510,9 @@ body {
   transition: all 0.3s ease;
   border: 1px solid rgba(245, 197, 66, 0.3);
   background: rgba(15, 76, 129, 0.15);
-  display: block;
-  text-decoration: none;
   color: var(--text-light);
+  cursor: pointer;
+  display: block;
 }
 
 .service-edu-intro:hover {
@@ -524,7 +523,7 @@ body {
 }
 
 .edu-link-text {
-  color: var(--secondary-color) !important;
+  color: var(--secondary-color);
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -533,7 +532,19 @@ body {
 }
 
 .service-edu-intro:hover .edu-link-text {
-  color: var(--secondary-dark) !important;
+  color: var(--secondary-dark);
+}
+
+/* 手机端优化 */
+@media (max-width: 768px) {
+  .service-edu-intro {
+    padding: 10px 12px;
+    border: 1px solid rgba(245, 197, 66, 0.3) !important;
+  }
+  
+  .service-edu-intro p {
+    margin: 0;
+  }
 }
 
 /* 业务流程步骤 */
