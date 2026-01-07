@@ -1088,18 +1088,22 @@ select:disabled {
 /* ==================== 页脚优化 ==================== */
 footer {
   background: rgba(11, 44, 74, 0.9);
-  margin-top: var(--spacing-xl);
-  padding: var(--spacing-xl) 0;
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md) 0 var(--spacing-sm);
   border-top: 2px solid var(--secondary-color);
 }
 
 .footer-content {
   text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .copyright {
-  font-size: 1.1rem;
-  margin-bottom: var(--spacing-md);
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.1;
 }
 
 .highlight {
@@ -1109,49 +1113,87 @@ footer {
 
 .company-info {
   color: var(--text-muted);
-  margin-bottom: var(--spacing-lg);
-  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  padding: 0 0.5rem;
 }
 
-/* 页脚联系信息容器 */
+/* 联系信息布局 - 确保两个联系方式在同一行 */
 .contact-info {
   display: flex;
-  justify-content: center; /* 居中对齐 */
-  align-items: center;
-  gap: 15px; /* 两个项目之间的间距，可根据需要调整(10px-20px) */
-  flex-wrap: nowrap; /* 小屏幕不换行 */
-  width: 100%; /* 确保容器占满宽度 */
-}
-
-/* 移除或注释掉原来的 .contact-info > * 规则 */
-.contact-info > * {
-  /* 原来的规则不再需要，或简化为： */
-  display: flex;
   justify-content: center;
-  /* 移除 min-width 和 max-width 限制 */
-  min-width: auto;
-  max-width: none;
-  flex: none; /* 防止项目被拉伸 */
-}
-
-/* 联系链接样式 */
-.contact-link {
-  display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.5rem; /* 两个联系方式之间的间距 */
+  flex-wrap: wrap; /* 允许在极窄屏幕下换行 */
+  margin: 0.5rem auto;
+  padding: 0.4rem 0;
+  -flex确保水平排列 */
+  align-items: center;
+  gap: 0.4rem;
   color: var(--text-light);
   text-decoration: none;
-  transition: color 0.3s ease;
-  font-size: 0.95rem;
-  padding: 8px 12px; /* 减小左右内边距 */
-  border-radius: 8px;
   transition: all 0.3s ease;
+  font-size: 1rem;
+  padding: 6px 12px; /* 内边距创建框体 */
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1); /* 添加浅色背景，让框可见 */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* 添加边框 */
   white-space: nowrap; /* 防止文字换行 */
 }
 
+/* 鼠标悬停效果 */
 .contact-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--secondary-color);
   color: var(--secondary-color);
-  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px); /* 添加轻微上浮效果 */
+}
+
+/* 图标样式 */
+.contact-link i,
+.contact-link svg,
+.contact-link .icon {
+  font-size: 1.1rem; /* 图标稍大一点 */
+}
+
+/* 移除之前可能存在的垂直间距 */
+.footer-content > * + * {
+  margin-top: 0.5rem;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .contact-info {
+    gap: 0.8rem; /* 移动端间距更小 */
+  }
+  
+  .contact-link {
+    padding: 5px 5px;
+    font-size: 0.9rem;
+  }
+  
+  footer {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .copyright {
+    font-size: 1.1rem;
+  }
+}
+
+/* 极窄屏幕（如手机竖屏）下的适配 */
+@media (max-width: 480px) {
+  .contact-info {
+    flex-direction: column; /* 竖排排列 */
+    gap: 0.5rem;
+  }
+  
+  .contact-link {
+    width: 100%; /* 占满宽度 */
+    justify-content: center; /* 内容居中 */
+    padding: 8px 15px; /* 增大内边距便于点击 */
+  }
 }
 
 /* 落地页信任区块（广告审核加分） */
