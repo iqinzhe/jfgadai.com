@@ -19,11 +19,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ✅ 添加 Font Awesome 图标库 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
@@ -137,7 +132,7 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
 
     <!-- 左上：知识与服务 -->   
     <section class="grid-item our-services" id="our-services">
-      <h2><i class="fas fa-tools" style="margin-right: 8px;"></i> Layanan Kami</h2>
+      <h2>🛠️ Layanan Kami</h2>
       <!-- ✅ 修改：使用 div 包装链接，避免默认链接样式 -->
       <div class="service-edu-container">
         <div class="service-edu-intro" onclick="window.location.href='/edukasi-gadai.html'" style="cursor: pointer;">
@@ -147,7 +142,7 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
             Penjelasan prinsip tersebut tersedia di halaman edukasi gadai.
             <br><br>
             <strong class="edu-link-text">
-              <i class="fas fa-book" style="margin-right: 5px;"></i> Pelajari lebih lanjut tentang prinsip gadai yang aman →
+              📘 Pelajari lebih lanjut tentang prinsip gadai yang aman →
             </strong>
           </p>
         </div>
@@ -155,38 +150,38 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
 
       <ul class="service-list">
         <!-- ✅ 服务项目 -->
-        <li><i class="fas fa-gem list-icon"></i> Gadai Emas & Perhiasan</li>
-        <li><i class="fas fa-mobile-alt list-icon"></i> Gadai Elektronik</li>
-        <li><i class="fas fa-motorcycle list-icon"></i> Gadai Kendaraan</li>
-        <li><i class="fas fa-ring list-icon"></i> Barang Berharga Lainnya</li>
-        <li><i class="fas fa-bolt list-icon"></i> Pencairan Kilat</li>
-        <li><i class="fas fa-sync-alt list-icon"></i> Perpanjangan Gadai</li>
+        <li><span class="list-icon">💎</span> Gadai Emas & Perhiasan</li>
+        <li><span class="list-icon">📱</span> Gadai Elektronik</li>
+        <li><span class="list-icon">🏍️</span> Gadai Kendaraan</li>
+        <li><span class="list-icon">💍</span> Barang Berharga Lainnya</li>
+        <li><span class="list-icon">⚡</span> Pencairan Kilat</li>
+        <li><span class="list-icon">🔄</span> Perpanjangan Gadai</li>
       </ul>
     </section>
     
     <!-- 中间上方：摩托车评估系统 -->
     <section class="grid-item assessment-system" id="assessment-system">
       <div class="assessment-card fade-in delay-3">
-        <div class="assessment-icon"><i class="fas fa-motorcycle"></i></div>
+        <div class="assessment-icon">🏍️</div>
         <h3>Penilaian Online Motor Gratis</h3>
         <p class="assessment-desc">
           Ketahui perkiraan nilai gadai motor Honda & Yamaha Anda dalam 3 menit!
           <br><span class="highlight-text">Tanpa biaya, tanpa kewajiban.</span>
         </p>
         <a href="assessment.html" class="btn-assessment" rel="noopener">
-          <i class="fas fa-rocket" style="margin-right: 8px;"></i> Cek Nilai Motor Sekarang
+          <span>🚀 Cek Nilai Motor Sekarang</span>
         </a>
         <div class="assessment-stats">
           <div class="stat">
-            <span class="stat-number"><i class="fas fa-bolt"></i></span>
+            <span class="stat-number">⚡</span>
             <span class="stat-text">Cepat 3 Menit</span>
           </div>
           <div class="stat">
-            <span class="stat-number"><i class="fas fa-bullseye"></i></span>
+            <span class="stat-number">🎯</span>
             <span class="stat-text">Akurat 95%</span>
           </div>
           <div class="stat">
-            <span class="stat-number"><i class="fas fa-shield-alt"></i></span>
+            <span class="stat-number">🛡️</span>
             <span class="stat-text">100% Gratis</span>
           </div>
         </div>
@@ -195,22 +190,22 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
     
     <!-- 右上：联系我们表单（原左下） -->
     <section class="grid-item contact-form-section" id="contact-form">
-      <h2><i class="fas fa-file-signature" style="margin-right: 8px;"></i> Konsultasi Gratis</h2>
+      <h2>📝 Konsultasi Gratis</h2>
       <p class="form-intro">Isi form ini untuk mendapatkan penawaran khusus dan konsultasi gratis!</p>
       
       <form class="contact-form" id="consultationForm" method="POST">
         <div class="form-group">
-          <label for="name"><i class="fas fa-user"></i> Nama Lengkap</label>
+          <label for="name">Nama Lengkap</label>
           <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama Anda" required>
         </div>
         
         <div class="form-group">
-          <label for="phone"><i class="fas fa-phone-alt"></i> Nomor WhatsApp</label>
+          <label for="phone">Nomor WhatsApp</label>
           <input type="tel" id="phone" name="phone" class="form-control" placeholder="Contoh: 081234567890" required>
         </div>
         
         <div class="form-group">
-          <label for="item"><i class="fas fa-box"></i> Jenis Barang</label>
+          <label for="item">Jenis Barang</label>
           <select id="item" name="item" class="form-control" required>
             <option value="">-- Pilih jenis barang --</option>
             <option value="emas">Emas/Perhiasan</option>
@@ -221,12 +216,12 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
         </div>
         
         <div class="form-group">
-          <label for="message"><i class="fas fa-comment-dots"></i> Catatan/Kebutuhan Khusus</label>
+          <label for="message">Catatan/Kebutuhan Khusus</label>
           <textarea id="message" name="message" class="form-control" rows="3" placeholder="Deskripsi singkat barang atau kebutuhan khusus..."></textarea>
         </div>
         
         <button type="submit" class="submit-btn">
-          <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Dapatkan Penawaran Spesial
+          📩 Dapatkan Penawaran Spesial
         </button>
         
         <p class="form-disclaimer">* Dengan mengisi form, Anda berhak mendapatkan konsultasi gratis dan potongan biaya administrasi 20%!</p>
@@ -235,35 +230,35 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
     
     <!-- 左下：为什么选择我们（原右上） -->
     <section class="grid-item why-choose-us" id="why-choose-us">
-      <h2><i class="fas fa-star" style="margin-right: 8px;"></i> Kenapa Memilih Kami?</h2>
+      <h2>⭐ Kenapa Memilih Kami?</h2>
       <ul class="reason-list">
-        <li><i class="fas fa-check-circle list-icon"></i> Proses cepat & transparan</li>
-        <li><i class="fas fa-check-circle list-icon"></i> Bunga kompetitif & jelas</li>
-        <li><i class="fas fa-check-circle list-icon"></i> Keamanan barang terjamin</li>
-        <li><i class="fas fa-check-circle list-icon"></i> Layanan lokal terpercaya</li>
-        <li><i class="fas fa-check-circle list-icon"></i> Fleksibel dalam pembayaran</li>
-        <li><i class="fas fa-check-circle list-icon"></i> Privasi pelanggan dijaga</li>
+        <li><span class="list-icon">✅</span> Proses cepat & transparan</li>
+        <li><span class="list-icon">✅</span> Bunga kompetitif & jelas</li>
+        <li><span class="list-icon">✅</span> Keamanan barang terjamin</li>
+        <li><span class="list-icon">✅</span> Layanan lokal terpercaya</li>
+        <li><span class="list-icon">✅</span> Fleksibel dalam pembayaran</li>
+        <li><span class="list-icon">✅</span> Privasi pelanggan dijaga</li>
       </ul>
     </section>
     
     <!-- 中间下方：业务流程 -->
     <section class="grid-item business-process" id="business-process">
-      <h2><i class="fas fa-clipboard-list" style="margin-right: 8px;"></i> Proses Mudah & Cepat</h2>
+      <h2>📋 Proses Mudah & Cepat</h2>
       <div class="process-steps">
         <div class="process-step">
-          <h3><i class="fas fa-comments"></i> Konsultasi Awal</h3>
+          <h3>Konsultasi Awal</h3>
           <p>Hubungi kami via WhatsApp atau datang langsung untuk konsultasi. Kami akan memberikan penjelasan lengkap tentang proses dan persyaratan.</p>
         </div>
         <div class="process-step">
-          <h3><i class="fas fa-search-dollar"></i> Penilaian Barang</h3>
+          <h3>Penilaian Barang</h3>
           <p>Tim ahli kami akan menilai barang Anda dengan fair dan transparan. Penilaian berdasarkan kondisi pasar terkini.</p>
         </div>
         <div class="process-step">
-          <h3><i class="fas fa-file-signature"></i> Persetujuan & Dokumen</h3>
+          <h3>Persetujuan & Dokumen</h3>
           <p>Setelah nilai disepakati, kami siapkan dokumen lengkap. Semua biaya dijelaskan dengan jelas tanpa hidden cost.</p>
         </div>
         <div class="process-step">
-          <h3><i class="fas fa-money-check-alt"></i> Pencairan Dana</h3>
+          <h3>Pencairan Dana</h3>
           <p>Dana langsung cair! Transfer ke rekening Anda atau tunai sesuai preferensi. Proses cepat, aman, dan terjamin.</p>
         </div>
       </div>
@@ -271,15 +266,15 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
     
     <!-- 右下：业务条件 -->
     <section class="grid-item conditions" id="conditions">
-      <h2><i class="fas fa-ban" style="margin-right: 8px;"></i> Yang Tidak Kami Terima</h2>
+      <h2>🚫 Yang Tidak Kami Terima</h2>
       <ul class="condition-list">
-        <li><i class="fas fa-times-circle list-icon"></i> Barang ilegal/hasil curian</li>
-        <li><i class="fas fa-times-circle list-icon"></i> Dokumen resmi negara</li>
-        <li><i class="fas fa-times-circle list-icon"></i> Barang rusak total</li>
-        <li><i class="fas fa-times-circle list-icon"></i> Tanpa identitas diri</li>
-        <li><i class="fas fa-times-circle list-icon"></i> Barang kontroversial</li>
+        <li><span class="list-icon">❌</span> Barang ilegal/hasil curian</li>
+        <li><span class="list-icon">❌</span> Dokumen resmi negara</li>
+        <li><span class="list-icon">❌</span> Barang rusak total</li>
+        <li><span class="list-icon">❌</span> Tanpa identitas diri</li>
+        <li><span class="list-icon">❌</span> Barang kontroversial</li>
       </ul>
-      <p class="condition-note"><i class="fas fa-exclamation-triangle"></i> * Semua Barang Harus Dalam Kepemilikan Sah dan Bisa Dibuktikan *</p>
+      <p class="grid-item conditions">* Semua Barang Harus Dalam Kepemilikan Sah dan Bisa Dibuktikan *</p>
     </section>
   </main>
 
@@ -293,10 +288,14 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
         <div class="contact-info">
           <a href="tel:+6289515692586" class="contact-link">
             <span>📞</span> +62 895-1569-2586
-            </a>
-          <a href="https://wa.me/6289515692586" class="contact-link whatsapp-link">
-            <i class="fab fa-whatsapp whatsapp-icon"></i> WhatsApp
           </a>
+          <a href="https://wa.me/6289515692586" target="_blank" class="contact-link" rel="noopener noreferrer">
+            <span>💬</span> WhatsApp
+          </a>
+          <!-- 透明占位元素保持三项目布局 -->
+          <span class="contact-link placeholder-link">
+            <span>📍</span> <span class="placeholder-text">Bangil, Jawa Timur</span>
+          </span>
         </div>
         
         <p class="operating-hours">
