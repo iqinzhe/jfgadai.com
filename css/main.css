@@ -742,25 +742,7 @@ footer {
   padding: 0 var(--spacing-md);
 }
 
-/* 确保两个项目等宽分布 */
-.contact-info {
-  display: flex;
-  justify-content: center; /* 居中对齐 */
-  align-items: center;
-  gap: 15px; /* 项目间距，根据需要调整 */
-  flex-wrap: nowrap; /* 小屏幕不换行 */
-}
-
-/* 移除或注释掉原来的 .contact-info > * 规则 */
-.contact-info > * {
-  /* 移除所有属性，或只保留必要的 */
-  display: flex;
-  justify-content: center;
-  min-width: auto; /* 改为自动或适当值 */
-  max-width: none;
-}
-
-/* 可选：调整链接本身的内边距 */
+/* 调整链接本身的内边距 */
 .contact-link {
   display: flex;
   align-items: center;
