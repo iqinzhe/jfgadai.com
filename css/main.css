@@ -728,20 +728,6 @@ footer {
   font-size: 0.95rem;
 }
 
-/* 优化联系信息布局 */
-.contact-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--spacing-xl);
-  flex-wrap: wrap;
-  margin-bottom: var(--spacing-lg);
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 var(--spacing-md);
-}
-
 /* 调整链接本身的内边距 */
 .contact-link {
   display: flex;
