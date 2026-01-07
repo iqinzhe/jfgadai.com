@@ -162,7 +162,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   gap: var(--spacing-xl);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin-bottom: var(--spacing-lg);
   max-width: 800px;
   margin-left: auto;
@@ -175,7 +175,7 @@ footer {
   display: flex;
   justify-content: center; /* 居中对齐 */
   align-items: center;
-  gap: 15px; /* 项目间距，根据需要调整 */
+  gap: 10px; /* 项目间距，根据需要调整 */
   flex-wrap: nowrap; /* 小屏幕不换行 */
 }
 
