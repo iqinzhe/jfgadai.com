@@ -255,7 +255,6 @@ body {
   animation: float 3s ease-in-out infinite;
   display: inline-block;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-  color: var(--secondary-color);
 }
 
 @keyframes float {
@@ -518,7 +517,6 @@ body {
   color: var(--secondary-color);
   font-size: 1.1rem;
   min-width: 24px;
-  text-align: center;
 }
 
 /* ==================== 教育导航优化（完整版） ==================== */
@@ -653,9 +651,6 @@ body {
 .form-group label {
   color: var(--text-muted);
   font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
 }
 
 .form-control {
@@ -697,33 +692,12 @@ body {
   transition: all 0.3s ease;
   margin-top: var(--spacing-sm);
   font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
 }
 
 .submit-btn:hover {
   background: var(--secondary-dark);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
-}
-
-/* 表单介绍文字 */
-.form-intro {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: var(--spacing-lg);
-  line-height: 1.5;
-}
-
-/* 表单免责声明 */
-.form-disclaimer {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-top: var(--spacing-md);
-  text-align: center;
-  line-height: 1.4;
 }
 
 /* ==================== 页脚优化 ==================== */
@@ -741,10 +715,6 @@ footer {
 .copyright {
   font-size: 1.1rem;
   margin-bottom: var(--spacing-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
 }
 
 .highlight {
@@ -756,10 +726,6 @@ footer {
   color: var(--text-muted);
   margin-bottom: var(--spacing-lg);
   font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
 }
 
 /* 优化联系信息布局 - 方案3实现 */
@@ -785,20 +751,14 @@ footer {
   flex: none; /* 防止项目被拉伸 */
 }
 
-/* WhatsApp 专用样式 */
+/* WhatsApp 专用样式 - 确保绿色显示 */
 .whatsapp-icon {
   color: #25D366 !important; /* WhatsApp 官方绿色 */
 }
 
-/* 电话链接特殊样式 */
-.contact-link.phone-link {
-  border-color: rgba(52, 152, 219, 0.3);
-  background: rgba(52, 152, 219, 0.08);
-}
-
-.contact-link.phone-link:hover {
-  border-color: rgba(52, 152, 219, 0.6);
-  background: rgba(52, 152, 219, 0.15);
+/* 电话链接特殊样式 - 红色电话图标 */
+.contact-link.phone-link i {
+  color: #ff4444 !important; /* 红色电话图标 */
 }
 
 /* WhatsApp链接特殊样式 */
@@ -848,38 +808,27 @@ footer {
   display: none;
 }
 
+/* 工作时间 - 红色闹钟图标 */
+.operating-hours i {
+  color: #ff4444 !important; /* 红色闹钟 */
+}
+
 .operating-hours {
   color: var(--text-muted);
   font-size: 0.9rem;
   margin-top: var(--spacing-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
 }
 
+/* 安全提示 - 保持原有样式 */
 .security-note {
   margin-top: 1rem;
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.65);
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
 }
 
-/* 条件部分备注样式 */
-.condition-note {
-  color: var(--secondary-color);
-  font-size: 0.85rem;
-  margin-top: var(--spacing-md);
-  font-style: italic;
-  text-align: center;
-  padding: var(--spacing-xs);
-  background: rgba(245, 197, 66, 0.1);
-  border-radius: var(--border-radius);
-  border: 1px solid rgba(245, 197, 66, 0.2);
+.security-note i {
+  color: var(--secondary-color) !important; /* 锁图标保持黄色 */
 }
 
 /* ==================== 动画类 ==================== */
@@ -1033,10 +982,6 @@ footer {
     font-size: 0.9rem;
   }
   
-  .contact-link i {
-    font-size: 1rem;
-  }
-  
   .assessment-cta {
     margin: var(--spacing-lg) auto;
     padding: 0 var(--spacing-md);
@@ -1154,10 +1099,6 @@ footer {
   .contact-link {
     padding: 5px 8px;
     font-size: 0.85rem;
-  }
-  
-  .contact-link i {
-    font-size: 0.9rem;
   }
 }
 
