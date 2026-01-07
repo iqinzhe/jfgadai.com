@@ -728,48 +728,27 @@ footer {
   font-size: 0.95rem;
 }
 
-/* 优化联系信息布局 - 方案3实现 */
+/* 优化联系信息布局 */
 .contact-info {
   display: flex;
-  justify-content: center; /* 居中对齐 */
+  justify-content: space-between;
   align-items: center;
-  gap: 15px; /* 两个项目之间的间距 */
-  flex-wrap: wrap; /* 小屏幕自动换行 */
+  gap: var(--spacing-xl);
+  flex-wrap: wrap;
   margin-bottom: var(--spacing-lg);
-  max-width: 500px; /* 根据两个项目调整最大宽度 */
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 var(--spacing-md);
 }
 
-/* 修改联系项目样式 */
+/* 确保三个项目等宽分布 */
 .contact-info > * {
+  flex: 1;
+  min-width: 150px;
+  max-width: 250px;
   display: flex;
   justify-content: center;
-  min-width: auto; /* 改为自动或适当值 */
-  max-width: none;
-  flex: none; /* 防止项目被拉伸 */
-}
-
-/* WhatsApp 专用样式 - 确保绿色显示 */
-.whatsapp-icon {
-  color: #25D366 !important; /* WhatsApp 官方绿色 */
-}
-
-/* 电话链接特殊样式 - 红色电话图标 */
-.contact-link.phone-link i {
-  color: #ff4444 !important; /* 红色电话图标 */
-}
-
-/* WhatsApp链接特殊样式 */
-.contact-link.whatsapp-link {
-  border-color: rgba(37, 211, 102, 0.3);
-  background: rgba(37, 211, 102, 0.08);
-}
-
-.contact-link.whatsapp-link:hover {
-  border-color: rgba(37, 211, 102, 0.6);
-  background: rgba(37, 211, 102, 0.15);
 }
 
 .contact-link {
@@ -778,57 +757,29 @@ footer {
   gap: 0.5rem;
   color: var(--text-light);
   text-decoration: none;
+  transition: color 0.3s ease;
   font-size: 0.95rem;
-  padding: 8px 12px; /* 减小左右内边距 */
-  border-radius: var(--border-radius);
+  padding: 8px 15px;
+  border-radius: 8px;
   transition: all 0.3s ease;
-  white-space: nowrap; /* 防止文字换行 */
-  
-  /* 基础边框和背景 */
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.03);
 }
 
 .contact-link:hover {
   color: var(--secondary-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.05);
 }
 
-/* 调整图标间距 */
-.contact-link i {
-  font-size: 1.1rem;
-  min-width: 20px;
-  text-align: center;
+/* 透明占位元素 */
+.placeholder-link {
+  visibility: visible;
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.4) !important;
 }
 
-/* 移除占位元素相关样式，因为现在只有两个项目 */
-.placeholder-link,
 .placeholder-text {
-  display: none;
-}
-
-/* 工作时间 - 红色闹钟图标 */
-.operating-hours i {
-  color: #ff4444 !important; /* 红色闹钟 */
-}
-
-.operating-hours {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  margin-top: var(--spacing-sm);
-}
-
-/* 安全提示 - 保持原有样式 */
-.security-note {
-  margin-top: 1rem;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.65);
-  text-align: center;
-}
-
-.security-note i {
-  color: var(--secondary-color) !important; /* 锁图标保持黄色 */
+  color: rgba(255, 255, 255, 0.4) !important;
 }
 
 /* ==================== 动画类 ==================== */
@@ -904,8 +855,7 @@ footer {
   }
   
   .contact-info {
-    max-width: 450px;
-    gap: 12px;
+    max-width: 600px;
   }
 }
 
@@ -971,15 +921,19 @@ footer {
   
   /* 手机端页脚优化 */
   .contact-info {
-    flex-direction: row; /* 保持行排列 */
-    gap: 10px; /* 手机端减小间距 */
+    flex-direction: column;
+    gap: var(--spacing-md);
     align-items: center;
+  }
+  
+  .contact-info > * {
+    width: 100%;
+    max-width: 300px;
     justify-content: center;
   }
   
-  .contact-link {
-    padding: 6px 10px; /* 手机端减小内边距 */
-    font-size: 0.9rem;
+  .placeholder-link {
+    display: none; /* 手机端隐藏占位元素 */
   }
   
   .assessment-cta {
@@ -1091,15 +1045,19 @@ footer {
     flex-direction: row;
     gap: 1rem;
   }
-  
-  .contact-info {
-    gap: 8px; /* 更小屏幕进一步减小间距 */
-  }
-  
-  .contact-link {
-    padding: 5px 8px;
-    font-size: 0.85rem;
-  }
+}
+
+.security-note {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+}
+
+.operating-hours {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: var(--spacing-sm);
 }
 
 /* 落地页信任区块（广告审核加分） */
