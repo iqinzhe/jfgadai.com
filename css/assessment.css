@@ -1119,7 +1119,7 @@ footer {
   justify-content: center; /* 居中对齐 */
   align-items: center;
   gap: 15px; /* 两个项目之间的间距，可根据需要调整(10px-20px) */
-  flex-wrap: wrap; /* 小屏幕自动换行 */
+  flex-wrap: nowrap; /* 小屏幕不换行 */
   width: 100%; /* 确保容器占满宽度 */
 }
 
