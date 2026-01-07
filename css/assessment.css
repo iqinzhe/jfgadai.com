@@ -1113,38 +1113,28 @@ footer {
   font-size: 0.95rem;
 }
 
-/* 优化联系信息布局 */
-.contact-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--spacing-xl);
-  flex-wrap: wrap;
-  margin-bottom: var(--spacing-lg);
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 var(--spacing-md);
-}
-
-/* 确保两个项目等宽分布 */
+/* 页脚联系信息容器 */
 .contact-info {
   display: flex;
   justify-content: center; /* 居中对齐 */
   align-items: center;
-  gap: 15px; /* 项目间距，根据需要调整 */
+  gap: 15px; /* 两个项目之间的间距，可根据需要调整(10px-20px) */
   flex-wrap: wrap; /* 小屏幕自动换行 */
+  width: 100%; /* 确保容器占满宽度 */
 }
 
+/* 移除或注释掉原来的 .contact-info > * 规则 */
 .contact-info > * {
-  /* 移除所有属性，或只保留必要的 */
+  /* 原来的规则不再需要，或简化为： */
   display: flex;
   justify-content: center;
-  min-width: auto; /* 改为自动或适当值 */
+  /* 移除 min-width 和 max-width 限制 */
+  min-width: auto;
   max-width: none;
+  flex: none; /* 防止项目被拉伸 */
 }
 
-/* 可选：调整链接本身的内边距 */
+/* 联系链接样式 */
 .contact-link {
   display: flex;
   align-items: center;
@@ -1156,4 +1146,10 @@ footer {
   padding: 8px 12px; /* 减小左右内边距 */
   border-radius: 8px;
   transition: all 0.3s ease;
+  white-space: nowrap; /* 防止文字换行 */
+}
+
+.contact-link:hover {
+  color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.05);
 }
