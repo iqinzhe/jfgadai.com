@@ -1087,3 +1087,84 @@ select:disabled {
     gap: 0.8rem !important;
   }
 }
+/* ==================== 页脚优化 ==================== */
+footer {
+  background: rgba(11, 44, 74, 0.9);
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-xl) 0;
+  border-top: 2px solid var(--secondary-color);
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.copyright {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.highlight {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.company-info {
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-lg);
+  font-size: 0.95rem;
+}
+
+/* 优化联系信息布局 */
+.contact-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-xl);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-lg);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* 确保三个项目等宽分布 */
+.contact-info > * {
+  flex: 1;
+  min-width: 150px;
+  max-width: 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
+  padding: 8px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* 透明占位元素 */
+.placeholder-link {
+  visibility: visible;
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.placeholder-text {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
