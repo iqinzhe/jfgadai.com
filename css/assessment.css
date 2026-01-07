@@ -1153,3 +1153,33 @@ footer {
   color: var(--secondary-color);
   background: rgba(255, 255, 255, 0.05);
 }
+
+/* 落地页信任区块（广告审核加分） */
+.trust-box {
+  margin: 1.5rem 0 1rem;
+  padding: 1rem 1.2rem;
+  background: rgba(15, 76, 129, 0.35);
+  border: 1px solid rgba(245, 197, 66, 0.35);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  text-align: center;
+}
+
+.trust-item {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+}
+
+.trust-item strong {
+  color: #f5c542;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .trust-box {
+    grid-template-columns: 1fr;
+  }
+}
