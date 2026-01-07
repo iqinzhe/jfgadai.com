@@ -170,13 +170,20 @@ footer {
   padding: 0 var(--spacing-md);
 }
 
-/* 确保三个项目等宽分布 */
+/* 确保两个项目等宽分布 */
+.contact-info {
+  display: flex;
+  justify-content: center; /* 居中对齐 */
+  align-items: center;
+  gap: 15px; /* 项目间距，根据需要调整 */
+  flex-wrap: wrap; /* 小屏幕自动换行 */
+}
+
 .contact-info > * {
-  flex: 1;
-  min-width: 150px;
-  max-width: 250px;
   display: flex;
   justify-content: center;
+  min-width: auto; /* 改为自动或适当值 */
+  max-width: none;
 }
 
 .contact-link {
@@ -187,27 +194,10 @@ footer {
   text-decoration: none;
   transition: color 0.3s ease;
   font-size: 0.95rem;
-  padding: 8px 15px;
+  padding: 8px 12px; /* 减小左右内边距 */
   border-radius: 8px;
   transition: all 0.3s ease;
 }
 
-.contact-link:hover {
-  color: var(--secondary-color);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/* 透明占位元素 */
-.placeholder-link {
-  visibility: visible;
-  opacity: 0.5;
-  pointer-events: none;
-  user-select: none;
-  color: rgba(255, 255, 255, 0.4) !important;
-}
-
-.placeholder-text {
-  color: rgba(255, 255, 255, 0.4) !important;
-}
 
 
