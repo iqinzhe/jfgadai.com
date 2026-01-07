@@ -176,7 +176,7 @@ footer {
   justify-content: center; /* 居中对齐 */
   align-items: center;
   gap: 15px; /* 项目间距，根据需要调整 */
-  flex-wrap: wrap; /* 小屏幕自动换行 */
+  flex-wrap: nowrap; /* 小屏幕不换行 */
 }
 
 .contact-info > * {
