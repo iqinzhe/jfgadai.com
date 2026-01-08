@@ -1020,37 +1020,32 @@
 
 /* ========== 修复：Yamaha Logo样式 ========== */
 
-/* Yamaha Base64 Logo样式 */
-.brand-option[data-brand="yamaha"] .yamaha-logo-img {
-  width: 85px;
-  height: 34px;
-  object-fit: contain;
+/* 内联Yamaha Logo样式 */
+.yamaha-inline-logo {
+  width: 80px;
+  height: 24px;
   margin-bottom: 12px;
-  filter: brightness(0) invert(1); /* 确保白色显示 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.yamaha-inline-logo svg {
+  width: 100%;
+  height: 100%;
   transition: transform 0.3s ease;
 }
 
-.brand-option:hover .yamaha-logo-img {
+.brand-option:hover .yamaha-inline-logo svg {
   transform: scale(1.1);
 }
 
-.brand-option[data-brand="yamaha"]:hover .yamaha-logo-img {
-  filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(10deg); /* 悬停时变金色 */
+.brand-option[data-brand="yamaha"]:hover .yamaha-fork {
+  fill: #f5c542;
 }
 
-/* 删除旧的Yamaha样式（如果存在） */
-.yamaha-inline-logo,
-.yamaha-fork,
-.yamaha-text {
-  display: none;
-}
-
-/* 手机端调整 */
-@media (max-width: 480px) {
-  .brand-option[data-brand="yamaha"] .yamaha-logo-img {
-    width: 75px;
-    height: 30px;
-  }
+.brand-option[data-brand="yamaha"]:hover .yamaha-text {
+  fill: #f5c542;
 }
 
 /* ========== 修复：响应式布局问题 ========== */
