@@ -162,32 +162,30 @@ footer {
   padding: 0 0.5rem;
 }
 
-/* 联系信息布局 - 确保两个联系方式在同一行 */
+/* 联系电话布局 - 单个居中显示 */
 .contact-info {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem; /* 两个联系方式之间的间距 */
-  flex-wrap: wrap; /* 允许在极窄屏幕下换行 */
   margin: 0.5rem auto;
   padding: 0.4rem 0;
   max-width: 550px;
 }
 
-/* 每个联系方式的样式 - 添加可见背景框 */
+/* 联系电话的样式 - 添加可见背景框 */
 .contact-link {
-  display: inline-flex; /* 改为inline-flex确保水平排列 */
+  display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   color: var(--text-light);
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 1rem;
-  padding: 6px 12px; /* 内边距创建框体 */
+  padding: 6px 12px;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.1); /* 添加浅色背景，让框可见 */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* 添加边框 */
-  white-space: nowrap; /* 防止文字换行 */
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
 }
 
 /* 鼠标悬停效果 */
@@ -195,20 +193,9 @@ footer {
   background: rgba(255, 255, 255, 0.2);
   border-color: var(--secondary-color);
   color: var(--secondary-color);
-  transform: translateY(-2px); /* 添加轻微上浮效果 */
+  transform: translateY(-2px);
 }
 
-/* 图标样式 */
-.contact-link i,
-.contact-link svg,
-.contact-link .icon {
-  font-size: 1.1rem; /* 图标稍大一点 */
-}
-
-/* 移除之前可能存在的垂直间距 */
-.footer-content > * + * {
-  margin-top: 0.5rem;
-}
 
 /* 移动端适配 */
 @media (max-width: 768px) {
@@ -273,6 +260,7 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
 
 
 
