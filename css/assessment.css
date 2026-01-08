@@ -186,63 +186,50 @@
   font-size: 1.8rem;
 }
 
+/* 品牌选择 - 已修改为两列 */
 .brand-selection {
-  display: flex;
-  gap: 24px;
-  justify-content: center;
-  margin: 24px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .brand-selection {
+    grid-template-columns: 1fr;
+  }
 }
 
 .brand-option {
-  cursor: pointer;
-  text-align: center;
-  padding: 14px 18px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.05);
   border: 2px solid transparent;
-  transition: all 0.25s ease;
-  user-select: none;
+  border-radius: var(--border-radius);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .brand-option:hover {
+  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  border-color: var(--secondary-color);
 }
 
 .brand-option.active {
-  background: rgba(245, 197, 66, 0.1);
   border-color: var(--secondary-color);
-  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
+  background: rgba(245, 197, 66, 0.1);
+  box-shadow: 0 4px 15px rgba(245, 197, 66, 0.2);
 }
 
-/* Logo */
-.brand-logo-img {
-  width: 88px;
-  height: 42px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 8px;
-  pointer-events: none;
-}
-
-/* 文本 */
-.brand-name {
-  font-size: 14px;
+.brand-option span {
+  color: var(--text-light);
   font-weight: 600;
-  pointer-events: none;
-}
-
-/* 手机端 */
-@media (max-width: 600px) {
-  .brand-selection {
-    gap: 12px;
-  }
-  
-  .brand-logo-img {
-    width: 72px;
-    height: 36px;
-  }
+  font-size: 0.9rem;
 }
 
 /* 表单项布局 */
@@ -250,7 +237,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  margin-bottom: 1.5rem;
 }
 
 @media (max-width: 768px) {
@@ -258,18 +244,6 @@
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: var(--text-light);
-  font-weight: 600;
-  font-size: 0.95rem;
 }
 
 /* 里程滑块 */
@@ -377,7 +351,7 @@
   line-height: 1.4;
 }
 
-/* 照片上传 */
+/* 照片上传 - 已修复 */
 .photo-upload {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -409,7 +383,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 0.5rem;
   height: 120px;
   overflow: hidden;
@@ -437,16 +410,6 @@
   color: var(--text-light);
   font-size: 0.9rem;
   transition: opacity 0.3s ease;
-}
-
-.form-note {
-  background: rgba(245, 197, 66, 0.1);
-  border-radius: var(--border-radius);
-  padding: 1rem;
-  margin: 1.5rem 0;
-  border-left: 4px solid var(--secondary-color);
-  color: var(--text-light);
-  font-size: 0.9rem;
 }
 
 /* 表单导航 */
@@ -545,73 +508,67 @@
   font-weight: 600;
 }
 
+/* ========== 估值区间样式 ========== */
+
 .estimation-value {
-  text-align: center;
   margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: rgba(11, 44, 74, 0.8);
-  border-radius: var(--border-radius);
-  border: 2px solid var(--secondary-color);
 }
 
 .value-range {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
   flex-wrap: wrap;
 }
 
 .range-min, .range-max {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
+  padding: 1.2rem 1.5rem;
+  background: rgba(11, 44, 74, 0.8);
+  border-radius: 12px;
+  min-width: 180px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.range-min:hover, .range-max:hover {
+  border-color: var(--secondary-color);
+  transform: translateY(-3px);
 }
 
 .range-label {
+  display: block;
   font-size: 0.9rem;
-  color: var(--text-light);
+  color: var(--text-muted);
   margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 .range-separator {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: var(--secondary-color);
   font-weight: bold;
+  padding: 0 0.5rem;
 }
 
 .value-average {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(245, 197, 66, 0.1);
+  border-radius: 10px;
   margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--secondary-color);
 }
 
 .average-label {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-light);
   margin-right: 0.5rem;
 }
 
-.currency {
-  color: var(--secondary-color);
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.value {
-  font-size: 2.5rem;
-  font-weight: 900;
-  color: var(--secondary-color);
-  margin: 0 0.3rem;
-}
-
-.range {
-  color: var(--text-light);
-  font-size: 1.2rem;
-  opacity: 0.8;
-}
-
+/* 评估详情 */
 .estimation-details {
   background: rgba(255, 255, 255, 0.05);
   border-radius: var(--border-radius);
@@ -642,17 +599,29 @@
 }
 
 .total-adjustment {
-  font-weight: bold;
-  color: var(--secondary-color) !important;
+  border-top: 2px solid rgba(245, 197, 66, 0.3);
+  padding-top: 0.8rem;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
 }
 
+.total-adjustment span {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+/* 调整信息 */
 .adjustment-info {
-  margin-bottom: 1.5rem;
+  background: rgba(15, 76, 129, 0.3);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 .adjustment-info h4 {
   color: var(--secondary-color);
   margin-bottom: 1rem;
+  font-size: 1.1rem;
 }
 
 .adjustment-factors {
@@ -672,20 +641,20 @@
   align-items: flex-start;
   gap: 0.8rem;
   padding: 0.8rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
 }
 
 .factor-icon {
   font-size: 1.2rem;
-  color: var(--secondary-color);
   flex-shrink: 0;
 }
 
 .factor-item p {
-  margin: 0;
   color: var(--text-light);
   font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.4;
 }
 
 .estimation-note {
@@ -777,18 +746,71 @@
   transform: translateY(-2px);
 }
 
-/* 人工调整说明 */
-.manual-adjustment {
+/* 专家提示 */
+.expert-tips {
   background: rgba(15, 76, 129, 0.3);
   border-radius: var(--border-radius-lg);
   padding: 2rem;
   margin-top: 2rem;
 }
 
-.manual-adjustment h4 {
+.expert-tips h4 {
   color: var(--secondary-color);
   margin-bottom: 1.5rem;
   text-align: center;
+  font-size: 1.2rem;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tip-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.tip-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tip-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.tip-card p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* 人工调整流程 */
+.manual-adjustment {
+  background: rgba(15, 76, 129, 0.4);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  margin-top: 2rem;
+  border: 1px solid rgba(245, 197, 66, 0.2);
+}
+
+.manual-adjustment h4 {
+  color: var(--secondary-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
   font-size: 1.2rem;
 }
 
@@ -813,11 +835,20 @@
 
 .process-step {
   text-align: center;
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.process-step:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .step-number {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   background: var(--secondary-color);
   color: var(--dark-color);
   border-radius: 50%;
@@ -825,27 +856,32 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  margin: 0 auto 1rem;
+  font-size: 1.1rem;
+  margin: 0 auto 0.8rem;
 }
 
 .process-step p {
   color: var(--text-light);
   font-size: 0.9rem;
   margin: 0;
+  line-height: 1.4;
 }
 
-.process-step p strong {
+.process-step strong {
   color: var(--secondary-color);
   display: block;
   margin-bottom: 0.3rem;
+  font-size: 1rem;
 }
 
 .process-note {
   text-align: center;
   color: var(--text-muted);
-  font-size: 0.9rem;
   font-style: italic;
-  margin: 0;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* 常见问题 */
@@ -984,47 +1020,37 @@
 
 /* ========== 修复：Yamaha Logo样式 ========== */
 
-/* Logo容器 */
-.brand-logo-img {
-  width: 75px;
-  height: 38px;
+/* Yamaha Base64 Logo样式 */
+.brand-option[data-brand="yamaha"] .yamaha-logo-img {
+  width: 85px;
+  height: 34px;
   object-fit: contain;
   margin-bottom: 12px;
+  filter: brightness(0) invert(1); /* 确保白色显示 */
   transition: transform 0.3s ease;
 }
 
-/* Yamaha Logo备用方案 */
-.brand-option[data-brand="yamaha"] .brand-logo-img {
-  filter: none !important;
-  background-color: white;
-  padding: 4px;
-  border-radius: 4px;
+.brand-option:hover .yamaha-logo-img {
+  transform: scale(1.1);
 }
 
-/* Logo加载失败时显示文字 */
-.brand-logo-img[src=""],
-.brand-logo-img:not([src]) {
-  display: none !important;
+.brand-option[data-brand="yamaha"]:hover .yamaha-logo-img {
+  filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(10deg); /* 悬停时变金色 */
 }
 
-.brand-option[data-brand="honda"] .brand-logo-fallback {
+/* 删除旧的Yamaha样式（如果存在） */
+.yamaha-inline-logo,
+.yamaha-fork,
+.yamaha-text {
   display: none;
-  font-family: 'Arial Black', sans-serif;
-  font-size: 1.6rem;
-  color: #E40521;
-  font-weight: 900;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
 }
 
-.brand-option[data-brand="yamaha"] .brand-logo-fallback {
-  display: none;
-  font-family: 'Arial', sans-serif;
-  font-size: 1.4rem;
-  color: #003399;
-  font-weight: bold;
-  font-style: italic;
-  margin-bottom: 12px;
+/* 手机端调整 */
+@media (max-width: 480px) {
+  .brand-option[data-brand="yamaha"] .yamaha-logo-img {
+    width: 75px;
+    height: 30px;
+  }
 }
 
 /* ========== 修复：响应式布局问题 ========== */
@@ -1057,6 +1083,10 @@
   
   .faq-question {
     font-size: 1.1rem !important;
+  }
+  
+  .faq-answer {
+    font-size: 1rem !important;
   }
 }
 
@@ -1109,6 +1139,16 @@
     margin-top: 2rem !important;
     padding-top: 1.5rem !important;
   }
+  
+  .value-range {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .range-separator {
+    transform: rotate(90deg);
+    padding: 0.5rem 0;
+  }
 }
 
 /* 小手机优化 */
@@ -1133,116 +1173,35 @@
   .option-content {
     padding: 1.2rem 0.8rem !important;
   }
-}
-
-/* ===============================
-   Model Motor 下拉框 深色主题修复
-   =============================== */
-
-#model {
-  background-color: #0b2c4a !important;   /* 深宝石蓝 */
-  color: #ffffff !important;              /* 文字白色 */
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-}
-
-/* 下拉选项（大多数浏览器生效） */
-#model option {
-  background-color: #0b2c4a;
-  color: #ffffff;
-}
-
-/* 禁用状态 */
-#model:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* ==================== 修复所有问题 ==================== */
-
-/* 1. 修复所有下拉框白色背景问题 */
-select {
-  background-color: #0b2c4a !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  padding: 14px 16px !important;
-  border-radius: 10px !important;
-  font-size: 16px !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  margin-top: 5px !important;
-  appearance: none !important;
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: right 16px center !important;
-  background-size: 16px !important;
-  padding-right: 45px !important;
-  cursor: pointer !important;
-}
-
-select option {
-  background-color: #0b2c4a !important;
-  color: #ffffff !important;
-  padding: 12px !important;
-}
-
-select:focus {
-  outline: none !important;
-  border-color: #f5c542 !important;
-  background-color: #0c3357 !important;
-  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.25) !important;
-}
-
-select:hover {
-  border-color: rgba(255, 255, 255, 0.4) !important;
-}
-
-select:disabled {
-  background-color: rgba(11, 44, 74, 0.5) !important;
-  color: rgba(255, 255, 255, 0.5) !important;
-  cursor: not-allowed !important;
-  opacity: 0.7 !important;
-}
-
-/* 2. 修复 Yamaha Logo 可见性问题 */
-.brand-option[data-brand="yamaha"] .brand-logo-img {
-  filter: none !important;
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 8px;
-  border-radius: 6px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-  width: 80px !important;
-  height: 40px !important;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-}
-
-.brand-option[data-brand="yamaha"]:hover .brand-logo-img {
-  transform: scale(1.1);
-  background-color: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-}
-
-.brand-option[data-brand="yamaha"].active .brand-logo-img {
-  border: 2px solid #f5c542;
-  background-color: white;
-  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.3);
-}
-
-/* 手机端适配 */
-@media (max-width: 600px) {
-  .brand-option[data-brand="yamaha"] .brand-logo-img {
-    width: 65px !important;
-    height: 32px !important;
-    padding: 6px;
+  
+  .yamaha-inline-logo {
+    width: 70px !important;
+    height: 21px !important;
+  }
+  
+  .yamaha-inline-logo svg {
+    transform: scale(0.9);
+  }
+  
+  .yamaha-inline-logo text {
+    font-size: 18px !important;
+  }
+  
+  .adjustment-process {
+    gap: 1rem !important;
+  }
+  
+  .range-min, .range-max {
+    min-width: 150px !important;
+    padding: 1rem 1.2rem !important;
   }
 }
 
-@media (max-width: 480px) {
-  .brand-option[data-brand="yamaha"] .brand-logo-img {
-    width: 55px !important;
-    height: 28px !important;
-    padding: 4px;
-  }
+/* 安全连接提示（页脚通用） */
+.security-note {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+  letter-spacing: 0.3px;
 }
