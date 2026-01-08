@@ -728,18 +728,38 @@ footer {
   font-size: 0.95rem;
 }
 
-/* 调整链接本身的内边距 */
-.contact-link {
+/* 联系电话布局 - 单个居中显示 */
+.contact-info {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  margin: 0.5rem auto;
+  padding: 0.4rem 0;
+  max-width: 550px;
+}
+
+/* 联系电话的样式 - 添加可见背景框 */
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   color: var(--text-light);
   text-decoration: none;
-  transition: color 0.3s ease;
-  font-size: 0.95rem;
-  padding: 8px 12px; /* 减小左右内边距 */
-  border-radius: 8px;
   transition: all 0.3s ease;
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+}
+
+/* 鼠标悬停效果 */
+.contact-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  transform: translateY(-2px);
 }
 
 
