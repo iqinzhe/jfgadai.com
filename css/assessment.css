@@ -1,718 +1,1219 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <!-- Google Tag Manager -->
-  <script>
-  (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),
-          dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-M2GMSNWS');
-  </script>
-  <!-- End Google Tag Manager -->
+/* ==================== 评估页面专用样式 ==================== */
+/* 注意：通用样式已在 main.css 中定义 */
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/icons/android-chrome-512x512.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#ffffff">
-
-  <!-- SEO Meta 标签 -->
-  <title>JF Gadai Assessment | Alat Evaluasi Pinjaman Cepat & Aman</title>
-  <meta name="description" content="Gunakan alat assessment online JF Gadai untuk mengetahui estimasi pinjaman gadai emas, kendaraan, atau elektronik Anda dengan cepat dan aman. Proses mudah, bunga kompetitif, terpercaya di Bangil,Beji,Gempol">
-  <meta name="author" content="JF Gadai">
-  <meta name="robots" content="index, follow">
-
-  <!-- Open Graph（社交媒体分享）-->
-  <meta property="og:title" content="JF Gadai Assessment | Alat Evaluasi Pinjaman">
-  <meta property="og:description" content="Cek estimasi pinjaman Anda dengan alat assessment online JF Gadai. Cepat, aman, dan terpercaya di Bangil & Gempol.">
-  <meta property="og:image" content="https://www.jfgadai.com/images/assessment-og.jpeg">
-  <meta property="og:url" content="https://www.jfgadai.com/assessment">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="id_ID">
-  <meta property="og:site_name" content="JF Gadai">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.jfgadai.com/assessment">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.jfgadai.com">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "JF Gadai",
-  "alternateName": [
-    "JF Gadai Bangil",
-    "JF Gadai Beji",
-    "JF Gadai Gempol"
-  ],
-  "url": "https://www.jfgadai.com/"
+/* 头部 */
+.assessment-header {
+  background: rgba(11, 44, 74, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  border-bottom: 2px solid var(--secondary-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
-</script>
 
-  <!-- JSON-LD 结构化数据 -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "PawnBroker",
-  "name": "JF Gadai",
-  "image": "https://www.jfgadai.com/images/101.jpeg",
-  "description": "Layanan gadai motor, emas, dan barang berharga lainnya di Bangil, Beji, dan Gempol. Proses cepat, aman, dan terpercaya.",
-  "url": "https://www.jfgadai.com",
-  "telephone": "+6289515692586",
-  "priceRange": "Rp",
-  "openingHours": "Mo-Sa 08:00-18:00",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bangil",
-    "addressRegion": "Jawa Timur",
-    "addressCountry": "ID"
-  },
-  "areaServed": [
-    {
-      "@type": "AdministrativeArea",
-      "name": "Bangil"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Beji"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Gempol"
-    }
-  ]
+.assessment-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-</script>
+
+.back-btn {
+  color: var(--text-light);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+  color: var(--secondary-color);
+}
+
+.assessment-header .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+}
+
+/* 评估页面横幅 */
+.assessment-banner {
+  background: linear-gradient(135deg, rgba(15, 76, 129, 0.9), rgba(245, 197, 66, 0.2));
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.assessment-banner h1 {
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.assessment-banner .subtitle {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+}
+
+.stat-text {
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* 进度条 */
+.progress-bar {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem auto 3rem;
+  position: relative;
+  max-width: 800px;
+}
+
+.progress-bar::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.progress-step {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  flex: 1;
+  color: var(--text-muted);
+  font-weight: 600;
+  padding: 0.5rem;
+  background: var(--dark-color);
+  transition: all 0.3s ease;
+}
+
+.progress-step.active {
+  color: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+.progress-step::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.progress-step.active::before {
+  background: var(--secondary-color);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(245, 197, 66, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(245, 197, 66, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 197, 66, 0); }
+}
+
+/* 评估表单容器 */
+.assessment-container {
+  padding: 2rem 0;
+}
+
+.assessment-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-step {
+  display: none;
+  animation: slideIn 0.5s ease;
+}
+
+.form-step.active {
+  display: block;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.form-step h2 {
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.brand-selection {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.brand-option {
+  cursor: pointer;
+  text-align: center;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 2px solid transparent;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.brand-option:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.brand-option.active {
+  background: rgba(245, 197, 66, 0.1);
+  border-color: var(--secondary-color);
+  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
+}
+
+/* Logo */
+.brand-logo-img {
+  width: 88px;
+  height: 42px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 8px;
+  pointer-events: none;
+}
+
+/* 文本 */
+.brand-name {
+  font-size: 14px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+/* 手机端 */
+@media (max-width: 600px) {
+  .brand-selection {
+    gap: 12px;
+  }
+  
+  .brand-logo-img {
+    width: 72px;
+    height: 36px;
+  }
+}
+
+/* 表单项布局 */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* 里程滑块 */
+.mileage-slider {
+  margin-top: 1rem;
+}
+
+.mileage-slider input[type="range"] {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.mileage-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--secondary-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mileage-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* 车况选项 */
+.condition-section {
+  margin-bottom: 2rem;
+}
+
+.condition-section h3 {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.condition-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .condition-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+.condition-option {
+  position: relative;
+}
+
+.condition-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.option-content {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid transparent;
+  border-radius: var(--border-radius);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.condition-option input[type="radio"]:checked + .option-content {
+  border-color: var(--secondary-color);
+  background: rgba(245, 197, 66, 0.1);
+  transform: translateY(-2px);
+}
+
+.condition-option:hover .option-content {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.option-icon {
+  font-size: 2rem;
+}
+
+.option-title {
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.option-desc {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* 照片上传 */
+.photo-upload {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .photo-upload {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-upload {
+    grid-template-columns: 1fr;
+  }
+}
+
+.upload-area {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius);
+  padding: 2rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 120px;
+  overflow: hidden;
+}
+
+.upload-area:hover {
+  border-color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.upload-area.has-image {
+  border-style: solid;
+  border-color: var(--secondary-color);
+  background: rgba(245, 197, 66, 0.05);
+}
+
+.upload-icon {
+  font-size: 2rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.upload-text {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  transition: opacity 0.3s ease;
+}
+
+.form-note {
+  background: rgba(245, 197, 66, 0.1);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid var(--secondary-color);
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* 表单导航 */
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-prev, .btn-next, .btn-submit {
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-prev {
+  background: transparent;
+  color: var(--text-light);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-prev:hover {
+  border-color: var(--text-light);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-next {
+  background: var(--secondary-color);
+  color: var(--dark-color);
+}
+
+.btn-next:hover {
+  background: var(--secondary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.4);
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, #f5c542, #e0b339);
+  color: var(--dark-color);
+  font-size: 1.1rem;
+  padding: 1rem 3rem;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 197, 66, 0.5);
+}
+
+/* 评估结果 */
+.estimation-result {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.estimation-card {
+  background: linear-gradient(135deg, rgba(15, 76, 129, 0.3), rgba(245, 197, 66, 0.1));
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(245, 197, 66, 0.2);
+  animation: resultAppear 0.8s ease;
+}
+
+@keyframes resultAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.estimation-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.estimation-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.estimation-header h3 {
+  color: var(--text-light);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.estimation-value {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(11, 44, 74, 0.8);
+  border-radius: var(--border-radius);
+  border: 2px solid var(--secondary-color);
+}
+
+.value-range {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.range-min, .range-max {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.range-label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.range-separator {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.value-average {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.average-label {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-right: 0.5rem;
+}
+
+.currency {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.value {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--secondary-color);
+  margin: 0 0.3rem;
+}
+
+.range {
+  color: var(--text-light);
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.estimation-details {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.estimation-details p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.breakdown-list {
+  list-style: none;
+  color: var(--text-muted);
+}
+
+.breakdown-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.breakdown-list li:last-child {
+  border-bottom: none;
+}
+
+.total-adjustment {
+  font-weight: bold;
+  color: var(--secondary-color) !important;
+}
+
+.adjustment-info {
+  margin-bottom: 1.5rem;
+}
+
+.adjustment-info h4 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.adjustment-factors {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .adjustment-factors {
+    grid-template-columns: 1fr;
+  }
+}
+
+.factor-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--border-radius);
+}
+
+.factor-icon {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  flex-shrink: 0;
+}
+
+.factor-item p {
+  margin: 0;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.estimation-note {
+  background: rgba(245, 197, 66, 0.1);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  border-left: 4px solid var(--secondary-color);
+}
+
+.estimation-note p {
+  color: var(--secondary-color);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.estimation-note ul {
+  color: var(--text-light);
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.estimation-note li {
+  padding: 0.3rem 0;
+  position: relative;
+}
+
+.estimation-note li::before {
+  content: '•';
+  color: var(--secondary-color);
+  font-weight: bold;
+  position: absolute;
+  left: -1rem;
+}
+
+/* 行动按钮 */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-whatsapp, .btn-recalculate, .btn-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+.btn-whatsapp:hover {
+  background: #128C7E;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
+.btn-recalculate {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-recalculate:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-home {
+  background: transparent;
+  color: var(--text-light);
+  border: 2px solid var(--secondary-color);
+}
+
+.btn-home:hover {
+  background: rgba(245, 197, 66, 0.1);
+  transform: translateY(-2px);
+}
+
+/* 人工调整说明 */
+.manual-adjustment {
+  background: rgba(15, 76, 129, 0.3);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.manual-adjustment h4 {
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.adjustment-process {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .adjustment-process {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .adjustment-process {
+    grid-template-columns: 1fr;
+  }
+}
+
+.process-step {
+  text-align: center;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: var(--secondary-color);
+  color: var(--dark-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin: 0 auto 1rem;
+}
+
+.process-step p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.process-step p strong {
+  color: var(--secondary-color);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.process-note {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin: 0;
+}
+
+/* 常见问题 */
+.faq-section {
+  background: rgba(11, 44, 74, 0.9);
+  padding: 3rem 0;
+  margin-top: 3rem;
+}
+
+.faq-section h2 {
+  text-align: center;
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-question {
+  padding: 1.5rem;
+  color: var(--text-light);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.faq-question::after {
+  content: '▶';
+  color: var(--secondary-color);
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+  transform: rotate(90deg);
+}
+
+.faq-answer {
+  padding: 0 1.5rem 1.5rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  display: none;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 修复：所有下拉框深色主题 */
+select {
+  background-color: #0b2c4a !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 14px 16px !important;
+  border-radius: 10px !important;
+  font-size: 16px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin-top: 5px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 16px center !important;
+  background-size: 16px !important;
+  padding-right: 45px !important;
+  cursor: pointer !important;
+}
+
+/* 下拉选项 */
+select option {
+  background-color: #0b2c4a !important;
+  color: #ffffff !important;
+  padding: 12px !important;
+}
+
+/* 输入框 */
+.assessment-container input[type="text"],
+.assessment-container input[type="number"],
+.assessment-container input[type="tel"] {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 2px solid rgba(255, 255, 255, 0.25) !important;
+  color: white !important;
+  padding: 14px 16px !important;
+  border-radius: 10px !important;
+  font-size: 16px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin-top: 5px !important;
+  transition: all 0.3s ease !important;
+}
+
+/* 焦点状态 */
+select:focus,
+.assessment-container input[type="text"]:focus,
+.assessment-container input[type="number"]:focus,
+.assessment-container input[type="tel"]:focus {
+  outline: none !important;
+  border-color: #f5c542 !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.25) !important;
+}
+
+/* 悬停状态 */
+select:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* 占位符颜色 */
+.assessment-container ::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+  opacity: 1 !important;
+  font-size: 15px !important;
+}
+
+/* 禁用状态 */
+select:disabled {
+  background-color: rgba(11, 44, 74, 0.5) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  cursor: not-allowed !important;
+  opacity: 0.7 !important;
+}
+
+/* 修复：Yamaha Logo 红色图标 */
+.brand-option[data-brand="yamaha"] .brand-logo-img {
+  filter: 
+    brightness(0.85) 
+    sepia(1)
+    hue-rotate(345deg)
+    saturate(3)
+    contrast(1.3);
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 6px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* 悬停效果 */
+.brand-option[data-brand="yamaha"]:hover .brand-logo-img {
+  transform: scale(1.05);
+  background-color: white;
+  filter: 
+    brightness(0.9)
+    sepia(1)
+    hue-rotate(350deg)
+    saturate(3.5)
+    contrast(1.4);
+}
+
+/* 选中状态 */
+.brand-option[data-brand="yamaha"].active .brand-logo-img {
+  border: 2px solid #f5c542;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.3);
+}
+
+/* Honda Logo 增强 */
+.brand-option[data-brand="honda"] .brand-logo-img {
+  filter: brightness(0.95) contrast(1.1) saturate(1.1);
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .assessment-banner {
+    padding: 2rem 0 1.5rem !important;
+  }
+  
+  .assessment-banner h1 {
+    font-size: 1.8rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+  
+  .assessment-banner .subtitle {
+    font-size: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .progress-bar {
+    margin: 1.5rem auto 2rem !important;
+  }
+  
+  .stats {
+    gap: 1.5rem !important;
+  }
+  
+  .stat-number {
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .assessment-banner {
+    padding: 1.5rem 0 1rem !important;
+  }
+  
+  .assessment-banner h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  .brand-logo-img {
+    width: 65px !important;
+    height: 32px !important;
+  }
+  
+  .condition-options {
+    gap: 0.8rem !important;
+  }
+}
+/* ==================== 页脚优化 ==================== */
+footer {
+  background: rgba(11, 44, 74, 0.9);
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md) 0 var(--spacing-sm);
+  border-top: 2px solid var(--secondary-color);
+}
+
+.footer-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.copyright {
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.1;
+}
+
+.highlight {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.company-info {
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  padding: 0 0.5rem;
+}
+
+/* 联系电话布局 - 单个居中显示 */
+.contact-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem auto;
+  padding: 0.4rem 0;
+  max-width: 550px;
+}
+
+/* 联系电话的样式 - 添加可见背景框 */
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+}
+
+/* 鼠标悬停效果 */
+.contact-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  transform: translateY(-2px);
+}
 
 
-  <!-- CSS 文件 -->
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/assessment.css">
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .contact-info {
+    gap: 0.8rem; /* 移动端间距更小 */
+  }
+  
+  .contact-link {
+    padding: 5px 5px;
+    font-size: 0.9rem;
+  }
+  
+  footer {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .copyright {
+    font-size: 1.1rem;
+  }
+}
 
-  <!-- 页面专用样式 -->
-  <style>
-    /* 照片预览样式 */
-    .upload-preview {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-      display: none;
-      z-index: 2;
-    }
-    
-    .upload-area.has-image .upload-preview {
-      display: block;
-    }
-    
-    .upload-area.has-image .upload-icon,
-    .upload-area.has-image .upload-text {
-      display: none;
-    }
-    
-    /* 移除照片按钮 */
-    .remove-photo {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      width: 28px;
-      height: 28px;
-      background-color: rgba(231, 76, 60, 0.95);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 10;
-      border: 2px solid white;
-      font-weight: bold;
-    }
-    
-    .upload-area.has-image:hover .remove-photo {
-      opacity: 1;
-    }
+/* 极窄屏幕（如手机竖屏）下的适配 */
+@media (max-width: 480px) {
+  .contact-info {
+    flex-direction: column; /* 竖排排列 */
+    gap: 0.5rem;
+  }
+  
+  .contact-link {
+    width: 100%; /* 占满宽度 */
+    justify-content: center; /* 内容居中 */
+    padding: 8px 15px; /* 增大内边距便于点击 */
+  }
+}
 
-    /* 信任与安全提示 */
-    .trust-box {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 25px;
-      padding: 15px;
-      background: rgba(11, 44, 74, 0.6);
-      border-radius: 10px;
-      border-left: 4px solid #2ecc71;
-    }
-    
-    .trust-item {
-      flex: 1;
-      min-width: 200px;
-      padding: 10px;
-      font-size: 0.9rem;
-      color: #e0e0e0;
-    }
-    
-    .trust-item strong {
-      color: #2ecc71;
-    }
+/* 落地页信任区块（广告审核加分） */
+.trust-box {
+  margin: 1.5rem 0 1rem;
+  padding: 1rem 1.2rem;
+  background: rgba(15, 76, 129, 0.35);
+  border: 1px solid rgba(245, 197, 66, 0.35);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  text-align: center;
+}
 
-    /* 手机端额外优化 */
-    @media (max-width: 480px) {
-      .container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-      }
-      
-      .form-row {
-        gap: 0.8rem !important;
-      }
-      
-      .photo-upload {
-        gap: 0.8rem !important;
-      }
-      
-      .upload-area {
-        padding: 1.5rem 0.8rem !important;
-      }
-      
-      .trust-box {
-        flex-direction: column;
-      }
-    }
-  </style>
-</head>
+.trust-item {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+}
 
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript>
-  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-<!-- End Google Tag Manager (noscript) -->
+.trust-item strong {
+  color: #f5c542;
+  font-weight: 600;
+}
 
-  <!-- 头部导航 -->
-  <header class="assessment-header">
-    <div class="container">
-      <a href="index.html" class="back-btn">← Kembali ke Beranda</a>
-      <div class="logo">JF Gadai</div>
-    </div>
-  </header>
-
-  <!-- 评估页面横幅 -->
-  <section class="assessment-banner">
-    <div class="container">
-      <h1 class="fade-in">Penilaian Online Motor</h1>
-      <p class="subtitle fade-in delay-1">Dapatkan perkiraan nilai gadai motor Anda dalam 3 menit!</p>
-      <div class="stats fade-in delay-2">
-        <div class="stat-item">
-          <span class="stat-number">⚡</span>
-          <span class="stat-text">Cepat & Mudah</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">🎯</span>
-          <span class="stat-text">Akurat 80%</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">🛡️</span>
-          <span class="stat-text">Aman & Gratis</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 评估表单 -->
-  <main class="assessment-container">
-    <div class="container">
-      <!-- 进度指示器 -->
-      <div class="progress-bar">
-        <div class="progress-step active" data-step="1">Data Motor</div>
-        <div class="progress-step" data-step="2">Kondisi</div>
-        <div class="progress-step" data-step="3">Dokumen</div>
-        <div class="progress-step" data-step="4">Hasil</div>
-      </div>
-
-      <form id="motorAssessmentForm" class="assessment-form" method="POST" novalidate>
-
-        <!-- 步骤1: 摩托车信息 -->
-        <div class="form-step active" id="step1">
-          <h2>🏍️ Data Motor</h2>
-          
-          <!-- 品牌选择 -->
-          <div class="form-group">
-            <label for="brand-select">Merek Motor</label>
-            <div class="brand-selection" id="brand-select">
-              <!-- Honda -->
-              <div class="brand-option active" data-brand="honda">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Honda_Logo.svg"
-                  alt="Honda Motor"
-                  class="brand-logo-img"
-                  draggable="false"
-                  loading="lazy"
-                  onerror="this.onerror=null; this.src=''; this.style.display='none'; this.nextElementSibling.style.display='block';"
-                />
-                <div class="brand-logo-fallback" style="display:none">HONDA</div>
-                <span class="brand-name">Honda</span>
-              </div>
-
-              <!-- Yamaha -->
-              <div class="brand-option" data-brand="yamaha">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/6/69/Yamaha_logo.svg"
-                  alt="Yamaha Motor"
-                  class="brand-logo-img"
-                  draggable="false"
-                  loading="lazy"
-                  onerror="this.onerror=null; this.src=''; this.style.display='none'; this.nextElementSibling.style.display='block';"
-                />
-                <div class="brand-logo-fallback" style="display:none">YAMAHA</div>
-                <span class="brand-name">Yamaha</span>
-              </div>
-            </div>
-          </div>
-          
-          <input type="hidden" id="brand" name="brand" value="honda" required>
-
-          <!-- 车型选择（动态加载） -->
-          <div class="form-group">
-            <label for="model">Model Motor</label>
-            <select id="model" name="model" class="form-control" required>
-              <option value="">Pilih model motor</option>
-            </select>
-          </div>
-
-          <!-- 年份和CC -->
-          <div class="form-row">
-            <div class="form-group">
-              <label for="year">Tahun Produksi</label>
-              <select id="year" name="year" class="form-control" required>
-                <option value="">Pilih tahun</option>
-                <!-- 年份将通过JS动态生成 -->
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="cc">Kapasitas Mesin (CC)</label>
-              <select id="cc" name="cc" class="form-control" required>
-                <option value="">Pilih CC</option>
-                <option value="110">110cc</option>
-                <option value="125">125cc</option>
-                <option value="150" selected>150cc</option>
-                <option value="155">155cc</option>
-                <option value="160">160cc</option>
-                <option value="200">200cc</option>
-                <option value="250">250cc</option>
-                <option value="300">300cc</option>
-                <option value="500">500cc+</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- 里程数 -->
-          <div class="form-group">
-            <label for="mileage">Kilometer Tempuh (KM)</label>
-            <input type="number" id="mileage" name="mileage" class="form-control" placeholder="Contoh: 15000" min="0" max="1000000" value="20000" required>
-            <div class="mileage-slider">
-              <input type="range" id="mileageSlider" min="0" max="100000" value="20000" step="1000">
-              <div class="mileage-labels">
-                <span>0 KM</span>
-                <span>50,000 KM</span>
-                <span>100,000+ KM</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-navigation">
-            <button type="button" class="btn-next" onclick="nextStep(2)">Lanjut →</button>
-          </div>
-        </div>
-
-        <!-- 步骤2: 车况评估 -->
-        <div class="form-step" id="step2">
-          <h2>🔍 Kondisi Motor</h2>
-          
-          <div class="condition-section">
-            <h3>Kondisi Mesin</h3>
-            <div class="condition-options">
-              <label class="condition-option">
-                <input type="radio" name="engine" value="baik" required>
-                <div class="option-content">
-                  <span class="option-icon">👍</span>
-                  <span class="option-title">Baik</span>
-                  <span class="option-desc">Mesin halus, start mudah</span>
-                </div>
-              </label>
-              
-              <label class="condition-option">
-                <input type="radio" name="engine" value="sedang">
-                <div class="option-content">
-                  <span class="option-icon">👌</span>
-                  <span class="option-title">Sedang</span>
-                  <span class="option-desc">Kadang sulit start, tapi masih bisa dipakai</span>
-                </div>
-              </label>
-              
-              <label class="condition-option">
-                <input type="radio" name="engine" value="perbaikan">
-                <div class="option-content">
-                  <span class="option-icon">⚠️</span>
-                  <span class="option-title">Butuh Perbaikan</span>
-                  <span class="option-desc">Ada masalah mesin yang perlu diperbaiki</span>
-                </div>
-              </label>
-            </div>
-          </div>
-
-          <div class="condition-section">
-            <h3>Kondisi Body & Cat</h3>
-            <div class="condition-options">
-              <label class="condition-option">
-                <input type="radio" name="body" value="mulus" required>
-                <div class="option-content">
-                  <span class="option-icon">✨</span>
-                  <span class="option-title">Mulus</span>
-                  <span class="option-desc">Tidak ada baret/penyok, cat masih bagus</span>
-                </div>
-              </label>
-              
-              <label class="condition-option">
-                <input type="radio" name="body" value="baret_sedikit">
-                <div class="option-content">
-                  <span class="option-icon">😐</span>
-                  <span class="option-title">Baret Sedikit</span>
-                  <span class="option-desc">Ada baret kecil, tidak ada penyok besar</span>
-                </div>
-              </label>
-              
-              <label class="condition-option">
-                <input type="radio" name="body" value="rusak">
-                <div class="option-content">
-                  <span class="option-icon">😟</span>
-                  <span class="option-title">Rusak/Penyok</span>
-                  <span class="option-desc">Ada penyok/rusak yang perlu diperbaiki</span>
-                </div>
-              </label>
-            </div>
-          </div>
-
-          <div class="condition-section">
-            <h3>Kelengkapan STNK & BPKB</h3>
-            <div class="condition-options">
-              <label class="condition-option">
-                <input type="radio" name="documents" value="lengkap" required>
-                <div class="option-content">
-                  <span class="option-icon">✅</span>
-                  <span class="option-title">Lengkap</span>
-                  <span class="option-desc">STNK & BPKB asli lengkap</span>
-                </div>
-              </label>
-              
-              <label class="condition-option">
-                <input type="radio" name="documents" value="stnk_saja">
-                <div class="option-content">
-                  <span class="option-icon">📄</span>
-                  <span class="option-title">STNK Saja</span>
-                  <span class="option-desc">Hanya ada STNK, BPKB hilang</span>
-                </div>
-              </label>
-              
-              <label class="condition-option">
-                <input type="radio" name="documents" value="hilang">
-                <div class="option-content">
-                  <span class="option-icon">❌</span>
-                  <span class="option-title">Belum Ada</span>
-                  <span class="option-desc">Dokumen belum keluar/hilang</span>
-                </div>
-              </label>
-            </div>
-          </div>
-
-          <div class="form-navigation">
-            <button type="button" class="btn-prev" onclick="prevStep(1)">← Kembali</button>
-            <button type="button" class="btn-next" onclick="nextStep(3)">Lanjut →</button>
-          </div>
-        </div>
-
-        <!-- 步骤3: 个人信息和上传 -->
-        <div class="form-step" id="step3">
-          <h2>📝 Data Pribadi</h2>
-          
-          <!-- 信任与安全提示 -->
-          <div class="trust-box">
-            <div class="trust-item">
-              🔒 <strong>Koneksi Aman (HTTPS)</strong><br>
-              Data Anda dienkripsi & dilindungi.
-            </div>
-            <div class="trust-item">
-              👁️ <strong>Privasi Terjaga</strong><br>
-              Data tidak dibagikan ke pihak ketiga.
-            </div>
-            <div class="trust-item">
-              📍 <strong>Bisnis Lokal Terverifikasi</strong><br>
-              JF Gadai • Bangil & Gempol.
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="fullName">Nama Lengkap</label>
-              <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Nama sesuai KTP" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="phoneNumber">Nomor WhatsApp</label>
-              <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="0812xxxxxxx" pattern="[0-9]{10,13}" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="location">Lokasi (Kota)</label>
-            <select id="location" name="location" class="form-control" required>
-              <option value="">Pilih kota terdekat</option>
-              <option value="bangil">Bangil</option>
-              <option value="pasuruan">Pasuruan</option>
-              <option value="surabaya">Surabaya</option>
-              <option value="malang">Malang</option>
-              <option value="sidoarjo">Sidoarjo</option>
-              <option value="gresik">Gresik</option>
-              <option value="mojokerto">Mojokerto</option>
-              <option value="jombang">Jombang</option>
-              <option value="lamongan">Lamongan</option>
-            </select>
-          </div>
-
-          <!-- 照片上传 -->
-          <div class="form-group">
-            <label for="photo-upload">Foto Motor (Opsional, tapi membantu)</label>
-            <div class="photo-upload" id="photo-upload">
-              <div class="upload-area" id="uploadFront" data-position="depan">
-                <span class="upload-icon">📷</span>
-                <span class="upload-text">Depan</span>
-                <input type="file" accept="image/*" style="display: none;">
-              </div>
-              <div class="upload-area" id="uploadBack" data-position="belakang">
-                <span class="upload-icon">📷</span>
-                <span class="upload-text">Belakang</span>
-                <input type="file" accept="image/*" style="display: none;">
-              </div>
-              <div class="upload-area" id="uploadSide" data-position="samping">
-                <span class="upload-icon">📷</span>
-                <span class="upload-text">Samping</span>
-                <input type="file" accept="image/*" style="display: none;">
-              </div>
-            </div>
-          </div>
-
-          <div class="form-note">
-            <strong>Perhatian:</strong> Hasil penilaian ini hanya perkiraan awal. 
-            Nilai pasti akan ditentukan setelah pemeriksaan fisik oleh tim kami.
-          </div>
-
-          <div class="form-navigation">
-            <button type="button" class="btn-prev" onclick="prevStep(2)">← Kembali</button>
-            <button type="button" class="btn-submit" onclick="calculateEstimation()">Lihat Perkiraan Nilai</button>
-          </div>
-        </div>
-
-        <!-- 步骤4: 评估结果（优化版） -->
-        <div class="form-step" id="step4">
-          <h2>💰 Perkiraan Nilai Gadai</h2>
-          
-          <div class="estimation-result">
-            <div class="estimation-card">
-              <div class="estimation-header">
-                <span class="estimation-icon">🏍️</span>
-                <h3>Perkiraan Nilai Taksiran Motor Anda</h3>
-              </div>
-              
-              <div class="estimation-value">
-                <div class="value-range">
-                  <div class="range-min">
-                    <span class="range-label">Minimum</span>
-                    <span class="currency">Rp</span>
-                    <span id="estimatedValueMin" class="value">4.250.000</span>
-                  </div>
-                  <div class="range-separator">-</div>
-                  <div class="range-max">
-                    <span class="range-label">Maksimum</span>
-                    <span class="currency">Rp</span>
-                    <span id="estimatedValueMax" class="value">5.750.000</span>
-                  </div>
-                </div>
-                <div class="value-average">
-                  <span class="average-label">Nilai Tengah:</span>
-                  <span class="currency">Rp</span>
-                  <span id="estimatedValueAvg" class="value">5.000.000</span>
-                </div>
-              </div>
-              
-              <div class="estimation-details">
-                <p><strong>📊 Faktor Penyesuaian:</strong></p>
-                <ul class="breakdown-list">
-                  <li>Harga dasar model: <span id="basePrice">Rp 8.000.000</span></li>
-                  <li>Penyesuaian tahun (-<span id="yearPercent">12.5</span>%): <span id="yearAdjustment">-Rp 1.000.000</span></li>
-                  <li>Penyesuaian kilometer (-<span id="mileagePercent">6.25</span>%): <span id="mileageAdjustment">-Rp 500.000</span></li>
-                  <li>Kondisi mesin (-<span id="enginePercent">3.75</span>%): <span id="engineAdjustment">-Rp 300.000</span></li>
-                  <li>Kondisi body (-<span id="bodyPercent">2.5</span>%): <span id="bodyAdjustment">-Rp 200.000</span></li>
-                  <li>Kelengkapan dokumen (-<span id="docPercent">0</span>%): <span id="docAdjustment">Rp 0</span></li>
-                  <li class="total-adjustment">
-                    <strong>Total penyesuaian:</strong> <span id="totalAdjustment">-Rp 2.000.000</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div class="adjustment-info">
-                <h4>🔧 Faktor yang Dapat Mempengaruhi Nilai Akhir:</h4>
-                <div class="adjustment-factors">
-                  <div class="factor-item">
-                    <span class="factor-icon">🛠️</span>
-                    <p><strong>Kondisi teknis tambahan</strong> (rem, ban, aki, dll.)</p>
-                  </div>
-                  <div class="factor-item">
-                    <span class="factor-icon">🎨</span>
-                    <p><strong>Modifikasi & aksesoris</strong> (orisinal vs modif)</p>
-                  </div>
-                  <div class="factor-item">
-                    <span class="factor-icon">📅</span>
-                    <p><strong>Permintaan pasar saat ini</strong> untuk model tertentu</p>
-                  </div>
-                  <div class="factor-item">
-                    <span class="factor-icon">📍</span>
-                    <p><strong>Lokasi & kondisi regional</strong> pasar motor bekas</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="estimation-note">
-                <p><strong>📋 Catatan Penting:</strong></p>
-                <ul>
-                  <li>Nilai ini adalah <strong>perkiraan awal (75-85% akurat)</strong></li>
-                  <li>Nilai pasti akan ditentukan setelah <strong>inspeksi fisik oleh ahli</strong></li>
-                  <li>Estimasi ini dapat disesuaikan <strong>±15% berdasarkan kondisi aktual</strong></li>
-                  <li>Dokumen lengkap (STNK+BPKB) dapat meningkatkan nilai <strong>10-20%</strong></li>
-                  <li>Motor <strong>lebih baru & rendah kilometer</strong> = nilai lebih tinggi</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- 行动按钮 -->
-            <div class="action-buttons">
-              <a id="whatsappButton" href="https://wa.me/6289515692586" target="_blank" class="btn-whatsapp" rel="noopener noreferrer">
-                <span>💬 Konsultasi & Penyesuaian Nilai</span>
-              </a>
-              
-              <button type="button" class="btn-recalculate" onclick="resetForm()">
-                <span>🔄 Hitung Ulang</span>
-              </button>
-              
-              <a href="index.html" class="btn-home">
-                <span>🏠 Kembali ke Beranda</span>
-              </a>
-            </div>
-
-            <!-- 人工调整说明 -->
-            <div class="manual-adjustment">
-              <h4>👨‍🔧 Proses Penilaian Akhir oleh JF Gadai:</h4>
-              <div class="adjustment-process">
-                <div class="process-step">
-                  <div class="step-number">1</div>
-                  <p><strong>Inspeksi Fisik</strong><br>Pemeriksaan detail oleh ahli kami</p>
-                </div>
-                <div class="process-step">
-                  <div class="step-number">2</div>
-                  <p><strong>Analisis Pasar</strong><br>Bandingkan harga pasar terkini</p>
-                </div>
-                <div class="process-step">
-                  <div class="step-number">3</div>
-                  <p><strong>Penyesuaian Manual</strong><br>Sesuaikan dengan kondisi aktual</p>
-                </div>
-                <div class="process-step">
-                  <div class="step-number">4</div>
-                  <p><strong>Nilai Final</strong><br>Hasil taksiran yang dapat dinegosiasikan</p>
-                </div>
-              </div>
-              <p class="process-note"><em>Tim kami dapat melakukan penyesuaian ±15% dari perkiraan ini berdasarkan inspeksi fisik.</em></p>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-  </main>
-
-  <!-- 常见问题 -->
-  <section class="faq-section">
-    <div class="container">
-      <h2>❓ Pertanyaan Umum</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <div class="faq-question">Berapa lama proses gadai motor?</div>
-          <div class="faq-answer">Proses hanya 1-2 jam, dana bisa cair hari yang sama.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Dokumen apa saja yang diperlukan?</div>
-          <div class="faq-answer">STNK, BPKB, KTP asli, dan KK pemilik.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Bunga berapa persen per bulan?</div>
-          <div class="faq-answer">Bunga kompetitif 10% per bulan, transparan tanpa biaya tersembunyi.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Bisa perpanjang gadai?</div>
-          <div class="faq-answer">Ya, bisa perpanjang dengan membayar bunga terlebih dahulu.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 页脚 -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <p class="copyright">© 2025 <span class="highlight">JF Gadai</span></p>
-        <p class="company-info">Layanan Gadai Motor Terpercaya • Bangil • Beji • Gempol dan sekitarnya</p>
-         </a>
-        <div class="contact-info">
-          <a href="tel:+6289515692586" class="contact-link">
-            <span>📞</span> +62 895-1569-2586
-          </a>
-          <a href="https://wa.me/6289515692586" target="_blank" class="contact-link" rel="noopener noreferrer">
-            <span>💬</span> WhatsApp
-          </a>
-        </div>
-        
-        <p class="operating-hours">
-⏰ Jam kerja: 08:00-18:00 |        
-Libur hari Sabtu dan Minggu
-        </p>
-        
-        <p class="security-note">
-          🔒 Situs ini menggunakan koneksi aman (HTTPS).
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/assessment.js"></script>
-</body>
-</html>
+@media (max-width: 768px) {
+  .trust-box {
+    grid-template-columns: 1fr;
+  }
+}
