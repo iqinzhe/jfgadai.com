@@ -728,50 +728,38 @@ footer {
   font-size: 0.95rem;
 }
 
-/* 优化联系信息布局 */
+/* 联系电话布局 - 单个居中显示 */
 .contact-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--spacing-xl);
-  flex-wrap: wrap;
-  margin-bottom: var(--spacing-lg);
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 var(--spacing-md);
-}
-
-/* 确保两个项目等宽分布 */
-.contact-info {
-  display: flex;
-  justify-content: center; /* 居中对齐 */
-  align-items: center;
-  gap: 15px; /* 项目间距，根据需要调整 */
-  flex-wrap: nowrap; /* 小屏幕不换行 */
-}
-
-/* 移除或注释掉原来的 .contact-info > * 规则 */
-.contact-info > * {
-  /* 移除所有属性，或只保留必要的 */
   display: flex;
   justify-content: center;
-  min-width: auto; /* 改为自动或适当值 */
-  max-width: none;
+  align-items: center;
+  margin: 0.5rem auto;
+  padding: 0.4rem 0;
+  max-width: 550px;
 }
 
-/* 可选：调整链接本身的内边距 */
+/* 联系电话的样式 - 添加可见背景框 */
 .contact-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   color: var(--text-light);
   text-decoration: none;
-  transition: color 0.3s ease;
-  font-size: 0.95rem;
-  padding: 8px 12px; /* 减小左右内边距 */
-  border-radius: 8px;
   transition: all 0.3s ease;
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+}
+
+/* 鼠标悬停效果 */
+.contact-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  transform: translateY(-2px);
 }
 
 
