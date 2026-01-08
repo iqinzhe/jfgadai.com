@@ -982,84 +982,49 @@
   opacity: 0.7 !important;
 }
 
-/* Yamaha Logo 特殊样式 - 图标改为红色 */
+/* ========== 修复：Yamaha Logo样式 ========== */
+
+/* Logo容器 */
+.brand-logo-img {
+  width: 75px;
+  height: 38px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+/* Yamaha Logo备用方案 */
 .brand-option[data-brand="yamaha"] .brand-logo-img {
-  /* 使用滤镜将蓝色变为红色 */
-  filter: 
-    brightness(0.9) 
-    sepia(1)           /* 添加棕褐色调 */
-    hue-rotate(330deg) /* 调整色相到红色范围 */
-    saturate(2.5)      /* 增加饱和度 */
-    contrast(1.1);     /* 增加对比度 */
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 8px;
-  border-radius: 6px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-  width: 80px;
-  height: 40px;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.3s ease;
-}
-
-/* 悬停效果 - 图标更红 */
-.brand-option[data-brand="yamaha"]:hover .brand-logo-img {
-  transform: scale(1.1);
+  filter: none !important;
   background-color: white;
-  filter: 
-    brightness(0.95) 
-    sepia(1)
-    hue-rotate(335deg)
-    saturate(3)
-    contrast(1.2);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  padding: 4px;
+  border-radius: 4px;
 }
 
-/* 选中状态 - 强调红色 */
-.brand-option[data-brand="yamaha"].active .brand-logo-img {
-  border: 2px solid #f5c542;
-  background-color: white;
-  filter: 
-    brightness(1) 
-    sepia(1)
-    hue-rotate(340deg)
-    saturate(3.5)
-    contrast(1.3);
-  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.3), 0 4px 12px rgba(0, 0, 0, 0.4);
+/* Logo加载失败时显示文字 */
+.brand-logo-img[src=""],
+.brand-logo-img:not([src]) {
+  display: none !important;
 }
 
-/* 手机端适配 */
-@media (max-width: 600px) {
-  .brand-option[data-brand="yamaha"] .brand-logo-img {
-    width: 65px !important;
-    height: 32px !important;
-    padding: 6px;
-    filter: 
-      brightness(0.9) 
-      sepia(1)
-      hue-rotate(330deg)
-      saturate(2.8)
-      contrast(1.1);
-  }
+.brand-option[data-brand="honda"] .brand-logo-fallback {
+  display: none;
+  font-family: 'Arial Black', sans-serif;
+  font-size: 1.6rem;
+  color: #E40521;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
 }
 
-@media (max-width: 480px) {
-  .brand-option[data-brand="yamaha"] .brand-logo-img {
-    width: 55px !important;
-    height: 28px !important;
-    padding: 4px;
-    filter: 
-      brightness(0.95) 
-      sepia(1)
-      hue-rotate(330deg)
-      saturate(3)
-      contrast(1.2);
-  }
-}
-
-/* 确保 Honda Logo 是红色（如果需要） */
-.brand-option[data-brand="honda"] .brand-logo-img {
-  /* Honda 已经是红色，保持原样或增强 */
-  filter: brightness(0.95) contrast(1.1) saturate(1.2);
+.brand-option[data-brand="yamaha"] .brand-logo-fallback {
+  display: none;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.4rem;
+  color: #003399;
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 12px;
 }
 
 /* ========== 修复：响应式布局问题 ========== */
@@ -1190,94 +1155,4 @@
 #model:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-}
-
-/* ==================== 修复所有问题 ==================== */
-
-/* 1. 修复所有下拉框白色背景问题 */
-select {
-  background-color: #0b2c4a !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  padding: 14px 16px !important;
-  border-radius: 10px !important;
-  font-size: 16px !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  margin-top: 5px !important;
-  appearance: none !important;
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: right 16px center !important;
-  background-size: 16px !important;
-  padding-right: 45px !important;
-  cursor: pointer !important;
-}
-
-select option {
-  background-color: #0b2c4a !important;
-  color: #ffffff !important;
-  padding: 12px !important;
-}
-
-select:focus {
-  outline: none !important;
-  border-color: #f5c542 !important;
-  background-color: #0c3357 !important;
-  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.25) !important;
-}
-
-select:hover {
-  border-color: rgba(255, 255, 255, 0.4) !important;
-}
-
-select:disabled {
-  background-color: rgba(11, 44, 74, 0.5) !important;
-  color: rgba(255, 255, 255, 0.5) !important;
-  cursor: not-allowed !important;
-  opacity: 0.7 !important;
-}
-
-/* 2. 修复 Yamaha Logo 可见性问题 */
-.brand-option[data-brand="yamaha"] .brand-logo-img {
-  filter: none !important;
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 8px;
-  border-radius: 6px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-  width: 80px !important;
-  height: 40px !important;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-}
-
-.brand-option[data-brand="yamaha"]:hover .brand-logo-img {
-  transform: scale(1.1);
-  background-color: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-}
-
-.brand-option[data-brand="yamaha"].active .brand-logo-img {
-  border: 2px solid #f5c542;
-  background-color: white;
-  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.3);
-}
-
-/* 手机端适配 */
-@media (max-width: 600px) {
-  .brand-option[data-brand="yamaha"] .brand-logo-img {
-    width: 65px !important;
-    height: 32px !important;
-    padding: 6px;
-  }
-}
-
-@media (max-width: 480px) {
-  .brand-option[data-brand="yamaha"] .brand-logo-img {
-    width: 55px !important;
-    height: 28px !important;
-    padding: 4px;
-  }
 }
