@@ -923,8 +923,6 @@
   }
 }
 
-/* ========== 所有修复整合在此 ========== */
-
 /* 修复：所有下拉框深色主题 */
 select {
   background-color: #0b2c4a !important;
@@ -1086,4 +1084,72 @@ select:disabled {
   .condition-options {
     gap: 0.8rem !important;
   }
+}
+/* ==================== 页脚优化 ==================== */
+footer {
+  background: rgba(11, 44, 74, 0.9);
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-xl) 0;
+  border-top: 2px solid var(--secondary-color);
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.copyright {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.highlight {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.company-info {
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-lg);
+  font-size: 0.95rem;
+}
+
+/* 页脚联系信息容器 */
+.contact-info {
+  display: flex;
+  justify-content: center; /* 居中对齐 */
+  align-items: center;
+  gap: 15px; /* 两个项目之间的间距，可根据需要调整(10px-20px) */
+  flex-wrap: wrap; /* 小屏幕自动换行 */
+  width: 100%; /* 确保容器占满宽度 */
+}
+
+/* 移除或注释掉原来的 .contact-info > * 规则 */
+.contact-info > * {
+  /* 原来的规则不再需要，或简化为： */
+  display: flex;
+  justify-content: center;
+  /* 移除 min-width 和 max-width 限制 */
+  min-width: auto;
+  max-width: none;
+  flex: none; /* 防止项目被拉伸 */
+}
+
+/* 联系链接样式 */
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
+  padding: 8px 12px; /* 减小左右内边距 */
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* 防止文字换行 */
+}
+
+.contact-link:hover {
+  color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.05);
 }
