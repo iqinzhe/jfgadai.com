@@ -1156,3 +1156,93 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+/* ==================== 修复所有问题 ==================== */
+
+/* 1. 修复所有下拉框白色背景问题 */
+select {
+  background-color: #0b2c4a !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 14px 16px !important;
+  border-radius: 10px !important;
+  font-size: 16px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin-top: 5px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 16px center !important;
+  background-size: 16px !important;
+  padding-right: 45px !important;
+  cursor: pointer !important;
+}
+
+select option {
+  background-color: #0b2c4a !important;
+  color: #ffffff !important;
+  padding: 12px !important;
+}
+
+select:focus {
+  outline: none !important;
+  border-color: #f5c542 !important;
+  background-color: #0c3357 !important;
+  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.25) !important;
+}
+
+select:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+select:disabled {
+  background-color: rgba(11, 44, 74, 0.5) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  cursor: not-allowed !important;
+  opacity: 0.7 !important;
+}
+
+/* 2. 修复 Yamaha Logo 可见性问题 */
+.brand-option[data-brand="yamaha"] .brand-logo-img {
+  filter: none !important;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 8px;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+  width: 80px !important;
+  height: 40px !important;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.brand-option[data-brand="yamaha"]:hover .brand-logo-img {
+  transform: scale(1.1);
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.brand-option[data-brand="yamaha"].active .brand-logo-img {
+  border: 2px solid #f5c542;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.3);
+}
+
+/* 手机端适配 */
+@media (max-width: 600px) {
+  .brand-option[data-brand="yamaha"] .brand-logo-img {
+    width: 65px !important;
+    height: 32px !important;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-option[data-brand="yamaha"] .brand-logo-img {
+    width: 55px !important;
+    height: 28px !important;
+    padding: 4px;
+  }
+}
