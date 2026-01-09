@@ -224,6 +224,20 @@
   display: block;
   margin: 0 auto 8px;
   pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+/* 品牌Logo悬停效果 */
+.brand-option:hover .brand-logo-img {
+  transform: scale(1.05);
+}
+
+/* 选中状态 */
+.brand-option.active .brand-logo-img {
+  border: 2px solid #f5c542;
+  padding: 2px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.3);
 }
 
 /* 文本 */
@@ -242,6 +256,13 @@
   .brand-logo-img {
     width: 72px;
     height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-logo-img {
+    width: 65px !important;
+    height: 32px !important;
   }
 }
 
@@ -999,43 +1020,23 @@ select:disabled {
   opacity: 0.7 !important;
 }
 
-/* 修复：Yamaha Logo 红色图标 */
-.brand-option[data-brand="yamaha"] .brand-logo-img {
-  filter: 
-    brightness(0.85) 
-    sepia(1)
-    hue-rotate(345deg)
-    saturate(3)
-    contrast(1.3);
-  background-color: rgba(255, 255, 255, 0.85);
-  padding: 6px;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* 悬停效果 */
-.brand-option[data-brand="yamaha"]:hover .brand-logo-img {
-  transform: scale(1.05);
-  background-color: white;
-  filter: 
-    brightness(0.9)
-    sepia(1)
-    hue-rotate(350deg)
-    saturate(3.5)
-    contrast(1.4);
-}
-
-/* 选中状态 */
-.brand-option[data-brand="yamaha"].active .brand-logo-img {
-  border: 2px solid #f5c542;
-  background-color: white;
-  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.3);
-}
-
 /* Honda Logo 增强 */
 .brand-option[data-brand="honda"] .brand-logo-img {
   filter: brightness(0.95) contrast(1.1) saturate(1.1);
+}
+
+/* WhatsApp 图片样式优化 */
+.contact-link img {
+  vertical-align: middle;
+  margin-right: 6px;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.contact-link:hover img {
+  opacity: 1;
+  transform: scale(1.1);
+  transition: all 0.3s ease;
 }
 
 /* 响应式优化 */
@@ -1065,6 +1066,11 @@ select:disabled {
   .stat-number {
     font-size: 2rem !important;
   }
+  
+  .contact-link img {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1084,7 +1090,14 @@ select:disabled {
   .condition-options {
     gap: 0.8rem !important;
   }
+  
+  .contact-link img {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+  }
 }
+
 /* ==================== 页脚优化 ==================== */
 footer {
   background: rgba(11, 44, 74, 0.9);
@@ -1152,7 +1165,6 @@ footer {
   color: var(--secondary-color);
   transform: translateY(-2px);
 }
-
 
 /* 移动端适配 */
 @media (max-width: 768px) {
