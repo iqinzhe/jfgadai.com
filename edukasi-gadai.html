@@ -10,7 +10,24 @@
 
   gtag('config', 'AW-17845187332');
 </script>
-  
+
+  <!-- Event snippet for 联系人 conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17845187332/NqKjCIfo5d8bEITmn71C',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
 <!-- Google Tag Manager -->
 <script>
 (function(w,d,s,l,i){
