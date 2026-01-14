@@ -1,13 +1,13 @@
 {
   "name": "JF Gadai | Layanan Gadai Terpercaya",
   "short_name": "JF Gadai",
-  "description": "Layanan gadai terpercaya untuk emas, elektronik, kendaraan dan barang berharga lainnya. Proses cepat, aman, dan transparan.",
+  "description": "Layanan gadai terpercaya untuk emas, elektronik, kendaraan dan barang berharga lainnya.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#0b2c4a",
   "theme_color": "#0f4c81",
   "orientation": "portrait",
-  "scope": "/",
   "lang": "id",
   "dir": "ltr",
   "categories": ["finance", "business"],
@@ -25,32 +25,5 @@
       "purpose": "any maskable"
     }
   ],
-  "shortcuts": [
-    {
-      "name": "Penilaian Motor Gratis",
-      "short_name": "Penilaian",
-      "description": "Cek nilai motor Honda & Yamaha Anda",
-      "url": "/assessment.html",
-      "icons": [
-        {
-          "src": "/icons/android-chrome-192x192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "Hubungi Kami",
-      "short_name": "Kontak",
-      "description": "Konsultasi gratis via WhatsApp",
-      "url": "/#lokasi",
-      "icons": [
-        {
-          "src": "/icons/android-chrome-192x192.png",
-          "sizes": "192x192"
-        }
-      ]
-    }
-  ],
-  "prefer_related_applications": false,
-  "related_applications": []
+  "prefer_related_applications": false
 }
