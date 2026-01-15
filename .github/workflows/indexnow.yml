@@ -1,4 +1,4 @@
-name: 提交至 IndexNow
+name: Submit to IndexNow
 
 on:
   workflow_dispatch:
@@ -7,34 +7,23 @@ jobs:
   submit:
     runs-on: ubuntu-latest
     steps:
-      - name: 🔍 检查密钥配置
-        run: |
-          echo "=== 检查 IndexNow 配置 ==="
-          echo "如果你的密钥配置正确，下面会显示成功"
-          
       - name: 🚀 提交到 IndexNow
         env:
           KEY: ${{ secrets.INDEXNOW_KEY }}
           LOCATION: ${{ secrets.INDEXNOW_KEY_LOCATION }}
         run: |
-          echo "开始提交到 IndexNow..."
-          echo "时间: $(date)"
+          echo "=== 开始提交到 IndexNow ==="
+          echo "提交时间：$(date)"
+          echo "网站：www.jfgadai.org"
           
-          # 测试提交
-          RESPONSE=$(curl -s -w "\nHTTP状态码: %{http_code}" \
-            -X POST "https://api.indexnow.org/indexnow" \
+          # 提交到 IndexNow
+          curl -X POST "https://api.indexnow.org/indexnow" \
             -H "Content-Type: application/json; charset=utf-8" \
             -d '{
               "host": "www.jfgadai.org",
               "key": "'"$KEY"'",
               "keyLocation": "'"$LOCATION"'",
               "urlList": ["https://www.jfgadai.org/"]
-            }')
+            }'
           
-          echo "$RESPONSE"
-          
-          if echo "$RESPONSE" | grep -q "HTTP状态码: 200"; then
-            echo "✅ IndexNow 提交成功！"
-          else
-            echo "❌ IndexNow 提交失败，请检查密钥配置"
-          fi
+          echo "✅ 提交完成！"
