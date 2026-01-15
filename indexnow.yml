@@ -1,0 +1,22 @@
+name: Submit to IndexNow
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit to IndexNow
+        env:
+          KEY: ${{ secrets.INDEXNOW_KEY }}
+          LOCATION: ${{ secrets.INDEXNOW_KEY_LOCATION }}
+        run: |
+          curl -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{
+              "host": "www.jfgadai.org",
+              "key": "'"$KEY"'",
+              "keyLocation": "'"$LOCATION"'",
+              "urlList": ["https://www.jfgadai.org/"]
+            }'
