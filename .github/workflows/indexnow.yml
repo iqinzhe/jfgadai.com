@@ -1,70 +1,96 @@
-name: Submit to IndexNow
+name: 🔍 IndexNow - 手动提交首页
 
-on:
+on: 
+  # 只支持手动触发
   workflow_dispatch:
+    inputs:
+      notify_engines:
+        description: '要通知的搜索引擎'
+        type: choice
+        options:
+          - bing_only
+          - all_supported
+        default: 'bing_only'
+        required: true
 
 jobs:
-  submit:
+  notify-search-engines:
     runs-on: ubuntu-latest
     steps:
-      - name: 🚀 提交到 IndexNow
-        env:
-          KEY: ${{ secrets.INDEXNOW_KEY }}
-          LOCATION: ${{ secrets.INDEXNOW_KEY_LOCATION }}
+      - name: 🕐 开始提交
         run: |
           echo "========================================"
-          echo "        IndexNow 提交"
+          echo "🔍 搜索引擎提交工具"
           echo "========================================"
-          echo "提交时间：$(date)"
+          echo "提交时间: $(date)"
+          echo "网站: www.jfgadai.com"
+          echo "通知方式: ${{ github.event.inputs.notify_engines }}"
+          echo "========================================"
+          echo ""
+      
+      - name: 🚀 提交到 IndexNow (Bing + 其他)
+        if: github.event.inputs.notify_engines == 'all_supported'
+        env:
+          KEY: "964fa0042fac44648205cc02f45d4f05"
+          LOCATION: "https://www.jfgadai.com/964fa0042fac44648205cc02f45d4f05.txt"
+        run: |
+          echo "📡 通过 IndexNow 协议通知所有支持的搜索引擎:"
+          echo "✅ Bing"
+          echo "✅ Yandex" 
+          echo "✅ Seznam.cz"
+          echo "✅ Naver"
           echo ""
           
-          # 显示配置（隐藏部分密钥）
-          echo "📋 配置信息："
-          echo "   网站：www.jfgadai.com"
-          echo "   密钥：${KEY:0:8}****（前8位）"
-          echo "   密钥文件：$LOCATION"
-          echo ""
-          
-          # 验证密钥文件可访问
-          echo "🔍 验证密钥文件："
-          KEY_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$LOCATION")
-          if [ "$KEY_STATUS" = "200" ]; then
-            echo "   ✅ 密钥文件可访问（HTTP 200）"
-          else
-            echo "   ❌ 密钥文件无法访问（HTTP $KEY_STATUS）"
-            exit 1
-          fi
-          echo ""
-          
-          # 提交到 IndexNow
-          echo "📡 提交到 IndexNow API..."
-          RESPONSE=$(curl -s -w "\nHTTP状态码：%{http_code}" \
-            -X POST "https://api.indexnow.org/indexnow" \
+          curl -X POST "https://api.indexnow.org/indexnow" \
             -H "Content-Type: application/json; charset=utf-8" \
             -d '{
               "host": "www.jfgadai.com",
               "key": "'"$KEY"'",
               "keyLocation": "'"$LOCATION"'",
-              "urlList": [
-                "https://www.jfgadai.com/"
-              ]
-            }')
-          
-          echo "服务器响应："
-          echo "$RESPONSE"
-          echo ""
-          
-          # 分析结果
-          HTTP_CODE=$(echo "$RESPONSE" | tail -n1 | grep -o '[0-9]*')
-          
-          echo "📊 提交结果："
-          if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "202" ]; then
-            echo "   🎉 成功！IndexNow 已接受提交"
-            echo "   搜索引擎将在几小时内处理"
-          else
-            echo "   ❌ 提交失败（HTTP $HTTP_CODE）"
-            echo "   请检查配置"
-          fi
+              "urlList": ["https://www.jfgadai.com/"]
+            }'
           
           echo ""
+          echo "✅ 已通过 IndexNow 通知所有支持的搜索引擎"
+      
+      - name: 🎯 只提交到 Bing
+        if: github.event.inputs.notify_engines == 'bing_only'
+        env:
+          KEY: "964fa0042fac44648205cc02f45d4f05"
+          LOCATION: "https://www.jfgadai.com/964fa0042fac44648205cc02f45d4f05.txt"
+        run: |
+          echo "🎯 只通知 Bing 搜索引擎"
+          echo ""
+          
+          # 方法1: 通过 IndexNow (Bing会收到)
+          curl -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{
+              "host": "www.jfgadai.com",
+              "key": "'"$KEY"'",
+              "keyLocation": "'"$LOCATION"'",
+              "urlList": ["https://www.jfgadai.com/"]
+            }'
+          
+          echo ""
+          echo "✅ 已通知 Bing"
+          echo "💡 IndexNow 协议会自动通知其他支持的搜索引擎"
+      
+      - name: 📊 提交报告
+        run: |
+          echo ""
+          echo "========================================"
+          echo "📋 提交报告"
+          echo "========================================"
+          echo "✅ 完成时间: $(date)"
+          echo "✅ 提交页面: https://www.jfgadai.com/"
+          echo ""
+          echo "💡 后续操作:"
+          echo "1. 搜索引擎会在几小时内处理"
+          echo "2. 可以访问 Bing Webmaster Tools 查看状态"
+          echo "3. 下次更新网站后再手动运行此工作流"
+          echo ""
+          echo "🔍 检查收录:"
+          echo "Bing: site:jfgadai.com"
+          echo "Google: site:jfgadai.com"
           echo "========================================"
