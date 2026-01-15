@@ -1,34 +1,23 @@
 name: Submit to IndexNow
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - '**/*.md'          # 所有Markdown文件
-      - '**/*.html'        # 所有HTML文件
-      - '!README.md'       # 排除README
-      - '!.github/**'      # 排除工作流文件
-  
   workflow_dispatch:
 
 jobs:
   submit:
     runs-on: ubuntu-latest
     steps:
-      - name: Submit homepage and sitemap
+      - name: Submit homepage
         env:
           KEY: ${{ secrets.INDEXNOW_KEY }}
           LOCATION: ${{ secrets.INDEXNOW_KEY_LOCATION }}
         run: |
-          echo "提交时间: $(date)"
           curl -X POST "https://api.indexnow.org/indexnow" \
             -H "Content-Type: application/json; charset=utf-8" \
             -d '{
               "host": "www.jfgadai.org",
               "key": "'"$KEY"'",
               "keyLocation": "'"$LOCATION"'",
-              "urlList": [
-                "https://www.jfgadai.org/",
-                "https://www.jfgadai.org/sitemap.xml"
-              ]
-            }' && echo "✅ 提交成功"
+              "urlList": ["https://www.jfgadai.org/"]
+            }'
+          echo "✅ 提交完成"
