@@ -7,21 +7,43 @@ jobs:
   submit:
     runs-on: ubuntu-latest
     steps:
-      - name: 🚀 提交到 IndexNow
+      - name: 🚀 测试 IndexNow 配置
         env:
           KEY: ${{ secrets.INDEXNOW_KEY }}
           LOCATION: ${{ secrets.INDEXNOW_KEY_LOCATION }}
         run: |
-          echo "=== 开始提交到 IndexNow ==="
-          echo "提交时间：$(date)"
-          echo "网站：www.jfgadai.org"
-          echo "密钥：${KEY:0:8}..."  # 显示前8位
-          echo "密钥位置：$LOCATION"
+          echo "========================================"
+          echo "        IndexNow 配置测试"
+          echo "========================================"
+          echo "测试时间：$(date)"
+          echo ""
           
-          echo -e "\n📡 正在提交..."
+          # 1. 显示配置信息
+          echo "📋 配置信息："
+          echo "   网站：www.jfgadai.org"
+          echo "   密钥：${KEY:0:8}****（前8位）"
+          echo "   密钥长度：${#KEY} 位"
+          echo "   密钥文件：$LOCATION"
+          echo ""
           
-          # 使用 -v 参数显示详细输出
-          RESPONSE=$(curl -s -v \
+          # 2. 测试密钥文件是否可以访问
+          echo "🔍 测试密钥文件可访问性："
+          KEY_FILE_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$LOCATION")
+          if [ "$KEY_FILE_STATUS" = "200" ]; then
+            echo "   ✅ 密钥文件可访问（HTTP $KEY_FILE_STATUS）"
+          else
+            echo "   ❌ 密钥文件无法访问（HTTP $KEY_FILE_STATUS）"
+            echo "   请检查：$LOCATION"
+          fi
+          echo ""
+          
+          # 3. 简单测试提交
+          echo "📡 测试提交到 IndexNow："
+          echo "   提交URL：https://www.jfgadai.org/"
+          echo ""
+          
+          # 使用更简单的curl命令
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
             -X POST "https://api.indexnow.org/indexnow" \
             -H "Content-Type: application/json; charset=utf-8" \
             -d '{
@@ -29,18 +51,51 @@ jobs:
               "key": "'"$KEY"'",
               "keyLocation": "'"$LOCATION"'",
               "urlList": ["https://www.jfgadai.org/"]
-            }' 2>&1)
+            }')
           
-          echo -e "\n📋 服务器响应："
-          echo "$RESPONSE"
+          echo "   服务器响应：HTTP $HTTP_CODE"
+          echo ""
           
-          # 检查是否包含成功标识
-          if echo "$RESPONSE" | grep -q "< HTTP/1.1 200 OK\|< HTTP/1.1 202 Accepted"; then
-            echo -e "\n✅ IndexNow 提交成功！"
-            echo "✅ 搜索引擎已收到通知"
-          else
-            echo -e "\n⚠️  提交完成，但未确认服务器状态"
-            echo "💡 建议：检查密钥文件是否可以访问"
-          fi
+          # 4. 结果分析
+          echo "📊 测试结果："
+          case $HTTP_CODE in
+            200)
+              echo "   🎉 成功！IndexNow 已接受提交"
+              echo "   搜索引擎将在几小时内处理"
+              ;;
+            202)
+              echo "   ✅ 成功！请求已接受"
+              echo "   正在排队处理"
+              ;;
+            400)
+              echo "   ❌ 错误：请求格式错误"
+              echo "   请检查JSON格式"
+              ;;
+            401|403)
+              echo "   ❌ 错误：密钥验证失败"
+              echo "   请检查："
+              echo "   1. 密钥是否正确"
+              echo "   2. 密钥文件是否可以访问"
+              echo "   3. 密钥文件内容是否正确"
+              ;;
+            404)
+              echo "   ❌ 错误：密钥文件找不到"
+              echo "   请确认 $LOCATION 可以访问"
+              ;;
+            429)
+              echo "   ⚠️  警告：提交过于频繁"
+              echo "   请等待后再试"
+              ;;
+            500|502|503|504)
+              echo "   ⚠️  警告：服务器错误"
+              echo "   IndexNow 服务器可能暂时不可用"
+              ;;
+            *)
+              echo "   ❓ 未知响应：HTTP $HTTP_CODE"
+              echo "   需要进一步排查"
+              ;;
+          esac
           
-          echo -e "\n=== 提交流程结束 ==="
+          echo ""
+          echo "========================================"
+          echo "测试完成"
