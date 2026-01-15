@@ -1,0 +1,11 @@
+name: Submit to IndexNow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Step
+        run: echo "✅ GitHub Actions 工作流测试成功！"
