@@ -1229,38 +1229,3 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-
-/* ================================
-   Assessment → WhatsApp CTA
-================================ */
-
-.assessment-wa-cta {
-  margin-top: 32px;
-  padding: 20px;
-  border-radius: 10px;
-  background: #f5f7fa;
-  text-align: center;
-}
-
-.assessment-note {
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 10px;
-  line-height: 1.6;
-}
-
-.assessment-wa-button {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 12px 22px;
-  background-color: #25D366;
-  color: #ffffff;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background-color 0.2s ease;
-}
-
-.assessment-wa-button:hover {
-  background-color: #1ebe5d;
-}
