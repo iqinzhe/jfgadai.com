@@ -15,15 +15,32 @@ jobs:
           echo "=== 开始提交到 IndexNow ==="
           echo "提交时间：$(date)"
           echo "网站：www.jfgadai.org"
+          echo "密钥：${KEY:0:8}..."  # 显示前8位
+          echo "密钥位置：$LOCATION"
           
-          # 提交到 IndexNow
-          curl -X POST "https://api.indexnow.org/indexnow" \
+          echo -e "\n📡 正在提交..."
+          
+          # 使用 -v 参数显示详细输出
+          RESPONSE=$(curl -s -v \
+            -X POST "https://api.indexnow.org/indexnow" \
             -H "Content-Type: application/json; charset=utf-8" \
             -d '{
               "host": "www.jfgadai.org",
               "key": "'"$KEY"'",
               "keyLocation": "'"$LOCATION"'",
               "urlList": ["https://www.jfgadai.org/"]
-            }'
+            }' 2>&1)
           
-          echo "✅ 提交完成！"
+          echo -e "\n📋 服务器响应："
+          echo "$RESPONSE"
+          
+          # 检查是否包含成功标识
+          if echo "$RESPONSE" | grep -q "< HTTP/1.1 200 OK\|< HTTP/1.1 202 Accepted"; then
+            echo -e "\n✅ IndexNow 提交成功！"
+            echo "✅ 搜索引擎已收到通知"
+          else
+            echo -e "\n⚠️  提交完成，但未确认服务器状态"
+            echo "💡 建议：检查密钥文件是否可以访问"
+          fi
+          
+          echo -e "\n=== 提交流程结束 ==="
