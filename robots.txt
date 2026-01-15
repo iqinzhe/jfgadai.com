@@ -1,13 +1,13 @@
-# Robots.txt for jfgadai.com
-# Market: Indonesia | Date: 2024-01-15
-# Focus: Allow search engines, block AI & SEO tools
+# Robots.txt for jfgadai.com - Indonesian Market Focus
+# Date: 2026-01-15
+# Market: Indonesia only
 
-# Default: Allow all crawlers
+# Default rule - Allow all crawlers
 User-agent: *
 Allow: /
 
 # === ESSENTIAL SEARCH ENGINES (INDONESIA) ===
-# Google - 90%+ market share in Indonesia
+# Google - Primary search engine in Indonesia
 User-agent: Googlebot
 Allow: /
 
@@ -21,24 +21,20 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-# DuckDuckGo - Privacy-focused users
+# DuckDuckGo - Privacy-focused search
 User-agent: DuckDuckBot
 Allow: /
 
 # === SOCIAL MEDIA CRAWLERS (Popular in Indonesia) ===
-# Facebook/Instagram - Very popular
+# Facebook/Instagram
 User-agent: FacebookExternalHit
 Allow: /
 
-# Twitter/X - Active user base
+# Twitter/X
 User-agent: Twitterbot
 Allow: /
 
-# LinkedIn - Business users
-User-agent: LinkedInBot
-Allow: /
-
-# TikTok - Extremely popular in Indonesia
+# TikTok (ByteDance) - Very popular in Indonesia
 User-agent: Bytespider
 Allow: /
 
@@ -67,38 +63,15 @@ Disallow: /
 User-agent: OAI-SearchBot
 Disallow: /
 
-User-agent: anthropic-ai
-Disallow: /
-
 # === BLOCK SEO ANALYSIS TOOLS ===
-# Major SEO tools (reduce server load, protect link data)
 User-agent: AhrefsBot
 Disallow: /
 
 User-agent: SemrushBot
 Disallow: /
 
-User-agent: SemrushBot-SA
-Disallow: /
-
 User-agent: MJ12bot
 Disallow: /
 
-User-agent: DotBot
-Disallow: /
-
-User-agent: MauiBot
-Disallow: /
-
-User-agent: Barkrowler
-Disallow: /
-
-User-agent: BLEXBot
-Disallow: /
-
-User-agent: DataForSeoBot
-Disallow: /
-
-# === SITEMAP DIRECTIVE ===
+# === SITEMAP LOCATION ===
 Sitemap: https://www.jfgadai.com/sitemap.xml
-Sitemap: https://jfgadai.com/sitemap.xml
