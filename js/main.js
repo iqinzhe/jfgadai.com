@@ -95,3 +95,44 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   // ==================== 新增结束 ====================
 });
+
+  // ==================== 新增：风险案例导航触摸反馈 ====================
+  const riskEduIntro = document.querySelector('.contact-form-section .service-edu-intro');
+  
+  if (riskEduIntro) {
+    // 检测是否为触摸设备
+    const isTouchDevice = 'ontouchstart' in window || 
+                          (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
+    
+    if (isTouchDevice) {
+      // 添加触摸事件
+      riskEduIntro.addEventListener('touchstart', function() {
+        this.classList.add('touch-active');
+      });
+      
+      riskEduIntro.addEventListener('touchend', function() {
+        this.classList.remove('touch-active');
+        this.classList.add('clicked');
+        
+        // 延迟跳转，让用户看到反馈
+        setTimeout(() => {
+          window.location.href = '/risk-to-success.html';
+        }, 200);
+      });
+      
+      riskEduIntro.addEventListener('touchcancel', function() {
+        this.classList.remove('touch-active');
+      });
+    }
+    
+    // 为非触摸设备添加点击效果（可选）
+    if (!isTouchDevice) {
+      riskEduIntro.addEventListener('click', function() {
+        this.classList.add('clicked');
+        setTimeout(() => {
+          this.classList.remove('clicked');
+        }, 200);
+      });
+    }
+  }
+  // ==================== 新增结束 ====================
