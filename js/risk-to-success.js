@@ -25,36 +25,24 @@ function initCaseToggles() {
     header.addEventListener('click', toggleCaseHandler);
   });
   
-// 初始状态设置
-setTimeout(() => {
-  const isMobile = window.innerWidth <= 768;
-  
-  if (isMobile) {
-    // 手机端：所有案例默认闭合（标题文字可以更大）
+  // 初始状态设置
+  setTimeout(() => {
+    const isMobile = window.innerWidth <= 768;
+    
+    // 所有设备默认都闭合，包括手机端
     document.querySelectorAll('.case-card').forEach(card => {
       card.classList.remove('expanded');
       const header = card.querySelector('.case-header-toggle');
       if (header) {
         header.setAttribute('aria-expanded', 'false');
-        // 手机端箭头向右表示可展开
         const icon = header.querySelector('.toggle-icon');
-        if (icon) icon.textContent = '▼';
+        if (icon) icon.textContent = '▼'; // 所有设备都显示向下箭头
       }
     });
-  } else {
-    // 电脑端：全部收起
-    document.querySelectorAll('.case-card').forEach(card => {
-      card.classList.remove('expanded');
-      const header = card.querySelector('.case-header-toggle');
-      if (header) {
-        header.setAttribute('aria-expanded', 'false');
-        // 电脑端箭头向右
-        const icon = header.querySelector('.toggle-icon');
-        if (icon) icon.textContent = '▼';
-      }
-    });
-  }
-}, 300);
+    
+    console.log(`设备检测: ${isMobile ? '移动端' : '桌面端'}，所有案例默认闭合`);
+  }, 300);
+}
 
 /**
  * 处理案例展开/收起的点击事件
@@ -68,12 +56,12 @@ function toggleCaseHandler(e) {
     // 收起案例
     caseCard.classList.remove('expanded');
     this.setAttribute('aria-expanded', 'false');
-    if (icon) icon.textContent = '▼';
+    if (icon) icon.textContent = '▼'; // 向下箭头表示可展开
   } else {
     // 展开案例
     caseCard.classList.add('expanded');
     this.setAttribute('aria-expanded', 'true');
-    if (icon) icon.textContent = '▲';
+    if (icon) icon.textContent = '▲'; // 向上箭头表示可收起
   }
 }
 
@@ -153,16 +141,18 @@ let resizeTimeout;
 window.addEventListener('resize', function() {
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(function() {
-    initCaseToggles();
+    // 窗口大小变化时，保持所有案例闭合状态
+    document.querySelectorAll('.case-card').forEach(card => {
+      if (!card.classList.contains('expanded')) {
+        const header = card.querySelector('.case-header-toggle');
+        if (header) {
+          header.setAttribute('aria-expanded', 'false');
+          const icon = header.querySelector('.toggle-icon');
+          if (icon) icon.textContent = '▼';
+        }
+      }
+    });
   }, 150);
-});
-
-// 添加页面可见性变化监听
-document.addEventListener('visibilitychange', function() {
-  if (!document.hidden) {
-    // 页面重新可见时重新初始化
-    setTimeout(initCaseToggles, 100);
-  }
 });
 
 // 防止多次初始化
