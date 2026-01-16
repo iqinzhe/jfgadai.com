@@ -25,37 +25,36 @@ function initCaseToggles() {
     header.addEventListener('click', toggleCaseHandler);
   });
   
-  // 初始状态设置
-  setTimeout(() => {
-    const isMobile = window.innerWidth <= 768;
-    
-    if (isMobile) {
-      // 手机端：默认展开所有案例
-      document.querySelectorAll('.case-card').forEach(card => {
-        card.classList.add('expanded');
-        const header = card.querySelector('.case-header-toggle');
-        if (header) {
-          header.setAttribute('aria-expanded', 'true');
-          // 确保手机端箭头向下
-          const icon = header.querySelector('.toggle-icon');
-          if (icon) icon.textContent = '▲';
-        }
-      });
-    } else {
-      // 电脑端：全部收起
-      document.querySelectorAll('.case-card').forEach(card => {
-        card.classList.remove('expanded');
-        const header = card.querySelector('.case-header-toggle');
-        if (header) {
-          header.setAttribute('aria-expanded', 'false');
-          // 确保电脑端箭头向右
-          const icon = header.querySelector('.toggle-icon');
-          if (icon) icon.textContent = '▼';
-        }
-      });
-    }
-  }, 300);
-}
+// 初始状态设置
+setTimeout(() => {
+  const isMobile = window.innerWidth <= 768;
+  
+  if (isMobile) {
+    // 手机端：所有案例默认闭合（标题文字可以更大）
+    document.querySelectorAll('.case-card').forEach(card => {
+      card.classList.remove('expanded');
+      const header = card.querySelector('.case-header-toggle');
+      if (header) {
+        header.setAttribute('aria-expanded', 'false');
+        // 手机端箭头向右表示可展开
+        const icon = header.querySelector('.toggle-icon');
+        if (icon) icon.textContent = '▼';
+      }
+    });
+  } else {
+    // 电脑端：全部收起
+    document.querySelectorAll('.case-card').forEach(card => {
+      card.classList.remove('expanded');
+      const header = card.querySelector('.case-header-toggle');
+      if (header) {
+        header.setAttribute('aria-expanded', 'false');
+        // 电脑端箭头向右
+        const icon = header.querySelector('.toggle-icon');
+        if (icon) icon.textContent = '▼';
+      }
+    });
+  }
+}, 300);
 
 /**
  * 处理案例展开/收起的点击事件
