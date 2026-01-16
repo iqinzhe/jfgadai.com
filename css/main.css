@@ -480,24 +480,33 @@ body {
   min-width: 24px;
 }
 
-/* ==================== 教育导航优化（完整版） ==================== */
+/* ==================== 教育导航优化（防误触版） ==================== */
 .service-edu-container {
   margin-bottom: 15px;
 }
 
-.service-edu-intro {
+/* 新内容容器样式 */
+.service-edu-content {
   margin: 6px 0 10px 0;
   font-size: 0.95em;
   padding: 12px 15px;
   border-radius: var(--border-radius);
-  transition: all 0.3s ease;
   border: 1px solid rgba(245, 197, 66, 0.3);
   background: rgba(15, 76, 129, 0.15);
   color: var(--text-light);
-  cursor: pointer;
   display: block;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
+}
+
+.service-edu-content p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* 禁用旧的点击元素 */
+.service-edu-intro {
+  cursor: default !important;
+  pointer-events: none !important;
+  opacity: 0.7;
 }
 
 /* 联系表单区域的教育导航适配 */
@@ -505,114 +514,27 @@ body {
   margin-bottom: 12px;
 }
 
-.contact-form-section .service-edu-intro {
+.contact-form-section .service-edu-content {
   margin: 6px 0 10px 0;
   font-size: 0.95em;
   padding: 10px 12px;
   border-radius: var(--border-radius);
-  transition: all 0.3s ease;
   border: 1px solid rgba(245, 197, 66, 0.3);
   background: rgba(15, 76, 129, 0.15);
   color: var(--text-light);
-  cursor: pointer;
   display: block;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
 }
 
-.contact-form-section .service-edu-intro p {
-  margin: 0;
+.contact-form-section .service-edu-content p {
+  margin: 0 0 8px 0;
   line-height: 1.5;
 }
 
-/* 网页端悬停效果 */
-.contact-form-section .service-edu-intro:hover {
-  background: rgba(245, 197, 66, 0.1);
-  border-color: var(--secondary-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
-}
-
-/* JS触发的触摸状态 */
-.contact-form-section .service-edu-intro.touch-active {
-  background: rgba(245, 197, 66, 0.1) !important;
-  border-color: var(--secondary-color) !important;
-  transform: translateY(-1px) !important;
-  transition: all 0.1s ease !important;
-}
-
-/* JS触发的点击状态 */
-.contact-form-section .service-edu-intro.clicked {
-  background: rgba(245, 197, 66, 0.15) !important;
-  border-color: var(--secondary-color) !important;
-  transform: scale(0.98) !important;
-  transition: all 0.1s ease !important;
-}
-
-.contact-form-section .edu-link-text {
-  color: var(--secondary-color);
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  transition: color 0.3s ease;
-}
-
-.contact-form-section .service-edu-intro:hover .edu-link-text,
-.contact-form-section .service-edu-intro.touch-active .edu-link-text,
-.contact-form-section .service-edu-intro.clicked .edu-link-text {
-  color: var(--secondary-dark);
-}
-
-/* 网页端悬停效果 */
-.service-edu-intro:hover {
-  background: rgba(245, 197, 66, 0.1);
-  border-color: var(--secondary-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
-}
-
-/* JS触发的触摸状态 */
-.service-edu-intro.touch-active {
-  background: rgba(245, 197, 66, 0.1) !important;
-  border-color: var(--secondary-color) !important;
-  transform: translateY(-1px) !important;
-  transition: all 0.1s ease !important;
-}
-
-/* JS触发的点击状态 */
-.service-edu-intro.clicked {
-  background: rgba(245, 197, 66, 0.15) !important;
-  border-color: var(--secondary-color) !important;
-  transform: scale(0.98) !important;
-  transition: all 0.1s ease !important;
-}
-
-.edu-link-text {
-  color: var(--secondary-color);
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  transition: color 0.3s ease;
-}
-
-.service-edu-intro:hover .edu-link-text,
-.service-edu-intro.touch-active .edu-link-text,
-.service-edu-intro.clicked .edu-link-text {
-  color: var(--secondary-dark);
-}
-
-/* 手机端基础样式 */
-@media (max-width: 768px) {
-  .service-edu-intro {
-    padding: 10px 12px;
-    border: 1px solid rgba(245, 197, 66, 0.3) !important;
-  }
-  
-  .service-edu-intro p {
-    margin: 0;
-  }
+/* 禁用旧的点击元素 */
+.contact-form-section .service-edu-intro {
+  cursor: default !important;
+  pointer-events: none !important;
+  opacity: 0.7;
 }
 
 /* 业务流程步骤 */
@@ -1162,29 +1084,11 @@ footer {
   }
 }
 
-/* 防误触导航样式 */
-.service-edu-container {
-  margin-bottom: 15px;
-}
-
-.service-edu-content {
-  padding: 12px 15px;
-  border-radius: var(--border-radius);
-  background: rgba(15, 76, 129, 0.15);
-  border: 1px solid rgba(245, 197, 66, 0.2);
-  color: var(--text-light);
-  line-height: 1.6;
-}
-
-.service-edu-content p {
-  margin-bottom: 10px;
-  font-size: 0.95rem;
-}
-
+/* ==================== 防误触导航按钮样式 ==================== */
 .edu-navigation-btn {
   display: block;
   width: 100%;
-  padding: 12px 15px;
+  padding: 10px 15px;
   background: rgba(245, 197, 66, 0.15);
   border: 1.5px solid rgba(245, 197, 66, 0.4);
   border-radius: var(--border-radius);
@@ -1194,27 +1098,44 @@ footer {
   text-align: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
+  margin-top: 8px;
+  outline: none;
+}
+
+/* 联系表单区域的按钮特殊样式 */
+.contact-form-section .edu-navigation-btn {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  margin-top: 6px;
 }
 
 .edu-navigation-btn:hover {
   background: rgba(245, 197, 66, 0.25);
+  border-color: var(--secondary-color);
   transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(245, 197, 66, 0.2);
 }
 
 .edu-navigation-btn:active {
+  background: rgba(245, 197, 66, 0.3);
   transform: scale(0.98);
+  transition: transform 0.1s ease;
 }
 
 /* 移动端优化 */
 @media (max-width: 768px) {
   .edu-navigation-btn {
-    min-height: 52px;
+    min-height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    padding: 12px 15px;
+  }
+  
+  .contact-form-section .edu-navigation-btn {
+    min-height: 44px;
+    padding: 10px 12px;
+    font-size: 0.85rem;
   }
 }
-
