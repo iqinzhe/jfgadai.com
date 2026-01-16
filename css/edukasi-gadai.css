@@ -11,65 +11,10 @@ body {
 }
 
 /* 2. 手风琴功能样式 */
-/* 大纲容器 */
-.edu-outline {
-  max-width: 900px;
-  margin: 30px auto 20px;
-  padding: 0 20px;
-}
-
-/* 大纲标题 */
-.outline-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 25px;
-  color: #0b2c4a;
-  text-align: center;
-  padding-bottom: 15px;
-  border-bottom: 3px solid #2ecc71;
-}
-
-/* 大纲导航网格 */
-.outline-nav ul {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 15px;
-  margin-bottom: 40px;
-}
-
-.outline-nav li {
-  margin-bottom: 0;
-}
-
-.outline-link {
-  display: block;
-  padding: 15px;
-  background: white;
-  border: 2px solid #e3e3e3;
-  border-radius: 10px;
-  color: #2c3e50;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 1.1rem;
-  text-align: center;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
-}
-
-.outline-link:hover {
-  background: #e8f4fd;
-  border-color: #3498db;
-  transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.2);
-  color: #2980b9;
-}
-
 /* 手风琴主容器 */
 .accordion {
   max-width: 900px;
-  margin: 0 auto 50px;
+  margin: 30px auto 50px; /* 调整了上边距，因为移除了大纲 */
   padding: 0 20px;
 }
 
@@ -313,16 +258,6 @@ body {
   }
   
   /* 手风琴移动端适配 */
-  .outline-nav ul {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  
-  .outline-link {
-    padding: 12px;
-    font-size: 1rem;
-  }
-  
   .accordion-header {
     padding: 18px 15px;
     font-size: 1.2rem;
@@ -338,7 +273,6 @@ body {
     padding: 20px 15px;
   }
   
-  .edu-outline,
   .accordion {
     padding: 0 15px;
   }
@@ -555,4 +489,3 @@ footer {
     font-size: 1.1rem;
   }
 }
-
