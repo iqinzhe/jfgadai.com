@@ -114,6 +114,17 @@
 .hero-stat:nth-child(1) { animation-delay: 0.2s; }
 .hero-stat:nth-child(2) { animation-delay: 0.4s; }
 
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
 .stat-number {
   font-size: 2.8rem;
   font-weight: 800;
@@ -189,8 +200,14 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
 
 .message-icon {
@@ -236,6 +253,14 @@
   cursor: pointer;
   /* 确保所有卡片高度基本一致 */
   min-height: 150px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.case-card.animated {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .risk-card {
@@ -272,9 +297,21 @@
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   flex: 0 0 auto;
+  position: relative;
 }
 
-.case-header-toggle:hover {
+.case-header-toggle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.case-header-toggle:hover::after {
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -285,6 +322,8 @@
   color: var(--light-color);
   flex: 1;
   margin-right: var(--spacing-sm);
+  position: relative;
+  z-index: 1;
 }
 
 .case-label {
@@ -297,6 +336,8 @@
   display: block;
   margin-bottom: 0.5rem;
   width: fit-content;
+  position: relative;
+  z-index: 1;
 }
 
 .risk-label {
@@ -317,32 +358,41 @@
   flex-shrink: 0;
   min-width: 20px;
   text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.case-card:not(.expanded) .toggle-icon {
+  transform: rotate(0deg);
 }
 
 .case-card.expanded .toggle-icon {
   transform: rotate(180deg);
 }
 
-/* 案例内容区域 */
-.case-content {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: all 0.4s ease;
-  padding: 0 var(--spacing-lg);
-  flex: 1 1 auto;
+/* 确保案例内容初始状态正确 */
+.case-card:not(.expanded) .case-content {
+  max-height: 0 !important;
+  opacity: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  visibility: hidden !important;
 }
 
 .case-card.expanded .case-content {
-  max-height: 2000px;
-  opacity: 1;
-  padding: var(--spacing-lg);
-  padding-top: var(--spacing-md);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  max-height: 5000px !important; /* 足够大的值确保内容可见 */
+  opacity: 1 !important;
+  padding: var(--spacing-lg) !important;
+  padding-top: var(--spacing-md) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+  visibility: visible !important;
 }
 
-.case-card.expanded {
-  min-height: auto;
+/* 案例内容区域 - 简化版本 */
+.case-content {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+  flex: 1 1 auto;
 }
 
 /* 案例内容细节 */
@@ -435,6 +485,13 @@
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.factor-card.animated {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .factor-card:hover {
@@ -535,6 +592,13 @@
   padding: var(--spacing-xl);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.cta-option.animated {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .cta-option:hover {
@@ -676,6 +740,8 @@
   
   .hero-stats {
     gap: var(--spacing-xl);
+    flex-direction: column;
+    align-items: center;
   }
   
   .stat-number {
@@ -687,40 +753,54 @@
     font-size: 1.6rem;
   }
   
+  .section-header h2::after {
+    left: 20%;
+    right: 20%;
+  }
+  
   .key-message {
     flex-direction: column;
     text-align: center;
+    padding: var(--spacing-md);
   }
   
-  /* 案例卡片移动端优化 */
+  /* 手机端所有案例默认闭合，标题可以更大 */
   .case-card {
     margin-bottom: var(--spacing-sm);
     min-height: auto;
+    border: 2px solid rgba(255, 255, 255, 0.1);
   }
   
+  /* 案例头部优化 - 增加标题字体大小 */
   .case-header-toggle {
     flex-direction: row;
     align-items: center;
     gap: var(--spacing-sm);
     min-height: auto;
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-md);
+    background: rgba(255, 255, 255, 0.03);
+  }
+  
+  .case-header-toggle h3 {
+    font-size: 1.2rem; /* 增大手机端标题字体 */
+    line-height: 1.4;
+    font-weight: 600;
+    color: var(--light-color);
+    margin-right: 40px; /* 为箭头留出空间 */
   }
   
   .toggle-icon {
     align-self: center;
     margin-top: 0;
-    font-size: 1.1rem;
-  }
-  
-  .case-header-toggle h3 {
-    font-size: 1.1rem;
-    padding-right: 30px;
-    line-height: 1.3;
+    font-size: 1.3rem; /* 增大箭头 */
+    color: var(--secondary-color);
+    position: absolute;
+    right: var(--spacing-md);
   }
   
   .case-label {
-    font-size: 0.7rem;
-    margin-bottom: 0.3rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
   }
   
   /* 案例内容 */
@@ -729,13 +809,18 @@
   }
   
   .case-card.expanded .case-content {
-    padding: var(--spacing-md);
+    padding: var(--spacing-md) !important;
   }
   
-  .case-scenario p, .case-process p, .case-lesson p,
-  .case-process li, .case-outcome p, .case-quote blockquote {
-    font-size: 1rem;
-    line-height: 1.5;
+  /* 案例卡片内容字体优化 */
+  .case-scenario p, 
+  .case-process p, 
+  .case-lesson p,
+  .case-process li, 
+  .case-outcome p, 
+  .case-quote blockquote {
+    font-size: 1.05rem;
+    line-height: 1.6;
   }
   
   .case-process h4, .case-outcome h4, .case-lesson h4 {
@@ -757,6 +842,15 @@
   
   .cta-card {
     padding: var(--spacing-xl) var(--spacing-lg);
+  }
+  
+  /* 成功因素卡片 */
+  .factor-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .factor-icon {
+    font-size: 2.5rem;
   }
 }
 
@@ -784,21 +878,26 @@
   }
   
   /* 案例卡片 */
-  .case-header-toggle {
-    padding: var(--spacing-sm);
-  }
-  
   .case-header-toggle h3 {
-    font-size: 1rem;
-    padding-right: 25px;
+    font-size: 1.15rem; /* 小屏幕稍微小一点 */
+    line-height: 1.3;
   }
   
+  .toggle-icon {
+    font-size: 1.2rem;
+  }
+  
+  .case-header-toggle {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  /* 案例内容 */
   .case-content {
     padding: 0 var(--spacing-sm);
   }
   
   .case-card.expanded .case-content {
-    padding: var(--spacing-sm);
+    padding: var(--spacing-sm) !important;
   }
   
   /* 字体大小进一步优化 */
@@ -833,7 +932,7 @@
 /* 超小屏幕手机（360px及以下） */
 @media (max-width: 360px) {
   .case-header-toggle h3 {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
   }
   
   .case-scenario p, .case-process p, .case-lesson p,
@@ -846,6 +945,10 @@
     font-size: 0.9rem;
     min-width: 180px;
   }
+  
+  .hero-title {
+    font-size: 1.3rem;
+  }
 }
 
 /* 成功案例部分特别处理（只有2个案例） - 电脑端 */
@@ -857,5 +960,32 @@
   
   .success-cases .case-card {
     min-height: 150px;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .page-hero {
+    background: none !important;
+    border-bottom: 2px solid #000;
+  }
+  
+  .hero-title, .hero-subtitle, .case-header-toggle h3 {
+    color: #000 !important;
+  }
+  
+  .case-card {
+    break-inside: avoid;
+    border: 1px solid #ccc !important;
+  }
+  
+  .btn-primary, .btn-secondary, .toggle-icon {
+    display: none !important;
+  }
+  
+  .case-content {
+    max-height: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 }
