@@ -133,3 +133,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+// 防误触导航处理（添加到现有JS末尾）
+const navButtons = document.querySelectorAll('.edu-navigation-btn');
+navButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    const url = this.getAttribute('data-url');
+    if (url) {
+      window.location.href = url;
+    }
+  });
+  
+  // 移除旧的onclick事件（如果存在）
+  const parentContainer = this.closest('.service-edu-container');
+  if (parentContainer) {
+    const oldIntro = parentContainer.querySelector('.service-edu-intro');
+    if (oldIntro) {
+      oldIntro.removeAttribute('onclick');
+      oldIntro.style.cursor = 'default';
+    }
+  }
+});
