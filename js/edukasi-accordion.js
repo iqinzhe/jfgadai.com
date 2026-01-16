@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // 等待DOM完全加载
   setTimeout(() => {
     initAccordion();
-    initOutlineNavigation();
   }, 100);
 });
 
@@ -103,60 +102,6 @@ function closeAllAccordions() {
   document.querySelectorAll('.accordion-content').forEach(content => {
     content.style.maxHeight = null;
     content.setAttribute('data-state', 'closed');
-  });
-}
-
-/**
- * 初始化大纲导航
- */
-function initOutlineNavigation() {
-  const outlineNav = document.querySelector('.outline-nav');
-  if (!outlineNav) return;
-  
-  const sections = document.querySelectorAll('.accordion-item');
-  let navHTML = '<ul>';
-  
-  sections.forEach((section, index) => {
-    const header = section.querySelector('.accordion-header');
-    const headerText = header.textContent.replace(/^\d+\s*/, '').trim(); // 移除序号
-    const sectionId = `section-${index + 1}`;
-    
-    // 为每个部分设置ID
-    section.id = sectionId;
-    
-    navHTML += `
-      <li>
-        <a href="#${sectionId}" 
-           class="outline-link" 
-           data-index="${index}">
-          ${index + 1}. ${headerText}
-        </a>
-      </li>
-    `;
-  });
-  
-  navHTML += '</ul>';
-  outlineNav.innerHTML = navHTML;
-  
-  // 为导航链接添加点击事件
-  document.querySelectorAll('.outline-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const targetId = this.getAttribute('href');
-      const targetSection = document.querySelector(targetId);
-      
-      if (targetSection) {
-        // 关闭所有手风琴
-        closeAllAccordions();
-        
-        // 找到对应的手风琴标题并点击
-        const targetHeader = targetSection.querySelector('.accordion-header');
-        if (targetHeader) {
-          targetHeader.click();
-        }
-      }
-    });
   });
 }
 
