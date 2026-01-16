@@ -210,6 +210,8 @@
   line-height: 1.6;
 }
 
+/* ==================== 案例卡片下拉样式 ==================== */
+
 /* 案例网格布局 */
 .cases-grid {
   display: grid;
@@ -219,7 +221,205 @@
   margin-top: var(--spacing-lg);
 }
 
-/* 成功因素网格 */
+/* 案例卡片样式 */
+.case-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius-lg);
+  padding: 0;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+  cursor: pointer;
+  /* 确保所有卡片高度基本一致 */
+  min-height: 150px;
+}
+
+.risk-card {
+  border-color: rgba(244, 67, 54, 0.3);
+}
+
+.risk-card:hover {
+  border-color: rgba(244, 67, 54, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(244, 67, 54, 0.2);
+}
+
+.success-card {
+  border-color: rgba(76, 175, 80, 0.3);
+}
+
+.success-card:hover {
+  border-color: rgba(76, 175, 80, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+}
+
+/* 案例头部下拉切换 */
+.case-header-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: var(--spacing-md) var(--spacing-lg);
+  margin: 0;
+  transition: all 0.3s ease;
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+  min-height: 80px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  flex: 0 0 auto;
+}
+
+.case-header-toggle:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.case-header-toggle h3 {
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: var(--light-color);
+  flex: 1;
+  margin-right: var(--spacing-sm);
+}
+
+.case-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+  width: fit-content;
+}
+
+.risk-label {
+  background: rgba(244, 67, 54, 0.15);
+  color: #FF6B6B;
+}
+
+.success-label {
+  background: rgba(76, 175, 80, 0.15);
+  color: #4CAF50;
+}
+
+.toggle-icon {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  transition: transform 0.3s ease;
+  margin-left: var(--spacing-sm);
+  flex-shrink: 0;
+  min-width: 20px;
+  text-align: center;
+}
+
+.case-card.expanded .toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* 案例内容区域 */
+.case-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+  padding: 0 var(--spacing-lg);
+  flex: 1 1 auto;
+}
+
+.case-card.expanded .case-content {
+  max-height: 2000px;
+  opacity: 1;
+  padding: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.case-card.expanded {
+  min-height: auto;
+}
+
+/* 案例内容细节 */
+.case-scenario, .case-process, .case-outcome, .case-lesson, .case-quote {
+  margin-bottom: var(--spacing-md);
+}
+
+.case-scenario p, .case-process p, .case-lesson p {
+  color: var(--text-light);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.case-scenario strong {
+  color: var(--text-muted);
+}
+
+.case-process h4, .case-outcome h4, .case-lesson h4 {
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.case-process ul, .case-process ol {
+  color: var(--text-light);
+  padding-left: var(--spacing-md);
+  margin-bottom: 0;
+}
+
+.case-process li {
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.outcome-bad, .outcome-warning, .outcome-good {
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 0.95rem;
+}
+
+.outcome-bad {
+  background: rgba(244, 67, 54, 0.2);
+  color: #FF6B6B;
+}
+
+.outcome-warning {
+  background: rgba(255, 193, 7, 0.2);
+  color: #FFC107;
+}
+
+.outcome-good {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4CAF50;
+}
+
+.case-quote blockquote {
+  margin: 0;
+  padding: var(--spacing-md);
+  background: rgba(245, 197, 66, 0.08);
+  border-left: 4px solid var(--secondary-color);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  font-style: italic;
+  color: var(--text-light);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* 成功因素部分 */
+.success-factors {
+  margin-bottom: var(--spacing-xxl);
+}
+
 .factors-grid {
   display: grid;
   /* 电脑端：3个因素并排 */
@@ -228,7 +428,99 @@
   margin-top: var(--spacing-lg);
 }
 
-/* 行动号召网格 */
+.factor-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.factor-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(245, 197, 66, 0.3);
+  box-shadow: var(--shadow-lg);
+}
+
+.factor-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--secondary-color);
+}
+
+.factor-card h3 {
+  color: var(--light-color);
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.factor-list {
+  list-style: none;
+  text-align: left;
+  margin-bottom: var(--spacing-lg);
+}
+
+.factor-list li {
+  color: var(--text-light);
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+}
+
+.factor-list li::before {
+  content: "✓";
+  color: var(--secondary-color);
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.factor-list li strong {
+  color: var(--text-muted);
+  margin-right: 0.3rem;
+}
+
+.factor-tip {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  font-style: italic;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid rgba(245, 197, 66, 0.2);
+}
+
+/* 行动号召部分 */
+.cta-section {
+  margin-bottom: var(--spacing-xxl);
+}
+
+.cta-card {
+  background: linear-gradient(135deg, 
+    rgba(15, 76, 129, 0.8), 
+    rgba(245, 197, 66, 0.2));
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xxl);
+  border: 2px solid rgba(245, 197, 66, 0.4);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.cta-content h2 {
+  color: var(--secondary-color);
+  font-size: 2.2rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.cta-subtitle {
+  color: var(--text-light);
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-xl);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
 .cta-options {
   display: grid;
   /* 电脑端：2个选项并排 */
@@ -237,31 +529,100 @@
   margin: var(--spacing-xl) 0;
 }
 
-/* ========================== 响应式设计 ========================== */
-
-/* 大屏幕设备（默认状态 - 2x2布局） */
-@media (min-width: 1025px) {
-  .cases-grid {
-    grid-template-columns: repeat(2, 1fr);
-    /* 确保网格间距均匀 */
-    gap: var(--spacing-xl);
-  }
-  
-  .case-card {
-    /* 确保所有卡片高度基本一致 */
-    min-height: 180px;
-  }
-  
-  .case-card.expanded {
-    /* 展开时高度自适应 */
-    min-height: auto;
-  }
+.cta-option {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
+
+.cta-option:hover {
+  transform: translateY(-5px);
+  border-color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.option-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--secondary-color);
+}
+
+.cta-option h3 {
+  color: var(--light-color);
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.cta-option p {
+  color: var(--text-light);
+  margin-bottom: var(--spacing-lg);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.btn-primary, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  min-width: 200px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+  color: var(--dark-color);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--secondary-dark), var(--secondary-color));
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(245, 197, 66, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--light-color);
+  border: 2px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background: rgba(245, 197, 66, 0.1);
+  transform: translateY(-3px);
+}
+
+.cta-note {
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.cta-note strong {
+  color: var(--secondary-color);
+}
+
+/* ========================== 响应式设计 ========================== */
 
 /* 中等屏幕（平板横屏） */
 @media (min-width: 769px) and (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
   .cases-grid {
-    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
   }
   
@@ -274,14 +635,6 @@
     grid-column: span 2;
     max-width: 400px;
     margin: 0 auto;
-  }
-  
-  .cta-options {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .hero-title {
-    font-size: 2.2rem;
   }
 }
 
@@ -329,6 +682,7 @@
   /* 案例卡片移动端优化 */
   .case-card {
     margin-bottom: var(--spacing-sm);
+    min-height: auto;
   }
   
   .case-header-toggle {
@@ -481,21 +835,7 @@
   }
 }
 
-/* 修复网格对齐问题 - 确保所有案例卡片等高 */
-.case-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.case-header-toggle {
-  flex: 0 0 auto;
-}
-
-.case-content {
-  flex: 1 1 auto;
-}
-
-/* 成功案例部分（只有2个案例）的特别处理 */
+/* 成功案例部分特别处理（只有2个案例） */
 .success-cases .cases-grid {
   /* 成功案例只有2个，所以电脑端也可以并排显示 */
   grid-template-columns: repeat(2, 1fr);
@@ -504,7 +844,7 @@
 /* 当只有2个案例时，确保对齐美观 */
 @media (min-width: 769px) {
   .success-cases .case-card {
-    min-height: 180px;
+    min-height: 150px;
   }
 }
 
