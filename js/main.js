@@ -94,8 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   // ==================== 新增结束 ====================
-});
-
+  
   // ==================== 新增：风险案例导航触摸反馈 ====================
   const riskEduIntro = document.querySelector('.contact-form-section .service-edu-intro');
   
@@ -135,5 +134,5 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   }
-}); 
   // ==================== 新增结束 ====================
+}); // ← 确保这里只有一个闭合括号
