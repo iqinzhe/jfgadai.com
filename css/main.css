@@ -826,272 +826,6 @@ footer {
   transform: translateY(-2px);
 }
 
-
-/* ==================== 动画类 ==================== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-.delay-4 { animation-delay: 0.8s; }
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ==================== 响应式设计 ==================== */
-@media (max-width: 1200px) {
-  .asymmetric-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto auto;
-  }
-  
-  #assessment-system { 
-    grid-column: 1 / span 2; 
-    grid-row: 1; 
-  }
-  
-  #our-services { 
-    grid-column: 1; 
-    grid-row: 2; 
-  }
-  
-  #contact-form { 
-    grid-column: 2; 
-    grid-row: 2; 
-  }
-  
-  #why-choose-us { 
-    grid-column: 1; 
-    grid-row: 3; 
-  }
-  
-  #conditions { 
-    grid-column: 2; 
-    grid-row: 3; 
-  }
-  
-  #business-process { 
-    grid-column: 1 / span 2; 
-    grid-row: 4; 
-  }
-  
-  .quick-actions { 
-    flex-direction: column; 
-    align-items: center;
-    gap: var(--spacing-sm);
-  }
-  
-  .quick-action-card { 
-    width: 100%; 
-    max-width: 500px;
-    margin-bottom: var(--spacing-sm);
-  }
-  
-  .assessment-stats {
-    gap: var(--spacing-xl);
-  }
-  
-  .contact-info {
-    max-width: 600px;
-  }
-}
-
-@media (max-width: 768px) {
-  .full-banner {
-    height: 180px;
-  }
-  
-  .quick-actions {
-    margin: 0.75rem auto;
-    padding: 0 var(--spacing-sm);
-    gap: 0.75rem;
-  }
-  
-  .quick-action-card {
-    padding: var(--spacing-md);
-    margin-bottom: 0;
-  }
-  
-  .action-icon {
-    font-size: 2rem;
-    margin-bottom: var(--spacing-xs);
-  }
-  
-  .action-title {
-    font-size: 1.1rem;
-    margin-bottom: var(--spacing-xs);
-  }
-  
-  .action-description {
-    font-size: 0.85rem;
-    margin-bottom: var(--spacing-md);
-    line-height: 1.4;
-  }
-  
-  .action-btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-    min-width: 160px;
-  }
-  
-  .asymmetric-grid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-  }
-  
-  /* 使用 order 属性控制手机端顺序 */
-  #assessment-system { order: 1; }    /* 中间上方：摩托车评估系统 */
-  #our-services { order: 2; }         /* 左上：知识与服务 */
-  #why-choose-us { order: 3; }        /* 右上：为什么选择我们 */
-  #conditions { order: 4; }           /* 右下：业务条件 */
-  #business-process { order: 5; }     /* 中间下方：业务流程 */
-  #contact-form { order: 6; }         /* 左下：联系我们表单 */
-  
-  .grid-item {
-    padding: var(--spacing-lg);
-  }
-  
-  .grid-item h2 {
-    font-size: 1.2rem;
-  }
-  
-  /* 手机端页脚优化 */
-  .contact-info {
-    flex-direction: column;
-    gap: var(--spacing-md);
-    align-items: center;
-  }
-  
-  .contact-info > * {
-    width: 100%;
-    max-width: 300px;
-    justify-content: center;
-  }
-  
-  .placeholder-link {
-    display: none; /* 手机端隐藏占位元素 */
-  }
-  
-  .assessment-cta {
-    margin: var(--spacing-lg) auto;
-    padding: 0 var(--spacing-md);
-  }
-  
-  #assessment-system .assessment-card {
-    padding: var(--spacing-lg);
-  }
-  
-  #assessment-system .assessment-card h3 {
-    font-size: 1.3rem;
-  }
-  
-  .assessment-desc {
-    font-size: 1rem;
-  }
-  
-  .btn-assessment {
-    padding: 0.9rem 1.5rem;
-    font-size: 1rem;
-    width: 100%;
-    max-width: 300px;
-  }
-  
-  .assessment-stats {
-    gap: var(--spacing-lg);
-  }
-  
-  .stat-number {
-    font-size: 1.5rem;
-  }
-  
-  .stat-text {
-    font-size: 0.85rem;
-  }
-}
-
-@media (max-width: 480px) {
-  :root { 
-    --spacing-xs: 0.4rem; 
-    --spacing-sm: 0.6rem; 
-    --spacing-md: 0.8rem; 
-    --spacing-lg: 1.2rem; 
-    --spacing-xl: 1.5rem; 
-    --spacing-xxl: 2rem;
-  }
-  
-  .full-banner { 
-    height: 150px;
-  }
-  
-  .quick-actions { 
-    margin: 0.5rem auto;
-    padding: 0 0.5rem;
-  }
-  
-  .quick-action-card {
-    padding: var(--spacing-sm);
-  }
-  
-  .action-icon {
-    font-size: 1.8rem;
-  }
-  
-  .action-title {
-    font-size: 1rem;
-  }
-  
-  .action-description {
-    font-size: 0.8rem;
-  }
-  
-  .action-btn {
-    min-width: 140px;
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-  }
-  
-  .grid-item {
-    padding: var(--spacing-md);
-  }
-  
-  #assessment-system .assessment-card {
-    padding: var(--spacing-md);
-  }
-  
-  #assessment-system .assessment-card h3 {
-    font-size: 1.2rem;
-  }
-  
-  .assessment-desc {
-    font-size: 0.9rem;
-  }
-  
-  .btn-assessment {
-    font-size: 0.95rem;
-    padding: 0.8rem 1.2rem;
-  }
-  
-  .assessment-stats {
-    gap: var(--spacing-md);
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .stat {
-    flex-direction: row;
-    gap: 1rem;
-  }
-}
-
 .security-note {
   margin-top: 1rem;
   font-size: 0.8rem;
@@ -1129,8 +863,340 @@ footer {
   font-weight: 600;
 }
 
+/* ==================== 动画类 ==================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== 响应式设计 ==================== */
+
+/* 平板竖屏和横屏（769px-1200px） */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .asymmetric-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+  }
+  
+  #assessment-system { 
+    grid-column: 1 / span 2; 
+    grid-row: 1; 
+  }
+  
+  #our-services { 
+    grid-column: 1; 
+    grid-row: 2; 
+  }
+  
+  #contact-form { 
+    grid-column: 2; 
+    grid-row: 2; 
+  }
+  
+  #why-choose-us { 
+    grid-column: 1; 
+    grid-row: 3; 
+  }
+  
+  #conditions { 
+    grid-column: 2; 
+    grid-row: 3; 
+  }
+  
+  #business-process { 
+    grid-column: 1 / span 2; 
+    grid-row: 4; 
+  }
+  
+  .quick-actions { 
+    flex-direction: row; 
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+  
+  .quick-action-card { 
+    flex: 1 1 calc(50% - var(--spacing-md));
+    min-width: 280px;
+    max-width: none;
+  }
+  
+  .assessment-stats {
+    gap: var(--spacing-xl);
+  }
+  
+  .contact-info {
+    max-width: 600px;
+  }
+}
+
+/* 手机端（768px及以下） */
 @media (max-width: 768px) {
+  .full-banner {
+    height: 180px;
+  }
+  
+  /* 确保六宫格单列布局 */
+  .asymmetric-grid {
+    display: flex !important;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    grid-template-columns: 1fr !important;
+    grid-template-rows: none !important;
+  }
+  
+  /* 重置所有网格定位 */
+  #assessment-system,
+  #our-services,
+  #contact-form,
+  #why-choose-us,
+  #conditions,
+  #business-process {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100% !important;
+    order: initial;
+  }
+  
+  /* 手机端显示顺序 */
+  #assessment-system { order: 1; }
+  #our-services { order: 2; }
+  #why-choose-us { order: 3; }
+  #conditions { order: 4; }
+  #business-process { order: 5; }
+  #contact-form { order: 6; }
+  
+  /* 优化字体大小 */
+  .grid-item h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .service-list li, 
+  .condition-list li, 
+  .reason-list li {
+    font-size: 1.05rem !important;
+    line-height: 1.6;
+    padding: 0.8rem 0;
+  }
+  
+  .list-icon {
+    font-size: 1.2rem;
+  }
+  
+  .process-step h3 {
+    font-size: 1.3rem !important;
+  }
+  
+  .process-step p {
+    font-size: 1.05rem !important;
+    line-height: 1.6;
+  }
+  
+  /* 表单字体优化 */
+  .form-group label {
+    font-size: 1.05rem !important;
+    margin-bottom: 0.3rem;
+  }
+  
+  .form-control {
+    font-size: 1.05rem !important;
+    padding: 1rem 1.2rem;
+  }
+  
+  .submit-btn {
+    font-size: 1.1rem !important;
+    padding: 1.1rem;
+    margin-top: var(--spacing-md);
+  }
+  
+  /* 快速操作栏 */
+  .quick-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .quick-action-card {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: var(--spacing-sm);
+    padding: var(--spacing-lg);
+  }
+  
+  .action-icon {
+    font-size: 2.2rem;
+  }
+  
+  .action-title {
+    font-size: 1.3rem;
+  }
+  
+  .action-description {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .action-btn {
+    padding: 0.9rem 1.8rem;
+    font-size: 1.05rem;
+    min-width: 200px;
+  }
+  
+  /* 页脚优化 */
+  .contact-info {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+  
+  .contact-info > * {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .placeholder-link {
+    display: none;
+  }
+  
+  /* 评估CTA */
+  .assessment-cta {
+    margin: var(--spacing-lg) auto;
+    padding: 0 var(--spacing-md);
+  }
+  
+  #assessment-system .assessment-card {
+    padding: var(--spacing-xl);
+  }
+  
+  #assessment-system .assessment-card h3 {
+    font-size: 1.5rem;
+  }
+  
+  .assessment-desc {
+    font-size: 1.1rem;
+  }
+  
+  .btn-assessment {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .assessment-stats {
+    gap: var(--spacing-lg);
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  .stat-text {
+    font-size: 0.95rem;
+  }
+  
+  /* 信任区块单列 */
   .trust-box {
     grid-template-columns: 1fr;
+  }
+}
+
+/* 小屏幕手机（480px及以下） */
+@media (max-width: 480px) {
+  :root { 
+    --spacing-xs: 0.4rem; 
+    --spacing-sm: 0.6rem; 
+    --spacing-md: 0.8rem; 
+    --spacing-lg: 1.2rem; 
+    --spacing-xl: 1.5rem; 
+    --spacing-xxl: 2rem;
+  }
+  
+  .full-banner { 
+    height: 150px;
+  }
+  
+  /* 进一步优化字体 */
+  .grid-item h2 {
+    font-size: 1.4rem !important;
+  }
+  
+  .service-list li, 
+  .condition-list li, 
+  .reason-list li {
+    font-size: 1rem !important;
+  }
+  
+  .quick-actions { 
+    margin: 0.5rem auto;
+    padding: 0 0.5rem;
+  }
+  
+  .quick-action-card {
+    padding: var(--spacing-md);
+  }
+  
+  .action-icon {
+    font-size: 2rem;
+  }
+  
+  .action-title {
+    font-size: 1.2rem;
+  }
+  
+  .action-description {
+    font-size: 0.95rem;
+  }
+  
+  .action-btn {
+    min-width: 180px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .grid-item {
+    padding: var(--spacing-lg);
+  }
+  
+  #assessment-system .assessment-card {
+    padding: var(--spacing-lg);
+  }
+  
+  #assessment-system .assessment-card h3 {
+    font-size: 1.4rem;
+  }
+  
+  .assessment-desc {
+    font-size: 1rem;
+  }
+  
+  .btn-assessment {
+    font-size: 1.05rem;
+    padding: 0.9rem 1.8rem;
+  }
+  
+  .assessment-stats {
+    gap: var(--spacing-lg);
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stat {
+    flex-direction: row;
+    gap: 1rem;
   }
 }
