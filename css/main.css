@@ -480,24 +480,20 @@ body {
   min-width: 24px;
 }
 
-/* ==================== 教育导航优化（完整版） ==================== */
+/* ==================== 教育导航优化（防误触版） ==================== */
 .service-edu-container {
   margin-bottom: 15px;
 }
 
-.service-edu-intro {
+.service-edu-content {
   margin: 6px 0 10px 0;
   font-size: 0.95em;
   padding: 12px 15px;
   border-radius: var(--border-radius);
-  transition: all 0.3s ease;
   border: 1px solid rgba(245, 197, 66, 0.3);
   background: rgba(15, 76, 129, 0.15);
   color: var(--text-light);
-  cursor: pointer;
   display: block;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
 }
 
 /* 联系表单区域的教育导航适配 */
@@ -505,24 +501,74 @@ body {
   margin-bottom: 12px;
 }
 
-.contact-form-section .service-edu-intro {
+.contact-form-section .service-edu-content {
   margin: 6px 0 10px 0;
   font-size: 0.95em;
   padding: 10px 12px;
   border-radius: var(--border-radius);
-  transition: all 0.3s ease;
   border: 1px solid rgba(245, 197, 66, 0.3);
   background: rgba(15, 76, 129, 0.15);
   color: var(--text-light);
-  cursor: pointer;
   display: block;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
 }
 
-.contact-form-section .service-edu-intro p {
-  margin: 0;
+.contact-form-section .service-edu-content p {
+  margin: 0 0 10px 0;
   line-height: 1.5;
+}
+
+/* 防误触导航按钮 */
+.edu-navigation-btn {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  background: rgba(245, 197, 66, 0.15);
+  border: 1.5px solid rgba(245, 197, 66, 0.4);
+  border-radius: var(--border-radius);
+  color: var(--secondary-color);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  border: none;
+  margin-top: 8px;
+}
+
+/* 联系表单区域的按钮适配 */
+.contact-form-section .edu-navigation-btn {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+}
+
+.edu-navigation-btn:hover {
+  background: rgba(245, 197, 66, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(245, 197, 66, 0.2);
+}
+
+.edu-navigation-btn:active {
+  transform: scale(0.98);
+  background: rgba(245, 197, 66, 0.3);
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .edu-navigation-btn {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.9rem;
+  }
+  
+  .contact-form-section .edu-navigation-btn {
+    min-height: 44px;
+  }
 }
 
 /* 网页端悬停效果 */
