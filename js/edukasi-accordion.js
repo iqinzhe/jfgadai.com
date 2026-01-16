@@ -23,11 +23,6 @@ function initAccordion() {
     return;
   }
   
-function initAccordion() {
-  const accordionHeaders = document.querySelectorAll('.accordion-header');
-  
-  if (accordionHeaders.length === 0) return;
-  
   // 默认全部闭合
   closeAllAccordions();
   
