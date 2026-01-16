@@ -1,8 +1,12 @@
 /* ===============================
    Edukasi Gadai – Reading Optimization
 ================================ */
-
 body {
+  line-height: 1.7;
+  background-color: #f5f5f5; /* 或其他你首页的背景色 */
+  color: #333;
+}
+ {
   line-height: 1.7;
 }
 
@@ -260,6 +264,7 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
 
 
 
