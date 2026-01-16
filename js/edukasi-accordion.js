@@ -17,6 +17,15 @@ document.addEventListener('DOMContentLoaded', function() {
 function initAccordion() {
   const accordionHeaders = document.querySelectorAll('.accordion-header');
   
+  if (accordionHeaders.length === 0) {
+    console.log('未找到手风琴元素，等待DOM加载...');
+    setTimeout(initAccordion, 500);
+    return;
+  }
+  
+function initAccordion() {
+  const accordionHeaders = document.querySelectorAll('.accordion-header');
+  
   if (accordionHeaders.length === 0) return;
   
   // 默认全部闭合
