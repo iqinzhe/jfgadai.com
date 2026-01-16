@@ -1161,3 +1161,59 @@ footer {
     gap: 1rem;
   }
 }
+
+/* 防误触导航样式 */
+.service-edu-container {
+  margin-bottom: 15px;
+}
+
+.service-edu-content {
+  padding: 12px 15px;
+  border-radius: var(--border-radius);
+  background: rgba(15, 76, 129, 0.15);
+  border: 1px solid rgba(245, 197, 66, 0.2);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.service-edu-content p {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.edu-navigation-btn {
+  display: block;
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(245, 197, 66, 0.15);
+  border: 1.5px solid rgba(245, 197, 66, 0.4);
+  border-radius: var(--border-radius);
+  color: var(--secondary-color);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.edu-navigation-btn:hover {
+  background: rgba(245, 197, 66, 0.25);
+  transform: translateY(-2px);
+}
+
+.edu-navigation-btn:active {
+  transform: scale(0.98);
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .edu-navigation-btn {
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+}
