@@ -539,6 +539,70 @@ body {
   user-select: none;
 }
 
+/* 联系表单区域的教育导航适配 */
+.contact-form-section .service-edu-container {
+  margin-bottom: 12px;
+}
+
+.contact-form-section .service-edu-intro {
+  margin: 6px 0 10px 0;
+  font-size: 0.95em;
+  padding: 10px 12px;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(245, 197, 66, 0.3);
+  background: rgba(15, 76, 129, 0.15);
+  color: var(--text-light);
+  cursor: pointer;
+  display: block;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.contact-form-section .service-edu-intro p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 网页端悬停效果 */
+.contact-form-section .service-edu-intro:hover {
+  background: rgba(245, 197, 66, 0.1);
+  border-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
+}
+
+/* JS触发的触摸状态 */
+.contact-form-section .service-edu-intro.touch-active {
+  background: rgba(245, 197, 66, 0.1) !important;
+  border-color: var(--secondary-color) !important;
+  transform: translateY(-1px) !important;
+  transition: all 0.1s ease !important;
+}
+
+/* JS触发的点击状态 */
+.contact-form-section .service-edu-intro.clicked {
+  background: rgba(245, 197, 66, 0.15) !important;
+  border-color: var(--secondary-color) !important;
+  transform: scale(0.98) !important;
+  transition: all 0.1s ease !important;
+}
+
+.contact-form-section .edu-link-text {
+  color: var(--secondary-color);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s ease;
+}
+
+.contact-form-section .service-edu-intro:hover .edu-link-text,
+.contact-form-section .service-edu-intro.touch-active .edu-link-text,
+.contact-form-section .service-edu-intro.clicked .edu-link-text {
+  color: var(--secondary-dark);
+}
+
 /* 网页端悬停效果 */
 .service-edu-intro:hover {
   background: rgba(245, 197, 66, 0.1);
