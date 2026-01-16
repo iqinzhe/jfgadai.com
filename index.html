@@ -207,7 +207,7 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
       </div>
     </section>
     
-        <!-- 右上：联系我们表单 -->
+    <!-- 右上：联系我们表单 -->
     <section class="grid-item contact-form-section" id="contact-form">
       <h2>📝 Konsultasi Gratis</h2>
       
@@ -229,6 +229,40 @@ dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercay
       <p class="form-intro">Isi form ini untuk mendapatkan penawaran khusus dan konsultasi gratis!</p>
       
       <form class="contact-form" id="consultationForm" method="POST">
+        <div class="form-group">
+          <label for="name">Nama Lengkap</label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama Anda" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Nomor WhatsApp</label>
+          <input type="tel" id="phone" name="phone" class="form-control" placeholder="Contoh: 081234567890" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="item">Jenis Barang</label>
+          <select id="item" name="item" class="form-control" required>
+            <option value="">-- Pilih jenis barang --</option>
+            <option value="emas">Emas/Perhiasan</option>
+            <option value="elektronik">Elektronik (HP, Laptop, dll)</option>
+            <option value="kendaraan">Kendaraan (Motor, Mobil)</option>
+            <option value="lainnya">Barang Berharga Lainnya</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Catatan/Kebutuhan Khusus</label>
+          <textarea id="message" name="message" class="form-control" rows="3" placeholder="Deskripsi singkat barang atau kebutuhan khusus..."></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">
+          📩 Dapatkan Penawaran Spesial
+        </button>
+        
+        <p class="form-disclaimer">* Dengan mengisi form, Anda berhak mendapatkan konsultasi gratis dan potongan biaya administrasi 20%!</p>
+      </form>
+    </section>
+      
         <!-- 原有表单内容保持不变 -->
         <div class="form-group">
           <label for="name">Nama Lengkap</label>
