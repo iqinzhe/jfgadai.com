@@ -63,30 +63,6 @@
   margin-right: auto;
 }
 
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.stat-number {
-  font-size: 2.5rem;
-}
-
-.stat-text {
-  color: var(--text-light);
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
 /* 进度条 */
 .progress-bar {
   display: flex;
