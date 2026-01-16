@@ -1,273 +1,105 @@
 /* ===============================
-   Edukasi Gadai – Reading Optimization
+   手风琴式内容折叠 - Edukasi Gadai
 ================================ */
-body {
-  line-height: 1.7;
-  background-color: #f5f5f5; /* 或其他你首页的背景色 */
-  color: #333;
-}
- {
-  line-height: 1.7;
-}
 
-/* 控制正文最大阅读宽度 */
-.edu-content {
+/* 大纲容器 */
+.edu-outline {
   max-width: 760px;
-  margin: 0 auto;
+  margin: 20px auto 30px;
+  padding: 0 10px;
 }
 
-/* 标题层级更清晰 */
-.edu-content h1 {
-  margin-bottom: 12px;
-}
-
-.edu-content h2 {
-  margin-top: 36px;
-  margin-bottom: 12px;
-  padding-left: 10px;
-  border-left: 4px solid currentColor;
-}
-
-.edu-content h3 {
-  margin-top: 20px;
-  margin-bottom: 6px;
-}
-
-/* 段落呼吸感 */
-.edu-content p {
-  margin-bottom: 12px;
-}
-
-/* FAQ 块“卡片化”，降低干扰 */
-.edu-faq article {
-  padding: 14px 16px;
-  margin-bottom: 14px;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 6px;
-}
-
-/* FAQ 问题突出 */
-.edu-faq h3 {
-  margin-top: 0;
-  font-size: 1.05em;
-}
-
-/* 列表更易扫读 */
-.edu-content ul {
-  padding-left: 18px;
-}
-
-.edu-content li {
-  margin-bottom: 6px;
-}
-
-/* 底部总结区 */
-.edu-summary {
-  margin-top: 40px;
-  padding: 16px;
-  background: rgba(0,0,0,0.03);
-  border-radius: 6px;
-}
-
-/* 手机端再压缩行宽 */
-@media (max-width: 768px) {
-  .edu-content {
-    padding: 0 10px;
-  }
-}
-
-/* 增大整体阅读文字 */
-.edu-content p {
-  font-size: 1.3rem;
-  line-height: 1.8;
-}
-
-.edu-content h2 {
-  font-size: 1.7rem;
-  font-weight: 600;
-}
-
-.edu-content h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-.edu-faq h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-.edu-content li {
-  font-size: 1.3rem;
-  line-height: 1.7;
-}
-
-.edu-faq article {
-  font-size: 1.3rem;
-}
-
-.edu-faq p {
-  font-size: 1.2rem;
-  line-height: 1.8;
-}
-
-.edu-summary {
-  font-size: 1.3rem;
-  line-height: 1.8;
-}
-
-.edu-summary h2,
-.edu-summary h3 {
+/* 大纲标题 */
+.outline-title {
   font-size: 1.6rem;
-  margin-top: 0;
-}
-
-/* 可选：整体基础增大 */
-body {
-  font-size: 23px;
-}
-
-@media (max-width: 768px) {
-  body {
-    font-size: 23px;
-  }
-}
-/* ==================== 页脚优化 ==================== */
-footer {
-  background: rgba(11, 44, 74, 0.9);
-  margin-top: var(--spacing-md);
-  padding: var(--spacing-md) 0 var(--spacing-sm);
-  border-top: 2px solid var(--secondary-color);
-}
-
-.footer-content {
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #2c3e50;
   text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  border-bottom: 2px solid #eaeaea;
+  padding-bottom: 10px;
 }
 
-.copyright {
-  font-size: 1.15rem;
-  margin-bottom: 0.3rem;
-  line-height: 1.1;
+/* 手风琴容器 */
+.accordion {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  background: white;
 }
 
-.highlight {
-  color: var(--secondary-color);
-  font-weight: bold;
+/* 每个手风琴项 */
+.accordion-item {
+  border-bottom: 1px solid #eaeaea;
 }
 
-.company-info {
-  color: var(--text-muted);
-  margin-bottom: 0.8rem;
-  font-size: 1rem;
-  line-height: 1.25;
-  padding: 0 0.5rem;
+/* 最后一个项无边框 */
+.accordion-item:last-child {
+  border-bottom: none;
 }
 
-/* 联系电话布局 - 单个居中显示 */
-.contact-info {
+/* 手风琴标题（可点击部分） */
+.accordion-header {
+  padding: 18px 20px;
+  background: #f8f9fa;
+  cursor: pointer;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin: 0.5rem auto;
-  padding: 0.4rem 0;
-  max-width: 550px;
-}
-
-/* 联系电话的样式 - 添加可见背景框 */
-.contact-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--text-light);
-  text-decoration: none;
   transition: all 0.3s ease;
-  font-size: 1rem;
-  padding: 6px 12px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  white-space: nowrap;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
-/* 鼠标悬停效果 */
-.contact-link:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: var(--secondary-color);
-  color: var(--secondary-color);
-  transform: translateY(-2px);
+.accordion-header:hover {
+  background: #e9ecef;
 }
 
+.accordion-header.active {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+/* 箭头图标 */
+.accordion-arrow {
+  transition: transform 0.3s ease;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.accordion-header.active .accordion-arrow {
+  transform: rotate(180deg);
+  color: #1976d2;
+}
+
+/* 手风琴内容 */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  background: white;
+}
+
+/* 内容内部样式 */
+.accordion-content .edu-content {
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+/* 淡入动画 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
 /* 移动端适配 */
 @media (max-width: 768px) {
-  .contact-info {
-    gap: 0.8rem; /* 移动端间距更小 */
+  .accordion-header {
+    padding: 16px;
+    font-size: 1.15rem;
   }
   
-  .contact-link {
-    padding: 5px 5px;
-    font-size: 0.9rem;
-  }
-  
-  footer {
-    padding: var(--spacing-sm) 0;
-  }
-  
-  .copyright {
-    font-size: 1.1rem;
+  .accordion-content .edu-content {
+    padding: 16px;
   }
 }
-
-/* 极窄屏幕（如手机竖屏）下的适配 */
-@media (max-width: 480px) {
-  .contact-info {
-    flex-direction: column; /* 竖排排列 */
-    gap: 0.5rem;
-  }
-  
-  .contact-link {
-    width: 100%; /* 占满宽度 */
-    justify-content: center; /* 内容居中 */
-    padding: 8px 15px; /* 增大内边距便于点击 */
-  }
-}
-
-/* 落地页信任区块（广告审核加分） */
-.trust-box {
-  margin: 1.5rem 0 1rem;
-  padding: 1rem 1.2rem;
-  background: rgba(15, 76, 129, 0.35);
-  border: 1px solid rgba(245, 197, 66, 0.35);
-  border-radius: 12px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.8rem;
-  text-align: center;
-}
-
-.trust-item {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.4;
-}
-
-.trust-item strong {
-  color: #f5c542;
-  font-weight: 600;
-}
-
-@media (max-width: 768px) {
-  .trust-box {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-
-
-
-
-
