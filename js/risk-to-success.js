@@ -16,42 +16,38 @@ function initCaseToggles() {
   const caseHeaders = document.querySelectorAll('.case-header-toggle');
   
   caseHeaders.forEach(header => {
-    header.addEventListener('click', function() {
+    header.addEventListener('click', function(e) {
+      e.stopPropagation();
       const caseCard = this.closest('.case-card');
-      const isExpanded = caseCard.classList.contains('expanded');
       
-      // 如果点击的是已展开的卡片，则关闭
-      if (isExpanded) {
+      // 切换展开/收起状态
+      if (caseCard.classList.contains('expanded')) {
         caseCard.classList.remove('expanded');
       } else {
-        // 关闭其他已展开的卡片
-        document.querySelectorAll('.case-card.expanded').forEach(expandedCard => {
-          expandedCard.classList.remove('expanded');
-        });
-        
         // 展开当前卡片
         caseCard.classList.add('expanded');
-        
-        // 滚动到卡片位置（如果不在视图中）
-        const rect = caseCard.getBoundingClientRect();
-        if (rect.top < 100 || rect.bottom > window.innerHeight - 100) {
-          caseCard.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center' 
-          });
-        }
       }
     });
   });
   
-  // 默认展开第一个风险案例和第一个成功案例
+  // 电脑端默认全部收起，手机端默认展开第一个案例
   setTimeout(() => {
-    const firstRiskCase = document.querySelector('.risk-cases .case-card');
-    const firstSuccessCase = document.querySelector('.success-cases .case-card');
+    const isMobile = window.innerWidth <= 768;
     
-    if (firstRiskCase) firstRiskCase.classList.add('expanded');
-    if (firstSuccessCase) firstSuccessCase.classList.add('expanded');
-  }, 500);
+    if (isMobile) {
+      // 手机端：展开第一个风险案例和第一个成功案例
+      const firstRiskCase = document.querySelector('.risk-cases .case-card');
+      const firstSuccessCase = document.querySelector('.success-cases .case-card');
+      
+      if (firstRiskCase) firstRiskCase.classList.add('expanded');
+      if (firstSuccessCase) firstSuccessCase.classList.add('expanded');
+    } else {
+      // 电脑端：全部收起
+      document.querySelectorAll('.case-card').forEach(card => {
+        card.classList.remove('expanded');
+      });
+    }
+  }, 300);
 }
 
 /**
@@ -106,3 +102,8 @@ window.riskToSuccess = {
   expandAllCases,
   collapseAllCases
 };
+
+// 添加窗口大小变化监听，重新设置默认状态
+window.addEventListener('resize', function() {
+  setTimeout(initCaseToggles, 100);
+});
