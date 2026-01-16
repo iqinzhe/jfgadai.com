@@ -154,3 +154,30 @@ navButtons.forEach(button => {
     }
   }
 });
+
+// 防误触导航处理 - 简化版
+document.addEventListener('DOMContentLoaded', function() {
+  const navButtons = document.querySelectorAll('.edu-navigation-btn');
+  
+  navButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      const url = this.getAttribute('data-url');
+      if (url) {
+        // 添加点击反馈
+        this.style.transform = 'scale(0.95)';
+        this.style.backgroundColor = 'rgba(245, 197, 66, 0.3)';
+        
+        setTimeout(() => {
+          window.location.href = url;
+        }, 150);
+      }
+    });
+    
+    // 移除旧的onclick事件
+    const parentContent = this.closest('.service-edu-content');
+    if (parentContent) {
+      parentContent.style.cursor = 'default';
+    }
+  });
+});
