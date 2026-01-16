@@ -475,3 +475,84 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==================== 修复冲突样式 ==================== */
+
+/* 确保手风琴内的 .edu-content 样式正确 */
+.accordion-content .edu-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 0 0 12px 12px;
+  color: #333;
+}
+
+/* 覆盖原来 <style> 标签中的部分样式，避免冲突 */
+.accordion-content .edu-content h1 {
+  color: #0b2c4a;
+  border-bottom: 3px solid #2ecc71;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.accordion-content .edu-content h2 {
+  color: #2c3e50;
+  margin-top: 2.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px dashed #ddd;
+}
+
+/* 确保手风琴内容中的段落样式正确 */
+.accordion-content .edu-content p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* 修复信息框在手风琴内的显示 */
+.accordion-content .info-box,
+.accordion-content .warning-box,
+.accordion-content .tip-box {
+  color: #2c3e50 !important;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* 修复表格在手风琴内的显示 */
+.accordion-content .comparison-table {
+  width: 100%;
+  margin: 1.5rem 0;
+  color: #333 !important;
+}
+
+/* 手风琴内容中的返回按钮 */
+.accordion-content .back-to-home {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  background: #0b2c4a;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s;
+  font-size: 1.2rem;
+}
+
+.accordion-content .back-to-home:hover {
+  background: #2c3e50;
+}
+
+/* 移动端适配补充 */
+@media (max-width: 768px) {
+  .accordion-content .edu-content {
+    padding: 1.5rem;
+  }
+  
+  .accordion-content .back-to-home {
+    padding: 0.7rem 1.2rem;
+    font-size: 1.1rem;
+  }
+}
+
