@@ -212,7 +212,7 @@
 
 /* ==================== 案例卡片下拉样式 ==================== */
 
-/* 案例网格布局 */
+/* 案例网格布局 - 电脑端默认2列 */
 .cases-grid {
   display: grid;
   /* 电脑端：2x2网格布局 */
@@ -616,7 +616,7 @@
 
 /* ========================== 响应式设计 ========================== */
 
-/* 中等屏幕（平板横屏） */
+/* 平板设备（769px-1024px） */
 @media (min-width: 769px) and (max-width: 1024px) {
   .hero-title {
     font-size: 2.2rem;
@@ -638,14 +638,27 @@
   }
 }
 
-/* 移动设备（768px以下） */
+/* 移动设备（768px及以下） - 单列布局 */
 @media (max-width: 768px) {
   /* 强制所有网格单列布局 */
-  .cases-grid,
-  .factors-grid,
-  .cta-options {
-    grid-template-columns: 1fr !important;
+  .cases-grid {
+    grid-template-columns: 1fr;
     gap: var(--spacing-md);
+  }
+  
+  .factors-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .cta-options {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  /* 成功案例部分也强制单列 */
+  .success-cases .cases-grid {
+    grid-template-columns: 1fr;
   }
   
   /* 页面英雄区域 */
@@ -721,12 +734,12 @@
   
   .case-scenario p, .case-process p, .case-lesson p,
   .case-process li, .case-outcome p, .case-quote blockquote {
-    font-size: 1rem !important;
-    line-height: 1.5 !important;
+    font-size: 1rem;
+    line-height: 1.5;
   }
   
   .case-process h4, .case-outcome h4, .case-lesson h4 {
-    font-size: 1rem !important;
+    font-size: 1rem;
   }
   
   /* 按钮 */
@@ -747,7 +760,7 @@
   }
 }
 
-/* 小屏幕手机（480px以下） */
+/* 小屏幕手机（480px及以下） */
 @media (max-width: 480px) {
   .hero-title {
     font-size: 1.5rem;
@@ -791,7 +804,7 @@
   /* 字体大小进一步优化 */
   .case-scenario p, .case-process p, .case-lesson p,
   .case-process li, .case-outcome p {
-    font-size: 0.95rem !important;
+    font-size: 0.95rem;
   }
   
   /* 卡片内边距 */
@@ -817,7 +830,7 @@
   }
 }
 
-/* 超小屏幕手机（360px以下） */
+/* 超小屏幕手机（360px及以下） */
 @media (max-width: 360px) {
   .case-header-toggle h3 {
     font-size: 0.95rem;
@@ -825,7 +838,7 @@
   
   .case-scenario p, .case-process p, .case-lesson p,
   .case-process li, .case-outcome p {
-    font-size: 0.9rem !important;
+    font-size: 0.9rem;
   }
   
   .btn-primary, .btn-secondary {
@@ -835,22 +848,14 @@
   }
 }
 
-/* 成功案例部分特别处理（只有2个案例） */
-.success-cases .cases-grid {
-  /* 成功案例只有2个，所以电脑端也可以并排显示 */
-  grid-template-columns: repeat(2, 1fr);
-}
-
-/* 当只有2个案例时，确保对齐美观 */
+/* 成功案例部分特别处理（只有2个案例） - 电脑端 */
 @media (min-width: 769px) {
+  .success-cases .cases-grid {
+    /* 成功案例只有2个，电脑端并排显示 */
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
   .success-cases .case-card {
     min-height: 150px;
-  }
-}
-
-/* 移动端成功案例也单列 */
-@media (max-width: 768px) {
-  .success-cases .cases-grid {
-    grid-template-columns: 1fr !important;
   }
 }
