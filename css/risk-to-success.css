@@ -210,202 +210,7 @@
   line-height: 1.6;
 }
 
-/* 自我评估工具 */
-.self-assessment-section {
-  margin-bottom: var(--spacing-xxl);
-}
-
-.assessment-card {
-  background: rgba(15, 76, 129, 0.4);
-  backdrop-filter: blur(10px);
-  border-radius: var(--border-radius-lg);
-  padding: var(--spacing-xl);
-  border: 2px solid rgba(245, 197, 66, 0.3);
-  box-shadow: var(--shadow-lg);
-}
-
-.assessment-header {
-  text-align: center;
-  margin-bottom: var(--spacing-xl);
-}
-
-.assessment-header h2 {
-  color: var(--secondary-color);
-  font-size: 1.6rem;
-  margin-bottom: var(--spacing-sm);
-}
-
-.assessment-header p {
-  color: var(--text-light);
-  font-size: 1.05rem;
-}
-
-.question-group {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: var(--border-radius);
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
-  border-left: 4px solid var(--primary-color);
-  transition: all 0.3s ease;
-}
-
-.question-group.active {
-  border-left-color: var(--secondary-color);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.question-group h3 {
-  color: var(--light-color);
-  margin-bottom: var(--spacing-md);
-  font-size: 1.2rem;
-}
-
-.option-group {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--spacing-md);
-}
-
-.option-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--border-radius);
-  padding: var(--spacing-md);
-  color: var(--text-light);
-  font-size: 0.95rem;
-  text-align: left;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.option-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(245, 197, 66, 0.3);
-  transform: translateY(-2px);
-}
-
-.option-btn:active {
-  transform: translateY(0);
-}
-
-.option-btn[data-value="good"] {
-  border-left: 4px solid #4CAF50;
-}
-
-.option-btn[data-value="warning"] {
-  border-left: 4px solid #FFC107;
-}
-
-.option-btn[data-value="bad"] {
-  border-left: 4px solid #F44336;
-}
-
-.result-container {
-  background: rgba(15, 76, 129, 0.6);
-  border-radius: var(--border-radius);
-  padding: var(--spacing-xl);
-  border: 2px solid var(--secondary-color);
-  margin-top: var(--spacing-lg);
-  animation: slideUp 0.5s ease;
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.result-content {
-  text-align: center;
-}
-
-.result-title {
-  color: var(--secondary-color);
-  font-size: 1.5rem;
-  margin-bottom: var(--spacing-md);
-}
-
-.result-message {
-  color: var(--text-light);
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: var(--spacing-xl);
-  padding: var(--spacing-md);
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: var(--border-radius);
-}
-
-.result-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--spacing-md);
-}
-
-.btn-primary, .btn-secondary, .btn-tertiary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.9rem 1.8rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  min-width: 200px;
-  text-align: center;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
-  color: var(--dark-color);
-}
-
-.btn-primary:hover {
-  background: linear-gradient(135deg, var(--secondary-dark), var(--secondary-color));
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(245, 197, 66, 0.4);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--light-color);
-  border: 2px solid var(--secondary-color);
-}
-
-.btn-secondary:hover {
-  background: rgba(245, 197, 66, 0.1);
-  transform: translateY(-3px);
-}
-
-.btn-tertiary {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--text-light);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.btn-tertiary:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: var(--secondary-color);
-  color: var(--secondary-color);
-}
-
-.assessment-note {
-  text-align: center;
-  margin-top: var(--spacing-lg);
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-/* 案例部分 */
-.cases-section {
-  margin-bottom: var(--spacing-xxl);
-}
-
+/* 案例卡片下拉样式 */
 .cases-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -416,12 +221,14 @@
 .case-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: var(--border-radius-lg);
-  padding: var(--spacing-lg);
+  padding: 0;
   border: 2px solid transparent;
   transition: all 0.3s ease;
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
 }
 
 .risk-card {
@@ -444,11 +251,29 @@
   box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
 }
 
-.case-header {
+/* 案例头部下拉切换 */
+.case-header-toggle {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-md);
+  cursor: pointer;
+  padding: var(--spacing-md) var(--spacing-lg);
+  margin: 0;
+  transition: all 0.3s ease;
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+  min-height: 80px;
+}
+
+.case-header-toggle:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.case-header-toggle h3 {
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: var(--light-color);
+  flex: 1;
 }
 
 .case-label {
@@ -458,6 +283,9 @@
   border-radius: 20px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+  width: fit-content;
 }
 
 .risk-label {
@@ -470,27 +298,47 @@
   color: #4CAF50;
 }
 
-.case-icon {
-  font-size: 1.5rem;
+.toggle-icon {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  transition: transform 0.3s ease;
+  margin-left: var(--spacing-sm);
+  flex-shrink: 0;
+  min-width: 20px;
+  text-align: center;
 }
 
-.case-card h3 {
-  color: var(--light-color);
-  font-size: 1.3rem;
-  margin-bottom: var(--spacing-md);
-  line-height: 1.4;
-  flex-grow: 0;
+.case-card.expanded .toggle-icon {
+  transform: rotate(180deg);
 }
 
+/* 案例内容区域 */
+.case-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+  padding: 0 var(--spacing-lg);
+}
+
+.case-card.expanded .case-content {
+  max-height: 2000px;
+  opacity: 1;
+  padding: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 案例内容细节 */
 .case-scenario, .case-process, .case-outcome, .case-lesson, .case-quote {
   margin-bottom: var(--spacing-md);
-  flex-grow: 0;
 }
 
 .case-scenario p, .case-process p, .case-lesson p {
   color: var(--text-light);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
 }
 
 .case-scenario strong {
@@ -499,8 +347,9 @@
 
 .case-process h4, .case-outcome h4, .case-lesson h4 {
   color: var(--secondary-color);
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-bottom: var(--spacing-sm);
+  margin-top: var(--spacing-md);
 }
 
 .case-process ul, .case-process ol {
@@ -510,8 +359,9 @@
 }
 
 .case-process li {
-  margin-bottom: 0.3rem;
-  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
 }
 
 .outcome-bad, .outcome-warning, .outcome-good {
@@ -544,6 +394,8 @@
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
   font-style: italic;
   color: var(--text-light);
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 /* 成功因素部分 */
@@ -691,6 +543,44 @@
   line-height: 1.5;
 }
 
+.btn-primary, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  min-width: 200px;
+  text-align: center;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+  color: var(--dark-color);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--secondary-dark), var(--secondary-color));
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(245, 197, 66, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--light-color);
+  border: 2px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background: rgba(245, 197, 66, 0.1);
+  transform: translateY(-3px);
+}
+
 .cta-note {
   margin-top: var(--spacing-xl);
   padding: var(--spacing-lg);
@@ -745,10 +635,6 @@
     text-align: center;
   }
   
-  .option-group {
-    grid-template-columns: 1fr;
-  }
-  
   .cases-grid {
     grid-template-columns: 1fr;
   }
@@ -761,17 +647,40 @@
     grid-template-columns: 1fr;
   }
   
-  .result-actions {
+  .case-header-toggle {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    min-height: auto;
+    padding: var(--spacing-sm);
   }
   
-  .btn-primary, .btn-secondary, .btn-tertiary {
+  .toggle-icon {
+    align-self: flex-end;
+    margin-top: -1.5rem;
+    position: relative;
+    top: -10px;
+  }
+  
+  .case-header-toggle h3 {
+    font-size: 1.1rem;
+    padding-right: 30px;
+  }
+  
+  .case-content {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .case-card.expanded .case-content {
+    padding: var(--spacing-md);
+  }
+  
+  .btn-primary, .btn-secondary {
     width: 100%;
     max-width: 300px;
   }
   
-  .assessment-card, .case-card, .factor-card, .cta-card {
+  .factor-card, .cta-card {
     padding: var(--spacing-lg);
   }
 }
@@ -794,16 +703,36 @@
     font-size: 1.4rem;
   }
   
-  .option-btn {
+  .case-header-toggle {
     padding: var(--spacing-sm);
-    font-size: 0.9rem;
   }
   
-  .assessment-card, .case-card, .factor-card, .cta-card {
+  .case-header-toggle h3 {
+    font-size: 1rem;
+  }
+  
+  .case-content {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .case-card.expanded .case-content {
+    padding: var(--spacing-sm);
+  }
+  
+  .case-scenario p, .case-process p, .case-lesson p,
+  .case-process li, .case-outcome p {
+    font-size: 1rem !important;
+  }
+  
+  .factor-card, .cta-card {
     padding: var(--spacing-md);
   }
   
   .cta-content h2 {
     font-size: 1.8rem;
+  }
+  
+  .cta-option {
+    padding: var(--spacing-lg);
   }
 }
