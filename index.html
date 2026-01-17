@@ -132,7 +132,7 @@ function gtag_report_conversion(url) {
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- ✅ 新增：纯文本内容区块，直接放在body开头，仅对搜索引擎可见 -->
+<!-- ✅ SEO 纯文本内容区块 -->
 <div class="seo-text-content" style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden;">
     <h1>JF Gadai: Layanan Gadai Terpercaya di Bangil, Beji, dan Gempol</h1>
     <p>JF Gadai melayani kebutuhan gadai masyarakat di wilayah 
@@ -140,190 +140,217 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Kami siap membantu proses gadai motor, emas, dan barang berharga lainnya 
 dengan cepat dan aman.JF Gadai adalah penyedia layanan gadai resmi dan terpercaya yang melayani wilayah Bangil, Beji, dan Gempol. Kami mengkhususkan diri dalam <strong>gadai emas</strong>, <strong>gadai perhiasan</strong>, <strong>gadai kendaraan bermotor</strong> (motor dan mobil), serta <strong>gadai barang elektronik</strong> seperti HP, laptop, dan tablet. Proses di JF Gadai dirancang untuk cepat, aman, dan transparan dengan bunga kompetitif. Kami menawarkan penilaian barang yang adil, pencairan dana kilat, dan layanan perpanjangan gadai yang fleksibel. Staf profesional kami siap memberikan konsultasi gratis untuk kebutuhan pinjaman tunai Anda. Keamanan barang jaminan dan kerahasiaan data pelanggan adalah prioritas utama kami. Hubungi JF Gadai hari juga untuk solusi keuangan yang andal.</p>
 </div>
-<!-- ✅ 新增结束 -->
 
   <!-- 全屏横幅 -->
   <section class="full-banner">
     <img src="images/101.jpeg" alt="JF Gadai - Tetap Maju di Saat Sulit" loading="lazy">
   </section>
 
-  <!-- 六宫格 -->
+  <!-- 六宫格布局 -->
   <main class="container asymmetric-grid">
 
     <!-- 左上：知识与服务 -->   
     <section class="grid-item our-services" id="our-services">
-      <h2>🛠️ Layanan Kami</h2>
-  <!-- ✅ 修改：防误触导航设计 -->
-<div class="service-edu-container">
-  <div class="service-edu-content">
-    <p>
-     Keamanan dan transparansi adalah prioritas kami. Kunjungi halaman edukasi gadai.
-    </p>
-    <button class="edu-navigation-btn" data-url="/edukasi-gadai.html">
-      📘 Pelajari lebih lanjut tentang prinsip gadai yang aman →
-    </button>
-  </div>
-</div>
-
-      <ul class="service-list">
-        <!-- ✅ 服务项目 -->
-        <li><span class="list-icon">💎</span> Gadai Emas & Perhiasan</li>
-        <li><span class="list-icon">📱</span> Gadai Elektronik</li>
-        <li><span class="list-icon">🏍️</span> Gadai Kendaraan</li>
-        <li><span class="list-icon">💍</span> Barang Berharga Lainnya</li>
-        <li><span class="list-icon">⚡</span> Pencairan Kilat</li>
-        <li><span class="list-icon">🔄</span> Perpanjangan Gadai</li>
-      </ul>
+      <div class="unified-card fade-in delay-1">
+        <div class="card-icon">🛠️</div>
+        <h3 class="card-title">Layanan Lengkap Kami</h3>
+        <p class="card-desc">
+          Solusi gadai terpercaya untuk berbagai kebutuhan Anda.
+          <br><span class="card-highlight">Proses cepat, aman, dan transparan.</span>
+        </p>
+        
+        <ul class="card-list">
+          <li><span class="list-icon">💎</span> Gadai Emas & Perhiasan</li>
+          <li><span class="list-icon">📱</span> Gadai Elektronik</li>
+          <li><span class="list-icon">🏍️</span> Gadai Kendaraan</li>
+          <li><span class="list-icon">⚡</span> Pencairan Kilat</li>
+        </ul>
+        
+        <a href="https://wa.me/6289515692586?text=Halo%20JF%20Gadai,%20saya%20ingin%20konsultasi%20tentang%20layanan%20gadai" 
+           class="card-cta-btn" 
+           target="_blank" 
+           rel="noopener"
+           onclick="gtag_report_conversion('https://wa.me/6289515692586?text=Halo%20JF%20Gadai,%20saya%20ingin%20konsultasi%20tentang%20layanan%20gadai')">
+          <span>💬 Konsultasi Gratis Sekarang</span>
+        </a>
+      </div>
     </section>
     
     <!-- 中间上方：摩托车评估系统 -->
     <section class="grid-item assessment-system" id="assessment-system">
-      <div class="assessment-card fade-in delay-3">
-        <div class="assessment-icon">🏍️</div>
-        <h3>Penilaian Online Motor Gratis</h3>
-        <p class="assessment-desc">
+      <div class="unified-card fade-in delay-2">
+        <div class="card-icon">🏍️</div>
+        <h3 class="card-title">Penilaian Online Motor Gratis</h3>
+        <p class="card-desc">
           Ketahui perkiraan nilai gadai motor Honda & Yamaha Anda dalam 3 menit!
-          <br><span class="highlight-text">Tanpa biaya, tanpa kewajiban.</span>
+          <br><span class="card-highlight">Tanpa biaya, tanpa kewajiban.</span>
         </p>
-        <a href="assessment.html" class="btn-assessment" rel="noopener">
+        <a href="assessment.html" class="card-cta-btn" rel="noopener">
           <span>🚀 Cek Nilai Motor Sekarang</span>
         </a>
-        </div>
       </div>
     </section>
     
     <!-- 右上：联系我们表单 -->
     <section class="grid-item contact-form-section" id="contact-form">
-      <h2>📝 Konsultasi Gratis</h2>
-      
-   <!-- ✅ 修改：防误触导航设计 -->
-<div class="service-edu-container">
-  <div class="service-edu-content">
-    <p>
-      Hindari risiko gagal gadai. Pelajari kasus sukses dan gagal di halaman khusus kami.
-    </p>
-    <button class="edu-navigation-btn" data-url="/risk-to-success.html">
-      📊 Pelajari dari pengalaman nyata gadai motor →
-    </button>
-  </div>
-</div>
-      
-      <p class="form-intro">Isi form ini untuk mendapatkan penawaran khusus dan konsultasi gratis!</p>
-      
-      <form class="contact-form" id="consultationForm" method="POST">
-        <div class="form-group">
-          <label for="name">Nama Lengkap</label>
-          <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama Anda" required>
-        </div>
+      <div class="unified-card fade-in delay-3">
+        <div class="card-icon">📝</div>
+        <h3 class="card-title">Konsultasi & Penawaran Spesial</h3>
+        <p class="card-desc">
+          Isi form ini untuk mendapatkan penawaran khusus dan konsultasi gratis!
+          <br><span class="card-highlight">Potongan biaya administrasi 20%!</span>
+        </p>
         
-        <div class="form-group">
-          <label for="phone">Nomor WhatsApp</label>
-          <input type="tel" id="phone" name="phone" class="form-control" placeholder="Contoh: 081234567890" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="item">Jenis Barang</label>
-          <select id="item" name="item" class="form-control" required>
-            <option value="">-- Pilih jenis barang --</option>
-            <option value="emas">Emas/Perhiasan</option>
-            <option value="elektronik">Elektronik (HP, Laptop, dll)</option>
-            <option value="kendaraan">Kendaraan (Motor, Mobil)</option>
-            <option value="lainnya">Barang Berharga Lainnya</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="message">Catatan/Kebutuhan Khusus</label>
-          <textarea id="message" name="message" class="form-control" rows="3" placeholder="Deskripsi singkat barang atau kebutuhan khusus..."></textarea>
-        </div>
-        
-        <button type="submit" class="submit-btn">
-          📩 Dapatkan Penawaran Spesial
-        </button>
-        
-        <p class="form-disclaimer">* Dengan mengisi form, Anda berhak mendapatkan konsultasi gratis dan potongan biaya administrasi 20%!</p>
-      </form>
+        <form class="contact-form" id="consultationForm" method="POST" action="/submit-form">
+          <div class="form-group">
+            <label for="name">Nama Lengkap</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama Anda" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Nomor WhatsApp</label>
+            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Contoh: 081234567890" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="item">Jenis Barang</label>
+            <select id="item" name="item" class="form-control" required>
+              <option value="">-- Pilih jenis barang --</option>
+              <option value="emas">Emas/Perhiasan</option>
+              <option value="elektronik">Elektronik (HP, Laptop, dll)</option>
+              <option value="kendaraan">Kendaraan (Motor, Mobil)</option>
+              <option value="lainnya">Barang Berharga Lainnya</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Catatan/Kebutuhan Khusus</label>
+            <textarea id="message" name="message" class="form-control" rows="3" placeholder="Deskripsi singkat barang atau kebutuhan khusus..."></textarea>
+          </div>
+          
+          <button type="submit" class="card-cta-btn" style="margin-top: var(--spacing-md);">
+            📩 Dapatkan Penawaran Spesial
+          </button>
+          
+          <p class="form-disclaimer" style="margin-top: var(--spacing-sm); font-size: 0.85rem; color: var(--text-muted);">
+            * Data Anda aman dan hanya digunakan untuk konsultasi.
+          </p>
+        </form>
+      </div>
     </section>
     
     <!-- 左下：为什么选择我们 -->
     <section class="grid-item why-choose-us" id="why-choose-us">
-      <h2>⭐ Kenapa Memilih Kami?</h2>
-      <ul class="reason-list">
-        <li><span class="list-icon">✅</span> Proses cepat & transparan</li>
-        <li><span class="list-icon">✅</span> Bunga kompetitif & jelas</li>
-        <li><span class="list-icon">✅</span> Keamanan barang terjamin</li>
-        <li><span class="list-icon">✅</span> Layanan lokal terpercaya</li>
-        <li><span class="list-icon">✅</span> Fleksibel dalam pembayaran</li>
-        <li><span class="list-icon">✅</span> Privasi pelanggan dijaga</li>
-      </ul>
+      <div class="unified-card fade-in delay-4">
+        <div class="card-icon">⭐</div>
+        <h3 class="card-title">Keunggulan JF Gadai</h3>
+        <p class="card-desc">
+          Mengapa ratusan pelanggan mempercayakan kebutuhan gadai mereka kepada kami?
+        </p>
+        
+        <ul class="card-list">
+          <li><span class="list-icon">✅</span> Proses cepat & transparan</li>
+          <li><span class="list-icon">✅</span> Bunga kompetitif & jelas</li>
+          <li><span class="list-icon">✅</span> Keamanan barang terjamin</li>
+          <li><span class="list-icon">✅</span> Layanan lokal terpercaya</li>
+          <li><span class="list-icon">✅</span> Fleksibel dalam pembayaran</li>
+          <li><span class="list-icon">✅</span> Privasi pelanggan dijaga</li>
+        </ul>
+        
+        <a href="tel:+6289515692586" class="card-cta-btn">
+          <span>📞 Hubungi Kami Sekarang</span>
+        </a>
+      </div>
     </section>
     
     <!-- 中间下方：业务流程 -->
     <section class="grid-item business-process" id="business-process">
-      <h2>📋 Proses Mudah & Cepat</h2>
-      <div class="process-steps">
-        <div class="process-step">
-          <h3>Konsultasi Awal</h3>
-          <p>Hubungi kami via WhatsApp atau datang langsung untuk konsultasi. Kami akan memberikan penjelasan lengkap tentang proses dan persyaratan.</p>
+      <div class="unified-card">
+        <div class="card-icon">📋</div>
+        <h3 class="card-title">Proses Mudah & Cepat</h3>
+        <p class="card-desc">
+          Hanya 4 langkah sederhana untuk mendapatkan dana yang Anda butuhkan.
+        </p>
+        
+        <div class="process-steps">
+          <div class="process-step">
+            <h3>Konsultasi Awal</h3>
+            <p>Hubungi kami via WhatsApp atau datang langsung untuk konsultasi.</p>
+          </div>
+          <div class="process-step">
+            <h3>Penilaian Barang</h3>
+            <p>Tim ahli kami akan menilai barang Anda dengan fair dan transparan.</p>
+          </div>
+          <div class="process-step">
+            <h3>Persetujuan & Dokumen</h3>
+            <p>Setelah nilai disepakati, kami siapkan dokumen lengkap tanpa hidden cost.</p>
+          </div>
+          <div class="process-step">
+            <h3>Pencairan Dana</h3>
+            <p>Dana langsung cair! Proses cepat, aman, dan terjamin.</p>
+          </div>
         </div>
-        <div class="process-step">
-          <h3>Penilaian Barang</h3>
-          <p>Tim ahli kami akan menilai barang Anda dengan fair dan transparan. Penilaian berdasarkan kondisi pasar terkini.</p>
-        </div>
-        <div class="process-step">
-          <h3>Persetujuan & Dokumen</h3>
-          <p>Setelah nilai disepakati, kami siapkan dokumen lengkap. Semua biaya dijelaskan dengan jelas tanpa hidden cost.</p>
-        </div>
-        <div class="process-step">
-          <h3>Pencairan Dana</h3>
-          <p>Dana langsung cair! Transfer ke rekening Anda atau tunai sesuai preferensi. Proses cepat, aman, dan terjamin.</p>
-        </div>
+        
+        <a href="https://wa.me/6289515692586?text=Halo%20JF%20Gadai,%20saya%20ingin%20tahu%20lebih%20detail%20tentang%20proses%20gadai" 
+           class="card-cta-btn" 
+           target="_blank" 
+           rel="noopener">
+          <span>💬 Tanya Detail Proses</span>
+        </a>
       </div>
     </section>
     
     <!-- 右下：业务条件 -->
     <section class="grid-item conditions" id="conditions">
-      <h2>🚫 Yang Tidak Kami Terima</h2>
-      <ul class="condition-list">
-        <li><span class="list-icon">❌</span> Barang ilegal/hasil curian</li>
-        <li><span class="list-icon">❌</span> Dokumen resmi negara</li>
-        <li><span class="list-icon">❌</span> Barang rusak total</li>
-        <li><span class="list-icon">❌</span> Tanpa identitas diri</li>
-        <li><span class="list-icon">❌</span> Barang kontroversial</li>
-      </ul>
-      <p class="conditions-note">* Semua Barang Harus Dalam Kepemilikan Sah dan Bisa Dibuktikan *</p>
+      <div class="unified-card">
+        <div class="card-icon">🚫</div>
+        <h3 class="card-title">Syarat & Ketentuan</h3>
+        <p class="card-desc">
+          Untuk keamanan dan kenyamanan bersama, berikut adalah ketentuan yang berlaku.
+        </p>
+        
+        <ul class="card-list">
+          <li><span class="list-icon">❌</span> Barang ilegal/hasil curian</li>
+          <li><span class="list-icon">❌</span> Dokumen resmi negara</li>
+          <li><span class="list-icon">❌</span> Barang rusak total</li>
+          <li><span class="list-icon">❌</span> Tanpa identitas diri</li>
+          <li><span class="list-icon">❌</span> Barang kontroversial</li>
+        </ul>
+        
+        <p class="conditions-note" style="margin-top: var(--spacing-md); font-size: 0.9rem; color: var(--text-muted); text-align: center;">
+          * Semua Barang Harus Dalam Kepemilikan Sah dan Bisa Dibuktikan *
+        </p>
+        
+        <a href="/syarat-ketentuan.html" class="card-cta-btn" style="background: rgba(255, 255, 255, 0.1); color: var(--light-color); border: 2px solid var(--secondary-color);">
+          <span>📄 Baca Syarat Lengkap</span>
+        </a>
+      </div>
     </section>
   </main>
 
-<!-- 页脚 -->
-<footer id="lokasi">
-  <div class="container">
-    <div class="footer-content">
-      
-      <p class="copyright">© 2025 <span class="highlight">JF Gadai</span></p>
-      
-      <p class="company-info">Melayani area Bangil • Beji • Gempol dan sekitarnya</p>
-      
-      <a href="https://wa.me/6289515692586" 
-         target="_blank" 
-         class="contact-link" 
-         rel="noopener noreferrer"
-         aria-label="Hubungi kami via WhatsApp">
-        💬 WhatsApp: +62 895-1569-2586
-      </a>
-      
-      <p class="operating-hours">
-        ⏰ Jam kerja: 08:00-18:00 | Libur hari Sabtu dan Minggu
-      </p>
-      
-      <p class="security-note">
-        🔒 Situs ini menggunakan koneksi aman (HTTPS).
-      </p>
-      
+  <!-- 页脚 -->
+  <footer id="lokasi">
+    <div class="container">
+      <div class="footer-content">
+        <p class="copyright">© 2025 <span class="highlight">JF Gadai</span></p>
+        <p class="company-info">Melayani area Bangil • Beji • Gempol dan sekitarnya</p>
+        <a href="https://wa.me/6289515692586" 
+           target="_blank" 
+           class="contact-link" 
+           rel="noopener noreferrer"
+           aria-label="Hubungi kami via WhatsApp">
+          💬 WhatsApp: +62 895-1569-2586
+        </a>
+        <p class="operating-hours">
+          ⏰ Jam kerja: 08:00-18:00 | Libur hari Sabtu dan Minggu
+        </p>
+        <p class="security-note">
+          🔒 Situs ini menggunakan koneksi aman (HTTPS).
+        </p>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
