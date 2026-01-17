@@ -1,11 +1,10 @@
-/* edukasi-gadai.css 用途：
-   - 仅用于 Edukasi / 教育内容页面
-   - main.css 作为全局基准（颜色变量 / 按钮 / 深色体系）
-   - 本文件只负责：
-       1. 阅读友好的浅背景
-       2. 清晰的文字对比
-       3. Accordion（手风琴）交互与可读性*/
-/* ==================== 页面作用域 ==================== */
+/* =====================================================
+   edukasi-gadai.css  （FINAL · 冻结版）
+   作用范围：Edukasi / 教育内容页面
+   依赖：main.css（颜色变量 / 字体 / 深色体系）
+   ===================================================== */
+
+/* ==================== 页面基础作用域 ==================== */
 
 .edu-content,
 main.container {
@@ -13,7 +12,7 @@ main.container {
   color: #2c3e50;
 }
 
-/* ==================== 基础正文排版 ==================== */
+/* ==================== 正文排版 ==================== */
 
 .edu-content p,
 .edu-content li,
@@ -27,7 +26,7 @@ main.container {
 /* ==================== 标题层级 ==================== */
 
 .edu-content h1 {
-  color: #0b2c4a;
+  color: var(--dark-color);
   font-size: 2rem;
   margin-bottom: 1rem;
   text-align: center;
@@ -51,7 +50,7 @@ main.container {
   margin: 1rem 0 0.6rem;
 }
 
-/* ==================== Edukasi Header（标题区） ==================== */
+/* ==================== Edukasi Header ==================== */
 
 .edu-header {
   position: relative;
@@ -59,20 +58,18 @@ main.container {
   padding: 2rem 1rem 1.5rem;
 }
 
-/* 副标题 */
 .edu-header .edu-subtitle {
   margin-top: 0.5rem;
-  text-align: center;
-  color: #e6f3fb;
+  color: var(--text-light);
 }
 
-/* ← 返回首页：左上角固定 */
+/* 返回首页（左上角） */
 .edu-header .back-home {
   position: absolute;
   left: 1rem;
   top: 1.2rem;
   font-size: 0.95rem;
-  color: #cfe3f2;
+  color: var(--text-muted);
   text-decoration: none;
 }
 
@@ -81,13 +78,13 @@ main.container {
   text-decoration: underline;
 }
 
-/* ==================== 信息 / 提示框 ==================== */
+/* ==================== 信息提示框 ==================== */
 
 .info-box,
 .tip-box,
 .warning-box {
   background: #ffffff;
-  border-left: 4px solid #0f4c81;
+  border-left: 4px solid var(--primary-color);
   padding: 1rem 1.2rem;
   margin: 1.2rem 0;
   border-radius: 8px;
@@ -100,20 +97,27 @@ main.container {
 /* ==================== Accordion（手风琴） ==================== */
 
 .accordion-item {
-  border-bottom: 1px solid #e0e6ed;
+  margin-bottom: 0.6rem;
 }
 
-/* 标题：默认（未展开） */
+/* 闭合状态标题（更大、更深、更像条目） */
 .accordion-header {
   cursor: pointer;
-  padding: 1rem;
-  font-weight: 600;
-  color: #1f3a4d;
-  background: #ffffff;
+  padding: 1rem 1.1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  background: #f1f5f9;
+  border-radius: 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* hover 提示 */
+.accordion-header:hover {
+  background: #e2ebf3;
 }
 
 /* 去除 + / −（只保留箭头） */
@@ -121,7 +125,7 @@ main.container {
   content: none !important;
 }
 
-/* 箭头旋转 */
+/* 箭头动画 */
 .accordion-header .arrow {
   transition: transform 0.3s ease;
 }
@@ -132,11 +136,12 @@ main.container {
   overflow: hidden;
   transition: max-height 0.35s ease;
   background: #ffffff;
+  border-radius: 0 0 6px 6px;
 }
 
 /* 展开状态 */
 .accordion-item.active .accordion-header {
-  background: #0f4c81;
+  background: var(--primary-color);
   color: #ffffff;
 }
 
@@ -148,13 +153,13 @@ main.container {
   max-height: 1200px;
 }
 
-/* 内容文字 */
+/* 展开内容文字（阅读安全下限） */
 .accordion-content p,
 .accordion-content li {
+  font-size: 1.05rem;
+  line-height: 1.75;
   color: #2c3e50;
-  line-height: 1.7;
-  font-size: 1rem;
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 1.1rem;
 }
 
 /* ==================== 表格 ==================== */
@@ -183,8 +188,7 @@ main.container {
 
 .edu-content .company-info,
 .edu-content .operating-hours,
-.edu-content .security-note,
-.edu-content .edu-subtitle {
+.edu-content .security-note {
   color: #4a647a;
   font-size: 0.95rem;
 }
@@ -192,7 +196,7 @@ main.container {
 /* ==================== 链接 ==================== */
 
 .edu-content a {
-  color: #0f4c81;
+  color: var(--primary-color);
   text-decoration: underline;
 }
 
@@ -200,12 +204,10 @@ main.container {
   color: #27ae60;
 }
 
-/* ==================== 深色区块（继承 main.css） ==================== */
+/* ==================== 深色区块继承 ==================== */
 
 .edu-header,
-.edu-header *,
-.consultation-cta,
-.consultation-cta * {
+.edu-header * {
   color: #ffffff;
 }
 
@@ -220,38 +222,12 @@ main.container {
     font-size: 1.05rem;
   }
 
+  .accordion-header {
+    font-size: 1.1rem;
+  }
+
   .edu-header .back-home {
     left: 0.8rem;
     top: 1rem;
   }
 }
-
-/* ==================== Accordion 闭合态强化（最终微调） ==================== */
-
-/* 1️⃣ 闭合状态标题：字体更大、更醒目 */
-.accordion-header {
-  font-size: 1.1rem;        /* 比内容文字更大 */
-  font-weight: 700;         /* 更“标题感” */
-  color: #0b2c4a;           /* 更深的蓝，增强存在感 */
-  background: #f1f5f9;      /* 比页面背景略深，形成分块 */
-  border-radius: 6px;
-}
-
-/* 2️⃣ 每一条手风琴之间更清晰（“一条一条”的感觉） */
-.accordion-item {
-  margin-bottom: 0.6rem;
-  border-bottom: none;      /* 去掉细线，改用块感 */
-}
-
-/* 3️⃣ 闭合态 hover 提示（可点性更强） */
-.accordion-header:hover {
-  background: #e2ebf3;
-}
-
-/* 4️⃣ 展开后的内容：阅读安全线（不可再小） */
-.accordion-content p,
-.accordion-content li {
-  font-size: 1.05rem;   /* 阅读安全下限，手机端也不吃力 */
-  line-height: 1.75;    /* 明显提升可读性 */
-}
-
