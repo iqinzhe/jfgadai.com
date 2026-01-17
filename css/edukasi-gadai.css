@@ -1,4 +1,4 @@
-/* ===============================
+/* ================================
    Edukasi Gadai – Reading Optimization
 ================================ */
 
@@ -7,14 +7,117 @@ body {
   line-height: 1.7;
   background-color: #f8f9fa; /* 浅灰白色，适合阅读 */
   color: #333;
-  font-size: 23px;
+  font-size: 18px;
+}
+
+/* ================================
+   顶部导航栏修正 - 固定定位
+================================ */
+.edu-header {
+  background: linear-gradient(135deg, #0b2c4a 0%, #1a5276 100%) !important;
+  color: white;
+  padding: 0 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 9999 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-bottom: 4px solid #27ae60 !important;
+  height: 70px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.edu-header-container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+/* 标题部分 */
+.edu-header-title {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.edu-flag {
+  font-size: 28px !important;
+  display: block !important;
+  line-height: 1 !important;
+}
+
+.edu-header-text {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+.edu-header-title h1 {
+  color: white !important;
+  font-size: 1.3rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+
+.edu-subtitle {
+  color: #aed6f1 !important;
+  font-size: 0.85rem !important;
+  margin-top: 2px !important;
+  font-weight: 400 !important;
+}
+
+/* 返回按钮 */
+.back-home-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: #27ae60 !important;
+  color: white !important;
+  text-decoration: none !important;
+  padding: 8px 16px !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+  white-space: nowrap !important;
+  box-shadow: 0 3px 8px rgba(39, 174, 96, 0.3) !important;
+}
+
+.back-home-btn:hover {
+  background: #229954 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 12px rgba(39, 174, 96, 0.4) !important;
+}
+
+.btn-icon {
+  font-size: 1.1rem !important;
+}
+
+.btn-text {
+  font-size: 0.9rem !important;
+}
+
+/* 主内容区域上边距，避免被导航栏遮挡 */
+main.container {
+  padding-top: 80px !important;
+  min-height: 100vh;
 }
 
 /* 2. 手风琴功能样式 */
 /* 手风琴主容器 */
 .accordion {
   max-width: 900px;
-  margin: 30px auto 50px; /* 调整了上边距，因为移除了大纲 */
+  margin: 20px auto 50px !important;
   padding: 0 20px;
 }
 
@@ -43,7 +146,7 @@ body {
   justify-content: space-between;
   align-items: center;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
   border: none;
   position: relative;
@@ -118,144 +221,8 @@ body {
   transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   background: white;
 }
-/* ✅ 新增：顶部导航栏样式 */
-.edu-header {
-  background: linear-gradient(135deg, #0b2c4a 0%, #1a4b6d 100%);
-  color: white;
-  padding: 0.8rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border-bottom: 3px solid #2ecc71;
-}
 
-.edu-header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.edu-header-title {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.edu-header-title h1 {
-  color: white;
-  font-size: 1.5rem;
-  margin: 0;
-  padding: 0;
-  border: none;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.edu-flag {
-  font-size: 1.8rem;
-  margin-right: 0.5rem;
-  vertical-align: middle;
-}
-
-.edu-subtitle {
-  color: #a0d2ff;
-  font-size: 0.9rem;
-  margin-top: 0.2rem;
-  font-weight: 400;
-}
-
-.back-home-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.15);
-  color: white;
-  text-decoration: none;
-  padding: 0.7rem 1.5rem;
-  border-radius: 50px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  white-space: nowrap;
-}
-
-.back-home-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  border-color: #2ecc71;
-}
-
-.btn-icon {
-  font-size: 1.2rem;
-}
-
-.btn-text {
-  font-size: 0.95rem;
-}
-
-/* 响应式调整 */
-@media (max-width: 768px) {
-  .edu-header {
-    padding: 0.6rem 0;
-  }
-  
-  .edu-header-container {
-    padding: 0 1rem;
-    flex-direction: column;
-    align-items: stretch;
-    text-align: center;
-    gap: 0.8rem;
-  }
-  
-  .edu-header-title {
-    align-items: center;
-  }
-  
-  .edu-header-title h1 {
-    font-size: 1.3rem;
-  }
-  
-  .edu-subtitle {
-    font-size: 0.85rem;
-  }
-  
-  .back-home-btn {
-    align-self: center;
-    padding: 0.6rem 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .edu-header-title h1 {
-    font-size: 1.1rem;
-  }
-  
-  .back-home-btn .btn-text {
-    display: none; /* 在非常小的屏幕上只显示图标 */
-  }
-  
-  .back-home-btn {
-    padding: 0.6rem;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-  }
-  
-  .btn-icon {
-    font-size: 1.5rem;
-    margin: 0;
-  }
-}
-
-/* 手风琴内容内部继承原样式 */
+/* 手风琴内容内部样式 */
 .accordion-content .edu-content {
   padding: 30px 25px;
   animation: fadeIn 0.4s ease;
@@ -287,26 +254,68 @@ body {
 /* 标题层级更清晰 */
 .edu-content h1 {
   margin-bottom: 12px;
+  font-size: 1.8rem;
+  color: #0b2c4a;
+  border-bottom: 3px solid #2ecc71;
+  padding-bottom: 0.5rem;
 }
 
 .edu-content h2 {
-  margin-top: 36px;
+  margin-top: 30px;
   margin-bottom: 12px;
-  padding-left: 10px;
-  border-left: 4px solid currentColor;
+  font-size: 1.5rem;
+  color: #2c3e50;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px dashed #ddd;
 }
 
 .edu-content h3 {
   margin-top: 20px;
   margin-bottom: 6px;
+  font-size: 1.3rem;
+  color: #34495e;
 }
 
 /* 段落呼吸感 */
 .edu-content p {
   margin-bottom: 12px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
 }
 
-/* FAQ 块"卡片化"，降低干扰 */
+/* 信息框样式 */
+.info-box {
+  background: #e8f4fd !important;
+  border-left: 4px solid #3498db !important;
+  padding: 1.2rem !important;
+  margin: 1.5rem 0 !important;
+  border-radius: 0 8px 8px 0 !important;
+  color: #2c3e50 !important;
+  font-size: 1.1rem !important;
+}
+
+.warning-box {
+  background: #fef9e7 !important;
+  border-left: 4px solid #f39c12 !important;
+  padding: 1.2rem !important;
+  margin: 1.5rem 0 !important;
+  border-radius: 0 8px 8px 0 !important;
+  color: #2c3e50 !important;
+  font-size: 1.1rem !important;
+}
+
+.tip-box {
+  background: #eafaf1 !important;
+  border-left: 4px solid #2ecc71 !important;
+  padding: 1.2rem !important;
+  margin: 1.5rem 0 !important;
+  border-radius: 0 8px 8px 0 !important;
+  color: #2c3e50 !important;
+  font-size: 1.1rem !important;
+}
+
+/* FAQ 块"卡片化" */
 .edu-faq article {
   padding: 14px 16px;
   margin-bottom: 14px;
@@ -314,112 +323,238 @@ body {
   border-radius: 6px;
 }
 
-/* FAQ 问题突出 */
 .edu-faq h3 {
   margin-top: 0;
-  font-size: 1.05em;
+  font-size: 1.3rem;
 }
 
 /* 列表更易扫读 */
-.edu-content ul {
-  padding-left: 18px;
+.edu-content ul, .edu-content ol {
+  padding-left: 1.8rem;
+  margin-bottom: 1.5rem;
 }
 
 .edu-content li {
-  margin-bottom: 6px;
+  margin-bottom: 0.7rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
-/* 底部总结区 */
-.edu-summary {
-  margin-top: 40px;
-  padding: 16px;
-  background: rgba(0,0,0,0.03);
+/* 表格样式 */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  color: #333 !important;
+}
+
+.comparison-table th {
+  background: #f8f9fa;
+  color: #2c3e50;
+  font-weight: 600;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.comparison-table td {
+  border: 1px solid #ddd;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  color: #444 !important;
+  vertical-align: top;
+}
+
+.comparison-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.comparison-table tr:hover {
+  background-color: #f1f7fd;
+}
+
+/* 返回首页按钮 */
+.back-to-home {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  background: #0b2c4a;
+  color: white;
+  text-decoration: none;
   border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s;
+  font-size: 1.1rem;
 }
 
-/* 4. 增大整体阅读文字 */
-.edu-content p {
-  font-size: 1.3rem;
-  line-height: 1.8;
+.back-to-home:hover {
+  background: #2c3e50;
 }
 
-.edu-content h2 {
-  font-size: 1.7rem;
-  font-weight: 600;
-}
-
-.edu-content h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-.edu-faq h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-.edu-content li {
-  font-size: 1.3rem;
-  line-height: 1.7;
-}
-
-.edu-faq article {
-  font-size: 1.3rem;
-}
-
-.edu-faq p {
-  font-size: 1.2rem;
-  line-height: 1.8;
-}
-
-.edu-summary {
-  font-size: 1.3rem;
-  line-height: 1.8;
-}
-
-.edu-summary h2,
-.edu-summary h3 {
-  font-size: 1.6rem;
-  margin-top: 0;
-}
-
-/* 手机端再压缩行宽 */
+/* 4. 响应式设计 */
 @media (max-width: 768px) {
-  .edu-content {
-    padding: 0 10px;
+  /* 导航栏移动端适配 */
+  .edu-header {
+    height: 60px !important;
   }
   
-  body {
-    font-size: 23px;
+  .edu-header-container {
+    padding: 0 15px !important;
+  }
+  
+  .edu-header-title h1 {
+    font-size: 1.1rem !important;
+  }
+  
+  .edu-flag {
+    font-size: 22px !important;
+  }
+  
+  .edu-subtitle {
+    display: none !important;
+  }
+  
+  .back-home-btn {
+    padding: 6px 12px !important;
+  }
+  
+  .btn-text {
+    font-size: 0.85rem !important;
+  }
+  
+  /* 主内容上边距调整 */
+  main.container {
+    padding-top: 70px !important;
   }
   
   /* 手风琴移动端适配 */
+  .accordion {
+    padding: 0 15px;
+    margin: 15px auto 40px !important;
+  }
+  
   .accordion-header {
     padding: 18px 15px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   
   .accordion-number {
-    width: 32px;
-    height: 32px;
-    margin-right: 12px;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    font-size: 0.9rem;
   }
   
   .accordion-content .edu-content {
     padding: 20px 15px;
   }
   
+  /* 正文内容调整 */
+  .edu-content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .edu-content h2 {
+    font-size: 1.3rem;
+  }
+  
+  .edu-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .edu-content p,
+  .edu-content li {
+    font-size: 1rem;
+  }
+  
+  /* 表格响应式 */
+  .comparison-table {
+    display: block;
+    overflow-x: auto;
+    font-size: 0.85rem;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.7rem 0.5rem;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .edu-header-container {
+    padding: 0 10px !important;
+  }
+  
+  .edu-header-title h1 {
+    font-size: 1rem !important;
+  }
+  
+  .edu-flag {
+    font-size: 18px !important;
+  }
+  
+  .back-home-btn {
+    padding: 5px 10px !important;
+  }
+  
+  .btn-text {
+    font-size: 0.8rem !important;
+  }
+  
   .accordion {
-    padding: 0 15px;
+    padding: 0 10px;
+  }
+  
+  .accordion-header {
+    padding: 15px 12px;
+    font-size: 1rem;
+  }
+  
+  .edu-content h1 {
+    font-size: 1.3rem;
+  }
+  
+  .edu-content h2 {
+    font-size: 1.2rem;
+  }
+  
+  .back-to-home {
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .edu-header-title h1 {
+    font-size: 0.9rem !important;
+  }
+  
+  .back-home-btn .btn-text {
+    display: none !important;
+  }
+  
+  .back-home-btn {
+    padding: 6px !important;
+    border-radius: 50% !important;
+    width: 36px !important;
+    height: 36px !important;
+    justify-content: center !important;
+  }
+  
+  .btn-icon {
+    font-size: 1.2rem !important;
+    margin: 0 !important;
   }
 }
 
 /* 5. 页脚优化 */
 footer {
   background: rgba(11, 44, 74, 0.9);
-  margin-top: var(--spacing-md);
-  padding: var(--spacing-md) 0 var(--spacing-sm);
-  border-top: 2px solid var(--secondary-color);
+  margin-top: 40px;
+  padding: 30px 0 20px;
+  border-top: 2px solid #2ecc71;
 }
 
 .footer-content {
@@ -433,37 +568,27 @@ footer {
   font-size: 1.15rem;
   margin-bottom: 0.3rem;
   line-height: 1.1;
+  color: white;
 }
 
 .highlight {
-  color: var(--secondary-color);
+  color: #2ecc71;
   font-weight: bold;
 }
 
 .company-info {
-  color: var(--text-muted);
+  color: #aed6f1;
   margin-bottom: 0.8rem;
   font-size: 1rem;
   line-height: 1.25;
   padding: 0 0.5rem;
 }
 
-/* 联系电话布局 - 单个居中显示 */
-.contact-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0.5rem auto;
-  padding: 0.4rem 0;
-  max-width: 550px;
-}
-
-/* 联系电话的样式 - 添加可见背景框 */
 .contact-link {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: var(--text-light);
+  color: white;
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 1rem;
@@ -472,157 +597,29 @@ footer {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   white-space: nowrap;
+  margin: 5px 0;
 }
 
-/* 鼠标悬停效果 */
 .contact-link:hover {
   background: rgba(255, 255, 255, 0.2);
-  border-color: var(--secondary-color);
-  color: var(--secondary-color);
+  border-color: #2ecc71;
+  color: #2ecc71;
   transform: translateY(-2px);
 }
 
-/* 移动端适配 */
+.operating-hours,
+.security-note {
+  color: #aed6f1;
+  font-size: 0.9rem;
+  margin: 8px 0;
+}
+
 @media (max-width: 768px) {
-  .contact-info {
-    gap: 0.8rem; /* 移动端间距更小 */
-  }
-  
-  .contact-link {
-    padding: 5px 5px;
-    font-size: 0.9rem;
-  }
-  
   footer {
-    padding: var(--spacing-sm) 0;
+    padding: 20px 0 15px;
   }
   
   .copyright {
     font-size: 1.1rem;
   }
 }
-
-/* 极窄屏幕（如手机竖屏）下的适配 */
-@media (max-width: 480px) {
-  .contact-info {
-    flex-direction: column; /* 竖排排列 */
-    gap: 0.5rem;
-  }
-  
-  .contact-link {
-    width: 100%; /* 占满宽度 */
-    justify-content: center; /* 内容居中 */
-    padding: 8px 15px; /* 增大内边距便于点击 */
-  }
-}
-
-/* 落地页信任区块（广告审核加分） */
-.trust-box {
-  margin: 1.5rem 0 1rem;
-  padding: 1rem 1.2rem;
-  background: rgba(15, 76, 129, 0.35);
-  border: 1px solid rgba(245, 197, 66, 0.35);
-  border-radius: 12px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.8rem;
-  text-align: center;
-}
-
-.trust-item {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.4;
-}
-
-.trust-item strong {
-  color: #f5c542;
-  font-weight: 600;
-}
-
-@media (max-width: 768px) {
-  .trust-box {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ==================== 修复冲突样式 ==================== */
-
-/* 确保手风琴内的 .edu-content 样式正确 */
-.accordion-content .edu-content {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
-  background: white;
-  border-radius: 0 0 12px 12px;
-  color: #333;
-}
-
-/* 覆盖原来 <style> 标签中的部分样式，避免冲突 */
-.accordion-content .edu-content h1 {
-  color: #0b2c4a;
-  border-bottom: 3px solid #2ecc71;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.accordion-content .edu-content h2 {
-  color: #2c3e50;
-  margin-top: 2.5rem;
-  padding-bottom: 0.3rem;
-  border-bottom: 1px dashed #ddd;
-}
-
-/* 确保手风琴内容中的段落样式正确 */
-.accordion-content .edu-content p {
-  font-size: 1.3rem;
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
-
-/* 修复信息框在手风琴内的显示 */
-.accordion-content .info-box,
-.accordion-content .warning-box,
-.accordion-content .tip-box {
-  color: #2c3e50 !important;
-  font-size: 1.2rem;
-  line-height: 1.6;
-}
-
-/* 修复表格在手风琴内的显示 */
-.accordion-content .comparison-table {
-  width: 100%;
-  margin: 1.5rem 0;
-  color: #333 !important;
-}
-
-/* 手风琴内容中的返回按钮 */
-.accordion-content .back-to-home {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 0.8rem 1.5rem;
-  background: #0b2c4a;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background 0.3s;
-  font-size: 1.2rem;
-}
-
-.accordion-content .back-to-home:hover {
-  background: #2c3e50;
-}
-
-/* 移动端适配补充 */
-@media (max-width: 768px) {
-  .accordion-content .edu-content {
-    padding: 1.5rem;
-  }
-  
-  .accordion-content .back-to-home {
-    padding: 0.7rem 1.2rem;
-    font-size: 1.1rem;
-  }
-}
-
