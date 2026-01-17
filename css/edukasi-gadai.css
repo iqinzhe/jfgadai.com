@@ -118,6 +118,142 @@ body {
   transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   background: white;
 }
+/* ✅ 新增：顶部导航栏样式 */
+.edu-header {
+  background: linear-gradient(135deg, #0b2c4a 0%, #1a4b6d 100%);
+  color: white;
+  padding: 0.8rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-bottom: 3px solid #2ecc71;
+}
+
+.edu-header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.edu-header-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.edu-header-title h1 {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.edu-flag {
+  font-size: 1.8rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.edu-subtitle {
+  color: #a0d2ff;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+  font-weight: 400;
+}
+
+.back-home-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  text-decoration: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+}
+
+.back-home-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  border-color: #2ecc71;
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+
+.btn-text {
+  font-size: 0.95rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .edu-header {
+    padding: 0.6rem 0;
+  }
+  
+  .edu-header-container {
+    padding: 0 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 0.8rem;
+  }
+  
+  .edu-header-title {
+    align-items: center;
+  }
+  
+  .edu-header-title h1 {
+    font-size: 1.3rem;
+  }
+  
+  .edu-subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .back-home-btn {
+    align-self: center;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .edu-header-title h1 {
+    font-size: 1.1rem;
+  }
+  
+  .back-home-btn .btn-text {
+    display: none; /* 在非常小的屏幕上只显示图标 */
+  }
+  
+  .back-home-btn {
+    padding: 0.6rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+  }
+  
+  .btn-icon {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+}
 
 /* 手风琴内容内部继承原样式 */
 .accordion-content .edu-content {
@@ -489,3 +625,4 @@ footer {
     font-size: 1.1rem;
   }
 }
+
