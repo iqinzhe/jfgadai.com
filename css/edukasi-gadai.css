@@ -147,3 +147,39 @@ main.container {
     font-size: 1.05rem;
   }
 }
+
+/* ==================== Accordion 手风琴交互修复 ==================== */
+
+.accordion-item {
+  border-bottom: 1px solid #e0e6ed;
+}
+
+.accordion-header {
+  cursor: pointer;
+  padding: 1rem 0;
+  font-weight: 600;
+  color: #1f3a4d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-header::after {
+  content: "+";
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-header::after {
+  content: "−";
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 1000px; /* 足够大即可 */
+}
