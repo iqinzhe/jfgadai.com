@@ -225,3 +225,33 @@ main.container {
     top: 1rem;
   }
 }
+
+/* ==================== Accordion 闭合态强化（最终微调） ==================== */
+
+/* 1️⃣ 闭合状态标题：字体更大、更醒目 */
+.accordion-header {
+  font-size: 1.1rem;        /* 比内容文字更大 */
+  font-weight: 700;         /* 更“标题感” */
+  color: #0b2c4a;           /* 更深的蓝，增强存在感 */
+  background: #f1f5f9;      /* 比页面背景略深，形成分块 */
+  border-radius: 6px;
+}
+
+/* 2️⃣ 每一条手风琴之间更清晰（“一条一条”的感觉） */
+.accordion-item {
+  margin-bottom: 0.6rem;
+  border-bottom: none;      /* 去掉细线，改用块感 */
+}
+
+/* 3️⃣ 闭合态 hover 提示（可点性更强） */
+.accordion-header:hover {
+  background: #e2ebf3;
+}
+
+/* 4️⃣ 展开后的内容：阅读安全线（不可再小） */
+.accordion-content p,
+.accordion-content li {
+  font-size: 1.05rem;   /* 阅读安全下限，手机端也不吃力 */
+  line-height: 1.75;    /* 明显提升可读性 */
+}
+
