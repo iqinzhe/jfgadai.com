@@ -61,7 +61,7 @@ f.parentNode.insertBefore(j,f);
 }
 </script>
 
-<!-- FAQ Schema（完整保留） -->
+<!-- FAQ Schema -->
 <script type="application/ld+json">
 {
 "@context": "https://schema.org",
@@ -119,229 +119,15 @@ f.parentNode.insertBefore(j,f);
 height="0" width="0" style="display:none;visibility:hidden"></iframe>
 </noscript>
 
-<!-- 新增：页面专用样式 -->
-<style>
-    .edu-content {
-        max-width: 900px;
-        margin: 0 auto 3rem;
-        padding: 2rem;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        color: #333; /* 确保主要内容文字为深色 */
-    }
-    .edu-content h1 {
-        color: #0b2c4a;
-        border-bottom: 3px solid #2ecc71;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1.5rem;
-    }
-    .edu-content h2 {
-        color: #2c3e50;
-        margin-top: 2.5rem;
-        padding-bottom: 0.3rem;
-        border-bottom: 1px dashed #ddd;
-    }
-    .edu-content h3 {
-        color: #34495e;
-        margin-top: 1.8rem;
-    }
-    .edu-content p, .edu-content li {
-        line-height: 1.7;
-        color: #444; /* 确保段落和列表文字为深灰色 */
-    }
-    .edu-content ul, .edu-content ol {
-        padding-left: 1.8rem;
-        margin-bottom: 1.5rem;
-    }
-    .edu-content li {
-        margin-bottom: 0.7rem;
-    }
-    
-    /* ✅ 修复：信息框样式 - 确保文字为深色 */
-    .info-box {
-        background: #e8f4fd;
-        border-left: 4px solid #3498db;
-        padding: 1.2rem;
-        margin: 1.5rem 0;
-        border-radius: 0 8px 8px 0;
-        color: #2c3e50 !important; /* 重要：强制深色文字 */
-    }
-    .warning-box {
-        background: #fef9e7;
-        border-left: 4px solid #f39c12;
-        padding: 1.2rem;
-        margin: 1.5rem 0;
-        border-radius: 0 8px 8px 0;
-        color: #2c3e50 !important; /* 重要：强制深色文字 */
-    }
-    .tip-box {
-        background: #eafaf1;
-        border-left: 4px solid #2ecc71;
-        padding: 1.2rem;
-        margin: 1.5rem 0;
-        border-radius: 0 8px 8px 0;
-        color: #2c3e50 !important; /* 重要：强制深色文字 */
-    }
-    
-    /* ✅ 修复并增强：对比表格样式 - 确保可读性 */
-    .comparison-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 1.5rem 0;
-        font-size: 0.95rem;
-        color: #333 !important; /* 确保表格文字为深色 */
-    }
-    .comparison-table th {
-        background: #f8f9fa;
-        color: #2c3e50;
-        font-weight: 600;
-        padding: 1rem;
-        border: 1px solid #ddd;
-        text-align: left;
-    }
-    .comparison-table td {
-        border: 1px solid #ddd;
-        padding: 0.9rem 1rem;
-        text-align: left;
-        color: #444 !important; /* 确保单元格文字为深色 */
-        vertical-align: top;
-    }
-    .comparison-table tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
-    .comparison-table tr:hover {
-        background-color: #f1f7fd;
-    }
-    
-    .back-to-home {
-        display: inline-block;
-        margin-top: 2rem;
-        padding: 0.8rem 1.5rem;
-        background: #0b2c4a;
-        color: white;
-        text-decoration: none;
-        border-radius: 6px;
-        font-weight: bold;
-        transition: background 0.3s;
-    }
-    .back-to-home:hover {
-        background: #2c3e50;
-    }
-    
-    @media (max-width: 768px) {
-        .edu-content {
-            padding: 1.5rem;
-            margin: 1rem auto 2rem;
-        }
-        .comparison-table {
-            font-size: 0.85rem;
-            display: block;
-            overflow-x: auto;
-        }
-        .comparison-table th, .comparison-table td {
-            padding: 0.7rem 0.5rem;
-            min-width: 120px;
-        }
-    }
-</style>
-
-<!-- FAQ Schema -->
-<script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "FAQPage",
-"mainEntity": [
-{
-"@type": "Question",
-"name": "Apa itu gadai dan bagaimana prinsip dasarnya?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "Gadai adalah sistem pembiayaan jangka pendek di mana barang berharga digunakan sebagai jaminan (collateral). Prinsip dasarnya: 1) Berbasis nilai barang, 2) Pinjaman diberikan berdasarkan persentase nilai taksir, 3) Barang disimpan oleh pemberi gadai hingga lunas, 4) Terdapat bunga atau biaya jasa, 5) Ada batas waktu (tenor). Berbeda dengan pinjaman online yang berbasis data pribadi."
-}
-},
-{
-"@type": "Question",
-"name": "Apa saja jenis barang yang bisa digadaikan di Indonesia?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "Barang yang umum digadaikan: 1) Emas dan perhiasan (paling likuid), 2) Kendaraan bermotor (motor, mobil) dengan dokumen lengkap, 3) Barang elektronik (HP, laptop, kamera) merek ternama dan kondisi baik, 4) Barang berharga lain seperti jam tangan mewah, tas branded, alat musik. Nilai tergantung kondisi, orisinalitas, dan permintaan pasar."
-}
-},
-{
-"@type": "Question",
-"name": "Berapa bunga gadai yang wajar dan bagaimana menghitungnya?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "Bunga gadai bervariasi berdasarkan jenis barang dan lembaga. Range umum: 10-20% per bulan dari nilai pinjaman. Misal: Pinjaman Rp 5 juta, bunga 10% = Rp 500.000/bulan. Pastikan transparansi: mintalah perhitungan tertulis sebelum setuju. Hati-hati dengan bunga bergulung (compound interest) yang bisa membengkak."
-}
-},
-{
-"@type": "Question",
-"name": "Apa risiko utama jika tidak bisa menebus barang gadai?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "Risiko utama: 1) Barang akan dilelang setelah masa tenggang (biasanya 1-3 bulan dari jatuh tempo), 2) Jika hasil lelang lebih tinggi dari hutang+bunga, selisihnya harus dikembalikan ke Anda (namun praktiknya bervariasi), 3) Jika hasil lelang kurang, Anda mungkin masih menanggung sisa hutang (tergantung perjanjian). Komunikasikan kesulitan sejak dini untuk negosiasi perpanjangan."
-}
-},
-{
-"@type": "Question",
-"name": "Bagaimana memilih tempat gadai yang aman dan terpercaya?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "Ciri tempat gadai terpercaya: 1) Memiliki izin usaha jelas (NPWP, mungkin terdaftar di OJK), 2) Proses transparan (perjanjian tertulis, perhitungan jelas), 3) Lokasi fisik tetap (bukan online saja), 4) Sistem keamanan barang memadai (asuransi, gudang), 5) Reputasi baik (cek review, rekomendasi), 6) Tidak menekan dengan bunga sangat tinggi. Hindari yang hanya meminta KTP tanpa barang."
-}
-}
-]
-}
-</script>
-
-<!-- Article Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Panduan Lengkap Gadai di Indonesia: Prinsip, Jenis, Hukum & Tips Aman",
-  "description": "Artikel edukasi komprehensif tentang sistem gadai di Indonesia, mencakup sejarah, hukum, praktik, jenis barang, perhitungan, risiko, dan tips memilih lembaga gadai yang aman.",
-  "image": "https://www.jfgadai.com/images/101.jpeg",
-  "author": {
-    "@type": "Organization",
-    "name": "JF Gadai",
-    "url": "https://www.jfgadai.com"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "JF Gadai",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.jfgadai.com/icons/android-chrome-192x192.png"
-    }
-  },
-  "datePublished": "2025-01-01",
-  "dateModified": "2025-01-01",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://www.jfgadai.com/edukasi-gadai.html"
-  },
-  "articleSection": "Keuangan, Edukasi",
-  "keywords": "gadai, edukasi gadai, pinjaman jaminan, keuangan Indonesia"
-}
-</script>
-
-</head>
-<body>
-
-<noscript>
-<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-<!-- 新增顶部导航栏 -->
+<!-- 顶部固定导航栏 -->
 <header class="edu-header">
   <div class="edu-header-container">
     <div class="edu-header-title">
       <span class="edu-flag">🇮🇩</span>
-      <h1>Panduan Lengkap Gadai di Indonesia</h1>
-      <span class="edu-subtitle">Edukasi Gadai oleh JF Gadai</span>
+      <div class="edu-header-text">
+        <h1>Panduan Lengkap Gadai di Indonesia</h1>
+        <span class="edu-subtitle">Edukasi Gadai oleh JF Gadai</span>
+      </div>
     </div>
     <a href="index.html" class="back-home-btn">
       <span class="btn-icon">←</span>
@@ -349,7 +135,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </a>
   </div>
 </header>
-  
+
 <main class="container">
 
 <!-- 手风琴内容部分 -->
@@ -382,7 +168,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
       <section class="edu-intro">
         <h2>Mengapa Pendidikan Gadai Penting?</h2>
         <p>Di era digital, banyak produk keuangan bermunculan dengan klaim "cepat dan mudah". 
-          Sayangnya, masyarakat sering menyamakan <strong>gadai (pawning)</strong> dengan 
+          Sayangnya, masyarakat often menyamakan <strong>gadai (pawning)</strong> dengan 
           <strong>pinjaman online (digital lending)</strong>. Keduanya memiliki landasan hukum, 
           risiko, dan mekanisme yang sangat berbeda. Kesalahpahaman ini dapat berakibat pada 
           kerugian finansial.</p>
@@ -463,7 +249,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </div>
 </div>
 
-<!-- 继续按照这个模式，将原来的每个section都包装成accordion-item -->
 <!-- Bagian 4: Jenis Barang -->
 <div class="accordion-item" id="section-4">
   <div class="accordion-header">
@@ -472,7 +257,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </div>
   <div class="accordion-content">
     <div class="edu-content">
-      <!-- 原来edu-types部分的内容 -->
       <section class="edu-types">
         <h2>3. Jenis-Jenis Barang yang Dapat Digadaikan</h2>
         <p>Tidak semua barang bisa digadaikan. Kriteria utama: memiliki nilai pasar yang jelas, mudah dinilai, dan relatif stabil harganya.</p>
@@ -512,8 +296,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </div>
 </div>
 
-<!-- 继续添加其他部分，按照相同的结构 -->
-
 <!-- Bagian 5: Proses -->
 <div class="accordion-item" id="section-5">
   <div class="accordion-header">
@@ -522,7 +304,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </div>
   <div class="accordion-content">
     <div class="edu-content">
-      <!-- 原来edu-process部分的内容 -->
       <section class="edu-process">
         <h2>4. Proses Gadai Langkah demi Langkah</h2>
         <ol>
@@ -547,7 +328,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </div>
   <div class="accordion-content">
     <div class="edu-content">
-      <!-- 原来edu-calculations部分的内容 -->
       <section class="edu-calculations">
         <h2>5. Memahami Perhitungan Bunga &amp; Biaya</h2>
         <p>Ini adalah bagian paling kritis. Mintalah rincian tertulis sebelum setuju.</p>
@@ -577,7 +357,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </div>
   <div class="accordion-content">
     <div class="edu-content">
-      <!-- 原来edu-risks部分的内容 -->
       <section class="edu-risks">
         <h2>6. Risiko & Hal yang Perlu Diwaspadai</h2>
         <ul>
