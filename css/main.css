@@ -216,12 +216,13 @@ body {
   padding: 0 var(--spacing-lg);
 }
 
-.assessment-card {
+/* ==================== 统一卡片组件 ==================== */
+.unified-card {
   background: linear-gradient(135deg, 
     rgba(15, 76, 129, 0.4), 
     rgba(245, 197, 66, 0.2));
   border-radius: var(--border-radius-lg);
-  padding: var(--spacing-xxl);
+  padding: var(--spacing-xl);
   text-align: center;
   border: 2px solid rgba(245, 197, 66, 0.4);
   box-shadow: 
@@ -229,9 +230,26 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: var(--spacing-lg);
 }
 
-.assessment-card::before {
+/* 双层立体边框效果 */
+.unified-card::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: calc(var(--border-radius-lg) - 4px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 顶部光效条 */
+.unified-card::after {
   content: '';
   position: absolute;
   top: 0;
@@ -249,12 +267,24 @@ body {
   50% { transform: translateX(100%); }
 }
 
-.assessment-icon {
-  font-size: 4rem;
+/* 卡片悬停效果 */
+.unified-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(245, 197, 66, 0.3);
+  border-color: rgba(245, 197, 66, 0.6);
+}
+
+/* 卡片图标 */
+.card-icon {
+  font-size: 3.5rem;
   margin-bottom: var(--spacing-md);
   animation: float 3s ease-in-out infinite;
   display: inline-block;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+  position: relative;
+  z-index: 2;
 }
 
 @keyframes float {
@@ -269,28 +299,35 @@ body {
   }
 }
 
-.assessment-card h3 {
+/* 卡片标题 */
+.card-title {
   color: var(--secondary-color);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: var(--spacing-md);
+  font-weight: 700;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 2;
 }
 
-.assessment-desc {
+/* 卡片描述 */
+.card-desc {
   color: var(--text-light);
-  font-size: 1.1rem;
-  margin-bottom: var(--spacing-xl);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 1.05rem;
+  margin-bottom: var(--spacing-lg);
   line-height: 1.6;
+  position: relative;
+  z-index: 2;
 }
 
-.highlight-text {
+/* 高亮文本 */
+.card-highlight {
   color: var(--secondary-color);
   font-weight: 600;
   display: inline-block;
   animation: pulse 2s infinite;
+  position: relative;
+  z-index: 2;
 }
 
 @keyframes pulse {
@@ -298,7 +335,8 @@ body {
   50% { opacity: 0.8; }
 }
 
-.btn-assessment {
+/* 统一行动号召按钮 */
+.card-cta-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -307,20 +345,23 @@ body {
     var(--secondary-color), 
     var(--secondary-dark));
   color: var(--dark-color);
-  padding: 1.1rem 2.8rem;
+  padding: 1rem 2.2rem;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  margin-bottom: var(--spacing-xl);
+  margin: var(--spacing-md) 0;
   border: 3px solid transparent;
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(245, 197, 66, 0.3);
+  z-index: 2;
+  min-width: 220px;
 }
 
-.btn-assessment::before {
+/* 按钮光效 */
+.card-cta-btn::before {
   content: '';
   position: absolute;
   top: 0;
@@ -334,11 +375,11 @@ body {
   transition: left 0.7s ease;
 }
 
-.btn-assessment:hover::before {
+.card-cta-btn:hover::before {
   left: 100%;
 }
 
-.btn-assessment:hover {
+.card-cta-btn:hover {
   transform: translateY(-4px);
   box-shadow: 
     0 8px 25px rgba(245, 197, 66, 0.4),
@@ -348,9 +389,34 @@ body {
     var(--secondary-color));
 }
 
-.btn-assessment:active {
+.card-cta-btn:active {
   transform: translateY(-1px);
   box-shadow: 0 2px 10px rgba(245, 197, 66, 0.3);
+}
+
+/* 卡片内的列表样式 */
+.card-list {
+  list-style: none;
+  margin-top: var(--spacing-lg);
+  position: relative;
+  z-index: 2;
+}
+
+.card-list li {
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--text-light);
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.list-icon {
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  min-width: 24px;
 }
 
 /* ==================== 六宫格布局 ==================== */
@@ -364,28 +430,21 @@ body {
   padding: 0 var(--spacing-lg);
 }
 
+/* 简化网格项样式 */
 .grid-item {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
   border-radius: var(--border-radius-lg);
-  padding: var(--spacing-xl);
+  padding: var(--spacing-lg);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .grid-item:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
   border-color: rgba(245, 197, 66, 0.3);
-}
-
-.grid-item h2 {
-  color: var(--secondary-color);
-  margin-bottom: var(--spacing-md);
-  font-size: 1.4rem;
-  border-bottom: 2px solid var(--secondary-color);
-  padding-bottom: 0.5rem;
-  display: inline-block;
 }
 
 /* 桌面端布局调整 */
@@ -425,116 +484,11 @@ body {
   grid-row: 2; 
 }
 
-/* 评估系统卡片在六宫格中的样式 */
-#assessment-system {
-  margin-top: 0;
-  padding: var(--spacing-xl);
-}
-
-#assessment-system .assessment-card {
-  margin: 0;
-  padding: var(--spacing-xl);
-}
-
-#assessment-system .assessment-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: var(--spacing-sm);
-}
-
-#assessment-system .btn-assessment {
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  margin-bottom: var(--spacing-lg);
-}
-
-#assessment-system .assessment-stats {
-  gap: var(--spacing-lg);
-}
-
-#assessment-system .stat-number {
-  font-size: 1.8rem;
-}
-
-#assessment-system .stat-text {
-  font-size: 0.9rem;
-}
-
-/* 列表样式 */
-.service-list, .condition-list, .reason-list {
-  list-style: none;
-}
-
-.service-list li, .condition-list li, .reason-list li {
-  padding: var(--spacing-sm) 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  color: var(--text-light);
-  font-size: 0.95rem;
-}
-
-.list-icon {
-  color: var(--secondary-color);
-  font-size: 1.1rem;
-  min-width: 24px;
-}
-
-/* ==================== 教育导航优化（防误触版） ==================== */
-.service-edu-container {
-  margin-bottom: 15px;
-}
-
-/* 新内容容器样式 */
-.service-edu-content {
-  margin: 6px 0 10px 0;
-  font-size: 0.95em;
-  padding: 12px 15px;
-  border-radius: var(--border-radius);
-  border: 1px solid rgba(245, 197, 66, 0.3);
-  background: rgba(15, 76, 129, 0.15);
-  color: var(--text-light);
-  display: block;
-}
-
-.service-edu-content p {
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
-
-/* 禁用旧的点击元素 */
-.service-edu-intro {
-  cursor: default !important;
-  pointer-events: none !important;
-  opacity: 0.7;
-}
-
-/* 联系表单区域的教育导航适配 */
-.contact-form-section .service-edu-container {
-  margin-bottom: 12px;
-}
-
-.contact-form-section .service-edu-content {
-  margin: 6px 0 10px 0;
-  font-size: 0.95em;
-  padding: 10px 12px;
-  border-radius: var(--border-radius);
-  border: 1px solid rgba(245, 197, 66, 0.3);
-  background: rgba(15, 76, 129, 0.15);
-  color: var(--text-light);
-  display: block;
-}
-
-.contact-form-section .service-edu-content p {
-  margin: 0 0 8px 0;
-  line-height: 1.5;
-}
-
-/* 禁用旧的点击元素 */
-.contact-form-section .service-edu-intro {
-  cursor: default !important;
-  pointer-events: none !important;
-  opacity: 0.7;
+/* 隐藏旧的防误触元素 */
+.grid-item .service-edu-container,
+.grid-item .service-edu-content,
+.grid-item .edu-navigation-btn {
+  display: none !important;
 }
 
 /* 业务流程步骤 */
@@ -816,10 +770,6 @@ footer {
     max-width: none;
   }
   
-  .assessment-stats {
-    gap: var(--spacing-xl);
-  }
-  
   .contact-info {
     max-width: 600px;
   }
@@ -867,9 +817,7 @@ footer {
     margin-bottom: var(--spacing-md);
   }
   
-  .service-list li, 
-  .condition-list li, 
-  .reason-list li {
+  .card-list li {
     font-size: 1.05rem !important;
     line-height: 1.6;
     padding: 0.8rem 0;
@@ -899,10 +847,33 @@ footer {
     padding: 1rem 1.2rem;
   }
   
-  .submit-btn {
-    font-size: 1.1rem !important;
-    padding: 1.1rem;
-    margin-top: var(--spacing-md);
+  /* 统一卡片响应式 */
+  .unified-card {
+    padding: var(--spacing-lg);
+  }
+  
+  .card-icon {
+    font-size: 2.8rem;
+  }
+  
+  .card-title {
+    font-size: 1.4rem;
+  }
+  
+  .card-desc {
+    font-size: 1rem;
+  }
+  
+  .card-cta-btn {
+    padding: 0.9rem 1.8rem;
+    font-size: 1rem;
+    min-width: 200px;
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .card-cta-btn:active {
+    transform: scale(0.98);
   }
   
   /* 快速操作栏 */
@@ -961,37 +932,6 @@ footer {
     padding: 0 var(--spacing-md);
   }
   
-  #assessment-system .assessment-card {
-    padding: var(--spacing-xl);
-  }
-  
-  #assessment-system .assessment-card h3 {
-    font-size: 1.5rem;
-  }
-  
-  .assessment-desc {
-    font-size: 1.1rem;
-  }
-  
-  .btn-assessment {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    width: 100%;
-    max-width: 320px;
-  }
-  
-  .assessment-stats {
-    gap: var(--spacing-lg);
-  }
-  
-  .stat-number {
-    font-size: 1.8rem;
-  }
-  
-  .stat-text {
-    font-size: 0.95rem;
-  }
-  
   /* 信任区块单列 */
   .trust-box {
     grid-template-columns: 1fr;
@@ -1018,9 +958,7 @@ footer {
     font-size: 1.4rem !important;
   }
   
-  .service-list li, 
-  .condition-list li, 
-  .reason-list li {
+  .card-list li {
     font-size: 1rem !important;
   }
   
@@ -1055,87 +993,25 @@ footer {
     padding: var(--spacing-lg);
   }
   
-  #assessment-system .assessment-card {
-    padding: var(--spacing-lg);
+  .unified-card {
+    padding: var(--spacing-md);
   }
   
-  #assessment-system .assessment-card h3 {
-    font-size: 1.4rem;
+  .card-icon {
+    font-size: 2.5rem;
   }
   
-  .assessment-desc {
+  .card-title {
+    font-size: 1.3rem;
+  }
+  
+  .card-desc {
+    font-size: 0.95rem;
+  }
+  
+  .card-cta-btn {
     font-size: 1rem;
-  }
-  
-  .btn-assessment {
-    font-size: 1.05rem;
-    padding: 0.9rem 1.8rem;
-  }
-  
-  .assessment-stats {
-    gap: var(--spacing-lg);
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .stat {
-    flex-direction: row;
-    gap: 1rem;
-  }
-}
-
-/* ==================== 防误触导航按钮样式 ==================== */
-.edu-navigation-btn {
-  display: block;
-  width: 100%;
-  padding: 10px 15px;
-  background: rgba(245, 197, 66, 0.15);
-  border: 1.5px solid rgba(245, 197, 66, 0.4);
-  border-radius: var(--border-radius);
-  color: var(--secondary-color);
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  margin-top: 8px;
-  outline: none;
-}
-
-/* 联系表单区域的按钮特殊样式 */
-.contact-form-section .edu-navigation-btn {
-  padding: 8px 12px;
-  font-size: 0.9rem;
-  margin-top: 6px;
-}
-
-.edu-navigation-btn:hover {
-  background: rgba(245, 197, 66, 0.25);
-  border-color: var(--secondary-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(245, 197, 66, 0.2);
-}
-
-.edu-navigation-btn:active {
-  background: rgba(245, 197, 66, 0.3);
-  transform: scale(0.98);
-  transition: transform 0.1s ease;
-}
-
-/* 移动端优化 */
-@media (max-width: 768px) {
-  .edu-navigation-btn {
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 15px;
-  }
-  
-  .contact-form-section .edu-navigation-btn {
-    min-height: 44px;
-    padding: 10px 12px;
-    font-size: 0.85rem;
+    padding: 0.8rem 1.5rem;
+    min-width: 180px;
   }
 }
