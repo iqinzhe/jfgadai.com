@@ -625,6 +625,207 @@ footer {
 }
 
 /* ================================
+   呼叫行动样式 - 第12章专用
+================================ */
+
+.consultation-cta {
+  background: linear-gradient(135deg, #0b2c4a 0%, #1a5276 100%);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin: 40px 0 25px;
+  border: 3px solid #27ae60;
+  box-shadow: 0 8px 25px rgba(39, 174, 96, 0.2);
+}
+
+.cta-header h3 {
+  color: white;
+  margin-top: 0;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.cta-subtitle {
+  text-align: center;
+  color: #aed6f1;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.cta-content {
+  text-align: center;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.cta-content p {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.whatsapp-box {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  border: 2px solid rgba(46, 204, 113, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.whatsapp-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.whatsapp-info {
+  flex: 1;
+}
+
+.whatsapp-label {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  border: 2px solid white;
+  margin: 5px 0;
+}
+
+.whatsapp-button:hover {
+  background: #1DA851;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+.wa-number {
+  font-size: 1.1rem;
+}
+
+.whatsapp-note {
+  margin: 8px 0 0 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.benefit-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 18px;
+  border-radius: 8px;
+  border-left: 4px solid #2ecc71;
+}
+
+.benefit-item strong {
+  color: #2ecc71;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.benefit-item ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.benefit-item li {
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.quote-box {
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.quote-box p {
+  font-style: italic;
+  margin-bottom: 5px;
+  font-size: 1.05rem;
+}
+
+.quote-author {
+  font-weight: bold;
+  color: #2ecc71;
+  margin-top: 5px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .consultation-cta {
+    padding: 20px;
+    margin: 30px 0 20px;
+  }
+  
+  .cta-header h3 {
+    font-size: 1.4rem;
+  }
+  
+  .whatsapp-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .whatsapp-icon {
+    font-size: 2.5rem;
+  }
+  
+  .whatsapp-button {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .consultation-cta {
+    padding: 15px;
+  }
+  
+  .cta-header h3 {
+    font-size: 1.3rem;
+  }
+  
+  .whatsapp-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+  }
+  
+  .wa-number {
+    font-size: 1rem;
+  }
+}
+
+/* ================================
    咨询CTA部分样式 - 用于评估页面
 ================================ */
 
@@ -730,56 +931,6 @@ footer {
   
   .whatsapp-link {
     padding: 10px 20px;
-    font-size: 1rem;
-  }
-}
-
-/* 响应式调整 */
-@media (max-width: 768px) {
-  .consultation-cta {
-    padding: 20px;
-    margin: 30px 0 20px;
-  }
-  
-  .cta-header h3 {
-    font-size: 1.4rem;
-  }
-  
-  .whatsapp-box {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-  }
-  
-  .whatsapp-icon {
-    font-size: 2.5rem;
-  }
-  
-  .whatsapp-button {
-    padding: 10px 20px;
-    font-size: 1.1rem;
-  }
-  
-  .benefits-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .consultation-cta {
-    padding: 15px;
-  }
-  
-  .cta-header h3 {
-    font-size: 1.3rem;
-  }
-  
-  .whatsapp-button {
-    padding: 10px 15px;
-    font-size: 1rem;
-  }
-  
-  .wa-number {
     font-size: 1rem;
   }
 }
