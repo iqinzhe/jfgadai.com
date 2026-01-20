@@ -805,11 +805,11 @@ footer {
   
   /* 手机端显示顺序 */
   #assessment-system { order: 1; }
-  #our-services { order: 2; }
-  #contact-form { order: 3; }
-  #why-choose-us { order: 4; }
-  #conditions { order: 5; }
-  #business-process { order: 6; }
+  #motor-pawn { order: 2; }
+  #electronics-pawn { order: 3; }
+  #our-services { order: 4; }
+  #contact-form-section { order: 5; }
+  #contact-navigationn { order: 6; }
  
   
   /* 优化字体大小 */
