@@ -97,30 +97,6 @@ body {
   }
 }
 
-@media (max-width: 480px) {
-  .full-banner {
-    height: 150px;
-  }
-  
-  .full-banner .container {
-    padding: 0 var(--spacing-sm);
-  }
-  
-  .full-banner img {
-    object-fit: contain;
-    border-radius: calc(var(--border-radius) * 0.8);
-  }
-  
-  :root { 
-    --spacing-xs: 0.4rem; 
-    --spacing-sm: 0.6rem; 
-    --spacing-md: 0.8rem; 
-    --spacing-lg: 1.2rem; 
-    --spacing-xl: 1.5rem; 
-    --spacing-xxl: 2rem;
-  }
-}
-
 /* ==================== 快速操作栏 ==================== */
 .quick-actions {
   display: flex;
@@ -816,8 +792,8 @@ footer {
   #contact-navigation { order: 5; }   /* 5：联系我们导航 */
   /* #contact-form 已隐藏，order: 6 不需要 */
   
-  /* 优化字体大小 */
-  .grid-item h2 {
+  /* 优化字体大小 - 修复缺失的样式引用 */
+  .grid-item .card-title {
     font-size: 1.5rem !important;
     margin-bottom: var(--spacing-md);
   }
@@ -940,83 +916,5 @@ footer {
   /* 信任区块单列 */
   .trust-box {
     grid-template-columns: 1fr;
-  }
-}
-
-/* 小屏幕手机（480px及以下） */
-@media (max-width: 480px) {
-  :root { 
-    --spacing-xs: 0.4rem; 
-    --spacing-sm: 0.6rem; 
-    --spacing-md: 0.8rem; 
-    --spacing-lg: 1.2rem; 
-    --spacing-xl: 1.5rem; 
-    --spacing-xxl: 2rem;
-  }
-  
-  .full-banner { 
-    height: 150px;
-  }
-  
-  /* 进一步优化字体 */
-  .grid-item h2 {
-    font-size: 1.4rem !important;
-  }
-  
-  .card-list li {
-    font-size: 1rem !important;
-  }
-  
-  .quick-actions { 
-    margin: 0.5rem auto;
-    padding: 0 0.5rem;
-  }
-  
-  .quick-action-card {
-    padding: var(--spacing-md);
-  }
-  
-  .action-icon {
-    font-size: 2rem;
-  }
-  
-  .action-title {
-    font-size: 1.2rem;
-  }
-  
-  .action-description {
-    font-size: 0.95rem;
-  }
-  
-  .action-btn {
-    min-width: 180px;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-  }
-  
-  .grid-item {
-    padding: var(--spacing-lg);
-  }
-  
-  .unified-card {
-    padding: var(--spacing-md);
-  }
-  
-  .card-icon {
-    font-size: 2.5rem;
-  }
-  
-  .card-title {
-    font-size: 1.3rem;
-  }
-  
-  .card-desc {
-    font-size: 0.95rem;
-  }
-  
-  .card-cta-btn {
-    font-size: 1rem;
-    padding: 0.8rem 1.5rem;
-    min-width: 180px;
   }
 }
