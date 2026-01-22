@@ -416,52 +416,15 @@ footer {
   z-index: 2;
 }
 
-/* 响应式手机端优化 */
-@media (max-width: 768px) {
-  body { font-size: 1.05rem; }
-  
-  .asymmetric-grid {
-    display: flex !important;
-    flex-direction: column;
-    gap: var(--spacing-md);
-  }
-  
-  .grid-item,
-  .quick-action-card,
-  .unified-card {
-    padding: var(--spacing-md);
-    margin: 0 auto;
-    width: 95%;
-    max-width: 100%;
-  }
-  
-  .card-cta-btn,
-  .action-btn {
-    width: 100%;
-    max-width: 280px;
-    margin: 0 auto;
-  }
-  
-  .action-title,
-  .card-title {
-    font-size: 1.4rem;
-  }
-  
-  .card-desc, .action-description, .card-list li {
-    font-size: 1rem;
-  }
-}
-
-/* 1. 调整全屏横幅高度（移动端减少约一半） */
+/* 移动端优化（针对现代手机屏幕 ≥375px） */
 @media screen and (max-width: 768px) {
+  /* 1. 横幅高度优化 - 控制在合适比例 */
   .full-banner {
-    height: 40vh !important; /* 原为 full-banner 可能需要固定高度 */
-    min-height: 250px; /* 确保最小高度 */
-    max-height: 300px; /* 限制最大高度 */
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 20vh !important; /* 进一步降低到20%视口高度 */
+    min-height: 140px;
+    max-height: 160px;
+    margin: 0;
+    padding: 0;
   }
   
   .full-banner img {
@@ -470,15 +433,21 @@ footer {
     object-fit: cover;
     object-position: center;
   }
-}
-
-/* 2. 修复六宫格布局在移动端的显示问题 */
-@media screen and (max-width: 768px) {
-  .asymmetric-grid {
-    grid-template-columns: 1fr; /* 移动端改为单列 */
-    grid-template-rows: auto;
-    gap: 15px;
-    padding: 15px;
+  
+  /* 2. 主内容区紧凑布局 */
+  .container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  main.asymmetric-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 0 !important;
+    margin: 0;
   }
   
   .grid-item {
@@ -486,97 +455,205 @@ footer {
     margin: 0;
   }
   
-  /* 确保统一卡片适应屏幕 */
+  /* 3. 卡片内容优化 - 紧凑布局 */
   .unified-card {
-    padding: 20px 15px;
+    padding: 18px 15px !important;
     margin: 0;
     width: 100%;
-    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 10px;
   }
   
-  /* 修复导航按钮溢出问题 */
+  .card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  
+  .card-title {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  
+  .card-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  
+  .card-highlight {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  /* 4. 按钮优化 - 防止溢出 */
   .card-cta-btn {
     width: 100%;
-    white-space: normal; /* 允许换行 */
-    overflow-wrap: break-word;
-    text-align: center;
-    padding: 12px 10px;
-    font-size: 14px;
-    display: block;
+    padding: 14px !important;
     margin-top: 15px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    text-align: center;
   }
   
   .card-cta-btn span {
     display: inline-block;
     max-width: 100%;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-}
-
-/* 3. 调整内容区域间距 */
-@media screen and (max-width: 768px) {
-  .container {
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
   
-  /* SEO文本区块 */
+  /* 5. SEO内容区优化 */
   .seo-text-box {
-    padding: 25px 15px;
+    padding: 25px 15px !important;
     margin: 20px 0;
   }
   
   .seo-text-box h2 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     margin-bottom: 15px;
   }
   
   .seo-text-box p {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 0.92rem;
+    line-height: 1.6;
     margin-bottom: 15px;
   }
   
-  /* 信任区块 */
+  /* 6. 信任区块优化 */
   .trust-box {
-    padding: 20px 15px;
+    padding: 20px 15px !important;
   }
   
   .trust-box .container {
-    flex-direction: column;
-    gap: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
   }
   
   .trust-item {
-    width: 100%;
-    text-align: center;
-    padding: 12px;
+    flex: 1;
+    min-width: calc(50% - 10px);
+    padding: 12px 10px;
     font-size: 0.9rem;
+    text-align: center;
+    background: #f8f9fa;
+    border-radius: 6px;
   }
   
-  /* 页脚调整 */
+  /* 7. 页脚优化 - 修复WhatsApp号码显示 */
   footer {
-    padding: 25px 15px;
+    padding: 25px 15px !important;
   }
   
   .footer-content {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
   
+  .copyright, 
+  .company-info, 
+  .operating-hours, 
+  .security-note {
+    font-size: 0.88rem;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  /* WhatsApp链接优化 - 防止溢出 */
   .contact-link {
-    display: inline-block;
-    padding: 10px 15px;
-    margin: 10px 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    background: #25D366;
+    color: white;
+    border-radius: 8px;
     font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 2px 6px rgba(37, 211, 102, 0.3);
+    transition: all 0.2s ease;
+  }
+  
+  .contact-link:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+  }
+  
+  .contact-link img {
+    margin-right: 8px;
+    width: 22px;
+    height: 22px;
+  }
+  
+  /* 确保电话号码不会被截断 */
+  .contact-link span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 30px);
   }
 }
 
-/* 确保图片响应式 */
+/* 针对平板和更大手机优化 (480px - 768px) */
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .full-banner {
+    height: 22vh !important;
+    min-height: 160px;
+    max-height: 180px;
+  }
+  
+  main.asymmetric-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 16px !important;
+  }
+  
+  /* 让某些重要卡片占两列 */
+  .grid-item.assessment-system,
+  .grid-item.contact-form-section {
+    grid-column: span 2;
+  }
+  
+  .trust-box .container {
+    flex-wrap: nowrap;
+  }
+  
+  .trust-item {
+    min-width: auto;
+  }
+}
+
+/* 确保整体布局紧凑 */
+* {
+  box-sizing: border-box;
+}
+
+/* 响应式图片 */
 img {
   max-width: 100%;
   height: auto;
+}
+
+/* 移除可能的多余边距 */
+body, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* 确保滚动平滑 */
+html {
+  scroll-behavior: smooth;
 }
