@@ -575,26 +575,6 @@ footer {
   }
 }
 
-/* 针对小屏幕手机进一步优化 */
-@media screen and (max-width: 480px) {
-  .full-banner {
-    height: 35vh !important;
-    min-height: 200px;
-  }
-  
-  .card-title {
-    font-size: 1.1rem;
-  }
-  
-  .card-desc {
-    font-size: 0.9rem;
-  }
-  
-  .card-highlight {
-    font-size: 0.85rem;
-  }
-}
-
 /* 确保图片响应式 */
 img {
   max-width: 100%;
