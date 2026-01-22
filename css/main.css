@@ -1,9 +1,11 @@
-/* ==================================================
-   JF Gadai main.css
-   Version: V1.0 (LOCKED)
-================================================== */
+/* =========================================================
+   main.css V1.1 — 一次性止血版（锁定）
+   作用范围：首页 / 内容页 / 营销页
+   明确排除：assessment 页面
+   ========================================================= */
 
-/* ==================== 01. Reset & Variables ==================== */
+
+/* ==================== 全局基础 Reset（允许） ==================== */
 * {
   margin: 0;
   padding: 0;
@@ -11,237 +13,194 @@
 }
 
 :root {
-  --primary: #0f4c81;
+  --primary-color: #0f4c81;
   --primary-dark: #0c3d67;
-  --accent: #f5c542;
-  --accent-dark: #e0b339;
-  --bg-dark: #0b2c4a;
+  --secondary-color: #f5c542;
+  --secondary-dark: #e0b339;
+  --light-color: #ffffff;
+  --dark-color: #0b2c4a;
 
-  --text-light: #ffffff;
-  --text-soft: #e6f3fb;
+  --text-light: #e6f3fb;
+  --text-muted: #cfe3f2;
 
-  --radius: 20px;
-  --shadow: 0 8px 24px rgba(0,0,0,.3);
+  --radius-sm: 12px;
+  --radius-lg: 20px;
 
-  --sp-xs: .5rem;
-  --sp-sm: .75rem;
-  --sp-md: 1rem;
-  --sp-lg: 1.5rem;
-  --sp-xl: 2rem;
+  --shadow-lg: 0 8px 24px rgba(0,0,0,.3);
+
+  --space-sm: .75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
 }
 
-/* ==================== 02. Global Base ==================== */
+
+/* ==================== Body 基础（允许） ==================== */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #0b2c4a, #0e4b6e) fixed;
-  color: var(--text-light);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
-  font-size: 1.1rem;
+  color: var(--light-color);
+  background: linear-gradient(135deg, #0b2c4a 0%, #0e4b6e 100%) fixed;
   overflow-x: hidden;
-}
-
-/* ==================== 03. Layout ==================== */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--sp-lg);
-}
-
-/* ==================== 04. Banner ==================== */
-.full-banner {
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.full-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-/* ==================== 05. Unified Card System ==================== */
-.grid-item {
-  position: relative;
-}
-
-.unified-card {
-  position: relative;
-  background: linear-gradient(135deg,
-    rgba(15,76,129,.4),
-    rgba(245,197,66,.2)
-  );
-  border-radius: var(--radius);
-  padding: var(--sp-xl);
-  text-align: center;
-  border: 2px solid rgba(245,197,66,.4);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-
-/* 左侧装饰线（唯一来源） */
-.unified-card::before {
-  content: '';
-  position: absolute;
-  top: 12px;
-  bottom: 12px;
-  left: 12px;
-  width: 4px;
-  background: var(--accent);
-  border-radius: 2px;
-}
-
-.card-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--accent);
-  margin-bottom: var(--sp-md);
-  text-shadow: 1px 1px 2px #000;
-}
-
-.card-desc {
-  color: var(--text-soft);
   font-size: 1.1rem;
-  margin-bottom: var(--sp-lg);
 }
 
-/* ==================== 06. Buttons ==================== */
-.card-cta-btn,
-.action-btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: .6rem;
-  padding: .9rem 2rem;
-  border-radius: 999px;
-  font-weight: 700;
-  text-decoration: none;
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  color: #0b2c4a;
-  margin: 0 auto;
-  min-width: 220px;
-}
 
-/* ==================== 07. Home: 6 Grid ==================== */
-.asymmetric-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  gap: var(--sp-md);
-  margin: var(--sp-xl) auto;
-}
+/* =========================================================
+   🚫 assessment 页面 —— 强制隔离（止血核心）
+   ========================================================= */
 
-/* ==================== 08. Footer ==================== */
-footer {
-  background: rgba(11,44,74,.9);
-  border-top: 2px solid var(--accent);
-  padding: var(--sp-xl) 0;
-}
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: .5rem;
-  text-align: center;
-}
-
-/* ==================== 09. Mobile Responsive (ONLY ENTRY) ==================== */
-@media (max-width: 768px) {
-
-  body { font-size: 1.05rem; }
-
-  .container { padding: 0 var(--sp-md); }
-
-  .full-banner { height: 90px; }
-
-  .asymmetric-grid {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-  }
-
-  .unified-card {
-    padding: 1rem;
-  }
-
-  .card-title { font-size: 1.4rem; }
-
-  .card-desc { font-size: 1rem; }
-
-  .card-cta-btn,
-  .action-btn {
-    width: 100%;
-    min-width: 0;
-  }
-}
-
-/* =====================================================
-   Assessment Page Isolation Layer
-   Purpose: Prevent main.css global styles
-            from breaking multi-step form layout
-   Version: V1 (locked)
-   ===================================================== */
-
-/* 1️⃣ 基础盒模型与字体恢复 */
-.assessment-page,
-.assessment-page * {
+body.assessment * {
   box-sizing: border-box;
+}
+
+body.assessment main,
+body.assessment section,
+body.assessment .container {
+  all: unset;
+  display: block;
+}
+
+body.assessment button,
+body.assessment input,
+body.assessment select,
+body.assessment textarea {
+  all: revert;
   font-family: inherit;
 }
 
-/* 2️⃣ 解除 main.css 对结构型元素的强制布局 */
-.assessment-page form,
-.assessment-page section,
-.assessment-page article,
-.assessment-page main,
-.assessment-page .container {
-  display: block;
-  width: 100%;
-  max-width: none;
+body.assessment input[type=range] {
+  appearance: auto;
 }
 
-/* 3️⃣ 禁用 main.css 对 form 的 flex/grid 干预 */
-.assessment-page form {
-  display: block !important;
+
+/* =========================================================
+   ✅ 以下样式：只对「非 assessment 页面」生效
+   ========================================================= */
+
+body:not(.assessment) {
+
+  /* -------------------- 通用容器 -------------------- */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+  }
+
+  /* -------------------- Banner -------------------- */
+  .full-banner {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .full-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* -------------------- 快速操作卡 -------------------- */
+  .quick-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: var(--space-lg) auto;
+  }
+
+  .quick-action-card {
+    position: relative;
+    background: rgba(255,255,255,.08);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    text-align: center;
+    min-width: 260px;
+    max-width: 400px;
+    border: 1px solid rgba(255,255,255,.1);
+    transition: .3s;
+  }
+
+  .quick-action-card::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    bottom: 10px;
+    width: 4px;
+    background: var(--secondary-color);
+    border-radius: 3px;
+  }
+
+  /* -------------------- 六宫格首页 -------------------- */
+  .asymmetric-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: var(--space-md);
+    margin: var(--space-xl) auto;
+    max-width: 1400px;
+    padding: 0 var(--space-lg);
+  }
+
+  .grid-item {
+    position: relative;
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    background: linear-gradient(
+      135deg,
+      rgba(15,76,129,.4),
+      rgba(245,197,66,.2)
+    );
+    overflow: hidden;
+  }
+
+  .grid-item::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    bottom: 12px;
+    width: 4px;
+    background: var(--secondary-color);
+    border-radius: 3px;
+  }
+
+  /* -------------------- Footer -------------------- */
+  footer {
+    background: rgba(11,44,74,.9);
+    border-top: 2px solid var(--secondary-color);
+    padding: var(--space-xl) 0;
+    text-align: center;
+  }
 }
 
-/* 4️⃣ 重置常见“结构杀手” */
-.assessment-page .card,
-.assessment-page .grid,
-.assessment-page .grid-item,
-.assessment-page .flex,
-.assessment-page .btn-group {
-  display: block;
-  gap: 0;
-}
 
-/* 5️⃣ 表单元素基础可读性恢复 */
-.assessment-page label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 600;
-}
+/* =========================================================
+   📱 手机端（同样排除 assessment）
+   ========================================================= */
+@media (max-width: 768px) {
 
-.assessment-page input,
-.assessment-page select,
-.assessment-page textarea {
-  display: block;
-  width: 100%;
-}
+  body:not(.assessment) {
 
-/* 6️⃣ 防止全局 margin:0 造成“挤成一坨” */
-.assessment-page .form-group,
-.assessment-page .form-step {
-  margin-bottom: 20px;
-}
+    .full-banner {
+      height: 90px;
+    }
 
-/* 7️⃣ 页脚不继承首页 CTA / Grid 样式 */
-.assessment-page footer,
-.assessment-page .site-footer {
-  display: block;
-  text-align: left;
+    .asymmetric-grid {
+      display: flex;
+      flex-direction: column;
+      padding: 0 10px;
+    }
+
+    .grid-item,
+    .quick-action-card {
+      width: 100%;
+      padding: 14px;
+    }
+  }
 }
