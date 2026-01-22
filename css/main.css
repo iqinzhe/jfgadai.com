@@ -657,3 +657,16 @@ body, h1, h2, h3, h4, h5, h6, p {
 html {
   scroll-behavior: smooth;
 }
+
+@media screen and (max-width: 768px) {
+  * {
+    border: none !important;
+    outline: none !important;
+  }
+  
+  body, html {
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
