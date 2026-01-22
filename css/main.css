@@ -662,3 +662,22 @@ footer {
     text-align: center;
   }
 }
+
+/* ==================== 修复左侧贯穿竖线问题 ==================== */
+
+/* 所有卡片：装饰线向内缩，避免贴屏幕 */
+.unified-card::before,
+.quick-action-card::after {
+  left: 10px;              /* 原来是 0 */
+}
+
+/* 手机端再缩一点，彻底断开视觉连接 */
+@media (max-width: 768px) {
+  .unified-card::before,
+  .quick-action-card::after {
+    left: 12px;
+    top: 14px;
+    bottom: 14px;
+  }
+}
+
