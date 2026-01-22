@@ -341,3 +341,50 @@ footer {
     font-size: 1rem;
   }
 }
+
+/* ==================== 手机端最终微调补丁 ==================== */
+@media (max-width: 768px) {
+
+  /* 1️⃣ 横幅高度压缩 */
+  .full-banner {
+    height: 90px;
+  }
+
+  /* 2️⃣ 内容区扩展（三层同时压缩） */
+  .asymmetric-grid {
+    padding: 0 10px !important;
+  }
+
+  .grid-item {
+    padding: 12px !important;
+  }
+
+  .unified-card {
+    padding: 14px !important;
+  }
+
+  .unified-card::before {
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+  }
+
+  /* 3️⃣ 按钮防截断 */
+  .card-cta-btn,
+  .action-btn.whatsapp {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Unicode + 文字居中 */
+  .card-cta-btn span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
