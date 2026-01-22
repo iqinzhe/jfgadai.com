@@ -293,19 +293,6 @@ footer {
   padding: 0 var(--spacing-lg);
 }
 
-/* 每个网格项左侧装饰 */
-.grid-item::before {
-  content: '';
-  position: absolute;
-  top: 8px;
-  bottom: 8px;
-  left: 0;
-  width: 5px;
-  background: var(--secondary-color);
-  border-radius: 3px;
-  z-index: 2;
-}
-
 /* ==================== 基础样式 ==================== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
