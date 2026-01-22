@@ -2,34 +2,33 @@
 <html lang="id">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845187332"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845187332"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17845187332');
+  </script>
 
-  gtag('config', 'AW-17845187332');
-</script>
-  <!-- Event snippet for 联系人 conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
+  <!-- Event snippet for conversion -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17845187332/NqKjCIfo5d8bEITmn71C',
+          'event_callback': callback
+      });
+      return false;
     }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-17845187332/NqKjCIfo5d8bEITmn71C',
-      'event_callback': callback
-  });
-  return false;
-}
-</script>
+  </script>
 
   <!-- Google Tag Manager -->
   <script>
-  (function(w,d,s,l,i){
+    (function(w,d,s,l,i){
       w[l]=w[l]||[];
       w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
       var f=d.getElementsByTagName(s)[0],
@@ -38,22 +37,21 @@ function gtag_report_conversion(url) {
       j.async=true;
       j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
       f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-M2GMSNWS');
+    })(window,document,'script','dataLayer','GTM-M2GMSNWS');
   </script>
-  <!-- End Google Tag Manager -->
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/icons/android-chrome-512x512.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#ffffff">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/android-chrome-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#ffffff">
 
   <!-- SEO Meta 标签 -->
   <title>JF Gadai | Layanan Gadai Terpercaya di Bangil & Gempol</title>
@@ -61,7 +59,7 @@ function gtag_report_conversion(url) {
   <meta name="author" content="JF Gadai">
   <meta name="robots" content="index, follow">
 
-  <!-- Open Graph（社交媒体分享）-->
+  <!-- Open Graph -->
   <meta property="og:title" content="JF Gadai | Layanan Gadai Terpercaya">
   <meta property="og:description" content="Layanan gadai emas, kendaraan, dan elektronik dengan proses cepat, aman, dan terpercaya di Bangil & Gempol.">
   <meta property="og:image" content="https://www.jfgadai.com/images/og-index.jpg">
@@ -73,191 +71,173 @@ function gtag_report_conversion(url) {
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.jfgadai.com">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "JF Gadai",
-  "alternateName": [
-    "JF Gadai Bangil",
-    "JF Gadai Beji",
-    "JF Gadai Gempol"
-  ],
-  "url": "https://www.jfgadai.com/"
-}
-</script>
-
   <!-- JSON-LD 结构化数据 -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "PawnBroker",
-  "name": "JF Gadai",
-  "image": "https://www.jfgadai.com/images/101.jpeg",
-  "description": "Layanan gadai motor, emas, dan barang berharga lainnya di Bangil, Beji, dan Gempol. Proses cepat, aman, dan terpercaya.",
-  "url": "https://www.jfgadai.com",
-  "telephone": "+6289515692586",
-  "priceRange": "Rp",
-  "openingHours": "Mo-Sa 08:00-18:00",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bangil",
-    "addressRegion": "Jawa Timur",
-    "addressCountry": "ID"
-  },
-  "areaServed": [
-    {
-      "@type": "AdministrativeArea",
-      "name": "Bangil"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Beji"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Gempol"
-    }
-  ]
-}
-</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "JF Gadai",
+    "alternateName": ["JF Gadai Bangil","JF Gadai Beji","JF Gadai Gempol"],
+    "url": "https://www.jfgadai.com/"
+  }
+  </script>
 
-  <link rel="manifest" href="/icons/site.webmanifest">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PawnBroker",
+    "name": "JF Gadai",
+    "image": "https://www.jfgadai.com/images/101.jpeg",
+    "description": "Layanan gadai motor, emas, dan barang berharga lainnya di Bangil, Beji, dan Gempol. Proses cepat, aman, dan terpercaya.",
+    "url": "https://www.jfgadai.com",
+    "telephone": "+6289515692586",
+    "priceRange": "Rp",
+    "openingHours": "Mo-Sa 08:00-18:00",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bangil",
+      "addressRegion": "Jawa Timur",
+      "addressCountry": "ID"
+    },
+    "areaServed": [
+      {"@type":"AdministrativeArea","name":"Bangil"},
+      {"@type":"AdministrativeArea","name":"Beji"},
+      {"@type":"AdministrativeArea","name":"Gempol"}
+    ]
+  }
+  </script>
+
+  <!-- 样式表 -->
   <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- 全屏横幅 -->
   <section class="full-banner">
     <img src="images/101.jpg" alt="JF Gadai - Tetap Maju di Saat Sulit" loading="lazy">
   </section>
 
-<!-- 六宫格布局 -->
-<main class="container asymmetric-grid">
+  <!-- 六宫格布局 -->
+  <main class="container asymmetric-grid">
+    <!-- 左上 -->
+    <section class="grid-item our-services" id="our-services">
+      <div class="unified-card fade-in delay-1">
+        <div class="card-icon">📚</div>
+        <h3 class="card-title">Dasar-Dasar Gadai</h3>
+        <p class="card-desc">
+          Pelajari prinsip-prinsip penting untuk menghindari penipuan.
+          <br><span class="card-highlight">Pengetahuan adalah kekuatan!</span>
+        </p>
+        <a href="edukasi-gadai.html" class="card-cta-btn" rel="noopener">
+          <span>📚 Terdiri dari 12 bab</span>
+        </a>
+      </div>
+    </section>
 
-  <!-- 左上：常识与知识普及 -->   
-  <section class="grid-item our-services" id="our-services">
-    <div class="unified-card fade-in delay-1">
-      <div class="card-icon">📚</div>
-      <h3 class="card-title">Dasar-Dasar Gadai</h3>
-      <p class="card-desc">
-        Pelajari prinsip-prinsip penting untuk menghindari penipuan.
-        <br><span class="card-highlight">Pengetahuan adalah kekuatan!</span>
-      </p>
-              
-      <a href="edukasi-gadai.html" 
-         class="card-cta-btn" 
-         rel="noopener">
-        <span>📚 Terdiri dari 12 bab</span>
-      </a>
-    </div>
-  </section>
-  
-  <!-- 中间上方：摩托车评估系统 -->
-  <section class="grid-item assessment-system" id="assessment-system">
-    <div class="unified-card fade-in delay-2">
-      <div class="card-icon">🏍️</div>
-      <h3 class="card-title">Penilaian Online Motor Gratis</h3>
-      <p class="card-desc">
-        Ketahui perkiraan nilai gadai motor Honda & Yamaha Anda dalam 3 menit!
-        <br><span class="card-highlight">Tanpa biaya, Tanpa kewajiban.</span>
-      </p>
-      <a href="assessment.html" class="card-cta-btn" rel="noopener">
-        <span>🚀 Cek Nilai Motor Sekarang</span>
-      </a>
-    </div>
-  </section>
-  
-  <!-- 右上：失败到成功案例 -->
-  <section class="grid-item contact-form-section" id="contact-form">
-    <div class="unified-card fade-in delay-3">
-      <div class="card-icon">📢</div>
-      <h3 class="card-title">Studi kasus sukses dan gagal</h3>
-      <p class="card-desc">
-        Analisis Kontras: Faktor Penentu Sukses vs. Gagal.
-        <br><span class="card-highlight">Kegagalan adalah ibu dari keberhasilan.</span>
-      </p>
-      <a href="risk-to-success.html" class="card-cta-btn" style="margin-top: var(--spacing-md);">
-        <span>📢 Berita Lainnya</span>
-      </a>
-    </div>
-  </section>
-  
-  <!-- 左下：电子品典当导航 -->
-  <section class="grid-item electronics-pawn" id="electronics-pawn">
-    <div class="unified-card fade-in delay-4">
-      <div class="card-icon">💻</div>
-      <h3 class="card-title">Gadai Elektronik</h3>
-      <p class="card-desc">
-        Gadai HP, laptop, tablet & barang elektronik lainnya.
-        <br><span class="card-highlight">Nilai tinggi, proses cepat!</span>
-      </p>
-      
-      <a href="electronics.html" 
-         class="card-cta-btn" 
-         rel="noopener">
-        <span>💻 Gadai Elektronik Sekarang</span>
-      </a>
-    </div>
-  </section>
-  
-  <!-- 中间下方：摩托车典当导航 -->
-  <section class="grid-item motor-pawn" id="motor-pawn">
-    <div class="unified-card fade-in delay-5">
-      <div class="card-icon">🛵</div>
-      <h3 class="card-title">Gadai Motor</h3>
-      <p class="card-desc">
-        Gadai motor cepat & mudah dengan nilai terbaik.
-        <br><span class="card-highlight">Proses hanya 30 menit!</span>
-      </p>
-           
-      <a href="motor.html" 
-         class="card-cta-btn" 
-         rel="noopener">
-        <span>🛵 Info Lengkap Gadai Motor</span>
-      </a>
-    </div>
-  </section>
-  
-  <!-- 右下：联系我们导航 -->
-  <section class="grid-item contact-navigation" id="contact-navigation">
-    <div class="unified-card fade-in delay-6">
-      <div class="card-icon">📞</div>
-      <h3 class="card-title">Hubungi Kami</h3>
-      <p class="card-desc">
-        Butuh bantuan atau ada pertanyaan?
-        <br><span class="card-highlight">Tim kami siap membantu 24/7!</span>
-      </p>
-           
-      <a href="contact.html" 
-         class="card-cta-btn" 
-         rel="noopener">
-        <span>📞 Hubungi Kami Sekarang</span>
-      </a>
-    </div>
-  </section>
-</main>
+    <!-- 中上 -->
+    <section class="grid-item assessment-system" id="assessment-system">
+      <div class="unified-card fade-in delay-2">
+        <div class="card-icon">🏍️</div>
+        <h3 class="card-title">Penilaian Online Motor Gratis</h3>
+        <p class="card-desc">
+          Ketahui perkiraan nilai gadai motor Honda & Yamaha Anda dalam 3 menit!
+          <br><span class="card-highlight">Tanpa biaya, Tanpa kewajiban.</span>
+        </p>
+        <a href="assessment.html" class="card-cta-btn" rel="noopener">
+          <span>🚀 Cek Nilai Motor Sekarang</span>
+        </a>
+      </div>
+    </section>
 
- <!-- ✅ 白帽 SEO 文本区块 -->
-<section class="seo-text-box">
-  <div class="container">
-    <h2>JF Gadai – Layanan Gadai Terpercaya</h2>
-    <p>
-      JF Gadai melayani kebutuhan gadai masyarakat di wilayah <strong>Bangil</strong>, <strong>Beji</strong>, dan <strong>Gempol</strong>. 
-      Kami menyediakan layanan <strong>gadai emas</strong>, <strong>gadai kendaraan bermotor</strong>, serta <strong>gadai barang elektronik</strong>.
-    </p>
-    <p>
-      Proses cepat, aman, dan transparan dengan penilaian adil. 
-      Keamanan barang jaminan dan kerahasiaan data pelanggan adalah prioritas kami. 
-      Konsultasi gratis tersedia untuk membantu kebutuhan dana tunai Anda.
-    </p>
-  </div>
-</section>
+    <!-- 右上 -->
+    <section class="grid-item contact-form-section" id="contact-form">
+      <div class="unified-card fade-in delay-3">
+        <div class="card-icon">📢</div>
+        <h3 class="card-title">Studi kasus sukses dan gagal</h3>
+        <p class="card-desc">
+          Analisis Kontras: Faktor Penentu Sukses vs. Gagal.
+          <br><span class="card-highlight">Kegagalan adalah ibu dari keberhasilan.</span>
+        </p>
+        <a href="risk-to-success.html" class="card-cta-btn" style="margin-top: var(--spacing-md);">
+          <span>📢 Berita Lainnya</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 左下 -->
+    <section class="grid-item electronics-pawn" id="electronics-pawn">
+      <div class="unified-card fade-in delay-4">
+        <div class="card-icon">💻</div>
+        <h3 class="card-title">Gadai Elektronik</h3>
+        <p class="card-desc">
+          Gadai HP, laptop, tablet & barang elektronik lainnya.
+          <br><span class="card-highlight">Nilai tinggi, proses cepat!</span>
+        </p>
+        <a href="electronics.html" class="card-cta-btn" rel="noopener">
+          <span>💻 Gadai Elektronik Sekarang</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 中下 -->
+    <section class="grid-item motor-pawn" id="motor-pawn">
+      <div class="unified-card fade-in delay-5">
+        <div class="card-icon">🛵</div>
+        <h3 class="card-title">Gadai Motor</h3>
+        <p class="card-desc">
+          Gadai motor cepat & mudah dengan nilai terbaik.
+          <br><span class="card-highlight">Proses hanya 30 menit!</span>
+        </p>
+        <a href="motor.html" class="card-cta-btn" rel="noopener">
+          <span>🛵 Info Lengkap Gadai Motor</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 右下 -->
+    <section class="grid-item contact-navigation" id="contact-navigation">
+      <div class="unified-card fade-in delay-6">
+        <div class="card-icon">📞</div>
+        <h3 class="card-title">Hubungi Kami</h3>
+        <p class="card-desc">
+          Butuh bantuan atau ada pertanyaan?
+          <br><span class="card-highlight">Tim kami siap membantu 24/7!</span>
+        </p>
+        <a href="contact.html" class="card-cta-btn" rel="noopener">
+          <span>📞 Hubungi Kami Sekarang</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ✅ 白帽 SEO 文本区块 -->
+  <section class="seo-text-box">
+    <div class="container">
+      <h2>JF Gadai – Layanan Gadai Terpercaya</h2>
+      <p>
+        JF Gadai melayani kebutuhan gadai masyarakat di wilayah <strong>Bangil</strong>, <strong>Beji</strong>, dan <strong>Gempol</strong>. 
+        Kami menyediakan layanan <strong>gadai emas</strong>, <strong>gadai kendaraan bermotor</strong>, serta <strong>gadai barang elektronik</strong>.
+      </p>
+      <p>
+        Proses cepat, aman, dan transparan dengan penilaian adil. 
+        Keamanan barang jaminan dan kerahasiaan data pelanggan adalah prioritas kami. 
+        Konsultasi gratis tersedia untuk membantu kebutuhan dana tunai Anda.
+      </p>
+    </div>
+  </section>
+
+  <!-- 可选落地信任区块 -->
+  <section class="trust-box">
+    <div class="container">
+      <div class="trust-item">✔ Aman & Terpercaya</div>
+      <div class="trust-item">✔ Proses Cepat</div>
+      <div class="trust-item">✔ Konsultasi Gratis</div>
+    </div>
+  </section>
 
   <!-- 页脚 -->
   <footer id="lokasi">
