@@ -178,3 +178,70 @@ footer {
     min-width: 0;
   }
 }
+
+/* =====================================================
+   Assessment Page Isolation Layer
+   Purpose: Prevent main.css global styles
+            from breaking multi-step form layout
+   Version: V1 (locked)
+   ===================================================== */
+
+/* 1️⃣ 基础盒模型与字体恢复 */
+.assessment-page,
+.assessment-page * {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+/* 2️⃣ 解除 main.css 对结构型元素的强制布局 */
+.assessment-page form,
+.assessment-page section,
+.assessment-page article,
+.assessment-page main,
+.assessment-page .container {
+  display: block;
+  width: 100%;
+  max-width: none;
+}
+
+/* 3️⃣ 禁用 main.css 对 form 的 flex/grid 干预 */
+.assessment-page form {
+  display: block !important;
+}
+
+/* 4️⃣ 重置常见“结构杀手” */
+.assessment-page .card,
+.assessment-page .grid,
+.assessment-page .grid-item,
+.assessment-page .flex,
+.assessment-page .btn-group {
+  display: block;
+  gap: 0;
+}
+
+/* 5️⃣ 表单元素基础可读性恢复 */
+.assessment-page label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.assessment-page input,
+.assessment-page select,
+.assessment-page textarea {
+  display: block;
+  width: 100%;
+}
+
+/* 6️⃣ 防止全局 margin:0 造成“挤成一坨” */
+.assessment-page .form-group,
+.assessment-page .form-step {
+  margin-bottom: 20px;
+}
+
+/* 7️⃣ 页脚不继承首页 CTA / Grid 样式 */
+.assessment-page footer,
+.assessment-page .site-footer {
+  display: block;
+  text-align: left;
+}
