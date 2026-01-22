@@ -262,25 +262,135 @@ body {
 /* ==================== 页脚优化 ==================== */
 footer {
   background: rgba(11, 44, 74, 0.9);
-  padding: var(--spacing-xl) 0;
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md) 0 var(--spacing-sm);
   border-top: 2px solid var(--secondary-color);
 }
 
 .footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
-  gap: 0.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
+.copyright {
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.1;
+}
+
+.highlight {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.company-info {
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  padding: 0 0.5rem;
+}
+
+/* 联系电话布局 - 单个居中显示 */
 .contact-info {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: var(--spacing-md);
+  margin: 0.5rem auto;
+  padding: 0.4rem 0;
+  max-width: 550px;
 }
+
+/* 联系电话的样式 - 添加可见背景框 */
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+}
+
+/* 鼠标悬停效果 */
+.contact-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .contact-info {
+    gap: 0.8rem; /* 移动端间距更小 */
+  }
+  
+  .contact-link {
+    padding: 5px 5px;
+    font-size: 0.9rem;
+  }
+  
+  footer {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .copyright {
+    font-size: 1.1rem;
+  }
+}
+
+/* 极窄屏幕（如手机竖屏）下的适配 */
+@media (max-width: 480px) {
+  .contact-info {
+    flex-direction: column; /* 竖排排列 */
+    gap: 0.5rem;
+  }
+  
+  .contact-link {
+    width: 100%; /* 占满宽度 */
+    justify-content: center; /* 内容居中 */
+    padding: 8px 15px; /* 增大内边距便于点击 */
+  }
+}
+
+/* 落地页信任区块（广告审核加分） */
+.trust-box {
+  margin: 1.5rem 0 1rem;
+  padding: 1rem 1.2rem;
+  background: rgba(15, 76, 129, 0.35);
+  border: 1px solid rgba(245, 197, 66, 0.35);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  text-align: center;
+}
+
+.trust-item {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+}
+
+.trust-item strong {
+  color: #f5c542;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .trust-box {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* ==================== 六宫格首页专用 ==================== */
 .asymmetric-grid {
