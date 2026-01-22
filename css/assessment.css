@@ -1,44 +1,116 @@
 /* =====================================================
-   Assessment Page – 功能页专属视觉增强
-   原则：
-   1. 不覆盖 main.css 的品牌样式
-   2. 只解决“看不见 / 不清楚 / 不一致”
-   3. JS 逻辑完全不触碰
-===================================================== */
+   Assessment Page CSS – V1.1 STABLE
+   作用：
+   1. 隔离 main.css 的全局样式
+   2. 修复滑块 / 按钮 / 进度条不可见问题
+   3. 不影响首页与其他页面
+   ===================================================== */
 
 
-/* ==================== 页面基础 ==================== */
+/* ==================== 0. 样式隔离层（核心） ==================== */
+/* 清除 main.css 对表单元素的全局影响，仅限 assessment 页面 */
+
+.assessment-page input,
+.assessment-page button,
+.assessment-page select,
+.assessment-page textarea,
+.assessment-page a {
+  all: unset;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+
+/* ==================== 1. 页面基础结构 ==================== */
+
 .assessment-page {
-  color: var(--light-color);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  color: #ffffff;
+}
+
+.assessment-page h2,
+.assessment-page h3 {
+  color: var(--secondary-color);
+  margin-bottom: 12px;
+}
+
+.assessment-page p {
+  color: var(--text-light);
+  line-height: 1.6;
 }
 
 
-/* ==================== 表单区块 ==================== */
-.assessment-section {
-  margin-bottom: var(--spacing-xl);
+/* ==================== 2. 进度条（Step Indicator） ==================== */
+
+.assessment-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.assessment-step {
+  flex: 1;
+  text-align: center;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.6);
+  position: relative;
+}
+
+.assessment-step.active {
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.assessment-step::after {
+  content: '';
+  display: block;
+  height: 4px;
+  margin-top: 8px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 4px;
+}
+
+.assessment-step.active::after {
+  background: var(--secondary-color);
 }
 
 
-/* ==================== 公里数滑块（可见性修复） ==================== */
+/* ==================== 3. 表单卡片 ==================== */
+
+.assessment-card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+
+/* ==================== 4. 滑块（公里数等） ==================== */
+
 .assessment-page input[type="range"] {
-  -webkit-appearance: none;
   width: 100%;
   height: 6px;
-  background: rgba(255,255,255,0.3);
+  margin: 16px 0;
+  background: rgba(255,255,255,0.25);
   border-radius: 4px;
-  outline: none;
+  cursor: pointer;
+  appearance: none;
 }
 
+/* WebKit */
 .assessment-page input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
+  appearance: none;
   width: 20px;
   height: 20px;
   background: var(--secondary-color);
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 0 3px rgba(0,0,0,0.35);
 }
 
+/* Firefox */
 .assessment-page input[type="range"]::-moz-range-thumb {
   width: 20px;
   height: 20px;
@@ -47,77 +119,101 @@
   cursor: pointer;
 }
 
+.assessment-range-value {
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
 
-/* ==================== 下一步 / 提交按钮 ==================== */
-.assessment-page button,
+
+/* ==================== 5. 输入框 / 选择框 ==================== */
+
+.assessment-page input[type="text"],
+.assessment-page select {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(0,0,0,0.35);
+  border-radius: 10px;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  margin-top: 8px;
+}
+
+.assessment-page select option {
+  background: #0b2c4a;
+  color: #fff;
+}
+
+
+/* ==================== 6. 下一步 / Lanjut 按钮 ==================== */
+
 .assessment-page .btn-next,
-.assessment-page .btn-submit {
+.assessment-page .btn-prev {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 22px;
+  margin-top: 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+}
+
+.assessment-page .btn-next {
   background: linear-gradient(
     135deg,
     var(--secondary-color),
     var(--secondary-dark)
   );
-  color: var(--dark-color);
-  border: none;
-  padding: 0.9rem 1.8rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  color: #000;
 }
 
-.assessment-page button:hover {
-  transform: translateY(-1px);
-}
-
-
-/* ==================== 步骤进度条（清晰引导） ==================== */
-.assessment-steps {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: var(--spacing-lg);
-}
-
-.assessment-steps .step {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.45);
-  font-weight: 500;
-}
-
-.assessment-steps .step.active {
+.assessment-page .btn-prev {
+  background: transparent;
+  border: 2px solid var(--secondary-color);
   color: var(--secondary-color);
+}
+
+
+/* ==================== 7. 结果页高亮 ==================== */
+
+.assessment-result {
+  font-size: 1.3rem;
   font-weight: 700;
-}
-
-.assessment-steps .step.completed {
-  color: var(--light-color);
-}
-
-
-/* ==================== 表单标签可读性 ==================== */
-.assessment-page label {
-  display: block;
-  margin-bottom: 0.4rem;
-  font-weight: 600;
-  color: var(--text-light);
+  color: var(--secondary-color);
+  text-align: center;
+  margin-top: 24px;
 }
 
 
-/* ==================== 输入框（轻微增强） ==================== */
-.assessment-page input,
-.assessment-page select {
-  width: 100%;
-  padding: 0.6rem 0.8rem;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.25);
-  background: rgba(0,0,0,0.25);
-  color: var(--light-color);
-}
+/* ==================== 8. 页脚处理（关键） ==================== */
+/* assessment 页面不干预 footer，完全继承 main.css */
 
-
-/* ==================== 页脚：完全继承首页 ==================== */
-/* 不写任何 footer 样式，让它自动使用 main.css */
 .assessment-page footer {
   all: unset;
+}
+
+
+/* ==================== 9. 手机端优化 ==================== */
+
+@media (max-width: 768px) {
+
+  .assessment-page {
+    padding: 16px 12px 40px;
+  }
+
+  .assessment-steps {
+    font-size: 0.85rem;
+  }
+
+  .assessment-card {
+    padding: 16px;
+  }
+
+  .assessment-page .btn-next,
+  .assessment-page .btn-prev {
+    width: 100%;
+  }
 }
