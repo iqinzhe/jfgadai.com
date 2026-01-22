@@ -914,6 +914,54 @@ footer {
   margin-bottom: var(--spacing-sm);
 }
 
+  /* ==================== 白帽 SEO 文本样式 ==================== */
+.seo-text-box {
+  background: rgba(15, 76, 129, 0.25); /* 半透明深蓝，呼应网站风格 */
+  border: 1px solid rgba(245, 197, 66, 0.3); /* 黄色边框呼应卡片高亮 */
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem 2rem;
+  margin: var(--spacing-xl) 0;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  backdrop-filter: blur(6px);
+}
+
+.seo-text-box h2 {
+  color: #f5c542; /* 网站主黄色高亮 */
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.seo-text-box p {
+  color: #e6f3fb; /* 主体浅蓝/米白，更柔和 */
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: var(--spacing-sm);
+}
+
+.seo-text-box strong {
+  color: #f5c542; /* 保留关键字高亮，与 h2 一致 */
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .seo-text-box {
+    padding: 1rem 1.2rem;
+    margin: var(--spacing-lg) 0;
+  }
+  
+  .seo-text-box h2 {
+    font-size: 1.4rem;
+  }
+  
+  .seo-text-box p {
+    font-size: 0.95rem;
+  }
+}
+
+
   /* 页脚优化 */
   .contact-info {
     flex-direction: column;
