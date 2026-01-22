@@ -889,7 +889,31 @@ footer {
     font-size: 1.05rem;
     min-width: 200px;
   }
-  
+
+/* ==================== SEO 文本信息区块（白帽安全） ==================== */
+.seo-text-content {
+  max-width: 1000px;
+  margin: var(--spacing-xl) auto;
+  padding: var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--border-radius);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.seo-text-content h2 {
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 700;
+}
+
+.seo-text-content p {
+  margin-bottom: var(--spacing-sm);
+}
+
   /* 页脚优化 */
   .contact-info {
     flex-direction: column;
