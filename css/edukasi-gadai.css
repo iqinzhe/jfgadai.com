@@ -1,13 +1,15 @@
 /* ================================
    Edukasi Gadai – Reading Optimization
+   作用域：仅影响教育页面内容
 ================================ */
 
 /* 1. 背景色调整 - 与首页保持一致 */
-body {
+.edukasi-gadai-content {
   line-height: 1.7;
   background-color: #f8f9fa; /* 浅灰白色，适合阅读 */
   color: #333;
   font-size: 18px;
+  min-height: calc(100vh - 200px); /* 确保内容区域有足够高度 */
 }
 
 /* ================================
@@ -108,21 +110,22 @@ body {
 }
 
 /* 主内容区域上边距，避免被导航栏遮挡 */
-main.container {
+.edukasi-gadai-content main.container {
   padding-top: 80px !important;
-  min-height: 100vh;
+  min-height: calc(100vh - 150px);
+  background-color: #f8f9fa; /* 保持背景一致 */
 }
 
 /* 2. 手风琴功能样式 */
 /* 手风琴主容器 */
-.accordion {
+.edukasi-gadai-content .accordion {
   max-width: 900px;
   margin: 20px auto 50px !important;
   padding: 0 20px;
 }
 
 /* 每个手风琴项 */
-.accordion-item {
+.edukasi-gadai-content .accordion-item {
   margin-bottom: 18px;
   border-radius: 12px;
   overflow: hidden;
@@ -132,12 +135,12 @@ main.container {
   transition: all 0.3s ease;
 }
 
-.accordion-item:hover {
+.edukasi-gadai-content .accordion-item:hover {
   box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 
 /* 手风琴标题（可点击部分） */
-.accordion-header {
+.edukasi-gadai-content .accordion-header {
   padding: 22px 25px;
   background: linear-gradient(135deg, #0b2c4a 0%, #1a5276 100%);
   color: white;
@@ -152,7 +155,7 @@ main.container {
   position: relative;
 }
 
-.accordion-header::before {
+.edukasi-gadai-content .accordion-header::before {
   content: '';
   position: absolute;
   left: 0;
@@ -164,26 +167,26 @@ main.container {
   transition: opacity 0.3s ease;
 }
 
-.accordion-header:hover {
+.edukasi-gadai-content .accordion-header:hover {
   background: linear-gradient(135deg, #1a5276 0%, #2c3e50 100%);
   padding-left: 30px;
 }
 
-.accordion-header:hover::before {
+.edukasi-gadai-content .accordion-header:hover::before {
   opacity: 1;
 }
 
-.accordion-header.active {
+.edukasi-gadai-content .accordion-header.active {
   background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
 }
 
-.accordion-header.active::before {
+.edukasi-gadai-content .accordion-header.active::before {
   opacity: 1;
   background: #0b2c4a;
 }
 
 /* 序号样式 */
-.accordion-number {
+.edukasi-gadai-content .accordion-number {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -197,25 +200,25 @@ main.container {
   flex-shrink: 0;
 }
 
-.accordion-header.active .accordion-number {
+.edukasi-gadai-content .accordion-header.active .accordion-number {
   background: rgba(255,255,255,0.25);
 }
 
 /* 箭头图标 */
-.accordion-arrow {
+.edukasi-gadai-content .accordion-arrow {
   transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   font-size: 1.3rem;
   color: rgba(255,255,255,0.9);
   flex-shrink: 0;
 }
 
-.accordion-header.active .accordion-arrow {
+.edukasi-gadai-content .accordion-header.active .accordion-arrow {
   transform: rotate(180deg) scale(1.1);
   color: white;
 }
 
 /* 手风琴内容区域 */
-.accordion-content {
+.edukasi-gadai-content .accordion-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -223,7 +226,7 @@ main.container {
 }
 
 /* 手风琴内容内部样式 */
-.accordion-content .edu-content {
+.edukasi-gadai-content .accordion-content .edu-content {
   padding: 30px 25px;
   animation: fadeIn 0.4s ease;
   max-width: 100%;
@@ -246,13 +249,13 @@ main.container {
 }
 
 /* 3. 控制正文最大阅读宽度 */
-.edu-content {
+.edukasi-gadai-content .edu-content {
   max-width: 760px;
   margin: 0 auto;
 }
 
 /* 标题层级更清晰 */
-.edu-content h1 {
+.edukasi-gadai-content .edu-content h1 {
   margin-bottom: 12px;
   font-size: 1.8rem;
   color: #0b2c4a;
@@ -260,7 +263,7 @@ main.container {
   padding-bottom: 0.5rem;
 }
 
-.edu-content h2 {
+.edukasi-gadai-content .edu-content h2 {
   margin-top: 30px;
   margin-bottom: 12px;
   font-size: 1.5rem;
@@ -269,7 +272,7 @@ main.container {
   border-bottom: 1px dashed #ddd;
 }
 
-.edu-content h3 {
+.edukasi-gadai-content .edu-content h3 {
   margin-top: 20px;
   margin-bottom: 6px;
   font-size: 1.3rem;
@@ -277,7 +280,7 @@ main.container {
 }
 
 /* 段落呼吸感 */
-.edu-content p {
+.edukasi-gadai-content .edu-content p {
   margin-bottom: 12px;
   font-size: 1.1rem;
   line-height: 1.7;
@@ -285,7 +288,7 @@ main.container {
 }
 
 /* 信息框样式 */
-.info-box {
+.edukasi-gadai-content .info-box {
   background: #e8f4fd !important;
   border-left: 4px solid #3498db !important;
   padding: 1.2rem !important;
@@ -295,7 +298,7 @@ main.container {
   font-size: 1.1rem !important;
 }
 
-.warning-box {
+.edukasi-gadai-content .warning-box {
   background: #fef9e7 !important;
   border-left: 4px solid #f39c12 !important;
   padding: 1.2rem !important;
@@ -305,7 +308,7 @@ main.container {
   font-size: 1.1rem !important;
 }
 
-.tip-box {
+.edukasi-gadai-content .tip-box {
   background: #eafaf1 !important;
   border-left: 4px solid #2ecc71 !important;
   padding: 1.2rem !important;
@@ -316,32 +319,33 @@ main.container {
 }
 
 /* FAQ 块"卡片化" */
-.edu-faq article {
+.edukasi-gadai-content .edu-faq article {
   padding: 14px 16px;
   margin-bottom: 14px;
   border: 1px solid rgba(0,0,0,0.08);
   border-radius: 6px;
 }
 
-.edu-faq h3 {
+.edukasi-gadai-content .edu-faq h3 {
   margin-top: 0;
   font-size: 1.3rem;
 }
 
 /* 列表更易扫读 */
-.edu-content ul, .edu-content ol {
+.edukasi-gadai-content .edu-content ul,
+.edukasi-gadai-content .edu-content ol {
   padding-left: 1.8rem;
   margin-bottom: 1.5rem;
 }
 
-.edu-content li {
+.edukasi-gadai-content .edu-content li {
   margin-bottom: 0.7rem;
   font-size: 1.1rem;
   line-height: 1.6;
 }
 
-/* 表格样式 */
-.comparison-table {
+/* 表格样式 - 确保不影响页脚中的表格 */
+.edukasi-gadai-content .comparison-table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
@@ -349,7 +353,7 @@ main.container {
   color: #333 !important;
 }
 
-.comparison-table th {
+.edukasi-gadai-content .comparison-table th {
   background: #f8f9fa;
   color: #2c3e50;
   font-weight: 600;
@@ -358,7 +362,7 @@ main.container {
   text-align: left;
 }
 
-.comparison-table td {
+.edukasi-gadai-content .comparison-table td {
   border: 1px solid #ddd;
   padding: 0.9rem 1rem;
   text-align: left;
@@ -366,16 +370,16 @@ main.container {
   vertical-align: top;
 }
 
-.comparison-table tr:nth-child(even) {
+.edukasi-gadai-content .comparison-table tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-.comparison-table tr:hover {
+.edukasi-gadai-content .comparison-table tr:hover {
   background-color: #f1f7fd;
 }
 
 /* 返回首页按钮 */
-.back-to-home {
+.edukasi-gadai-content .back-to-home {
   display: inline-block;
   margin-top: 2rem;
   padding: 0.8rem 1.5rem;
@@ -388,7 +392,7 @@ main.container {
   font-size: 1.1rem;
 }
 
-.back-to-home:hover {
+.edukasi-gadai-content .back-to-home:hover {
   background: #2c3e50;
 }
 
@@ -424,59 +428,59 @@ main.container {
   }
   
   /* 主内容上边距调整 */
-  main.container {
+  .edukasi-gadai-content main.container {
     padding-top: 70px !important;
   }
   
   /* 手风琴移动端适配 */
-  .accordion {
+  .edukasi-gadai-content .accordion {
     padding: 0 15px;
     margin: 15px auto 40px !important;
   }
   
-  .accordion-header {
+  .edukasi-gadai-content .accordion-header {
     padding: 18px 15px;
     font-size: 1.1rem;
   }
   
-  .accordion-number {
+  .edukasi-gadai-content .accordion-number {
     width: 30px;
     height: 30px;
     margin-right: 10px;
     font-size: 0.9rem;
   }
   
-  .accordion-content .edu-content {
+  .edukasi-gadai-content .accordion-content .edu-content {
     padding: 20px 15px;
   }
   
   /* 正文内容调整 */
-  .edu-content h1 {
+  .edukasi-gadai-content .edu-content h1 {
     font-size: 1.5rem;
   }
   
-  .edu-content h2 {
+  .edukasi-gadai-content .edu-content h2 {
     font-size: 1.3rem;
   }
   
-  .edu-content h3 {
+  .edukasi-gadai-content .edu-content h3 {
     font-size: 1.2rem;
   }
   
-  .edu-content p,
-  .edu-content li {
+  .edukasi-gadai-content .edu-content p,
+  .edukasi-gadai-content .edu-content li {
     font-size: 1rem;
   }
   
   /* 表格响应式 */
-  .comparison-table {
+  .edukasi-gadai-content .comparison-table {
     display: block;
     overflow-x: auto;
     font-size: 0.85rem;
   }
   
-  .comparison-table th,
-  .comparison-table td {
+  .edukasi-gadai-content .comparison-table th,
+  .edukasi-gadai-content .comparison-table td {
     padding: 0.7rem 0.5rem;
     min-width: 120px;
   }
@@ -503,24 +507,24 @@ main.container {
     font-size: 0.8rem !important;
   }
   
-  .accordion {
+  .edukasi-gadai-content .accordion {
     padding: 0 10px;
   }
   
-  .accordion-header {
+  .edukasi-gadai-content .accordion-header {
     padding: 15px 12px;
     font-size: 1rem;
   }
   
-  .edu-content h1 {
+  .edukasi-gadai-content .edu-content h1 {
     font-size: 1.3rem;
   }
   
-  .edu-content h2 {
+  .edukasi-gadai-content .edu-content h2 {
     font-size: 1.2rem;
   }
   
-  .back-to-home {
+  .edukasi-gadai-content .back-to-home {
     padding: 0.7rem 1.2rem;
     font-size: 1rem;
   }
@@ -549,3 +553,66 @@ main.container {
   }
 }
 
+/* ================================
+   确保页脚不受影响
+================================ */
+
+/* 重置可能被影响的页脚样式 */
+#lokasi,
+footer,
+.footer-content,
+.copyright,
+.company-info,
+.contact-link,
+.operating-hours,
+.security-note {
+  all: revert !important;
+}
+
+/* 确保页脚表格样式不被覆盖 */
+#lokasi table,
+footer table,
+.footer-content table {
+  border: none !important;
+  background: transparent !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+#lokasi tr,
+footer tr,
+.footer-content tr {
+  background: transparent !important;
+}
+
+#lokasi td,
+#lokasi th,
+footer td,
+footer th,
+.footer-content td,
+.footer-content th {
+  border: none !important;
+  background: transparent !important;
+  color: inherit !important;
+  padding: inherit !important;
+}
+
+/* 确保页脚中的列表样式不被覆盖 */
+#lokasi ul,
+#lokasi ol,
+footer ul,
+footer ol,
+.footer-content ul,
+.footer-content ol {
+  padding-left: inherit !important;
+  margin-bottom: inherit !important;
+  list-style: inherit !important;
+}
+
+#lokasi li,
+footer li,
+.footer-content li {
+  margin-bottom: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
