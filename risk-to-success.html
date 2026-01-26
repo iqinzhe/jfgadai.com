@@ -2,14 +2,13 @@
 <html lang="id">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845187332"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17845187332');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845187332"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17845187332');
+  </script>
 
   <!-- Google Tag Manager -->
   <script>
@@ -57,7 +56,7 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.jfgadai.com/risk-to-success.html">
 
-  <!-- JSON-LD 结构化数据 -->
+  <!-- JSON-LD 结构化数据 - 修复版 -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -82,8 +81,15 @@
           "url": "https://www.jfgadai.com/images/101.jpeg"
         }
       }
-    },
-    // 新增FAQ结构化数据
+    }
+  }
+  </script>
+
+  <!-- FAQ 结构化数据（单独添加） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
     "mainEntity": [{
       "@type": "Question",
       "name": "Apa penyebab utama gagal gadai motor?",
@@ -113,12 +119,13 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- ✅ 新增：纯文本内容区块，直接放在body开头，仅对搜索引擎可见 -->
-<div class="seo-text-content" style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden;">
-    <h1>Panduan Sukses Gadai Motor di JF Gadai Bangil, Beji, dan Gempol</h1>
-    <p>JF Gadai membagikan pengalaman nyata gadai motor untuk membantu pelanggan memahami faktor sukses dan kegagalan. Pelajari dari studi kasus nyata tentang risiko dokumen, kondisi motor, faktor manusia, dan cara menghindari masalah umum. Panduan ini didasarkan pada pengalaman langsung tim JF Gadai melayani gadai motor di wilayah Bangil, Beji, dan Gempol. Kami menunjukkan transparansi dalam proses gadai dan berkomitmen membantu pelanggan mencapai kesepakatan yang adil dan menguntungkan kedua belah pihak.</p>
+<!-- ✅ 修复：移除隐藏文本，改为可见的SEO友好内容 -->
+<div class="seo-introduction" style="background-color: #f8f9fa; padding: 1rem; margin-bottom: 2rem; border-left: 4px solid #ffc107;">
+  <div class="container">
+    <h1 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Panduan Sukses Gadai Motor di JF Gadai Bangil, Beji, dan Gempol</h1>
+    <p style="margin: 0;">JF Gadai membagikan pengalaman nyata gadai motor untuk membantu pelanggan memahami faktor sukses dan kegagalan. Pelajari dari studi kasus nyata tentang risiko dokumen, kondisi motor, faktor manusia, dan cara menghindari masalah umum. Panduan ini didasarkan pada pengalaman langsung tim JF Gadai melayani gadai motor di wilayah Bangil, Beji, dan Gempol.</p>
+  </div>
 </div>
-<!-- ✅ 新增结束 -->
 
 <!-- 导航面包屑 -->
 <nav class="page-breadcrumb container">
@@ -139,7 +146,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         Pahami mengapa beberapa berhasil dan lainnya gagal.
       </p>
       
-      <!-- 新增：互动选择器 -->
+      <!-- 互动选择器 -->
       <div class="story-selector">
         <button class="story-btn active" data-story="all">Semua Kisah</button>
         <button class="story-btn" data-story="success">Kisah Sukses</button>
@@ -166,7 +173,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3>Filosofi Kami: Transparansi untuk Kesuksesan</h3>
         <p>Kami percaya pelanggan yang terinformasi adalah pelanggan yang sukses. Dengan memahami risiko sejak awal, Anda bisa menghindari kekecewaan dan memaksimalkan peluang gadai motor Anda.</p>
         
-        <!-- 新增：法律基础说明 -->
+        <!-- 法律基础说明 -->
         <div class="legal-note">
           <h4>📋 <strong>Dasar Hukum:</strong></h4>
           <p>Semua proses gadai mengikuti <a href="rules.html" class="btn-yellow-dark legal-link" style="min-width: auto; padding: 0.3rem 0.7rem; font-size: 0.85rem; display: inline-flex; margin: 0.2rem 0;">Syarat & Ketentuan Resmi JF Gadai</a> yang sesuai dengan regulasi gadai di Indonesia. <strong>Memahami aturan = langkah pertama menuju sukses.</strong></p>
@@ -196,7 +203,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <span class="toggle-icon">▼</span>
         </div>
-        <div class="case-content">
+        <div class="case-content" style="display: none;">
           <div class="case-scenario">
             <p><strong>Klien:</strong> Bapak Ahmad, Bangil</p>
             <p><strong>Motor:</strong> Honda Beat 2020</p>
@@ -215,7 +222,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>Tanpa STNK asli, proses gadai sah tidak bisa dilanjutkan.</p>
           </div>
           
-          <!-- 新增：模拟重演 -->
+          <!-- 模拟重演 -->
           <div class="case-resimulation">
             <h4>🧠 <strong>Jika Bisa Diulang:</strong></h4>
             <div class="resim-option correct">
@@ -228,7 +235,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           
-          <!-- 新增：规则链接 -->
+          <!-- 规则链接 -->
           <div class="rules-link-box">
             <p><strong>Aturan Terkait:</strong></p>
             <a href="rules.html#dokumen" class="btn-yellow-dark" style="min-width: auto; padding: 0.5rem 1rem; font-size: 0.9rem;">
@@ -247,7 +254,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <span class="toggle-icon">▼</span>
         </div>
-        <div class="case-content">
+        <div class="case-content" style="display: none;">
           <div class="case-scenario">
             <p><strong>Klien:</strong> Mas Andi, Gempol</p>
             <p><strong>Motor:</strong> Yamaha NMax 2019</p>
@@ -266,7 +273,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>Nilai turun 40% karena kecelakaan. Klien tidak terima, akhirnya batal.</p>
           </div>
           
-          <!-- 新增：模拟重演 -->
+          <!-- 模拟重演 -->
           <div class="case-resimulation">
             <h4>🧠 <strong>Jika Bisa Diulang:</strong></h4>
             <div class="resim-option correct">
@@ -279,7 +286,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           
-          <!-- 新增：规则链接 -->
+          <!-- 规则链接 -->
           <div class="rules-link-box">
             <p><strong>Aturan Terkait:</strong></p>
             <a href="rules.html#kondisi" class="btn-yellow-dark" style="min-width: auto; padding: 0.5rem 1rem; font-size: 0.9rem;">
@@ -298,7 +305,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <span class="toggle-icon">▼</span>
         </div>
-        <div class="case-content">
+        <div class="case-content" style="display: none;">
           <div class="case-scenario">
             <p><strong>Klien:</strong> Keluarga Pak Budi, Beji</p>
             <p><strong>Timeline:</strong> Minggu 1: Suami → Minggu 2: Istri → Minggu 3: Mertua</p>
@@ -317,7 +324,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>Kami tolak permintaan ketiga. Sarankan konsultasi keuangan keluarga.</p>
           </div>
           
-          <!-- 新增：模拟重演 -->
+          <!-- 模拟重演 -->
           <div class="case-resimulation">
             <h4>🧠 <strong>Jika Bisa Diulang:</strong></h4>
             <div class="resim-option correct">
@@ -330,7 +337,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           
-          <!-- 新增：规则链接 -->
+          <!-- 规则链接 -->
           <div class="rules-link-box">
             <p><strong>Aturan Terkait:</strong></p>
             <a href="rules.html#prosedur" class="btn-yellow-dark" style="min-width: auto; padding: 0.5rem 1rem; font-size: 0.9rem;">
@@ -349,7 +356,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <span class="toggle-icon">▼</span>
         </div>
-        <div class="case-content">
+        <div class="case-content" style="display: none;">
           <div class="case-scenario">
             <p><strong>Klien:</strong> Driver Gojek full-time</p>
             <p><strong>Motor:</strong> Honda Beat 2021 (45,000 km dalam 2 tahun)</p>
@@ -368,7 +375,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>Nilai hanya 50% dari harga pasar normal. Klien memilih tidak jadi.</p>
           </div>
           
-          <!-- 新增：模拟重演 -->
+          <!-- 模拟重演 -->
           <div class="case-resimulation">
             <h4>🧠 <strong>Jika Bisa Diulang:</strong></h4>
             <div class="resim-option correct">
@@ -381,7 +388,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           
-          <!-- 新增：规则链接 -->
+          <!-- 规则链接 -->
           <div class="rules-link-box">
             <p><strong>Aturan Terkait:</strong></p>
             <a href="rules.html#keuangan" class="btn-yellow-dark" style="min-width: auto; padding: 0.5rem 1rem; font-size: 0.9rem;">
@@ -414,7 +421,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <span class="toggle-icon">▼</span>
         </div>
-        <div class="case-content">
+        <div class="case-content" style="display: none;">
           <div class="case-scenario">
             <p><strong>Klien:</strong> Mas Rudi, Driver Gojek 3 tahun</p>
             <p><strong>Motor:</strong> Honda PCX 2020 (38,000 km)</p>
@@ -438,7 +445,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </blockquote>
           </div>
           
-          <!-- 新增：成功秘诀 -->
+          <!-- 成功秘诀 -->
           <div class="case-resimulation">
             <h4>💡 <strong>Kunci Sukses:</strong></h4>
             <div class="resim-option correct">
@@ -451,7 +458,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           
-          <!-- 新增：规则链接 -->
+          <!-- 规则链接 -->
           <div class="rules-link-box">
             <p><strong>Aturan Terkait:</strong></p>
             <a href="rules.html#komunikasi" class="btn-yellow-dark" style="min-width: auto; padding: 0.5rem 1rem; font-size: 0.9rem;">
@@ -470,7 +477,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <span class="toggle-icon">▼</span>
         </div>
-        <div class="case-content">
+        <div class="case-content" style="display: none;">
           <div class="case-scenario">
             <p><strong>Klien:</strong> Ibu Siti, dapat motor dari almarhum ayah</p>
             <p><strong>Masalah:</strong> STNK masih nama ayah, belum balik nama</p>
@@ -489,7 +496,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>Klien dapat dana yang dibutuhkan, semua dokumen jadi legal.</p>
           </div>
           
-          <!-- 新增：成功秘诀 -->
+          <!-- 成功秘诀 -->
           <div class="case-resimulation">
             <h4>💡 <strong>Kunci Sukses:</strong></h4>
             <div class="resim-option correct">
@@ -502,7 +509,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           
-          <!-- 新增：规则链接 -->
+          <!-- 规则链接 -->
           <div class="rules-link-box">
             <p><strong>Aturan Terkait:</strong></p>
             <a href="rules.html#dokumen" class="btn-yellow-dark" style="min-width: auto; padding: 0.5rem 1rem; font-size: 0.9rem;">
@@ -514,7 +521,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- 新增：互动问答区块 -->
+  <!-- 互动问答区块 -->
   <section class="quiz-section">
     <div class="section-header">
       <div class="section-icon">❓</div>
@@ -633,7 +640,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           Sekarang saatnya bertindak!
         </p>
         
-        <!-- 新增：法律提示 -->
+        <!-- 法律提示 -->
         <div class="legal-reminder">
           <h4>⚖️ <strong>Ingat:</strong></h4>
           <p>Semua transaksi di JF Gadai mengikuti <a href="rules.html" class="btn-yellow-dark" style="min-width: auto; padding: 0.3rem 0.7rem; font-size: 0.85rem; display: inline-flex; margin: 0.2rem 0;">Syarat & Ketentuan resmi</a>. Pastikan Anda membacanya sebelum memutuskan gadai.</p>
@@ -694,7 +701,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         🔒 Situs ini menggunakan koneksi aman (HTTPS).
       </p>
       
-      <!-- 新增：法律页面链接 -->
+      <!-- 法律页面链接 -->
       <div class="legal-footer-link">
         <a href="rules.html" class="btn-yellow-dark" style="min-width: auto; padding: 0.5rem 1rem; font-size: 0.9rem; margin-top: 0.5rem;">
           📄 Baca Syarat & Ketentuan Lengkap
@@ -708,5 +715,110 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- JavaScript 文件 -->
 <script src="js/main.js"></script>
 <script src="js/risk-to-success.js"></script>
+
+<!-- 内联JavaScript用于交互功能 -->
+<script>
+// 等待DOM加载完成
+document.addEventListener('DOMContentLoaded', function() {
+  // 1. 案例折叠/展开功能
+  const caseHeaders = document.querySelectorAll('.case-header-toggle');
+  
+  caseHeaders.forEach(header => {
+    header.addEventListener('click', function() {
+      const content = this.nextElementSibling;
+      const icon = this.querySelector('.toggle-icon');
+      
+      if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';
+        icon.textContent = '▲';
+      } else {
+        content.style.display = 'none';
+        icon.textContent = '▼';
+      }
+    });
+  });
+
+  // 2. 故事筛选功能
+  const storyButtons = document.querySelectorAll('.story-btn');
+  const caseCards = document.querySelectorAll('.case-card');
+  
+  storyButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // 移除所有按钮的active类
+      storyButtons.forEach(btn => btn.classList.remove('active'));
+      // 添加active类到当前按钮
+      this.classList.add('active');
+      
+      const filter = this.getAttribute('data-story');
+      
+      // 筛选案例卡片
+      caseCards.forEach(card => {
+        if (filter === 'all' || card.getAttribute('data-story') === filter) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // 3. 测验功能
+  const checkQuizBtn = document.getElementById('check-quiz');
+  const quizResult = document.getElementById('quiz-result');
+  
+  if (checkQuizBtn) {
+    checkQuizBtn.addEventListener('click', function() {
+      // 正确答案
+      const correctAnswers = {
+        q1: 'b',
+        q2: 'b',
+        q3: 'b'
+      };
+      
+      let score = 0;
+      const totalQuestions = 3;
+      
+      // 检查每个问题
+      Object.keys(correctAnswers).forEach(questionName => {
+        const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+        const feedbackElement = document.getElementById(`feedback-${questionName}`);
+        
+        if (selectedOption) {
+          if (selectedOption.value === correctAnswers[questionName]) {
+            score++;
+            if (feedbackElement) {
+              feedbackElement.innerHTML = '<span style="color: green;">✅ Jawaban benar!</span>';
+              feedbackElement.style.display = 'block';
+            }
+          } else {
+            if (feedbackElement) {
+              feedbackElement.innerHTML = '<span style="color: red;">❌ Jawaban salah. Coba pelajari lagi kasus di atas.</span>';
+              feedbackElement.style.display = 'block';
+            }
+          }
+        } else {
+          if (feedbackElement) {
+            feedbackElement.innerHTML = '<span style="color: orange;">⚠️ Silakan pilih jawaban.</span>';
+            feedbackElement.style.display = 'block';
+          }
+        }
+      });
+      
+      // 显示结果
+      if (quizResult) {
+        quizResult.innerHTML = `
+          <div style="margin-top: 1rem; padding: 1rem; background-color: ${score === totalQuestions ? '#d4edda' : '#f8d7da'}; border-radius: 5px;">
+            <h4 style="margin-top: 0;">Hasil: ${score}/${totalQuestions}</h4>
+            <p>${score === totalQuestions ? 
+              '🎉 Excellent! Anda sudah memahami pelajaran dari kasus-kasus ini.' : 
+              '📚 Ada beberapa hal yang perlu dipelajari lagi. Baca ulang kasus di atas untuk pemahaman lebih baik.'}
+            </p>
+          </div>
+        `;
+      }
+    });
+  }
+});
+</script>
 </body>
 </html>
