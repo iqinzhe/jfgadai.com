@@ -613,7 +613,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <script src="js/main.js"></script>
-  
+
 <script>
+// 特定于规则页面的JS功能
+document.addEventListener('DOMContentLoaded', function() {
+  // 打印优化 - 隐藏不需要的元素
+  window.addEventListener('beforeprint', function() {
+    // 检查元素是否存在再操作
+    const elementsToHide = document.querySelectorAll('.case-study-link, .agreement-box-enhanced input');
+    if (elementsToHide.length > 0) {
+      elementsToHide.forEach(el => {
+        el.style.display = 'none';
+      });
+    }
+  });
+  
+  window.addEventListener('afterprint', function() {
+    const elementsToShow = document.querySelectorAll('.case-study-link, .agreement-box-enhanced input');
+    if (elementsToShow.length > 0) {
+      elementsToShow.forEach(el => {
+        el.style.display = '';
+      });
+    }
+  });
+  
+  // 如果没有这些元素，可以添加一个安全检查
+  console.log('Rules page JS loaded successfully');
+});
+</script>
+
 </body>
 </html>
