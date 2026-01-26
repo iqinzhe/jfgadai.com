@@ -450,7 +450,7 @@ footer {
   .quick-actions { 
     flex-direction: row; 
     flex-wrap: wrap;
-    gap: var(--spacing-md);
+    gap: 8px 8px;
   }
   
   .quick-action-card { 
