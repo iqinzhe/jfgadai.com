@@ -1,5 +1,5 @@
 /* ==================== risk-to-success.css ==================== */
-/* 优化版本 - 已瘦身约30%，功能外观完全保留 */
+/* 优化版本 - 直接使用 main.css 中的样式，避免重复 */
 
 /* 面包屑导航 */
 .page-breadcrumb {
@@ -576,7 +576,7 @@
   line-height: 1.5;
 }
 
-/* 按钮基础样式 */
+/* 按钮基础样式 - 使用 main.css 中的 .action-btn */
 .btn-primary, .btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -735,7 +735,7 @@
     align-items: center;
   }
   
-  .story-btn, .btn-yellow-dark {
+  .story-btn, .action-btn {
     width: 100%;
     max-width: 250px;
     text-align: center;
@@ -814,6 +814,7 @@
   flex-wrap: wrap;
 }
 
+/* 故事筛选按钮 - 基于 main.css 的 .action-btn */
 .story-btn {
   display: inline-flex;
   align-items: center;
@@ -1009,53 +1010,5 @@
   text-align: center;
 }
 
-/* 黄色按钮黑色文字修复 */
-.btn-yellow-dark {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 0.5rem !important;
-  padding: 0.7rem 1.5rem !important;
-  border-radius: 50px !important;
-  text-decoration: none !important;
-  font-weight: 600 !important;
-  font-size: 1rem !important;
-  transition: all 0.3s ease !important;
-  border: 2px solid transparent !important;
-  margin: 0 auto !important;
-  min-width: 160px !important;
-  
-  background-color: var(--secondary-color) !important;
-  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark)) !important;
-  color: #000000 !important;
-  font-weight: 700 !important;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3) !important;
-}
-
-.btn-yellow-dark:hover {
-  background-color: var(--secondary-dark) !important;
-  background: linear-gradient(135deg, var(--secondary-dark), var(--secondary-color)) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.4) !important;
-  color: #000000 !important;
-}
-
-/* 小尺寸按钮 */
-.rules-link-box .btn-yellow-dark,
-.factor-card .btn-yellow-dark,
-.legal-reminder .btn-yellow-dark,
-.legal-footer-link .btn-yellow-dark,
-.legal-link.btn-yellow-dark {
-  min-width: auto !important;
-  padding: 0.5rem 1rem !important;
-  font-size: 0.9rem !important;
-}
-
-/* 问答按钮 */
-#check-quiz.btn-yellow-dark {
-  min-width: 200px !important;
-  display: block !important;
-  margin: 0 auto !important;
-  cursor: pointer !important;
-  border: none !important;
-}
+/* 重要：完全删除重复的黄色按钮样式，直接使用 main.css 中的 .action-btn.whatsapp */
+/* 在 HTML 中应该使用：class="action-btn whatsapp" 来获得黄色背景黑色文字效果 */
