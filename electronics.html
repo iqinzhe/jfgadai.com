@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -78,6 +79,124 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* 页面特定样式 */
+    .breadcrumb {
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .breadcrumb a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+      margin: var(--spacing-xl) 0;
+    }
+    
+    .info-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .info-card h3 {
+      color: var(--secondary-color);
+      margin-bottom: var(--spacing-md);
+      text-align: center;
+    }
+    
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(245, 197, 66, 0.1), rgba(15, 76, 129, 0.2));
+      border: 2px solid var(--secondary-color);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      margin: var(--spacing-lg) 0;
+      text-align: center;
+    }
+    
+    .brand-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+      justify-content: center;
+      margin: var(--spacing-md) 0;
+    }
+    
+    .brand-tag {
+      background: rgba(245, 197, 66, 0.15);
+      border: 1px solid rgba(245, 197, 66, 0.3);
+      border-radius: 20px;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .process-timeline {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin: var(--spacing-xl) 0;
+    }
+    
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 10%;
+      right: 10%;
+      height: 3px;
+      background: var(--secondary-color);
+      z-index: 1;
+    }
+    
+    .timeline-step {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+    }
+    
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--secondary-color);
+      color: var(--dark-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--spacing-sm);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    .step-title {
+      font-weight: bold;
+      color: var(--light-color);
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .step-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    
+    .note-box {
+      background: rgba(15, 76, 129, 0.3);
+      border-left: 4px solid var(--secondary-color);
+      padding: var(--spacing-md);
+      margin: var(--spacing-lg) 0;
+      border-radius: var(--border-radius);
+    }
+  </style>
 </head>
 
 <body>
@@ -86,46 +205,41 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- Breadcrumb -->
+<!-- 导航/面包屑 -->
 <div class="container">
   <div class="breadcrumb">
-    <a href="index.html">Beranda</a> &gt;
-    <a href="contact.html">Hubungi</a> &gt;
-    <span>Gadai Elektronik</span>
+    <a href="index.html">Beranda</a> &gt; <a href="contact.html">Hubungi</a> &gt; <span>Gadai Elektronik</span>
   </div>
 </div>
 
 <main class="container">
-
-  <!-- Hero Card -->
-  <div class="unified-card animate-up is-visible">
+  <!-- 主要卡片 -->
+  <div class="unified-card fade-in delay-1">
     <div class="card-icon">📱</div>
     <h1 class="card-title">Gadai Elektronik</h1>
     <p class="card-desc">
-      Butuh dana cepat? Gadai laptop, smartphone, dan barang elektronik Anda dengan
-      <strong>penilaian adil</strong> dan <strong>proses transparan</strong>.
+      Butuh dana cepat? Gadai laptop, atau barang elektronik Anda dengan proses <strong>transparan</strong> dan <strong>penilaian adil</strong>.
     </p>
-
+    
     <div class="highlight-box">
-      <h3>🏆 Keunggulan Kami</h3>
-      <p>
-        • Penilaian profesional & jujur<br>
-        • Proses cepat 30–60 menit<br>
-        • Keamanan barang terjamin<br>
-        • Konsultasi GRATIS via WhatsApp
-      </p>
+      <h3 style="margin-top: 0; color: var(--secondary-color);">🏆 Keunggulan Kami</h3>
+      <p>• Penilaian profesional & jujur<br>
+         • Proses cepat 30-60 menit<br>
+         • Keamanan barang terjamin<br>
+         • Konsultasi GRATIS via WhatsApp</p>
     </div>
-
-    <a href="https://wa.me/6289515692586"
-       class="card-cta-btn"
-       target="_blank"
+    
+    <!-- 主要CTA -->
+    <a href="https://wa.me/6289515692586" 
+       class="card-cta-btn" 
+       target="_blank" 
        rel="noopener noreferrer"
-       onclick="gtag('event','whatsapp_click',{event_category:'Electronics',event_label:'Electronics Page'})">
+       onclick="gtag('event', 'whatsapp_click', {'event_category': 'Electronics', 'event_label': 'Electronics Page'})">
       💬 Konsultasi Gratis via WhatsApp
     </a>
   </div>
-
-  <!-- Brand List -->
+  
+  <!-- 品牌列表 -->
   <div class="info-card">
     <h3>📱 Merek yang Sering Digadaikan</h3>
     <div class="brand-list">
@@ -135,89 +249,127 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="brand-tag">OPPO</span>
       <span class="brand-tag">Vivo</span>
       <span class="brand-tag">Realme</span>
-      <span class="brand-tag">ASUS</span>
+      <span class="brand-tag">ASUS Laptop</span>
       <span class="brand-tag">Lenovo</span>
       <span class="brand-tag">iPad</span>
       <span class="brand-tag">Tablet Android</span>
     </div>
   </div>
-
-  <!-- Info Grid -->
+  
+  <!-- 信息网格 -->
   <div class="info-grid">
-    <div class="info-card">
+    <!-- 接受的物品 -->
+    <div class="info-card fade-in delay-2">
       <h3>✅ Barang yang Diterima</h3>
       <ul class="card-list">
-        <li><span class="list-icon">📱</span> Smartphone semua merek</li>
-        <li><span class="list-icon">💻</span> Laptop & notebook</li>
+        <li><span class="list-icon">📱</span> Smartphone (semua merek)</li>
+        <li><span class="list-icon">💻</span> Laptop & Notebook</li>
         <li><span class="list-icon">⌚</span> Tablet & iPad</li>
         <li><span class="list-icon">📷</span> Kamera digital</li>
-        <li><span class="list-icon">🎮</span> Konsol game</li>
-        <li><span class="list-icon">🔊</span> Audio premium</li>
+        <li><span class="list-icon">🎮</span> Konsol game (PS5, Xbox)</li>
+        <li><span class="list-icon">🔊</span> Perangkat audio premium</li>
+        <li><span class="list-icon">🔄</span> Barang elektronik berharga lainnya</li>
       </ul>
+      <p style="text-align: center; margin-top: var(--spacing-md); font-size: 0.9rem; color: var(--text-muted);">
+        * Barang harus dalam kondisi berfungsi baik
+      </p>
     </div>
-
-    <div class="info-card">
+    
+    <!-- 不接受的物品 -->
+    <div class="info-card fade-in delay-3">
       <h3>❌ Barang yang Tidak Diterima</h3>
       <ul class="card-list">
-        <li><span class="list-icon">🚫</span> Barang rusak total</li>
-        <li><span class="list-icon">🚫</span> IMEI diblokir</li>
-        <li><span class="list-icon">🚫</span> Tanpa kelengkapan utama</li>
+        <li><span class="list-icon">🚫</span> Barang pinjaman/titipan</li>
+        <li><span class="list-icon">🚫</span> Barang rusak total/tidak berfungsi</li>
+        <li><span class="list-icon">🚫</span> IMEI diblokir/hilang</li>
+        <li><span class="list-icon">🚫</span> Tanpa charger & aksesoris</li>
         <li><span class="list-icon">🚫</span> Kepemilikan tidak jelas</li>
-        <li><span class="list-icon">🚫</span> Barang ilegal</li>
+        <li><span class="list-icon">🚫</span> Barang curian/ilegal</li>
+        <li><span class="list-icon">🚫</span> Elektronik usang/tua sekali</li>
       </ul>
     </div>
   </div>
-
-  <!-- Process -->
+  
+  <!-- 流程时间线 -->
   <div class="info-card">
     <h3>⚡ Proses Cepat 4 Langkah</h3>
     <div class="process-timeline">
       <div class="timeline-step">
         <div class="step-number">1</div>
         <div class="step-title">Konsultasi</div>
-        <div class="step-desc">Via WhatsApp</div>
+        <div class="step-desc">Kirim foto & info via WhatsApp</div>
       </div>
       <div class="timeline-step">
         <div class="step-number">2</div>
         <div class="step-title">Penilaian</div>
-        <div class="step-desc">Cek kondisi & harga</div>
+        <div class="step-desc">Tim ahli nilai kondisi & harga</div>
       </div>
       <div class="timeline-step">
         <div class="step-number">3</div>
         <div class="step-title">Verifikasi</div>
-        <div class="step-desc">Dokumen & kepemilikan</div>
+        <div class="step-desc">Cek dokumen & kepemilikan</div>
       </div>
       <div class="timeline-step">
         <div class="step-number">4</div>
         <div class="step-title">Pencairan</div>
-        <div class="step-desc">Dana langsung cair</div>
+        <div class="step-desc">Dana langsung cair di tempat</div>
       </div>
     </div>
   </div>
-
-  <!-- Bottom CTA -->
-  <div class="center-cta">
-    <h3>Siap Gadai Elektronik Anda?</h3>
+  
+  <!-- 重要提示 -->
+  <div class="note-box">
+    <h4 style="color: var(--secondary-color); margin-top: 0;">📋 Informasi Penting:</h4>
+    <ul style="color: var(--text-light); margin-bottom: 0;">
+      <li>Bawa <strong>KTP asli</strong> dan <strong>dokumen pembelian</strong> (jika ada)</li>
+      <li>Bawa charger dan aksesoris lengkap untuk penilaian maksimal</li>
+      <li>Pastikan barang dalam kondisi bersih dan berfungsi normal</li>
+      <li>Hapus kunci pola/PIN sebelum dibawa untuk pengecekan</li>
+      <li>Untuk iPhone, pastikan iCloud sudah sign out</li>
+    </ul>
+  </div>
+  
+  <!-- 底部CTA -->
+  <div style="text-align: center; margin: var(--spacing-xl) 0;">
+    <h3 style="color: var(--secondary-color); margin-bottom: var(--spacing-md);">
+      Siap Gadai Elektronik Anda?
+    </h3>
     <p class="card-desc">
-      Kirim foto barang dan dapatkan estimasi nilai <strong>gratis</strong>.
+      Kirim foto barang dan tanya estimasi nilai via WhatsApp. <strong>Gratis</strong> dan tanpa kewajiban.
     </p>
-    <a href="https://wa.me/6289515692586"
-       class="card-cta-btn"
-       target="_blank"
+    <a href="https://wa.me/6289515692586" 
+       class="card-cta-btn" 
+       target="_blank" 
        rel="noopener noreferrer">
-      📸 Kirim Foto Sekarang
+      📸 Kirim Foto & Konsultasi Sekarang
     </a>
   </div>
-
 </main>
 
+<!-- 页脚 -->
 <footer>
   <div class="container">
     <div class="footer-content">
-      <p>© 2026 <span class="highlight">JF Gadai</span> – Gadai Elektronik</p>
-      <a href="https://wa.me/6289515692586" target="_blank" class="contact-link">
+      <p class="copyright">© 2026 <span class="highlight">JF Gadai</span> - Gadai Elektronik</p>
+      <p class="company-info">Layanan gadai laptop, tablet di Bangil, Beji, Gempol</p>
+      <a href="https://wa.me/6289515692586" 
+         target="_blank" 
+         class="contact-link" 
+         rel="noopener noreferrer"
+         aria-label="Hubungi kami via WhatsApp">
         💬 WhatsApp: +62 895-1569-2586
       </a>
+      <p class="operating-hours">
+        ⏰ Jam kerja: 08:00-18:00 (Senin-Sabtu) | Respon cepat via WhatsApp
+      </p>
+      <p style="margin-top: var(--spacing-md);">
+        <a href="contact.html" style="color: var(--text-muted); text-decoration: none; margin-right: var(--spacing-md);">
+          ← Kembali ke Kontak
+        </a>
+        <a href="index.html" style="color: var(--text-muted); text-decoration: none;">
+          ← Beranda
+        </a>
+      </p>
     </div>
   </div>
 </footer>
