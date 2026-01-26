@@ -1,12 +1,15 @@
 /* =====================================================
-   main.css — 精简工程版（最终）
-   目标：
-   - 不改变任何现有视觉效果
-   - 统一命名 / 结构 / 层级
-   - 可被首页 + 其他页面复用
+   main.css — 精简工程版（最终统一文件）
+   已合并：
+   - 原 main.css
+   - risk-to-success.css
+   - edukasi-gadai.css
+   目标：单一入口、工程化、可长期维护
    ===================================================== */
 
-/* ==================== CSS Variables ==================== */
+/* ================================
+   1. CSS Variables（全站统一）
+================================ */
 :root {
   --primary: #1e7f43;
   --primary-dark: #166534;
@@ -14,212 +17,247 @@
 
   --text-main: #222;
   --text-muted: #666;
-  --text-light: #fff;
 
-  --bg-body: #f7f7f7;
-  --bg-section: #ffffff;
-  --bg-soft: #f2f5f3;
+  --bg-page: #f8f9fa;
+  --bg-card: #ffffff;
 
   --border-light: #e5e5e5;
 
   --radius-sm: 6px;
   --radius-md: 10px;
-  --radius-lg: 16px;
 
   --shadow-sm: 0 2px 6px rgba(0,0,0,.08);
-  --shadow-md: 0 6px 18px rgba(0,0,0,.12);
+  --shadow-md: 0 4px 15px rgba(0,0,0,.12);
 }
 
-/* ==================== Reset ==================== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* ================================
+   2. Reset & Base
+================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-page);
   color: var(--text-main);
-  background: var(--bg-body);
   line-height: 1.6;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
+img { max-width: 100%; display: block; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-a {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* ==================== Layout ==================== */
+/* ================================
+   3. Layout
+================================ */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
 }
 
-.section {
-  padding: 56px 0;
-}
-
-.section--soft {
-  background: var(--bg-soft);
-}
+.section { padding: 48px 0; }
 
 .section-title {
   font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 }
 
-.section-desc {
-  color: var(--text-muted);
-  max-width: 720px;
+/* ================================
+   4. Animations & States（统一）
+================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ==================== Header ==================== */
-.header {
-  background: var(--bg-section);
-  border-bottom: 1px solid var(--border-light);
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 64px;
+.animate-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp .6s ease forwards;
 }
 
-.logo {
-  font-size: 22px;
-  font-weight: bold;
-  color: var(--primary);
+.animate-fade {
+  opacity: 0;
+  animation: fadeIn .6s ease forwards;
 }
 
-.nav a {
-  margin-left: 20px;
-  color: var(--text-main);
+.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
-/* ==================== Hero ==================== */
-.hero {
-  background: linear-gradient(135deg, #1e7f43, #166534);
-  color: var(--text-light);
-}
+.is-expanded { }
 
-.hero-inner {
-  padding: 72px 0;
-}
-
-.hero-title {
-  font-size: 36px;
-  line-height: 1.25;
-  margin-bottom: 16px;
-}
-
-.hero-desc {
-  max-width: 640px;
-  opacity: .95;
-}
-
-/* ==================== Buttons ==================== */
-.btn {
-  display: inline-block;
-  padding: 12px 22px;
-  border-radius: var(--radius-md);
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.btn--primary {
-  background: var(--accent);
-  color: #000;
-}
-
-.btn--primary:hover {
-  opacity: .9;
-}
-
-.btn--ghost {
-  border: 1px solid #fff;
-  color: #fff;
-}
-
-/* ==================== Grid & Cards ==================== */
-.grid {
-  display: grid;
-  gap: 24px;
-}
-
-.grid-2 {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-.grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
+/* ================================
+   5. Cards（通用 + Case）
+================================ */
 .card {
-  background: var(--bg-section);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  padding: 24px;
-}
-
-.card-title {
-  font-size: 18px;
-  margin-bottom: 8px;
-}
-
-.card-desc {
-  color: var(--text-muted);
-}
-
-/* ==================== Trust / Info Blocks ==================== */
-.trust {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 24px;
-}
-
-.trust-item {
-  background: var(--bg-section);
+  background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
-  padding: 12px 16px;
-  font-size: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 
-/* ==================== Footer ==================== */
-.footer {
-  background: #111;
-  color: #ccc;
+.case-card {
+  --case-color: 30,127,67;
 }
 
-.footer-inner {
-  padding: 40px 0;
-  font-size: 14px;
+.case-card[data-type="risk"] { --case-color: 244,67,54; }
+.case-card[data-type="success"] { --case-color: 76,175,80; }
+
+.case-card {
+  border-color: rgba(var(--case-color), .3);
 }
 
-.footer a {
-  color: #ccc;
+.case-card:hover {
+  border-color: rgba(var(--case-color), .5);
+  box-shadow: 0 8px 25px rgba(var(--case-color), .2);
 }
 
-/* ==================== Utilities ==================== */
-.text-center { text-align: center; }
-.mt-24 { margin-top: 24px; }
-.mt-40 { margin-top: 40px; }
+/* ================================
+   6. Outcome 标签
+================================ */
+.outcome {
+  font-weight: 700;
+  padding: .2rem .6rem;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: .95rem;
+}
 
-/* ==================== Responsive ==================== */
+.outcome[data-level="bad"] {
+  background: rgba(244,67,54,.2);
+  color: #ff6b6b;
+}
+
+.outcome[data-level="warning"] {
+  background: rgba(243,156,18,.2);
+  color: #d68910;
+}
+
+.outcome[data-level="good"] {
+  background: rgba(46,204,113,.2);
+  color: #27ae60;
+}
+
+/* ================================
+   7. Edu Header（原 edukasi-gadai）
+================================ */
+.edu-header {
+  background: linear-gradient(135deg, #0b2c4a, #1a5276);
+  color: #fff;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  z-index: 9999;
+  border-bottom: 4px solid #27ae60;
+  box-shadow: var(--shadow-md);
+}
+
+.edu-header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ================================
+   8. Edu Content / Accordion
+================================ */
+main.container { padding-top: 80px; }
+
+.accordion {
+  max-width: 900px;
+  margin: 20px auto 50px;
+  padding: 0 20px;
+}
+
+.accordion-item {
+  margin-bottom: 18px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #eaeaea;
+  box-shadow: var(--shadow-sm);
+}
+
+.accordion-header {
+  padding: 22px 25px;
+  background: linear-gradient(135deg, #0b2c4a, #1a5276);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.accordion-header.active {
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .5s ease;
+  background: #fff;
+}
+
+.edu-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 30px 25px;
+}
+
+/* ================================
+   9. Footer
+================================ */
+footer {
+  background: rgba(11,44,74,.9);
+  margin-top: 40px;
+  padding: 30px 0 20px;
+  border-top: 2px solid #2ecc71;
+}
+
+.footer-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+}
+
+.contact-link:hover {
+  color: #2ecc71;
+  border-color: #2ecc71;
+}
+
+/* ================================
+   10. Responsive
+================================ */
 @media (max-width: 768px) {
-  .hero-title { font-size: 28px; }
-  .section { padding: 40px 0; }
+  .edu-header { height: 60px; }
+  main.container { padding-top: 70px; }
+  .accordion-header { font-size: 1.1rem; padding: 18px 15px; }
 }
