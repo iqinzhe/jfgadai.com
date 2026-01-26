@@ -1282,3 +1282,38 @@
     max-width: 250px;
   }
 }
+
+/* 故事筛选按钮样式修正 - 基于main.css的.action-btn */
+.story-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(245, 197, 66, 0.3);
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+}
+
+.story-btn:hover {
+  background: rgba(245, 197, 66, 0.2);
+  border-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.story-btn.active {
+  background-color: var(--secondary-color);
+  color: var(--dark-color);
+  border-color: var(--secondary-color);
+}
+
+.story-btn.active:hover {
+  background-color: var(--secondary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.4);
+}
