@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <!-- Google Tag Manager -->
   <script>
-    (function(w,d,s,l,i){
+  (function(w,d,s,l,i){
       w[l]=w[l]||[];
       w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
       var f=d.getElementsByTagName(s)[0],
@@ -12,10 +13,11 @@
       j.async=true;
       j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
       f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-M2GMSNWS');
+  })(window,document,'script','dataLayer','GTM-M2GMSNWS');
   </script>
+  <!-- End Google Tag Manager -->
 
-  <!-- Google Ads -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845187332"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -27,118 +29,260 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/android-chrome-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- SEO Meta Tags -->
   <title>Hubungi JF Gadai via WhatsApp | Konsultasi Gratis & Cepat</title>
-  <meta name="description" content="Hubungi JF Gadai via WhatsApp untuk konsultasi gadai gratis. Proses cepat, transparan, dan aman. Layanan Bangil, Beji, Gempol.">
+  <meta name="description" content="Hubungi JF Gadai via WhatsApp untuk konsultasi gadai gratis. Proses cepat, transparan, dan aman. Layanan wilayah Bangil, Beji, Gempol.">
+  <meta name="author" content="JF Gadai">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Hubungi JF Gadai | Konsultasi Gratis">
-  <meta property="og:description" content="Konsultasi gadai motor & elektronik via WhatsApp. Respon cepat.">
+  <meta property="og:title" content="Hubungi JF Gadai | Konsultasi Gadai Gratis via WhatsApp">
+  <meta property="og:description" content="Konsultasi gadai motor, emas, dan elektronik dengan tim ahli JF Gadai. Respon cepat via WhatsApp.">
   <meta property="og:image" content="https://www.jfgadai.com/images/og-contact.jpg">
   <meta property="og:url" content="https://www.jfgadai.com/contact.html">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:site_name" content="JF Gadai">
 
+  <!-- Canonical URL -->
   <link rel="canonical" href="https://www.jfgadai.com/contact.html">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Hubungi JF Gadai",
+    "description": "Halaman kontak resmi JF Gadai untuk konsultasi gadai",
+    "url": "https://www.jfgadai.com/contact.html",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "JF Gadai",
+      "telephone": "+6289515692586",
+      "contactType": "customer service",
+      "areaServed": ["Bangil", "Beji", "Gempol"],
+      "availableLanguage": ["Bahasa Indonesia"]
+    }
+  }
+  </script>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* 页面特定样式 */
+    .breadcrumb {
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .breadcrumb a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .contact-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+      margin: var(--spacing-xl) 0;
+    }
+    
+    .contact-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-xl);
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .contact-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--secondary-color);
+      background: rgba(255, 255, 255, 0.12);
+    }
+    
+    .contact-icon {
+      font-size: 3rem;
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .contact-subtitle {
+      color: var(--secondary-color);
+      font-size: 1.2rem;
+      margin: var(--spacing-sm) 0;
+    }
+    
+    .response-time {
+      background: rgba(245, 197, 66, 0.1);
+      border: 1px solid var(--secondary-color);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-md);
+      margin: var(--spacing-lg) 0;
+      text-align: center;
+    }
+    
+    .faq-section {
+      margin-top: var(--spacing-xl);
+    }
+    
+    .faq-item {
+      margin-bottom: var(--spacing-md);
+      padding: var(--spacing-md);
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius);
+      border-left: 4px solid var(--secondary-color);
+    }
+    
+    .faq-question {
+      color: var(--light-color);
+      font-weight: bold;
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .faq-answer {
+      color: var(--text-muted);
+    }
+  </style>
 </head>
 
 <body>
-<noscript>
-  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
-<!-- Breadcrumb -->
+<!-- 导航/面包屑 -->
 <div class="container">
-  <nav class="breadcrumb">
+  <div class="breadcrumb">
     <a href="index.html">Beranda</a> &gt; <span>Hubungi Kami</span>
-  </nav>
+  </div>
 </div>
 
 <main class="container">
-
-  <!-- 主联系卡 -->
-  <section class="unified-card animate-up">
+  <!-- 主要联系卡片 -->
+  <div class="unified-card fade-in delay-1">
     <div class="card-icon">💬</div>
     <h1 class="card-title">Hubungi JF Gadai</h1>
     <p class="card-desc">
-      Konsultasi gadai <strong>gratis</strong> via WhatsApp. Proses cepat, aman, dan transparan.
+      Konsultasi gadai <strong>gratis</strong> via WhatsApp. Tim kami siap membantu Anda dengan proses yang cepat, aman, dan transparan.
     </p>
-
-    <div class="info-box highlight">
-      ⏱️ <strong>Respon Cepat:</strong> 5–15 menit (Jam kerja 08:00–18:00)
+    
+    <!-- 响应时间提示 -->
+    <div class="response-time">
+      <p style="margin: 0; color: var(--secondary-color);">
+        <strong>⏱️ Respon Cepat:</strong> Biasanya dalam 5-15 menit (Jam kerja: 08:00-18:00)
+      </p>
     </div>
-
-    <a
-      href="https://wa.me/6289515692586"
-      target="_blank"
-      class="card-cta-btn"
-      onclick="gtag('event','whatsapp_click',{event_category:'Contact'})"
-    >
+    
+    <!-- 主要WhatsApp按钮 -->
+    <a href="https://wa.me/6289515692586" 
+       class="card-cta-btn" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       onclick="gtag('event', 'whatsapp_click', {'event_category': 'Contact', 'event_label': 'Contact Page'})">
       💬 Chat WhatsApp Sekarang
     </a>
-  </section>
-
-  <!-- 联系入口 -->
-  <section class="grid-3">
-
-    <div class="unified-card animate-up">
-      <div class="card-icon">🏍️</div>
-      <h3 class="card-title">Gadai Motor</h3>
-      <p class="card-desc">Proses & persyaratan gadai motor.</p>
-      <a href="motor.html" class="card-cta-btn">Info Gadai Motor</a>
+    
+    <p style="margin-top: var(--spacing-md); color: var(--text-muted); font-size: 0.9rem;">
+      Klik tombol di atas untuk langsung terhubung ke WhatsApp kami
+    </p>
+  </div>
+  
+  <!-- 联系选项 -->
+  <div class="contact-options">
+    <div class="contact-card fade-in delay-2">
+      <div class="contact-icon">🏍️</div>
+      <h3 class="contact-subtitle">Konsultasi Gadai Motor</h3>
+      <p>Tanya tentang gadai motor, proses, dan persyaratan.</p>
+      <a href="motor.html" class="card-cta-btn" style="padding: 0.7rem 1.5rem; font-size: 0.95rem;">
+        Info Gadai Motor
+      </a>
     </div>
-
-    <div class="unified-card animate-up">
-      <div class="card-icon">📱</div>
-      <h3 class="card-title">Gadai Elektronik</h3>
-      <p class="card-desc">HP, laptop, dan perangkat elektronik.</p>
-      <a href="electronics.html" class="card-cta-btn">Info Elektronik</a>
+    
+    <div class="contact-card fade-in delay-3">
+      <div class="contact-icon">📱</div>
+      <h3 class="contact-subtitle">Gadai HP & Elektronik</h3>
+      <p>Konsultasi penilaian HP, laptop, dan barang elektronik.</p>
+      <a href="electronics.html" class="card-cta-btn" style="padding: 0.7rem 1.5rem; font-size: 0.95rem;">
+        Info Gadai Elektronik
+      </a>
     </div>
-
-    <div class="unified-card animate-up">
-      <div class="card-icon">📄</div>
-      <h3 class="card-title">Aturan & Ketentuan</h3>
-      <p class="card-desc">Syarat resmi gadai JF Gadai.</p>
-      <a href="rules.html" class="card-cta-btn">Baca Aturan</a>
+    
+    <div class="contact-card fade-in delay-4">
+      <div class="contact-icon">📄</div>
+      <h3 class="contact-subtitle">Syarat & Ketentuan</h3>
+      <p>Pelajari aturan dan persyaratan gadai di JF Gadai.</p>
+      <a href="rules.html" class="card-cta-btn" style="padding: 0.7rem 1.5rem; font-size: 0.95rem;">
+        Baca Aturan
+      </a>
     </div>
-
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq-section">
-    <h2 class="section-title">❓ Pertanyaan Umum</h2>
-
-    <div class="faq-card">
-      <strong>Berapa lama respon WhatsApp?</strong>
-      <p>5–15 menit pada jam kerja.</p>
+  </div>
+  
+  <!-- 常见问题 -->
+  <div class="faq-section">
+    <h2 style="text-align: center; color: var(--secondary-color); margin-bottom: var(--spacing-lg);">
+      ❓ Pertanyaan yang Sering Diajukan
+    </h2>
+    
+    <div class="faq-item">
+      <div class="faq-question">Berapa lama waktu respon via WhatsApp?</div>
+      <div class="faq-answer">Biasanya dalam 5-15 menit pada jam kerja (08:00-18:00). Di luar jam kerja, kami akan respon di hari kerja berikutnya.</div>
     </div>
-
-    <div class="faq-card">
-      <strong>Apakah konsultasi berbayar?</strong>
-      <p>Tidak. 100% gratis.</p>
+    
+    <div class="faq-item">
+      <div class="faq-question">Apakah konsultasi dikenakan biaya?</div>
+      <div class="faq-answer">Tidak. Konsultasi via WhatsApp sepenuhnya GRATIS tanpa biaya apapun.</div>
     </div>
-
-    <div class="faq-card">
-      <strong>Dokumen apa yang dibutuhkan?</strong>
-      <p>KTP & dokumen kepemilikan barang.</p>
+    
+    <div class="faq-item">
+      <div class="faq-question">Apa saja dokumen yang perlu disiapkan?</div>
+      <div class="faq-answer">KTP asli dan dokumen kepemilikan barang (BPKB untuk motor, sertifikat untuk emas, dll).</div>
     </div>
-
-    <div class="faq-card">
-      <strong>Kapan dana cair?</strong>
-      <p>Langsung setelah kesepakatan.</p>
+    
+    <div class="faq-item">
+      <div class="faq-question">Berapa lama proses pencairan dana?</div>
+      <div class="faq-answer">Setelah kesepakatan nilai, dana bisa dicairkan langsung di tempat.</div>
     </div>
-  </section>
-
+  </div>
 </main>
 
+<!-- 页脚 -->
 <footer>
   <div class="container">
-    <p>© 2026 JF Gadai</p>
-    <a href="https://wa.me/6289515692586" target="_blank">
-      WhatsApp: +62 895-1569-2586
-    </a>
+    <div class="footer-content">
+      <p class="copyright">© 2025 <span class="highlight">JF Gadai</span> - Hubungi Kami</p>
+      <p class="company-info">Layanan area Bangil • Beji • Gempol dan sekitarnya</p>
+      <a href="https://wa.me/6289515692586" 
+         target="_blank" 
+         class="contact-link" 
+         rel="noopener noreferrer"
+         aria-label="Hubungi kami via WhatsApp">
+        💬 WhatsApp: +62 895-1569-2586
+      </a>
+      <p class="operating-hours">
+        ⏰ Jam kerja: 08:00-18:00 (Senin-Sabtu)
+      </p>
+      <p class="security-note">
+        🔒 Konsultasi aman & privasi terjaga
+      </p>
+      <p style="margin-top: var(--spacing-md);">
+        <a href="index.html" style="color: var(--text-muted); text-decoration: none;">← Kembali ke Beranda</a>
+      </p>
+    </div>
   </div>
 </footer>
 
