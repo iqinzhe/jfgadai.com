@@ -258,6 +258,12 @@ body {
   margin-bottom: var(--spacing-lg);
   line-height: 1.6;
 }
+.card-highlight {
+  color: var(--secondary-color);
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 0.3rem;
+}
 
 /* 统一行动号召按钮 */
 .card-cta-btn {
@@ -462,6 +468,59 @@ footer {
   .full-banner {
     height: 180px;
   }
+
+/* 平板竖屏和横屏（769px-1200px） */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .asymmetric-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  
+  #assessment-system { 
+    grid-column: 1 / span 2; 
+    grid-row: 1; 
+  }
+  
+  #motor-pawn { 
+    grid-column: 1; 
+    grid-row: 2; 
+  }
+  
+  #electronics-pawn { 
+    grid-column: 2; 
+    grid-row: 2; 
+  }
+  
+  #our-services { 
+    grid-column: 1; 
+    grid-row: 3; 
+  }
+  
+  #contact-navigation { 
+    grid-column: 2; 
+    grid-row: 3; 
+  }
+  
+  #contact-form { 
+    display: none; /* 平板端也隐藏这个区块 */
+  }
+  
+  .quick-actions { 
+    flex-direction: row; 
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+  
+  .quick-action-card { 
+    flex: 1 1 calc(50% - var(--spacing-md));
+    min-width: 280px;
+    max-width: none;
+  }
+  
+  .contact-info {
+    max-width: 600px;
+  }
+}
   
   /* 确保单列布局 - 只显示5个项目 */
   .asymmetric-grid {
