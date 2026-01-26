@@ -1,263 +1,695 @@
-/* =====================================================
-   main.css — 精简工程版（最终统一文件）
-   已合并：
-   - 原 main.css
-   - risk-to-success.css
-   - edukasi-gadai.css
-   目标：单一入口、工程化、可长期维护
-   ===================================================== */
+/* 放在 main.css 文件最末尾 */
+@media screen and (max-width: 768px) {
+  /* 1. 修复左侧黄线问题 */
+  * {
+    border: none !important;
+    outline: none !important;
+  }
+  
+  /* 2. 修复信任区块白色背景问题 */
+  .trust-box {
+    background: #2c3e50 !important;
+    color: white !important;
+    padding: 20px 15px !important;
+  }
+  
+  .trust-box .trust-item {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: white !important;
+    padding: 12px !important;
+    margin: 8px 0 !important;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}/* ==================== 基础样式 ==================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ================================
-   1. CSS Variables（全站统一）
-================================ */
 :root {
-  --primary: #1e7f43;
-  --primary-dark: #166534;
-  --accent: #f4c430;
-
-  --text-main: #222;
-  --text-muted: #666;
-
-  --bg-page: #f8f9fa;
-  --bg-card: #ffffff;
-
-  --border-light: #e5e5e5;
-
-  --radius-sm: 6px;
-  --radius-md: 10px;
-
-  --shadow-sm: 0 2px 6px rgba(0,0,0,.08);
-  --shadow-md: 0 4px 15px rgba(0,0,0,.12);
+  --primary-color: #0f4c81;
+  --primary-dark: #0c3d67;
+  --secondary-color: #f5c542;
+  --secondary-dark: #e0b339;
+  --light-color: #ffffff;
+  --dark-color: #0b2c4a;
+  --text-light: #e6f3fb;
+  --text-muted: #cfe3f2;
+  --border-radius: 14px;
+  --border-radius-lg: 20px;
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+  
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
 }
-
-/* ================================
-   2. Reset & Base
-================================ */
-* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg-page);
-  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0b2c4a 0%, #0e4b6e 100%) fixed;
+  color: var(--light-color);
   line-height: 1.6;
+  overflow-x: hidden;
+  font-size: 1.1rem; /* 全局字体稍大，电脑端可读性提高 */
 }
 
-img { max-width: 100%; display: block; }
-a { color: var(--primary); text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-/* ================================
-   3. Layout
-================================ */
+/* ==================== 通用容器 ==================== */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 var(--spacing-lg);
 }
 
-.section { padding: 48px 0; }
-
-.section-title {
-  font-size: 28px;
-  margin-bottom: 24px;
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-md);
+  }
 }
 
-/* ================================
-   4. Animations & States（统一）
-================================ */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.animate-up {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp .6s ease forwards;
-}
-
-.animate-fade {
-  opacity: 0;
-  animation: fadeIn .6s ease forwards;
-}
-
-.is-visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-.is-expanded { }
-
-/* ================================
-   5. Cards（通用 + Case）
-================================ */
-.card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-}
-
-.case-card {
-  --case-color: 30,127,67;
-}
-
-.case-card[data-type="risk"] { --case-color: 244,67,54; }
-.case-card[data-type="success"] { --case-color: 76,175,80; }
-
-.case-card {
-  border-color: rgba(var(--case-color), .3);
-}
-
-.case-card:hover {
-  border-color: rgba(var(--case-color), .5);
-  box-shadow: 0 8px 25px rgba(var(--case-color), .2);
-}
-
-/* ================================
-   6. Outcome 标签
-================================ */
-.outcome {
-  font-weight: 700;
-  padding: .2rem .6rem;
-  border-radius: 4px;
-  display: inline-block;
-  font-size: .95rem;
-}
-
-.outcome[data-level="bad"] {
-  background: rgba(244,67,54,.2);
-  color: #ff6b6b;
-}
-
-.outcome[data-level="warning"] {
-  background: rgba(243,156,18,.2);
-  color: #d68910;
-}
-
-.outcome[data-level="good"] {
-  background: rgba(46,204,113,.2);
-  color: #27ae60;
-}
-
-/* ================================
-   7. Edu Header（原 edukasi-gadai）
-================================ */
-.edu-header {
-  background: linear-gradient(135deg, #0b2c4a, #1a5276);
-  color: #fff;
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  z-index: 9999;
-  border-bottom: 4px solid #27ae60;
-  box-shadow: var(--shadow-md);
-}
-
-.edu-header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+/* ==================== 通用横幅样式 ==================== */
+.full-banner {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* ================================
-   8. Edu Content / Accordion
-================================ */
-main.container { padding-top: 80px; }
-
-.accordion {
-  max-width: 900px;
-  margin: 20px auto 50px;
-  padding: 0 20px;
-}
-
-.accordion-item {
-  margin-bottom: 18px;
-  border-radius: 12px;
+  height: 200px;
   overflow: hidden;
-  background: #fff;
-  border: 1px solid #eaeaea;
-  box-shadow: var(--shadow-sm);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark-color);
 }
 
-.accordion-header {
-  padding: 22px 25px;
-  background: linear-gradient(135deg, #0b2c4a, #1a5276);
-  color: #fff;
-  cursor: pointer;
+.full-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ==================== 快速操作栏 ==================== */
+.quick-actions {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.3rem;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) auto;
+  flex-wrap: wrap;
+}
+
+.quick-action-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  flex: 1;
+  min-width: 260px;
+  max-width: 400px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.quick-action-card::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 0;
+  width: 5px;
+  background: var(--secondary-color);
+  border-radius: 3px;
+}
+
+.quick-action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(245, 197, 66, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.action-icon { 
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm); 
+}
+
+.action-title { 
+  color: var(--secondary-color); 
+  font-size: 1.4rem;
   font-weight: 700;
+  text-shadow: 1px 1px 2px #000; /* 黑色阴影，黄黑配清晰 */
+  margin-bottom: var(--spacing-sm);
 }
 
-.accordion-header.active {
-  background: linear-gradient(135deg, #27ae60, #2ecc71);
+.action-description { 
+  color: var(--text-light); 
+  margin-bottom: var(--spacing-md); 
+  font-size: 1rem; 
+  line-height: 1.5;
 }
 
-.accordion-content {
-  max-height: 0;
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  margin: 0 auto; /* 居中 */
+  min-width: 160px;
+}
+
+.action-btn.whatsapp {
+  background-color: var(--secondary-color);
+  color: var(--dark-color);
+}
+
+.action-btn.whatsapp:hover {
+  background-color: var(--secondary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.4);
+}
+
+.action-btn.location {
+  background-color: transparent;
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+}
+
+.action-btn.location:hover {
+  background-color: rgba(245, 197, 66, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
+}
+
+/* ==================== 统一卡片组件 ==================== */
+.unified-card {
+  position: relative;
+  background: linear-gradient(135deg, 
+    rgba(15, 76, 129, 0.4), 
+    rgba(245, 197, 66, 0.2));
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  border: 2px solid rgba(245, 197, 66, 0.4);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   overflow: hidden;
-  transition: max-height .5s ease;
-  background: #fff;
+  transition: all 0.3s ease;
+  margin-bottom: var(--spacing-lg);
 }
 
-.edu-content {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 30px 25px;
+.unified-card::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 0;
+  width: 6px;
+  background: var(--secondary-color); /* 左侧装饰 */
+  border-radius: 3px;
+  z-index: 2;
 }
 
-/* ================================
-   9. Footer
-================================ */
+.unified-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(245, 197, 66, 0.3);
+  border-color: rgba(245, 197, 66, 0.6);
+}
+
+/* 卡片标题 */
+.card-title {
+  color: var(--secondary-color);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-shadow: 1px 1px 2px #000; /* 黄黑配更清晰 */
+}
+
+/* 卡片描述 */
+.card-desc {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.6;
+}
+
+/* 统一行动号召按钮 */
+.card-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+  color: var(--dark-color);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.15rem;
+  transition: all 0.3s ease;
+  margin: var(--spacing-md) 0;
+  border: 3px solid transparent;
+  min-width: 220px;
+  margin: 0 auto; /* 居中 */
+}
+
+/* 卡片列表项 */
+.card-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-light);
+  font-size: 1rem;
+  text-align: left;
+}
+
+.list-icon {
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  min-width: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ==================== 页脚优化 ==================== */
 footer {
-  background: rgba(11,44,74,.9);
-  margin-top: 40px;
-  padding: 30px 0 20px;
-  border-top: 2px solid #2ecc71;
+  background: rgba(11, 44, 74, 0.9);
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md) 0 var(--spacing-sm);
+  border-top: 2px solid var(--secondary-color);
 }
 
 .footer-content {
   text-align: center;
   max-width: 700px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
+.copyright {
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.1;
+}
+
+.highlight {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.company-info {
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  padding: 0 0.5rem;
+}
+
+/* 联系电话布局 - 单个居中显示 */
+.contact-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem auto;
+  padding: 0.4rem 0;
+  max-width: 550px;
+}
+
+/* 联系电话的样式 - 添加可见背景框 */
 .contact-link {
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
-  color: #fff;
+  gap: 0.4rem;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
   padding: 6px 12px;
   border-radius: 6px;
-  background: rgba(255,255,255,.1);
-  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
 }
 
+/* 鼠标悬停效果 */
 .contact-link:hover {
-  color: #2ecc71;
-  border-color: #2ecc71;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  transform: translateY(-2px);
 }
 
-/* ================================
-   10. Responsive
-================================ */
+/* 移动端适配 */
 @media (max-width: 768px) {
-  .edu-header { height: 60px; }
-  main.container { padding-top: 70px; }
-  .accordion-header { font-size: 1.1rem; padding: 18px 15px; }
+  .contact-info {
+    gap: 0.8rem; /* 移动端间距更小 */
+  }
+  
+  .contact-link {
+    padding: 5px 5px;
+    font-size: 0.9rem;
+  }
+  
+  footer {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .copyright {
+    font-size: 1.1rem;
+  }
+}
+
+/* 极窄屏幕（如手机竖屏）下的适配 */
+@media (max-width: 480px) {
+  .contact-info {
+    flex-direction: column; /* 竖排排列 */
+    gap: 0.5rem;
+  }
+  
+  .contact-link {
+    width: 100%; /* 占满宽度 */
+    justify-content: center; /* 内容居中 */
+    padding: 8px 15px; /* 增大内边距便于点击 */
+  }
+}
+
+/* 落地页信任区块（广告审核加分） */
+.trust-box {
+  margin: 1.5rem 0 1rem;
+  padding: 1rem 1.2rem;
+  background: rgba(15, 76, 129, 0.35);
+  border: 1px solid rgba(245, 197, 66, 0.35);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  text-align: center;
+}
+
+.trust-item {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+}
+
+.trust-item strong {
+  color: #f5c542;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .trust-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==================== 六宫格首页专用 ==================== */
+.asymmetric-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: var(--spacing-md);
+  margin: var(--spacing-xl) auto;
+  max-width: 1400px;
+  padding: 0 var(--spacing-lg);
+}
+
+/* 每个网格项左侧装饰 */
+.grid-item::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 0;
+  width: 5px;
+  background: var(--secondary-color);
+  border-radius: 3px;
+  z-index: 2;
+}
+
+/* 移动端优化（针对现代手机屏幕 ≥375px） */
+@media screen and (max-width: 768px) {
+  /* 1. 横幅高度优化 - 控制在合适比例 */
+  .full-banner {
+    height: 20vh !important; /* 进一步降低到20%视口高度 */
+    min-height: 140px;
+    max-height: 160px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .full-banner img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  /* 2. 主内容区紧凑布局 */
+  .container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  main.asymmetric-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 0 !important;
+    margin: 0;
+  }
+  
+  .grid-item {
+    width: 100%;
+    margin: 0;
+  }
+  
+  /* 3. 卡片内容优化 - 紧凑布局 */
+  .unified-card {
+    padding: 18px 15px !important;
+    margin: 0;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 10px;
+  }
+  
+  .card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  
+  .card-title {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  
+  .card-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  
+  .card-highlight {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  /* 4. 按钮优化 - 防止溢出 */
+  .card-cta-btn {
+    width: 100%;
+    padding: 14px !important;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    text-align: center;
+  }
+  
+  .card-cta-btn span {
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* 5. SEO内容区优化 */
+  .seo-text-box {
+    padding: 25px 15px !important;
+    margin: 20px 0;
+  }
+  
+  .seo-text-box h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  
+  .seo-text-box p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  /* 6. 信任区块优化 */
+  .trust-box {
+    padding: 20px 15px !important;
+  }
+  
+  .trust-box .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .trust-item {
+    flex: 1;
+    min-width: calc(50% - 10px);
+    padding: 12px 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    background: #f8f9fa;
+    border-radius: 6px;
+  }
+  
+  /* 7. 页脚优化 - 修复WhatsApp号码显示 */
+  footer {
+    padding: 25px 15px !important;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .copyright, 
+  .company-info, 
+  .operating-hours, 
+  .security-note {
+    font-size: 0.88rem;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  /* WhatsApp链接优化 - 防止溢出 */
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    background: #25D366;
+    color: white;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 2px 6px rgba(37, 211, 102, 0.3);
+    transition: all 0.2s ease;
+  }
+  
+  .contact-link:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+  }
+  
+  .contact-link img {
+    margin-right: 8px;
+    width: 22px;
+    height: 22px;
+  }
+  
+  /* 确保电话号码不会被截断 */
+  .contact-link span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 30px);
+  }
+}
+
+/* 针对平板和更大手机优化 (480px - 768px) */
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .full-banner {
+    height: 22vh !important;
+    min-height: 160px;
+    max-height: 180px;
+  }
+  
+  main.asymmetric-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 16px !important;
+  }
+  
+  /* 让某些重要卡片占两列 */
+  .grid-item.assessment-system,
+  .grid-item.contact-form-section {
+    grid-column: span 2;
+  }
+  
+  .trust-box .container {
+    flex-wrap: nowrap;
+  }
+  
+  .trust-item {
+    min-width: auto;
+  }
+}
+
+/* 确保整体布局紧凑 */
+* {
+  box-sizing: border-box;
+}
+
+/* 响应式图片 */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 移除可能的多余边距 */
+body, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* 确保滚动平滑 */
+html {
+  scroll-behavior: smooth;
+}
+
+@media screen and (max-width: 768px) {
+  * {
+    border: none !important;
+    outline: none !important;
+  }
+  
+  body, html {
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }
