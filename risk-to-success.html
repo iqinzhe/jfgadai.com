@@ -2,13 +2,14 @@
 <html lang="id">
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845187332"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-17845187332');
-  </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845187332"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17845187332');
+</script>
 
   <!-- Google Tag Manager -->
   <script>
@@ -56,7 +57,7 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.jfgadai.com/risk-to-success.html">
 
-  <!-- JSON-LD 结构化数据 - 修复版 -->
+  <!-- JSON-LD 结构化数据 -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -85,29 +86,6 @@
   }
   </script>
 
-  <!-- FAQ 结构化数据（单独添加） -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [{
-      "@type": "Question",
-      "name": "Apa penyebab utama gagal gadai motor?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Berdasarkan analisis 50+ kasus, penyebab utama adalah: 1) Dokumen tidak lengkap, 2) Tidak jujur tentang kondisi motor, 3) Tidak memahami aturan dasar gadai."
-      }
-    }, {
-      "@type": "Question",
-      "name": "Bagaimana cara memastikan gadai motor sukses?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "3 kunci sukses: 1) Bawa semua dokumen asli, 2) Jujur tentang sejarah dan kondisi motor, 3) Komunikasi terbuka dengan tim penilai JF Gadai."
-      }
-    }]
-  }
-  </script>
-
   <!-- CSS 文件 -->
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/risk-to-success.css">
@@ -119,13 +97,12 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- ✅ 修复：移除隐藏文本，改为可见的SEO友好内容 -->
-<div class="seo-introduction" style="background-color: #f8f9fa; padding: 1rem; margin-bottom: 2rem; border-left: 4px solid #ffc107;">
-  <div class="container">
-    <h1 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Panduan Sukses Gadai Motor di JF Gadai Bangil, Beji, dan Gempol</h1>
-    <p style="margin: 0;">JF Gadai membagikan pengalaman nyata gadai motor untuk membantu pelanggan memahami faktor sukses dan kegagalan. Pelajari dari studi kasus nyata tentang risiko dokumen, kondisi motor, faktor manusia, dan cara menghindari masalah umum. Panduan ini didasarkan pada pengalaman langsung tim JF Gadai melayani gadai motor di wilayah Bangil, Beji, dan Gempol.</p>
-  </div>
+<!-- ✅ 新增：纯文本内容区块，直接放在body开头，仅对搜索引擎可见 -->
+<div class="seo-text-content" style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden;">
+    <h1>Panduan Sukses Gadai Motor di JF Gadai Bangil, Beji, dan Gempol</h1>
+    <p>JF Gadai membagikan pengalaman nyata gadai motor untuk membantu pelanggan memahami faktor sukses dan kegagalan. Pelajari dari studi kasus nyata tentang risiko dokumen, kondisi motor, faktor manusia, dan cara menghindari masalah umum. Panduan ini didasarkan pada pengalaman langsung tim JF Gadai melayani gadai motor di wilayah Bangil, Beji, dan Gempol. Kami menunjukkan transparansi dalam proses gadai dan berkomitmen membantu pelanggan mencapai kesepakatan yang adil dan menguntungkan kedua belah pihak.</p>
 </div>
+<!-- ✅ 新增结束 -->
 
 <!-- 导航面包屑 -->
 <nav class="page-breadcrumb container">
@@ -145,6 +122,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         Belajar dari <span class="highlight">50+ kasus nyata</span> gadai motor di JF Gadai. 
         Pahami mengapa beberapa berhasil dan lainnya gagal.
       </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-number">90%</span>
+          <span class="stat-label">Sukses dengan persiapan tepat</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-number">3x</span>
+          <span class="stat-label">Lebih cepat prosesnya</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -170,7 +157,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
   <!-- 第一部分：风险警示案例 -->
-  <section class="cases-section risk-cases" id="cases">
+  <section class="cases-section risk-cases">
     <div class="section-header">
       <div class="section-icon">⚠️</div>
       <h2>Kasus yang Sering Gagal (Pelajari dari Sini)</h2>
@@ -182,7 +169,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
     <div class="cases-grid">
       <!-- 案例1: 证件问题 -->
-      <div class="case-card risk-card" data-story="risk">
+      <div class="case-card risk-card">
         <div class="case-header case-header-toggle">
           <div>
             <span class="case-label risk-label">DOKUMEN</span>
@@ -190,7 +177,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <span class="toggle-icon">▼</span>
         </div>
-        <div class="case-content" style="display: none;">
+        <div class="case-content">
           <div class="case-scenario">
             <p><strong>Klien:</strong> Bapak Ahmad, Bangil</p>
             <p><strong>Motor:</strong> Honda Beat 2020</p>
@@ -208,24 +195,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h4>Hasil: <span class="outcome-bad">GAGAL</span></h4>
             <p>Tanpa STNK asli, proses gadai sah tidak bisa dilanjutkan.</p>
           </div>
-          
-          <!-- 模拟重演 -->
-          <div class="case-resimulation">
-            <h4>🧠 <strong>Jika Bisa Diulang:</strong></h4>
-            <div class="resim-option correct">
-              <span class="resim-icon">✅</span>
-              <p><strong>Pilihan Tepat:</strong> Urus duplikat STNK di SAMSAT (3-5 hari), baru datang ke JF Gadai dengan dokumen lengkap.</p>
-            </div>
-            <div class="resim-option wrong">
-              <span class="resim-icon">❌</span>
-              <p><strong>Pilihan Salah:</strong> Terus mencoba di tempat gadai lain, menghabiskan waktu dan tenaga.</p>
-            </div>
+          <div class="case-lesson">
+            <h4>Pelajaran:</h4>
+            <p><strong>Dokumen lengkap = proses lancar.</strong> Saran kami: urus duplikat STNK dulu (3-5 hari kerja).</p>
           </div>
         </div>
       </div>
       
       <!-- 案例2: 事故车隐瞒 -->
-      <div class="case-card risk-card" data-story="risk">
+      <div class="case-card risk-card">
         <div class="case-header case-header-toggle">
           <div>
             <span class="case-label risk-label">KONDISI</span>
@@ -233,7 +211,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <span class="toggle-icon">▼</span>
         </div>
-        <div class="case-content" style="display: none;">
+        <div class="case-content">
           <div class="case-scenario">
             <p><strong>Klien:</strong> Mas Andi, Gempol</p>
             <p><strong>Motor:</strong> Yamaha NMax 2019</p>
@@ -251,24 +229,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h4>Hasil: <span class="outcome-bad">GAGAL</span></h4>
             <p>Nilai turun 40% karena kecelakaan. Klien tidak terima, akhirnya batal.</p>
           </div>
-          
-          <!-- 模拟重演 -->
-          <div class="case-resimulation">
-            <h4>🧠 <strong>Jika Bisa Diulang:</strong></h4>
-            <div class="resim-option correct">
-              <span class="resim-icon">✅</span>
-              <p><strong>Pilihan Tepat:</strong> Jujur beri tahu riwayat kecelakaan sejak awal, dapat penilaian realistis dari awal.</p>
-            </div>
-            <div class="resim-option wrong">
-              <span class="resim-icon">❌</span>
-              <p><strong>Pilihan Salah:</strong> Sembunyikan riwayat, buang waktu semua pihak, dapat reputasi buruk.</p>
-            </div>
+          <div class="case-lesson">
+            <h4>Pelajaran:</h4>
+            <p><strong>Jujur tentang sejarah motor</strong> menghemat waktu semua pihak. Kami bisa beri penilaian realistis sejak awal.</p>
           </div>
         </div>
       </div>
       
       <!-- 案例3: 家庭连环典当 (印尼特色) -->
-      <div class="case-card risk-card" data-story="risk">
+      <div class="case-card risk-card">
         <div class="case-header case-header-toggle">
           <div>
             <span class="case-label risk-label">FAKTOR MANUSIA</span>
@@ -276,7 +245,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <span class="toggle-icon">▼</span>
         </div>
-        <div class="case-content" style="display: none;">
+        <div class="case-content">
           <div class="case-scenario">
             <p><strong>Klien:</strong> Keluarga Pak Budi, Beji</p>
             <p><strong>Timeline:</strong> Minggu 1: Suami → Minggu 2: Istri → Minggu 3: Mertua</p>
@@ -294,24 +263,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h4>Hasil: <span class="outcome-warning">DITOLAK (untuk yang ketiga)</span></h4>
             <p>Kami tolak permintaan ketiga. Sarankan konsultasi keuangan keluarga.</p>
           </div>
-          
-          <!-- 模拟重演 -->
-          <div class="case-resimulation">
-            <h4>🧠 <strong>Jika Bisa Diulang:</strong></h4>
-            <div class="resim-option correct">
-              <span class="resim-icon">✅</span>
-              <p><strong>Pilihan Tepat:</strong> Konsultasi keuangan keluarga dulu, cari solusi berkelanjutan bukan sekadar gadai.</p>
-            </div>
-            <div class="resim-option wrong">
-              <span class="resim-icon">❌</span>
-              <p><strong>Pilihan Salah:</strong> Terus bergantung pada gadai, memperburuk keadaan finansial keluarga.</p>
-            </div>
+          <div class="case-lesson">
+            <h4>Pelajaran:</h4>
+            <p><strong>Gadai bukan solusi permanen.</strong> Kami bertanggung jawab tidak memperburuk keadaan finansial keluarga.</p>
           </div>
         </div>
       </div>
       
       <!-- 案例4: OJOL司机高风险 -->
-      <div class="case-card risk-card" data-story="risk">
+      <div class="case-card risk-card">
         <div class="case-header case-header-toggle">
           <div>
             <span class="case-label risk-label">PENGGUNAAN</span>
@@ -319,7 +279,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <span class="toggle-icon">▼</span>
         </div>
-        <div class="case-content" style="display: none;">
+        <div class="case-content">
           <div class="case-scenario">
             <p><strong>Klien:</strong> Driver Gojek full-time</p>
             <p><strong>Motor:</strong> Honda Beat 2021 (45,000 km dalam 2 tahun)</p>
@@ -337,18 +297,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h4>Hasil: <span class="outcome-warning">NILAI RENDAH</span></h4>
             <p>Nilai hanya 50% dari harga pasar normal. Klien memilih tidak jadi.</p>
           </div>
-          
-          <!-- 模拟重演 -->
-          <div class="case-resimulation">
-            <h4>🧠 <strong>Jika Bisa Diulang:</strong></h4>
-            <div class="resim-option correct">
-              <span class="resim-icon">✅</span>
-              <p><strong>Pilihan Tepat:</strong> Bawa buku servis lengkap, rawat motor ekstra jika dipakai ojol, dapat nilai lebih baik.</p>
-            </div>
-            <div class="resim-option wrong">
-              <span class="resim-icon">❌</span>
-              <p><strong>Pilihan Salah:</strong> Abaikan perawatan karena sibuk kerja, terima nilai rendah.</p>
-            </div>
+          <div class="case-lesson">
+            <h4>Pelajaran:</h4>
+            <p><strong>Motor ojol = depresiasi cepat.</strong> Perawatan ekstra penting jika dipakai bisnis.</p>
           </div>
         </div>
       </div>
@@ -368,7 +319,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
     <div class="cases-grid">
       <!-- 成功案例1 -->
-      <div class="case-card success-card" data-story="success">
+      <div class="case-card success-card">
         <div class="case-header case-header-toggle">
           <div>
             <span class="case-label success-label">TRANSFORMASI</span>
@@ -376,7 +327,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <span class="toggle-icon">▼</span>
         </div>
-        <div class="case-content" style="display: none;">
+        <div class="case-content">
           <div class="case-scenario">
             <p><strong>Klien:</strong> Mas Rudi, Driver Gojek 3 tahun</p>
             <p><strong>Motor:</strong> Honda PCX 2020 (38,000 km)</p>
@@ -399,24 +350,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               "Mereka fair, jelasin semua plus-minus. Meski motor ojol, tetap dapet nilai bagus karena servis teratur."
             </blockquote>
           </div>
-          
-          <!-- 成功秘诀 -->
-          <div class="case-resimulation">
-            <h4>💡 <strong>Kunci Sukses:</strong></h4>
-            <div class="resim-option correct">
-              <span class="resim-icon">✅</span>
-              <p><strong>Transparansi:</strong> Jujur tentang penggunaan motor dan bawa bukti perawatan.</p>
-            </div>
-            <div class="resim-option correct">
-              <span class="resim-icon">✅</span>
-              <p><strong>Persiapan:</strong> Bawa semua dokumen servis, siapkan mental untuk diskusi terbuka.</p>
-            </div>
-          </div>
         </div>
       </div>
       
       <!-- 成功案例2 -->
-      <div class="case-card success-card" data-story="success">
+      <div class="case-card success-card">
         <div class="case-header case-header-toggle">
           <div>
             <span class="case-label success-label">KOLABORASI</span>
@@ -424,7 +362,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <span class="toggle-icon">▼</span>
         </div>
-        <div class="case-content" style="display: none;">
+        <div class="case-content">
           <div class="case-scenario">
             <p><strong>Klien:</strong> Ibu Siti, dapat motor dari almarhum ayah</p>
             <p><strong>Masalah:</strong> STNK masih nama ayah, belum balik nama</p>
@@ -442,61 +380,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h4>Hasil: <span class="outcome-good">SUKSES DENGAN BIMBINGAN</span></h4>
             <p>Klien dapat dana yang dibutuhkan, semua dokumen jadi legal.</p>
           </div>
-          
-          <!-- 成功秘诀 -->
-          <div class="case-resimulation">
-            <h4>💡 <strong>Kunci Sukses:</strong></h4>
-            <div class="resim-option correct">
-              <span class="resim-icon">✅</span>
-              <p><strong>Sabar & Kooperatif:</strong> Ikuti panduan JF Gadai meski proses memakan waktu.</p>
-            </div>
-            <div class="resim-option correct">
-              <span class="resim-icon">✅</span>
-              <p><strong>Trust the Process:</strong> Percayai bahwa kami ingin bantu selesaikan masalah dokumen.</p>
-            </div>
+          <div class="case-lesson">
+            <h4>Pesan untuk Anda:</h4>
+            <p><strong>Masalah dokumen bukan akhir.</strong> Kami siap bimbing Anda melalui solusinya.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 互动问答区块 -->
-  <section class="quiz-section">
-    <div class="section-header">
-      <div class="section-icon">❓</div>
-      <h2>Uji Pemahaman Anda</h2>
-      <p class="section-subtitle">Jawab 3 pertanyaan singkat untuk menguji apakah Anda sudah memahami pelajaran dari kasus-kasus di atas.</p>
-    </div>
-    
-    <div class="quiz-container">
-      <div class="quiz-question">
-        <h4>1. Apa yang harus dilakukan jika STNK motor hilang?</h4>
-        <div class="quiz-options">
-          <label><input type="radio" name="q1" value="a"> Langsung gadai tanpa STNK</label>
-          <label><input type="radio" name="q1" value="b"> Urus duplikat STNK dulu</label>
-          <label><input type="radio" name="q1" value="c"> Minta pengecualian khusus</label>
-        </div>
-        <div class="quiz-feedback" id="feedback-q1"></div>
-      </div>
-      
-      <div class="quiz-question">
-        <h4>2. Bagaimana jika motor pernah kecelakaan?</h4>
-        <div class="quiz-options">
-          <label><input type="radio" name="q2" value="a"> Sembunyikan riwayatnya</label>
-          <label><input type="radio" name="q2" value="b"> Jujur beri tahu sejak awal</label>
-          <label><input type="radio" name="q2" value="c"> Cat ulang agar tidak ketahuan</label>
-        </div>
-        <div class="quiz-feedback" id="feedback-q2"></div>
-      </div>
-      
-      <div class="quiz-question">
-        <h4>3. Apa kunci utama kesuksesan gadai motor?</h4>
-        <div class="quiz-options">
-          <label><input type="radio" name="q3" value="a"> Tekanan agar nilai tinggi</label>
-          <label><input type="radio" name="q3" value="b"> Komunikasi terbuka dan jujur</label>
-          <label><input type="radio" name="q3" value="c"> Datang saat butuh uang mendesak</label>
-        </div>
-        <div class="quiz-feedback" id="feedback-q3"></div>
       </div>
     </div>
   </section>
@@ -549,46 +437,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-<!-- 第四部分：行动号召 -->
-<section class="cta-section" id="contact-form">
-  <div class="cta-card">
-    <div class="cta-content">
-      <h2>Siap Gadai Motor Anda?</h2>
-      <p class="cta-subtitle">
-        Setelah membaca panduan ini, Anda sudah lebih siap dari 80% pelanggan lainnya. 
-        Sekarang saatnya bertindak!
-      </p>
-      
-      <div class="cta-options">
-        <div class="cta-option">
-          <div class="option-icon">🚀</div>
-          <h3>1. Gunakan Sistem Penilaian Online</h3>
-          <p>Dapatkan perkiraan nilai motor Anda dalam 3 menit, gratis tanpa kewajiban.</p>
-          <!-- 使用标准按钮类，去掉内联样式 -->
-          <a href="assessment.html" class="btn-yellow-dark">
-            Cek Nilai Motor Sekarang
-          </a>
+  <!-- 第四部分：行动号召 -->
+  <section class="cta-section" id="contact-form">
+    <div class="cta-card">
+      <div class="cta-content">
+        <h2>Siap Gadai Motor Anda?</h2>
+        <p class="cta-subtitle">
+          Setelah membaca panduan ini, Anda sudah lebih siap dari 80% pelanggan lainnya. 
+          Sekarang saatnya bertindak!
+        </p>
+        
+        <div class="cta-options">
+          <div class="cta-option">
+            <div class="option-icon">🚀</div>
+            <h3>1. Gunakan Sistem Penilaian Online</h3>
+            <p>Dapatkan perkiraan nilai motor Anda dalam 3 menit, gratis tanpa kewajiban.</p>
+            <a href="assessment.html" class="btn-primary">
+              Cek Nilai Motor Sekarang
+            </a>
+          </div>
+          
+          <div class="cta-option">
+            <div class="option-icon">💬</div>
+            <h3>2. Konsultasi Gratis</h3>
+            <p>Punya kasus khusus? Konsultasikan dulu dengan tim ahli kami.</p>
+<a href="https://wa.me/6289515692586" 
+   target="_blank" 
+   class="btn-primary">  <!-- ← 改成 btn-primary -->
+  WhatsApp Konsultasi
+</a>
+          </div>
         </div>
         
-        <div class="cta-option">
-          <div class="option-icon">💬</div>
-          <h3>2. Konsultasi Gratis</h3>
-          <p>Punya kasus khusus? Konsultasikan dulu dengan tim ahli kami.</p>
-          <!-- 使用标准按钮类，去掉内联样式 -->
-          <a href="https://wa.me/6289515692586" 
-             target="_blank" 
-             class="btn-yellow-dark">
-            WhatsApp Konsultasi
-          </a>
+        <div class="cta-note">
+          <p><strong>Kami berkomitmen:</strong> Transparansi penuh, penilaian adil, dan bimbingan sampai Anda puas.</p>
         </div>
       </div>
-      
-      <div class="cta-note">
-        <p><strong>Kami berkomitmen:</strong> Transparansi penuh, penilaian adil, dan bimbingan sampai Anda puas.</p>
-      </div>
     </div>
-  </div>
-</section>
+  </section>
 </main>
 
 <!-- 页脚 -->
@@ -623,110 +509,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- JavaScript 文件 -->
 <script src="js/main.js"></script>
 <script src="js/risk-to-success.js"></script>
-
-<!-- 内联JavaScript用于交互功能 -->
-<script>
-// 等待DOM加载完成
-document.addEventListener('DOMContentLoaded', function() {
-  // 1. 案例折叠/展开功能
-  const caseHeaders = document.querySelectorAll('.case-header-toggle');
-  
-  caseHeaders.forEach(header => {
-    header.addEventListener('click', function() {
-      const content = this.nextElementSibling;
-      const icon = this.querySelector('.toggle-icon');
-      
-      if (content.style.display === 'none' || content.style.display === '') {
-        content.style.display = 'block';
-        icon.textContent = '▲';
-      } else {
-        content.style.display = 'none';
-        icon.textContent = '▼';
-      }
-    });
-  });
-
-  // 2. 故事筛选功能
-  const storyButtons = document.querySelectorAll('.story-btn');
-  const caseCards = document.querySelectorAll('.case-card');
-  
-  storyButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      // 移除所有按钮的active类
-      storyButtons.forEach(btn => btn.classList.remove('active'));
-      // 添加active类到当前按钮
-      this.classList.add('active');
-      
-      const filter = this.getAttribute('data-story');
-      
-      // 筛选案例卡片
-      caseCards.forEach(card => {
-        if (filter === 'all' || card.getAttribute('data-story') === filter) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-
-  // 3. 测验功能
-  const checkQuizBtn = document.getElementById('check-quiz');
-  const quizResult = document.getElementById('quiz-result');
-  
-  if (checkQuizBtn) {
-    checkQuizBtn.addEventListener('click', function() {
-      // 正确答案
-      const correctAnswers = {
-        q1: 'b',
-        q2: 'b',
-        q3: 'b'
-      };
-      
-      let score = 0;
-      const totalQuestions = 3;
-      
-      // 检查每个问题
-      Object.keys(correctAnswers).forEach(questionName => {
-        const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
-        const feedbackElement = document.getElementById(`feedback-${questionName}`);
-        
-        if (selectedOption) {
-          if (selectedOption.value === correctAnswers[questionName]) {
-            score++;
-            if (feedbackElement) {
-              feedbackElement.innerHTML = '<span style="color: green;">✅ Jawaban benar!</span>';
-              feedbackElement.style.display = 'block';
-            }
-          } else {
-            if (feedbackElement) {
-              feedbackElement.innerHTML = '<span style="color: red;">❌ Jawaban salah. Coba pelajari lagi kasus di atas.</span>';
-              feedbackElement.style.display = 'block';
-            }
-          }
-        } else {
-          if (feedbackElement) {
-            feedbackElement.innerHTML = '<span style="color: orange;">⚠️ Silakan pilih jawaban.</span>';
-            feedbackElement.style.display = 'block';
-          }
-        }
-      });
-      
-      // 显示结果
-      if (quizResult) {
-        quizResult.innerHTML = `
-          <div style="margin-top: 1rem; padding: 1rem; background-color: ${score === totalQuestions ? '#d4edda' : '#f8d7da'}; border-radius: 5px;">
-            <h4 style="margin-top: 0;">Hasil: ${score}/${totalQuestions}</h4>
-            <p>${score === totalQuestions ? 
-              '🎉 Excellent! Anda sudah memahami pelajaran dari kasus-kasus ini.' : 
-              '📚 Ada beberapa hal yang perlu dipelajari lagi. Baca ulang kasus di atas untuk pemahaman lebih baik.'}
-            </p>
-          </div>
-        `;
-      }
-    });
-  }
-});
-</script>
 </body>
 </html>
