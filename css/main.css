@@ -49,7 +49,8 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto auto;
-  gap: 10px;
+   /* 行间距8px，列间距12px */
+  gap: 8px 12px;
   margin: var(--spacing-xl) auto;
 }
 
