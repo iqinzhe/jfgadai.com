@@ -527,7 +527,7 @@ footer {
   .asymmetric-grid {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-sm);
   }
   
   /* 隐藏 "失败与成功案例" */
