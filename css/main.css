@@ -87,7 +87,7 @@ body {
 /* ==================== 通用横幅样式 ==================== */
 .full-banner {
   width: 100%;
-  height: 200px;
+  height: 165px; /* ← 直接修改网页横幅高度 */
   overflow: hidden;
   position: relative;
   display: flex;
@@ -466,7 +466,7 @@ footer {
 /* 手机端（768px及以下） */
 @media (max-width: 768px) {
   .full-banner {
-    height: 180px;
+    height: 135px; /* ← 直接修改手机横幅高度 */
   }
 
 /* 平板竖屏和横屏（769px-1200px） */
