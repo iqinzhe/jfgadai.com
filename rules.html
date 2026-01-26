@@ -189,6 +189,208 @@
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       padding-top: var(--spacing-md);
     }
+    
+    /* 新增：法律权威横幅 */
+    .legal-authority-banner {
+      background: linear-gradient(135deg, 
+        rgba(15, 76, 129, 0.9), 
+        rgba(11, 44, 74, 0.8));
+      border-left: 6px solid var(--secondary-color);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      margin: var(--spacing-lg) 0;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-md);
+    }
+    
+    .legal-icon {
+      font-size: 2rem;
+      color: var(--secondary-color);
+      flex-shrink: 0;
+    }
+    
+    /* 新增：案例学习链接 */
+    .case-study-link {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      margin: var(--spacing-xl) 0;
+      text-align: center;
+      border: 1px solid rgba(245, 197, 66, 0.2);
+    }
+    
+    .case-study-link a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    
+    .case-study-link a:hover {
+      background: rgba(245, 197, 66, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    /* 新增：文档下载区域 */
+    .document-download-area {
+      background: linear-gradient(135deg, 
+        rgba(245, 197, 66, 0.1), 
+        rgba(15, 76, 129, 0.2));
+      border: 2px dashed rgba(245, 197, 66, 0.3);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-xl);
+      text-align: center;
+      margin: var(--spacing-xl) 0;
+    }
+    
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--secondary-color);
+      color: var(--dark-color);
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: var(--spacing-md);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+    
+    .download-btn:hover {
+      background: var(--secondary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(245, 197, 66, 0.4);
+    }
+    
+    /* 新增：版本信息增强 */
+    .version-info-enhanced {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-md);
+      text-align: center;
+      margin: var(--spacing-xl) 0;
+      padding: var(--spacing-lg);
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius);
+    }
+    
+    .version-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    .version-label {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    
+    .version-value {
+      color: var(--secondary-color);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    /* 新增：条款编号系统 */
+    .clause-numbering {
+      counter-reset: clause;
+    }
+    
+    .clause-item {
+      counter-increment: clause;
+      padding: var(--spacing-md) 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      padding-left: 3.5rem;
+    }
+    
+    .clause-item::before {
+      content: "Pasal " counter(clause);
+      position: absolute;
+      left: 0;
+      top: var(--spacing-md);
+      background: var(--secondary-color);
+      color: var(--dark-color);
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      min-width: 80px;
+      text-align: center;
+    }
+    
+    .subclause-item {
+      margin-left: 1rem;
+      padding-left: 1.5rem;
+      position: relative;
+      margin-top: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    
+    .subclause-item::before {
+      content: "(" counter(clause, lower-alpha) ")";
+      position: absolute;
+      left: 0;
+      color: var(--secondary-color);
+      font-weight: bold;
+    }
+    
+    /* 新增：法律依据卡片 */
+    .legal-reference-card {
+      background: rgba(15, 76, 129, 0.3);
+      border: 2px solid var(--secondary-color);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      margin: var(--spacing-xl) 0;
+    }
+    
+    .legal-reference-card h4 {
+      color: var(--secondary-color);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+    
+    /* 移动端响应式 */
+    @media (max-width: 768px) {
+      .clause-item {
+        padding-left: 2.5rem;
+      }
+      
+      .clause-item::before {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.6rem;
+        min-width: 70px;
+      }
+      
+      .legal-authority-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .version-info-enhanced {
+        grid-template-columns: 1fr;
+      }
+      
+      .document-download-area {
+        padding: var(--spacing-lg);
+      }
+      
+      .case-study-link {
+        padding: var(--spacing-md);
+      }
+    }
   </style>
 </head>
 
@@ -209,54 +411,81 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="rules-container">
     <!-- 主要卡片 -->
     <div class="unified-card fade-in delay-1">
-      <div class="card-icon">📄</div>
+      <div class="card-icon">⚖️</div>
       <h1 class="card-title">Syarat & Ketentuan Gadai</h1>
       <p class="card-desc">
         Untuk keamanan, kenyamanan, dan transparansi transaksi, mohon baca aturan berikut sebelum menggunakan layanan JF Gadai.
       </p>
       
-      <div class="important-note">
-        <h3 style="color: var(--secondary-color); margin-top: 0;">📌 INFORMASI PENTING</h3>
-        <p style="margin-bottom: 0; color: var(--text-light);">
-          <strong>Semua transaksi di JF Gadai mengikuti aturan hukum yang berlaku di Indonesia.</strong><br>
-          Kami berkomitmen untuk memberikan layanan yang adil, transparan, dan melindungi hak kedua belah pihak.
-        </p>
+      <!-- 法律权威横幅 -->
+      <div class="legal-authority-banner">
+        <div class="legal-icon">📜</div>
+        <div>
+          <h3 style="color: var(--secondary-color); margin-top: 0;">📌 INFORMASI PENTING</h3>
+          <p style="margin-bottom: 0; color: var(--text-light);">
+            <strong>Semua transaksi di JF Gadai mengikuti aturan hukum yang berlaku di Indonesia.</strong><br>
+            Kami berkomitmen untuk memberikan layanan yang adil, transparan, dan melindungi hak kedua belah pihak.
+          </p>
+        </div>
       </div>
     </div>
     
+    <!-- 案例学习链接 -->
+    <div class="case-study-link">
+      <h4 style="color: var(--text-light); margin-bottom: var(--spacing-sm);">
+        🎓 <strong>Ingin melihat bagaimana aturan ini diterapkan?</strong>
+      </h4>
+      <a href="risk-to-success.html">
+        📚 Lihat Studi Kasus Gadai Motor &rarr;
+      </a>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: var(--spacing-sm);">
+        Pelajari dari kisah nyata sukses dan gagal gadai motor di JF Gadai.
+      </p>
+    </div>
+    
+    <!-- 文档下载区域 -->
+    <div class="document-download-area">
+      <h4 style="color: var(--secondary-color); margin-bottom: var(--spacing-sm);">
+        📄 <strong>Versi Dokumen Lengkap</strong>
+      </h4>
+      <p style="color: var(--text-light); margin-bottom: var(--spacing-md);">
+        Untuk referensi atau pencetakan, unduh versi PDF lengkap.
+      </p>
+      <a href="#" class="download-btn" id="downloadPdfBtn">
+        <span>📥</span> Unduh PDF (0.5 MB)
+      </a>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: var(--spacing-sm);">
+        <em>PDF akan dibuka di tab baru.</em>
+      </p>
+    </div>
+    
     <!-- 第一部分: Persyaratan Umum -->
-    <div class="rules-section">
+    <div class="rules-section clause-numbering">
       <h2 class="section-title">📋 1. Persyaratan Umum</h2>
       <div class="rules-list">
-        <div class="rule-item">
-          <div class="rule-number">1</div>
-          <div>
-            <strong>Kepemilikan Sah:</strong> Barang yang digadaikan harus benar-benar milik pribadi yang menggadaikan (bukan barang pinjaman, titipan, atau hasil tindakan melawan hukum).
-          </div>
+        <div class="clause-item">
+          <strong>Kepemilikan Sah:</strong> Barang yang digadaikan harus benar-benar milik pribadi yang menggadaikan (bukan barang pinjaman, titipan, atau hasil tindakan melawan hukum).
+          <div class="subclause-item">Klien wajib membuktikan kepemilikan dengan dokumen yang sah.</div>
         </div>
-        <div class="rule-item">
-          <div class="rule-number">2</div>
-          <div>
-            <strong>Identitas Lengkap:</strong> Pihak yang menggadaikan wajib menunjukkan KTP asli (Kartu Tanda Penduduk) yang masih berlaku.
-          </div>
+        
+        <div class="clause-item">
+          <strong>Identitas Lengkap:</strong> Pihak yang menggadaikan wajib menunjukkan KTP asli (Kartu Tanda Penduduk) yang masih berlaku.
+          <div class="subclause-item">KTP harus sesuai dengan alamat tempat tinggal terkini.</div>
         </div>
-        <div class="rule-item">
-          <div class="rule-number">3</div>
-          <div>
-            <strong>Usia Minimum:</strong> Peminjam harus berusia minimal 21 tahun atau sudah menikah (dibuktikan dengan buku nikah).
-          </div>
+        
+        <div class="clause-item">
+          <strong>Usia Minimum:</strong> Peminjam harus berusia minimal 21 tahun atau sudah menikah (dibuktikan dengan buku nikah).
+          <div class="subclause-item">Untuk usia 18-21 tahun, diperlukan izin tertulis dari orang tua/wali.</div>
         </div>
-        <div class="rule-item">
-          <div class="rule-number">4</div>
-          <div>
-            <strong>Kewarasan:</strong> Peminjam harus dalam keadaan sadar dan sehat jasmani/rohani saat melakukan transaksi.
-          </div>
+        
+        <div class="clause-item">
+          <strong>Kewarasan:</strong> Peminjam harus dalam keadaan sadar dan sehat jasmani/rohani saat melakukan transaksi.
+          <div class="subclause-item">JF Gadai berhak menolak transaksi jika peminjam tampak tidak waras.</div>
         </div>
-        <div class="rule-item">
-          <div class="rule-number">5</div>
-          <div>
-            <strong>Dokumen Asli:</strong> Semua dokumen yang disyaratkan harus dalam bentuk asli, bukan fotokopi atau digital.
-          </div>
+        
+        <div class="clause-item">
+          <strong>Dokumen Asli:</strong> Semua dokumen yang disyaratkan harus dalam bentuk asli, bukan fotokopi atau digital.
+          <div class="subclause-item">Fotokopi hanya diterima untuk arsip internal dengan persetujuan klien.</div>
         </div>
       </div>
     </div>
@@ -303,70 +532,75 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     
     <!-- 第三部分: Ketentuan Keuangan -->
-    <div class="rules-section">
+    <div class="rules-section clause-numbering">
       <h2 class="section-title">💰 3. Ketentuan Keuangan</h2>
       <div class="rules-list">
-        <div class="rule-item">
-          <div class="rule-number">1</div>
-          <div>
-            <strong>Penilaian Barang:</strong> Nilai gadai ditentukan berdasarkan kondisi fisik, usia, merek, dan kelengkapan barang. Penilaian dilakukan oleh tim ahli kami secara objektif.
-          </div>
+        <div class="clause-item">
+          <strong>Penilaian Barang:</strong> Nilai gadai ditentukan berdasarkan kondisi fisik, usia, merek, dan kelengkapan barang. Penilaian dilakukan oleh tim ahli kami secara objektif.
+          <div class="subclause-item">Klien berhak meminta penjelasan detail tentang penilaian.</div>
         </div>
-        <div class="rule-item">
-          <div class="rule-number">2</div>
-          <div>
-            <strong>Bunga & Biaya:</strong> Suku bunga dan biaya administrasi akan dijelaskan secara transparan sebelum kesepakatan. Tidak ada biaya tersembunyi.
-          </div>
+        
+        <div class="clause-item">
+          <strong>Bunga & Biaya:</strong> Suku bunga dan biaya administrasi akan dijelaskan secara transparan sebelum kesepakatan. Tidak ada biaya tersembunyi.
+          <div class="subclause-item">Semua biaya tercantum dalam kontrak gadai.</div>
         </div>
-        <div class="rule-item">
-          <div class="rule-number">3</div>
-          <div>
-            <strong>Jangka Waktu:</strong> Masa gadai standar adalah 30 hari. Dapat diperpanjang dengan membayar bunga periode berikutnya sebelum jatuh tempo.
-          </div>
+        
+        <div class="clause-item">
+          <strong>Jangka Waktu:</strong> Masa gadai standar adalah 30 hari. Dapat diperpanjang dengan membayar bunga periode berikutnya sebelum jatuh tempo.
+          <div class="subclause-item">Perpanjangan maksimal 3 kali berturut-turut.</div>
         </div>
-        <div class="rule-item">
-          <div class="rule-number">4</div>
-          <div>
-            <strong>Pelunasan:</strong> Pelunasan dapat dilakukan kapan saja sebelum jatuh tempo. Pelunasan lebih cepat tidak dikenakan penalti.
-          </div>
+        
+        <div class="clause-item">
+          <strong>Pelunasan:</strong> Pelunasan dapat dilakukan kapan saja sebelum jatuh tempo. Pelunasan lebih cepat tidak dikenakan penalti.
+          <div class="subclause-item">Bunga dihitung harian hingga tanggal pelunasan.</div>
         </div>
-        <div class="rule-item">
-          <div class="rule-number">5</div>
-          <div>
-            <strong>Denda Keterlambatan:</strong> Jika tidak ditebus atau diperpanjang setelah 7 hari dari jatuh tempo, akan dikenakan dana denda sesuai ketentuan.
-          </div>
+        
+        <div class="clause-item">
+          <strong>Denda Keterlambatan:</strong> Jika tidak ditebus atau diperpanjang setelah 7 hari dari jatuh tempo, akan dikenakan dana denda sesuai ketentuan.
+          <div class="subclause-item">Setelah 30 hari lewat jatuh tempo, barang dianggap lelang.</div>
         </div>
       </div>
     </div>
     
     <!-- 第四部分: Prosedur & Layanan -->
-    <div class="rules-section">
+    <div class="rules-section clause-numbering">
       <h2 class="section-title">⚡ 4. Prosedur & Layanan</h2>
       <div class="rules-list">
-        <div class="rule-item">
-          <div class="rule-number">1</div>
-          <div>
-            <strong>Jam Operasional:</strong> Layanan kami tersedia Senin-Sabtu pukul 08:00-18:00 WIB. Konsultasi via WhatsApp tersedia dalam jam operasional.
-          </div>
+        <div class="clause-item">
+          <strong>Jam Operasional:</strong> Layanan kami tersedia Senin-Sabtu pukul 08:00-18:00 WIB. Konsultasi via WhatsApp tersedia dalam jam operasional.
+          <div class="subclause-item">Di luar jam operasional, klien dapat meninggalkan pesan.</div>
         </div>
-        <div class="rule-item">
-          <div class="rule-number">2</div>
-          <div>
-            <strong>Keamanan Barang:</strong> Barang gadai disimpan di tempat yang aman, terlindung dari cuaca, pencurian, dan kerusakan.
-          </div>
+        
+        <div class="clause-item">
+          <strong>Keamanan Barang:</strong> Barang gadai disimpan di tempat yang aman, terlindung dari cuaca, pencurian, dan kerusakan.
+          <div class="subclause-item">JF Gadai bertanggung jawab atas keamanan barang selama masa gadai.</div>
         </div>
-        <div class="rule-item">
-          <div class="rule-number">3</div>
-          <div>
-            <strong>Kerahasiaan:</strong> Data pribadi dan transaksi pelanggan dijamin kerahasiaannya dan tidak akan disalahgunakan.
-          </div>
+        
+        <div class="clause-item">
+          <strong>Kerahasiaan:</strong> Data pribadi dan transaksi pelanggan dijamin kerahasiaannya dan tidak akan disalahgunakan.
+          <div class="subclause-item">Data hanya digunakan untuk keperluan transaksi gadai.</div>
         </div>
-        <div class="rule-item">
-          <div class="rule-number">4</div>
-          <div>
-            <strong>Pencairan Dana:</strong> Setelah kesepakatan dan penandatanganan dokumen, dana langsung dicairkan di tempat (cash atau transfer).
-          </div>
+        
+        <div class="clause-item">
+          <strong>Pencairan Dana:</strong> Setelah kesepakatan dan penandatanganan dokumen, dana langsung dicairkan di tempat (cash atau transfer).
+          <div class="subclause-item">Transfer maksimal 1 jam kerja setelah kontrak ditandatangani.</div>
         </div>
+      </div>
+    </div>
+    
+    <!-- 版本信息 -->
+    <div class="version-info-enhanced">
+      <div class="version-item">
+        <span class="version-label">📅 Berlaku Sejak</span>
+        <span class="version-value">1 Januari 2025</span>
+      </div>
+      <div class="version-item">
+        <span class="version-label">🔄 Terakhir Diperbarui</span>
+        <span class="version-value">1 Maret 2025</span>
+      </div>
+      <div class="version-item">
+        <span class="version-label">📄 Versi Dokumen</span>
+        <span class="version-value">2.0</span>
       </div>
     </div>
     
@@ -404,15 +638,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </a>
       </div>
     </div>
-    
-    <!-- 日期信息 -->
-    <div class="date-info">
-      <p>
-        <strong>Dokumen ini berlaku sejak:</strong> 1 Januari 2025<br>
-        <strong>Terakhir diperbarui:</strong> 1 Maret 2025<br>
-        <strong>Versi:</strong> 2.0
-      </p>
-    </div>
   </div>
 </main>
 
@@ -433,8 +658,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         ⏰ Jam kerja: 08:00-18:00 (Senin-Sabtu) | Konsultasi aturan via WhatsApp
       </p>
       <div style="margin-top: var(--spacing-md);">
-        <a href="index.html" style="color: var(--text-muted); text-decoration: none;">
+        <a href="index.html" style="color: var(--text-muted); text-decoration: none; margin-right: var(--spacing-md);">
           ← Kembali ke Beranda
+        </a>
+        <a href="risk-to-success.html" style="color: var(--secondary-color); text-decoration: none;">
+          📚 Lihat Studi Kasus →
         </a>
       </div>
     </div>
@@ -442,5 +670,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+// 特定于规则页面的JS功能
+document.addEventListener('DOMContentLoaded', function() {
+  // PDF下载功能
+  const downloadBtn = document.getElementById('downloadPdfBtn');
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      alert('Fitur PDF download akan segera tersedia. Untuk saat ini, Anda dapat mencetak halaman ini (Ctrl+P).');
+    });
+  }
+});
+</script>
 </body>
 </html>
