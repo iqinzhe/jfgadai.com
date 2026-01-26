@@ -406,7 +406,7 @@ footer {
   border-radius: var(--border-radius);
   color: var(--text-muted);
   font-size: 0.95rem;
-  line-height: 1.7;
+  line-height: 1.7; /* 默认行距，手机端会调小 */
 }
 
 .seo-text-content h2 {
@@ -464,20 +464,13 @@ footer {
   }
 }
 
-/* 手机端（768px及以下） */
-@media (max-width: 768px) {
-  .full-banner {
-    height: 75px; /* ← 直接修改手机横幅高度 */
-  }
-}
-
-/* 平板竖屏和横屏（769px-1200px） */
+/* 平板竖屏和横屏（769px-1200px） - 修复了缺少的大括号 */
 @media (max-width: 1200px) and (min-width: 769px) {
   .asymmetric-grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
+    gap: 4px 8px; /* 平板端间距调小一点 */
   }
-  gap: 2px;
 
   #assessment-system { 
     grid-column: 1 / span 2; 
@@ -524,12 +517,20 @@ footer {
     max-width: 600px;
   }
 }
+
+/* 手机端（768px及以下） */
+@media (max-width: 768px) {
+  /* 调整横幅高度 */
+  .full-banner {
+    height: 75px; /* ← 直接修改手机横幅高度 */
+  }
   
-  /* 确保单列布局 - 只显示5个项目 */
+  /* 手机端六宫格间距调整 - 让6个格子之间的间距更小 */
   .asymmetric-grid {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: 4px; /* 将间距从var(--spacing-sm)减小到4px，更紧凑 */
+    margin: var(--spacing-md) auto; /* 减少上下边距 */
   }
   
   /* 隐藏 "失败与成功案例" */
@@ -544,25 +545,28 @@ footer {
   #our-services { order: 4; }
   #contact-navigation { order: 5; }
   
-  /* 统一卡片响应式 */
+  /* 统一卡片响应式 - 卡片内部间距也调小一点 */
   .unified-card {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md); /* 从lg改为md，减小内边距 */
+    margin-bottom: 4px; /* 减小卡片之间的间距 */
   }
   
   .card-title {
-    font-size: 1.4rem;
+    font-size: 1.3rem; /* 稍微减小标题字号 */
+    margin-bottom: var(--spacing-sm); /* 减小标题下边距 */
   }
   
   .card-desc {
-    font-size: 1rem;
+    font-size: 0.95rem; /* 减小描述文字字号 */
+    line-height: 1.4; /* 减小行距 */
+    margin-bottom: var(--spacing-sm); /* 减小下边距 */
   }
   
   .card-cta-btn {
-    padding: 0.9rem 1.8rem;
-    font-size: 1rem;
-    min-width: 200px;
-    width: 100%;
-    max-width: 280px;
+    padding: 0.8rem 1.5rem; /* 减小按钮内边距 */
+    font-size: 0.95rem; /* 减小按钮字号 */
+    min-width: 180px; /* 减小最小宽度 */
+    margin-top: var(--spacing-sm); /* 减小上边距 */
   }
   
   .card-cta-btn:active {
@@ -573,51 +577,86 @@ footer {
   .quick-actions {
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-sm);
+    gap: 4px; /* 减小操作栏间距 */
+    margin: var(--spacing-sm) auto; /* 减小外边距 */
   }
   
   .quick-action-card {
     width: 100%;
     max-width: 100%;
-    margin-bottom: var(--spacing-sm);
-    padding: var(--spacing-lg);
+    margin-bottom: 4px; /* 减小卡片下边距 */
+    padding: var(--spacing-md); /* 减小内边距 */
   }
   
   .action-icon {
-    font-size: 2.2rem;
+    font-size: 1.8rem; /* 减小图标大小 */
+    margin-bottom: 0.5rem; /* 减小下边距 */
   }
   
   .action-title {
-    font-size: 1.3rem;
+    font-size: 1.1rem; /* 减小标题字号 */
+    margin-bottom: 0.5rem; /* 减小下边距 */
   }
   
   .action-description {
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.9rem; /* 减小描述文字字号 */
+    line-height: 1.4; /* 减小行距 */
+    margin-bottom: var(--spacing-sm); /* 减小下边距 */
   }
   
   .action-btn {
-    padding: 0.9rem 1.8rem;
-    font-size: 1.05rem;
-    min-width: 200px;
+    padding: 0.7rem 1.2rem; /* 减小按钮内边距 */
+    font-size: 0.9rem; /* 减小按钮字号 */
+    min-width: 160px; /* 减小最小宽度 */
   }
   
   /* 页脚优化 */
   .contact-info {
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm); /* 保持适当间距 */
     align-items: center;
   }
   
   .contact-link {
-    padding: 5px 5px;
-    font-size: 0.9rem;
+    padding: 5px 10px; /* 调整内边距 */
+    font-size: 0.85rem; /* 减小字号 */
   }
   
   footer {
-    padding: var(--spacing-sm) 0;
+    padding: var(--spacing-sm) 0; /* 减小内边距 */
   }
   
   .copyright {
-    font-size: 1.1rem;
+    font-size: 1rem; /* 减小字号 */
   }
+  
+  /* SEO格手机端调整 - 压缩文本行距，减小间距 */
+  .seo-text-content {
+    margin: var(--spacing-md) auto; /* 减小上下外边距 */
+    padding: var(--spacing-md); /* 减小内边距 */
+    font-size: 0.85rem; /* 减小字号 */
+    line-height: 1.4; /* 压缩行距，从1.7改为1.4 */
+  }
+  
+  .seo-text-content h2 {
+    font-size: 1rem; /* 减小标题字号 */
+    margin-bottom: 0.5rem; /* 减小下边距 */
+  }
+  
+  .seo-text-content p {
+    margin-bottom: 0.5rem; /* 减小段落间距 */
+  }
+  
+  /* 落地页信任区块手机端调整 */
+  .trust-box {
+    margin: 1rem 0 0.5rem; /* 减小上下边距 */
+    padding: 0.8rem 1rem; /* 减小内边距 */
+    gap: 0.5rem; /* 减小项间距 */
+    grid-template-columns: 1fr; /* 手机端改为单列布局 */
+  }
+  
+  .trust-item {
+    font-size: 0.75rem; /* 减小字号 */
+    line-height: 1.3; /* 减小行距 */
+  }
+}
