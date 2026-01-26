@@ -1,27 +1,4 @@
-/* 放在 main.css 文件最末尾 */
-@media screen and (max-width: 768px) {
-  /* 1. 修复左侧黄线问题 */
-  * {
-    border: none !important;
-    outline: none !important;
-  }
-  
-  /* 2. 修复信任区块白色背景问题 */
-  .trust-box {
-    background: #2c3e50 !important;
-    color: white !important;
-    padding: 20px 15px !important;
-  }
-  
-  .trust-box .trust-item {
-    background: rgba(255, 255, 255, 0.15) !important;
-    color: white !important;
-    padding: 12px !important;
-    margin: 8px 0 !important;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-}/* ==================== 基础样式 ==================== */
+/* ==================== 基础样式 ==================== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
@@ -370,13 +347,6 @@ footer {
   }
 }
 
-/* 极窄屏幕（如手机竖屏）下的适配 */
-@media (max-width: 480px) {
-  .contact-info {
-    flex-direction: column; /* 竖排排列 */
-    gap: 0.5rem;
-  }
-  
   .contact-link {
     width: 100%; /* 占满宽度 */
     justify-content: center; /* 内容居中 */
