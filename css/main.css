@@ -466,7 +466,7 @@ footer {
 /* 手机端（768px及以下） */
 @media (max-width: 768px) {
   .full-banner {
-    height: 80px; /* ← 直接修改手机横幅高度 */
+    height: 60px; /* ← 直接修改手机横幅高度 */
   }
 
 /* 平板竖屏和横屏（769px-1200px） */
