@@ -350,14 +350,6 @@
         grid-template-columns: 1fr;
       }
       
-      .document-download-area {
-        padding: var(--spacing-lg);
-      }
-      
-      .case-study-link {
-        padding: var(--spacing-md);
-      }
-    }
   </style>
 </head>
 
@@ -407,22 +399,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
       <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: var(--spacing-sm);">
         Pelajari dari kisah nyata sukses dan gagal gadai motor di JF Gadai.
-      </p>
-    </div>
-    
-    <!-- 文档下载区域 -->
-    <div class="document-download-area">
-      <h4 style="color: var(--secondary-color); margin-bottom: var(--spacing-sm);">
-        📄 <strong>Versi Dokumen Lengkap</strong>
-      </h4>
-      <p style="color: var(--text-light); margin-bottom: var(--spacing-md);">
-        Untuk referensi atau pencetakan, unduh versi PDF lengkap.
-      </p>
-      <a href="#" class="download-btn" id="downloadPdfBtn">
-        <span>📥</span> Unduh PDF (0.5 MB)
-      </a>
-      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: var(--spacing-sm);">
-        <em>PDF akan dibuka di tab baru.</em>
       </p>
     </div>
     
@@ -637,18 +613,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <script src="js/main.js"></script>
+  
 <script>
-// 特定于规则页面的JS功能
-document.addEventListener('DOMContentLoaded', function() {
-  // PDF下载功能
-  const downloadBtn = document.getElementById('downloadPdfBtn');
-  if (downloadBtn) {
-    downloadBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      alert('Fitur PDF download akan segera tersedia. Untuk saat ini, Anda dapat mencetak halaman ini (Ctrl+P).');
-    });
-  }
-});
-</script>
 </body>
 </html>
