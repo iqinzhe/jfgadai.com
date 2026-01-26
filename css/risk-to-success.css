@@ -989,3 +989,249 @@
     visibility: visible !important;
   }
 }
+
+/* ==================== 新增增强样式 ==================== */
+
+/* 故事选择器 */
+.story-selector {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-lg) 0;
+  flex-wrap: wrap;
+}
+
+.story-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.story-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.story-btn.active {
+  background: var(--secondary-color);
+  color: var(--dark-color);
+  border-color: var(--secondary-color);
+  font-weight: 600;
+}
+
+/* 法律提示 */
+.legal-note {
+  background: rgba(15, 76, 129, 0.3);
+  border-left: 4px solid var(--secondary-color);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.legal-link {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px dotted var(--secondary-color);
+}
+
+.legal-link:hover {
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+/* 模拟重演 */
+.case-resimulation {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.resim-option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  border-radius: 8px;
+}
+
+.resim-option.correct {
+  background: rgba(76, 175, 80, 0.15);
+  border-left: 3px solid #4CAF50;
+}
+
+.resim-option.wrong {
+  background: rgba(244, 67, 54, 0.15);
+  border-left: 3px solid #F44336;
+}
+
+.resim-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* 规则链接框 */
+.rules-link-box {
+  background: rgba(245, 197, 66, 0.08);
+  border: 1px solid rgba(245, 197, 66, 0.2);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  font-size: 0.9rem;
+}
+
+/* 问答区块 */
+.quiz-section {
+  background: linear-gradient(135deg, 
+    rgba(15, 76, 129, 0.4), 
+    rgba(11, 44, 74, 0.6));
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+  border: 2px solid rgba(245, 197, 66, 0.3);
+}
+
+.quiz-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quiz-question {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.quiz-question h4 {
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.1rem;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.quiz-options label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.quiz-options label:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.quiz-feedback {
+  padding: var(--spacing-sm);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  display: none;
+}
+
+.quiz-feedback.correct {
+  background: rgba(76, 175, 80, 0.15);
+  color: #4CAF50;
+  display: block;
+}
+
+.quiz-feedback.wrong {
+  background: rgba(244, 67, 54, 0.15);
+  color: #FF6B6B;
+  display: block;
+}
+
+.quiz-feedback.warning {
+  background: rgba(255, 193, 7, 0.15);
+  color: #FFC107;
+  display: block;
+}
+
+.quiz-result {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+  text-align: center;
+  display: none;
+}
+
+.quiz-result.show {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+.legal-reminder {
+  background: rgba(15, 76, 129, 0.4);
+  border: 1px solid rgba(245, 197, 66, 0.3);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.legal-footer-link {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .story-selector {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .story-btn {
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+  }
+  
+  .quiz-question {
+    padding: var(--spacing-md);
+  }
+  
+  .quiz-options label {
+    font-size: 0.9rem;
+  }
+  
+  .case-resimulation {
+    padding: var(--spacing-sm);
+  }
+}
+
+/* 打印优化 */
+@media print {
+  .story-selector,
+  .quiz-section,
+  .story-btn,
+  .quiz-options input,
+  .quiz-feedback,
+  .quiz-result,
+  .rules-link-box,
+  .legal-reminder {
+    display: none !important;
+  }
+}
