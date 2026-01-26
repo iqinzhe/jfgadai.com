@@ -28,7 +28,7 @@ body {
   color: var(--light-color);
   line-height: 1.6;
   overflow-x: hidden;
-  font-size: 1.1rem; /* 全局字体稍大，电脑端可读性提高 */
+  font-size: 1.1rem;
 }
 
 /* ==================== 通用容器 ==================== */
@@ -116,7 +116,7 @@ body {
   color: var(--secondary-color); 
   font-size: 1.4rem;
   font-weight: 700;
-  text-shadow: 1px 1px 2px #000; /* 黑色阴影，黄黑配清晰 */
+  text-shadow: 1px 1px 2px #000;
   margin-bottom: var(--spacing-sm);
 }
 
@@ -139,7 +139,7 @@ body {
   font-size: 1rem;
   transition: all 0.3s ease;
   border: 2px solid transparent;
-  margin: 0 auto; /* 居中 */
+  margin: 0 auto;
   min-width: 160px;
 }
 
@@ -191,7 +191,7 @@ body {
   bottom: 8px;
   left: 0;
   width: 6px;
-  background: var(--secondary-color); /* 左侧装饰 */
+  background: var(--secondary-color);
   border-radius: 3px;
   z-index: 2;
 }
@@ -208,7 +208,7 @@ body {
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: var(--spacing-md);
-  text-shadow: 1px 1px 2px #000; /* 黄黑配更清晰 */
+  text-shadow: 1px 1px 2px #000;
 }
 
 /* 卡片描述 */
@@ -236,7 +236,7 @@ body {
   margin: var(--spacing-md) 0;
   border: 3px solid transparent;
   min-width: 220px;
-  margin: 0 auto; /* 居中 */
+  margin: 0 auto;
 }
 
 /* 卡片列表项 */
@@ -293,7 +293,7 @@ footer {
   padding: 0 0.5rem;
 }
 
-/* 联系电话布局 - 单个居中显示 */
+/* 联系电话布局 */
 .contact-info {
   display: flex;
   justify-content: center;
@@ -303,7 +303,6 @@ footer {
   max-width: 550px;
 }
 
-/* 联系电话的样式 - 添加可见背景框 */
 .contact-link {
   display: inline-flex;
   align-items: center;
@@ -319,7 +318,6 @@ footer {
   white-space: nowrap;
 }
 
-/* 鼠标悬停效果 */
 .contact-link:hover {
   background: rgba(255, 255, 255, 0.2);
   border-color: var(--secondary-color);
@@ -327,27 +325,7 @@ footer {
   transform: translateY(-2px);
 }
 
-/* 移动端适配 */
-@media (max-width: 768px) {
-  .contact-info {
-    gap: 0.8rem; /* 移动端间距更小 */
-  }
-  
-  .contact-link {
-    padding: 5px 5px;
-    font-size: 0.9rem;
-  }
-  
-  footer {
-    padding: var(--spacing-sm) 0;
-  }
-  
-  .copyright {
-    font-size: 1.1rem;
-  }
-}
-
-/* 落地页信任区块（广告审核加分） */
+/* 落地页信任区块 */
 .trust-box {
   margin: 1.5rem 0 1rem;
   padding: 1rem 1.2rem;
@@ -371,51 +349,34 @@ footer {
   font-weight: 600;
 }
 
-@media (max-width: 768px) {
-  .trust-box {
-    grid-template-columns: 1fr;
-  }
+/* SEO 文本信息区块 */
+.seo-text-content {
+  max-width: 1000px;
+  margin: var(--spacing-xl) auto;
+  padding: var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--border-radius);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.seo-text-content h2 {
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 700;
+}
+
+.seo-text-content p {
+  margin-bottom: var(--spacing-sm);
 }
 
 /* ==================== 响应式设计 ==================== */
 
 /* 平板竖屏和横屏（769px-1200px） */
 @media (max-width: 1200px) and (min-width: 769px) {
-  .asymmetric-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto auto;
-  }
-  
-  #assessment-system { 
-    grid-column: 1 / span 2; 
-    grid-row: 1; 
-  }
-  
-  #motor-pawn { 
-    grid-column: 1; 
-    grid-row: 2; 
-  }
-  
-  #electronics-pawn { 
-    grid-column: 2; 
-    grid-row: 2; 
-  }
-  
-  #our-services { 
-    grid-column: 1; 
-    grid-row: 3; 
-  }
-  
-  #contact-navigation { 
-    grid-column: 2; 
-    grid-row: 3; 
-  }
-  
-  #contact-form { 
-    grid-column: 1 / span 2; 
-    grid-row: 4; 
-  }
-  
   .quick-actions { 
     flex-direction: row; 
     flex-wrap: wrap;
@@ -441,82 +402,26 @@ footer {
   
   /* 确保单列布局 - 只显示5个项目 */
   .asymmetric-grid {
-    display: flex !important;
+    display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
-    grid-template-columns: 1fr !important;
-    grid-template-rows: none !important;
   }
   
-  /* 隐藏 "失败与成功案例" (ID: #contact-form) */
+  /* 隐藏 "失败与成功案例" */
   #contact-form {
-    display: none !important;
+    display: none;
   }
   
-  /* 重置所有网格定位 */
-  #assessment-system,
-  #our-services,
-  #contact-form,
-  #motor-pawn,
-  #electronics-pawn,
-  #contact-navigation {
-    grid-column: auto !important;
-    grid-row: auto !important;
-    width: 100% !important;
-    order: initial;
-  }
-  
-  /* 手机端显示顺序 - 只显示5个项目 */
-  #assessment-system { order: 1; }     /* 1：摩托车评估系统 */
-  #motor-pawn { order: 2; }           /* 2：摩托车典当导航 */
-  #electronics-pawn { order: 3; }     /* 3：电子品典当导航 */
-  #our-services { order: 4; }         /* 4：常识与知识普及 */
-  #contact-navigation { order: 5; }   /* 5：联系我们导航 */
-  /* #contact-form 已隐藏，order: 6 不需要 */
-  
-  /* 优化字体大小 - 修复缺失的样式引用 */
-  .grid-item .card-title {
-    font-size: 1.5rem !important;
-    margin-bottom: var(--spacing-md);
-  }
-  
-  .card-list li {
-    font-size: 1.05rem !important;
-    line-height: 1.6;
-    padding: 0.8rem 0;
-  }
-  
-  .list-icon {
-    font-size: 1.2rem;
-  }
-  
-  .process-step h3 {
-    font-size: 1.3rem !important;
-  }
-  
-  .process-step p {
-    font-size: 1.05rem !important;
-    line-height: 1.6;
-  }
-  
-  /* 表单字体优化 */
-  .form-group label {
-    font-size: 1.05rem !important;
-    margin-bottom: 0.3rem;
-  }
-  
-  .form-control {
-    font-size: 1.05rem !important;
-    padding: 1rem 1.2rem;
-  }
+  /* 手机端显示顺序 */
+  #assessment-system { order: 1; }
+  #motor-pawn { order: 2; }
+  #electronics-pawn { order: 3; }
+  #our-services { order: 4; }
+  #contact-navigation { order: 5; }
   
   /* 统一卡片响应式 */
   .unified-card {
     padding: var(--spacing-lg);
-  }
-  
-  .card-icon {
-    font-size: 2.8rem;
   }
   
   .card-title {
@@ -571,31 +476,7 @@ footer {
     font-size: 1.05rem;
     min-width: 200px;
   }
-
-/* ==================== SEO 文本信息区块（白帽安全） ==================== */
-.seo-text-content {
-  max-width: 1000px;
-  margin: var(--spacing-xl) auto;
-  padding: var(--spacing-lg);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--border-radius);
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
-
-.seo-text-content h2 {
-  font-size: 1.1rem;
-  color: var(--secondary-color);
-  margin-bottom: var(--spacing-sm);
-  font-weight: 700;
-}
-
-.seo-text-content p {
-  margin-bottom: var(--spacing-sm);
-}
-
+  
   /* 页脚优化 */
   .contact-info {
     flex-direction: column;
@@ -603,20 +484,17 @@ footer {
     align-items: center;
   }
   
-  .contact-info > * {
-    width: 100%;
-    max-width: 300px;
-    justify-content: center;
+  .contact-link {
+    padding: 5px 5px;
+    font-size: 0.9rem;
   }
   
-  .placeholder-link {
-    display: none;
+  footer {
+    padding: var(--spacing-sm) 0;
   }
   
-  /* 评估CTA */
-  .assessment-cta {
-    margin: var(--spacing-lg) auto;
-    padding: 0 var(--spacing-md);
+  .copyright {
+    font-size: 1.1rem;
   }
   
   /* 信任区块单列 */
