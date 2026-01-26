@@ -618,9 +618,3 @@ footer {
   .copyright {
     font-size: 1.1rem;
   }
-  
-  /* 信任区块单列 */
-  .trust-box {
-    grid-template-columns: 1fr;
-  }
-}
