@@ -45,10 +45,14 @@
       
       .info-section {
         margin: 1.5rem 0;
+      }
+      
+      .info-card {
         background: rgba(255, 255, 255, 0.05);
         border-radius: 12px;
         padding: 1.2rem;
         border: 1px solid rgba(245, 197, 66, 0.2);
+        margin-bottom: 1rem;
       }
       
       .section-header {
@@ -86,6 +90,71 @@
         padding: 0.4rem 0.8rem;
         margin: 0.2rem;
         font-size: 0.85rem;
+      }
+      
+      /* 表单样式 */
+      .form-container {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid rgba(245, 197, 66, 0.2);
+        margin: 1.5rem 0;
+      }
+      
+      .form-container h3 {
+        color: var(--secondary-color);
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+      
+      .form-group {
+        margin-bottom: 1rem;
+      }
+      
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-light);
+        font-size: 0.95rem;
+      }
+      
+      .form-input, .form-select, .form-textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-light);
+        font-size: 1rem;
+      }
+      
+      .form-textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+      
+      .form-input:focus, .form-select:focus, .form-textarea:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 0 2px rgba(245, 197, 66, 0.2);
+      }
+      
+      .form-submit {
+        width: 100%;
+        padding: 1rem;
+        background: var(--secondary-color);
+        color: var(--dark-color);
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 1rem;
+        transition: background 0.3s;
+      }
+      
+      .form-submit:hover {
+        background: #f0b630;
       }
     }
 
@@ -126,6 +195,74 @@
         margin: 0.2rem;
         font-size: 0.9rem;
       }
+      
+      /* 表单样式 */
+      .form-container {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(245, 197, 66, 0.2);
+        margin: 2rem auto;
+        max-width: 600px;
+      }
+      
+      .form-container h3 {
+        color: var(--secondary-color);
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+      }
+      
+      .form-group {
+        margin-bottom: 1.2rem;
+      }
+      
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-light);
+        font-size: 1rem;
+      }
+      
+      .form-input, .form-select, .form-textarea {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-light);
+        font-size: 1rem;
+      }
+      
+      .form-textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+      
+      .form-input:focus, .form-select:focus, .form-textarea:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.2);
+      }
+      
+      .form-submit {
+        width: 100%;
+        padding: 1rem;
+        background: var(--secondary-color);
+        color: var(--dark-color);
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 1rem;
+        transition: all 0.3s;
+      }
+      
+      .form-submit:hover {
+        background: #f0b630;
+        transform: translateY(-2px);
+      }
     }
 
     /* 整体布局优化 */
@@ -138,7 +275,9 @@
     main.container {
       flex: 1;
       padding: 1rem;
-      max-width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
     }
     
     .unified-card {
@@ -254,12 +393,54 @@
     </div>
   </div>
 
+  <!-- 表单 -->
+  <div class="form-container">
+    <h3>📝 Konsultasi Cepat</h3>
+    <form id="electronicsForm" onsubmit="handleFormSubmit(event)">
+      <div class="form-group">
+        <label class="form-label" for="name">Nama Lengkap *</label>
+        <input type="text" id="name" name="name" class="form-input" required placeholder="Masukkan nama lengkap">
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="phone">Nomor WhatsApp *</label>
+        <input type="tel" id="phone" name="phone" class="form-input" required placeholder="Contoh: 628123456789">
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="product">Barang Elektronik *</label>
+        <select id="product" name="product" class="form-select" required>
+          <option value="">Pilih barang...</option>
+          <option value="smartphone">Smartphone</option>
+          <option value="laptop">Laptop/Notebook</option>
+          <option value="tablet">Tablet/iPad</option>
+          <option value="camera">Kamera Digital</option>
+          <option value="other">Lainnya</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="brand">Merek & Model</label>
+        <input type="text" id="brand" name="brand" class="form-input" placeholder="Contoh: iPhone 15, Samsung Galaxy S23">
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="message">Kondisi & Pertanyaan</label>
+        <textarea id="message" name="message" class="form-textarea" placeholder="Deskripsi kondisi barang, kerusakan (jika ada), atau pertanyaan lain..."></textarea>
+      </div>
+      
+      <button type="submit" class="form-submit">
+        📩 Kirim Permintaan Konsultasi
+      </button>
+    </form>
+  </div>
+
   <!-- 底部CTA -->
   <div class="final-cta">
     <a href="https://wa.me/6289515692586" 
        class="card-cta-btn" 
        target="_blank">
-      📸 Kirim Foto & Dapatkan Penilaian
+      📲 Chat Langsung via WhatsApp
     </a>
     <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem;">
       Respon cepat via WhatsApp • Gratis konsultasi
@@ -296,5 +477,53 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+  // 表单处理函数
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const formData = {
+      name: form.name.value,
+      phone: form.phone.value,
+      product: form.product.value,
+      brand: form.brand.value,
+      message: form.message.value
+    };
+    
+    // 验证电话号码格式
+    const phoneRegex = /^(\+62|62|0)8[1-9][0-9]{6,9}$/;
+    if (!phoneRegex.test(formData.phone.replace(/\s+/g, ''))) {
+      alert('Mohon masukkan nomor WhatsApp yang valid (format Indonesia).');
+      return;
+    }
+    
+    // 构建WhatsApp消息
+    const whatsappMessage = `*KONSULTASI GADAI ELEKTRONIK*%0A%0A` +
+      `*Nama:* ${formData.name}%0A` +
+      `*WhatsApp:* ${formData.phone}%0A` +
+      `*Barang:* ${formData.product}%0A` +
+      `*Merek/Model:* ${formData.brand || '-'}%0A` +
+      `*Pesan:* ${formData.message || '-'}%0A%0A` +
+      `*Dikirim dari:* electronics.html`;
+    
+    // 打开WhatsApp
+    const whatsappURL = `https://wa.me/6289515692586?text=${whatsappMessage}`;
+    window.open(whatsappURL, '_blank');
+    
+    // Google Analytics 事件跟踪
+    gtag('event', 'form_submit', {
+      'event_category': 'Electronics',
+      'event_label': formData.product,
+      'value': 1
+    });
+    
+    // 重置表单
+    form.reset();
+    
+    // 显示成功消息
+    alert('Terima kasih! Anda akan dialihkan ke WhatsApp untuk melanjutkan konsultasi.');
+  }
+</script>
 </body>
 </html>
