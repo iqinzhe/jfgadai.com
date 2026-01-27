@@ -1,7 +1,7 @@
 /**
- * Edukasi Gadai - 手风琴折叠功能（修复版）
+ * Edukasi Gadai - 手风琴折叠功能（默认全部关闭版）
  * 文件：js/edukasi-gadai.js
- * 修复：解决三角符号不旋转和序号重复问题
+ * 特点：默认全部关闭，用户自主点击打开
  */
 
 // 防止重复初始化的标记
@@ -36,24 +36,18 @@ function initAccordion() {
   // 清理可能存在的重复序号
   cleanupDuplicateNumbers();
   
+  // 确保所有手风琴初始状态为关闭
+  closeAllAccordions();
+  
   // 为每个标题添加点击事件和序号
   accordionHeaders.forEach((header, index) => {
     setupAccordionHeader(header, index);
   });
   
-  // 默认打开第一个手风琴
-  setTimeout(() => {
-    const activeHeader = document.querySelector('.accordion-header.active');
-    if (!activeHeader && accordionHeaders.length > 0) {
-      const firstHeader = accordionHeaders[0];
-      const firstContent = firstHeader.nextElementSibling;
-      if (firstContent && firstContent.classList.contains('accordion-content')) {
-        openAccordion(firstHeader, firstContent);
-      }
-    }
-  }, 400);
+  // 移除默认打开第一个的逻辑
+  // 用户需要点击才能打开，提高二次访问体验
   
-  // 添加URL哈希支持
+  // 添加URL哈希支持（用户可以通过URL直接打开特定部分）
   initHashSupport();
   
   // 标记为已初始化
@@ -70,38 +64,34 @@ function setupAccordionHeader(header, index) {
     const numberSpan = document.createElement('span');
     numberSpan.className = 'accordion-number';
     numberSpan.textContent = index + 1;
-    // 插入到最前面（在文本前面）
     header.insertBefore(numberSpan, header.firstChild);
   }
   
-  // 2. 确保箭头元素存在（从HTML中获取，不要重复创建）
+  // 2. 确保箭头元素存在
   let arrowElement = header.querySelector('.accordion-arrow');
   if (!arrowElement) {
-    // 如果没有箭头元素，创建一个
     arrowElement = document.createElement('span');
     arrowElement.className = 'accordion-arrow';
     arrowElement.textContent = '▼';
     header.appendChild(arrowElement);
   }
   
-  // 3. 移除旧的点击事件（如果存在）
+  // 3. 移除旧的点击事件
   const oldListener = clickListeners.get(header);
   if (oldListener) {
     header.removeEventListener('click', oldListener);
   }
   
-  // 4. 创建新的点击事件处理函数
+  // 4. 创建新的点击事件处理函数（单开模式）
   const clickHandler = function() {
     const content = this.nextElementSibling;
     const isActive = this.classList.contains('active');
     
-    console.log('点击手风琴:', index + 1, '当前状态:', isActive ? '打开' : '关闭');
-    
     if (isActive) {
-      // 如果已激活，关闭它
+      // 如果已打开，关闭它
       closeAccordion(this, content);
     } else {
-      // 否则关闭所有，然后打开这个
+      // 单开模式：先关闭所有，再打开这个
       closeAllAccordions();
       openAccordion(this, content);
     }
@@ -111,17 +101,12 @@ function setupAccordionHeader(header, index) {
   header.addEventListener('click', clickHandler);
   clickListeners.set(header, clickHandler);
   
-  // 6. 初始化状态
+  // 6. 初始化状态（确保关闭）
   const content = header.nextElementSibling;
   if (content && content.classList.contains('accordion-content')) {
-    const isActive = header.classList.contains('active');
-    if (isActive) {
-      content.style.maxHeight = content.scrollHeight + 'px';
-      content.setAttribute('data-state', 'open');
-    } else {
-      content.style.maxHeight = null;
-      content.setAttribute('data-state', 'closed');
-    }
+    header.classList.remove('active');
+    content.style.maxHeight = null;
+    content.setAttribute('data-state', 'closed');
   }
 }
 
@@ -143,27 +128,25 @@ function openAccordion(header, content) {
   content.style.maxHeight = content.scrollHeight + 'px';
   content.setAttribute('data-state', 'open');
   
-  // 3. 调试日志
-  console.log('Header类列表:', header.classList.toString());
-  console.log('箭头元素:', header.querySelector('.accordion-arrow'));
-  
-  // 4. 平滑滚动（考虑导航栏高度）
+  // 3. 平滑滚动（考虑导航栏高度）- 只在需要时滚动
   setTimeout(() => {
     const headerTop = header.getBoundingClientRect().top + window.pageYOffset;
     const navHeight = document.querySelector('.edu-header')?.offsetHeight || 70;
+    const viewportHeight = window.innerHeight;
     
-    if (headerTop < navHeight + 20) {
+    // 如果header在导航栏下面不远，或者完全在视窗外，才滚动
+    if (headerTop < navHeight + 50 || headerTop > window.pageYOffset + viewportHeight - 100) {
       window.scrollTo({
-        top: headerTop - navHeight - 10,
+        top: headerTop - navHeight - 20,
         behavior: 'smooth'
       });
     }
   }, 150);
   
-  // 5. 更新URL哈希
+  // 4. 更新URL哈希（这样用户可以分享链接直接打开特定部分）
   updateUrlHash(header);
   
-  // 6. 发送分析事件
+  // 5. 发送分析事件
   sendAnalyticsEvent('accordion_open', header.textContent.trim());
 }
 
@@ -178,6 +161,9 @@ function closeAccordion(header, content) {
   header.classList.remove('active');
   content.style.maxHeight = null;
   content.setAttribute('data-state', 'closed');
+  
+  // 可选：从URL移除哈希
+  removeUrlHashIfMatches(header);
   
   sendAnalyticsEvent('accordion_close', header.textContent.trim());
 }
@@ -194,6 +180,9 @@ function closeAllAccordions() {
       content.setAttribute('data-state', 'closed');
     }
   });
+  
+  // 清除URL哈希
+  clearUrlHash();
 }
 
 /**
@@ -229,7 +218,9 @@ function initHashSupport() {
       setTimeout(() => {
         const targetHeader = targetSection.querySelector('.accordion-header');
         if (targetHeader) {
+          // 先关闭所有
           closeAllAccordions();
+          // 然后打开目标手风琴
           const targetContent = targetHeader.nextElementSibling;
           if (targetContent) {
             openAccordion(targetHeader, targetContent);
@@ -255,6 +246,9 @@ function initHashSupport() {
           }
         }
       }
+    } else {
+      // 如果哈希被清除了，关闭所有手风琴
+      closeAllAccordions();
     }
   });
 }
@@ -269,6 +263,26 @@ function updateUrlHash(header) {
     if (window.location.hash !== newHash) {
       window.history.pushState(null, null, newHash);
     }
+  }
+}
+
+/**
+ * 从URL移除哈希（如果匹配）
+ */
+function removeUrlHashIfMatches(header) {
+  const section = header.closest('.accordion-item');
+  if (section && section.id && window.location.hash === `#${section.id}`) {
+    // 使用replaceState而不是pushState，这样不会记录到历史记录
+    window.history.replaceState(null, null, window.location.pathname + window.location.search);
+  }
+}
+
+/**
+ * 清除URL哈希
+ */
+function clearUrlHash() {
+  if (window.location.hash) {
+    window.history.replaceState(null, null, window.location.pathname + window.location.search);
   }
 }
 
@@ -304,6 +318,7 @@ function resetAccordions() {
 function openAccordionByIndex(index) {
   const headers = document.querySelectorAll('.accordion-header');
   if (headers[index]) {
+    // 关闭其他所有
     closeAllAccordions();
     const content = headers[index].nextElementSibling;
     if (content) {
@@ -321,9 +336,29 @@ function openAccordionById(sectionId) {
   if (section) {
     const header = section.querySelector('.accordion-header');
     if (header) {
+      // 关闭其他所有
       closeAllAccordions();
       const content = header.nextElementSibling;
       if (content) {
+        openAccordion(header, content);
+      }
+    }
+  }
+}
+
+/**
+ * 切换手风琴状态（开/关）
+ * @param {number} index - 手风琴索引
+ */
+function toggleAccordionByIndex(index) {
+  const headers = document.querySelectorAll('.accordion-header');
+  if (headers[index]) {
+    const header = headers[index];
+    const content = header.nextElementSibling;
+    if (content) {
+      if (header.classList.contains('active')) {
+        closeAccordion(header, content);
+      } else {
         openAccordion(header, content);
       }
     }
@@ -342,21 +377,41 @@ function reinitializeAccordion() {
 window.eduAccordion = {
   init: initAccordion,
   reinit: reinitializeAccordion,
+  
+  // 打开/关闭功能
   openAll: function() {
-    // 单开模式：只打开第一个
-    const headers = document.querySelectorAll('.accordion-header');
-    if (headers.length > 0) {
-      closeAllAccordions();
-      const content = headers[0].nextElementSibling;
-      if (content) {
-        openAccordion(headers[0], content);
+    // 打开所有手风琴（多开模式）
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      const content = header.nextElementSibling;
+      if (content && !header.classList.contains('active')) {
+        openAccordion(header, content);
       }
-    }
+    });
   },
+  
   closeAll: closeAllAccordions,
+  
+  // 控制特定手风琴
   openByIndex: openAccordionByIndex,
   openById: openAccordionById,
-  reset: resetAccordions
+  toggleByIndex: toggleAccordionByIndex,
+  
+  // 重置
+  reset: resetAccordions,
+  
+  // 查询状态
+  getState: function() {
+    const states = {};
+    document.querySelectorAll('.accordion-item').forEach((item, index) => {
+      const header = item.querySelector('.accordion-header');
+      states[index + 1] = {
+        id: item.id,
+        title: header.textContent.trim(),
+        isOpen: header.classList.contains('active')
+      };
+    });
+    return states;
+  }
 };
 
 // 如果DOM已经加载完成，直接初始化
@@ -375,3 +430,21 @@ setTimeout(() => {
     initAccordion();
   }
 }, 1000);
+
+// 添加键盘支持（可选功能）
+document.addEventListener('keydown', function(e) {
+  // 如果用户按ESC键，关闭所有手风琴
+  if (e.key === 'Escape') {
+    closeAllAccordions();
+  }
+  
+  // 如果用户按数字键1-9，打开对应手风琴（可选）
+  if (e.key >= '1' && e.key <= '9' && !e.ctrlKey && !e.altKey && !e.metaKey) {
+    const index = parseInt(e.key) - 1;
+    const headers = document.querySelectorAll('.accordion-header');
+    if (headers[index]) {
+      e.preventDefault();
+      toggleAccordionByIndex(index);
+    }
+  }
+});
