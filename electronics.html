@@ -37,6 +37,30 @@
       color: var(--text-muted);
     }
     
+    /* 统一的按钮样式 */
+    .unified-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--secondary-color);
+      color: var(--dark-color);
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      text-align: center;
+      display: block;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin: 1rem 0;
+    }
+    
+    .unified-btn:hover {
+      background: #f0b630;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
+    }
+    
     /* 移动端优化 */
     @media (max-width: 768px) {
       .breadcrumb {
@@ -138,24 +162,6 @@
         border-color: var(--secondary-color);
         box-shadow: 0 0 0 2px rgba(245, 197, 66, 0.2);
       }
-      
-      .form-submit {
-        width: 100%;
-        padding: 1rem;
-        background: var(--secondary-color);
-        color: var(--dark-color);
-        border: none;
-        border-radius: 8px;
-        font-weight: 600;
-        font-size: 1rem;
-        cursor: pointer;
-        margin-top: 1rem;
-        transition: background 0.3s;
-      }
-      
-      .form-submit:hover {
-        background: #f0b630;
-      }
     }
 
     /* 桌面端样式 */
@@ -244,25 +250,6 @@
         border-color: var(--secondary-color);
         box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.2);
       }
-      
-      .form-submit {
-        width: 100%;
-        padding: 1rem;
-        background: var(--secondary-color);
-        color: var(--dark-color);
-        border: none;
-        border-radius: 8px;
-        font-weight: 600;
-        font-size: 1rem;
-        cursor: pointer;
-        margin-top: 1rem;
-        transition: all 0.3s;
-      }
-      
-      .form-submit:hover {
-        background: #f0b630;
-        transform: translateY(-2px);
-      }
     }
 
     /* 整体布局优化 */
@@ -289,16 +276,16 @@
       margin: 1.5rem 0;
     }
     
-    .card-cta-btn {
-      display: block;
-      width: 100%;
-      margin: 1.5rem 0;
+    .form-btn-container {
       text-align: center;
+      margin-top: 2rem;
     }
     
-    .final-cta {
+    .whatsapp-note {
       text-align: center;
-      margin: 2rem 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
     }
   </style>
 </head>
@@ -332,11 +319,11 @@
       <span class="brand-tag">Kamera</span>
     </div>
 
-    <!-- 主要CTA -->
+    <!-- 主要CTA按钮 - 与表单按钮长度一致 -->
     <a href="https://wa.me/6289515692586" 
-       class="card-cta-btn" 
+       class="unified-btn" 
        target="_blank" 
-       onclick="gtag('event', 'whatsapp_click', {'event_category': 'Electronics', 'event_label': 'Mobile Page'})">
+       onclick="gtag('event', 'whatsapp_click', {'event_category': 'Electronics', 'event_label': 'Top Button'})">
       💬 Konsultasi Gratis via WhatsApp
     </a>
   </div>
@@ -396,6 +383,10 @@
   <!-- 表单 -->
   <div class="form-container">
     <h3>📝 Konsultasi Cepat</h3>
+    <p style="text-align: center; color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
+      Isi formulir ini untuk konsultasi lebih detail
+    </p>
+    
     <form id="electronicsForm" onsubmit="handleFormSubmit(event)">
       <div class="form-group">
         <label class="form-label" for="name">Nama Lengkap *</label>
@@ -429,21 +420,17 @@
         <textarea id="message" name="message" class="form-textarea" placeholder="Deskripsi kondisi barang, kerusakan (jika ada), atau pertanyaan lain..."></textarea>
       </div>
       
-      <button type="submit" class="form-submit">
+      <!-- 表单提交按钮 - 与顶部按钮长度一致 -->
+      <button type="submit" class="unified-btn">
         📩 Kirim Permintaan Konsultasi
       </button>
     </form>
-  </div>
-
-  <!-- 底部CTA -->
-  <div class="final-cta">
-    <a href="https://wa.me/6289515692586" 
-       class="card-cta-btn" 
-       target="_blank">
-      📲 Chat Langsung via WhatsApp
-    </a>
-    <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem;">
-      Respon cepat via WhatsApp • Gratis konsultasi
+    
+    <p class="whatsapp-note">
+      Atau langsung chat via WhatsApp: 
+      <a href="https://wa.me/6289515692586" style="color: var(--secondary-color); text-decoration: none;">
+        +62 895-1569-2586
+      </a>
     </p>
   </div>
 </main>
