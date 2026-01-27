@@ -2,7 +2,7 @@
    Edukasi Gadai – Reading Optimization
 ================================ */
 
-/* 1. 背景色调整 - 与首页保持一致 */
+/* 背景色调整 - 与首页保持一致 */
 body {
   line-height: 1.7;
   background-color: #f8f9fa; /* 浅灰白色，适合阅读 */
@@ -10,74 +10,87 @@ body {
   font-size: 18px;
 }
 
-/* 页面顶部容器 - 修正布局 */
+/* ================================
+   顶部导航栏修正 - 固定定位
+================================ */
+.edu-header {
+  background: linear-gradient(135deg, #0b2c4a 0%, #1a5276 100%) !important;
+  color: white;
+  padding: 0 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 9999 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-bottom: 4px solid #27ae60 !important;
+  height: 70px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* 修改这里：增加容器内边距 */
 .edu-header-container {
   max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 0 24px !important;  /* 增加内边距 */
+  padding: 0 30px !important;  /* 增加内边距，让内容不贴边 */
   width: 100% !important;
   display: flex !important;
-  justify-content: space-between !important;  /* 左右分开 */
+  justify-content: space-between !important;
   align-items: center !important;
-  gap: 20px !important;  /* 添加间距 */
+  gap: 20px !important;
 }
 
-/* 左侧内容区域 */
+/* 修改这里：让左侧内容有左边距 */
 .header-left {
   display: flex !important;
   align-items: center !important;
   gap: 16px !important;
   flex: 1 !important;
-  min-width: 0 !important; /* 防止内容溢出 */
+  min-width: 0 !important;
+  /* 如果需要更多左边距，可以添加这个 */
+  /* margin-left: 10px !important; */
 }
 
-/* 修改现有的 .edu-header-title */
+/* 修改这里：让标题文本不贴左侧 */
 .edu-header-title {
   display: flex !important;
   align-items: center !important;
-  gap: 12px !important;
-  flex: 1 !important;   /* 关键：占据剩余空间 */
+  gap: 15px !important;  /* 增加国旗和文本的间距 */
 }
 
-/* 右侧按钮区域 */
+/* 修改这里：让右侧按钮不贴右侧 */
 .header-right {
   flex-shrink: 0 !important;
+  /* 如果需要更多右边距，可以添加这个 */
+  /* margin-right: 10px !important; */
 }
 
-/* 原有的标题样式保持不变 */
-.edu-flag {
-  font-size: 28px !important;
-  display: block !important;
-  line-height: 1 !important;
-}
-
-.edu-header-text {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-}
-
-.edu-header-title h1 {
+/* 确保按钮显示正常 */
+.back-home-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: #27ae60 !important;
   color: white !important;
-  font-size: 1.3rem !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  font-weight: 700 !important;
-  line-height: 1.2 !important;
+  text-decoration: none !important;
+  padding: 8px 16px !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+  white-space: nowrap !important;
+  box-shadow: 0 3px 8px rgba(39, 174, 96, 0.3) !important;
+  /* 确保按钮可见 */
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
-.edu-subtitle {
-  color: #aed6f1 !important;
-  font-size: 0.85rem !important;
-  margin-top: 2px !important;
-  font-weight: 400 !important;
-}
-
-/* 添加响应式调整 */
+/* 响应式调整 */
 @media (max-width: 768px) {
   .edu-header-container {
-    padding: 0 16px !important;
-    gap: 15px !important;
+    padding: 0 20px !important;  /* 移动端保持适当间距 */
   }
   
   .edu-header-title h1 {
@@ -89,7 +102,7 @@ body {
   }
   
   .edu-subtitle {
-    font-size: 0.8rem !important;
+    display: none !important;
   }
   
   .back-home-btn {
@@ -103,7 +116,7 @@ body {
 
 @media (max-width: 480px) {
   .edu-header-container {
-    padding: 0 12px !important;
+    padding: 0 15px !important;  /* 小屏幕保持间距 */
   }
   
   .edu-header-title h1 {
@@ -114,16 +127,8 @@ body {
     font-size: 20px !important;
   }
   
-  .edu-subtitle {
-    display: none !important;  /* 小屏幕隐藏副标题 */
-  }
-  
   .back-home-btn {
-    padding: 5px 10px !important;
-  }
-  
-  .btn-text {
-    font-size: 0.8rem !important;
+    padding: 6px 10px !important;
   }
 }
 
@@ -133,7 +138,7 @@ main.container {
   min-height: 100vh;
 }
 
-/* 2. 手风琴功能样式 */
+/* 手风琴功能样式 */
 /* 手风琴主容器 */
 .accordion {
   max-width: 900px;
