@@ -52,7 +52,7 @@
       display: block;
       text-decoration: none;
       transition: all 0.3s ease;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
     }
     
     .unified-btn:hover {
@@ -67,6 +67,44 @@
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
       margin: 1.5rem 0;
+    }
+    
+    /* 统一标题大小 */
+    .main-title {
+      color: var(--secondary-color);
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin: 0 0 1rem 0;
+      display: flex;
+      align-items: center;
+    }
+    
+    .main-title-icon {
+      margin-right: 12px;
+      font-size: 1.8rem;
+    }
+    
+    /* 特色列表样式 */
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    
+    .feature-icon {
+      color: var(--secondary-color);
+      margin-right: 10px;
+      font-size: 1.1rem;
+      min-width: 24px;
+      text-align: center;
     }
     
     /* 移动端优化 */
@@ -87,9 +125,18 @@
       .info-card, .intro-card, .form-card {
         background: rgba(255, 255, 255, 0.05);
         border-radius: 12px;
-        padding: 1.2rem;
+        padding: 1.5rem;
         border: 1px solid rgba(245, 197, 66, 0.2);
         margin-bottom: 1rem;
+      }
+      
+      .main-title {
+        font-size: 1.4rem;
+      }
+      
+      .main-title-icon {
+        font-size: 1.6rem;
+        margin-right: 10px;
       }
       
       .section-header {
@@ -98,7 +145,7 @@
         margin-bottom: 1rem;
         color: var(--secondary-color);
         font-weight: 600;
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
       
       .section-icon {
@@ -124,106 +171,9 @@
         display: inline-block;
         background: rgba(245, 197, 66, 0.15);
         border-radius: 20px;
-        padding: 0.4rem 0.8rem;
+        padding: 0.5rem 0.9rem;
         margin: 0.2rem;
         font-size: 0.85rem;
-      }
-      
-      /* 表单样式 */
-      .form-group {
-        margin-bottom: 0.8rem;
-      }
-      
-      .form-label {
-        display: block;
-        margin-bottom: 0.4rem;
-        color: var(--text-light);
-        font-size: 0.9rem;
-      }
-      
-      .form-input, .form-select, .form-textarea {
-        width: 100%;
-        padding: 0.7rem;
-        border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: rgba(255, 255, 255, 0.1);
-        color: var(--text-light);
-        font-size: 0.95rem;
-      }
-      
-      .form-textarea {
-        min-height: 80px;
-        resize: vertical;
-      }
-      
-      .form-input:focus, .form-select:focus, .form-textarea:focus {
-        outline: none;
-        border-color: var(--secondary-color);
-        box-shadow: 0 0 0 2px rgba(245, 197, 66, 0.2);
-      }
-    }
-
-    /* 桌面端样式 */
-    @media (min-width: 769px) {
-      .top-section {
-        min-height: 400px; /* 确保两栏高度一致 */
-      }
-      
-      .intro-card {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 12px;
-        padding: 1.5rem;
-        border: 1px solid rgba(245, 197, 66, 0.2);
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-      }
-      
-      .form-card {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 12px;
-        padding: 1.5rem;
-        border: 1px solid rgba(245, 197, 66, 0.2);
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-      }
-      
-      .info-section {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-        margin: 1.5rem 0;
-      }
-      
-      .info-card {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 12px;
-        padding: 1.5rem;
-        border: 1px solid rgba(245, 197, 66, 0.2);
-      }
-      
-      .section-header {
-        color: var(--secondary-color);
-        font-weight: 600;
-        margin-bottom: 1rem;
-        display: flex;
-        align-items: center;
-        font-size: 1.1rem;
-      }
-      
-      .section-icon {
-        margin-right: 10px;
-        font-size: 1.3rem;
-      }
-      
-      .brand-tag {
-        display: inline-block;
-        background: rgba(245, 197, 66, 0.15);
-        border-radius: 20px;
-        padding: 0.5rem 1rem;
-        margin: 0.2rem;
-        font-size: 0.9rem;
       }
       
       /* 表单样式 */
@@ -249,6 +199,103 @@
       }
       
       .form-textarea {
+        min-height: 80px;
+        resize: vertical;
+      }
+      
+      .form-input:focus, .form-select:focus, .form-textarea:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 0 2px rgba(245, 197, 66, 0.2);
+      }
+    }
+
+    /* 桌面端样式 */
+    @media (min-width: 769px) {
+      .top-section {
+        min-height: 400px;
+      }
+      
+      .intro-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1.8rem;
+        border: 1px solid rgba(245, 197, 66, 0.2);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .form-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1.8rem;
+        border: 1px solid rgba(245, 197, 66, 0.2);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .info-section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+      
+      .info-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid rgba(245, 197, 66, 0.2);
+      }
+      
+      .section-header {
+        color: var(--secondary-color);
+        font-weight: 600;
+        margin-bottom: 1.2rem;
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+      }
+      
+      .section-icon {
+        margin-right: 12px;
+        font-size: 1.3rem;
+      }
+      
+      .brand-tag {
+        display: inline-block;
+        background: rgba(245, 197, 66, 0.15);
+        border-radius: 20px;
+        padding: 0.6rem 1.1rem;
+        margin: 0.2rem;
+        font-size: 0.95rem;
+      }
+      
+      /* 表单样式 */
+      .form-group {
+        margin-bottom: 1.2rem;
+      }
+      
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-light);
+        font-size: 1rem;
+      }
+      
+      .form-input, .form-select, .form-textarea {
+        width: 100%;
+        padding: 0.9rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-light);
+        font-size: 1rem;
+      }
+      
+      .form-textarea {
         min-height: 90px;
         resize: vertical;
       }
@@ -257,16 +304,6 @@
         outline: none;
         border-color: var(--secondary-color);
         box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.2);
-      }
-      
-      .card-title {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-      }
-      
-      .card-desc {
-        font-size: 0.95rem;
-        margin-bottom: 1rem;
       }
     }
 
@@ -287,25 +324,28 @@
     
     .brands-container {
       text-align: center;
-      margin: 1rem 0;
+      margin: 1.2rem 0;
     }
     
     .whatsapp-note {
       text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-top: 1rem;
-    }
-    
-    /* 紧凑设计 */
-    .compact-list {
-      margin: 0.5rem 0;
-      padding-left: 1.2rem;
-    }
-    
-    .compact-list li {
-      margin-bottom: 0.3rem;
       font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 1.5rem 0;
+    }
+    
+    .intro-desc {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+    
+    .form-desc {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
     }
   </style>
 </head>
@@ -326,14 +366,35 @@
   <div class="top-section">
     <!-- 左侧：介绍 -->
     <div class="intro-card">
-      <div class="section-header">
-        <span class="section-icon">💻</span>
-        <span class="card-title">Gadai Elektronik</span>
-      </div>
+      <h2 class="main-title">
+        <span class="main-title-icon">💻</span>
+        Gadai Elektronik
+      </h2>
       
-      <p class="card-desc">
-        Gadai laptop, smartphone, tablet dengan penilaian <strong>adil</strong> & proses <strong>≤ 60 menit</strong>.
+      <p class="intro-desc">
+        Butuh dana cepat? Gadai laptop, smartphone, tablet, atau perangkat elektronik lainnya di JF Gadai. 
+        Dapatkan penilaian <strong>transparan</strong> dan pencairan dana <strong>≤ 60 menit</strong>.
       </p>
+      
+      <!-- 特色列表 -->
+      <ul class="feature-list">
+        <li class="feature-item">
+          <span class="feature-icon">✓</span>
+          <span>Penilaian profesional oleh tim ahli</span>
+        </li>
+        <li class="feature-item">
+          <span class="feature-icon">⚡</span>
+          <span>Proses cepat 30-60 menit</span>
+        </li>
+        <li class="feature-item">
+          <span class="feature-icon">🔒</span>
+          <span>Keamanan barang terjamin</span>
+        </li>
+        <li class="feature-item">
+          <span class="feature-icon">💬</span>
+          <span>Konsultasi GRATIS via WhatsApp</span>
+        </li>
+      </ul>
       
       <!-- 品牌标签 -->
       <div class="brands-container">
@@ -342,6 +403,7 @@
         <span class="brand-tag">Laptop</span>
         <span class="brand-tag">Tablet</span>
         <span class="brand-tag">Kamera</span>
+        <span class="brand-tag">PS5/Xbox</span>
       </div>
       
       <!-- 直接WhatsApp按钮 -->
@@ -349,52 +411,54 @@
          class="unified-btn" 
          target="_blank" 
          onclick="gtag('event', 'whatsapp_click', {'event_category': 'Electronics', 'event_label': 'Top Button'})">
-        💬 Konsultasi via WhatsApp
+        💬 Konsultasi Gratis via WhatsApp
       </a>
     </div>
     
     <!-- 右侧：表单 -->
     <div class="form-card">
-      <div class="section-header">
-        <span class="section-icon">📝</span>
-        <span>Konsultasi Cepat</span>
-      </div>
+      <h2 class="main-title">
+        <span class="main-title-icon">📝</span>
+        Konsultasi Cepat
+      </h2>
       
-      <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.9rem;">
-        Isi formulir untuk konsultasi lebih detail
+      <p class="form-desc">
+        Isi formulir di bawah ini untuk mendapatkan penilaian awal dan konsultasi detail. 
+        Tim kami akan menghubungi Anda via WhatsApp.
       </p>
       
       <form id="electronicsForm" onsubmit="handleFormSubmit(event)">
         <div class="form-group">
           <label class="form-label" for="name">Nama Lengkap *</label>
-          <input type="text" id="name" name="name" class="form-input" required placeholder="Nama lengkap">
+          <input type="text" id="name" name="name" class="form-input" required placeholder="Masukkan nama lengkap">
         </div>
         
         <div class="form-group">
-          <label class="form-label" for="phone">WhatsApp *</label>
-          <input type="tel" id="phone" name="phone" class="form-input" required placeholder="628123456789">
+          <label class="form-label" for="phone">Nomor WhatsApp *</label>
+          <input type="tel" id="phone" name="phone" class="form-input" required placeholder="Contoh: 628123456789">
         </div>
         
         <div class="form-group">
-          <label class="form-label" for="product">Barang *</label>
+          <label class="form-label" for="product">Barang Elektronik *</label>
           <select id="product" name="product" class="form-select" required>
             <option value="">Pilih barang...</option>
             <option value="smartphone">Smartphone</option>
-            <option value="laptop">Laptop</option>
+            <option value="laptop">Laptop/Notebook</option>
             <option value="tablet">Tablet/iPad</option>
-            <option value="camera">Kamera</option>
+            <option value="camera">Kamera Digital</option>
+            <option value="gaming">Konsol Gaming</option>
             <option value="other">Lainnya</option>
           </select>
         </div>
         
         <div class="form-group">
           <label class="form-label" for="brand">Merek & Model</label>
-          <input type="text" id="brand" name="brand" class="form-input" placeholder="Contoh: iPhone 15">
+          <input type="text" id="brand" name="brand" class="form-input" placeholder="Contoh: iPhone 15, Samsung Galaxy S23">
         </div>
         
         <!-- 表单提交按钮 -->
         <button type="submit" class="unified-btn">
-          📩 Kirim Permintaan
+          📩 Kirim Permintaan Konsultasi
         </button>
       </form>
     </div>
@@ -409,12 +473,13 @@
         <span>Barang Diterima</span>
       </div>
       <div class="section-content">
-        <ul class="compact-list">
+        <ul>
           <li>Smartphone (semua merek)</li>
           <li>Laptop & Notebook</li>
           <li>Tablet & iPad</li>
           <li>Kamera digital</li>
-          <li>Kondisi berfungsi baik</li>
+          <li>Konsol game (PS5, Xbox)</li>
+          <li>Perangkat audio premium</li>
         </ul>
       </div>
     </div>
@@ -426,7 +491,7 @@
         <span>Proses 4 Langkah</span>
       </div>
       <div class="section-content">
-        <ol class="compact-list">
+        <ol>
           <li><strong>Konsultasi</strong> via WhatsApp</li>
           <li><strong>Penilaian</strong> oleh ahli</li>
           <li><strong>Verifikasi</strong> dokumen</li>
@@ -442,11 +507,12 @@
         <span>Persyaratan</span>
       </div>
       <div class="section-content">
-        <ul class="compact-list">
+        <ul>
           <li>Bawa <strong>KTP asli</strong></li>
           <li>Barang berfungsi normal</li>
           <li>Lengkapi charger & aksesoris</li>
           <li>Hapus kunci/PIN sebelum bawa</li>
+          <li>Dokumen pembelian (jika ada)</li>
         </ul>
       </div>
     </div>
@@ -454,8 +520,8 @@
   
   <!-- WhatsApp备注 -->
   <p class="whatsapp-note">
-    Respon cepat via WhatsApp: 
-    <a href="https://wa.me/6289515692586" style="color: var(--secondary-color); text-decoration: none;">
+    Respon cepat via WhatsApp • Gratis konsultasi • 
+    <a href="https://wa.me/6289515692586" style="color: var(--secondary-color); text-decoration: none; font-weight: 600;">
       +62 895-1569-2586
     </a>
   </p>
