@@ -1,0 +1,166 @@
+/* motor.css - 专用于motor.html的样式 */
+
+/* 面包屑导航 */
+.breadcrumb {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.breadcrumb a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* 响应式好处网格 - 手机端4宫格，电脑端一行水平排列 */
+.responsive-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin: var(--spacing-xl) 0;
+}
+
+.benefit-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--secondary-color);
+}
+
+.benefit-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--secondary-color);
+}
+
+/* 响应式文档网格 - 手机端4宫格，电脑端一行水平排列 */
+.responsive-documents-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.doc-card {
+  background: rgba(245, 197, 66, 0.1);
+  border: 1px solid rgba(245, 197, 66, 0.3);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.doc-icon {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* 品牌部分 */
+.brand-section {
+  background: rgba(15, 76, 129, 0.3);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+/* 价值计算器 */
+.value-calculator {
+  background: linear-gradient(135deg, rgba(15, 76, 129, 0.4), rgba(245, 197, 66, 0.2));
+  border: 2px solid var(--secondary-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+  text-align: center;
+}
+
+.calculator-title {
+  color: var(--secondary-color);
+  font-size: 1.4rem;
+  margin-bottom: var(--spacing-md);
+}
+
+/* 警告框 */
+.warning-box {
+  background: rgba(255, 87, 87, 0.1);
+  border: 2px solid rgba(255, 87, 87, 0.5);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+/* 信息网格 */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 电脑端样式 */
+@media (min-width: 768px) {
+  /* 电脑端：好处网格改为一行水平排列 */
+  .responsive-benefits-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+  }
+  
+  /* 电脑端：文档网格改为一行水平排列 */
+  .responsive-documents-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+  }
+  
+  /* 电脑端：信息网格改为两列 */
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* 调整卡片内边距 */
+  .benefit-card {
+    padding: var(--spacing-xl);
+  }
+  
+  .doc-card {
+    padding: var(--spacing-lg);
+  }
+}
+
+/* 小屏幕手机优化 */
+@media (max-width: 480px) {
+  .responsive-benefits-grid,
+  .responsive-documents-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+  }
+  
+  .benefit-card {
+    padding: var(--spacing-md);
+  }
+  
+  .benefit-icon {
+    font-size: 2rem;
+  }
+  
+  .doc-card {
+    padding: var(--spacing-sm);
+  }
+  
+  .doc-icon {
+    font-size: 1.8rem;
+  }
+}
