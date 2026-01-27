@@ -238,3 +238,34 @@ footer {
   transform: rotate(180deg);
 }
 
+/* Accordion - 显示控制（方案 A） */
+.accordion-content {
+  display: none;
+}
+
+.accordion-item.active .accordion-content {
+  display: block;
+}
+.accordion-header {
+  position: relative;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.accordion-header::after {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #333;
+  border-bottom: 2px solid #333;
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.25s ease;
+}
+
+.accordion-item.active .accordion-header::after {
+  transform: translateY(-50%) rotate(-135deg);
+}
+
