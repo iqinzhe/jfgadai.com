@@ -82,112 +82,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
-  <style>
-    /* 页面特定样式 */
-    .breadcrumb {
-      margin: 1rem 0;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-    .breadcrumb a {
-      color: var(--secondary-color);
-      text-decoration: none;
-    }
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-    
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--spacing-lg);
-      margin: var(--spacing-xl) 0;
-    }
-    
-    .benefit-card {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-lg);
-      text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
-    }
-    
-    .benefit-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--secondary-color);
-    }
-    
-    .benefit-icon {
-      font-size: 2.5rem;
-      margin-bottom: var(--spacing-sm);
-      color: var(--secondary-color);
-    }
-    
-    .brand-section {
-      background: rgba(15, 76, 129, 0.3);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-lg);
-      margin: var(--spacing-lg) 0;
-    }
-    
-    .documents-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--spacing-md);
-      margin: var(--spacing-lg) 0;
-    }
-    
-    .doc-card {
-      background: rgba(245, 197, 66, 0.1);
-      border: 1px solid rgba(245, 197, 66, 0.3);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-md);
-      text-align: center;
-    }
-    
-    .doc-icon {
-      font-size: 2rem;
-      margin-bottom: var(--spacing-sm);
-    }
-    
-    .value-calculator {
-      background: linear-gradient(135deg, rgba(15, 76, 129, 0.4), rgba(245, 197, 66, 0.2));
-      border: 2px solid var(--secondary-color);
-      border-radius: var(--border-radius-lg);
-      padding: var(--spacing-xl);
-      margin: var(--spacing-xl) 0;
-      text-align: center;
-    }
-    
-    .calculator-title {
-      color: var(--secondary-color);
-      font-size: 1.4rem;
-      margin-bottom: var(--spacing-md);
-    }
-    
-    .warning-box {
-      background: rgba(255, 87, 87, 0.1);
-      border: 2px solid rgba(255, 87, 87, 0.5);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-md);
-      margin: var(--spacing-lg) 0;
-    }
-    
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--spacing-lg);
-      margin: var(--spacing-xl) 0;
-    }
-    
-    .info-card {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-lg);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-  </style>
+  <link rel="stylesheet" href="css/motor.css">
 </head>
 
 <body>
@@ -234,8 +129,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
   </div>
   
-  <!-- 好处网格 -->
-  <div class="benefits-grid">
+  <!-- 好处网格 - 已改为响应式布局 -->
+  <div class="responsive-benefits-grid">
     <div class="benefit-card fade-in delay-2">
       <div class="benefit-icon">⚡</div>
       <h3>Proses Super Cepat</h3>
@@ -302,8 +197,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   
-  <!-- 所需文件 -->
-  <div class="documents-grid">
+  <!-- 所需文件 - 已改为响应式布局 -->
+  <div class="responsive-documents-grid">
     <div class="doc-card">
       <div class="doc-icon">🆔</div>
       <h4>KTP Asli</h4>
