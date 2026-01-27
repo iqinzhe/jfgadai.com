@@ -2,377 +2,216 @@
 <html lang="id">
 <head>
   <!-- Google Tag Manager -->
-  <script>
-  (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),
-          dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-M2GMSNWS');
-  </script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M2GMSNWS');</script>
   <!-- End Google Tag Manager -->
-
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845187332"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-17845187332');
-  </script>
+  <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-17845187332');</script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/android-chrome-512x512.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#ffffff">
-
-  <!-- SEO Meta Tags -->
-  <title>Gadai Elektronik | JF Gadai - Penilaian Jelas & Cepat</title>
+  <title>Gadai Elektronik | JF Gadai - Cepat & Transparan</title>
   <meta name="description" content="Gadai iPhone, Samsung, laptop, tablet, dan elektronik lainnya. Penilaian transparan, proses cepat. Konsultasi gratis via WhatsApp.">
-  <meta name="author" content="JF Gadai">
-  <meta name="robots" content="index, follow">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Gadai Elektronik | JF Gadai">
-  <meta property="og:description" content="Tempat gadai elektronik terpercaya di Bangil, Beji, Gempol. Proses aman dan cepat.">
-  <meta property="og:image" content="https://www.jfgadai.com/images/og-electronics.jpg">
-  <meta property="og:url" content="https://www.jfgadai.com/electronics.html">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="id_ID">
-  <meta property="og:site_name" content="JF Gadai">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.jfgadai.com/electronics.html">
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Gadai Elektronik",
-    "provider": {
-      "@type": "PawnBroker",
-      "name": "JF Gadai",
-      "telephone": "+6289515692586"
-    },
-    "areaServed": {
-      "@type": "AdministrativeArea",
-      "name": ["Bangil", "Beji", "Gempol"]
-    },
-    "description": "Layanan gadai smartphone, laptop, tablet, dan barang elektronik lainnya dengan penilaian yang adil dan transparan.",
-    "termsOfService": "https://www.jfgadai.com/rules.html"
-  }
-  </script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
   <style>
-    /* 页面特定样式 */
-    .breadcrumb {
-      margin: 1rem 0;
-      font-size: 0.9rem;
-      color: var(--text-muted);
+    /* 移动端优化 */
+    @media (max-width: 768px) {
+      .desktop-only { display: none !important; }
+      .mobile-collapsible { margin-bottom: 1rem; }
+      .collapsible-header {
+        background: rgba(245, 197, 66, 0.1);
+        border: 1px solid rgba(245, 197, 66, 0.3);
+        border-radius: 8px;
+        padding: 1rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+      .collapsible-content {
+        display: none;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 0 0 8px 8px;
+        margin-top: -0.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: none;
+      }
+      .collapsible-content.active { display: block; }
     }
-    .breadcrumb a {
-      color: var(--secondary-color);
-      text-decoration: none;
-    }
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-    
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--spacing-lg);
-      margin: var(--spacing-xl) 0;
-    }
-    
-    .info-card {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-lg);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .info-card h3 {
-      color: var(--secondary-color);
-      margin-bottom: var(--spacing-md);
-      text-align: center;
-    }
-    
-    .highlight-box {
-      background: linear-gradient(135deg, rgba(245, 197, 66, 0.1), rgba(15, 76, 129, 0.2));
-      border: 2px solid var(--secondary-color);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-lg);
-      margin: var(--spacing-lg) 0;
-      text-align: center;
-    }
-    
-    .brand-list {
+
+    /* 整体布局优化 */
+    body {
+      min-height: 100vh;
       display: flex;
-      flex-wrap: wrap;
-      gap: var(--spacing-sm);
-      justify-content: center;
-      margin: var(--spacing-md) 0;
+      flex-direction: column;
     }
-    
-    .brand-tag {
-      background: rgba(245, 197, 66, 0.15);
-      border: 1px solid rgba(245, 197, 66, 0.3);
-      border-radius: 20px;
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
-    }
-    
-    .process-timeline {
-      display: flex;
-      justify-content: space-between;
-      position: relative;
-      margin: var(--spacing-xl) 0;
-    }
-    
-    .process-timeline::before {
-      content: '';
-      position: absolute;
-      top: 20px;
-      left: 10%;
-      right: 10%;
-      height: 3px;
-      background: var(--secondary-color);
-      z-index: 1;
-    }
-    
-    .timeline-step {
-      text-align: center;
-      position: relative;
-      z-index: 2;
+    main.container {
       flex: 1;
+      padding: 1rem;
+      max-width: 100%;
     }
-    
-    .step-number {
-      width: 40px;
-      height: 40px;
-      background: var(--secondary-color);
-      color: var(--dark-color);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto var(--spacing-sm);
-      font-weight: bold;
-      font-size: 1.2rem;
+    .unified-card {
+      margin-bottom: 1.5rem;
     }
-    
-    .step-title {
-      font-weight: bold;
-      color: var(--light-color);
-      margin-bottom: var(--spacing-xs);
+    .info-card {
+      margin-bottom: 1.5rem;
+      padding: 1.2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(245, 197, 66, 0.2);
     }
-    
-    .step-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
+    .brand-tag {
+      display: inline-block;
+      background: rgba(245, 197, 66, 0.15);
+      border-radius: 20px;
+      padding: 0.4rem 0.8rem;
+      margin: 0.2rem;
+      font-size: 0.85rem;
     }
-    
-    .note-box {
-      background: rgba(15, 76, 129, 0.3);
-      border-left: 4px solid var(--secondary-color);
-      padding: var(--spacing-md);
-      margin: var(--spacing-lg) 0;
-      border-radius: var(--border-radius);
+    .card-cta-btn {
+      display: block;
+      width: 100%;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    footer {
+      padding: 1.5rem 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
   </style>
 </head>
 
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-<!-- 导航/面包屑 -->
-<div class="container">
-  <div class="breadcrumb">
-    <a href="index.html">Beranda</a> &gt; <a href="contact.html">Hubungi</a> &gt; <span>Gadai Elektronik</span>
-  </div>
-</div>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <main class="container">
-  <!-- 主要卡片 -->
+  <!-- 面包屑（移动端隐藏） -->
+  <div class="breadcrumb desktop-only">
+    <a href="index.html">Beranda</a> &gt; <span>Gadai Elektronik</span>
+  </div>
+
+  <!-- 主卡片 -->
   <div class="unified-card fade-in delay-1">
     <div class="card-icon">💻</div>
     <h1 class="card-title">Gadai Elektronik</h1>
     <p class="card-desc">
-      Butuh dana cepat? Gadai laptop, atau barang elektronik Anda dengan proses <strong>transparan</strong> dan <strong>penilaian adil</strong>.
+      Gadai laptop, smartphone, tablet dengan penilaian <strong>adil</strong> & proses <strong>≤ 60 menit</strong>.
     </p>
     
-    <div class="highlight-box">
-      <h3 style="margin-top: 0; color: var(--secondary-color);">🏆 Keunggulan Kami</h3>
-      <p>• Penilaian profesional & jujur<br>
-         • Proses cepat 30-60 menit<br>
-         • Keamanan barang terjamin<br>
-         • Konsultasi GRATIS via WhatsApp</p>
+    <!-- 品牌标签 -->
+    <div style="text-align: center; margin: 1.2rem 0;">
+      <span class="brand-tag">iPhone</span>
+      <span class="brand-tag">Samsung</span>
+      <span class="brand-tag">Laptop</span>
+      <span class="brand-tag">Tablet</span>
+      <span class="brand-tag">Kamera</span>
     </div>
-    
+
     <!-- 主要CTA -->
     <a href="https://wa.me/6289515692586" 
        class="card-cta-btn" 
        target="_blank" 
-       rel="noopener noreferrer"
-       onclick="gtag('event', 'whatsapp_click', {'event_category': 'Electronics', 'event_label': 'Electronics Page'})">
+       onclick="gtag('event', 'whatsapp_click', {'event_category': 'Electronics', 'event_label': 'Mobile Page'})">
       💬 Konsultasi Gratis via WhatsApp
     </a>
   </div>
-  
-  <!-- 品牌列表 -->
-  <div class="info-card">
-    <h3>📱 Merek yang Sering Digadaikan</h3>
-    <div class="brand-list">
-      <span class="brand-tag">iPhone</span>
-      <span class="brand-tag">Samsung</span>
-      <span class="brand-tag">Xiaomi</span>
-      <span class="brand-tag">OPPO</span>
-      <span class="brand-tag">Vivo</span>
-      <span class="brand-tag">Realme</span>
-      <span class="brand-tag">ASUS Laptop</span>
-      <span class="brand-tag">Lenovo</span>
-      <span class="brand-tag">iPad</span>
-      <span class="brand-tag">Tablet Android</span>
+
+  <!-- 可折叠内容（移动端） -->
+  <div class="mobile-collapsible">
+    <div class="collapsible-header" onclick="toggleCollapse('accepted')">
+      <span>✅ Barang Diterima</span>
+      <span>▼</span>
     </div>
-  </div>
-  
-  <!-- 信息网格 -->
-  <div class="info-grid">
-    <!-- 接受的物品 -->
-    <div class="info-card fade-in delay-2">
-      <h3>✅ Barang yang Diterima</h3>
-      <ul class="card-list">
-        <li><span class="list-icon">📱</span> Smartphone (semua merek)</li>
-        <li><span class="list-icon">💻</span> Laptop & Notebook</li>
-        <li><span class="list-icon">⌚</span> Tablet & iPad</li>
-        <li><span class="list-icon">📷</span> Kamera digital</li>
-        <li><span class="list-icon">🎮</span> Konsol game (PS5, Xbox)</li>
-        <li><span class="list-icon">🔊</span> Perangkat audio premium</li>
-        <li><span class="list-icon">🔄</span> Barang elektronik berharga lainnya</li>
-      </ul>
-      <p style="text-align: center; margin-top: var(--spacing-md); font-size: 0.9rem; color: var(--text-muted);">
-        * Barang harus dalam kondisi berfungsi baik
-      </p>
-    </div>
-    
-    <!-- 不接受的物品 -->
-    <div class="info-card fade-in delay-3">
-      <h3>❌ Barang yang Tidak Diterima</h3>
-      <ul class="card-list">
-        <li><span class="list-icon">🚫</span> Barang pinjaman/titipan</li>
-        <li><span class="list-icon">🚫</span> Barang rusak total/tidak berfungsi</li>
-        <li><span class="list-icon">🚫</span> IMEI diblokir/hilang</li>
-        <li><span class="list-icon">🚫</span> Tanpa charger & aksesoris</li>
-        <li><span class="list-icon">🚫</span> Kepemilikan tidak jelas</li>
-        <li><span class="list-icon">🚫</span> Barang curian/ilegal</li>
-        <li><span class="list-icon">🚫</span> Elektronik usang/tua sekali</li>
+    <div id="accepted" class="collapsible-content">
+      <ul style="margin: 0; padding-left: 1.2rem;">
+        <li>Smartphone (semua merek)</li>
+        <li>Laptop & Notebook</li>
+        <li>Tablet & iPad</li>
+        <li>Kamera digital</li>
+        <li>Kondisi berfungsi baik</li>
       </ul>
     </div>
   </div>
-  
-  <!-- 流程时间线 -->
-  <div class="info-card">
-    <h3>⚡ Proses Cepat 4 Langkah</h3>
-    <div class="process-timeline">
-      <div class="timeline-step">
-        <div class="step-number">1</div>
-        <div class="step-title">Konsultasi</div>
-        <div class="step-desc">Kirim foto & info via WhatsApp</div>
-      </div>
-      <div class="timeline-step">
-        <div class="step-number">2</div>
-        <div class="step-title">Penilaian</div>
-        <div class="step-desc">Tim ahli nilai kondisi & harga</div>
-      </div>
-      <div class="timeline-step">
-        <div class="step-number">3</div>
-        <div class="step-title">Verifikasi</div>
-        <div class="step-desc">Cek dokumen & kepemilikan</div>
-      </div>
-      <div class="timeline-step">
-        <div class="step-number">4</div>
-        <div class="step-title">Pencairan</div>
-        <div class="step-desc">Dana langsung cair di tempat</div>
-      </div>
+
+  <div class="mobile-collapsible">
+    <div class="collapsible-header" onclick="toggleCollapse('process')">
+      <span>⚡ Proses 4 Langkah</span>
+      <span>▼</span>
+    </div>
+    <div id="process" class="collapsible-content">
+      <ol style="margin: 0; padding-left: 1.2rem;">
+        <li><strong>Konsultasi</strong> via WhatsApp</li>
+        <li><strong>Penilaian</strong> oleh ahli</li>
+        <li><strong>Verifikasi</strong> dokumen</li>
+        <li><strong>Pencairan</strong> dana tunai</li>
+      </ol>
     </div>
   </div>
-  
+
   <!-- 重要提示 -->
-  <div class="note-box">
-    <h4 style="color: var(--secondary-color); margin-top: 0;">📋 Informasi Penting:</h4>
-    <ul style="color: var(--text-light); margin-bottom: 0;">
-      <li>Bawa <strong>KTP asli</strong> dan <strong>dokumen pembelian</strong> (jika ada)</li>
-      <li>Bawa charger dan aksesoris lengkap untuk penilaian maksimal</li>
-      <li>Pastikan barang dalam kondisi bersih dan berfungsi normal</li>
-      <li>Hapus kunci pola/PIN sebelum dibawa untuk pengecekan</li>
-      <li>Untuk iPhone, pastikan iCloud sudah sign out</li>
+  <div class="info-card">
+    <h4 style="color: var(--secondary-color); margin-top: 0;">📋 Persyaratan:</h4>
+    <ul style="margin-bottom: 0;">
+      <li>Bawa <strong>KTP asli</strong></li>
+      <li>Barang berfungsi normal</li>
+      <li>Lengkapi charger & aksesoris</li>
+      <li>Hapus kunci/PIN sebelum bawa</li>
     </ul>
   </div>
-  
+
   <!-- 底部CTA -->
-  <div style="text-align: center; margin: var(--spacing-xl) 0;">
-    <h3 style="color: var(--secondary-color); margin-bottom: var(--spacing-md);">
-      Siap Gadai Elektronik Anda?
-    </h3>
-    <p class="card-desc">
-      Kirim foto barang dan tanya estimasi nilai via WhatsApp. <strong>Gratis</strong> dan tanpa kewajiban.
-    </p>
+  <div style="text-align: center; margin-top: 2rem;">
     <a href="https://wa.me/6289515692586" 
        class="card-cta-btn" 
-       target="_blank" 
-       rel="noopener noreferrer">
-      📸 Kirim Foto & Konsultasi Sekarang
+       target="_blank">
+      📸 Kirim Foto & Dapatkan Penilaian
     </a>
+    <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem;">
+      Respon cepat via WhatsApp • Gratis konsultasi
+    </p>
   </div>
 </main>
 
-<!-- 页脚 -->
 <footer>
-  <div class="container">
-    <div class="footer-content">
-      <p class="copyright">© 2026 <span class="highlight">JF Gadai</span> - Gadai Elektronik</p>
-      <p class="company-info">Layanan gadai laptop, tablet di Bangil, Beji, Gempol</p>
-      <a href="https://wa.me/6289515692586" 
-         target="_blank" 
-         class="contact-link" 
-         rel="noopener noreferrer"
-         aria-label="Hubungi kami via WhatsApp">
-        💬 WhatsApp: +62 895-1569-2586
+  <div class="footer-content">
+    <p class="copyright">© 2026 <span class="highlight">JF Gadai</span></p>
+    <a href="https://wa.me/6289515692586" 
+       target="_blank" 
+       class="contact-link">
+      💬 WhatsApp: +62 895-1569-2586
+    </a>
+    <p class="operating-hours">
+      ⏰ 08:00-18:00 (Senin-Sabtu)
+    </p>
+    <p style="margin-top: 1rem;">
+      <a href="index.html" style="color: var(--text-muted); text-decoration: none;">
+        ← Kembali ke Beranda
       </a>
-      <p class="operating-hours">
-        ⏰ Jam kerja: 08:00-18:00 (Senin-Sabtu) | Respon cepat via WhatsApp
-      </p>
-      <p style="margin-top: var(--spacing-md);">
-        <a href="contact.html" style="color: var(--text-muted); text-decoration: none; margin-right: var(--spacing-md);">
-          ← Kembali ke Kontak
-        </a>
-        <a href="index.html" style="color: var(--text-muted); text-decoration: none;">
-          ← Beranda
-        </a>
-      </p>
-    </div>
+    </p>
   </div>
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+  // 移动端折叠功能
+  function toggleCollapse(id) {
+    const content = document.getElementById(id);
+    content.classList.toggle('active');
+  }
+
+  // 页面加载后默认展开第一个折叠项（移动端）
+  if (window.innerWidth <= 768) {
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('accepted').classList.add('active');
+    });
+  }
+</script>
 </body>
 </html>
