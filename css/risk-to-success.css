@@ -186,6 +186,7 @@ main.container {
 }
 
 /* ==================== 案例卡片下拉样式 ==================== */
+/* 注意：所有案例卡片都有延迟动画效果 */
 
 /* 案例网格布局 - 电脑端默认2列 */
 .cases-grid {
@@ -195,7 +196,7 @@ main.container {
   margin-top: var(--spacing-lg);
 }
 
-/* 案例卡片样式 */
+/* 案例卡片样式 - 使用CSS变量控制动画延迟 */
 .case-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: var(--border-radius-lg);
@@ -212,11 +213,23 @@ main.container {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.5s ease forwards;
+  animation-delay: calc(var(--card-index, 0) * 0.1s);
 }
 
 .case-card.animated {
   opacity: 1;
   transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .risk-card {
@@ -422,6 +435,8 @@ main.container {
 }
 
 /* ==================== 成功因素部分 ==================== */
+/* 注意：每个因素卡片有交错动画效果 */
+
 .success-factors {
   margin-bottom: var(--spacing-xxl);
 }
@@ -442,6 +457,8 @@ main.container {
   transition: all 0.3s ease;
   opacity: 0;
   transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+  animation-delay: calc(var(--factor-index, 0) * 0.1s);
 }
 
 .factor-card.animated {
@@ -502,6 +519,8 @@ main.container {
 }
 
 /* ==================== 行动号召部分 ==================== */
+/* 注意：CTA选项有交错动画效果 */
+
 .cta-section {
   margin-bottom: var(--spacing-xxl);
 }
@@ -548,6 +567,8 @@ main.container {
   transition: all 0.3s ease;
   opacity: 0;
   transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+  animation-delay: calc(var(--option-index, 0) * 0.15s);
 }
 
 .cta-option.animated {
@@ -655,11 +676,12 @@ main.container {
   }
 }
 
+/* 移动设备（768px及以下）- 已合并所有移动端样式 */
 @media (max-width: 768px) {
   /* 顶部英雄区域移动端进一步压缩 */
   .page-hero {
     padding: 0.5rem 0 !important;
-    max-height: 180px !important; /* 移动端更矮 */
+    max-height: 180px !important;
     margin-bottom: 0.5rem !important;
   }
   
@@ -675,22 +697,22 @@ main.container {
     line-height: 1.2 !important;
   }
   
+  /* 英雄统计信息（如果存在） */
   .hero-stats {
     gap: 1rem !important;
     margin-top: 0.2rem !important;
   }
   
   .stat-number {
-    font-size: 1.1rem !important; /* 移动端数字更小 */
+    font-size: 1.1rem !important;
     margin-bottom: 0.05rem !important;
   }
   
   .stat-label {
-    font-size: 0.65rem !important; /* 移动端标签更小 */
+    font-size: 0.65rem !important;
     line-height: 1 !important;
     max-width: 80px;
   }
-}
   
   /* 强制所有网格单列布局 */
   .cases-grid {
@@ -723,10 +745,24 @@ main.container {
     right: 20%;
   }
   
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  /* 关键消息框 */
   .key-message {
     flex-direction: column;
     text-align: center;
     padding: var(--spacing-md);
+  }
+  
+  .message-icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .message-content h3 {
+    font-size: 1.1rem;
   }
   
   /* 手机端案例样式 */
@@ -772,7 +808,7 @@ main.container {
   }
   
   .case-card.expanded .case-content {
-    padding: var(--spacing-md) !important;
+    padding: var(--spacing-md);
   }
   
   .case-scenario p, 
@@ -789,21 +825,9 @@ main.container {
     font-size: 1rem;
   }
   
-  /* 按钮 */
-  .btn-primary, .btn-secondary {
-    width: 100%;
-    max-width: 280px;
-    padding: 0.8rem 1.5rem;
-    font-size: 0.95rem;
-  }
-  
-  /* 卡片内边距调整 */
-  .factor-card, .cta-card, .cta-option {
+  /* 成功因素卡片 */
+  .factor-card {
     padding: var(--spacing-lg);
-  }
-  
-  .cta-card {
-    padding: var(--spacing-xl) var(--spacing-lg);
   }
   
   .factor-card h3 {
@@ -813,6 +837,36 @@ main.container {
   .factor-icon {
     font-size: 2.5rem;
   }
+  
+  /* CTA部分 */
+  .cta-card {
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
+  
+  .cta-option {
+    padding: var(--spacing-lg);
+  }
+  
+  .cta-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .cta-subtitle {
+    font-size: 1rem;
+  }
+  
+  /* 按钮 */
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  /* 标签和结果样式 */
+  .case-label, .outcome-bad, .outcome-warning, .outcome-good {
+    font-size: 0.8rem;
+  }
 }
 
 /* 小屏幕手机（480px及以下） */
@@ -820,7 +874,7 @@ main.container {
   .page-breadcrumb,
   .page-hero .container,
   main.container {
-    padding: 0 var(--spacing-sm) !important;
+    padding: 0 var(--spacing-sm);
   }
   
   .hero-title {
@@ -838,10 +892,6 @@ main.container {
   
   .section-header h2 {
     font-size: 1.4rem;
-  }
-  
-  .section-subtitle {
-    font-size: 1rem;
   }
   
   .case-header-toggle h3 {
@@ -862,7 +912,7 @@ main.container {
   }
   
   .case-card.expanded .case-content {
-    padding: var(--spacing-sm) !important;
+    padding: var(--spacing-sm);
   }
   
   .case-scenario p, .case-process p, .case-lesson p,
@@ -876,18 +926,6 @@ main.container {
   
   .cta-card {
     padding: var(--spacing-lg) var(--spacing-md);
-  }
-  
-  .cta-content h2 {
-    font-size: 1.8rem;
-  }
-  
-  .cta-subtitle {
-    font-size: 1rem;
-  }
-  
-  .case-label, .outcome-bad, .outcome-warning, .outcome-good {
-    font-size: 0.8rem;
   }
 }
 
@@ -924,8 +962,9 @@ main.container {
   }
 }
 
-/* 打印样式 */
+/* ==================== 打印样式优化 ==================== */
 @media print {
+  /* 重置背景和颜色 */
   .page-hero {
     background: none !important;
     border-bottom: 2px solid #000;
@@ -935,18 +974,41 @@ main.container {
     color: #000 !important;
   }
   
+  /* 卡片打印优化 */
   .case-card {
     break-inside: avoid;
     border: 1px solid #ccc !important;
+    page-break-inside: avoid;
   }
   
+  /* 隐藏交互元素 */
   .btn-primary, .btn-secondary, .toggle-icon {
     display: none !important;
   }
   
+  /* 确保所有内容可见 */
   .case-content {
     max-height: none !important;
     opacity: 1 !important;
     visibility: visible !important;
+    display: block !important;
+  }
+  
+  /* 隐藏动画效果 */
+  .case-card, .factor-card, .cta-option {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  
+  /* 优化链接显示 */
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+  
+  /* 打印页边距优化 */
+  @page {
+    margin: 1.5cm;
   }
 }
