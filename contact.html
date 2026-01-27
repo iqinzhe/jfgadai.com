@@ -1,3 +1,5 @@
+[file name]: contact.html
+[file content begin]
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -77,6 +79,8 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
+  <!-- 引入手风琴样式 -->
+  <link rel="stylesheet" href="css/edukasi-gadai.css">
   <style>
     /* 页面特定样式 */
     .breadcrumb {
@@ -134,26 +138,196 @@
       text-align: center;
     }
     
+    /* WhatsApp 表单样式 */
+    .whatsapp-form-section {
+      margin: var(--spacing-xl) 0;
+      padding: var(--spacing-xl);
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .whatsapp-form-section h2 {
+      color: var(--secondary-color);
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+      font-size: 1.8rem;
+    }
+    
+    .form-instruction {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: var(--spacing-lg);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    
+    .whatsapp-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .form-group {
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: var(--spacing-xs);
+      color: var(--light-color);
+      font-weight: 500;
+    }
+    
+    .form-label.required::after {
+      content: " *";
+      color: #ff4757;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: var(--spacing-md);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--border-radius);
+      color: var(--light-color);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 0 2px rgba(245, 197, 66, 0.2);
+    }
+    
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    select.form-control {
+      cursor: pointer;
+    }
+    
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .form-submit-btn {
+      display: block;
+      width: 100%;
+      padding: var(--spacing-md);
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: var(--spacing-xl);
+    }
+    
+    .form-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+      background: linear-gradient(135deg, #2ee877 0%, #1a9c8c 100%);
+    }
+    
+    .form-submit-btn:active {
+      transform: translateY(0);
+    }
+    
+    .form-submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .form-note {
+      margin-top: var(--spacing-sm);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    
+    .form-success {
+      background: rgba(46, 204, 113, 0.1);
+      border: 1px solid #2ecc71;
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      text-align: center;
+      margin: var(--spacing-lg) 0;
+    }
+    
+    .form-error {
+      background: rgba(255, 71, 87, 0.1);
+      border: 1px solid #ff4757;
+      border-radius: var(--border-radius);
+      padding: var(--spacing-md);
+      margin-top: var(--spacing-sm);
+      color: #ff6b81;
+      font-size: 0.9rem;
+    }
+    
+    /* FAQ 手风琴样式调整 */
     .faq-section {
       margin-top: var(--spacing-xl);
     }
     
-    .faq-item {
-      margin-bottom: var(--spacing-md);
-      padding: var(--spacing-md);
+    .faq-section h2 {
+      text-align: center;
+      color: var(--secondary-color);
+      margin-bottom: var(--spacing-lg);
+      font-size: 1.8rem;
+    }
+    
+    .accordion {
+      max-width: 900px;
+      margin: 0 auto !important;
+    }
+    
+    .accordion-item {
       background: rgba(255, 255, 255, 0.05);
-      border-radius: var(--border-radius);
-      border-left: 4px solid var(--secondary-color);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    .faq-question {
-      color: var(--light-color);
-      font-weight: bold;
-      margin-bottom: var(--spacing-xs);
+    .accordion-header {
+      background: linear-gradient(135deg, rgba(11, 44, 74, 0.9) 0%, rgba(26, 82, 118, 0.9) 100%);
+      color: white;
     }
     
-    .faq-answer {
+    .accordion-header:hover {
+      background: linear-gradient(135deg, rgba(26, 82, 118, 0.9) 0%, rgba(44, 62, 80, 0.9) 100%);
+    }
+    
+    .accordion-header.active {
+      background: linear-gradient(135deg, rgba(39, 174, 96, 0.9) 0%, rgba(46, 204, 113, 0.9) 100%);
+    }
+    
+    .accordion-content .edu-content {
       color: var(--text-muted);
+      line-height: 1.7;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .contact-options {
+        grid-template-columns: 1fr;
+      }
+      
+      .whatsapp-form-section {
+        padding: var(--spacing-lg);
+      }
+      
+      .whatsapp-form-section h2 {
+        font-size: 1.5rem;
+      }
+      
+      .form-control {
+        padding: var(--spacing-sm);
+      }
     }
   </style>
 </head>
@@ -201,51 +375,154 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </p>
   </div>
   
-  <!-- 联系选项 -->
-  <div class="contact-options">
-    <div class="contact-card fade-in delay-2">
-      <div class="contact-icon">🏍️</div>
-      <h3 class="contact-subtitle">Konsultasi Gadai Motor</h3>
-      <p>Tanya tentang gadai motor, proses, dan persyaratan.</p>
-      <a href="motor.html" class="card-cta-btn" style="padding: 0.7rem 1.5rem; font-size: 0.95rem;">
-        Info Gadai Motor
-      </a>
-    </div>
+  <!-- WhatsApp 表单部分 -->
+  <div class="whatsapp-form-section fade-in delay-2">
+    <h2>📋 Formulir Konsultasi via WhatsApp</h2>
+    <p class="form-instruction">
+      Isi formulir di bawah ini untuk konsultasi gadai. Data Anda akan dikirim ke WhatsApp kami, sehingga kami dapat memberikan respon yang lebih personal dan cepat.
+    </p>
     
-    <div class="contact-card fade-in delay-3">
-      <div class="contact-icon">📱</div>
-      <h3 class="contact-subtitle">Gadai HP & Elektronik</h3>
-      <p>Konsultasi penilaian HP, laptop, dan barang elektronik.</p>
-      <a href="electronics.html" class="card-cta-btn" style="padding: 0.7rem 1.5rem; font-size: 0.95rem;">
-        Info Gadai Elektronik
-      </a>
-    </div>
+    <form id="whatsappForm" class="whatsapp-form">
+      <div class="form-group">
+        <label for="name" class="form-label required">Nama Lengkap</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama lengkap Anda" required>
+        <div class="form-error" id="nameError"></div>
+      </div>
+      
+      <div class="form-group">
+        <label for="ktp" class="form-label required">Nomor KTP</label>
+        <input type="text" id="ktp" name="ktp" class="form-control" placeholder="Masukkan 16 digit nomor KTP" required maxlength="16">
+        <div class="form-error" id="ktpError"></div>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone" class="form-label required">Nomor WhatsApp</label>
+        <input type="tel" id="phone" name="phone" class="form-control" placeholder="Contoh: 081234567890" required>
+        <div class="form-error" id="phoneError"></div>
+      </div>
+      
+      <div class="form-group">
+        <label for="item" class="form-label required">Jenis Barang yang akan Digadaikan</label>
+        <select id="item" name="item" class="form-control" required>
+          <option value="" selected disabled>-- Pilih Jenis Barang --</option>
+          <option value="motor">🏍️ Motor / Kendaraan</option>
+          <option value="emas">💰 Emas / Perhiasan</option>
+          <option value="hp">📱 HP / Smartphone</option>
+          <option value="laptop">💻 Laptop / Komputer</option>
+          <option value="elektronik">📺 Barang Elektronik Lainnya</option>
+          <option value="lainnya">📦 Barang Berharga Lainnya</option>
+        </select>
+        <div class="form-error" id="itemError"></div>
+      </div>
+      
+      <div class="form-group">
+        <label for="description" class="form-label required">Deskripsi Barang</label>
+        <textarea id="description" name="description" class="form-control form-textarea" placeholder="Deskripsikan barang Anda (merk, tahun, kondisi, dll)..." required></textarea>
+        <div class="form-error" id="descriptionError"></div>
+      </div>
+      
+      <button type="submit" class="form-submit-btn" id="submitBtn">
+        <span>📤 Kirim ke WhatsApp</span>
+        <span id="loadingText" style="display:none;">⏳ Mengirim...</span>
+      </button>
+      
+      <div id="formSuccess" class="form-success" style="display:none;">
+        <h3 style="color: #2ecc71;">✓ Formulir Berhasil Dikirim!</h3>
+        <p>Data Anda telah dikirim ke WhatsApp kami. Kami akan segera menghubungi Anda dalam 5-15 menit.</p>
+        <p><a href="https://wa.me/6289515692586" style="color: #25D366; text-decoration: underline;">Klik di sini untuk langsung ke WhatsApp</a></p>
+      </div>
+      
+      <p class="form-note">
+        * Data Anda aman dan hanya digunakan untuk keperluan konsultasi gadai.
+      </p>
+    </form>
   </div>
   
-  <!-- 常见问题 -->
+  <!-- 常见问题 - 手风琴样式 -->
   <div class="faq-section">
-    <h2 style="text-align: center; color: var(--secondary-color); margin-bottom: var(--spacing-lg);">
-      ❓ Pertanyaan yang Sering Diajukan
-    </h2>
+    <h2>❓ Pertanyaan yang Sering Diajukan</h2>
     
-    <div class="faq-item">
-      <div class="faq-question">Berapa lama waktu respon via WhatsApp?</div>
-      <div class="faq-answer">Biasanya dalam 5-15 menit pada jam kerja (08:00-18:00). Di luar jam kerja, kami akan respon di hari kerja berikutnya.</div>
-    </div>
-    
-    <div class="faq-item">
-      <div class="faq-question">Apakah konsultasi dikenakan biaya?</div>
-      <div class="faq-answer">Tidak. Konsultasi via WhatsApp sepenuhnya GRATIS tanpa biaya apapun.</div>
-    </div>
-    
-    <div class="faq-item">
-      <div class="faq-question">Apa saja dokumen yang perlu disiapkan?</div>
-      <div class="faq-answer">KTP asli dan dokumen kepemilikan barang (BPKB untuk motor, sertifikat untuk emas, dll).</div>
-    </div>
-    
-    <div class="faq-item">
-      <div class="faq-question">Berapa lama proses pencairan dana?</div>
-      <div class="faq-answer">Setelah kesepakatan nilai, dana bisa dicairkan langsung di tempat.</div>
+    <div class="accordion">
+      <!-- FAQ 1 -->
+      <div class="accordion-item" id="faq1">
+        <button class="accordion-header">
+          <span class="accordion-number">1</span>
+          Berapa lama waktu respon via WhatsApp?
+          <span class="accordion-arrow">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="edu-content">
+            <p>Biasanya dalam <strong>5-15 menit</strong> pada jam kerja (08:00-18:00). Di luar jam kerja, kami akan merespons di hari kerja berikutnya.</p>
+            <div class="info-box">
+              <p><strong>Tips:</strong> Untuk respon tercepat, kirim pesan di jam kerja dan sertakan informasi lengkap tentang barang yang akan digadaikan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- FAQ 2 -->
+      <div class="accordion-item" id="faq2">
+        <button class="accordion-header">
+          <span class="accordion-number">2</span>
+          Apakah konsultasi dikenakan biaya?
+          <span class="accordion-arrow">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="edu-content">
+            <p>Tidak. <strong>Konsultasi via WhatsApp sepenuhnya GRATIS</strong> tanpa biaya apapun.</p>
+            <div class="tip-box">
+              <p><strong>Hati-hati:</strong> JF Gadai tidak pernah meminta biaya konsultasi atau biaya administrasi di awal. Biaya hanya dikenakan setelah kesepakatan gadai.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- FAQ 3 -->
+      <div class="accordion-item" id="faq3">
+        <button class="accordion-header">
+          <span class="accordion-number">3</span>
+          Apa saja dokumen yang perlu disiapkan?
+          <span class="accordion-arrow">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="edu-content">
+            <p>Dokumen yang diperlukan tergantung pada jenis barang:</p>
+            <ul>
+              <li><strong>KTP Asli</strong> (wajib untuk semua transaksi)</li>
+              <li><strong>BPKB dan STNK</strong> (untuk gadai motor/kendaraan)</li>
+              <li><strong>Sertifikat atau faktur pembelian</strong> (untuk emas/perhiasan)</li>
+              <li><strong>Kotak dan aksesori lengkap</strong> (untuk HP/elektronik, jika ada)</li>
+            </ul>
+            <div class="info-box">
+              <p><strong>Pastikan:</strong> Semua dokumen harus asli dan atas nama Anda sendiri atau dengan surat kuasa yang sah.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- FAQ 4 -->
+      <div class="accordion-item" id="faq4">
+        <button class="accordion-header">
+          <span class="accordion-number">4</span>
+          Berapa lama proses pencairan dana?
+          <span class="accordion-arrow">▼</span>
+        </button>
+        <div class="accordion-content">
+          <div class="edu-content">
+            <p>Setelah kesepakatan nilai dan penyerahan barang, <strong>dana bisa dicairkan langsung di tempat</strong> dalam waktu kurang dari 30 menit.</p>
+            <div class="tip-box">
+              <p><strong>Proses lengkap:</strong></p>
+              <ol>
+                <li>Konsultasi dan penilaian barang (10-15 menit)</li>
+                <li>Pemeriksaan dokumen (5 menit)</li>
+                <li>Penandatanganan perjanjian (5 menit)</li>
+                <li>Pencairan dana (5 menit)</li>
+              </ol>
+              <p>Total waktu biasanya <strong>25-40 menit</strong> dari awal sampai pencairan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </main>
@@ -276,6 +553,281 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<!-- 引入手风琴JavaScript -->
+<script src="js/edukasi-gadai.js"></script>
+
+<script>
+  // WhatsApp表单处理脚本
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('whatsappForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const loadingText = document.getElementById('loadingText');
+    const formSuccess = document.getElementById('formSuccess');
+    
+    // 验证KTP号码（16位数字）
+    function validateKTP(ktp) {
+      const ktpRegex = /^\d{16}$/;
+      return ktpRegex.test(ktp);
+    }
+    
+    // 验证手机号码（印尼格式）
+    function validatePhone(phone) {
+      const phoneRegex = /^(\+62|62|0)8[1-9][0-9]{6,9}$/;
+      return phoneRegex.test(phone.replace(/\s+/g, ''));
+    }
+    
+    // 显示错误信息
+    function showError(fieldId, message) {
+      const errorElement = document.getElementById(fieldId + 'Error');
+      errorElement.textContent = message;
+      errorElement.style.display = 'block';
+    }
+    
+    // 清除错误信息
+    function clearError(fieldId) {
+      const errorElement = document.getElementById(fieldId + 'Error');
+      errorElement.textContent = '';
+      errorElement.style.display = 'none';
+    }
+    
+    // 验证表单
+    function validateForm(formData) {
+      let isValid = true;
+      
+      // 验证姓名
+      if (!formData.name.trim()) {
+        showError('name', 'Nama lengkap harus diisi');
+        isValid = false;
+      } else {
+        clearError('name');
+      }
+      
+      // 验证KTP
+      if (!formData.ktp.trim()) {
+        showError('ktp', 'Nomor KTP harus diisi');
+        isValid = false;
+      } else if (!validateKTP(formData.ktp)) {
+        showError('ktp', 'Nomor KTP harus 16 digit angka');
+        isValid = false;
+      } else {
+        clearError('ktp');
+      }
+      
+      // 验证手机号码
+      if (!formData.phone.trim()) {
+        showError('phone', 'Nomor WhatsApp harus diisi');
+        isValid = false;
+      } else if (!validatePhone(formData.phone)) {
+        showError('phone', 'Format nomor WhatsApp tidak valid. Contoh: 081234567890');
+        isValid = false;
+      } else {
+        clearError('phone');
+      }
+      
+      // 验证物品类型
+      if (!formData.item) {
+        showError('item', 'Pilih jenis barang yang akan digadaikan');
+        isValid = false;
+      } else {
+        clearError('item');
+      }
+      
+      // 验证描述
+      if (!formData.description.trim()) {
+        showError('description', 'Deskripsi barang harus diisi');
+        isValid = false;
+      } else if (formData.description.trim().length < 10) {
+        showError('description', 'Deskripsi terlalu singkat. Minimal 10 karakter');
+        isValid = false;
+      } else {
+        clearError('description');
+      }
+      
+      return isValid;
+    }
+    
+    // 格式化手机号码
+    function formatPhoneNumber(phone) {
+      let formattedPhone = phone.replace(/\s+/g, '');
+      
+      // 如果以0开头，改为62
+      if (formattedPhone.startsWith('0')) {
+        formattedPhone = '62' + formattedPhone.substring(1);
+      }
+      // 如果以+62开头，移除+
+      else if (formattedPhone.startsWith('+62')) {
+        formattedPhone = formattedPhone.substring(1);
+      }
+      // 如果已经是62开头，保持原样
+      
+      return formattedPhone;
+    }
+    
+    // 获取物品类型文本
+    function getItemTypeText(itemValue) {
+      const itemTypes = {
+        'motor': 'Motor / Kendaraan',
+        'emas': 'Emas / Perhiasan',
+        'hp': 'HP / Smartphone',
+        'laptop': 'Laptop / Komputer',
+        'elektronik': 'Barang Elektronik Lainnya',
+        'lainnya': 'Barang Berharga Lainnya'
+      };
+      return itemTypes[itemValue] || itemValue;
+    }
+    
+    // 构建WhatsApp消息
+    function buildWhatsAppMessage(formData) {
+      const formattedPhone = formatPhoneNumber(formData.phone);
+      const itemTypeText = getItemTypeText(formData.item);
+      
+      // 构建消息内容
+      const message = `Halo JF Gadai, saya ingin konsultasi tentang gadai barang.
+
+*DATA KONSULTASI:*
+👤 Nama: ${formData.name}
+🆔 KTP: ${formData.ktp}
+📱 WhatsApp: ${formData.phone}
+🏷️ Jenis Barang: ${itemTypeText}
+
+📝 Deskripsi Barang:
+${formData.description}
+
+Mohon info mengenai:
+1. Perkiraan nilai taksiran
+2. Prosedur dan persyaratan
+3. Biaya administrasi
+
+Terima kasih.`;
+
+      // 编码消息内容
+      const encodedMessage = encodeURIComponent(message);
+      
+      // 构建WhatsApp URL
+      return `https://wa.me/6289515692586?text=${encodedMessage}`;
+    }
+    
+    // 表单提交处理
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // 收集表单数据
+      const formData = {
+        name: document.getElementById('name').value,
+        ktp: document.getElementById('ktp').value,
+        phone: document.getElementById('phone').value,
+        item: document.getElementById('item').value,
+        description: document.getElementById('description').value
+      };
+      
+      // 验证表单
+      if (!validateForm(formData)) {
+        return;
+      }
+      
+      // 显示加载状态
+      submitBtn.disabled = true;
+      submitBtn.querySelector('span').style.display = 'none';
+      loadingText.style.display = 'inline';
+      
+      // 发送Google Analytics事件
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_submit', {
+          'event_category': 'Contact',
+          'event_label': 'WhatsApp Form',
+          'item_type': formData.item
+        });
+      }
+      
+      // 延迟执行，让用户看到加载状态
+      setTimeout(() => {
+        // 构建WhatsApp URL
+        const whatsappUrl = buildWhatsAppMessage(formData);
+        
+        // 隐藏表单，显示成功消息
+        form.style.display = 'none';
+        formSuccess.style.display = 'block';
+        
+        // 发送Google Analytics转化事件
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17845187332/EqUyCKvIxZ4ZENvK3tQp',
+            'value': 1.0,
+            'currency': 'IDR',
+            'transaction_id': 'form_' + Date.now()
+          });
+        }
+        
+        // 在显示成功消息后延迟打开WhatsApp
+        setTimeout(() => {
+          window.open(whatsappUrl, '_blank');
+        }, 1500);
+        
+      }, 1000);
+    });
+    
+    // 实时验证输入
+    const inputs = form.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('blur', function() {
+        const formData = {
+          name: document.getElementById('name').value,
+          ktp: document.getElementById('ktp').value,
+          phone: document.getElementById('phone').value,
+          item: document.getElementById('item').value,
+          description: document.getElementById('description').value
+        };
+        
+        // 只验证当前字段
+        if (this.id === 'name' && !formData.name.trim()) {
+          showError('name', 'Nama lengkap harus diisi');
+        } else if (this.id === 'name') {
+          clearError('name');
+        }
+        
+        if (this.id === 'ktp' && !formData.ktp.trim()) {
+          showError('ktp', 'Nomor KTP harus diisi');
+        } else if (this.id === 'ktp' && !validateKTP(formData.ktp)) {
+          showError('ktp', 'Nomor KTP harus 16 digit angka');
+        } else if (this.id === 'ktp') {
+          clearError('ktp');
+        }
+        
+        if (this.id === 'phone' && !formData.phone.trim()) {
+          showError('phone', 'Nomor WhatsApp harus diisi');
+        } else if (this.id === 'phone' && !validatePhone(formData.phone)) {
+          showError('phone', 'Format nomor WhatsApp tidak valid');
+        } else if (this.id === 'phone') {
+          clearError('phone');
+        }
+        
+        if (this.id === 'item' && !formData.item) {
+          showError('item', 'Pilih jenis barang');
+        } else if (this.id === 'item') {
+          clearError('item');
+        }
+        
+        if (this.id === 'description' && !formData.description.trim()) {
+          showError('description', 'Deskripsi barang harus diisi');
+        } else if (this.id === 'description' && formData.description.trim().length < 10) {
+          showError('description', 'Deskripsi terlalu singkat');
+        } else if (this.id === 'description') {
+          clearError('description');
+        }
+      });
+      
+      // 清除错误信息当用户开始输入时
+      input.addEventListener('input', function() {
+        clearError(this.id);
+      });
+    });
+    
+    // 初始化手风琴
+    if (typeof window.eduAccordion !== 'undefined') {
+      window.eduAccordion.init();
+    }
+  });
+</script>
 </body>
 </html>
+[file content end]
