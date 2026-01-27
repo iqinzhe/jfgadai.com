@@ -497,10 +497,6 @@ footer {
     grid-row: 3; 
   }
   
-  #contact-form { 
-    display: none; /* 平板端也隐藏这个区块 */
-  }
-  
   .quick-actions { 
     flex-direction: row; 
     flex-wrap: wrap;
@@ -531,11 +527,6 @@ footer {
     flex-direction: column;
     gap: 4px; /* 将间距从var(--spacing-sm)减小到4px，更紧凑 */
     margin: var(--spacing-md) auto; /* 减少上下边距 */
-  }
-  
-  /* 隐藏 "失败与成功案例" */
-  #contact-form {
-    display: none;
   }
   
   /* 手机端显示顺序 */
