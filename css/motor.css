@@ -63,14 +63,6 @@
   margin-bottom: var(--spacing-sm);
 }
 
-/* 品牌部分 */
-.brand-section {
-  background: rgba(15, 76, 129, 0.3);
-  border-radius: var(--border-radius);
-  padding: var(--spacing-lg);
-  margin: var(--spacing-lg) 0;
-}
-
 /* 价值计算器 */
 .value-calculator {
   background: linear-gradient(135deg, rgba(15, 76, 129, 0.4), rgba(245, 197, 66, 0.2));
