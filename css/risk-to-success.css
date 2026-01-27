@@ -709,6 +709,11 @@ main.container {
 /* ========================== 响应式设计 ========================== */
 
 /* 平板设备（769px-1024px） */
+
+  }
+
+/* 移动设备（768px及以下）- 已合并所有移动端样式 */
+/* 平板设备（769px-1024px） */
 @media (min-width: 769px) and (max-width: 1024px) {
   .hero-title {
     font-size: 2.2rem;
@@ -729,7 +734,7 @@ main.container {
   }
 }
 
-/* 移动设备（768px及以下）- 已合并所有移动端样式 */
+/* 移动设备（768px及以下） */
 @media (max-width: 768px) {
   /* 顶部英雄区域移动端进一步压缩 */
   .page-hero {
@@ -750,21 +755,28 @@ main.container {
     line-height: 1.2 !important;
   }
   
-  /* 英雄统计信息（如果存在） */
+  /* 英雄统计信息移动端适配 */
   .hero-stats {
-    gap: 1rem !important;
-    margin-top: 0.2rem !important;
+    gap: var(--spacing-lg);
+    margin-top: 0.2rem;
+    padding: 0.1rem 0;
   }
   
-  .stat-number {
-    font-size: 1.1rem !important;
-    margin-bottom: 0.05rem !important;
+  .hero-stat {
+    min-width: 90px;
+    padding: 0.2rem 0.4rem;
   }
   
-  .stat-label {
-    font-size: 0.65rem !important;
-    line-height: 1 !important;
-    max-width: 80px;
+  .hero-stat .stat-number,
+  .hero-stat strong {
+    font-size: 1.5rem;
+    margin-bottom: 0.05rem;
+  }
+  
+  .hero-stat .stat-label {
+    font-size: 0.7rem;
+    max-width: 95px;
+    line-height: 1.1;
   }
   
   /* 强制所有网格单列布局 */
