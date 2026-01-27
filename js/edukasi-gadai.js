@@ -1,16 +1,11 @@
-/**
- * Edukasi Gadai - Accordion (方案 A：class 驱动)
- */
+/* Edukasi Gadai - Accordion */
 
-document.addEventListener('DOMContentLoaded', initAccordion);
-
-function initAccordion() {
+document.addEventListener('DOMContentLoaded', () => {
   const headers = document.querySelectorAll('.accordion-header');
 
   if (!headers.length) return;
 
   headers.forEach((header, index) => {
-    // 序号（你原本的功能，保留）
     if (!header.querySelector('.accordion-number')) {
       const num = document.createElement('span');
       num.className = 'accordion-number';
@@ -19,49 +14,27 @@ function initAccordion() {
     }
 
     header.addEventListener('click', () => {
-      const item = header.closest('.accordion-item');
+      const item = header.parentElement; // ⚠️ 你的真实结构就是直接父级
 
-      // 单开模式：先关所有
-      closeAllAccordions();
+      const isOpen = item.classList.contains('active');
 
-      // 再打开当前（如果原本没开）
-      if (!item.classList.contains('active')) {
+      // 先关闭所有
+      document.querySelectorAll('.accordion-item.active')
+        .forEach(el => el.classList.remove('active'));
+
+      // 如果刚才是关闭状态 → 打开它
+      if (!isOpen) {
         item.classList.add('active');
-        updateUrlHash(header);
-        sendAnalyticsEvent('accordion_open', header.textContent.trim());
+        updateUrlHash(item);
+        sendAnalyticsEvent('accordion_open', header.innerText.trim());
       }
     });
   });
+});
 
-  // 默认打开第一个
-  const firstItem = headers[0].closest('.accordion-item');
-  if (firstItem) firstItem.classList.add('active');
-
-  initHashSupport();
-}
-
-function closeAllAccordions() {
-  document.querySelectorAll('.accordion-item.active')
-    .forEach(item => item.classList.remove('active'));
-}
-
-/* ===== 以下功能逻辑保留（与你原本一致） ===== */
-
-function initHashSupport() {
-  if (!window.location.hash) return;
-
-  const id = window.location.hash.substring(1);
-  const section = document.getElementById(id);
-  if (!section) return;
-
-  const header = section.querySelector('.accordion-header');
-  if (header) header.click();
-}
-
-function updateUrlHash(header) {
-  const section = header.closest('.accordion-item');
-  if (section?.id) {
-    history.replaceState(null, '', `#${section.id}`);
+function updateUrlHash(item) {
+  if (item.id) {
+    history.replaceState(null, '', `#${item.id}`);
   }
 }
 
