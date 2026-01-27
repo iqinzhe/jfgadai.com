@@ -1,5 +1,3 @@
-[file name]: contact.html
-[file content begin]
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -29,53 +27,8 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/android-chrome-512x512.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#ffffff">
-
-  <!-- SEO Meta Tags -->
   <title>Hubungi JF Gadai via WhatsApp | Konsultasi Gratis & Cepat</title>
   <meta name="description" content="Hubungi JF Gadai via WhatsApp untuk konsultasi gadai gratis. Proses cepat, transparan, dan aman. Layanan wilayah Bangil, Beji, Gempol.">
-  <meta name="author" content="JF Gadai">
-  <meta name="robots" content="index, follow">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Hubungi JF Gadai | Konsultasi Gadai Gratis via WhatsApp">
-  <meta property="og:description" content="Konsultasi gadai motor, emas, dan elektronik dengan tim ahli JF Gadai. Respon cepat via WhatsApp.">
-  <meta property="og:image" content="https://www.jfgadai.com/images/og-contact.jpg">
-  <meta property="og:url" content="https://www.jfgadai.com/contact.html">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="id_ID">
-  <meta property="og:site_name" content="JF Gadai">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.jfgadai.com/contact.html">
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": "Hubungi JF Gadai",
-    "description": "Halaman kontak resmi JF Gadai untuk konsultasi gadai",
-    "url": "https://www.jfgadai.com/contact.html",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "JF Gadai",
-      "telephone": "+6289515692586",
-      "contactType": "customer service",
-      "areaServed": ["Bangil", "Beji", "Gempol"],
-      "availableLanguage": ["Bahasa Indonesia"]
-    }
-  }
-  </script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
@@ -96,86 +49,120 @@
       text-decoration: underline;
     }
     
-    .contact-options {
+    /* 顶部双栏布局 */
+    .top-section {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--spacing-lg);
-      margin: var(--spacing-xl) 0;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
     }
     
-    .contact-card {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-xl);
-      text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
-    }
-    
-    .contact-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--secondary-color);
-      background: rgba(255, 255, 255, 0.12);
-    }
-    
-    .contact-icon {
-      font-size: 3rem;
-      margin-bottom: var(--spacing-md);
-    }
-    
-    .contact-subtitle {
+    /* 统一标题样式 */
+    .main-title {
       color: var(--secondary-color);
-      font-size: 1.2rem;
-      margin: var(--spacing-sm) 0;
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin: 0 0 1rem 0;
+      display: flex;
+      align-items: center;
+    }
+    
+    .main-title-icon {
+      margin-right: 12px;
+      font-size: 1.8rem;
+    }
+    
+    /* 卡片样式 */
+    .intro-card, .form-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.8rem;
+      border: 1px solid rgba(245, 197, 66, 0.2);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* 介绍卡片内容 */
+    .intro-desc {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    
+    .feature-icon {
+      color: var(--secondary-color);
+      margin-right: 10px;
+      font-size: 1.1rem;
+      min-width: 24px;
+      text-align: center;
     }
     
     .response-time {
       background: rgba(245, 197, 66, 0.1);
       border: 1px solid var(--secondary-color);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-md);
-      margin: var(--spacing-lg) 0;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1.5rem 0;
       text-align: center;
     }
     
-    /* WhatsApp 表单样式 */
-    .whatsapp-form-section {
-      margin: var(--spacing-xl) 0;
-      padding: var(--spacing-xl);
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: var(--border-radius);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    /* 统一的按钮样式 */
+    .unified-btn {
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--secondary-color);
+      color: var(--dark-color);
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      text-align: center;
+      display: block;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 1.5rem;
     }
     
-    .whatsapp-form-section h2 {
-      color: var(--secondary-color);
-      text-align: center;
-      margin-bottom: var(--spacing-lg);
-      font-size: 1.8rem;
+    .unified-btn:hover {
+      background: #f0b630;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
     }
     
-    .form-instruction {
-      text-align: center;
+    /* 表单样式 */
+    .form-desc {
       color: var(--text-muted);
-      margin-bottom: var(--spacing-lg);
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    
-    .whatsapp-form {
-      max-width: 600px;
-      margin: 0 auto;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
     }
     
     .form-group {
-      margin-bottom: var(--spacing-lg);
+      margin-bottom: 1rem;
     }
     
     .form-label {
       display: block;
-      margin-bottom: var(--spacing-xs);
-      color: var(--light-color);
-      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--text-light);
+      font-size: 0.95rem;
     }
     
     .form-label.required::after {
@@ -185,12 +172,12 @@
     
     .form-control {
       width: 100%;
-      padding: var(--spacing-md);
+      padding: 0.8rem;
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: var(--border-radius);
+      border-radius: 8px;
       color: var(--light-color);
-      font-size: 1rem;
+      font-size: 0.95rem;
       transition: all 0.3s ease;
     }
     
@@ -210,77 +197,40 @@
     }
     
     .form-textarea {
-      min-height: 120px;
+      min-height: 90px;
       resize: vertical;
-    }
-    
-    .form-submit-btn {
-      display: block;
-      width: 100%;
-      padding: var(--spacing-md);
-      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-      color: white;
-      border: none;
-      border-radius: var(--border-radius);
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-top: var(--spacing-xl);
-    }
-    
-    .form-submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
-      background: linear-gradient(135deg, #2ee877 0%, #1a9c8c 100%);
-    }
-    
-    .form-submit-btn:active {
-      transform: translateY(0);
-    }
-    
-    .form-submit-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-    
-    .form-note {
-      margin-top: var(--spacing-sm);
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      text-align: center;
     }
     
     .form-success {
       background: rgba(46, 204, 113, 0.1);
       border: 1px solid #2ecc71;
-      border-radius: var(--border-radius);
-      padding: var(--spacing-lg);
+      border-radius: 8px;
+      padding: 1.5rem;
       text-align: center;
-      margin: var(--spacing-lg) 0;
+      margin: 1.5rem 0;
     }
     
     .form-error {
       background: rgba(255, 71, 87, 0.1);
       border: 1px solid #ff4757;
-      border-radius: var(--border-radius);
-      padding: var(--spacing-md);
-      margin-top: var(--spacing-sm);
+      border-radius: 8px;
+      padding: 0.8rem;
+      margin-top: 0.5rem;
       color: #ff6b81;
       font-size: 0.9rem;
+      display: none;
     }
     
     /* FAQ 手风琴样式调整 */
     .faq-section {
-      margin-top: var(--spacing-xl);
+      margin-top: 2rem;
     }
     
     .faq-section h2 {
       text-align: center;
       color: var(--secondary-color);
-      margin-bottom: var(--spacing-lg);
-      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.6rem;
     }
     
     .accordion {
@@ -311,22 +261,45 @@
       line-height: 1.7;
     }
     
-    /* 响应式设计 */
+    /* 移动端优化 */
     @media (max-width: 768px) {
-      .contact-options {
+      .top-section {
         grid-template-columns: 1fr;
+        gap: 1rem;
       }
       
-      .whatsapp-form-section {
-        padding: var(--spacing-lg);
+      .breadcrumb {
+        display: none;
       }
       
-      .whatsapp-form-section h2 {
-        font-size: 1.5rem;
+      .intro-card, .form-card {
+        padding: 1.5rem;
+      }
+      
+      .main-title {
+        font-size: 1.4rem;
+      }
+      
+      .main-title-icon {
+        font-size: 1.6rem;
+        margin-right: 10px;
+      }
+      
+      .intro-desc {
+        font-size: 0.95rem;
+      }
+      
+      .feature-item {
+        font-size: 0.9rem;
       }
       
       .form-control {
-        padding: var(--spacing-sm);
+        padding: 0.7rem;
+        font-size: 0.9rem;
+      }
+      
+      .faq-section h2 {
+        font-size: 1.4rem;
       }
     }
   </style>
@@ -338,104 +311,128 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- 导航/面包屑 -->
-<div class="container">
+<main class="container">
+  <!-- 面包屑（桌面端显示，移动端隐藏） -->
   <div class="breadcrumb">
     <a href="index.html">Beranda</a> &gt; <span>Hubungi Kami</span>
   </div>
-</div>
 
-<main class="container">
-  <!-- 主要联系卡片 -->
-  <div class="unified-card fade-in delay-1">
-    <div class="card-icon">💬</div>
-    <h1 class="card-title">Hubungi JF Gadai</h1>
-    <p class="card-desc">
-      Konsultasi gadai <strong>gratis</strong> via WhatsApp. Tim kami siap membantu Anda dengan proses yang cepat, aman, dan transparan.
-    </p>
-    
-    <!-- 响应时间提示 -->
-    <div class="response-time">
-      <p style="margin: 0; color: var(--secondary-color);">
-        <strong>⏱️ Respon Cepat:</strong> Biasanya dalam 5-15 menit (Jam kerja: 08:00-18:00)
+  <!-- 顶部双栏布局 -->
+  <div class="top-section">
+    <!-- 左侧：介绍 -->
+    <div class="intro-card">
+      <h2 class="main-title">
+        <span class="main-title-icon">💬</span>
+        Hubungi JF Gadai
+      </h2>
+      
+      <p class="intro-desc">
+        Konsultasi gadai <strong>gratis</strong> via WhatsApp. Tim kami siap membantu Anda dengan proses yang cepat, aman, dan transparan.
       </p>
+      
+      <!-- 特色列表 -->
+      <ul class="feature-list">
+        <li class="feature-item">
+          <span class="feature-icon">⚡</span>
+          <span>Respon cepat 5-15 menit (jam kerja)</span>
+        </li>
+        <li class="feature-item">
+          <span class="feature-icon">💰</span>
+          <span>Konsultasi sepenuhnya GRATIS</span>
+        </li>
+        <li class="feature-item">
+          <span class="feature-icon">🔒</span>
+          <span>Privasi dan keamanan data terjamin</span>
+        </li>
+        <li class="feature-item">
+          <span class="feature-icon">👨‍💼</span>
+          <span>Dilayani oleh tim ahli berpengalaman</span>
+        </li>
+      </ul>
+      
+      <!-- 响应时间提示 -->
+      <div class="response-time">
+        <p style="margin: 0; color: var(--secondary-color);">
+          <strong>⏱️ Respon Cepat:</strong> Biasanya dalam 5-15 menit (Jam kerja: 08:00-18:00)
+        </p>
+      </div>
+      
+      <!-- 直接WhatsApp按钮 -->
+      <a href="https://wa.me/6289515692586" 
+         class="unified-btn" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         onclick="gtag('event', 'whatsapp_click', {'event_category': 'Contact', 'event_label': 'Contact Page'})">
+        💬 Chat WhatsApp Sekarang
+      </a>
     </div>
     
-    <!-- 主要WhatsApp按钮 -->
-    <a href="https://wa.me/6289515692586" 
-       class="card-cta-btn" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       onclick="gtag('event', 'whatsapp_click', {'event_category': 'Contact', 'event_label': 'Contact Page'})">
-      💬 Chat WhatsApp Sekarang
-    </a>
-    
-    <p style="margin-top: var(--spacing-md); color: var(--text-muted); font-size: 0.9rem;">
-      Klik tombol di atas untuk langsung terhubung ke WhatsApp kami
-    </p>
-  </div>
-  
-  <!-- WhatsApp 表单部分 -->
-  <div class="whatsapp-form-section fade-in delay-2">
-    <h2>📋 Formulir Konsultasi via WhatsApp</h2>
-    <p class="form-instruction">
-      Isi formulir di bawah ini untuk konsultasi gadai. Data Anda akan dikirim ke WhatsApp kami, sehingga kami dapat memberikan respon yang lebih personal dan cepat.
-    </p>
-    
-    <form id="whatsappForm" class="whatsapp-form">
-      <div class="form-group">
-        <label for="name" class="form-label required">Nama Lengkap</label>
-        <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama lengkap Anda" required>
-        <div class="form-error" id="nameError"></div>
-      </div>
+    <!-- 右侧：表单 -->
+    <div class="form-card">
+      <h2 class="main-title">
+        <span class="main-title-icon">📋</span>
+        Formulir Konsultasi
+      </h2>
       
-      <div class="form-group">
-        <label for="ktp" class="form-label required">Nomor KTP</label>
-        <input type="text" id="ktp" name="ktp" class="form-control" placeholder="Masukkan 16 digit nomor KTP" required maxlength="16">
-        <div class="form-error" id="ktpError"></div>
-      </div>
-      
-      <div class="form-group">
-        <label for="phone" class="form-label required">Nomor WhatsApp</label>
-        <input type="tel" id="phone" name="phone" class="form-control" placeholder="Contoh: 081234567890" required>
-        <div class="form-error" id="phoneError"></div>
-      </div>
-      
-      <div class="form-group">
-        <label for="item" class="form-label required">Jenis Barang yang akan Digadaikan</label>
-        <select id="item" name="item" class="form-control" required>
-          <option value="" selected disabled>-- Pilih Jenis Barang --</option>
-          <option value="motor">🏍️ Motor / Kendaraan</option>
-          <option value="emas">💰 Emas / Perhiasan</option>
-          <option value="hp">📱 HP / Smartphone</option>
-          <option value="laptop">💻 Laptop / Komputer</option>
-          <option value="elektronik">📺 Barang Elektronik Lainnya</option>
-          <option value="lainnya">📦 Barang Berharga Lainnya</option>
-        </select>
-        <div class="form-error" id="itemError"></div>
-      </div>
-      
-      <div class="form-group">
-        <label for="description" class="form-label required">Deskripsi Barang</label>
-        <textarea id="description" name="description" class="form-control form-textarea" placeholder="Deskripsikan barang Anda (merk, tahun, kondisi, dll)..." required></textarea>
-        <div class="form-error" id="descriptionError"></div>
-      </div>
-      
-      <button type="submit" class="form-submit-btn" id="submitBtn">
-        <span>📤 Kirim ke WhatsApp</span>
-        <span id="loadingText" style="display:none;">⏳ Mengirim...</span>
-      </button>
-      
-      <div id="formSuccess" class="form-success" style="display:none;">
-        <h3 style="color: #2ecc71;">✓ Formulir Berhasil Dikirim!</h3>
-        <p>Data Anda telah dikirim ke WhatsApp kami. Kami akan segera menghubungi Anda dalam 5-15 menit.</p>
-        <p><a href="https://wa.me/6289515692586" style="color: #25D366; text-decoration: underline;">Klik di sini untuk langsung ke WhatsApp</a></p>
-      </div>
-      
-      <p class="form-note">
-        * Data Anda aman dan hanya digunakan untuk keperluan konsultasi gadai.
+      <p class="form-desc">
+        Isi formulir di bawah ini untuk konsultasi gadai. Data Anda akan dikirim ke WhatsApp kami untuk respon yang lebih personal.
       </p>
-    </form>
+      
+      <form id="whatsappForm" class="whatsapp-form">
+        <div class="form-group">
+          <label for="name" class="form-label required">Nama Lengkap</label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama lengkap Anda" required>
+          <div class="form-error" id="nameError"></div>
+        </div>
+        
+        <div class="form-group">
+          <label for="ktp" class="form-label required">Nomor KTP</label>
+          <input type="text" id="ktp" name="ktp" class="form-control" placeholder="Masukkan 16 digit nomor KTP" required maxlength="16">
+          <div class="form-error" id="ktpError"></div>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone" class="form-label required">Nomor WhatsApp</label>
+          <input type="tel" id="phone" name="phone" class="form-control" placeholder="Contoh: 081234567890" required>
+          <div class="form-error" id="phoneError"></div>
+        </div>
+        
+        <div class="form-group">
+          <label for="item" class="form-label required">Jenis Barang</label>
+          <select id="item" name="item" class="form-control" required>
+            <option value="" selected disabled>-- Pilih Jenis Barang --</option>
+            <option value="motor">🏍️ Motor / Kendaraan</option>
+            <option value="emas">💰 Emas / Perhiasan</option>
+            <option value="hp">📱 HP / Smartphone</option>
+            <option value="laptop">💻 Laptop / Komputer</option>
+            <option value="elektronik">📺 Barang Elektronik Lainnya</option>
+            <option value="lainnya">📦 Barang Berharga Lainnya</option>
+          </select>
+          <div class="form-error" id="itemError"></div>
+        </div>
+        
+        <div class="form-group">
+          <label for="description" class="form-label required">Deskripsi Barang</label>
+          <textarea id="description" name="description" class="form-control form-textarea" placeholder="Deskripsikan barang Anda (merk, tahun, kondisi, dll)..." required></textarea>
+          <div class="form-error" id="descriptionError"></div>
+        </div>
+        
+        <button type="submit" class="unified-btn" id="submitBtn">
+          <span>📤 Kirim ke WhatsApp</span>
+          <span id="loadingText" style="display:none;">⏳ Mengirim...</span>
+        </button>
+        
+        <div id="formSuccess" class="form-success" style="display:none;">
+          <h3 style="color: #2ecc71;">✓ Formulir Berhasil Dikirim!</h3>
+          <p>Data Anda telah dikirim ke WhatsApp kami. Kami akan segera menghubungi Anda dalam 5-15 menit.</p>
+          <p><a href="https://wa.me/6289515692586" style="color: #25D366; text-decoration: underline;">Klik di sini untuk langsung ke WhatsApp</a></p>
+        </div>
+        
+        <p class="form-note" style="text-align: center; margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+          * Data Anda aman dan hanya digunakan untuk keperluan konsultasi gadai.
+        </p>
+      </form>
+    </div>
   </div>
   
   <!-- 常见问题 - 手风琴样式 -->
@@ -830,4 +827,3 @@ Terima kasih.`;
 </script>
 </body>
 </html>
-[file content end]
