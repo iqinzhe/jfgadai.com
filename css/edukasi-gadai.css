@@ -42,10 +42,11 @@ body {
 
 /* 标题部分 */
 .edu-header-title {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 12px !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;   /* 关键：视觉居中 */
+  justify-content: center;
 }
 
 .edu-flag {
