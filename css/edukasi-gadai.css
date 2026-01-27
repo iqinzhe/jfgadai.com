@@ -238,7 +238,7 @@ footer {
   transform: rotate(180deg);
 }
 
-/* Accordion - 显示控制（方案 A） */
+/* Accordion */
 .accordion-content {
   display: none;
 }
