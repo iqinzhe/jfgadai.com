@@ -10,7 +10,7 @@
   margin: var(--spacing-md) auto var(--spacing-sm);
   padding: 0 var(--spacing-lg);
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: var(--text-muted); /* 保持这个颜色 */
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -19,13 +19,24 @@
   box-sizing: border-box;
 }
 
+/* 修改链接颜色 */
+.page-breadcrumb a {
+  color: var(--text-muted) !important; /* 使用相同颜色 */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.page-breadcrumb a:hover {
+  color: var(--secondary-color) !important; /* 悬停时变黄 */
+}
+
 .separator {
-  color: var(--secondary-color);
+  color: var(--text-muted) !important; /* 改为与文字相同颜色 */
   font-weight: bold;
 }
 
 .current {
-  color: var(--secondary-color);
+  color: var(--secondary-color) !important; /* 当前页保持黄色 */
   font-weight: 600;
 }
 
@@ -47,29 +58,17 @@ main.container {
   box-sizing: border-box;
 }
 
-/* ==================== 页面英雄区域 - 优化高度 ==================== */
+/* 进一步压缩页面英雄区域高度 */
 .page-hero {
   background: linear-gradient(135deg, 
     rgba(15, 76, 129, 0.9) 0%, 
     rgba(245, 197, 66, 0.15) 100%);
-  padding: var(--spacing-md) 0; /* 大幅减少高度 */
-  margin-bottom: var(--spacing-md);
+  padding: 0.8rem 0 !important; /* 使用固定值进一步压缩 */
+  margin-bottom: 0.8rem !important;
   border-bottom: 3px solid var(--secondary-color);
   position: relative;
   overflow: hidden;
-  max-height: 300px; /* 限制最大高度 */
-}
-
-.page-hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.03)"/></svg>');
-  background-size: 100% 100%;
-  pointer-events: none;
+  max-height: 250px !important; /* 进一步降低最大高度 */
 }
 
 .hero-content {
@@ -78,84 +77,27 @@ main.container {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-  padding: 5px 0;
+  padding: 0.3rem 0 !important; /* 进一步压缩内边距 */
 }
 
 .hero-title {
-  font-size: 1.6rem;
+  font-size: 1.5rem !important; /* 进一步减小 */
   color: var(--light-color);
-  margin-bottom: var(--spacing-xs);
-  line-height: 1.2;
+  margin-bottom: 0.4rem !important;
+  line-height: 1.1 !important; /* 减小行高 */
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.hero-title .highlight {
-  color: var(--secondary-color);
+  padding-top: 0 !important;
 }
 
 .hero-subtitle {
-  font-size: 0.95rem;
+  font-size: 0.9rem !important; /* 进一步减小 */
   color: var(--text-light);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: 0.5rem !important;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.4;
-}
-
-.hero-subtitle .highlight {
-  color: var(--secondary-color);
-  font-weight: 600;
-  background: rgba(245, 197, 66, 0.1);
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-}
-
-.hero-stats {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-lg);
-  flex-wrap: wrap;
-  margin-top: var(--spacing-xs);
-}
-
-.hero-stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: fadeInUp 0.6s ease forwards;
-  opacity: 0;
-}
-
-.hero-stat:nth-child(1) { animation-delay: 0.2s; }
-.hero-stat:nth-child(2) { animation-delay: 0.4s; }
-
-@keyframes fadeInUp {
-  from { 
-    opacity: 0; 
-    transform: translateY(20px); 
-  }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
-}
-
-.stat-number {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--secondary-color);
-  line-height: 1;
-  margin-bottom: 0.2rem;
-  text-shadow: 0 2px 8px rgba(245, 197, 66, 0.3);
-}
-
-.stat-label {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  text-align: center;
-  max-width: 100px;
-  line-height: 1.2;
+  line-height: 1.3 !important; /* 减小行高 */
+  padding-bottom: 0 !important;
 }
 
 /* ==================== 通用章节样式 ==================== */
@@ -713,46 +655,42 @@ main.container {
   }
 }
 
-/* 移动设备（768px及以下） */
 @media (max-width: 768px) {
-  /* 容器宽度响应式调整 */
-  .page-breadcrumb,
-  .page-hero .container,
-  main.container {
-    padding: 0 var(--spacing-md) !important;
-  }
-  
-  /* 顶部英雄区域移动端优化 */
+  /* 顶部英雄区域移动端进一步压缩 */
   .page-hero {
-    padding: var(--spacing-sm) 0 !important;
-    max-height: 220px !important;
-    margin-bottom: var(--spacing-sm) !important;
+    padding: 0.5rem 0 !important;
+    max-height: 180px !important; /* 移动端更矮 */
+    margin-bottom: 0.5rem !important;
   }
   
   .hero-title {
-    font-size: 1.3rem !important;
-    margin-bottom: 0.3rem !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 0.2rem !important;
+    line-height: 1.1 !important;
   }
   
   .hero-subtitle {
-    font-size: 0.85rem !important;
-    margin-bottom: 0.6rem !important;
-    line-height: 1.3;
+    font-size: 0.8rem !important;
+    margin-bottom: 0.3rem !important;
+    line-height: 1.2 !important;
   }
   
   .hero-stats {
-    gap: var(--spacing-sm);
-    margin-top: 0.3rem !important;
+    gap: 1rem !important;
+    margin-top: 0.2rem !important;
   }
   
   .stat-number {
-    font-size: 1.4rem !important;
+    font-size: 1.1rem !important; /* 移动端数字更小 */
+    margin-bottom: 0.05rem !important;
   }
   
   .stat-label {
-    font-size: 0.7rem !important;
+    font-size: 0.65rem !important; /* 移动端标签更小 */
+    line-height: 1 !important;
     max-width: 80px;
   }
+}
   
   /* 强制所有网格单列布局 */
   .cases-grid {
