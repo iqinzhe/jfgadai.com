@@ -57,45 +57,83 @@ main.container {
 }
 
 /* 进一步压缩页面英雄区域高度 */
-.page-hero {
-  background: linear-gradient(135deg, 
-    rgba(15, 76, 129, 0.9) 0%, 
-    rgba(245, 197, 66, 0.15) 100%);
-  padding: 0.8rem 0 !important; /* 使用固定值进一步压缩 */
-  margin-bottom: 0.8rem !important;
-  border-bottom: 3px solid var(--secondary-color);
-  position: relative;
-  overflow: hidden;
-  max-height: 250px !important; /* 进一步降低最大高度 */
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-xl);
+  margin-top: 0.3rem;
+  padding: 0.2rem 0;
+  flex-wrap: wrap;
 }
 
-.hero-content {
+.hero-stat {
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-  padding: 0.3rem 0 !important; /* 进一步压缩内边距 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+  padding: 0.3rem 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid rgba(245, 197, 66, 0.1);
+  transition: all 0.3s ease;
 }
 
-.hero-title {
-  font-size: 1.5rem !important; /* 进一步减小 */
-  color: var(--light-color);
-  margin-bottom: 0.4rem !important;
-  line-height: 1.1 !important; /* 减小行高 */
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  padding-top: 0 !important;
+.hero-stat:hover {
+  transform: translateY(-2px);
+  border-color: rgba(245, 197, 66, 0.3);
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.hero-subtitle {
-  font-size: 0.9rem !important; /* 进一步减小 */
+/* 数字部分 - 使用strong标签，与50+ kasus nyata颜色一致 */
+.hero-stat .stat-number,
+.hero-stat strong {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 0.1rem;
+  line-height: 1;
+  text-shadow: 0 2px 5px rgba(245, 197, 66, 0.3);
+  display: block;
+}
+
+/* 标签部分 */
+.hero-stat .stat-label {
+  font-size: 0.75rem;
   color: var(--text-light);
-  margin-bottom: 0.5rem !important;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.3 !important; /* 减小行高 */
-  padding-bottom: 0 !important;
+  line-height: 1.1;
+  max-width: 110px;
+  margin-top: 0.1rem;
+  opacity: 0.9;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* 仅保留一个移动端适配 - 适用于所有现代手机 */
+@media (max-width: 768px) {
+  .hero-stats {
+    gap: var(--spacing-lg);
+    margin-top: 0.2rem;
+    padding: 0.1rem 0;
+  }
+  
+  .hero-stat {
+    min-width: 90px;
+    padding: 0.2rem 0.4rem;
+  }
+  
+  .hero-stat .stat-number,
+  .hero-stat strong {
+    font-size: 1.5rem;
+    margin-bottom: 0.05rem;
+  }
+  
+  .hero-stat .stat-label {
+    font-size: 0.7rem;
+    max-width: 95px;
+    line-height: 1.1;
+  }
 }
 
 /* ==================== 通用章节样式 ==================== */
