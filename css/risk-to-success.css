@@ -226,8 +226,13 @@ main.container {
   flex-shrink: 0;
 }
 
+.message-content {
+  flex: 1;  /* 添加这行，让内容区域自动填充剩余空间 */
+}
+
 .message-content h3 {
   color: var(--light-color);
+  margin-top: 0;     /* 确保顶部没有额外边距 */
   margin-bottom: var(--spacing-sm);
   font-size: 1.3rem;
 }
@@ -235,6 +240,7 @@ main.container {
 .message-content p {
   color: var(--text-light);
   line-height: 1.6;
+  margin-bottom: 0;   /* 确保底部没有额外边距 */
 }
 
 /* ==================== 案例卡片下拉样式 ==================== */
