@@ -1,8 +1,12 @@
 /* ==================== risk-to-success.css ==================== */
 /* 专门用于 risk-to-success.html 的样式 */
 
-/* 面包屑导航 */
+/* ==================== 容器宽度统一对齐 ==================== */
+/* 确保所有容器都与主容器（1200px）同宽 */
+
+/* 面包屑导航 - 与主容器同宽 */
 .page-breadcrumb {
+  max-width: 1200px;           /* 与主容器同宽 */
   margin: var(--spacing-md) auto var(--spacing-sm);
   padding: 0 var(--spacing-lg);
   font-size: 0.9rem;
@@ -11,16 +15,8 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 0.5rem;
-}
-
-.page-breadcrumb a {
-  color: var(--text-light);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.page-breadcrumb a:hover {
-  color: var(--secondary-color);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .separator {
@@ -33,7 +29,25 @@
   font-weight: 600;
 }
 
-/* 页面英雄区域 */
+/* 页面英雄区域 - 确保容器同宽 */
+.page-hero .container {
+  max-width: 1200px;           /* 与主容器同宽 */
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 主内容容器 - 确保宽度一致 */
+main.container {
+  max-width: 1200px;           /* 主容器宽度 */
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ==================== 页面英雄区域 ==================== */
 .page-hero {
   background: linear-gradient(135deg, 
     rgba(15, 76, 129, 0.9) 0%, 
@@ -142,7 +156,7 @@
   line-height: 1.4;
 }
 
-/* 通用章节样式 */
+/* ==================== 通用章节样式 ==================== */
 .section-header {
   text-align: center;
   margin-bottom: var(--spacing-xl);
@@ -182,7 +196,7 @@
   line-height: 1.6;
 }
 
-/* 介绍部分 */
+/* ==================== 介绍部分 ==================== */
 .intro-section {
   margin-bottom: var(--spacing-xxl);
 }
@@ -465,7 +479,7 @@
   line-height: 1.6;
 }
 
-/* 成功因素部分 */
+/* ==================== 成功因素部分 ==================== */
 .success-factors {
   margin-bottom: var(--spacing-xxl);
 }
@@ -546,7 +560,7 @@
   border-top: 1px solid rgba(245, 197, 66, 0.2);
 }
 
-/* 行动号召部分 */
+/* ==================== 行动号召部分 ==================== */
 .cta-section {
   margin-bottom: var(--spacing-xxl);
 }
@@ -704,6 +718,13 @@
 
 /* 移动设备（768px及以下） - 单列布局 */
 @media (max-width: 768px) {
+  /* 容器宽度响应式调整 */
+  .page-breadcrumb,
+  .page-hero .container,
+  main.container {
+    padding: 0 var(--spacing-md) !important;
+  }
+  
   /* 强制所有网格单列布局 */
   .cases-grid {
     grid-template-columns: 1fr;
@@ -856,6 +877,13 @@
 
 /* 小屏幕手机（480px及以下） */
 @media (max-width: 480px) {
+  /* 容器宽度响应式调整 */
+  .page-breadcrumb,
+  .page-hero .container,
+  main.container {
+    padding: 0 var(--spacing-sm) !important;
+  }
+  
   .hero-title {
     font-size: 1.5rem;
   }
