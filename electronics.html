@@ -16,21 +16,53 @@
   <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
   <style>
+    /* 面包屑修复 */
+    .breadcrumb {
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    .breadcrumb .separator {
+      margin: 0 8px;
+      color: var(--text-muted);
+    }
+    
     /* 移动端优化 */
     @media (max-width: 768px) {
-      .desktop-only { display: none !important; }
-      .mobile-collapsible { margin-bottom: 1rem; }
+      .breadcrumb {
+        display: none; /* 移动端隐藏面包屑 */
+      }
+      
+      .desktop-only { 
+        display: none !important; 
+      }
+      
+      .mobile-collapsible { 
+        margin-bottom: 1rem; 
+      }
+      
       .collapsible-header {
         background: rgba(245, 197, 66, 0.1);
         border: 1px solid rgba(245, 197, 66, 0.3);
         border-radius: 8px;
         padding: 1rem;
-        font-weight: bold;
+        font-weight: 600;
         display: flex;
         justify-content: space-between;
         align-items: center;
         cursor: pointer;
       }
+      
       .collapsible-content {
         display: none;
         padding: 1rem;
@@ -40,7 +72,10 @@
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-top: none;
       }
-      .collapsible-content.active { display: block; }
+      
+      .collapsible-content.active { 
+        display: block; 
+      }
     }
 
     /* 整体布局优化 */
@@ -49,14 +84,17 @@
       display: flex;
       flex-direction: column;
     }
+    
     main.container {
       flex: 1;
       padding: 1rem;
       max-width: 100%;
     }
+    
     .unified-card {
       margin-bottom: 1.5rem;
     }
+    
     .info-card {
       margin-bottom: 1.5rem;
       padding: 1.2rem;
@@ -64,6 +102,7 @@
       border-radius: 12px;
       border: 1px solid rgba(245, 197, 66, 0.2);
     }
+    
     .brand-tag {
       display: inline-block;
       background: rgba(245, 197, 66, 0.15);
@@ -72,17 +111,12 @@
       margin: 0.2rem;
       font-size: 0.85rem;
     }
+    
     .card-cta-btn {
       display: block;
       width: 100%;
       margin: 1.5rem 0;
       text-align: center;
-    }
-    footer {
-      padding: 1.5rem 1rem;
-      background: rgba(0, 0, 0, 0.3);
-      text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
   </style>
 </head>
@@ -92,9 +126,11 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <main class="container">
-  <!-- 面包屑（移动端隐藏） -->
-  <div class="breadcrumb desktop-only">
-    <a href="index.html">Beranda</a> &gt; <span>Gadai Elektronik</span>
+  <!-- 面包屑（桌面端显示，移动端隐藏） -->
+  <div class="breadcrumb">
+    <a href="index.html">Beranda</a>
+    <span class="separator">&gt;</span>
+    <span>Gadai Elektronik</span>
   </div>
 
   <!-- 主卡片 -->
@@ -168,7 +204,7 @@
 
   <!-- 底部CTA -->
   <div style="text-align: center; margin-top: 2rem;">
-    <a href="https://wa.me/6289515692586" 
+    <a href="https://wa.me/6289512586" 
        class="card-cta-btn" 
        target="_blank">
       📸 Kirim Foto & Dapatkan Penilaian
@@ -179,22 +215,31 @@
   </div>
 </main>
 
+<!-- 全站统一页脚 -->
 <footer>
-  <div class="footer-content">
-    <p class="copyright">© 2026 <span class="highlight">JF Gadai</span></p>
-    <a href="https://wa.me/6289515692586" 
-       target="_blank" 
-       class="contact-link">
-      💬 WhatsApp: +62 895-1569-2586
-    </a>
-    <p class="operating-hours">
-      ⏰ 08:00-18:00 (Senin-Sabtu)
-    </p>
-    <p style="margin-top: 1rem;">
-      <a href="index.html" style="color: var(--text-muted); text-decoration: none;">
-        ← Kembali ke Beranda
+  <div class="container">
+    <div class="footer-content">
+      <p class="copyright">© 2026 <span class="highlight">JF Gadai</span> - Gadai Elektronik</p>
+      <p class="company-info">Layanan gadai laptop, tablet di Bangil, Beji, Gempol</p>
+      <a href="https://wa.me/6289515692586" 
+         target="_blank" 
+         class="contact-link" 
+         rel="noopener noreferrer"
+         aria-label="Hubungi kami via WhatsApp">
+        💬 WhatsApp: +62 895-1569-2586
       </a>
-    </p>
+      <p class="operating-hours">
+        ⏰ Jam kerja: 08:00-18:00 (Senin-Sabtu) | Respon cepat via WhatsApp
+      </p>
+      <p style="margin-top: var(--spacing-md);">
+        <a href="contact.html" style="color: var(--text-muted); text-decoration: none; margin-right: var(--spacing-md);">
+          ← Kembali ke Kontak
+        </a>
+        <a href="index.html" style="color: var(--text-muted); text-decoration: none;">
+          ← Beranda
+        </a>
+      </p>
+    </div>
   </div>
 </footer>
 
