@@ -6,7 +6,7 @@
   <!-- End Google Tag Manager -->
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845187332"></script>
-  <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-17845187332');</script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-17845187332');</script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,38 +43,88 @@
         display: none; /* 移动端隐藏面包屑 */
       }
       
-      .desktop-only { 
-        display: none !important; 
-      }
-      
-      .mobile-collapsible { 
-        margin-bottom: 1rem; 
-      }
-      
-      .collapsible-header {
-        background: rgba(245, 197, 66, 0.1);
-        border: 1px solid rgba(245, 197, 66, 0.3);
-        border-radius: 8px;
-        padding: 1rem;
-        font-weight: 600;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-      }
-      
-      .collapsible-content {
-        display: none;
-        padding: 1rem;
+      .info-section {
+        margin: 1.5rem 0;
         background: rgba(255, 255, 255, 0.05);
-        border-radius: 0 0 8px 8px;
-        margin-top: -0.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-top: none;
+        border-radius: 12px;
+        padding: 1.2rem;
+        border: 1px solid rgba(245, 197, 66, 0.2);
       }
       
-      .collapsible-content.active { 
-        display: block; 
+      .section-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        color: var(--secondary-color);
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      
+      .section-icon {
+        margin-right: 10px;
+        font-size: 1.2rem;
+      }
+      
+      .section-content {
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      
+      .section-content ul, .section-content ol {
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+      
+      .section-content li {
+        margin-bottom: 0.5rem;
+      }
+      
+      .brand-tag {
+        display: inline-block;
+        background: rgba(245, 197, 66, 0.15);
+        border-radius: 20px;
+        padding: 0.4rem 0.8rem;
+        margin: 0.2rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    /* 桌面端样式 */
+    @media (min-width: 769px) {
+      .info-section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+      }
+      
+      .info-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid rgba(245, 197, 66, 0.2);
+      }
+      
+      .section-header {
+        color: var(--secondary-color);
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+      }
+      
+      .section-icon {
+        margin-right: 10px;
+        font-size: 1.2rem;
+      }
+      
+      .brand-tag {
+        display: inline-block;
+        background: rgba(245, 197, 66, 0.15);
+        border-radius: 20px;
+        padding: 0.5rem 1rem;
+        margin: 0.2rem;
+        font-size: 0.9rem;
       }
     }
 
@@ -95,21 +145,9 @@
       margin-bottom: 1.5rem;
     }
     
-    .info-card {
-      margin-bottom: 1.5rem;
-      padding: 1.2rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      border: 1px solid rgba(245, 197, 66, 0.2);
-    }
-    
-    .brand-tag {
-      display: inline-block;
-      background: rgba(245, 197, 66, 0.15);
-      border-radius: 20px;
-      padding: 0.4rem 0.8rem;
-      margin: 0.2rem;
-      font-size: 0.85rem;
+    .brands-container {
+      text-align: center;
+      margin: 1.5rem 0;
     }
     
     .card-cta-btn {
@@ -117,6 +155,11 @@
       width: 100%;
       margin: 1.5rem 0;
       text-align: center;
+    }
+    
+    .final-cta {
+      text-align: center;
+      margin: 2rem 0;
     }
   </style>
 </head>
@@ -142,7 +185,7 @@
     </p>
     
     <!-- 品牌标签 -->
-    <div style="text-align: center; margin: 1.2rem 0;">
+    <div class="brands-container">
       <span class="brand-tag">iPhone</span>
       <span class="brand-tag">Samsung</span>
       <span class="brand-tag">Laptop</span>
@@ -159,52 +202,61 @@
     </a>
   </div>
 
-  <!-- 可折叠内容（移动端） -->
-  <div class="mobile-collapsible">
-    <div class="collapsible-header" onclick="toggleCollapse('accepted')">
-      <span>✅ Barang Diterima</span>
-      <span>▼</span>
+  <!-- 信息展示区域 - 移动端垂直排列，桌面端网格排列 -->
+  <div class="info-section">
+    <!-- 接受的物品 -->
+    <div class="info-card mobile-section">
+      <div class="section-header">
+        <span class="section-icon">✅</span>
+        <span>Barang Diterima</span>
+      </div>
+      <div class="section-content">
+        <ul>
+          <li>Smartphone (semua merek)</li>
+          <li>Laptop & Notebook</li>
+          <li>Tablet & iPad</li>
+          <li>Kamera digital</li>
+          <li>Kondisi berfungsi baik</li>
+        </ul>
+      </div>
     </div>
-    <div id="accepted" class="collapsible-content">
-      <ul style="margin: 0; padding-left: 1.2rem;">
-        <li>Smartphone (semua merek)</li>
-        <li>Laptop & Notebook</li>
-        <li>Tablet & iPad</li>
-        <li>Kamera digital</li>
-        <li>Kondisi berfungsi baik</li>
-      </ul>
+    
+    <!-- 处理流程 -->
+    <div class="info-card mobile-section">
+      <div class="section-header">
+        <span class="section-icon">⚡</span>
+        <span>Proses 4 Langkah</span>
+      </div>
+      <div class="section-content">
+        <ol>
+          <li><strong>Konsultasi</strong> via WhatsApp</li>
+          <li><strong>Penilaian</strong> oleh ahli</li>
+          <li><strong>Verifikasi</strong> dokumen</li>
+          <li><strong>Pencairan</strong> dana tunai</li>
+        </ol>
+      </div>
     </div>
-  </div>
-
-  <div class="mobile-collapsible">
-    <div class="collapsible-header" onclick="toggleCollapse('process')">
-      <span>⚡ Proses 4 Langkah</span>
-      <span>▼</span>
+    
+    <!-- 要求 -->
+    <div class="info-card mobile-section">
+      <div class="section-header">
+        <span class="section-icon">📋</span>
+        <span>Persyaratan</span>
+      </div>
+      <div class="section-content">
+        <ul>
+          <li>Bawa <strong>KTP asli</strong></li>
+          <li>Barang berfungsi normal</li>
+          <li>Lengkapi charger & aksesoris</li>
+          <li>Hapus kunci/PIN sebelum bawa</li>
+        </ul>
+      </div>
     </div>
-    <div id="process" class="collapsible-content">
-      <ol style="margin: 0; padding-left: 1.2rem;">
-        <li><strong>Konsultasi</strong> via WhatsApp</li>
-        <li><strong>Penilaian</strong> oleh ahli</li>
-        <li><strong>Verifikasi</strong> dokumen</li>
-        <li><strong>Pencairan</strong> dana tunai</li>
-      </ol>
-    </div>
-  </div>
-
-  <!-- 重要提示 -->
-  <div class="info-card">
-    <h4 style="color: var(--secondary-color); margin-top: 0;">📋 Persyaratan:</h4>
-    <ul style="margin-bottom: 0;">
-      <li>Bawa <strong>KTP asli</strong></li>
-      <li>Barang berfungsi normal</li>
-      <li>Lengkapi charger & aksesoris</li>
-      <li>Hapus kunci/PIN sebelum bawa</li>
-    </ul>
   </div>
 
   <!-- 底部CTA -->
-  <div style="text-align: center; margin-top: 2rem;">
-    <a href="https://wa.me/6289512586" 
+  <div class="final-cta">
+    <a href="https://wa.me/6289515692586" 
        class="card-cta-btn" 
        target="_blank">
       📸 Kirim Foto & Dapatkan Penilaian
@@ -244,19 +296,5 @@
 </footer>
 
 <script src="js/main.js"></script>
-<script>
-  // 移动端折叠功能
-  function toggleCollapse(id) {
-    const content = document.getElementById(id);
-    content.classList.toggle('active');
-  }
-
-  // 页面加载后默认展开第一个折叠项（移动端）
-  if (window.innerWidth <= 768) {
-    window.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('accepted').classList.add('active');
-    });
-  }
-</script>
 </body>
 </html>
