@@ -543,7 +543,8 @@ footer {
   #motor-pawn { order: 2; }
   #electronics-pawn { order: 3; }
   #our-services { order: 4; }
-  #contact-navigation { order: 5; }
+  #contact-form { order: 5; }
+  #contact-navigation { order: 6; }
   
   /* 统一卡片响应式 - 卡片内部间距也调小一点 */
   .unified-card {
