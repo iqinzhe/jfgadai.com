@@ -734,295 +734,339 @@ main.container {
 }
 
 /* 移动设备（768px及以下） */
+/* ==================== 移动设备（768px及以下） ==================== */
 @media (max-width: 768px) {
-  /* 顶部英雄区域移动端进一步压缩 */
-  .page-hero {
-    padding: 0.5rem 0 !important;
-    max-height: 180px !important;
+  /* 1. 章节通用优化 */
+  .section-header {
+    margin-bottom: var(--spacing-md) !important;
+    padding: 0 var(--spacing-sm) !important;
+  }
+  
+  .section-header h2 {
+    font-size: 1.3rem !important;
     margin-bottom: 0.5rem !important;
   }
   
-  .hero-title {
-    font-size: 1.1rem !important;
-    margin-bottom: 0.2rem !important;
-    line-height: 1.1 !important;
-  }
-  
-  .hero-subtitle {
-    font-size: 0.8rem !important;
-    margin-bottom: 0.3rem !important;
-    line-height: 1.2 !important;
-  }
-  
-  /* 英雄统计信息移动端适配 */
-  .hero-stats {
-    gap: var(--spacing-lg);
-    margin-top: 0.2rem;
-    padding: 0.1rem 0;
-  }
-  
-  .hero-stat {
-    min-width: 90px;
-    padding: 0.2rem 0.4rem;
-  }
-  
-  .hero-stat .stat-number,
-  .hero-stat strong {
-    font-size: 1.5rem;
-    margin-bottom: 0.05rem;
-  }
-  
-  .hero-stat .stat-label {
-    font-size: 0.7rem;
-    max-width: 95px;
-    line-height: 1.1;
-  }
-  
-  /* 强制所有网格单列布局 */
-  .cases-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
-  }
-  
-  .factors-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
-  }
-  
-  .cta-options {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
-  }
-  
-  /* 成功案例部分也强制单列 */
-  .success-cases .cases-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  /* 章节标题 */
-  .section-header h2 {
-    font-size: 1.6rem;
-  }
-  
   .section-header h2::after {
-    left: 20%;
-    right: 20%;
+    left: 30%;
+    right: 30%;
+    bottom: -5px;
+    height: 2px;
   }
   
   .section-subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin-top: 0.5rem !important;
+    padding: 0 !important;
   }
   
-  /* 关键消息框 */
+  .section-icon {
+    font-size: 2rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  /* 2. 介绍部分优化 */
+  .intro-section {
+    margin-bottom: var(--spacing-lg) !important;
+  }
+  
   .key-message {
-    flex-direction: column;
-    text-align: center;
-    padding: var(--spacing-md);
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: var(--spacing-sm) !important;
+    margin-top: var(--spacing-sm) !important;
+    margin-bottom: var(--spacing-md) !important;
+    background: rgba(245, 197, 66, 0.05) !important;
+    border: 1px solid rgba(245, 197, 66, 0.15) !important;
   }
   
   .message-icon {
-    font-size: 2rem;
-    margin-bottom: var(--spacing-sm);
+    font-size: 1.8rem !important;
+    margin-bottom: 0.5rem !important;
   }
   
   .message-content h3 {
-    font-size: 1.1rem;
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+    color: var(--light-color) !important;
   }
   
-  /* 手机端案例样式 */
+  .message-content p {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0 !important;
+  }
+  
+  /* 3. 案例网格优化 */
+  .cases-section {
+    margin-bottom: var(--spacing-lg) !important;
+  }
+  
+  .cases-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    margin-top: var(--spacing-sm) !important;
+  }
+  
+  /* 4. 案例卡片优化 */
   .case-card {
-    margin-bottom: var(--spacing-sm);
-    min-height: auto;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 8px !important;
+    min-height: auto !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
   }
   
   .case-header-toggle {
-    flex-direction: row;
-    align-items: center;
-    gap: var(--spacing-sm);
-    min-height: auto;
-    padding: var(--spacing-md) var(--spacing-md);
-    background: rgba(255, 255, 255, 0.03);
+    padding: 0.8rem 1rem !important;
+    min-height: auto !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border-radius: 10px 10px 0 0 !important;
   }
   
   .case-header-toggle h3 {
-    font-size: 1.1rem;
-    line-height: 1.3;
-    font-weight: 600;
-    color: var(--light-color);
-    margin-right: 35px;
-  }
-  
-  .toggle-icon {
-    align-self: center;
-    margin-top: 0;
-    font-size: 1.2rem;
-    color: var(--secondary-color);
-    position: absolute;
-    right: var(--spacing-md);
+    font-size: 0.95rem !important;
+    line-height: 1.2 !important;
+    margin-right: 30px !important;
+    font-weight: 600 !important;
+    color: var(--light-color) !important;
   }
   
   .case-label {
-    font-size: 0.75rem;
-    margin-bottom: 0.4rem;
-  }
-  
-  .case-content {
-    padding: 0 var(--spacing-md);
-  }
-  
-  .case-card.expanded .case-content {
-    padding: var(--spacing-md);
-  }
-  
-  .case-scenario p, 
-  .case-process p, 
-  .case-lesson p,
-  .case-process li, 
-  .case-outcome p, 
-  .case-quote blockquote {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-  
-  .case-process h4, .case-outcome h4, .case-lesson h4 {
-    font-size: 1rem;
-  }
-  
-  /* 成功因素卡片 */
-  .factor-card {
-    padding: var(--spacing-lg);
-  }
-  
-  .factor-card h3 {
-    font-size: 1.2rem;
-  }
-  
-  .factor-icon {
-    font-size: 2.5rem;
-  }
-  
-  /* CTA部分 */
-  .cta-card {
-    padding: var(--spacing-xl) var(--spacing-lg);
-  }
-  
-  .cta-option {
-    padding: var(--spacing-lg);
-  }
-  
-  .cta-content h2 {
-    font-size: 1.8rem;
-  }
-  
-  .cta-subtitle {
-    font-size: 1rem;
-  }
-  
-  /* 按钮 */
-  .btn-primary, .btn-secondary {
-    width: 100%;
-    max-width: 280px;
-    padding: 0.8rem 1.5rem;
-    font-size: 0.95rem;
-  }
-  
-  /* 标签和结果样式 */
-  .case-label, .outcome-bad, .outcome-warning, .outcome-good {
-    font-size: 0.8rem;
-  }
-}
-
-/* 小屏幕手机（480px及以下） */
-@media (max-width: 480px) {
-  .page-breadcrumb,
-  .page-hero .container,
-  main.container {
-    padding: 0 var(--spacing-sm);
-  }
-  
-  .hero-title {
-    font-size: 1.5rem;
-  }
-  
-  .hero-stats {
-    flex-direction: column;
-    gap: var(--spacing-lg);
-  }
-  
-  .stat-number {
-    font-size: 2rem;
-  }
-  
-  .section-header h2 {
-    font-size: 1.4rem;
-  }
-  
-  .case-header-toggle h3 {
-    font-size: 1rem;
-    line-height: 1.2;
+    font-size: 0.7rem !important;
+    padding: 0.15rem 0.5rem !important;
+    margin-bottom: 0.3rem !important;
+    letter-spacing: 0.3px !important;
   }
   
   .toggle-icon {
-    font-size: 1.1rem;
+    font-size: 1rem !important;
+    color: var(--secondary-color) !important;
   }
   
-  .case-header-toggle {
-    padding: var(--spacing-sm) var(--spacing-md);
-  }
-  
+  /* 5. 案例内容优化 */
   .case-content {
-    padding: 0 var(--spacing-sm);
+    background: rgba(0, 0, 0, 0.05) !important;
   }
   
   .case-card.expanded .case-content {
-    padding: var(--spacing-sm);
+    padding: var(--spacing-sm) !important;
+    padding-top: var(--spacing-sm) !important;
   }
   
-  .case-scenario p, .case-process p, .case-lesson p,
-  .case-process li, .case-outcome p {
-    font-size: 0.95rem;
+  .case-scenario p,
+  .case-process p,
+  .case-lesson p,
+  .case-process li,
+  .case-outcome p,
+  .case-quote blockquote {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.5rem !important;
   }
   
-  .factor-card, .cta-option {
-    padding: var(--spacing-md);
+  .case-scenario strong,
+  .case-process strong,
+  .case-lesson strong {
+    font-size: 0.9rem !important;
+  }
+  
+  .case-process h4,
+  .case-outcome h4,
+  .case-lesson h4 {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.5rem !important;
+    margin-top: var(--spacing-sm) !important;
+    color: var(--secondary-color) !important;
+  }
+  
+  .case-process ul,
+  .case-process ol {
+    padding-left: var(--spacing-md) !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .case-process li {
+    margin-bottom: 0.3rem !important;
+    font-size: 0.9rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  .outcome-bad,
+  .outcome-warning,
+  .outcome-good {
+    font-size: 0.8rem !important;
+    padding: 0.15rem 0.5rem !important;
+    margin-left: 0.5rem !important;
+  }
+  
+  .case-quote blockquote {
+    padding: 0.8rem !important;
+    margin: 0.5rem 0 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  /* 6. 成功因素部分优化 */
+  .success-factors {
+    margin-bottom: var(--spacing-lg) !important;
+  }
+  
+  .factors-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    margin-top: var(--spacing-sm) !important;
+  }
+  
+  .factor-card {
+    padding: var(--spacing-sm) !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .factor-icon {
+    font-size: 2rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .factor-card h3 {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+    color: var(--light-color) !important;
+  }
+  
+  .factor-list {
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .factor-list li {
+    font-size: 0.9rem !important;
+    padding: 0.3rem 0 !important;
+    line-height: 1.3 !important;
+  }
+  
+  .factor-list li strong {
+    font-size: 0.9rem !important;
+  }
+  
+  .factor-list li::before {
+    font-size: 0.9rem !important;
+    margin-right: 0.3rem !important;
+  }
+  
+  .factor-tip {
+    font-size: 0.8rem !important;
+    padding-top: 0.5rem !important;
+    margin-top: 0.5rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* 7. CTA部分优化 */
+  .cta-section {
+    margin-bottom: var(--spacing-lg) !important;
   }
   
   .cta-card {
-    padding: var(--spacing-lg) var(--spacing-md);
-  }
-}
-
-/* 超小屏幕手机（360px及以下） */
-@media (max-width: 360px) {
-  .case-header-toggle h3 {
-    font-size: 0.95rem;
+    padding: var(--spacing-sm) !important;
+    margin-top: var(--spacing-md) !important;
+    border: 1px solid rgba(245, 197, 66, 0.3) !important;
   }
   
-  .case-scenario p, .case-process p, .case-lesson p,
-  .case-process li, .case-outcome p {
-    font-size: 0.9rem;
+  .cta-content h2 {
+    font-size: 1.3rem !important;
+    margin-bottom: 0.5rem !important;
   }
   
-  .btn-primary, .btn-secondary {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.9rem;
-    min-width: 180px;
+  .cta-subtitle {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: var(--spacing-sm) !important;
+    padding: 0 !important;
   }
   
-  .hero-title {
-    font-size: 1.3rem;
-  }
-}
-
-/* 成功案例部分特别处理（只有2个案例） - 电脑端 */
-@media (min-width: 769px) {
-  .success-cases .cases-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .cta-options {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    margin: var(--spacing-sm) 0 !important;
   }
   
-  .success-cases .case-card {
-    min-height: 150px;
+  .cta-option {
+    padding: var(--spacing-sm) !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .option-icon {
+    font-size: 1.8rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .cta-option h3 {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .cta-option p {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  /* 8. 按钮优化 */
+  .btn-primary,
+  .btn-secondary {
+    width: 100% !important;
+    max-width: 250px !important;
+    padding: 0.7rem 1.2rem !important;
+    font-size: 0.9rem !important;
+    margin: 0.3rem auto !important;
+    display: block !important;
+    min-width: auto !important;
+  }
+  
+  .btn-primary:active,
+  .btn-secondary:active {
+    transform: scale(0.98) !important;
+  }
+  
+  /* 9. CTA备注优化 */
+  .cta-note {
+    margin-top: var(--spacing-sm) !important;
+    padding: var(--spacing-sm) !important;
+    font-size: 0.8rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  /* 10. 移除不必要的动画延迟（移动端简化） */
+  .case-card,
+  .factor-card,
+  .cta-option {
+    animation-delay: 0s !important;
+    animation-duration: 0.3s !important;
+  }
+  
+  /* 11. 面包屑导航优化 */
+  .page-breadcrumb {
+    margin: var(--spacing-xs) auto !important;
+    padding: 0 var(--spacing-sm) !important;
+    font-size: 0.8rem !important;
+  }
+  
+  /* 12. 强制所有网格为单列（移动端） */
+  .cases-grid,
+  .factors-grid,
+  .cta-options {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* 13. 减少卡片内部间距 */
+  .card-desc,
+  .action-description,
+  .case-scenario p,
+  .case-process p,
+  .case-outcome p,
+  .case-lesson p {
+    margin-bottom: 0.5rem !important;
   }
 }
 
