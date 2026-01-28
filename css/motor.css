@@ -1,20 +1,13 @@
 /* motor.css - 专用于motor.html的样式 */
-
-/* 面包屑导航 */
-.breadcrumb {
-  margin: 1rem 0;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-.breadcrumb a {
-  color: var(--secondary-color);
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  text-decoration: underline;
-}
-
 /* 响应式好处网格 - 手机端4宫格，电脑端一行水平排列 */
+
+.card-subtitle {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
 .responsive-benefits-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
