@@ -147,7 +147,7 @@ main.container {
   
   /* 主内容上边距调整 */
   main.container {
-    padding-top: 20px !important;
+    padding-top: 10px !important;
   }
 }
 
@@ -175,7 +175,7 @@ main.container {
 
 /* 主内容区域上边距，避免被导航栏遮挡 */
 main.container {
-  padding-top: 15px !important;
+  padding-top: 10px !important;
   min-height: 100vh;
 }
 
