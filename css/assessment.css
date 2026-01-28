@@ -1,7 +1,7 @@
 /* ==================== 评估页面专用样式 ==================== */
 /* 注意：通用样式已在 main.css 中定义 */
 
-/* 头部 */
+/* 头部导航 */
 .assessment-header {
   background: rgba(11, 44, 74, 0.95);
   backdrop-filter: blur(10px);
