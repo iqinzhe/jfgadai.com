@@ -22,12 +22,12 @@
       display: flex;
       flex-direction: column;
       font-size: 16px;
-      line-height: 1.4; /* 减少行距 */
+      line-height: 1.4;
     }
     
     main.container {
       flex: 1;
-      padding: 0.5rem 0.8rem 1rem; /* 减少左右内边距 */
+      padding: 0.5rem 0.8rem 1rem;
       max-width: 1200px;
       margin: 0 auto;
       width: 100%;
@@ -37,110 +37,109 @@
     .top-section {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1rem; /* 减少间隙 */
-      margin: 0.3rem 0 1rem; /* 减少外边距 */
+      gap: 1rem;
+      margin: 0.3rem 0 1rem;
     }
     
-    /* 介绍卡片 - 减少内边距 */
+    /* 介绍卡片 - 减少底部内边距 */
     .intro-card {
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px; /* 稍微减小圆角 */
-      padding: 1.2rem 1.5rem; /* 显著减少内边距 */
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem 1rem; /* 底部减少为1rem */
       border: 1px solid rgba(245, 197, 66, 0.2);
       text-align: center;
     }
     
-    /* 统一标题大小 - 减少外边距 */
+    /* 统一标题大小 */
     .main-title {
       color: var(--secondary-color);
       font-weight: 700;
       font-size: 1.8rem;
-      margin: 0 0 0.8rem 0; /* 减少下边距 */
+      margin: 0 0 0.8rem 0;
       text-align: center;
     }
     
     .main-title-icon {
-      margin-right: 10px; /* 减少右边距 */
+      margin-right: 10px;
       font-size: 2rem;
     }
     
-    /* 描述文字 - 减少行距和外边距 */
+    /* 描述文字 */
     .intro-desc {
       font-size: 1.1rem;
-      line-height: 1.4; /* 减少行距 */
+      line-height: 1.4;
       color: var(--text-light);
-      margin-bottom: 1rem; /* 减少下边距 */
+      margin-bottom: 1rem;
       text-align: center;
     }
     
-    /* 特色列表样式 - 减少间距 */
+    /* 特色列表样式 */
     .feature-list {
       list-style: none;
       padding: 0;
-      margin: 1rem auto; /* 减少外边距 */
+      margin: 1rem auto;
       max-width: 500px;
     }
     
     .feature-item {
       display: flex;
       align-items: flex-start;
-      margin-bottom: 0.7rem; /* 减少下边距 */
+      margin-bottom: 0.7rem;
       font-size: 1rem;
-      line-height: 1.3; /* 减少行距 */
+      line-height: 1.3;
       text-align: left;
     }
     
     .feature-icon {
       color: var(--secondary-color);
-      margin-right: 10px; /* 减少右边距 */
+      margin-right: 10px;
       font-size: 1.2rem;
-      min-width: 22px; /* 减少最小宽度 */
+      min-width: 22px;
       text-align: center;
     }
     
-    /* 品牌标签容器 - 减少间距 */
+    /* 品牌标签容器 - 显著减少下边距 */
     .brands-container {
       text-align: center;
-      margin: 1rem 0; /* 减少外边距 */
+      margin: 0.8rem 0 0.3rem; /* 上0.8rem，下0.3rem */
     }
     
     .brand-tag {
       display: inline-block;
       background: rgba(245, 197, 66, 0.15);
-      border-radius: 18px; /* 减小圆角 */
-      padding: 0.5rem 1rem; /* 减少内边距 */
-      margin: 0.2rem; /* 减少外边距 */
-      font-size: 0.9rem; /* 稍微减小字体 */
+      border-radius: 18px;
+      padding: 0.5rem 1rem;
+      margin: 0.2rem;
+      font-size: 0.9rem;
       font-weight: 500;
     }
     
-    /* 信息卡片标题样式 - 减少间距 */
+    /* 信息卡片标题样式 */
     .info-section-title {
       color: var(--secondary-color);
       font-size: 1.5rem;
       text-align: center;
-      margin: 1.5rem 0 1rem; /* 显著减少外边距 */
+      margin: 1.5rem 0 1rem;
       font-weight: 700;
     }
     
     /* 移动端优化 */
     @media (max-width: 768px) {
       body {
-        font-size: 16px; /* 保持适当大小 */
-        line-height: 1.35; /* 移动端行距更小 */
+        font-size: 16px;
+        line-height: 1.35;
       }
       
       main.container {
-        padding: 0.4rem 0.6rem 0.8rem; /* 移动端内边距更小 */
+        padding: 0.4rem 0.6rem 0.8rem;
       }
       
       .info-section {
-        margin: 1rem 0; /* 减少外边距 */
+        margin: 1rem 0;
       }
       
       .intro-card {
-        padding: 1rem 1.2rem; /* 移动端内边距更小 */
-        border-radius: 8px;
+        padding: 1rem 1.2rem 0.8rem; /* 移动端底部更小 */
       }
       
       .main-title {
@@ -176,10 +175,15 @@
         min-width: 20px;
       }
       
+      /* 移动端品牌容器下边距更小 */
+      .brands-container {
+        margin: 0.6rem 0 0.2rem;
+      }
+      
       .info-card {
         background: rgba(255, 255, 255, 0.05);
         border-radius: 8px;
-        padding: 1rem 1.2rem; /* 减少内边距 */
+        padding: 1rem 1.2rem;
         border: 1px solid rgba(245, 197, 66, 0.2);
         margin-bottom: 0.8rem;
       }
@@ -188,7 +192,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 0.8rem; /* 减少下边距 */
+        margin-bottom: 0.8rem;
         color: var(--secondary-color);
         font-weight: 600;
         font-size: 1.1rem;
@@ -202,7 +206,7 @@
       
       .section-content {
         font-size: 0.95rem;
-        line-height: 1.3; /* 减少行距 */
+        line-height: 1.3;
         text-align: center;
       }
       
@@ -213,7 +217,7 @@
       }
       
       .section-content li {
-        margin-bottom: 0.5rem; /* 减少列表项间距 */
+        margin-bottom: 0.5rem;
         font-size: 0.95rem;
         line-height: 1.25;
       }
@@ -237,7 +241,7 @@
       }
       
       .intro-card {
-        padding: 1.5rem 2rem; /* 适当增加但保持紧凑 */
+        padding: 1.5rem 2rem 1.2rem; /* 桌面端底部也减小 */
       }
       
       .main-title {
@@ -265,17 +269,22 @@
         line-height: 1.3;
       }
       
+      /* 桌面端品牌容器下边距 */
+      .brands-container {
+        margin: 1rem 0 0.4rem;
+      }
+      
       .info-section {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 1.2rem; /* 减少卡片间隙 */
+        gap: 1.2rem;
         margin: 1.8rem 0;
       }
       
       .info-card {
         background: rgba(255, 255, 255, 0.05);
         border-radius: 10px;
-        padding: 1.2rem 1.5rem; /* 减少内边距 */
+        padding: 1.2rem 1.5rem;
         border: 1px solid rgba(245, 197, 66, 0.2);
         text-align: center;
         height: 100%;
@@ -284,7 +293,7 @@
       .section-header {
         color: var(--secondary-color);
         font-weight: 600;
-        margin-bottom: 0.8rem; /* 减少下边距 */
+        margin-bottom: 0.8rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -307,7 +316,7 @@
       }
       
       .section-content li {
-        margin-bottom: 0.6rem; /* 减少列表项间距 */
+        margin-bottom: 0.6rem;
         font-size: 0.98rem;
         line-height: 1.3;
       }
