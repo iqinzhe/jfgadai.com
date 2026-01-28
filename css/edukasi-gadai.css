@@ -175,7 +175,7 @@ main.container {
 
 /* 主内容区域上边距，避免被导航栏遮挡 */
 main.container {
-  padding-top: 80px !important;
+  padding-top: 10px !important;
   min-height: 100vh;
 }
 
@@ -183,7 +183,7 @@ main.container {
 /* 手风琴主容器 */
 .accordion {
   max-width: 900px;
-  margin: 10px auto 50px !important;
+  margin: 10px auto 30px !important;
   padding: 0 20px;
 }
 
