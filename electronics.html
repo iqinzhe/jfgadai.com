@@ -64,7 +64,7 @@
     /* 顶部双栏布局 */
     .top-section {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 1.5rem;
       margin: 1.5rem 0;
     }
@@ -113,16 +113,11 @@
         display: none; /* 移动端隐藏面包屑 */
       }
       
-      .top-section {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-      
       .info-section {
         margin: 1.5rem 0;
       }
       
-      .info-card, .intro-card, .form-card {
+      .info-card, .intro-card {
         background: rgba(255, 255, 255, 0.05);
         border-radius: 12px;
         padding: 1.5rem;
@@ -175,45 +170,13 @@
         margin: 0.2rem;
         font-size: 0.85rem;
       }
-      
-      /* 表单样式 */
-      .form-group {
-        margin-bottom: 1rem;
-      }
-      
-      .form-label {
-        display: block;
-        margin-bottom: 0.5rem;
-        color: var(--text-light);
-        font-size: 0.95rem;
-      }
-      
-      .form-input, .form-select, .form-textarea {
-        width: 100%;
-        padding: 0.8rem;
-        border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: rgba(255, 255, 255, 0.1);
-        color: var(--text-light);
-        font-size: 0.95rem;
-      }
-      
-      .form-textarea {
-        min-height: 80px;
-        resize: vertical;
-      }
-      
-      .form-input:focus, .form-select:focus, .form-textarea:focus {
-        outline: none;
-        border-color: var(--secondary-color);
-        box-shadow: 0 0 0 2px rgba(245, 197, 66, 0.2);
-      }
     }
 
     /* 桌面端样式 */
     @media (min-width: 769px) {
       .top-section {
-        min-height: 400px;
+        grid-template-columns: 1fr;
+        min-height: auto;
       }
       
       .intro-card {
@@ -221,17 +184,6 @@
         border-radius: 12px;
         padding: 1.8rem;
         border: 1px solid rgba(245, 197, 66, 0.2);
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-      }
-      
-      .form-card {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 12px;
-        padding: 1.8rem;
-        border: 1px solid rgba(245, 197, 66, 0.2);
-        height: 100%;
         display: flex;
         flex-direction: column;
       }
@@ -272,39 +224,6 @@
         margin: 0.2rem;
         font-size: 0.95rem;
       }
-      
-      /* 表单样式 */
-      .form-group {
-        margin-bottom: 1.2rem;
-      }
-      
-      .form-label {
-        display: block;
-        margin-bottom: 0.5rem;
-        color: var(--text-light);
-        font-size: 1rem;
-      }
-      
-      .form-input, .form-select, .form-textarea {
-        width: 100%;
-        padding: 0.9rem;
-        border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: rgba(255, 255, 255, 0.1);
-        color: var(--text-light);
-        font-size: 1rem;
-      }
-      
-      .form-textarea {
-        min-height: 90px;
-        resize: vertical;
-      }
-      
-      .form-input:focus, .form-select:focus, .form-textarea:focus {
-        outline: none;
-        border-color: var(--secondary-color);
-        box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.2);
-      }
     }
 
     /* 整体布局优化 */
@@ -340,13 +259,6 @@
       color: var(--text-light);
       margin-bottom: 1rem;
     }
-    
-    .form-desc {
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-      line-height: 1.4;
-    }
   </style>
 </head>
 
@@ -362,114 +274,119 @@
     </div>
   </header>
 
-  <!-- 顶部双栏布局 -->
-  <div class="top-section">
-    <!-- 左侧：介绍 -->
-    <div class="intro-card">
-      <h2 class="main-title">
-        <span class="main-title-icon">💻</span>
-        Gadai Elektronik
-      </h2>
-      
-      <p class="intro-desc">
-     Butuh dana cepat?
-Gadai laptop, smartphone, tablet, dan elektronik lainnya di JF Gadai.
-Penilaian transparan, dana cair<strong>≤ 60 menit</strong>.
-      </p>
-      
-      <!-- 特色列表 -->
-      <ul class="feature-list">
-        <li class="feature-item">
-          <span class="feature-icon">✓</span>
-          <span>Penilaian profesional oleh tim ahli</span>
-        </li>
-        <li class="feature-item">
-          <span class="feature-icon">⚡</span>
-          <span>Proses cepat 30-60 menit</span>
-        </li>
-        <li class="feature-item">
-          <span class="feature-icon">🔒</span>
-          <span>Keamanan barang terjamin</span>
-        </li>
-        <li class="feature-item">
-          <span class="feature-icon">💬</span>
-          <span>Konsultasi GRATIS via WhatsApp</span>
-        </li>
-      </ul>
-      
-      <!-- 品牌标签 -->
-      <div class="brands-container">
-        <span class="brand-tag">iPhone</span>
-        <span class="brand-tag">Samsung</span>
-        <span class="brand-tag">Laptop</span>
-        <span class="brand-tag">Tablet</span>
-        <span class="brand-tag">Kamera</span>
-      </div>
-      
-      <!-- 直接WhatsApp按钮 -->
-      <a href="https://wa.me/6289515692586" 
-         class="unified-btn" 
-         target="_blank" 
-         onclick="gtag('event', 'whatsapp_click', {'event_category': 'Electronics', 'event_label': 'Top Button'})">
-        💬 Konsultasi Gratis via WhatsApp
-      </a>
-    </div>
-    
-  <!-- 底部三栏信息区域 -->
-  <div class="info-section">
-    <!-- 接受的物品 -->
-    <div class="info-card">
-      <div class="section-header">
-        <span class="section-icon">✅</span>
-        <span>Barang Diterima</span>
-      </div>
-      <div class="section-content">
-        <ul>
-          <li>Smartphone (semua merek)</li>
-          <li>Laptop & Notebook</li>
-          <li>Tablet & iPad</li>
-          <li>Kamera digital</li>
-          <li>Perangkat audio premium</li>
+  <!-- 主要内容区域 -->
+  <main class="container">
+    <!-- 顶部单栏布局 -->
+    <div class="top-section">
+      <!-- 介绍卡片 -->
+      <div class="intro-card">
+        <h2 class="main-title">
+          <span class="main-title-icon">💻</span>
+          Gadai Elektronik
+        </h2>
+        
+        <p class="intro-desc">
+          Butuh dana cepat? Gadai laptop, smartphone, tablet, dan elektronik lainnya di JF Gadai. Penilaian transparan, dana cair <strong>≤ 60 menit</strong>.
+        </p>
+        
+        <!-- 特色列表 -->
+        <ul class="feature-list">
+          <li class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Penilaian profesional oleh tim ahli</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon">⚡</span>
+            <span>Proses cepat 30-60 menit</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon">🔒</span>
+            <span>Keamanan barang terjamin</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon">💬</span>
+            <span>Konsultasi GRATIS via WhatsApp</span>
+          </li>
         </ul>
+        
+        <!-- 品牌标签 -->
+        <div class="brands-container">
+          <span class="brand-tag">iPhone</span>
+          <span class="brand-tag">Samsung</span>
+          <span class="brand-tag">Laptop</span>
+          <span class="brand-tag">Tablet</span>
+          <span class="brand-tag">Kamera</span>
+        </div>
+        
+        <!-- 直接WhatsApp按钮 -->
+        <a href="https://wa.me/6289515692586" 
+           class="unified-btn" 
+           target="_blank" 
+           onclick="gtag('event', 'whatsapp_click', {'event_category': 'Electronics', 'event_label': 'Top Button'})">
+          💬 Konsultasi Gratis via WhatsApp
+        </a>
+        
+        <p class="whatsapp-note">
+          Klik tombol di atas untuk konsultasi langsung via WhatsApp. Tim kami siap membantu Anda!
+        </p>
       </div>
     </div>
     
-    <!-- 处理流程 -->
-    <div class="info-card">
-      <div class="section-header">
-        <span class="section-icon">⚡</span>
-        <span>Proses 4 Langkah</span>
+    <!-- 底部三栏信息区域 -->
+    <div class="info-section">
+      <!-- 接受的物品 -->
+      <div class="info-card">
+        <div class="section-header">
+          <span class="section-icon">✅</span>
+          <span>Barang Diterima</span>
+        </div>
+        <div class="section-content">
+          <ul>
+            <li>Smartphone (semua merek)</li>
+            <li>Laptop & Notebook</li>
+            <li>Tablet & iPad</li>
+            <li>Kamera digital</li>
+            <li>Perangkat audio premium</li>
+          </ul>
+        </div>
       </div>
-      <div class="section-content">
-        <ol>
-          <li><strong>Konsultasi</strong> via WhatsApp</li>
-          <li><strong>Penilaian</strong> oleh ahli</li>
-          <li><strong>Verifikasi</strong> dokumen</li>
-          <li><strong>Pencairan</strong> dana tunai</li>
-        </ol>
+      
+      <!-- 处理流程 -->
+      <div class="info-card">
+        <div class="section-header">
+          <span class="section-icon">⚡</span>
+          <span>Proses 4 Langkah</span>
+        </div>
+        <div class="section-content">
+          <ol>
+            <li><strong>Konsultasi</strong> via WhatsApp</li>
+            <li><strong>Penilaian</strong> oleh ahli</li>
+            <li><strong>Verifikasi</strong> dokumen</li>
+            <li><strong>Pencairan</strong> dana tunai</li>
+          </ol>
+        </div>
+      </div>
+      
+      <!-- 要求 -->
+      <div class="info-card">
+        <div class="section-header">
+          <span class="section-icon">📋</span>
+          <span>Persyaratan</span>
+        </div>
+        <div class="section-content">
+          <ul>
+            <li>Bawa <strong>KTP asli</strong></li>
+            <li>Barang berfungsi normal</li>
+            <li>Lengkapi charger & aksesoris</li>
+            <li>Hapus kunci/PIN sebelum bawa</li>
+            <li>Dokumen pembelian (jika ada)</li>
+          </ul>
+        </div>
       </div>
     </div>
-    
-    <!-- 要求 -->
-    <div class="info-card">
-      <div class="section-header">
-        <span class="section-icon">📋</span>
-        <span>Persyaratan</span>
-      </div>
-      <div class="section-content">
-        <ul>
-          <li>Bawa <strong>KTP asli</strong></li>
-          <li>Barang berfungsi normal</li>
-          <li>Lengkapi charger & aksesoris</li>
-          <li>Hapus kunci/PIN sebelum bawa</li>
-          <li>Dokumen pembelian (jika ada)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</main>
+  </main>
 
-<!-- 页脚 -->
+  <!-- 页脚 -->
   <footer id="lokasi">
     <div class="container">
       <div class="footer-content">
@@ -505,52 +422,6 @@ Penilaian transparan, dana cair<strong>≤ 60 menit</strong>.
     </div>
   </footer>
 
-<script src="js/main.js"></script>
-<script>
-  // 表单处理函数
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    
-    const form = event.target;
-    const formData = {
-      name: form.name.value,
-      phone: form.phone.value,
-      product: form.product.value,
-      brand: form.brand.value
-    };
-    
-    // 验证电话号码格式
-    const phoneRegex = /^(\+62|62|0)8[1-9][0-9]{6,9}$/;
-    if (!phoneRegex.test(formData.phone.replace(/\s+/g, ''))) {
-      alert('Mohon masukkan nomor WhatsApp yang valid (format Indonesia).');
-      return;
-    }
-    
-    // 构建WhatsApp消息
-    const whatsappMessage = `*KONSULTASI GADAI ELEKTRONIK*%0A%0A` +
-      `*Nama:* ${formData.name}%0A` +
-      `*WhatsApp:* ${formData.phone}%0A` +
-      `*Barang:* ${formData.product}%0A` +
-      `*Merek/Model:* ${formData.brand || '-'}%0A%0A` +
-      `*Dikirim dari:* electronics.html`;
-    
-    // 打开WhatsApp
-    const whatsappURL = `https://wa.me/6289515692586?text=${whatsappMessage}`;
-    window.open(whatsappURL, '_blank');
-    
-    // Google Analytics 事件跟踪
-    gtag('event', 'form_submit', {
-      'event_category': 'Electronics',
-      'event_label': formData.product,
-      'value': 1
-    });
-    
-    // 重置表单
-    form.reset();
-    
-    // 显示成功消息
-    alert('Terima kasih! Anda akan dialihkan ke WhatsApp untuk melanjutkan konsultasi.');
-  }
-</script>
+  <script src="js/main.js"></script>
 </body>
 </html>
