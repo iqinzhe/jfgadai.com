@@ -16,20 +16,15 @@
   <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
   <style>
-    /* 基础字体大小和行宽控制 */
-    html {
-      font-size: 16px;
-    }
-    
+    /* 整体布局优化 */
     body {
-      font-size: 1rem;
-      line-height: 1.6;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      font-size: 16px; /* 基础字体大小 */
+      line-height: 1.5;
     }
     
-    /* 主要内容容器 - 控制最大宽度 */
     main.container {
       flex: 1;
       padding: 0.5rem 1rem 1rem;
@@ -38,7 +33,7 @@
       width: 100%;
     }
     
-    /* 顶部单栏布局 - 居中 */
+    /* 顶部单栏布局 */
     .top-section {
       display: grid;
       grid-template-columns: 1fr;
@@ -46,29 +41,22 @@
       margin: 0.5rem 0 1.5rem;
     }
     
-    /* 介绍卡片居中 - 控制最大宽度 */
+    /* 介绍卡片 */
     .intro-card {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 12px;
       padding: 2rem;
       border: 1px solid rgba(245, 197, 66, 0.2);
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 100%;
-      box-sizing: border-box;
     }
     
-    /* 统一标题大小 - 居中 */
+    /* 统一标题大小 */
     .main-title {
       color: var(--secondary-color);
       font-weight: 700;
       font-size: 1.8rem;
       margin: 0 0 1.2rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      text-align: center;
     }
     
     .main-title-icon {
@@ -76,49 +64,44 @@
       font-size: 2rem;
     }
     
-    /* 描述文字居中 - 增加字体大小，限制行宽 */
+    /* 描述文字 */
     .intro-desc {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       line-height: 1.6;
       color: var(--text-light);
       margin-bottom: 1.5rem;
-      max-width: 700px; /* 限制行宽 */
-      width: 100%;
+      text-align: center;
     }
     
-    /* 特色列表样式 - 居中，增加字体大小 */
+    /* 特色列表样式 */
     .feature-list {
       list-style: none;
       padding: 0;
-      margin: 1.5rem 0;
-      max-width: 650px;
-      width: 100%;
+      margin: 1.5rem auto;
+      max-width: 500px;
     }
     
     .feature-item {
       display: flex;
-      align-items: center;
-      justify-content: flex-start;
+      align-items: flex-start;
       margin-bottom: 1rem;
-      font-size: 1.05rem; /* 增加字体大小 */
-      line-height: 1.6;
+      font-size: 1rem;
+      line-height: 1.5;
       text-align: left;
     }
     
     .feature-icon {
       color: var(--secondary-color);
       margin-right: 12px;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       min-width: 24px;
       text-align: center;
     }
     
-    /* 品牌标签容器居中 */
+    /* 品牌标签容器 */
     .brands-container {
       text-align: center;
       margin: 1.5rem 0;
-      width: 100%;
-      max-width: 700px;
     }
     
     .brand-tag {
@@ -131,12 +114,6 @@
       font-weight: 500;
     }
     
-    /* 按钮居中 */
-    .intro-card .unified-btn {
-      max-width: 300px;
-      margin: 1.5rem auto 0;
-    }
-    
     /* 信息卡片标题样式 */
     .info-section-title {
       color: var(--secondary-color);
@@ -146,16 +123,10 @@
       font-weight: 700;
     }
     
-    /* 信息卡片内容样式 - 增加字体大小 */
-    .info-card .section-content {
-      font-size: 1rem; /* 增加字体大小 */
-      line-height: 1.6;
-    }
-    
-    /* 移动端优化 */
+    /* 移动端优化 - 增加字体大小 */
     @media (max-width: 768px) {
-      html {
-        font-size: 15px;
+      body {
+        font-size: 17px; /* 移动端增加基础字体大小 */
       }
       
       .info-section {
@@ -167,26 +138,24 @@
       }
       
       .main-title {
-        font-size: 1.6rem;
+        font-size: 1.7rem; /* 增加标题大小 */
       }
       
       .main-title-icon {
         font-size: 1.8rem;
-        margin-right: 10px;
       }
       
       .intro-desc {
-        font-size: 1.05rem;
-        max-width: 100%;
+        font-size: 1.15rem; /* 增加描述文字大小 */
+      }
+      
+      .feature-list {
+        max-width: 100%; /* 移动端使用全宽 */
       }
       
       .feature-item {
-        font-size: 1rem;
-        margin-bottom: 0.9rem;
-      }
-      
-      .feature-icon {
-        font-size: 1.2rem;
+        font-size: 1.05rem; /* 增加列表项字体大小 */
+        margin-bottom: 1rem;
       }
       
       .info-card {
@@ -204,7 +173,7 @@
         margin-bottom: 1rem;
         color: var(--secondary-color);
         font-weight: 600;
-        font-size: 1.2rem; /* 增加字体大小 */
+        font-size: 1.2rem; /* 增加信息卡片标题大小 */
         text-align: center;
       }
       
@@ -214,7 +183,7 @@
       }
       
       .section-content {
-        font-size: 0.95rem;
+        font-size: 1rem; /* 增加信息卡片内容字体大小 */
         line-height: 1.6;
         text-align: center;
       }
@@ -226,14 +195,14 @@
       }
       
       .section-content li {
-        margin-bottom: 0.6rem;
-        font-size: 0.95rem;
+        margin-bottom: 0.8rem;
+        font-size: 1rem; /* 确保列表项字体足够大 */
       }
       
       .brand-tag {
-        padding: 0.5rem 1rem;
+        padding: 0.6rem 1rem;
         margin: 0.25rem;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
       }
       
       .info-section-title {
@@ -245,31 +214,34 @@
     /* 桌面端样式 */
     @media (min-width: 769px) {
       .top-section {
-        grid-template-columns: 1fr;
         min-height: auto;
       }
       
       .intro-card {
         padding: 2.5rem;
-        max-width: 900px;
-        margin: 0 auto;
       }
       
       .main-title {
-        font-size: 2.1rem;
+        font-size: 2rem;
       }
       
       .main-title-icon {
-        font-size: 2.3rem;
+        font-size: 2.2rem;
       }
       
       .intro-desc {
-        font-size: 1.2rem;
-        max-width: 750px;
+        font-size: 1.15rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .feature-list {
+        max-width: 550px;
       }
       
       .feature-item {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
       }
       
       .info-section {
@@ -277,9 +249,6 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
         margin: 2.5rem 0;
-        max-width: 1100px;
-        margin-left: auto;
-        margin-right: auto;
       }
       
       .info-card {
@@ -306,14 +275,18 @@
         font-size: 1.4rem;
       }
       
+      .section-content {
+        font-size: 1.05rem;
+      }
+      
       .section-content ul, .section-content ol {
         list-style-position: inside;
         padding-left: 0;
       }
       
       .section-content li {
+        margin-bottom: 0.8rem;
         font-size: 1rem;
-        margin-bottom: 0.7rem;
       }
       
       .brand-tag {
@@ -323,10 +296,7 @@
       }
       
       .info-section-title {
-        font-size: 1.9rem;
-        max-width: 1100px;
-        margin-left: auto;
-        margin-right: auto;
+        font-size: 1.8rem;
       }
     }
   </style>
