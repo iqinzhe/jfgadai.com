@@ -1,4 +1,3 @@
-
 /* ================================
    Edukasi Gadai – Reading Optimization
 ================================ */
@@ -184,7 +183,7 @@ main.container {
 /* 手风琴主容器 */
 .accordion {
   max-width: 900px;
-  margin: 20px auto 50px !important;
+  margin: 10px auto 50px !important;
   padding: 0 20px;
 }
 
@@ -498,7 +497,7 @@ main.container {
   /* 手风琴移动端适配 */
   .accordion {
     padding: 0 15px;
-    margin: 15px auto 40px !important;
+    margin: 5px auto 40px !important;
   }
   
   .accordion-header {
