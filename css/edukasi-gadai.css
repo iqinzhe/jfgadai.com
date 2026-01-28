@@ -13,7 +13,7 @@ body {
 /* ================================
    顶部导航栏修正 - 与手风琴对齐
 ================================ */
-.edu-header {
+.assessment-header {
   background: linear-gradient(135deg, #0b2c4a 0%, #1a5276 100%) !important;
   color: white;
   padding: 0 !important;
@@ -31,7 +31,7 @@ body {
 }
 
 /* 关键修改：导航容器与手风琴完全对齐 */
-.edu-header-container {
+.assessment-header {
   max-width: 900px !important;  /* 与手风琴宽度一致 */
   margin: 0 auto !important;
   padding: 0 20px !important;   /* 与手风琴内边距一致 */
