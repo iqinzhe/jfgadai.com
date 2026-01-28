@@ -21,7 +21,7 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 1.5rem;
-      margin: 1.5rem 0;
+      margin: 0.5rem 0 1.5rem;;
     }
     
     /* 介绍卡片居中 */
@@ -88,14 +88,6 @@
       text-align: center;
     }
     
-    /* WhatsApp按钮图标样式 */
-    .whatsapp-btn-icon {
-      width: 22px;
-      height: 22px;
-      margin-right: 10px;
-      vertical-align: middle;
-    }
-    
     /* 品牌标签容器居中 */
     .brands-container {
       text-align: center;
@@ -117,15 +109,6 @@
     .intro-card .unified-btn {
       max-width: 300px;
       margin: 1.5rem auto 0;
-    }
-    
-    /* WhatsApp说明居中 */
-    .whatsapp-note {
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin: 1.5rem 0 0;
-      max-width: 500px;
     }
     
     /* 信息卡片标题样式 */
@@ -292,7 +275,7 @@
     
     main.container {
       flex: 1;
-      padding: 1rem;
+      padding: 0.5rem 1rem 1rem;
       max-width: 1200px;
       margin: 0 auto;
       width: 100%;
@@ -355,25 +338,7 @@
           <span class="brand-tag">Tablet</span>
           <span class="brand-tag">Kamera</span>
         </div>
-        
-        <!-- 直接WhatsApp按钮 -->
-        <a href="https://wa.me/6289515692586" 
-           class="unified-btn" 
-           target="_blank" 
-           onclick="gtag('event', 'whatsapp_click', {'event_category': 'Electronics', 'event_label': 'Top Button'})">
-          <img src="./images/wa-logo.png" 
-               alt="WhatsApp" 
-               class="whatsapp-btn-icon"
-               onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='💬 Konsultasi Gratis via WhatsApp';">
-          Konsultasi Gratis via WhatsApp
-        </a>
-        
-        <p class="whatsapp-note">
-          Klik tombol di atas untuk konsultasi langsung via WhatsApp. Tim kami siap membantu Anda!
-        </p>
-      </div>
-    </div>
-    
+         
     <!-- 新增：信息区域标题 -->
     <h2 class="info-section-title">Informasi Lengkap Gadai Elektronik</h2>
     
