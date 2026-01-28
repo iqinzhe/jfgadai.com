@@ -101,7 +101,7 @@
   /* 电脑端：好处网格改为一行水平排列 */
   .responsive-benefits-grid {
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
   }
   
   /* 电脑端：文档网格改为一行水平排列 */
