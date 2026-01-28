@@ -16,7 +16,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
   <style>
-    /* 顶部单栏布局 */
+    /* 顶部单栏布局 - 居中 */
     .top-section {
       display: grid;
       grid-template-columns: 1fr;
@@ -24,50 +24,107 @@
       margin: 1.5rem 0;
     }
     
-    /* 统一标题大小 */
+    /* 介绍卡片居中 */
+    .intro-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid rgba(245, 197, 66, 0.2);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    /* 统一标题大小 - 居中 */
     .main-title {
       color: var(--secondary-color);
       font-weight: 700;
-      font-size: 1.6rem;
-      margin: 0 0 1rem 0;
+      font-size: 1.8rem;
+      margin: 0 0 1.2rem 0;
       display: flex;
       align-items: center;
+      justify-content: center;
     }
     
     .main-title-icon {
       margin-right: 12px;
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
     
-    /* 特色列表样式 */
+    /* 描述文字居中 */
+    .intro-desc {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+    }
+    
+    /* 特色列表样式 - 居中 */
     .feature-list {
       list-style: none;
       padding: 0;
-      margin: 1.2rem 0;
+      margin: 1.5rem 0;
+      max-width: 600px;
+      width: 100%;
     }
     
     .feature-item {
       display: flex;
-      align-items: flex-start;
-      margin-bottom: 0.8rem;
-      font-size: 0.95rem;
-      line-height: 1.4;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      text-align: left;
     }
     
     .feature-icon {
       color: var(--secondary-color);
-      margin-right: 10px;
-      font-size: 1.1rem;
+      margin-right: 12px;
+      font-size: 1.2rem;
       min-width: 24px;
       text-align: center;
     }
     
     /* WhatsApp按钮图标样式 */
     .whatsapp-btn-icon {
-      width: 20px;
-      height: 20px;
-      margin-right: 8px;
+      width: 22px;
+      height: 22px;
+      margin-right: 10px;
       vertical-align: middle;
+    }
+    
+    /* 品牌标签容器居中 */
+    .brands-container {
+      text-align: center;
+      margin: 1.5rem 0;
+      width: 100%;
+    }
+    
+    .brand-tag {
+      display: inline-block;
+      background: rgba(245, 197, 66, 0.15);
+      border-radius: 20px;
+      padding: 0.6rem 1.2rem;
+      margin: 0.3rem;
+      font-size: 0.95rem;
+    }
+    
+    /* 按钮居中 */
+    .intro-card .unified-btn {
+      max-width: 300px;
+      margin: 1.5rem auto 0;
+    }
+    
+    /* WhatsApp说明居中 */
+    .whatsapp-note {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 1.5rem 0 0;
+      max-width: 500px;
     }
     
     /* 移动端优化 */
@@ -76,7 +133,29 @@
         margin: 1.5rem 0;
       }
       
-      .info-card, .intro-card {
+      .intro-card {
+        padding: 1.5rem;
+      }
+      
+      .main-title {
+        font-size: 1.5rem;
+      }
+      
+      .main-title-icon {
+        font-size: 1.7rem;
+        margin-right: 10px;
+      }
+      
+      .intro-desc {
+        font-size: 1rem;
+      }
+      
+      .feature-item {
+        font-size: 0.95rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .info-card {
         background: rgba(255, 255, 255, 0.05);
         border-radius: 12px;
         padding: 1.5rem;
@@ -84,22 +163,15 @@
         margin-bottom: 1rem;
       }
       
-      .main-title {
-        font-size: 1.4rem;
-      }
-      
-      .main-title-icon {
-        font-size: 1.6rem;
-        margin-right: 10px;
-      }
-      
       .section-header {
         display: flex;
         align-items: center;
+        justify-content: center;
         margin-bottom: 1rem;
         color: var(--secondary-color);
         font-weight: 600;
         font-size: 1.1rem;
+        text-align: center;
       }
       
       .section-icon {
@@ -110,11 +182,13 @@
       .section-content {
         font-size: 0.95rem;
         line-height: 1.5;
+        text-align: center;
       }
       
       .section-content ul, .section-content ol {
         margin: 0;
-        padding-left: 1.2rem;
+        padding-left: 0;
+        list-style-position: inside;
       }
       
       .section-content li {
@@ -122,10 +196,7 @@
       }
       
       .brand-tag {
-        display: inline-block;
-        background: rgba(245, 197, 66, 0.15);
-        border-radius: 20px;
-        padding: 0.5rem 0.9rem;
+        padding: 0.5rem 1rem;
         margin: 0.2rem;
         font-size: 0.85rem;
       }
@@ -139,26 +210,30 @@
       }
       
       .intro-card {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 12px;
-        padding: 1.8rem;
-        border: 1px solid rgba(245, 197, 66, 0.2);
-        display: flex;
-        flex-direction: column;
+        padding: 2.5rem;
+      }
+      
+      .main-title {
+        font-size: 2rem;
+      }
+      
+      .main-title-icon {
+        font-size: 2.2rem;
       }
       
       .info-section {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
-        margin: 2rem 0;
+        margin: 2.5rem 0;
       }
       
       .info-card {
         background: rgba(255, 255, 255, 0.05);
         border-radius: 12px;
-        padding: 1.5rem;
+        padding: 1.8rem;
         border: 1px solid rgba(245, 197, 66, 0.2);
+        text-align: center;
       }
       
       .section-header {
@@ -167,21 +242,24 @@
         margin-bottom: 1.2rem;
         display: flex;
         align-items: center;
-        font-size: 1.2rem;
+        justify-content: center;
+        font-size: 1.3rem;
       }
       
       .section-icon {
         margin-right: 12px;
-        font-size: 1.3rem;
+        font-size: 1.4rem;
+      }
+      
+      .section-content ul, .section-content ol {
+        list-style-position: inside;
+        padding-left: 0;
       }
       
       .brand-tag {
-        display: inline-block;
-        background: rgba(245, 197, 66, 0.15);
-        border-radius: 20px;
-        padding: 0.6rem 1.1rem;
-        margin: 0.2rem;
-        font-size: 0.95rem;
+        padding: 0.7rem 1.3rem;
+        margin: 0.3rem;
+        font-size: 1rem;
       }
     }
 
@@ -198,25 +276,6 @@
       max-width: 1200px;
       margin: 0 auto;
       width: 100%;
-    }
-    
-    .brands-container {
-      text-align: center;
-      margin: 1.2rem 0;
-    }
-    
-    .whatsapp-note {
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin: 1.5rem 0;
-    }
-    
-    .intro-desc {
-      font-size: 1rem;
-      line-height: 1.5;
-      color: var(--text-light);
-      margin-bottom: 1rem;
     }
   </style>
 </head>
@@ -277,14 +336,15 @@
           <span class="brand-tag">Kamera</span>
         </div>
         
-        <!-- 直接WhatsApp按钮 - 使用标准图标 -->
+        <!-- 直接WhatsApp按钮 - 使用正确路径图标 -->
         <a href="https://wa.me/6289515692586" 
            class="unified-btn" 
            target="_blank" 
            onclick="gtag('event', 'whatsapp_click', {'event_category': 'Electronics', 'event_label': 'Top Button'})">
-          <img src="/images/wa-logo.png" 
+          <img src="./images/wa-logo.png" 
                alt="WhatsApp" 
-               class="whatsapp-btn-icon">
+               class="whatsapp-btn-icon"
+               onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='💬 Konsultasi Gratis via WhatsApp';">
           Konsultasi Gratis via WhatsApp
         </a>
         
@@ -363,11 +423,12 @@
            rel="noopener noreferrer"
            aria-label="Hubungi kami via WhatsApp">
           <img 
-            src="/images/wa-logo.png" 
+            src="./images/wa-logo.png" 
             alt="WhatsApp" 
             width="20" 
             height="20"
             style="vertical-align: middle; margin-right: 6px;"
+            onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='WhatsApp: +62 895-1569-2586';"
           >
           WhatsApp: +62 895-1569-2586
         </a>
