@@ -110,6 +110,7 @@
       padding: 0.6rem 1.2rem;
       margin: 0.3rem;
       font-size: 0.95rem;
+      font-weight: 500;
     }
     
     /* 按钮居中 */
@@ -311,19 +312,19 @@
         <ul class="feature-list">
           <li class="feature-item">
             <span class="feature-icon">✓</span>
-            <span>Penilaian profesional oleh tim ahli</span>
+            <span><strong>Penilaian Profesional</strong> oleh tim ahli</span>
           </li>
           <li class="feature-item">
             <span class="feature-icon">⚡</span>
-            <span>Proses cepat 30-60 menit</span>
+            <span><strong>Proses Cepat</strong> 30-60 menit</span>
           </li>
           <li class="feature-item">
             <span class="feature-icon">🔒</span>
-            <span>Keamanan barang terjamin</span>
+            <span><strong>Keamanan Terjamin</strong> barang tersimpan aman</span>
           </li>
           <li class="feature-item">
             <span class="feature-icon">💬</span>
-            <span>Konsultasi GRATIS via WhatsApp</span>
+            <span><strong>Konsultasi GRATIS</strong> via WhatsApp</span>
           </li>
         </ul>
         
@@ -336,6 +337,24 @@
           <span class="brand-tag">Kamera</span>
         </div>
         
+        <!-- 直接WhatsApp按钮 -->
+        <a href="https://wa.me/6289515692586" 
+           class="unified-btn" 
+           target="_blank" 
+           onclick="gtag('event', 'whatsapp_click', {'event_category': 'Electronics', 'event_label': 'Top Button'})">
+          <img src="./images/wa-logo.png" 
+               alt="WhatsApp" 
+               class="whatsapp-btn-icon"
+               onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='💬 Konsultasi Gratis via WhatsApp';">
+          Konsultasi Gratis via WhatsApp
+        </a>
+        
+        <p class="whatsapp-note">
+          Klik tombol di atas untuk konsultasi langsung via WhatsApp. Tim kami siap membantu Anda!
+        </p>
+      </div>
+    </div>
+    
     <!-- 底部三栏信息区域 -->
     <div class="info-section">
       <!-- 接受的物品 -->
