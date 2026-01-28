@@ -16,52 +16,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
   <style>
-    /* 面包屑修复 */
-    .breadcrumb {
-      margin: 1rem 0;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-    
-    .breadcrumb a {
-      color: var(--secondary-color);
-      text-decoration: none;
-    }
-    
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-    
-    .breadcrumb .separator {
-      margin: 0 8px;
-      color: var(--text-muted);
-    }
-    
-    /* 统一的按钮样式 */
-    .unified-btn {
-      width: 100%;
-      padding: 0.9rem;
-      background: var(--secondary-color);
-      color: var(--dark-color);
-      border: none;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      text-align: center;
-      display: block;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      margin-top: 1.5rem;
-    }
-    
-    .unified-btn:hover {
-      background: #f0b630;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
-    }
-    
-    /* 顶部双栏布局 */
+    /* 顶部单栏布局 */
     .top-section {
       display: grid;
       grid-template-columns: 1fr;
@@ -107,12 +62,16 @@
       text-align: center;
     }
     
+    /* WhatsApp按钮图标样式 */
+    .whatsapp-btn-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    
     /* 移动端优化 */
     @media (max-width: 768px) {
-      .breadcrumb {
-        display: none; /* 移动端隐藏面包屑 */
-      }
-      
       .info-section {
         margin: 1.5rem 0;
       }
@@ -318,12 +277,15 @@
           <span class="brand-tag">Kamera</span>
         </div>
         
-        <!-- 直接WhatsApp按钮 -->
+        <!-- 直接WhatsApp按钮 - 使用标准图标 -->
         <a href="https://wa.me/6289515692586" 
            class="unified-btn" 
            target="_blank" 
            onclick="gtag('event', 'whatsapp_click', {'event_category': 'Electronics', 'event_label': 'Top Button'})">
-          💬 Konsultasi Gratis via WhatsApp
+          <img src="/images/wa-logo.png" 
+               alt="WhatsApp" 
+               class="whatsapp-btn-icon">
+          Konsultasi Gratis via WhatsApp
         </a>
         
         <p class="whatsapp-note">
