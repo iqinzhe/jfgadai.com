@@ -20,7 +20,7 @@
     .top-section {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2.5rem;
+      gap: 1.5rem;
       margin: 1.5rem 0;
     }
     
@@ -119,6 +119,24 @@
       margin: 1.5rem auto 0;
     }
     
+    /* WhatsApp说明居中 */
+    .whatsapp-note {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 1.5rem 0 0;
+      max-width: 500px;
+    }
+    
+    /* 信息卡片标题样式 */
+    .info-section-title {
+      color: var(--secondary-color);
+      font-size: 1.6rem;
+      text-align: center;
+      margin: 2.5rem 0 1.5rem;
+      font-weight: 700;
+    }
+    
     /* 移动端优化 */
     @media (max-width: 768px) {
       .info-section {
@@ -192,6 +210,11 @@
         margin: 0.2rem;
         font-size: 0.85rem;
       }
+      
+      .info-section-title {
+        font-size: 1.4rem;
+        margin: 2rem 0 1rem;
+      }
     }
 
     /* 桌面端样式 */
@@ -226,6 +249,7 @@
         padding: 1.8rem;
         border: 1px solid rgba(245, 197, 66, 0.2);
         text-align: center;
+        height: 100%;
       }
       
       .section-header {
@@ -252,6 +276,10 @@
         padding: 0.7rem 1.3rem;
         margin: 0.3rem;
         font-size: 1rem;
+      }
+      
+      .info-section-title {
+        font-size: 1.8rem;
       }
     }
 
@@ -327,6 +355,27 @@
           <span class="brand-tag">Tablet</span>
           <span class="brand-tag">Kamera</span>
         </div>
+        
+        <!-- 直接WhatsApp按钮 -->
+        <a href="https://wa.me/6289515692586" 
+           class="unified-btn" 
+           target="_blank" 
+           onclick="gtag('event', 'whatsapp_click', {'event_category': 'Electronics', 'event_label': 'Top Button'})">
+          <img src="./images/wa-logo.png" 
+               alt="WhatsApp" 
+               class="whatsapp-btn-icon"
+               onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='💬 Konsultasi Gratis via WhatsApp';">
+          Konsultasi Gratis via WhatsApp
+        </a>
+        
+        <p class="whatsapp-note">
+          Klik tombol di atas untuk konsultasi langsung via WhatsApp. Tim kami siap membantu Anda!
+        </p>
+      </div>
+    </div>
+    
+    <!-- 新增：信息区域标题 -->
+    <h2 class="info-section-title">Informasi Lengkap Gadai Elektronik</h2>
     
     <!-- 底部三栏信息区域 -->
     <div class="info-section">
