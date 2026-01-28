@@ -135,27 +135,4 @@ main.container {
   }
 }
 
-/* 小屏幕手机优化 */
-@media (max-width: 480px) {
-  .responsive-benefits-grid,
-  .responsive-documents-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-sm);
-  }
-  
-  .benefit-card {
-    padding: var(--spacing-md);
-  }
-  
-  .benefit-icon {
-    font-size: 2rem;
-  }
-  
-  .doc-card {
-    padding: var(--spacing-sm);
-  }
-  
-  .doc-icon {
-    font-size: 1.8rem;
-  }
-}
+
