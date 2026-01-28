@@ -54,7 +54,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 15px; /* 使用具体像素值 */
+  font-size: 16px; /* 使用具体像素值 */
   transition: color 0.3s ease;
 }
 
@@ -63,7 +63,7 @@ body {
 }
 
 .assessment-header .logo {
-  font-size: 18px; /* 使用具体像素值 */
+  font-size: 16px; /* 使用具体像素值 */
   font-weight: 700;
   color: var(--secondary-color);
   border: 2px solid var(--secondary-color);
