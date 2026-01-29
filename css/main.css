@@ -105,7 +105,7 @@ body {
   
   /* 关键：移除所有内边距，固定容器高度 */
   padding: 0 !important;
-  height: 44px; /* 容器总高度 = 图片高度 + 边框空间 */
+  height: 45px; /* 容器总高度 = 图片高度 + 边框空间 */
   width: auto;
   margin: 0;
   
@@ -121,7 +121,7 @@ body {
   
   /* 图片尺寸稍微小于容器，避免触碰边框 */
   width: auto;
-  height: 36px; /* 比容器小8px（2px边框×2 + 2px安全间距） */
+  height: 45px; /* 比容器小8px（2px边框×2 + 2px安全间距） */
   
   /* 完全居中且无间隙 */
   display: block;
