@@ -91,8 +91,7 @@ body {
   border-radius: var(--border-radius);
 }
 
-/* ==================== 图片Logo样式（独立类，避免冲突） ==================== */
-/* ==================== 精确匹配返回按钮的Logo样式 ==================== */
+/* ==================== Logo图片样式（无缝隙精确匹配版） ==================== */
 .logo-image-container {
   display: inline-flex;
   align-items: center;
@@ -104,42 +103,72 @@ body {
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.05);
   
-  /* 精确的内边距调整 - 紧密包裹 */
-  padding: 0.25rem 0.5rem; /* 比back-btn稍小，因为图片不需要文字间距 */
+  /* 关键：移除所有内边距，固定容器高度 */
+  padding: 0 !important;
+  height: 44px; /* 容器总高度 = 图片高度 + 边框空间 */
+  width: auto;
+  margin: 0;
   
   /* 与back-btn相同的悬停效果 */
   transition: all 0.3s ease;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.logo-image {
+  /* 关键：使用object-fit确保图片完全填充且保持比例 */
+  object-fit: contain;
+  
+  /* 图片尺寸稍微小于容器，避免触碰边框 */
+  width: auto;
+  height: 36px; /* 比容器小8px（2px边框×2 + 2px安全间距） */
+  
+  /* 完全居中且无间隙 */
+  display: block;
+  margin: 0 auto;
+  
+  /* 清除所有样式 */
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  
+  /* 防止基线对齐导致的底部间隙 */
+  vertical-align: bottom;
+  
+  /* 图片过渡效果 */
+  transition: transform 0.3s ease;
 }
 
 /* 精确匹配的悬停效果 */
 .logo-image-container:hover {
-  color: var(--secondary-color); /* 保持一致性 */
   border-color: var(--secondary-color);
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
 }
 
-/* 精确的图片尺寸控制 */
-.logo-image {
-  display: block;
-  height: 32px; /* 精确控制，确保在边框内 */
-  width: auto;
-  max-height: 100%; /* 确保不超出容器 */
-  
-  /* 清除所有可能的边框 */
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
+.logo-image-container:hover .logo-image {
+  transform: scale(1.05);
 }
 
-/* 响应式精确调整 */
+/* 响应式调整 */
 @media (max-width: 768px) {
   .logo-image-container {
-    padding: 0.2rem 0.4rem; /* 等比缩小内边距 */
+    height: 36px;
   }
   
   .logo-image {
-    height: 26px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-image-container {
+    height: 32px;
+  }
+  
+  .logo-image {
+    height: 24px;
   }
 }
 
