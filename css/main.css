@@ -92,46 +92,54 @@ body {
 }
 
 /* ==================== 图片Logo样式（独立类，避免冲突） ==================== */
+/* ==================== 精确匹配返回按钮的Logo样式 ==================== */
 .logo-image-container {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  line-height: 0;
+  
+  /* 完全复制.back-btn的边框样式 */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  
+  /* 精确的内边距调整 - 紧密包裹 */
+  padding: 0.25rem 0.5rem; /* 比back-btn稍小，因为图片不需要文字间距 */
+  
+  /* 与back-btn相同的悬停效果 */
+  transition: all 0.3s ease;
 }
 
+/* 精确匹配的悬停效果 */
+.logo-image-container:hover {
+  color: var(--secondary-color); /* 保持一致性 */
+  border-color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* 精确的图片尺寸控制 */
 .logo-image {
   display: block;
-  height: 45px;
+  height: 32px; /* 精确控制，确保在边框内 */
   width: auto;
+  max-height: 100%; /* 确保不超出容器 */
+  
+  /* 清除所有可能的边框 */
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
-  border-radius: 0 !important;
-  transition: transform 0.3s ease;
 }
 
-.logo-image-container:hover .logo-image {
-  transform: scale(1.05);
-}
-
-/* 响应式调整 */
+/* 响应式精确调整 */
 @media (max-width: 768px) {
-  .back-btn {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.85rem;
+  .logo-image-container {
+    padding: 0.2rem 0.4rem; /* 等比缩小内边距 */
   }
   
   .logo-image {
-    height: 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .back-btn {
-    padding: 0.4rem 0.6rem;
-  }
-  
-  .back-btn strong {
-    font-size: 0.8rem;
+    height: 26px;
   }
 }
 
