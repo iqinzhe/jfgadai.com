@@ -1,46 +1,5 @@
 /* ==================== 评估页面专用样式 ==================== */
 /* 注意：通用样式已在 main.css 中定义 */
-
-/* 头部导航 */
-.assessment-header {
-  background: rgba(11, 44, 74, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 1rem 0;
-  border-bottom: 2px solid var(--secondary-color);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.assessment-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.back-btn {
-  color: var(--text-light);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.95rem;
-  transition: color 0.3s ease;
-}
-
-.back-btn:hover {
-  color: var(--secondary-color);
-}
-
-.assessment-header .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--secondary-color);
-  border: 2px solid var(--secondary-color);
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
-}
-
 /* 评估页面横幅 */
 .assessment-banner {
   background: linear-gradient(135deg, rgba(15, 76, 129, 0.9), rgba(245, 197, 66, 0.2));
