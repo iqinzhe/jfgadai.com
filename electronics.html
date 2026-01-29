@@ -4,22 +4,338 @@
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M2GMSNWS');</script>
   <!-- End Google Tag Manager -->
-  
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845187332"></script>
-  <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-17845187332');</script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-17845187332');</script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gadai Elektronik | JF Gadai - Cepat & Transparan</title>
   <meta name="description" content="Gadai iPhone, Samsung, laptop, tablet, dan elektronik lainnya. Penilaian transparan, proses cepat. Konsultasi gratis via WhatsApp.">
 
-  <!-- CSS Files -->
+  <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/electronics.css">
+  <style>
+    /* 整体布局优化 */
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    
+    main.container {
+      flex: 1;
+      padding: 0.5rem 0.8rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    /* 顶部单栏布局 */
+    .top-section {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 0.3rem 0 1rem;
+    }
+    
+    /* 介绍卡片 - 减少底部内边距 */
+    .intro-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem 1rem; /* 底部减少为1rem */
+      border: 1px solid rgba(245, 197, 66, 0.2);
+      text-align: center;
+    }
+    
+    /* 统一标题大小 */
+    .main-title {
+      color: var(--secondary-color);
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin: 0 0 0.8rem 0;
+      text-align: center;
+    }
+    
+    .main-title-icon {
+      margin-right: 10px;
+      font-size: 2rem;
+    }
+    
+    /* 描述文字 */
+    .intro-desc {
+      font-size: 1.1rem;
+      line-height: 1.4;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    
+    /* 特色列表样式 */
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem auto;
+      max-width: 500px;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 0.7rem;
+      font-size: 1rem;
+      line-height: 1.3;
+      text-align: left;
+    }
+    
+    .feature-icon {
+      color: var(--secondary-color);
+      margin-right: 10px;
+      font-size: 1.2rem;
+      min-width: 22px;
+      text-align: center;
+    }
+    
+    /* 品牌标签容器 - 显著减少下边距 */
+    .brands-container {
+      text-align: center;
+      margin: 0.8rem 0 0.3rem; /* 上0.8rem，下0.3rem */
+    }
+    
+    .brand-tag {
+      display: inline-block;
+      background: rgba(245, 197, 66, 0.15);
+      border-radius: 18px;
+      padding: 0.5rem 1rem;
+      margin: 0.2rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    
+    /* 信息卡片标题样式 */
+    .info-section-title {
+      color: var(--secondary-color);
+      font-size: 1.5rem;
+      text-align: center;
+      margin: 1.5rem 0 1rem;
+      font-weight: 700;
+    }
+    
+    /* 移动端优化 */
+    @media (max-width: 768px) {
+      body {
+        font-size: 16px;
+        line-height: 1.35;
+      }
+      
+      main.container {
+        padding: 0.4rem 0.6rem 0.8rem;
+      }
+      
+      .info-section {
+        margin: 1rem 0;
+      }
+      
+      .intro-card {
+        padding: 1rem 1.2rem 0.8rem; /* 移动端底部更小 */
+      }
+      
+      .main-title {
+        font-size: 1.6rem;
+        margin: 0 0 0.6rem 0;
+      }
+      
+      .main-title-icon {
+        font-size: 1.7rem;
+        margin-right: 8px;
+      }
+      
+      .intro-desc {
+        font-size: 1.05rem;
+        line-height: 1.35;
+        margin-bottom: 0.8rem;
+      }
+      
+      .feature-list {
+        margin: 0.8rem auto;
+        max-width: 100%;
+      }
+      
+      .feature-item {
+        font-size: 0.95rem;
+        line-height: 1.25;
+        margin-bottom: 0.6rem;
+      }
+      
+      .feature-icon {
+        font-size: 1.1rem;
+        margin-right: 8px;
+        min-width: 20px;
+      }
+      
+      /* 移动端品牌容器下边距更小 */
+      .brands-container {
+        margin: 0.6rem 0 0.2rem;
+      }
+      
+      .info-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 1rem 1.2rem;
+        border: 1px solid rgba(245, 197, 66, 0.2);
+        margin-bottom: 0.8rem;
+      }
+      
+      .section-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.8rem;
+        color: var(--secondary-color);
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-align: center;
+      }
+      
+      .section-icon {
+        margin-right: 8px;
+        font-size: 1.1rem;
+      }
+      
+      .section-content {
+        font-size: 0.95rem;
+        line-height: 1.3;
+        text-align: center;
+      }
+      
+      .section-content ul, .section-content ol {
+        margin: 0;
+        padding-left: 0;
+        list-style-position: inside;
+      }
+      
+      .section-content li {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        line-height: 1.25;
+      }
+      
+      .brand-tag {
+        padding: 0.4rem 0.8rem;
+        margin: 0.15rem;
+        font-size: 0.85rem;
+      }
+      
+      .info-section-title {
+        font-size: 1.4rem;
+        margin: 1.2rem 0 0.8rem;
+      }
+    }
+
+    /* 桌面端样式 */
+    @media (min-width: 769px) {
+      .top-section {
+        min-height: auto;
+      }
+      
+      .intro-card {
+        padding: 1.5rem 2rem 1.2rem; /* 桌面端底部也减小 */
+      }
+      
+      .main-title {
+        font-size: 1.9rem;
+        margin: 0 0 0.8rem 0;
+      }
+      
+      .main-title-icon {
+        font-size: 2.1rem;
+      }
+      
+      .intro-desc {
+        font-size: 1.1rem;
+        line-height: 1.4;
+        max-width: 750px;
+        margin: 0 auto 1rem;
+      }
+      
+      .feature-list {
+        max-width: 550px;
+      }
+      
+      .feature-item {
+        font-size: 1rem;
+        line-height: 1.3;
+      }
+      
+      /* 桌面端品牌容器下边距 */
+      .brands-container {
+        margin: 1rem 0 0.4rem;
+      }
+      
+      .info-section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+        margin: 1.8rem 0;
+      }
+      
+      .info-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        padding: 1.2rem 1.5rem;
+        border: 1px solid rgba(245, 197, 66, 0.2);
+        text-align: center;
+        height: 100%;
+      }
+      
+      .section-header {
+        color: var(--secondary-color);
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+      }
+      
+      .section-icon {
+        margin-right: 10px;
+        font-size: 1.3rem;
+      }
+      
+      .section-content {
+        font-size: 1rem;
+        line-height: 1.35;
+      }
+      
+      .section-content ul, .section-content ol {
+        list-style-position: inside;
+        padding-left: 0;
+      }
+      
+      .section-content li {
+        margin-bottom: 0.6rem;
+        font-size: 0.98rem;
+        line-height: 1.3;
+      }
+      
+      .brand-tag {
+        padding: 0.5rem 1.1rem;
+        margin: 0.2rem;
+        font-size: 0.95rem;
+      }
+      
+      .info-section-title {
+        font-size: 1.7rem;
+        margin: 1.8rem 0 1rem;
+      }
+    }
+  </style>
 </head>
 
-<body class="electronics-page">
+<body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
@@ -33,146 +349,147 @@
   </div>
 </header>
 
-<main class="container">
-  <!-- 顶部单栏布局 -->
-  <div class="top-section">
-    <!-- 介绍卡片 -->
-    <div class="intro-card">
-      <h2 class="main-title">
-        <span class="main-title-icon">💻</span>
-        Gadai Elektronik
-      </h2>
-      
-      <p class="intro-desc">
-        Butuh dana cepat? Gadai laptop, smartphone, tablet, dan elektronik lainnya di JF Gadai. Penilaian transparan, dana cair <strong>≤ 60 menit</strong>.
-      </p>
-      
-      <!-- 特色列表 -->
-      <ul class="feature-list">
-        <li class="feature-item">
-          <span class="feature-icon">✓</span>
-          <span><strong>Penilaian Profesional</strong> oleh tim ahli</span>
-        </li>
-        <li class="feature-item">
-          <span class="feature-icon">⚡</span>
-          <span><strong>Proses Cepat</strong> 30-60 menit</span>
-        </li>
-        <li class="feature-item">
-          <span class="feature-icon">🔒</span>
-          <span><strong>Keamanan Terjamin</strong> barang tersimpan aman</span>
-        </li>
-        <li class="feature-item">
-          <span class="feature-icon">💬</span>
-          <span><strong>Konsultasi GRATIS</strong> via WhatsApp</span>
-        </li>
-      </ul>
-      
-      <!-- 品牌标签 -->
-      <div class="brands-container">
-        <span class="brand-tag">iPhone</span>
-        <span class="brand-tag">Samsung</span>
-        <span class="brand-tag">Laptop</span>
-        <span class="brand-tag">Tablet</span>
-        <span class="brand-tag">Kamera</span>
-      </div>
-    </div>
-  </div>
-  
-  <!-- 新增：信息区域标题 -->
-  <h2 class="info-section-title">Informasi Lengkap Gadai Elektronik</h2>
-  
-  <!-- 底部三栏信息区域 -->
-  <div class="info-section">
-    <!-- 接受的物品 -->
-    <div class="info-card">
-      <div class="section-header">
-        <span class="section-icon">✅</span>
-        <span>Barang Diterima</span>
-      </div>
-      <div class="section-content">
-        <ul>
-          <li>Smartphone (semua merek)</li>
-          <li>Laptop & Notebook</li>
-          <li>Tablet & iPad</li>
-          <li>Kamera digital</li>
-          <li>Perangkat audio premium</li>
+  <!-- 主要内容区域 -->
+  <main class="container">
+    <!-- 顶部单栏布局 -->
+    <div class="top-section">
+      <!-- 介绍卡片 -->
+      <div class="intro-card">
+        <h2 class="main-title">
+          <span class="main-title-icon">💻</span>
+          Gadai Elektronik
+        </h2>
+        
+        <p class="intro-desc">
+          Butuh dana cepat? Gadai laptop, smartphone, tablet, dan elektronik lainnya di JF Gadai. Penilaian transparan, dana cair <strong>≤ 60 menit</strong>.
+        </p>
+        
+        <!-- 特色列表 -->
+        <ul class="feature-list">
+          <li class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span><strong>Penilaian Profesional</strong> oleh tim ahli</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon">⚡</span>
+            <span><strong>Proses Cepat</strong> 30-60 menit</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon">🔒</span>
+            <span><strong>Keamanan Terjamin</strong> barang tersimpan aman</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon">💬</span>
+            <span><strong>Konsultasi GRATIS</strong> via WhatsApp</span>
+          </li>
         </ul>
+        
+        <!-- 品牌标签 -->
+        <div class="brands-container">
+          <span class="brand-tag">iPhone</span>
+          <span class="brand-tag">Samsung</span>
+          <span class="brand-tag">Laptop</span>
+          <span class="brand-tag">Tablet</span>
+          <span class="brand-tag">Kamera</span>
+        </div>
+        <!-- 这里原本是WhatsApp按钮，已删除 -->
       </div>
     </div>
     
-    <!-- 处理流程 -->
-    <div class="info-card">
-      <div class="section-header">
-        <span class="section-icon">⚡</span>
-        <span>Proses 4 Langkah</span>
-      </div>
-      <div class="section-content">
-        <ol>
-          <li><strong>Konsultasi</strong> via WhatsApp</li>
-          <li><strong>Penilaian</strong> oleh ahli</li>
-          <li><strong>Verifikasi</strong> dokumen</li>
-          <li><strong>Pencairan</strong> dana tunai</li>
-        </ol>
-      </div>
-    </div>
+    <!-- 新增：信息区域标题 -->
+    <h2 class="info-section-title">Informasi Lengkap Gadai Elektronik</h2>
     
-    <!-- 要求 -->
-    <div class="info-card">
-      <div class="section-header">
-        <span class="section-icon">📋</span>
-        <span>Persyaratan</span>
+    <!-- 底部三栏信息区域 -->
+    <div class="info-section">
+      <!-- 接受的物品 -->
+      <div class="info-card">
+        <div class="section-header">
+          <span class="section-icon">✅</span>
+          <span>Barang Diterima</span>
+        </div>
+        <div class="section-content">
+          <ul>
+            <li>Smartphone (semua merek)</li>
+            <li>Laptop & Notebook</li>
+            <li>Tablet & iPad</li>
+            <li>Kamera digital</li>
+            <li>Perangkat audio premium</li>
+          </ul>
+        </div>
       </div>
-      <div class="section-content">
-        <ul>
-          <li>Bawa <strong>KTP asli</strong></li>
-          <li>Barang berfungsi normal</li>
-          <li>Lengkapi charger & aksesoris</li>
-          <li>Hapus kunci/PIN sebelum bawa</li>
-          <li>Dokumen pembelian (jika ada)</li>
-        </ul>
+      
+      <!-- 处理流程 -->
+      <div class="info-card">
+        <div class="section-header">
+          <span class="section-icon">⚡</span>
+          <span>Proses 4 Langkah</span>
+        </div>
+        <div class="section-content">
+          <ol>
+            <li><strong>Konsultasi</strong> via WhatsApp</li>
+            <li><strong>Penilaian</strong> oleh ahli</li>
+            <li><strong>Verifikasi</strong> dokumen</li>
+            <li><strong>Pencairan</strong> dana tunai</li>
+          </ol>
+        </div>
+      </div>
+      
+      <!-- 要求 -->
+      <div class="info-card">
+        <div class="section-header">
+          <span class="section-icon">📋</span>
+          <span>Persyaratan</span>
+        </div>
+        <div class="section-content">
+          <ul>
+            <li>Bawa <strong>KTP asli</strong></li>
+            <li>Barang berfungsi normal</li>
+            <li>Lengkapi charger & aksesoris</li>
+            <li>Hapus kunci/PIN sebelum bawa</li>
+            <li>Dokumen pembelian (jika ada)</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</main>
+  </main>
 
-<!-- 页脚 -->
-<footer id="lokasi">
-  <div class="container">
-    <div class="footer-content">
-      
-      <p class="copyright">© 2026 <span class="highlight">JF Gadai</span></p>
-      
-      <p class="company-info">Melayani area Bangil • Beji • Gempol dan sekitarnya</p>
-      
-      <a href="https://wa.me/6289515692586" 
-         target="_blank" 
-         class="contact-link" 
-         rel="noopener noreferrer"
-         aria-label="Hubungi kami via WhatsApp">
-        <img 
-          src="./images/wa-logo.png" 
-          alt="WhatsApp" 
-          width="20" 
-          height="20"
-          style="vertical-align: middle; margin-right: 6px;"
-          onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='WhatsApp: +62 895-1569-2586';"
-        >
-        WhatsApp: +62 895-1569-2586
-      </a>
-      
-      <p class="operating-hours">
-        ⏰ Jam kerja: 08:00-18:00 | Libur hari Sabtu dan Minggu
-      </p>
-      
-      <p class="security-note">
-        🔒 Situs ini menggunakan koneksi aman (HTTPS).
-      </p>
-      
+  <!-- 页脚 -->
+  <footer id="lokasi">
+    <div class="container">
+      <div class="footer-content">
+        
+        <p class="copyright">© 2026 <span class="highlight">JF Gadai</span></p>
+        
+        <p class="company-info">Melayani area Bangil • Beji • Gempol dan sekitarnya</p>
+        
+        <a href="https://wa.me/6289515692586" 
+           target="_blank" 
+           class="contact-link" 
+           rel="noopener noreferrer"
+           aria-label="Hubungi kami via WhatsApp">
+          <img 
+            src="./images/wa-logo.png" 
+            alt="WhatsApp" 
+            width="20" 
+            height="20"
+            style="vertical-align: middle; margin-right: 6px;"
+            onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='WhatsApp: +62 895-1569-2586';"
+          >
+          WhatsApp: +62 895-1569-2586
+        </a>
+        
+        <p class="operating-hours">
+          ⏰ Jam kerja: 08:00-18:00 | Libur hari Sabtu dan Minggu
+        </p>
+        
+        <p class="security-note">
+          🔒 Situs ini menggunakan koneksi aman (HTTPS).
+        </p>
+        
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- JavaScript Files -->
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
