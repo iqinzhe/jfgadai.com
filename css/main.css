@@ -67,29 +67,21 @@ body {
   font-weight: 700;
 }
 
-/* Logo样式 */
+/* Logo样式 - 图片独立显示 */
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  display: block;
   text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--secondary-color);
-  border: 2px solid var(--secondary-color);
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
-  transition: transform 0.3s ease;
-}
-
-.logo:hover {
-  transform: translateY(-2px);
 }
 
 .logo img {
-  height: 1.5em; /* 与文字高度匹配 */
-  width: auto;
+  height: 40px; /* 根据实际logo图片调整高度 */
+  width: auto;   /* 保持原始比例 */
   display: block;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.05);
 }
 
 /* ==================== 通用容器 ==================== */
