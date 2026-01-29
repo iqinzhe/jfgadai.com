@@ -30,283 +30,12 @@
   <title>Hubungi JF Gadai via WhatsApp | Konsultasi Gratis & Cepat</title>
   <meta name="description" content="Hubungi JF Gadai via WhatsApp untuk konsultasi gadai gratis. Proses cepat, transparan, dan aman. Layanan wilayah Bangil, Beji, Gempol.">
 
-  <!-- CSS -->
+  <!-- CSS Files -->
   <link rel="stylesheet" href="css/main.css">
-  <!-- 引入手风琴样式 -->
-  <link rel="stylesheet" href="css/edukasi-gadai.css">
-  <style>
-    /* 页面特定样式 */
-    .breadcrumb {
-      margin: 1rem 0;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-    .breadcrumb a {
-      color: var(--secondary-color);
-      text-decoration: none;
-    }
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-    
-    /* 顶部双栏布局 */
-    .top-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin: 1.5rem 0;
-    }
-    
-    /* 统一标题样式 */
-    .main-title {
-      color: var(--secondary-color);
-      font-weight: 700;
-      font-size: 1.6rem;
-      margin: 0 0 1rem 0;
-      display: flex;
-      align-items: center;
-    }
-    
-    .main-title-icon {
-      margin-right: 12px;
-      font-size: 1.8rem;
-    }
-    
-    /* 卡片样式 */
-    .intro-card, .form-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      padding: 1.8rem;
-      border: 1px solid rgba(245, 197, 66, 0.2);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    /* 介绍卡片内容 */
-    .intro-desc {
-      font-size: 1rem;
-      line-height: 1.5;
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-    }
-    
-    .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 1.2rem 0;
-    }
-    
-    .feature-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.8rem;
-      font-size: 0.95rem;
-      line-height: 1.4;
-      color: #ffffff; 
-    }
-    
-    .feature-icon {
-      color: var(--secondary-color);
-      margin-right: 10px;
-      font-size: 1.1rem;
-      min-width: 24px;
-      text-align: center;
-    }
-    
-    .response-time {
-      background: rgba(245, 197, 66, 0.1);
-      border: 1px solid var(--secondary-color);
-      border-radius: 8px;
-      padding: 1rem;
-      margin: 1.5rem 0;
-      text-align: center;
-    }
-    
-    /* 统一的按钮样式 */
-    .unified-btn {
-      width: 100%;
-      padding: 0.9rem;
-      background: var(--secondary-color);
-      color: var(--dark-color);
-      border: none;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      text-align: center;
-      display: block;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      margin-top: 1.5rem;
-    }
-    
-    .unified-btn:hover {
-      background: #f0b630;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
-    }
-    
-    /* 表单样式 */
-    .form-desc {
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-      line-height: 1.4;
-    }
-    
-    .form-group {
-      margin-bottom: 1rem;
-    }
-    
-    .form-label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--text-light);
-      font-size: 0.95rem;
-    }
-    
-    .form-label.required::after {
-      content: " *";
-      color: #ff4757;
-    }
-    
-    .form-control {
-      width: 100%;
-      padding: 0.8rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      color: var(--light-color);
-      font-size: 0.95rem;
-      transition: all 0.3s ease;
-    }
-    
-    .form-control:focus {
-      outline: none;
-      border-color: var(--secondary-color);
-      background: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 0 0 2px rgba(245, 197, 66, 0.2);
-    }
-    
-    .form-control::placeholder {
-      color: rgba(255, 255, 255, 0.5);
-    }
-    
-    select.form-control {
-      cursor: pointer;
-    }
-    
-    .form-textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
-    
-    .form-success {
-      background: rgba(46, 204, 113, 0.1);
-      border: 1px solid #2ecc71;
-      border-radius: 8px;
-      padding: 1.5rem;
-      text-align: center;
-      margin: 1.5rem 0;
-    }
-    
-    .form-error {
-      background: rgba(255, 71, 87, 0.1);
-      border: 1px solid #ff4757;
-      border-radius: 8px;
-      padding: 0.8rem;
-      margin-top: 0.5rem;
-      color: #ff6b81;
-      font-size: 0.9rem;
-      display: none;
-    }
-    
-    /* FAQ 手风琴样式调整 */
-    .faq-section {
-      margin-top: 2rem;
-    }
-    
-    .faq-section h2 {
-      text-align: center;
-      color: var(--secondary-color);
-      margin-bottom: 1.5rem;
-      font-size: 1.6rem;
-    }
-    
-    .accordion {
-      max-width: 900px;
-      margin: 0 auto !important;
-    }
-    
-    .accordion-item {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .accordion-header {
-      background: linear-gradient(135deg, rgba(11, 44, 74, 0.9) 0%, rgba(26, 82, 118, 0.9) 100%);
-      color: white;
-    }
-    
-    .accordion-header:hover {
-      background: linear-gradient(135deg, rgba(26, 82, 118, 0.9) 0%, rgba(44, 62, 80, 0.9) 100%);
-    }
-    
-    .accordion-header.active {
-      background: linear-gradient(135deg, rgba(39, 174, 96, 0.9) 0%, rgba(46, 204, 113, 0.9) 100%);
-    }
-    
-    .accordion-content .edu-content {
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-    
-    /* 移动端优化 */
-    @media (max-width: 768px) {
-      .top-section {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-      
-      .breadcrumb {
-        display: none;
-      }
-      
-      .intro-card, .form-card {
-        padding: 1.5rem;
-      }
-      
-      .main-title {
-        font-size: 1.4rem;
-      }
-      
-      .main-title-icon {
-        font-size: 1.6rem;
-        margin-right: 10px;
-      }
-      
-      .intro-desc {
-        font-size: 0.95rem;
-      }
-      
-      .feature-item {
-        font-size: 0.9rem;
-      }
-      
-      .form-control {
-        padding: 0.7rem;
-        font-size: 0.9rem;
-      }
-      
-      .faq-section h2 {
-        font-size: 1.4rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/contact.css">
 </head>
 
-<body>
+<body class="contact-page">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -322,6 +51,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </header>
 
+<main class="container">
   <!-- 顶部双栏布局 -->
   <div class="top-section">
     <!-- 左侧：介绍 -->
@@ -530,315 +260,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </main>
 
 <!-- 页脚 -->
-  <footer id="lokasi">
-    <div class="container">
-      <div class="footer-content">
-        
-        <p class="copyright">© 2026 <span class="highlight">JF Gadai</span></p>
-        
-        <p class="company-info">Melayani area Bangil • Beji • Gempol dan sekitarnya</p>
-        
-        <a href="https://wa.me/6289515692586" 
-           target="_blank" 
-           class="contact-link" 
-           rel="noopener noreferrer"
-           aria-label="Hubungi kami via WhatsApp">
-          <img 
-            src="/images/wa-logo.png" 
-            alt="WhatsApp" 
-            width="20" 
-            height="20"
-            style="vertical-align: middle; margin-right: 6px;"
-          >
-          WhatsApp: +62 895-1569-2586
-        </a>
-        
-        <p class="operating-hours">
-          ⏰ Jam kerja: 08:00-18:00 | Libur hari Sabtu dan Minggu
-        </p>
-        
-        <p class="security-note">
-          🔒 Situs ini menggunakan koneksi aman (HTTPS).
-        </p>
-        
-      </div>
+<footer id="lokasi">
+  <div class="container">
+    <div class="footer-content">
+      
+      <p class="copyright">© 2026 <span class="highlight">JF Gadai</span></p>
+      
+      <p class="company-info">Melayani area Bangil • Beji • Gempol dan sekitarnya</p>
+      
+      <a href="https://wa.me/6289515692586" 
+         target="_blank" 
+         class="contact-link" 
+         rel="noopener noreferrer"
+         aria-label="Hubungi kami via WhatsApp">
+        <img 
+          src="/images/wa-logo.png" 
+          alt="WhatsApp" 
+          width="20" 
+          height="20"
+          style="vertical-align: middle; margin-right: 6px;"
+        >
+        WhatsApp: +62 895-1569-2586
+      </a>
+      
+      <p class="operating-hours">
+        ⏰ Jam kerja: 08:00-18:00 | Libur hari Sabtu dan Minggu
+      </p>
+      
+      <p class="security-note">
+        🔒 Situs ini menggunakan koneksi aman (HTTPS).
+      </p>
+      
     </div>
-  </footer>
+  </div>
+</footer>
 
-<!-- 引入手风琴JavaScript -->
-<script src="js/edukasi-gadai.js"></script>
-
-<script>
-  // WhatsApp表单处理脚本
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('whatsappForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const loadingText = document.getElementById('loadingText');
-    const formSuccess = document.getElementById('formSuccess');
-    
-    // 验证KTP号码（16位数字）
-    function validateKTP(ktp) {
-      const ktpRegex = /^\d{16}$/;
-      return ktpRegex.test(ktp);
-    }
-    
-    // 验证手机号码（印尼格式）
-    function validatePhone(phone) {
-      const phoneRegex = /^(\+62|62|0)8[1-9][0-9]{6,9}$/;
-      return phoneRegex.test(phone.replace(/\s+/g, ''));
-    }
-    
-    // 显示错误信息
-    function showError(fieldId, message) {
-      const errorElement = document.getElementById(fieldId + 'Error');
-      errorElement.textContent = message;
-      errorElement.style.display = 'block';
-    }
-    
-    // 清除错误信息
-    function clearError(fieldId) {
-      const errorElement = document.getElementById(fieldId + 'Error');
-      errorElement.textContent = '';
-      errorElement.style.display = 'none';
-    }
-    
-    // 验证表单
-    function validateForm(formData) {
-      let isValid = true;
-      
-      // 验证姓名
-      if (!formData.name.trim()) {
-        showError('name', 'Nama lengkap harus diisi');
-        isValid = false;
-      } else {
-        clearError('name');
-      }
-      
-      // 验证KTP
-      if (!formData.ktp.trim()) {
-        showError('ktp', 'Nomor KTP harus diisi');
-        isValid = false;
-      } else if (!validateKTP(formData.ktp)) {
-        showError('ktp', 'Nomor KTP harus 16 digit angka');
-        isValid = false;
-      } else {
-        clearError('ktp');
-      }
-      
-      // 验证手机号码
-      if (!formData.phone.trim()) {
-        showError('phone', 'Nomor WhatsApp harus diisi');
-        isValid = false;
-      } else if (!validatePhone(formData.phone)) {
-        showError('phone', 'Format nomor WhatsApp tidak valid. Contoh: 081234567890');
-        isValid = false;
-      } else {
-        clearError('phone');
-      }
-      
-      // 验证物品类型
-      if (!formData.item) {
-        showError('item', 'Pilih jenis barang yang akan digadaikan');
-        isValid = false;
-      } else {
-        clearError('item');
-      }
-      
-      // 验证描述
-      if (!formData.description.trim()) {
-        showError('description', 'Deskripsi barang harus diisi');
-        isValid = false;
-      } else if (formData.description.trim().length < 10) {
-        showError('description', 'Deskripsi terlalu singkat. Minimal 10 karakter');
-        isValid = false;
-      } else {
-        clearError('description');
-      }
-      
-      return isValid;
-    }
-    
-    // 格式化手机号码
-    function formatPhoneNumber(phone) {
-      let formattedPhone = phone.replace(/\s+/g, '');
-      
-      // 如果以0开头，改为62
-      if (formattedPhone.startsWith('0')) {
-        formattedPhone = '62' + formattedPhone.substring(1);
-      }
-      // 如果以+62开头，移除+
-      else if (formattedPhone.startsWith('+62')) {
-        formattedPhone = formattedPhone.substring(1);
-      }
-      // 如果已经是62开头，保持原样
-      
-      return formattedPhone;
-    }
-    
-    // 获取物品类型文本
-    function getItemTypeText(itemValue) {
-      const itemTypes = {
-        'motor': 'Motor / Kendaraan',
-        'emas': 'Emas / Perhiasan',
-        'hp': 'HP / Smartphone',
-        'laptop': 'Laptop / Komputer',
-        'elektronik': 'Barang Elektronik Lainnya',
-        'lainnya': 'Barang Berharga Lainnya'
-      };
-      return itemTypes[itemValue] || itemValue;
-    }
-    
-    // 构建WhatsApp消息
-    function buildWhatsAppMessage(formData) {
-      const formattedPhone = formatPhoneNumber(formData.phone);
-      const itemTypeText = getItemTypeText(formData.item);
-      
-      // 构建消息内容
-      const message = `Halo JF Gadai, saya ingin konsultasi tentang gadai barang.
-
-*DATA KONSULTASI:*
-👤 Nama: ${formData.name}
-🆔 KTP: ${formData.ktp}
-📱 WhatsApp: ${formData.phone}
-🏷️ Jenis Barang: ${itemTypeText}
-
-📝 Deskripsi Barang:
-${formData.description}
-
-Mohon info mengenai:
-1. Perkiraan nilai taksiran
-2. Prosedur dan persyaratan
-3. Biaya administrasi
-
-Terima kasih.`;
-
-      // 编码消息内容
-      const encodedMessage = encodeURIComponent(message);
-      
-      // 构建WhatsApp URL
-      return `https://wa.me/6289515692586?text=${encodedMessage}`;
-    }
-    
-    // 表单提交处理
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // 收集表单数据
-      const formData = {
-        name: document.getElementById('name').value,
-        ktp: document.getElementById('ktp').value,
-        phone: document.getElementById('phone').value,
-        item: document.getElementById('item').value,
-        description: document.getElementById('description').value
-      };
-      
-      // 验证表单
-      if (!validateForm(formData)) {
-        return;
-      }
-      
-      // 显示加载状态
-      submitBtn.disabled = true;
-      submitBtn.querySelector('span').style.display = 'none';
-      loadingText.style.display = 'inline';
-      
-      // 发送Google Analytics事件
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'form_submit', {
-          'event_category': 'Contact',
-          'event_label': 'WhatsApp Form',
-          'item_type': formData.item
-        });
-      }
-      
-      // 延迟执行，让用户看到加载状态
-      setTimeout(() => {
-        // 构建WhatsApp URL
-        const whatsappUrl = buildWhatsAppMessage(formData);
-        
-        // 隐藏表单，显示成功消息
-        form.style.display = 'none';
-        formSuccess.style.display = 'block';
-        
-        // 发送Google Analytics转化事件
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-17845187332/EqUyCKvIxZ4ZENvK3tQp',
-            'value': 1.0,
-            'currency': 'IDR',
-            'transaction_id': 'form_' + Date.now()
-          });
-        }
-        
-        // 在显示成功消息后延迟打开WhatsApp
-        setTimeout(() => {
-          window.open(whatsappUrl, '_blank');
-        }, 1500);
-        
-      }, 1000);
-    });
-    
-    // 实时验证输入
-    const inputs = form.querySelectorAll('input, select, textarea');
-    inputs.forEach(input => {
-      input.addEventListener('blur', function() {
-        const formData = {
-          name: document.getElementById('name').value,
-          ktp: document.getElementById('ktp').value,
-          phone: document.getElementById('phone').value,
-          item: document.getElementById('item').value,
-          description: document.getElementById('description').value
-        };
-        
-        // 只验证当前字段
-        if (this.id === 'name' && !formData.name.trim()) {
-          showError('name', 'Nama lengkap harus diisi');
-        } else if (this.id === 'name') {
-          clearError('name');
-        }
-        
-        if (this.id === 'ktp' && !formData.ktp.trim()) {
-          showError('ktp', 'Nomor KTP harus diisi');
-        } else if (this.id === 'ktp' && !validateKTP(formData.ktp)) {
-          showError('ktp', 'Nomor KTP harus 16 digit angka');
-        } else if (this.id === 'ktp') {
-          clearError('ktp');
-        }
-        
-        if (this.id === 'phone' && !formData.phone.trim()) {
-          showError('phone', 'Nomor WhatsApp harus diisi');
-        } else if (this.id === 'phone' && !validatePhone(formData.phone)) {
-          showError('phone', 'Format nomor WhatsApp tidak valid');
-        } else if (this.id === 'phone') {
-          clearError('phone');
-        }
-        
-        if (this.id === 'item' && !formData.item) {
-          showError('item', 'Pilih jenis barang');
-        } else if (this.id === 'item') {
-          clearError('item');
-        }
-        
-        if (this.id === 'description' && !formData.description.trim()) {
-          showError('description', 'Deskripsi barang harus diisi');
-        } else if (this.id === 'description' && formData.description.trim().length < 10) {
-          showError('description', 'Deskripsi terlalu singkat');
-        } else if (this.id === 'description') {
-          clearError('description');
-        }
-      });
-      
-      // 清除错误信息当用户开始输入时
-      input.addEventListener('input', function() {
-        clearError(this.id);
-      });
-    });
-    
-    // 初始化手风琴
-    if (typeof window.eduAccordion !== 'undefined') {
-      window.eduAccordion.init();
-    }
-  });
-</script>
+<!-- JavaScript Files -->
+<script src="js/main.js"></script>
+<script src="js/contact.js"></script>
 </body>
 </html>
