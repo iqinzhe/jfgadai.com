@@ -31,7 +31,7 @@ body {
   font-size: 1.1rem;
 }
 
-/* 头部导航 */
+/* ==================== 头部导航 ==================== */
 .assessment-header {
   background: rgba(11, 44, 74, 0.95);
   backdrop-filter: blur(10px);
@@ -46,35 +46,130 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  gap: 1rem;
 }
 
-/* 左边按钮 - 减小左右内边距 */
+/* 返回按钮 */
 .back-btn {
   color: var(--text-light);
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
   font-size: 0.95rem;
-  transition: color 0.3s ease;
-  padding: 0.4rem 0.8rem; /* 添加内边距，减小左右间距 */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* 可选：添加边框使更明显 */
-  border-radius: var(--border-radius); /* 可选：圆角 */
+  transition: all 0.3s ease;
+  
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .back-btn:hover {
   color: var(--secondary-color);
-  border-color: var(--secondary-color); /* 悬停时边框变色 */
+  border-color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }
 
-/* 右边按钮 - 增加上下内边距 */
+.back-btn strong {
+  font-weight: 700;
+}
+
+/* ==================== 文字Logo样式（保留用于其他页面） ==================== */
 .assessment-header .logo {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--secondary-color);
   border: 2px solid var(--secondary-color);
-  padding: 0.6rem 1rem; /* 增加上下内边距，完整包裹文字 */
+  padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
+}
+
+/* ==================== Logo图片样式（无缝隙精确匹配版） ==================== */
+.logo-image-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  
+  /* 完全复制.back-btn的边框样式 */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  
+  /* 关键：移除所有内边距，固定容器高度 */
+  padding: 0 !important;
+  height: 44px; /* 容器总高度 = 图片高度 + 边框空间 */
+  width: auto;
+  margin: 0;
+  
+  /* 与back-btn相同的悬停效果 */
+  transition: all 0.3s ease;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.logo-image {
+  /* 关键：使用object-fit确保图片完全填充且保持比例 */
+  object-fit: contain;
+  
+  /* 图片尺寸稍微小于容器，避免触碰边框 */
+  width: auto;
+  height: 36px; /* 比容器小8px（2px边框×2 + 2px安全间距） */
+  
+  /* 完全居中且无间隙 */
+  display: block;
+  margin: 0 auto;
+  
+  /* 清除所有样式 */
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  
+  /* 防止基线对齐导致的底部间隙 */
+  vertical-align: bottom;
+  
+  /* 图片过渡效果 */
+  transition: transform 0.3s ease;
+}
+
+/* 精确匹配的悬停效果 */
+.logo-image-container:hover {
+  border-color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.logo-image-container:hover .logo-image {
+  transform: scale(1.05);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .logo-image-container {
+    height: 36px;
+  }
+  
+  .logo-image {
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-image-container {
+    height: 32px;
+  }
+  
+  .logo-image {
+    height: 24px;
+  }
 }
 
 /* ==================== 通用容器 ==================== */
