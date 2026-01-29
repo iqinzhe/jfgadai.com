@@ -49,35 +49,58 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  gap: 1rem; /* 添加间距 */
 }
 
-/* 返回按钮 */
+/* 返回按钮 - 添加圆角边框 */
 .back-btn {
   color: var(--text-light);
   text-decoration: none;
   font-size: 0.95rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  
+  /* 添加圆角边框 */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px; /* 圆角值，可根据需要调整 */
+  padding: 0.5rem 1rem;
+  
+  /* 内联flex布局 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* 悬停效果 */
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .back-btn:hover {
   color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px); /* 轻微上浮效果 */
 }
 
 .back-btn strong {
   font-weight: 700;
 }
 
-/* Logo样式 - 纯图片，无边框 */
+/* Logo样式 */
 .logo {
   display: block;
   text-decoration: none;
-  /* 完全移除之前的所有边框、padding、颜色等样式 */
+  line-height: 0;
 }
 
 .logo img {
-  height: 40px; /* 根据实际logo图片调整高度 */
-  width: auto;   /* 保持原始比例 */
   display: block;
+  height: 40px;
+  width: auto;
+  border-radius: 8px; /* 确保logo也有相同圆角 */
+  
+  /* 确保图片本身没有边框 */
+  border: none;
+  outline: none;
+  
   transition: transform 0.3s ease;
 }
 
@@ -85,10 +108,25 @@ body {
   transform: scale(1.05);
 }
 
-/* 可选：如果需要在某些屏幕上调整logo大小 */
+/* 响应式调整 */
 @media (max-width: 768px) {
+  .back-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
   .logo img {
-    height: 30px; /* 在平板设备上稍小一点 */
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-btn {
+    padding: 0.4rem 0.6rem;
+  }
+  
+  .back-btn strong {
+    font-size: 0.8rem;
   }
 }
 
