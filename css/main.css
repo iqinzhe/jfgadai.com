@@ -31,7 +31,7 @@ body {
   font-size: 1.1rem;
 }
 
-/* 头部导航 */
+/* ==================== 头部导航 ==================== */
 .assessment-header {
   background: rgba(11, 44, 74, 0.95);
   backdrop-filter: blur(10px);
@@ -49,27 +49,24 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
-  gap: 1rem; /* 添加间距 */
+  gap: 1rem;
 }
 
-/* 返回按钮 - 添加圆角边框 */
+/* 返回按钮 */
 .back-btn {
   color: var(--text-light);
   text-decoration: none;
   font-size: 0.95rem;
   transition: all 0.3s ease;
   
-  /* 添加圆角边框 */
   border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px; /* 圆角值，可根据需要调整 */
+  border-radius: 8px;
   padding: 0.5rem 1rem;
   
-  /* 内联flex布局 */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   
-  /* 悬停效果 */
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -77,34 +74,42 @@ body {
   color: var(--secondary-color);
   border-color: var(--secondary-color);
   background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px); /* 轻微上浮效果 */
+  transform: translateY(-2px);
 }
 
 .back-btn strong {
   font-weight: 700;
 }
 
-/* Logo样式 */
-.logo {
+/* ==================== 文字Logo样式（保留用于其他页面） ==================== */
+.assessment-header .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+}
+
+/* ==================== 图片Logo样式（独立类，避免冲突） ==================== */
+.logo-image-container {
   display: block;
   text-decoration: none;
   line-height: 0;
 }
 
-.logo img {
+.logo-image {
   display: block;
   height: 40px;
   width: auto;
-  border-radius: 8px; /* 确保logo也有相同圆角 */
-  
-  /* 确保图片本身没有边框 */
-  border: none;
-  outline: none;
-  
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
   transition: transform 0.3s ease;
 }
 
-.logo:hover img {
+.logo-image-container:hover .logo-image {
   transform: scale(1.05);
 }
 
@@ -115,7 +120,7 @@ body {
     font-size: 0.85rem;
   }
   
-  .logo img {
+  .logo-image {
     height: 30px;
   }
 }
