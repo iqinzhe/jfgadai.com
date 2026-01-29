@@ -1,5 +1,14 @@
 /* ==================== 评估页面专用样式 ==================== */
-/* 注意：通用样式已在 main.css 中定义 */
+/* 注意：这个文件只包含评估页面的特定样式 */
+/* 通用样式已在 base.css、components.css、layout.css 中定义 */
+
+/* 评估页面命名空间 */
+.assessment-page {
+  /* 确保评估页面使用一致的字体和间距 */
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
 /* 评估页面横幅 */
 .assessment-banner {
   background: linear-gradient(135deg, rgba(15, 76, 129, 0.9), rgba(245, 197, 66, 0.2));
@@ -87,6 +96,8 @@
 /* 评估表单容器 */
 .assessment-container {
   padding: 2rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .assessment-form {
@@ -121,6 +132,7 @@
   font-size: 1.8rem;
 }
 
+/* 品牌选择 */
 .brand-selection {
   display: flex;
   gap: 24px;
@@ -162,12 +174,10 @@
   transition: all 0.25s ease;
 }
 
-/* 品牌Logo悬停效果 */
 .brand-option:hover .brand-logo-img {
   transform: scale(1.05);
 }
 
-/* 选中状态 */
 .brand-option.active .brand-logo-img {
   border: 2px solid #f5c542;
   padding: 2px;
@@ -175,49 +185,22 @@
   box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.3);
 }
 
-/* 文本 */
 .brand-name {
   font-size: 14px;
   font-weight: 600;
   pointer-events: none;
 }
 
-/* 手机端 */
-@media (max-width: 600px) {
-  .brand-selection {
-    gap: 12px;
-  }
-  
-  .brand-logo-img {
-    width: 72px;
-    height: 36px;
-  }
-}
-
-@media (max-width: 480px) {
-  .brand-logo-img {
-    width: 65px !important;
-    height: 32px !important;
-  }
-}
-
 /* 表单项布局 */
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-@media (max-width: 768px) {
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .form-group label {
@@ -225,7 +208,7 @@
   margin-bottom: 0.5rem;
   color: var(--text-light);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 /* 里程滑块 */
@@ -255,13 +238,13 @@
   display: flex;
   justify-content: space-between;
   margin-top: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
 }
 
 /* 车况选项 */
 .condition-section {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .condition-section h3 {
@@ -274,12 +257,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-}
-
-@media (max-width: 768px) {
-  .condition-options {
-    grid-template-columns: 1fr;
-  }
 }
 
 .condition-option {
@@ -329,7 +306,7 @@
 
 .option-desc {
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   line-height: 1.4;
 }
 
@@ -339,18 +316,6 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: 0.5rem;
-}
-
-@media (max-width: 768px) {
-  .photo-upload {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .photo-upload {
-    grid-template-columns: 1fr;
-  }
 }
 
 .upload-area {
@@ -391,7 +356,7 @@
 
 .upload-text {
   color: var(--text-light);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   transition: opacity 0.3s ease;
 }
 
@@ -402,15 +367,15 @@
   margin: 1.5rem 0;
   border-left: 4px solid var(--secondary-color);
   color: var(--text-light);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 /* 表单导航 */
 .form-navigation {
   display: flex;
   justify-content: space-between;
-  margin-top: 3rem;
-  padding-top: 2rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -467,8 +432,8 @@
 .estimation-card {
   background: linear-gradient(135deg, rgba(15, 76, 129, 0.3), rgba(245, 197, 66, 0.1));
   border-radius: var(--border-radius-lg);
-  padding: 2.5rem;
-  margin-bottom: 2rem;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
   border: 1px solid rgba(245, 197, 66, 0.2);
   animation: resultAppear 0.8s ease;
 }
@@ -486,7 +451,7 @@
 
 .estimation-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .estimation-icon {
@@ -503,7 +468,7 @@
 
 .estimation-value {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   padding: 1.5rem;
   background: rgba(11, 44, 74, 0.8);
   border-radius: var(--border-radius);
@@ -526,7 +491,7 @@
 }
 
 .range-label {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text-light);
   margin-bottom: 0.5rem;
 }
@@ -572,18 +537,20 @@
   background: rgba(255, 255, 255, 0.05);
   border-radius: var(--border-radius);
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .estimation-details p {
   color: var(--text-light);
   margin-bottom: 1rem;
   font-weight: 600;
+  font-size: 1rem;
 }
 
 .breakdown-list {
   list-style: none;
   color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
 .breakdown-list li {
@@ -609,18 +576,13 @@
 .adjustment-info h4 {
   color: var(--secondary-color);
   margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
 .adjustment-factors {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-}
-
-@media (max-width: 768px) {
-  .adjustment-factors {
-    grid-template-columns: 1fr;
-  }
 }
 
 .factor-item {
@@ -641,7 +603,8 @@
 .factor-item p {
   margin: 0;
   color: var(--text-light);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 .estimation-note {
@@ -655,6 +618,7 @@
   color: var(--secondary-color);
   margin-bottom: 0.8rem;
   font-weight: 600;
+  font-size: 1rem;
 }
 
 .estimation-note ul {
@@ -666,6 +630,8 @@
 .estimation-note li {
   padding: 0.3rem 0;
   position: relative;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .estimation-note li::before {
@@ -693,7 +659,7 @@
   border-radius: var(--border-radius);
   text-decoration: none;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
@@ -755,18 +721,6 @@
   margin-bottom: 1.5rem;
 }
 
-@media (max-width: 768px) {
-  .adjustment-process {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .adjustment-process {
-    grid-template-columns: 1fr;
-  }
-}
-
 .process-step {
   text-align: center;
 }
@@ -786,14 +740,16 @@
 
 .process-step p {
   color: var(--text-light);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   margin: 0;
+  line-height: 1.4;
 }
 
 .process-step p strong {
   color: var(--secondary-color);
   display: block;
   margin-bottom: 0.3rem;
+  font-size: 1rem;
 }
 
 .process-note {
@@ -802,6 +758,7 @@
   font-size: 0.9rem;
   font-style: italic;
   margin: 0;
+  line-height: 1.5;
 }
 
 /* 常见问题 */
@@ -832,7 +789,7 @@
 }
 
 .faq-question {
-  padding: 1.5rem;
+  padding: 1rem;
   color: var(--text-light);
   font-weight: 600;
   cursor: pointer;
@@ -840,6 +797,7 @@
   justify-content: space-between;
   align-items: center;
   transition: background 0.3s ease;
+  font-size: 1rem;
 }
 
 .faq-question:hover {
@@ -857,10 +815,11 @@
 }
 
 .faq-answer {
-  padding: 0 1.5rem 1.5rem;
+  padding: 0 1rem 1rem;
   color: var(--text-muted);
   line-height: 1.6;
   display: none;
+  font-size: 0.95rem;
 }
 
 .faq-item.active .faq-answer {
@@ -886,7 +845,7 @@ select {
   border: 1px solid rgba(255, 255, 255, 0.3) !important;
   padding: 14px 16px !important;
   border-radius: 10px !important;
-  font-size: 16px !important;
+  font-size: 1rem !important;
   width: 100% !important;
   box-sizing: border-box !important;
   margin-top: 5px !important;
@@ -906,6 +865,7 @@ select option {
   background-color: #0b2c4a !important;
   color: #ffffff !important;
   padding: 12px !important;
+  font-size: 1rem !important;
 }
 
 /* 输入框 */
@@ -917,7 +877,7 @@ select option {
   color: white !important;
   padding: 14px 16px !important;
   border-radius: 10px !important;
-  font-size: 16px !important;
+  font-size: 1rem !important;
   width: 100% !important;
   box-sizing: border-box !important;
   margin-top: 5px !important;
@@ -944,7 +904,7 @@ select:hover {
 .assessment-container ::placeholder {
   color: rgba(255, 255, 255, 0.6) !important;
   opacity: 1 !important;
-  font-size: 15px !important;
+  font-size: 1rem !important;
 }
 
 /* 禁用状态 */
@@ -974,14 +934,18 @@ select:disabled {
   transition: all 0.3s ease;
 }
 
-/* 响应式优化 */
+/* 响应式优化 - 手机端 */
 @media (max-width: 768px) {
+  .assessment-page {
+    font-size: 0.95rem;
+  }
+  
   .assessment-banner {
-    padding: 2rem 0 1.5rem !important;
+    padding: 1.5rem 0 !important;
   }
   
   .assessment-banner h1 {
-    font-size: 1.8rem !important;
+    font-size: 1.6rem !important;
     margin-bottom: 0.8rem !important;
   }
   
@@ -992,29 +956,92 @@ select:disabled {
   
   .progress-bar {
     margin: 1.5rem auto 2rem !important;
+    font-size: 0.9rem !important;
   }
   
-  .stats {
-    gap: 1.5rem !important;
+  .form-step h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
   }
   
-  .stat-number {
+  .form-row {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  
+  .condition-options {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  
+  .photo-upload {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+  
+  .brand-selection {
+    gap: 12px !important;
+  }
+  
+  .brand-logo-img {
+    width: 72px !important;
+    height: 36px !important;
+  }
+  
+  .form-navigation {
+    margin-top: 1.5rem !important;
+    padding-top: 1rem !important;
+  }
+  
+  .btn-prev,
+  .btn-next,
+  .btn-submit {
+    padding: 0.7rem 1.5rem !important;
+    font-size: 0.95rem !important;
+  }
+  
+  .estimation-card {
+    padding: 1.5rem !important;
+  }
+  
+  .value {
     font-size: 2rem !important;
   }
   
-  .contact-link img {
-    width: 18px;
-    height: 18px;
+  .adjustment-factors {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  
+  .adjustment-process {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+  
+  .faq-section {
+    padding: 2rem 0 !important;
+    margin-top: 2rem !important;
+  }
+  
+  .faq-section h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .faq-question {
+    padding: 0.75rem !important;
+    font-size: 0.95rem !important;
+  }
+  
+  .faq-answer {
+    font-size: 0.9rem !important;
+    padding: 0 0.75rem 0.75rem !important;
   }
 }
 
 @media (max-width: 480px) {
-  .assessment-banner {
-    padding: 1.5rem 0 1rem !important;
-  }
-  
   .assessment-banner h1 {
-    font-size: 1.5rem !important;
+    font-size: 1.4rem !important;
   }
   
   .brand-logo-img {
@@ -1022,145 +1049,29 @@ select:disabled {
     height: 32px !important;
   }
   
-  .condition-options {
-    gap: 0.8rem !important;
+  .photo-upload {
+    grid-template-columns: 1fr !important;
   }
   
-  .contact-link img {
-    width: 16px;
-    height: 16px;
-    margin-right: 4px;
-  }
-}
-
-/* ==================== 页脚优化 ==================== */
-footer {
-  background: rgba(11, 44, 74, 0.9);
-  margin-top: var(--spacing-md);
-  padding: var(--spacing-md) 0 var(--spacing-sm);
-  border-top: 2px solid var(--secondary-color);
-}
-
-.footer-content {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.copyright {
-  font-size: 1.15rem;
-  margin-bottom: 0.3rem;
-  line-height: 1.1;
-}
-
-.highlight {
-  color: var(--secondary-color);
-  font-weight: bold;
-}
-
-.company-info {
-  color: var(--text-muted);
-  margin-bottom: 0.8rem;
-  font-size: 1rem;
-  line-height: 1.25;
-  padding: 0 0.5rem;
-}
-
-/* 联系电话布局 - 单个居中显示 */
-.contact-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0.5rem auto;
-  padding: 0.4rem 0;
-  max-width: 550px;
-}
-
-/* 联系电话的样式 - 添加可见背景框 */
-.contact-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--text-light);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-  padding: 6px 12px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  white-space: nowrap;
-}
-
-/* 鼠标悬停效果 */
-.contact-link:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: var(--secondary-color);
-  color: var(--secondary-color);
-  transform: translateY(-2px);
-}
-
-/* 移动端适配 */
-@media (max-width: 768px) {
-  .contact-info {
-    gap: 0.8rem; /* 移动端间距更小 */
+  .adjustment-process {
+    grid-template-columns: 1fr !important;
   }
   
-  .contact-link {
-    padding: 5px 5px;
-    font-size: 0.9rem;
+  .manual-adjustment {
+    padding: 1.5rem !important;
   }
   
-  footer {
-    padding: var(--spacing-sm) 0;
+  .action-buttons {
+    gap: 0.75rem !important;
+    margin-bottom: 1.5rem !important;
   }
   
-  .copyright {
-    font-size: 1.1rem;
+  .btn-whatsapp,
+  .btn-recalculate,
+  .btn-home {
+    padding: 0.8rem !important;
+    font-size: 0.95rem !important;
   }
 }
 
-/* 极窄屏幕（如手机竖屏）下的适配 */
-@media (max-width: 480px) {
-  .contact-info {
-    flex-direction: column; /* 竖排排列 */
-    gap: 0.5rem;
-  }
-  
-  .contact-link {
-    width: 100%; /* 占满宽度 */
-    justify-content: center; /* 内容居中 */
-    padding: 8px 15px; /* 增大内边距便于点击 */
-  }
-}
-
-/* 落地页信任区块（广告审核加分） */
-.trust-box {
-  margin: 1.5rem 0 1rem;
-  padding: 1rem 1.2rem;
-  background: rgba(15, 76, 129, 0.35);
-  border: 1px solid rgba(245, 197, 66, 0.35);
-  border-radius: 12px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.8rem;
-  text-align: center;
-}
-
-.trust-item {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.4;
-}
-
-.trust-item strong {
-  color: #f5c542;
-  font-weight: 600;
-}
-
-@media (max-width: 768px) {
-  .trust-box {
-    grid-template-columns: 1fr;
-  }
-}
+/* 删除重复的页脚样式（已在components.css中定义） */
