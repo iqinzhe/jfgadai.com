@@ -52,7 +52,7 @@ body {
   gap: 1rem;
 }
 
-/* 返回按钮 */
+/* 返回按钮（已包含Logo） */
 .back-btn {
   color: var(--text-light);
   text-decoration: none;
@@ -66,6 +66,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 10px; /* 添加Logo和文字之间的间距 */
   
   background: rgba(255, 255, 255, 0.05);
 }
@@ -81,51 +82,17 @@ body {
   font-weight: 700;
 }
 
-/* ==================== 文字Logo样式（保留用于其他页面） ==================== */
-.assessment-header .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--secondary-color);
-  border: 2px solid var(--secondary-color);
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
-}
-
-/* ==================== Logo图片样式（无缝隙精确匹配版） ==================== */
-.logo-image-container {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  
-  /* 完全复制.back-btn的边框样式 */
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  
-  /* 关键：移除所有内边距，固定容器高度 */
-  padding: 0 !important;
-  height: 45px; /* 容器总高度 = 图片高度 + 边框空间 */
-  width: auto;
-  margin: 0;
-  
-  /* 与back-btn相同的悬停效果 */
-  transition: all 0.3s ease;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
+/* Logo图片样式（在返回按钮内） */
 .logo-image {
   /* 关键：使用object-fit确保图片完全填充且保持比例 */
   object-fit: contain;
   
-  /* 图片尺寸稍微小于容器，避免触碰边框 */
+  /* 图片尺寸设置 */
   width: auto;
-  height: 45px; /* 比容器小8px（2px边框×2 + 2px安全间距） */
+  height: 35px; /* 调整到合适的高度 */
   
   /* 完全居中且无间隙 */
   display: block;
-  margin: 0 auto;
   
   /* 清除所有样式 */
   border: none !important;
@@ -134,31 +101,42 @@ body {
   padding: 0 !important;
   
   /* 防止基线对齐导致的底部间隙 */
-  vertical-align: bottom;
+  vertical-align: middle;
   
   /* 图片过渡效果 */
   transition: transform 0.3s ease;
 }
 
-/* 精确匹配的悬停效果 */
-.logo-image-container:hover {
-  border-color: var(--secondary-color);
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
-}
-
-.logo-image-container:hover .logo-image {
+.back-btn:hover .logo-image {
   transform: scale(1.05);
 }
 
 /* 响应式调整 */
 @media (max-width: 768px) {
-  .logo-image-container {
-    height: 35px;
+  .back-btn {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
   }
   
   .logo-image {
-    height: 35px;
+    height: 28px;
+  }
+}
+
+/* 超小屏幕调整 */
+@media (max-width: 480px) {
+  .back-btn {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    gap: 6px;
+  }
+  
+  .logo-image {
+    height: 24px;
+  }
+  
+  .back-btn strong {
+    display: inline-block; /* 确保文字正确显示 */
   }
 }
 
