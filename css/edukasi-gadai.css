@@ -1,18 +1,13 @@
-/* ================================
-   Edukasi Gadai – Reading Optimization
-================================ */
+/* ==================== edukasi-gadai.css - 教育页面特有样式 ==================== */
 
-/* 背景色调整 - 与首页保持一致 */
-body {
-  line-height: 1.7;
-  background-color: #f8f9fa; /* 浅灰白色，适合阅读 */
+/* ==================== 教育页面专用样式 ==================== */
+.edu-page {
+  background: #f8f9fa;
   color: #333;
-  font-size: 18px;
+  line-height: 1.7;
 }
 
-/* ================================
-   顶部导航栏修正 - 与手风琴对齐
-================================ */
+/* ==================== 顶部导航栏修正 ==================== */
 .edu-header {
   background: linear-gradient(135deg, #0b2c4a 0%, #1a5276 100%) !important;
   color: white;
@@ -32,14 +27,14 @@ body {
 
 /* 关键修改：导航容器与手风琴完全对齐 */
 .edu-header-container {
-  max-width: 900px !important;  /* 与手风琴宽度一致 */
+  max-width: 900px !important;
   margin: 0 auto !important;
-  padding: 0 20px !important;   /* 与手风琴内边距一致 */
+  padding: 0 20px !important;
   width: 100% !important;
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  height: 100% !important;  /* 确保充满父容器高度 */
+  height: 100% !important;
 }
 
 /* 左侧标题区域 */
@@ -53,6 +48,7 @@ body {
   font-size: 28px !important;
   display: block !important;
   line-height: 1 !important;
+  color: #27ae60;
 }
 
 .edu-header-text {
@@ -109,12 +105,19 @@ body {
 }
 
 /* 主内容区域上边距 */
-main.container {
-  padding-top: 10px !important;
+.edu-main {
+  padding-top: 90px !important;
   min-height: 100vh;
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
 }
 
-/* 手风琴功能样式 */
+/* 内容容器 */
+.edu-content-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 /* 手风琴主容器 */
 .accordion {
   max-width: 900px;
@@ -246,10 +249,11 @@ main.container {
   }
 }
 
-/* 3. 控制正文最大阅读宽度 */
+/* 控制正文最大阅读宽度 */
 .edu-content {
   max-width: 760px;
   margin: 0 auto;
+  color: #444;
 }
 
 /* 标题层级更清晰 */
@@ -294,6 +298,7 @@ main.container {
   border-radius: 0 8px 8px 0 !important;
   color: #2c3e50 !important;
   font-size: 1.1rem !important;
+  line-height: 1.6;
 }
 
 .warning-box {
@@ -304,6 +309,7 @@ main.container {
   border-radius: 0 8px 8px 0 !important;
   color: #2c3e50 !important;
   font-size: 1.1rem !important;
+  line-height: 1.6;
 }
 
 .tip-box {
@@ -314,6 +320,7 @@ main.container {
   border-radius: 0 8px 8px 0 !important;
   color: #2c3e50 !important;
   font-size: 1.1rem !important;
+  line-height: 1.6;
 }
 
 /* FAQ 块"卡片化" */
@@ -322,11 +329,14 @@ main.container {
   margin-bottom: 14px;
   border: 1px solid rgba(0,0,0,0.08);
   border-radius: 6px;
+  background: #f8f9fa;
 }
 
 .edu-faq h3 {
   margin-top: 0;
   font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 8px;
 }
 
 /* 列表更易扫读 */
@@ -339,6 +349,11 @@ main.container {
   margin-bottom: 0.7rem;
   font-size: 1.1rem;
   line-height: 1.6;
+  color: #444;
+}
+
+.edu-content li strong {
+  color: #2c3e50;
 }
 
 /* 表格样式 */
@@ -348,6 +363,9 @@ main.container {
   margin: 1.5rem 0;
   font-size: 0.95rem;
   color: #333 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .comparison-table th {
@@ -379,21 +397,33 @@ main.container {
 .back-to-home {
   display: inline-block;
   margin-top: 2rem;
+  margin-bottom: 3rem;
   padding: 0.8rem 1.5rem;
   background: #0b2c4a;
   color: white;
   text-decoration: none;
   border-radius: 6px;
   font-weight: bold;
-  transition: background 0.3s;
+  transition: all 0.3s;
   font-size: 1.1rem;
+  text-align: center;
 }
 
 .back-to-home:hover {
   background: #2c3e50;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-/* 4. 响应式设计 */
+/* ==================== 教育页面页脚优化 ==================== */
+.edu-footer {
+  background: rgba(11, 44, 74, 0.9);
+  margin-top: 40px;
+  padding: 30px 0 20px;
+  border-top: 2px solid #2ecc71;
+}
+
+/* ==================== 响应式设计 - 教育页面特有 ==================== */
 @media (max-width: 768px) {
   /* 导航栏移动端适配 */
   .edu-header {
@@ -425,14 +455,14 @@ main.container {
   }
   
   /* 主内容上边距调整 */
-  main.container {
-    padding-top: 20px !important;
+  .edu-main {
+    padding-top: 70px !important;
   }
   
   /* 手风琴移动端适配 */
   .accordion {
     padding: 0 15px;
-    margin: 5px auto 40px !important;  /* 手机端上边距5px */
+    margin: 5px auto 40px !important;
   }
   
   .accordion-header {
@@ -524,80 +554,14 @@ main.container {
   .back-to-home {
     padding: 0.7rem 1.2rem;
     font-size: 1rem;
-  }
-}
-
-/* 5. 页脚优化 */
-footer {
-  background: rgba(11, 44, 74, 0.9);
-  margin-top: 40px;
-  padding: 30px 0 20px;
-  border-top: 2px solid #2ecc71;
-}
-
-.footer-content {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.copyright {
-  font-size: 1.15rem;
-  margin-bottom: 0.3rem;
-  line-height: 1.1;
-  color: white;
-}
-
-.highlight {
-  color: #2ecc71;
-  font-weight: bold;
-}
-
-.company-info {
-  color: #aed6f1;
-  margin-bottom: 0.8rem;
-  font-size: 1rem;
-  line-height: 1.25;
-  padding: 0 0.5rem;
-}
-
-.contact-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: white;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-  padding: 6px 12px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  white-space: nowrap;
-  margin: 5px 0;
-}
-
-.contact-link:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #2ecc71;
-  color: #2ecc71;
-  transform: translateY(-2px);
-}
-
-.operating-hours,
-.security-note {
-  color: #aed6f1;
-  font-size: 0.9rem;
-  margin: 8px 0;
-}
-
-@media (max-width: 768px) {
-  footer {
-    padding: 20px 0 15px;
+    width: 100%;
+    box-sizing: border-box;
   }
   
-  .copyright {
-    font-size: 1.1rem;
+  .info-box,
+  .warning-box,
+  .tip-box {
+    padding: 1rem !important;
+    font-size: 1rem !important;
   }
 }
