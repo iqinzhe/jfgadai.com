@@ -67,10 +67,11 @@ body {
   font-weight: 700;
 }
 
-/* Logo样式 - 图片独立显示 */
+/* Logo样式 - 纯图片，无边框 */
 .logo {
   display: block;
   text-decoration: none;
+  /* 完全移除之前的所有边框、padding、颜色等样式 */
 }
 
 .logo img {
@@ -82,6 +83,13 @@ body {
 
 .logo:hover img {
   transform: scale(1.05);
+}
+
+/* 可选：如果需要在某些屏幕上调整logo大小 */
+@media (max-width: 768px) {
+  .logo img {
+    height: 30px; /* 在平板设备上稍小一点 */
+  }
 }
 
 /* ==================== 通用容器 ==================== */
