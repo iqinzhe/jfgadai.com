@@ -73,13 +73,16 @@
 
   <!-- JSON-LD 结构化数据 -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "JF Gadai",
-    "alternateName": ["JF Gadai Bangil","JF Gadai Beji","JF Gadai Gempol"],
-    "url": "https://www.jfgadai.com/"
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "JF Gadai",
+  "alternateName": ["JF Gadai Bangil","JF Gadai Beji","JF Gadai Gempol"],
+  "url": "https://www.jfgadai.com/",
+  "publisher": {
+    "@id": "https://www.jfgadai.com/#organization"
   }
+}
   </script>
 
   <script type="application/ld+json">
@@ -106,6 +109,23 @@
     ]
   }
   </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.jfgadai.com/#organization",
+  "name": "JF Gadai",
+  "alternateName": "JF Gadai Indonesia",
+  "url": "https://www.jfgadai.com/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.jfgadai.com/images/101.jpeg"
+  },
+  "sameAs": [
+    "https://www.jfgadai.com/"
+  ]
+}
+</script>
 
   <!-- 样式表 -->
   <link rel="stylesheet" href="css/main.css">
