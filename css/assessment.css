@@ -4,14 +4,14 @@
 /* 评估页面横幅 */
 .assessment-banner {
   background: linear-gradient(135deg, rgba(15, 76, 129, 0.9), rgba(245, 197, 66, 0.2));
-  padding: 2rem 0 1.5rem;
+  padding: 1.5rem 0 1.2rem;
   text-align: center;
 }
 
 .assessment-banner h1 {
   color: var(--secondary-color);
   margin-bottom: 0.6rem;
-  line-height: 1.1;
+  line-height: 1.0;
 }
 
 .assessment-banner .subtitle {
