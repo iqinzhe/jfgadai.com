@@ -2,179 +2,172 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <title>Penilaian Motor | JF Gadai</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estimasi Gadai Motor – JF Gadai</title>
 
-  <!-- Main & Page Styles -->
+  <!-- main.css + assessment.css -->
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/assessment.css">
 </head>
 
 <body>
 
-<!-- ================= Header (由 main.css 控制) ================= -->
-<header class="assessment-header">
-  <div class="container">
-    <a href="/" class="back-home">
-      ←← Kembali ke Beranda
-    </a>
-  </div>
+<!-- ================= HEADER（保持你原站点结构） ================= -->
+<header class="site-header">
+  <!-- 你的导航栏 -->
 </header>
 
-<!-- ================= Banner ================= -->
-<section class="assessment-banner">
-  <div class="container">
-    <h1>Estimasi Gadai Motor</h1>
-    <p class="subtitle">
-      Dapatkan estimasi nilai gadai motor Anda secara cepat & transparan
-    </p>
-    <p class="stats">
-      Proses ≤ 60 menit · Aman · Tanpa biaya tersembunyi
-    </p>
+<main class="container assessment">
+
+  <!-- ================= Progress ================= -->
+  <div class="progress-bar">
+    <div class="progress-step active" data-step="1">1</div>
+    <div class="progress-step" data-step="2">2</div>
+    <div class="progress-step" data-step="3">3</div>
+    <div class="progress-step" data-step="4">4</div>
   </div>
-</section>
 
-<!-- ================= Main Content ================= -->
-<main class="assessment-container">
-  <div class="container assessment-form">
+  <!-- hidden -->
+  <input type="hidden" id="brand" name="brand">
 
-    <!-- Progress -->
-    <div class="progress-bar">
-      <div class="progress-step active">Dokumen</div>
-      <div class="progress-step">Data Motor</div>
-      <div class="progress-step">Hasil</div>
+  <!-- ================= STEP 1 ================= -->
+  <section id="step1" class="form-step active">
+
+    <h2>Pilih Merek Motor</h2>
+
+    <div class="brand-options">
+      <label class="brand-card">
+        <input type="radio" name="brandRadio" value="Honda">
+        <img src="/img/brand-honda.png" alt="Honda">
+      </label>
+
+      <label class="brand-card">
+        <input type="radio" name="brandRadio" value="Yamaha">
+        <img src="/img/brand-yamaha.png" alt="Yamaha">
+      </label>
     </div>
 
-    <!-- ================= Step 1 ================= -->
-    <section class="form-step active" data-step="1">
-      <h2>Data Motor</h2>
+    <div class="form-group">
+      <label for="model">Model Motor</label>
+      <select id="model" name="model">
+        <option value="">Pilih model motor</option>
+      </select>
+    </div>
 
-      <!-- Brand -->
+    <div class="form-row">
       <div class="form-group">
-        <label>Merek Motor</label>
-        <div class="brand-selection">
-          <div class="brand-option active" data-brand="honda">
-            <img src="/img/honda.png" alt="Honda" class="brand-logo-img">
-            <span class="brand-name">Honda</span>
-          </div>
-          <div class="brand-option" data-brand="yamaha">
-            <img src="/img/yamaha.png" alt="Yamaha" class="brand-logo-img">
-            <span class="brand-name">Yamaha</span>
-          </div>
-        </div>
+        <label for="year">Tahun</label>
+        <select id="year" name="year"></select>
       </div>
 
-      <!-- Model & Year -->
-      <div class="form-row">
-        <div class="form-group">
-          <label for="model">Model Motor</label>
-          <select id="model" name="model">
-            <option>Honda Beat</option>
-            <option>Honda Vario</option>
-            <option>Honda Scoopy</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="year">Tahun Produksi</label>
-          <select id="year" name="year">
-            <option>2024</option>
-            <option>2023</option>
-            <option>2022</option>
-            <option>2021</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- CC & Mileage -->
-      <div class="form-row">
-        <div class="form-group">
-          <label for="cc">Kapasitas Mesin (CC)</label>
-          <select id="cc" name="cc">
-            <option>110 cc</option>
-            <option>125 cc</option>
-            <option>150 cc</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="mileage">Kilometer Tempuh (KM)</label>
-          <input type="number" id="mileage" name="mileage" value="20000">
-          <div class="mileage-slider">
-            <input type="range" min="0" max="100000" step="1000">
-            <div class="mileage-labels">
-              <span>0 KM</span>
-              <span>50.000 KM</span>
-              <span>100.000+ KM</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Condition -->
-      <div class="condition-section">
-        <h3>Kondisi Motor</h3>
-        <div class="condition-options">
-
-          <label class="condition-option">
-            <input type="radio" name="condition" checked>
-            <div class="option-content">
-              <div>
-                <div class="option-title">Sangat Baik</div>
-                <div class="option-desc">Mesin & body mulus</div>
-              </div>
-            </div>
-          </label>
-
-          <label class="condition-option">
-            <input type="radio" name="condition">
-            <div class="option-content">
-              <div>
-                <div class="option-title">Normal</div>
-                <div class="option-desc">Pemakaian wajar</div>
-              </div>
-            </div>
-          </label>
-
-          <label class="condition-option">
-            <input type="radio" name="condition">
-            <div class="option-content">
-              <div>
-                <div class="option-title">Perlu Perbaikan</div>
-                <div class="option-desc">Ada kerusakan ringan</div>
-              </div>
-            </div>
-          </label>
-
-        </div>
-      </div>
-
-      <!-- Photo Upload -->
       <div class="form-group">
-        <label>Foto Motor (Opsional)</label>
-        <div class="photo-upload">
-          <div class="upload-area">
-            <div class="upload-icon">📷</div>
-            <div class="upload-text">Foto Depan</div>
-          </div>
-          <div class="upload-area">
-            <div class="upload-icon">📷</div>
-            <div class="upload-text">Foto Samping</div>
-          </div>
-        </div>
+        <label for="cc">CC</label>
+        <select id="cc" name="cc">
+          <option value="">Pilih CC</option>
+          <option value="110">110</option>
+          <option value="125">125</option>
+          <option value="150">150</option>
+          <option value="160">160</option>
+          <option value="250">250</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="mileage">Kilometer</label>
+      <input type="range" id="mileageSlider" min="0" max="100000" step="1000">
+      <div id="mileage" class="mileage-display">0 km</div>
+    </div>
+
+    <button class="btn-primary" onclick="nextStep()">Lanjut</button>
+  </section>
+
+  <!-- ================= STEP 2 ================= -->
+  <section id="step2" class="form-step">
+
+    <h2>Kondisi Motor</h2>
+
+    <div class="condition-options">
+      <label class="option-card">
+        <input type="radio" name="condition" value="excellent">
+        <span>Sangat Baik</span>
+      </label>
+
+      <label class="option-card">
+        <input type="radio" name="condition" value="good">
+        <span>Baik</span>
+      </label>
+
+      <label class="option-card">
+        <input type="radio" name="condition" value="fair">
+        <span>Cukup</span>
+      </label>
+    </div>
+
+    <button class="btn-secondary" onclick="prevStep()">Kembali</button>
+    <button class="btn-primary" onclick="nextStep()">Lanjut</button>
+  </section>
+
+  <!-- ================= STEP 3 ================= -->
+  <section id="step3" class="form-step">
+
+    <h2>Upload Foto Motor</h2>
+
+    <div class="upload-grid">
+      <div class="upload-area" id="photo-front">
+        <input type="file" accept="image/*">
+        <span>Depan</span>
       </div>
 
-      <!-- Navigation -->
-      <div class="form-navigation">
-        <button class="btn-next">Lanjutkan</button>
+      <div class="upload-area" id="photo-back">
+        <input type="file" accept="image/*">
+        <span>Belakang</span>
       </div>
-    </section>
 
-  </div>
+      <div class="upload-area" id="photo-side">
+        <input type="file" accept="image/*">
+        <span>Samping</span>
+      </div>
+    </div>
+
+    <button class="btn-secondary" onclick="prevStep()">Kembali</button>
+    <button class="btn-primary" onclick="nextStep()">Hitung Estimasi</button>
+  </section>
+
+  <!-- ================= STEP 4 ================= -->
+  <section id="step4" class="form-step">
+
+    <h2>Hasil Estimasi</h2>
+
+    <div class="estimation-box">
+      <p>Estimasi Nilai:</p>
+      <h3>
+        Rp <span id="estimatedValueMin"></span> – Rp
+        <span id="estimatedValueMax"></span>
+      </h3>
+
+      <ul class="breakdown-list">
+        <li>Harga Dasar: <span id="basePrice"></span></li>
+        <li>Penyesuaian Tahun: <span id="yearAdjustment"></span></li>
+        <li>Kondisi: <span id="conditionAdjustment"></span></li>
+        <li><strong>Total: <span id="finalEstimate"></span></strong></li>
+      </ul>
+    </div>
+
+    <a id="whatsappButton" class="btn-primary" target="_blank">
+      Hubungi via WhatsApp
+    </a>
+
+    <button class="btn-secondary" onclick="prevStep()">Kembali</button>
+  </section>
+
 </main>
 
-<!-- ================= Footer (由 main.css 控制) ================= -->
-<footer></footer says controlled by main.css>
+<!-- ================= FOOTER（由 main.css 控制，不动） ================= -->
+<footer class="site-footer">
+  <!-- 你的原 footer -->
+</footer>
 
+<script src="/js/assessment.js"></script>
 </body>
 </html>
