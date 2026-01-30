@@ -9,13 +9,12 @@
 }
 
 .assessment-banner h1 {
-  font-size: 2.2rem;
   color: var(--secondary-color);
   margin-bottom: 0.8rem;
+  line-height: 1.2;
 }
 
 .assessment-banner .subtitle {
-  font-size: 1.1rem;
   color: var(--text-light);
   margin-bottom: 1.5rem;
   max-width: 600px;
@@ -55,7 +54,6 @@
   padding: 0.4rem;
   background: var(--dark-color);
   transition: all 0.3s ease;
-  font-size: 0.9rem;
 }
 
 .progress-step.active {
@@ -121,14 +119,15 @@
   color: var(--secondary-color);
   margin-bottom: 1.8rem;
   text-align: center;
-  font-size: 1.6rem;
+  line-height: 1.2;
 }
 
 .brand-selection {
   display: flex;
-  gap: 20px;
+  gap: 18px;
   justify-content: center;
   margin: 20px 0 1.5rem;
+  flex-wrap: wrap;
 }
 
 .brand-option {
@@ -140,6 +139,7 @@
   border: 2px solid transparent;
   transition: all 0.25s ease;
   user-select: none;
+  min-width: 110px;
 }
 
 .brand-option:hover {
@@ -156,8 +156,8 @@
 
 /* Logo */
 .brand-logo-img {
-  width: 82px;
-  height: 38px;
+  width: 80px;
+  height: 36px;
   object-fit: contain;
   display: block;
   margin: 0 auto 6px;
@@ -177,17 +177,17 @@
 }
 
 .brand-name {
-  font-size: 13px;
   font-weight: 600;
   pointer-events: none;
+  display: block;
 }
 
 /* 表单项布局 */
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.3rem;
-  margin-bottom: 1.3rem;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
 @media (max-width: 768px) {
@@ -198,7 +198,7 @@
 }
 
 .form-group {
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.2rem;
 }
 
 .form-group label {
@@ -206,7 +206,6 @@
   margin-bottom: 0.4rem;
   color: var(--text-light);
   font-weight: 600;
-  font-size: 0.92rem;
 }
 
 /* 里程滑块 */
@@ -236,7 +235,6 @@
   display: flex;
   justify-content: space-between;
   margin-top: 0.4rem;
-  font-size: 0.78rem;
   color: var(--text-muted);
 }
 
@@ -248,7 +246,7 @@
 .condition-section h3 {
   color: var(--text-light);
   margin-bottom: 0.9rem;
-  font-size: 1.05rem;
+  line-height: 1.2;
 }
 
 .condition-options {
@@ -278,7 +276,7 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1.5px solid transparent;
   border-radius: var(--border-radius);
-  padding: 1.3rem 0.9rem;
+  padding: 1.2rem 0.8rem;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -286,6 +284,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
+  height: 100%;
 }
 
 .condition-option input[type="radio"]:checked + .option-content {
@@ -300,18 +299,23 @@
 
 .option-icon {
   font-size: 1.8rem;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .option-title {
   color: var(--text-light);
   font-weight: 600;
-  font-size: 0.95rem;
 }
 
 .option-desc {
   color: var(--text-muted);
-  font-size: 0.82rem;
   line-height: 1.3;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
 }
 
 /* 照片上传 */
@@ -339,7 +343,7 @@
   background: rgba(255, 255, 255, 0.05);
   border: 2px dashed rgba(255, 255, 255, 0.2);
   border-radius: var(--border-radius);
-  padding: 1.8rem 0.9rem;
+  padding: 1.6rem 0.8rem;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -372,7 +376,6 @@
 
 .upload-text {
   color: var(--text-light);
-  font-size: 0.86rem;
   transition: opacity 0.3s ease;
 }
 
@@ -380,10 +383,9 @@
   background: rgba(245, 197, 66, 0.1);
   border-radius: var(--border-radius);
   padding: 0.9rem;
-  margin: 1.3rem 0;
+  margin: 1.2rem 0;
   border-left: 3px solid var(--secondary-color);
   color: var(--text-light);
-  font-size: 0.86rem;
   line-height: 1.4;
 }
 
@@ -401,7 +403,6 @@
   border-radius: 50px;
   border: none;
   font-weight: 600;
-  font-size: 0.95rem;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -431,7 +432,6 @@
 .btn-submit {
   background: linear-gradient(135deg, #f5c542, #e0b339);
   color: var(--dark-color);
-  font-size: 1rem;
   padding: 0.9rem 2.5rem;
 }
 
@@ -449,7 +449,7 @@
 .estimation-card {
   background: linear-gradient(135deg, rgba(15, 76, 129, 0.3), rgba(245, 197, 66, 0.1));
   border-radius: var(--border-radius-lg);
-  padding: 2.2rem;
+  padding: 2rem;
   margin-bottom: 1.8rem;
   border: 1px solid rgba(245, 197, 66, 0.2);
   animation: resultAppear 0.7s ease;
@@ -472,21 +472,21 @@
 }
 
 .estimation-icon {
-  font-size: 2.7rem;
+  font-size: 2.5rem;
   display: block;
   margin-bottom: 0.9rem;
 }
 
 .estimation-header h3 {
   color: var(--text-light);
-  font-size: 1.2rem;
   font-weight: 600;
+  line-height: 1.2;
 }
 
 .estimation-value {
   text-align: center;
   margin-bottom: 1.8rem;
-  padding: 1.3rem;
+  padding: 1.2rem;
   background: rgba(11, 44, 74, 0.8);
   border-radius: var(--border-radius);
   border: 1.5px solid var(--secondary-color);
@@ -508,13 +508,11 @@
 }
 
 .range-label {
-  font-size: 0.86rem;
   color: var(--text-light);
   margin-bottom: 0.4rem;
 }
 
 .range-separator {
-  font-size: 1.4rem;
   color: var(--secondary-color);
   font-weight: bold;
 }
@@ -526,42 +524,38 @@
 }
 
 .average-label {
-  font-size: 0.95rem;
   color: var(--text-light);
   margin-right: 0.4rem;
 }
 
 .currency {
   color: var(--secondary-color);
-  font-size: 1.4rem;
   font-weight: bold;
 }
 
 .value {
-  font-size: 2.2rem;
   font-weight: 900;
   color: var(--secondary-color);
   margin: 0 0.25rem;
+  line-height: 1;
 }
 
 .range {
   color: var(--text-light);
-  font-size: 1.1rem;
   opacity: 0.8;
 }
 
 .estimation-details {
   background: rgba(255, 255, 255, 0.05);
   border-radius: var(--border-radius);
-  padding: 1.3rem;
-  margin-bottom: 1.3rem;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
 .estimation-details p {
   color: var(--text-light);
   margin-bottom: 0.9rem;
   font-weight: 600;
-  font-size: 0.95rem;
 }
 
 .breakdown-list {
@@ -570,11 +564,10 @@
 }
 
 .breakdown-list li {
-  padding: 0.45rem 0;
+  padding: 0.4rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: space-between;
-  font-size: 0.88rem;
 }
 
 .breakdown-list li:last-child {
@@ -587,13 +580,13 @@
 }
 
 .adjustment-info {
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.2rem;
 }
 
 .adjustment-info h4 {
   color: var(--secondary-color);
   margin-bottom: 0.9rem;
-  font-size: 1.05rem;
+  line-height: 1.2;
 }
 
 .adjustment-factors {
@@ -618,7 +611,6 @@
 }
 
 .factor-icon {
-  font-size: 1.1rem;
   color: var(--secondary-color);
   flex-shrink: 0;
 }
@@ -626,14 +618,13 @@
 .factor-item p {
   margin: 0;
   color: var(--text-light);
-  font-size: 0.86rem;
   line-height: 1.4;
 }
 
 .estimation-note {
   background: rgba(245, 197, 66, 0.1);
   border-radius: var(--border-radius);
-  padding: 1.3rem;
+  padding: 1.2rem;
   border-left: 3px solid var(--secondary-color);
 }
 
@@ -641,18 +632,16 @@
   color: var(--secondary-color);
   margin-bottom: 0.7rem;
   font-weight: 600;
-  font-size: 0.95rem;
 }
 
 .estimation-note ul {
   color: var(--text-light);
   list-style: none;
   padding-left: 0.9rem;
-  font-size: 0.86rem;
 }
 
 .estimation-note li {
-  padding: 0.25rem 0;
+  padding: 0.2rem 0;
   position: relative;
 }
 
@@ -681,7 +670,6 @@
   border-radius: var(--border-radius);
   text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
@@ -733,14 +721,14 @@
   color: var(--secondary-color);
   margin-bottom: 1.3rem;
   text-align: center;
-  font-size: 1.1rem;
+  line-height: 1.2;
 }
 
 .adjustment-process {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.3rem;
-  margin-bottom: 1.3rem;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
 @media (max-width: 768px) {
@@ -760,8 +748,8 @@
 }
 
 .step-number {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   background: var(--secondary-color);
   color: var(--dark-color);
   border-radius: 50%;
@@ -769,13 +757,11 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  margin: 0 auto 0.9rem;
-  font-size: 0.9rem;
+  margin: 0 auto 0.8rem;
 }
 
 .process-step p {
   color: var(--text-light);
-  font-size: 0.86rem;
   margin: 0;
   line-height: 1.4;
 }
@@ -783,13 +769,12 @@
 .process-step p strong {
   color: var(--secondary-color);
   display: block;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .process-note {
   text-align: center;
   color: var(--text-muted);
-  font-size: 0.86rem;
   font-style: italic;
   margin: 0;
 }
@@ -805,7 +790,7 @@
   text-align: center;
   color: var(--secondary-color);
   margin-bottom: 1.8rem;
-  font-size: 1.6rem;
+  line-height: 1.2;
 }
 
 .faq-list {
@@ -822,7 +807,7 @@
 }
 
 .faq-question {
-  padding: 1.3rem;
+  padding: 1.2rem;
   color: var(--text-light);
   font-weight: 600;
   cursor: pointer;
@@ -830,7 +815,6 @@
   justify-content: space-between;
   align-items: center;
   transition: background 0.3s ease;
-  font-size: 0.95rem;
 }
 
 .faq-question:hover {
@@ -841,7 +825,6 @@
   content: '▶';
   color: var(--secondary-color);
   transition: transform 0.3s ease;
-  font-size: 0.9rem;
 }
 
 .faq-item.active .faq-question::after {
@@ -849,11 +832,10 @@
 }
 
 .faq-answer {
-  padding: 0 1.3rem 1.3rem;
+  padding: 0 1.2rem 1.2rem;
   color: var(--text-muted);
   line-height: 1.5;
   display: none;
-  font-size: 0.88rem;
 }
 
 .faq-item.active .faq-answer {
@@ -879,7 +861,6 @@ select {
   border: 1px solid rgba(255, 255, 255, 0.3) !important;
   padding: 13px 15px !important;
   border-radius: 10px !important;
-  font-size: 15px !important;
   width: 100% !important;
   box-sizing: border-box !important;
   margin-top: 5px !important;
@@ -909,7 +890,6 @@ select option {
   color: white !important;
   padding: 13px 15px !important;
   border-radius: 10px !important;
-  font-size: 15px !important;
   width: 100% !important;
   box-sizing: border-box !important;
   margin-top: 5px !important;
@@ -934,7 +914,6 @@ select:hover {
 .assessment-container ::placeholder {
   color: rgba(255, 255, 255, 0.6) !important;
   opacity: 1 !important;
-  font-size: 14px !important;
 }
 
 select:disabled {
@@ -966,19 +945,29 @@ select:disabled {
 /* 手机端 */
 @media (max-width: 600px) {
   .brand-selection {
-    gap: 10px;
+    gap: 12px;
   }
   
   .brand-logo-img {
     width: 70px;
-    height: 34px;
+    height: 32px;
+  }
+  
+  .brand-option {
+    min-width: 90px;
+    padding: 10px 12px;
   }
 }
 
 @media (max-width: 480px) {
   .brand-logo-img {
     width: 60px !important;
-    height: 30px !important;
+    height: 28px !important;
+  }
+  
+  .brand-option {
+    min-width: 80px;
+    padding: 8px 10px;
   }
 }
 
@@ -989,12 +978,10 @@ select:disabled {
   }
   
   .assessment-banner h1 {
-    font-size: 1.7rem !important;
     margin-bottom: 0.7rem !important;
   }
   
   .assessment-banner .subtitle {
-    font-size: 0.95rem !important;
     margin-bottom: 1.3rem !important;
     line-height: 1.3;
   }
@@ -1007,20 +994,24 @@ select:disabled {
     width: 16px;
     height: 16px;
   }
+  
+  .estimation-card {
+    padding: 1.5rem;
+  }
+  
+  .value {
+    font-size: 2rem !important; /* 防止评估结果数字过大 */
+  }
 }
 
 @media (max-width: 480px) {
   .assessment-banner {
-    padding: 1.3rem 0 1rem !important;
-  }
-  
-  .assessment-banner h1 {
-    font-size: 1.4rem !important;
+    padding: 1.5rem 0 1rem !important;
   }
   
   .brand-logo-img {
     width: 55px !important;
-    height: 28px !important;
+    height: 26px !important;
   }
   
   .condition-options {
@@ -1031,6 +1022,10 @@ select:disabled {
     width: 15px;
     height: 15px;
     margin-right: 3px;
+  }
+  
+  .value {
+    font-size: 1.8rem !important; /* 手机端评估结果数字适当减小 */
   }
 }
 
@@ -1050,7 +1045,6 @@ footer {
 }
 
 .copyright {
-  font-size: 1.1rem;
   margin-bottom: 0.25rem;
   line-height: 1.1;
 }
@@ -1063,7 +1057,6 @@ footer {
 .company-info {
   color: var(--text-muted);
   margin-bottom: 0.7rem;
-  font-size: 0.95rem;
   line-height: 1.2;
   padding: 0 0.5rem;
 }
@@ -1085,7 +1078,6 @@ footer {
   color: var(--text-light);
   text-decoration: none;
   transition: all 0.3s ease;
-  font-size: 0.95rem;
   padding: 5px 10px;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.1);
@@ -1108,15 +1100,10 @@ footer {
   
   .contact-link {
     padding: 4px 8px;
-    font-size: 0.9rem;
   }
   
   footer {
     padding: var(--spacing-sm) 0;
-  }
-  
-  .copyright {
-    font-size: 1rem;
   }
 }
 
@@ -1136,8 +1123,8 @@ footer {
 
 /* 落地页信任区块（广告审核加分） */
 .trust-box {
-  margin: 1.3rem 0 0.9rem;
-  padding: 0.9rem 1rem;
+  margin: 1.2rem 0 0.8rem;
+  padding: 0.8rem 1rem;
   background: rgba(15, 76, 129, 0.35);
   border: 1px solid rgba(245, 197, 66, 0.35);
   border-radius: 12px;
@@ -1148,7 +1135,6 @@ footer {
 }
 
 .trust-item {
-  font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.3;
 }
