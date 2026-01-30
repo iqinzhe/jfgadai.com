@@ -1,0 +1,305 @@
+/* contact.css - 联系页面专用样式 */
+
+/* 面包屑导航 */
+.breadcrumb {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.breadcrumb a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* 顶部双栏布局 */
+.top-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+/* 统一标题样式 */
+.main-title {
+  color: var(--secondary-color);
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.main-title-icon {
+  margin-right: 12px;
+  font-size: 1.8rem;
+}
+
+/* 卡片样式 */
+.intro-card, .form-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.8rem;
+  border: 1px solid rgba(245, 197, 66, 0.2);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 介绍卡片内容 */
+.intro-desc {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #ffffff; 
+}
+
+.feature-icon {
+  color: var(--secondary-color);
+  margin-right: 10px;
+  font-size: 1.1rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.response-time {
+  background: rgba(245, 197, 66, 0.1);
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.response-time p {
+  margin: 0;
+  color: var(--secondary-color);
+}
+
+/* 统一的按钮样式 */
+.unified-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--secondary-color);
+  color: var(--dark-color);
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+}
+
+.unified-btn:hover {
+  background: #f0b630;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
+}
+
+/* 表单样式 */
+.form-desc {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.form-label.required::after {
+  content: " *";
+  color: #ff4757;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: var(--light-color);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px rgba(245, 197, 66, 0.2);
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+select.form-control {
+  cursor: pointer;
+}
+
+.form-textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.form-success {
+  background: rgba(46, 204, 113, 0.1);
+  border: 1px solid #2ecc71;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  margin: 1.5rem 0;
+  display: none;
+}
+
+.form-success h3 {
+  color: #2ecc71;
+  margin-bottom: 0.8rem;
+}
+
+.whatsapp-link {
+  color: #25D366;
+  text-decoration: underline;
+}
+
+.whatsapp-link:hover {
+  text-decoration: none;
+}
+
+.form-error {
+  background: rgba(255, 71, 87, 0.1);
+  border: 1px solid #ff4757;
+  border-radius: 8px;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  color: #ff6b81;
+  font-size: 0.9rem;
+  display: none;
+}
+
+.form-note {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+#loadingText {
+  display: none;
+}
+
+/* FAQ 手风琴样式调整 */
+.faq-section {
+  margin-top: 2rem;
+}
+
+.faq-section h2 {
+  text-align: center;
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+}
+
+.accordion {
+  max-width: 900px;
+  margin: 0 auto !important;
+}
+
+.accordion-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.accordion-header {
+  background: linear-gradient(135deg, rgba(11, 44, 74, 0.9) 0%, rgba(26, 82, 118, 0.9) 100%);
+  color: white;
+}
+
+.accordion-header:hover {
+  background: linear-gradient(135deg, rgba(26, 82, 118, 0.9) 0%, rgba(44, 62, 80, 0.9) 100%);
+}
+
+.accordion-header.active {
+  background: linear-gradient(135deg, rgba(39, 174, 96, 0.9) 0%, rgba(46, 204, 113, 0.9) 100%);
+}
+
+.accordion-content .edu-content {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .top-section {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .breadcrumb {
+    display: none;
+  }
+  
+  .intro-card, .form-card {
+    padding: 1.5rem;
+  }
+  
+  .main-title {
+    font-size: 1.4rem;
+  }
+  
+  .main-title-icon {
+    font-size: 1.6rem;
+    margin-right: 10px;
+  }
+  
+  .intro-desc {
+    font-size: 0.95rem;
+  }
+  
+  .feature-item {
+    font-size: 0.9rem;
+  }
+  
+  .form-control {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+  
+  .faq-section h2 {
+    font-size: 1.4rem;
+  }
+  
+  .contact-link img {
+    margin-right: 6px;
+  }
+}
