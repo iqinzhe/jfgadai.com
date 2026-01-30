@@ -810,9 +810,9 @@
 
 /* 常见问题 - 更加紧凑 */
 .faq-section {
-  background: rgba(11, 44, 74, 0.9);
-  padding: 1.5rem 0;
-  margin-top: 2rem;
+  background: rgba(11, 44, 74, 0.9); /* 深蓝色背景，90%不透明度 */
+  padding: 1.1rem 0;                /* 上下内边距1.5rem，左右为0 */
+  margin-top: 1.5rem;                 /* 上外边距2rem */
 }
 
 .faq-section h2 {
