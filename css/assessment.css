@@ -9,7 +9,7 @@
   text-align: center;
 }
 
-.assessment-banner h2 {
+.assessment-banner h1 {
   color: var(--secondary-color);
   margin-bottom: 0.6rem;
   line-height: 1.0;
@@ -88,7 +88,7 @@
 
 /* 评估表单容器 */
 .assessment-container {
-  padding: 1.2rem 0 1.5rem;
+  padding: 1.0rem 0 1.2rem;
 }
 
 .assessment-form {
@@ -128,7 +128,7 @@
   display: flex;
   gap: 12px;
   justify-content: center;
-  margin: 1rem 0 1.2rem;
+  margin: 1.5rem 0 1.5rem;
   flex-wrap: wrap;
 }
 
@@ -247,7 +247,7 @@
 
 /* 车况选项 - 更加紧凑 */
 .condition-section {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.0rem;
 }
 
 .condition-section h3 {
@@ -408,7 +408,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
-  padding-top: 1.5rem;
+  padding-top: 1.0rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -811,9 +811,9 @@
 
 /* 常见问题 - 更加紧凑 */
 .faq-section {
-  background: rgba(11, 44, 74, 0.9);
-  padding: 1.5rem 0;
-  margin-top: 2rem;
+  background: rgba(11, 44, 74, 0.9); /* 深蓝色背景，90%不透明度 */
+  padding: 1.1rem 0;                /* 上下内边距1.5rem，左右为0 */
+  margin-top: 1.5rem;                 /* 上外边距2rem */
 }
 
 .faq-section h2 {
