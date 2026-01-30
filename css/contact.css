@@ -218,44 +218,112 @@ select.form-control {
   display: none;
 }
 
-/* FAQ 手风琴样式调整 */
+/* 常见问题 */
 .faq-section {
-  margin-top: 2rem;
+  background: rgba(11, 44, 74, 0.9); /* 深蓝色背景，90%不透明度 */
+  padding: 1.5rem 0;                /* 上下内边距1.5rem，左右为0 */
+  margin-top: 2rem;                 /* 上外边距2rem */
 }
 
 .faq-section h2 {
   text-align: center;
   color: var(--secondary-color);
   margin-bottom: 1.5rem;
+  line-height: 1.1;
   font-size: 1.6rem;
 }
 
-.accordion {
-  max-width: 900px;
-  margin: 0 auto !important;
+.faq-list {
+  max-width: 680px;
+  margin: 0 auto;
 }
 
-.accordion-item {
+.faq-item {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  margin-bottom: 0.8rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.accordion-header {
-  background: linear-gradient(135deg, rgba(11, 44, 74, 0.9) 0%, rgba(26, 82, 118, 0.9) 100%);
-  color: white;
+.faq-question {
+  padding: 1rem;
+  color: var(--text-light);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s ease;
+  font-size: 0.95em;
 }
 
-.accordion-header:hover {
-  background: linear-gradient(135deg, rgba(26, 82, 118, 0.9) 0%, rgba(44, 62, 80, 0.9) 100%);
+.faq-question:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.accordion-header.active {
-  background: linear-gradient(135deg, rgba(39, 174, 96, 0.9) 0%, rgba(46, 204, 113, 0.9) 100%);
+.faq-question::after {
+  content: '▶';
+  color: var(--secondary-color);
+  transition: transform 0.2s ease;
+  font-size: 0.8em;
 }
 
-.accordion-content .edu-content {
+.faq-item.active .faq-question::after {
+  transform: rotate(90deg);
+}
+
+.faq-answer {
+  padding: 0 1rem 1rem;
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.4;
+  display: none;
+  font-size: 0.9em;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 所有下拉框深色主题 */
+select {
+  background-color: #0b2c4a !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  padding: 11px 13px !important;
+  border-radius: 8px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin-top: 5px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 12px center !important;
+  background-size: 14px !important;
+  padding-right: 35px !important;
+  cursor: pointer !important;
+  font-size: 0.95em;
+}
+
+select option {
+  background-color: #0b2c4a !important;
+  color: #ffffff !important;
+  padding: 8px !important;
+  font-size: 0.9em;
 }
 
 /* 移动端优化 */
