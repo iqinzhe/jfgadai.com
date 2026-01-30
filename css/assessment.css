@@ -1,32 +1,34 @@
 /* ==================== 评估页面专用样式 ==================== */
 /* 注意：通用样式已在 main.css 中定义 */
+
 /* 评估页面横幅 */
 .assessment-banner {
   background: linear-gradient(135deg, rgba(15, 76, 129, 0.9), rgba(245, 197, 66, 0.2));
-  padding: 3rem 0;
+  padding: 2.5rem 0 2rem;
   text-align: center;
 }
 
 .assessment-banner h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   color: var(--secondary-color);
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .assessment-banner .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--text-light);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.4;
 }
 
 /* 进度条 */
 .progress-bar {
   display: flex;
   justify-content: space-between;
-  margin: 2rem auto 3rem;
+  margin: 1.8rem auto 2.5rem;
   position: relative;
   max-width: 800px;
 }
@@ -50,14 +52,15 @@
   flex: 1;
   color: var(--text-muted);
   font-weight: 600;
-  padding: 0.5rem;
+  padding: 0.4rem;
   background: var(--dark-color);
   transition: all 0.3s ease;
+  font-size: 0.9rem;
 }
 
 .progress-step.active {
   color: var(--secondary-color);
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .progress-step::before {
@@ -66,8 +69,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   z-index: -1;
@@ -80,23 +83,23 @@
 
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 rgba(245, 197, 66, 0.4); }
-  70% { box-shadow: 0 0 0 10px rgba(245, 197, 66, 0); }
+  70% { box-shadow: 0 0 0 8px rgba(245, 197, 66, 0); }
   100% { box-shadow: 0 0 0 0 rgba(245, 197, 66, 0); }
 }
 
 /* 评估表单容器 */
 .assessment-container {
-  padding: 2rem 0;
+  padding: 1.8rem 0 2rem;
 }
 
 .assessment-form {
-  max-width: 800px;
+  max-width: 780px;
   margin: 0 auto;
 }
 
 .form-step {
   display: none;
-  animation: slideIn 0.5s ease;
+  animation: slideIn 0.4s ease;
 }
 
 .form-step.active {
@@ -106,7 +109,7 @@
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateX(20px);
+    transform: translateX(15px);
   }
   to {
     opacity: 1;
@@ -116,23 +119,23 @@
 
 .form-step h2 {
   color: var(--secondary-color);
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .brand-selection {
   display: flex;
-  gap: 24px;
+  gap: 20px;
   justify-content: center;
-  margin: 24px 0;
+  margin: 20px 0 1.5rem;
 }
 
 .brand-option {
   cursor: pointer;
   text-align: center;
-  padding: 14px 18px;
-  border-radius: 14px;
+  padding: 12px 16px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.04);
   border: 2px solid transparent;
   transition: all 0.25s ease;
@@ -142,71 +145,49 @@
 .brand-option:hover {
   transform: translateY(-2px);
   background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
 .brand-option.active {
   background: rgba(245, 197, 66, 0.1);
   border-color: var(--secondary-color);
-  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
+  box-shadow: 0 3px 10px rgba(245, 197, 66, 0.2);
 }
 
 /* Logo */
 .brand-logo-img {
-  width: 88px;
-  height: 42px;
+  width: 82px;
+  height: 38px;
   object-fit: contain;
   display: block;
-  margin: 0 auto 8px;
+  margin: 0 auto 6px;
   pointer-events: none;
   transition: all 0.25s ease;
 }
 
-/* 品牌Logo悬停效果 */
 .brand-option:hover .brand-logo-img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
-/* 选中状态 */
 .brand-option.active .brand-logo-img {
-  border: 2px solid #f5c542;
-  padding: 2px;
-  border-radius: 4px;
-  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.3);
+  border: 1.5px solid #f5c542;
+  padding: 1px;
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px rgba(245, 197, 66, 0.25);
 }
 
-/* 文本 */
 .brand-name {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   pointer-events: none;
-}
-
-/* 手机端 */
-@media (max-width: 600px) {
-  .brand-selection {
-    gap: 12px;
-  }
-  
-  .brand-logo-img {
-    width: 72px;
-    height: 36px;
-  }
-}
-
-@media (max-width: 480px) {
-  .brand-logo-img {
-    width: 65px !important;
-    height: 32px !important;
-  }
 }
 
 /* 表单项布局 */
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 1.3rem;
+  margin-bottom: 1.3rem;
 }
 
 @media (max-width: 768px) {
@@ -217,25 +198,25 @@
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.3rem;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   color: var(--text-light);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
 }
 
 /* 里程滑块 */
 .mileage-slider {
-  margin-top: 1rem;
+  margin-top: 0.8rem;
 }
 
 .mileage-slider input[type="range"] {
   width: 100%;
-  height: 6px;
+  height: 5px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 3px;
   outline: none;
@@ -244,8 +225,8 @@
 
 .mileage-slider input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background: var(--secondary-color);
   border-radius: 50%;
   cursor: pointer;
@@ -254,26 +235,26 @@
 .mileage-labels {
   display: flex;
   justify-content: space-between;
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
 }
 
 /* 车况选项 */
 .condition-section {
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
 }
 
 .condition-section h3 {
   color: var(--text-light);
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+  margin-bottom: 0.9rem;
+  font-size: 1.05rem;
 }
 
 .condition-options {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 0.9rem;
 }
 
 @media (max-width: 768px) {
@@ -295,16 +276,16 @@
 
 .option-content {
   background: rgba(255, 255, 255, 0.05);
-  border: 2px solid transparent;
+  border: 1.5px solid transparent;
   border-radius: var(--border-radius);
-  padding: 1.5rem 1rem;
+  padding: 1.3rem 0.9rem;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .condition-option input[type="radio"]:checked + .option-content {
@@ -318,27 +299,27 @@
 }
 
 .option-icon {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .option-title {
   color: var(--text-light);
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .option-desc {
   color: var(--text-muted);
-  font-size: 0.85rem;
-  line-height: 1.4;
+  font-size: 0.82rem;
+  line-height: 1.3;
 }
 
 /* 照片上传 */
 .photo-upload {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: 0.5rem;
+  gap: 0.9rem;
+  margin-top: 0.4rem;
 }
 
 @media (max-width: 768px) {
@@ -358,7 +339,7 @@
   background: rgba(255, 255, 255, 0.05);
   border: 2px dashed rgba(255, 255, 255, 0.2);
   border-radius: var(--border-radius);
-  padding: 2rem 1rem;
+  padding: 1.8rem 0.9rem;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -366,8 +347,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  height: 120px;
+  gap: 0.4rem;
+  height: 110px;
   overflow: hidden;
 }
 
@@ -384,42 +365,43 @@
 }
 
 .upload-icon {
-  font-size: 2rem;
+  font-size: 1.8rem;
   opacity: 0.7;
   transition: opacity 0.3s ease;
 }
 
 .upload-text {
   color: var(--text-light);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   transition: opacity 0.3s ease;
 }
 
 .form-note {
   background: rgba(245, 197, 66, 0.1);
   border-radius: var(--border-radius);
-  padding: 1rem;
-  margin: 1.5rem 0;
-  border-left: 4px solid var(--secondary-color);
+  padding: 0.9rem;
+  margin: 1.3rem 0;
+  border-left: 3px solid var(--secondary-color);
   color: var(--text-light);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
+  line-height: 1.4;
 }
 
 /* 表单导航 */
 .form-navigation {
   display: flex;
   justify-content: space-between;
-  margin-top: 3rem;
-  padding-top: 2rem;
+  margin-top: 2.5rem;
+  padding-top: 1.8rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-prev, .btn-next, .btn-submit {
-  padding: 0.8rem 2rem;
+  padding: 0.75rem 1.8rem;
   border-radius: 50px;
   border: none;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -427,7 +409,7 @@
 .btn-prev {
   background: transparent;
   color: var(--text-light);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn-prev:hover {
@@ -443,40 +425,40 @@
 .btn-next:hover {
   background: var(--secondary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.4);
+  box-shadow: 0 3px 10px rgba(245, 197, 66, 0.3);
 }
 
 .btn-submit {
   background: linear-gradient(135deg, #f5c542, #e0b339);
   color: var(--dark-color);
-  font-size: 1.1rem;
-  padding: 1rem 3rem;
+  font-size: 1rem;
+  padding: 0.9rem 2.5rem;
 }
 
 .btn-submit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(245, 197, 66, 0.5);
+  box-shadow: 0 4px 15px rgba(245, 197, 66, 0.4);
 }
 
 /* 评估结果 */
 .estimation-result {
-  max-width: 600px;
+  max-width: 580px;
   margin: 0 auto;
 }
 
 .estimation-card {
   background: linear-gradient(135deg, rgba(15, 76, 129, 0.3), rgba(245, 197, 66, 0.1));
   border-radius: var(--border-radius-lg);
-  padding: 2.5rem;
-  margin-bottom: 2rem;
+  padding: 2.2rem;
+  margin-bottom: 1.8rem;
   border: 1px solid rgba(245, 197, 66, 0.2);
-  animation: resultAppear 0.8s ease;
+  animation: resultAppear 0.7s ease;
 }
 
 @keyframes resultAppear {
   from {
     opacity: 0;
-    transform: translateY(30px) scale(0.95);
+    transform: translateY(25px) scale(0.96);
   }
   to {
     opacity: 1;
@@ -486,36 +468,36 @@
 
 .estimation-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
 }
 
 .estimation-icon {
-  font-size: 3rem;
+  font-size: 2.7rem;
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
 }
 
 .estimation-header h3 {
   color: var(--text-light);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
 .estimation-value {
   text-align: center;
-  margin-bottom: 2rem;
-  padding: 1.5rem;
+  margin-bottom: 1.8rem;
+  padding: 1.3rem;
   background: rgba(11, 44, 74, 0.8);
   border-radius: var(--border-radius);
-  border: 2px solid var(--secondary-color);
+  border: 1.5px solid var(--secondary-color);
 }
 
 .value-range {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 0.9rem;
+  margin-bottom: 0.9rem;
   flex-wrap: wrap;
 }
 
@@ -526,59 +508,60 @@
 }
 
 .range-label {
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   color: var(--text-light);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .range-separator {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: var(--secondary-color);
   font-weight: bold;
 }
 
 .value-average {
-  margin-top: 1rem;
-  padding-top: 1rem;
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .average-label {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-light);
-  margin-right: 0.5rem;
+  margin-right: 0.4rem;
 }
 
 .currency {
   color: var(--secondary-color);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
 }
 
 .value {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 900;
   color: var(--secondary-color);
-  margin: 0 0.3rem;
+  margin: 0 0.25rem;
 }
 
 .range {
   color: var(--text-light);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   opacity: 0.8;
 }
 
 .estimation-details {
   background: rgba(255, 255, 255, 0.05);
   border-radius: var(--border-radius);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  padding: 1.3rem;
+  margin-bottom: 1.3rem;
 }
 
 .estimation-details p {
   color: var(--text-light);
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
   font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .breakdown-list {
@@ -587,10 +570,11 @@
 }
 
 .breakdown-list li {
-  padding: 0.5rem 0;
+  padding: 0.45rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: space-between;
+  font-size: 0.88rem;
 }
 
 .breakdown-list li:last-child {
@@ -603,18 +587,19 @@
 }
 
 .adjustment-info {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.3rem;
 }
 
 .adjustment-info h4 {
   color: var(--secondary-color);
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
+  font-size: 1.05rem;
 }
 
 .adjustment-factors {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 0.9rem;
 }
 
 @media (max-width: 768px) {
@@ -626,14 +611,14 @@
 .factor-item {
   display: flex;
   align-items: flex-start;
-  gap: 0.8rem;
-  padding: 0.8rem;
+  gap: 0.7rem;
+  padding: 0.7rem;
   background: rgba(255, 255, 255, 0.03);
   border-radius: var(--border-radius);
 }
 
 .factor-icon {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--secondary-color);
   flex-shrink: 0;
 }
@@ -641,30 +626,33 @@
 .factor-item p {
   margin: 0;
   color: var(--text-light);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
+  line-height: 1.4;
 }
 
 .estimation-note {
   background: rgba(245, 197, 66, 0.1);
   border-radius: var(--border-radius);
-  padding: 1.5rem;
-  border-left: 4px solid var(--secondary-color);
+  padding: 1.3rem;
+  border-left: 3px solid var(--secondary-color);
 }
 
 .estimation-note p {
   color: var(--secondary-color);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.7rem;
   font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .estimation-note ul {
   color: var(--text-light);
   list-style: none;
-  padding-left: 1rem;
+  padding-left: 0.9rem;
+  font-size: 0.86rem;
 }
 
 .estimation-note li {
-  padding: 0.3rem 0;
+  padding: 0.25rem 0;
   position: relative;
 }
 
@@ -673,27 +661,27 @@
   color: var(--secondary-color);
   font-weight: bold;
   position: absolute;
-  left: -1rem;
+  left: -0.9rem;
 }
 
 /* 行动按钮 */
 .action-buttons {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 0.9rem;
+  margin-bottom: 1.8rem;
 }
 
 .btn-whatsapp, .btn-recalculate, .btn-home {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.8rem;
-  padding: 1rem;
+  gap: 0.7rem;
+  padding: 0.9rem;
   border-radius: var(--border-radius);
   text-decoration: none;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
@@ -708,13 +696,13 @@
 .btn-whatsapp:hover {
   background: #128C7E;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
 }
 
 .btn-recalculate {
   background: rgba(255, 255, 255, 0.1);
   color: var(--text-light);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-recalculate:hover {
@@ -725,7 +713,7 @@
 .btn-home {
   background: transparent;
   color: var(--text-light);
-  border: 2px solid var(--secondary-color);
+  border: 1.5px solid var(--secondary-color);
 }
 
 .btn-home:hover {
@@ -737,22 +725,22 @@
 .manual-adjustment {
   background: rgba(15, 76, 129, 0.3);
   border-radius: var(--border-radius-lg);
-  padding: 2rem;
-  margin-top: 2rem;
+  padding: 1.8rem;
+  margin-top: 1.8rem;
 }
 
 .manual-adjustment h4 {
   color: var(--secondary-color);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.3rem;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .adjustment-process {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 1.3rem;
+  margin-bottom: 1.3rem;
 }
 
 @media (max-width: 768px) {
@@ -772,8 +760,8 @@
 }
 
 .step-number {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   background: var(--secondary-color);
   color: var(--dark-color);
   border-radius: 50%;
@@ -781,25 +769,27 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  margin: 0 auto 1rem;
+  margin: 0 auto 0.9rem;
+  font-size: 0.9rem;
 }
 
 .process-step p {
   color: var(--text-light);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   margin: 0;
+  line-height: 1.4;
 }
 
 .process-step p strong {
   color: var(--secondary-color);
   display: block;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
 }
 
 .process-note {
   text-align: center;
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   font-style: italic;
   margin: 0;
 }
@@ -807,32 +797,32 @@
 /* 常见问题 */
 .faq-section {
   background: rgba(11, 44, 74, 0.9);
-  padding: 3rem 0;
-  margin-top: 3rem;
+  padding: 2.5rem 0;
+  margin-top: 2.5rem;
 }
 
 .faq-section h2 {
   text-align: center;
   color: var(--secondary-color);
-  margin-bottom: 2rem;
-  font-size: 1.8rem;
+  margin-bottom: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .faq-list {
-  max-width: 800px;
+  max-width: 780px;
   margin: 0 auto;
 }
 
 .faq-item {
   background: rgba(255, 255, 255, 0.05);
   border-radius: var(--border-radius);
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .faq-question {
-  padding: 1.5rem;
+  padding: 1.3rem;
   color: var(--text-light);
   font-weight: 600;
   cursor: pointer;
@@ -840,6 +830,7 @@
   justify-content: space-between;
   align-items: center;
   transition: background 0.3s ease;
+  font-size: 0.95rem;
 }
 
 .faq-question:hover {
@@ -850,6 +841,7 @@
   content: '▶';
   color: var(--secondary-color);
   transition: transform 0.3s ease;
+  font-size: 0.9rem;
 }
 
 .faq-item.active .faq-question::after {
@@ -857,21 +849,22 @@
 }
 
 .faq-answer {
-  padding: 0 1.5rem 1.5rem;
+  padding: 0 1.3rem 1.3rem;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.5;
   display: none;
+  font-size: 0.88rem;
 }
 
 .faq-item.active .faq-answer {
   display: block;
-  animation: slideDown 0.3s ease;
+  animation: slideDown 0.25s ease;
 }
 
 @keyframes slideDown {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
   to {
     opacity: 1;
@@ -884,9 +877,9 @@ select {
   background-color: #0b2c4a !important;
   color: #ffffff !important;
   border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  padding: 14px 16px !important;
+  padding: 13px 15px !important;
   border-radius: 10px !important;
-  font-size: 16px !important;
+  font-size: 15px !important;
   width: 100% !important;
   box-sizing: border-box !important;
   margin-top: 5px !important;
@@ -895,17 +888,16 @@ select {
   -moz-appearance: none !important;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
   background-repeat: no-repeat !important;
-  background-position: right 16px center !important;
-  background-size: 16px !important;
-  padding-right: 45px !important;
+  background-position: right 15px center !important;
+  background-size: 15px !important;
+  padding-right: 40px !important;
   cursor: pointer !important;
 }
 
-/* 下拉选项 */
 select option {
   background-color: #0b2c4a !important;
   color: #ffffff !important;
-  padding: 12px !important;
+  padding: 10px !important;
 }
 
 /* 输入框 */
@@ -913,11 +905,11 @@ select option {
 .assessment-container input[type="number"],
 .assessment-container input[type="tel"] {
   background-color: rgba(255, 255, 255, 0.08) !important;
-  border: 2px solid rgba(255, 255, 255, 0.25) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
   color: white !important;
-  padding: 14px 16px !important;
+  padding: 13px 15px !important;
   border-radius: 10px !important;
-  font-size: 16px !important;
+  font-size: 15px !important;
   width: 100% !important;
   box-sizing: border-box !important;
   margin-top: 5px !important;
@@ -932,22 +924,19 @@ select:focus,
   outline: none !important;
   border-color: #f5c542 !important;
   background-color: rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.25) !important;
+  box-shadow: 0 0 0 2px rgba(245, 197, 66, 0.25) !important;
 }
 
-/* 悬停状态 */
 select:hover {
   border-color: rgba(255, 255, 255, 0.4) !important;
 }
 
-/* 占位符颜色 */
 .assessment-container ::placeholder {
   color: rgba(255, 255, 255, 0.6) !important;
   opacity: 1 !important;
-  font-size: 15px !important;
+  font-size: 14px !important;
 }
 
-/* 禁用状态 */
 select:disabled {
   background-color: rgba(11, 44, 74, 0.5) !important;
   color: rgba(255, 255, 255, 0.5) !important;
@@ -963,73 +952,85 @@ select:disabled {
 /* WhatsApp 图片样式优化 */
 .contact-link img {
   vertical-align: middle;
-  margin-right: 6px;
+  margin-right: 5px;
   opacity: 0.9;
   transition: opacity 0.3s ease;
 }
 
 .contact-link:hover img {
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.05);
   transition: all 0.3s ease;
+}
+
+/* 手机端 */
+@media (max-width: 600px) {
+  .brand-selection {
+    gap: 10px;
+  }
+  
+  .brand-logo-img {
+    width: 70px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-logo-img {
+    width: 60px !important;
+    height: 30px !important;
+  }
 }
 
 /* 响应式优化 */
 @media (max-width: 768px) {
   .assessment-banner {
-    padding: 2rem 0 1.5rem !important;
+    padding: 2rem 0 1.3rem !important;
   }
   
   .assessment-banner h1 {
-    font-size: 1.8rem !important;
-    margin-bottom: 0.8rem !important;
+    font-size: 1.7rem !important;
+    margin-bottom: 0.7rem !important;
   }
   
   .assessment-banner .subtitle {
-    font-size: 1rem !important;
-    margin-bottom: 1.5rem !important;
+    font-size: 0.95rem !important;
+    margin-bottom: 1.3rem !important;
+    line-height: 1.3;
   }
   
   .progress-bar {
-    margin: 1.5rem auto 2rem !important;
-  }
-  
-  .stats {
-    gap: 1.5rem !important;
-  }
-  
-  .stat-number {
-    font-size: 2rem !important;
-  }
-  
-  .contact-link img {
-    width: 18px;
-    height: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .assessment-banner {
-    padding: 1.5rem 0 1rem !important;
-  }
-  
-  .assessment-banner h1 {
-    font-size: 1.5rem !important;
-  }
-  
-  .brand-logo-img {
-    width: 65px !important;
-    height: 32px !important;
-  }
-  
-  .condition-options {
-    gap: 0.8rem !important;
+    margin: 1.3rem auto 1.8rem !important;
   }
   
   .contact-link img {
     width: 16px;
     height: 16px;
-    margin-right: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .assessment-banner {
+    padding: 1.3rem 0 1rem !important;
+  }
+  
+  .assessment-banner h1 {
+    font-size: 1.4rem !important;
+  }
+  
+  .brand-logo-img {
+    width: 55px !important;
+    height: 28px !important;
+  }
+  
+  .condition-options {
+    gap: 0.7rem !important;
+  }
+  
+  .contact-link img {
+    width: 15px;
+    height: 15px;
+    margin-right: 3px;
   }
 }
 
@@ -1049,8 +1050,8 @@ footer {
 }
 
 .copyright {
-  font-size: 1.15rem;
-  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
   line-height: 1.1;
 }
 
@@ -1061,9 +1062,9 @@ footer {
 
 .company-info {
   color: var(--text-muted);
-  margin-bottom: 0.8rem;
-  font-size: 1rem;
-  line-height: 1.25;
+  margin-bottom: 0.7rem;
+  font-size: 0.95rem;
+  line-height: 1.2;
   padding: 0 0.5rem;
 }
 
@@ -1072,28 +1073,26 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0.5rem auto;
-  padding: 0.4rem 0;
+  margin: 0.4rem auto;
+  padding: 0.3rem 0;
   max-width: 550px;
 }
 
-/* 联系电话的样式 - 添加可见背景框 */
 .contact-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.3rem;
   color: var(--text-light);
   text-decoration: none;
   transition: all 0.3s ease;
-  font-size: 1rem;
-  padding: 6px 12px;
+  font-size: 0.95rem;
+  padding: 5px 10px;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   white-space: nowrap;
 }
 
-/* 鼠标悬停效果 */
 .contact-link:hover {
   background: rgba(255, 255, 255, 0.2);
   border-color: var(--secondary-color);
@@ -1104,11 +1103,11 @@ footer {
 /* 移动端适配 */
 @media (max-width: 768px) {
   .contact-info {
-    gap: 0.8rem; /* 移动端间距更小 */
+    gap: 0.7rem;
   }
   
   .contact-link {
-    padding: 5px 5px;
+    padding: 4px 8px;
     font-size: 0.9rem;
   }
   
@@ -1117,41 +1116,41 @@ footer {
   }
   
   .copyright {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }
 
 /* 极窄屏幕（如手机竖屏）下的适配 */
 @media (max-width: 480px) {
   .contact-info {
-    flex-direction: column; /* 竖排排列 */
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 0.4rem;
   }
   
   .contact-link {
-    width: 100%; /* 占满宽度 */
-    justify-content: center; /* 内容居中 */
-    padding: 8px 15px; /* 增大内边距便于点击 */
+    width: 100%;
+    justify-content: center;
+    padding: 7px 12px;
   }
 }
 
 /* 落地页信任区块（广告审核加分） */
 .trust-box {
-  margin: 1.5rem 0 1rem;
-  padding: 1rem 1.2rem;
+  margin: 1.3rem 0 0.9rem;
+  padding: 0.9rem 1rem;
   background: rgba(15, 76, 129, 0.35);
   border: 1px solid rgba(245, 197, 66, 0.35);
   border-radius: 12px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.8rem;
+  gap: 0.7rem;
   text-align: center;
 }
 
 .trust-item {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.85);
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 .trust-item strong {
@@ -1162,5 +1161,7 @@ footer {
 @media (max-width: 768px) {
   .trust-box {
     grid-template-columns: 1fr;
+    padding: 0.8rem;
+    gap: 0.6rem;
   }
 }
