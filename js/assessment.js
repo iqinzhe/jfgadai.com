@@ -806,7 +806,7 @@ function resetForm() {
     if (hondaOption) {
       hondaOption.click();
     }
-    document.getElementById('cc').value = '150';
+    document.getElementById('cc').value = '125';
   }, 300);
   
   // 滚动到顶部
