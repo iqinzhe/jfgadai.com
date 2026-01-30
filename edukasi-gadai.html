@@ -915,18 +915,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
 <!-- 添加JS文件引用 -->
 <script src="js/main.js"></script>
 <script src="js/contact.js"></script>
-<script>
-  // 页面加载后默认打开第一个FAQ项
-  document.addEventListener('DOMContentLoaded', function() {
-    // 等待一小段时间让contact.js初始化完成
-    setTimeout(function() {
-      // 查找第一个FAQ项并点击打开
-      const firstFaqItem = document.querySelector('.faq-item');
-      if (firstFaqItem) {
-        firstFaqItem.classList.add('active');
-      }
-    }, 300);
-  });
-</script>
+
 </body>
 </html>
