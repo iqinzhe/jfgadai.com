@@ -1,19 +1,5 @@
 /* contact.css - 联系页面专用样式 */
 
-/* 面包屑导航 */
-.breadcrumb {
-  margin: 1rem 0;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-.breadcrumb a {
-  color: var(--secondary-color);
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  text-decoration: underline;
-}
-
 /* 顶部双栏布局 */
 .top-section {
   display: grid;
