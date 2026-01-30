@@ -152,6 +152,32 @@ Terima kasih.`;
     return `https://wa.me/6289515692586?text=${encodedMessage}`;
   }
   
+  // FAQ功能初始化
+  function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      
+      question.addEventListener('click', () => {
+        // 如果当前FAQ项已经是激活状态，则关闭它
+        if (item.classList.contains('active')) {
+          item.classList.remove('active');
+        } else {
+          // 关闭所有其他FAQ项
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+            }
+          });
+          
+          // 打开当前FAQ项
+          item.classList.add('active');
+        }
+      });
+    });
+  }
+  
   // 表单提交处理
   if (form) {
     form.addEventListener('submit', function(e) {
@@ -272,8 +298,6 @@ Terima kasih.`;
     });
   }
   
-  // 初始化手风琴（如果存在）
-  if (typeof window.eduAccordion !== 'undefined') {
-    window.eduAccordion.init();
-  }
+  // 初始化FAQ功能
+  initFAQ();
 });
