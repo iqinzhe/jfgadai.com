@@ -114,7 +114,6 @@ main.container {
   min-height: 100vh;
 }
 
-/* 手风琴功能样式 */
 /* 手风琴主容器 */
 .accordion {
   max-width: 900px;
@@ -375,24 +374,6 @@ main.container {
   background-color: #f1f7fd;
 }
 
-/* 返回首页按钮 */
-.back-to-home {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 0.8rem 1.5rem;
-  background: #0b2c4a;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background 0.3s;
-  font-size: 1.1rem;
-}
-
-.back-to-home:hover {
-  background: #2c3e50;
-}
-
 /* 4. 响应式设计 */
 @media (max-width: 768px) {
   /* 导航栏移动端适配 */
@@ -524,80 +505,5 @@ main.container {
   .back-to-home {
     padding: 0.7rem 1.2rem;
     font-size: 1rem;
-  }
-}
-
-/* 5. 页脚优化 */
-footer {
-  background: rgba(11, 44, 74, 0.9);
-  margin-top: 40px;
-  padding: 30px 0 20px;
-  border-top: 2px solid #2ecc71;
-}
-
-.footer-content {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.copyright {
-  font-size: 1.15rem;
-  margin-bottom: 0.3rem;
-  line-height: 1.1;
-  color: white;
-}
-
-.highlight {
-  color: #2ecc71;
-  font-weight: bold;
-}
-
-.company-info {
-  color: #aed6f1;
-  margin-bottom: 0.8rem;
-  font-size: 1rem;
-  line-height: 1.25;
-  padding: 0 0.5rem;
-}
-
-.contact-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: white;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-  padding: 6px 12px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  white-space: nowrap;
-  margin: 5px 0;
-}
-
-.contact-link:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #2ecc71;
-  color: #2ecc71;
-  transform: translateY(-2px);
-}
-
-.operating-hours,
-.security-note {
-  color: #aed6f1;
-  font-size: 0.9rem;
-  margin: 8px 0;
-}
-
-@media (max-width: 768px) {
-  footer {
-    padding: 20px 0 15px;
-  }
-  
-  .copyright {
-    font-size: 1.1rem;
   }
 }
