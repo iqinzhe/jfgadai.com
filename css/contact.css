@@ -356,4 +356,24 @@ select option {
   .contact-link img {
     margin-right: 6px;
   }
+  
+  /* 新增：FAQ问题在移动端的间距调整 */
+  .faq-question {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+  
+  /* 新增：确保问题和箭头之间有足够的空间 */
+  .faq-question::after {
+    margin-left: 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  /* 新增：确保答案在移动端有合适的间距 */
+  .faq-answer {
+    padding: 0 0.8rem 0.8rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
 }
