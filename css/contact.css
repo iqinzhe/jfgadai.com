@@ -377,3 +377,9 @@ select option {
     line-height: 1.4;
   }
 }
+
+/* 可选：如果问题列表包含数字序号，添加数字和文本之间的间距 */
+.faq-question {
+  padding-left: 1.2rem;
+  text-indent: -0.5rem;
+}
