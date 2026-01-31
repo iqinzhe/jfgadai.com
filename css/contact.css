@@ -206,9 +206,9 @@ select.form-control {
 
 /* 常见问题 */
 .faq-section {
-  background: rgba(11, 44, 74, 0.9); /* 深蓝色背景，90%不透明度 */
-  padding: 1.5rem 0;                /* 上下内边距1.5rem，左右为0 */
-  margin-top: 2rem;                 /* 上外边距2rem */
+  background: rgba(11, 44, 74, 0.9);
+  padding: 1.5rem 0;
+  margin-top: 2rem;
 }
 
 .faq-section h2 {
@@ -239,12 +239,10 @@ select.form-control {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-start; /* 关键：改为 flex-start 而不是 center */
   transition: background 0.2s ease;
   font-size: 0.95em;
-  text-align: left;
-  padding-left: 1rem !important;
-  text-indent: 0 !important;
+  position: relative;
 }
 
 .faq-question:hover {
@@ -264,16 +262,17 @@ select.form-control {
   transform: rotate(90deg);
 }
 
-/* 修复FAQ序号和标题之间的间距 */
+/* FAQ序号样式 */
 .faq-number {
   margin-right: 8px;
   font-weight: 600;
   color: var(--secondary-color);
   flex-shrink: 0;
+  min-width: 20px;
 }
 
-/* 确保标题文本正常显示 */
-.faq-question > :not(.faq-number) {
+/* FAQ标题文本 */
+.faq-question-text {
   flex: 1;
   white-space: normal;
   word-break: normal;
@@ -305,30 +304,30 @@ select.form-control {
 
 /* 所有下拉框深色主题 */
 select {
-  background-color: #0b2c4a !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  padding: 11px 13px !important;
-  border-radius: 8px !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  margin-top: 5px !important;
-  appearance: none !important;
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: right 12px center !important;
-  background-size: 14px !important;
-  padding-right: 35px !important;
-  cursor: pointer !important;
+  background-color: #0b2c4a;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 11px 13px;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+  padding-right: 35px;
+  cursor: pointer;
   font-size: 0.95em;
 }
 
 select option {
-  background-color: #0b2c4a !important;
-  color: #ffffff !important;
-  padding: 8px !important;
+  background-color: #0b2c4a;
+  color: #ffffff;
+  padding: 8px;
   font-size: 0.9em;
 }
 
@@ -379,27 +378,25 @@ select option {
   
   /* FAQ问题在移动端的间距调整 */
   .faq-question {
-    padding: 0.8rem !important;
+    padding: 0.8rem;
     font-size: 0.9rem;
     line-height: 1.3;
   }
   
-  /* 确保问题和箭头之间有足够的空间 */
   .faq-question::after {
-    margin-left: 0.5rem;
     font-size: 0.7rem;
+    margin-left: 8px;
   }
   
-  /* 确保答案在移动端有合适的间距 */
   .faq-answer {
     padding: 0 0.8rem 0.8rem;
     font-size: 0.85rem;
     line-height: 1.4;
   }
   
-  /* 移动端FAQ序号调整 */
   .faq-number {
     margin-right: 6px;
     font-size: 0.9rem;
+    min-width: 18px;
   }
 }
