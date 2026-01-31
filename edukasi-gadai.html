@@ -346,6 +346,26 @@ f.parentNode.insertBefore(j,f);
       transform: translateX(-5px);
     }
     
+    /* 确保FAQ序号正确显示 */
+    .faq-question {
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .faq-number {
+      margin-right: 8px;
+      font-weight: 600;
+      color: var(--secondary-color);
+      flex-shrink: 0;
+      min-width: 20px;
+    }
+    
+    .faq-question-text {
+      flex: 1;
+      white-space: normal;
+      word-break: normal;
+    }
+    
     /* 移动端优化 */
     @media (max-width: 768px) {
       .edu-header {
@@ -380,6 +400,17 @@ f.parentNode.insertBefore(j,f);
       .comparison-table th,
       .comparison-table td {
         padding: 0.7rem;
+      }
+      
+      .faq-number {
+        margin-right: 6px;
+        font-size: 0.9rem;
+        min-width: 18px;
+      }
+      
+      .faq-question-text {
+        font-size: 0.9rem;
+        line-height: 1.3;
       }
     }
   </style>
@@ -430,8 +461,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     <!-- Bagian 1: Pendahuluan -->
     <div class="faq-item">
       <div class="faq-question">
-        <span class="faq-number">1</span>
-        Pengantar & Prinsip Dasar Gadai
+        <span class="faq-number">1.</span>
+        <span class="faq-question-text">Pengantar & Prinsip Dasar Gadai</span>
       </div>
       <div class="faq-answer">
         <section class="edu-content-section">
@@ -453,8 +484,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     <!-- Bagian 2: Sejarah -->
     <div class="faq-item">
       <div class="faq-question">
-        <span class="faq-number">2</span>
-        Sejarah & Konsep Dasar Gadai
+        <span class="faq-number">2.</span>
+        <span class="faq-question-text">Sejarah & Konsep Dasar Gadai</span>
       </div>
       <div class="faq-answer">
         <section class="edu-content-section">
@@ -485,8 +516,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     <!-- Bagian 3: Hukum -->
     <div class="faq-item">
       <div class="faq-question">
-        <span class="faq-number">3</span>
-        Landasan Hukum Gadai
+        <span class="faq-number">3.</span>
+        <span class="faq-question-text">Landasan Hukum Gadai</span>
       </div>
       <div class="faq-answer">
         <section class="edu-content-section">
@@ -518,8 +549,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     <!-- Bagian 4: Jenis Barang -->
     <div class="faq-item">
       <div class="faq-question">
-        <span class="faq-number">4</span>
-        Jenis-Jenis Barang yang Dapat Digadaikan
+        <span class="faq-number">4.</span>
+        <span class="faq-question-text">Jenis-Jenis Barang yang Dapat Digadaikan</span>
       </div>
       <div class="faq-answer">
         <section class="edu-content-section">
@@ -563,8 +594,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     <!-- Bagian 5: Proses -->
     <div class="faq-item">
       <div class="faq-question">
-        <span class="faq-number">5</span>
-        Proses Gadai Langkah demi Langkah
+        <span class="faq-number">5.</span>
+        <span class="faq-question-text">Proses Gadai Langkah demi Langkah</span>
       </div>
       <div class="faq-answer">
         <section class="edu-content-section">
@@ -585,8 +616,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     <!-- Bagian 6: Perhitungan -->
     <div class="faq-item">
       <div class="faq-question">
-        <span class="faq-number">6</span>
-        Memahami Perhitungan Bunga & Biaya
+        <span class="faq-number">6.</span>
+        <span class="faq-question-text">Memahami Perhitungan Bunga & Biaya</span>
       </div>
       <div class="faq-answer">
         <section class="edu-content-section">
@@ -612,8 +643,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     <!-- Bagian 7: Risiko -->
     <div class="faq-item">
       <div class="faq-question">
-        <span class="faq-number">7</span>
-        Risiko & Hal yang Perlu Diwaspadai
+        <span class="faq-number">7.</span>
+        <span class="faq-question-text">Risiko & Hal yang Perlu Diwaspadai</span>
       </div>
       <div class="faq-answer">
         <section class="edu-content-section">
@@ -632,8 +663,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     <!-- Bagian 8: Perbandingan -->
     <div class="faq-item">
       <div class="faq-question">
-        <span class="faq-number">8</span>
-        Gadai vs. Pinjaman Online: Perbandingan
+        <span class="faq-number">8.</span>
+        <span class="faq-question-text">Gadai vs. Pinjaman Online: Perbandingan</span>
       </div>
       <div class="faq-answer">
         <section class="edu-content-section">
@@ -661,8 +692,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     <!-- Bagian 9: Tips -->
     <div class="faq-item">
       <div class="faq-question">
-        <span class="faq-number">9</span>
-        Tips Memilih Lembaga Gadai yang Aman
+        <span class="faq-number">9.</span>
+        <span class="faq-question-text">Tips Memilih Lembaga Gadai yang Aman</span>
       </div>
       <div class="faq-answer">
         <section class="edu-content-section">
@@ -683,8 +714,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     <!-- Bagian 10: FAQ -->
     <div class="faq-item">
       <div class="faq-question">
-        <span class="faq-number">10</span>
-        Pertanyaan Umum (FAQ)
+        <span class="faq-number">10.</span>
+        <span class="faq-question-text">Pertanyaan Umum (FAQ)</span>
       </div>
       <div class="faq-answer">
         <section class="edu-content-section">
@@ -711,8 +742,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     <!-- Bagian 11: Kesimpulan -->
     <div class="faq-item">
       <div class="faq-question">
-        <span class="faq-number">11</span>
-        Kesimpulan & Komitmen JF Gadai
+        <span class="faq-number">11.</span>
+        <span class="faq-question-text">Kesimpulan & Komitmen JF Gadai</span>
       </div>
       <div class="faq-answer">
         <section class="edu-content-section">
@@ -728,8 +759,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     <!-- Bagian 12: Kapan Gadai Tepat -->
     <div class="faq-item">
       <div class="faq-question">
-        <span class="faq-number">12</span>
-        Kapan Gadai Menjadi Pilihan Tepat?
+        <span class="faq-number">12.</span>
+        <span class="faq-question-text">Kapan Gadai Menjadi Pilihan Tepat?</span>
       </div>
       <div class="faq-answer">
         <section class="edu-content-section">
