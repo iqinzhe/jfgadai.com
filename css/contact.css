@@ -239,9 +239,12 @@ select.form-control {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   transition: background 0.2s ease;
   font-size: 0.95em;
+  text-align: left;
+  padding-left: 1rem !important;
+  text-indent: 0 !important;
 }
 
 .faq-question:hover {
@@ -253,10 +256,27 @@ select.form-control {
   color: var(--secondary-color);
   transition: transform 0.2s ease;
   font-size: 0.8em;
+  flex-shrink: 0;
+  margin-left: 10px;
 }
 
 .faq-item.active .faq-question::after {
   transform: rotate(90deg);
+}
+
+/* 修复FAQ序号和标题之间的间距 */
+.faq-number {
+  margin-right: 8px;
+  font-weight: 600;
+  color: var(--secondary-color);
+  flex-shrink: 0;
+}
+
+/* 确保标题文本正常显示 */
+.faq-question > :not(.faq-number) {
+  flex: 1;
+  white-space: normal;
+  word-break: normal;
 }
 
 .faq-answer {
@@ -357,29 +377,29 @@ select option {
     margin-right: 6px;
   }
   
-  /* 新增：FAQ问题在移动端的间距调整 */
+  /* FAQ问题在移动端的间距调整 */
   .faq-question {
-    padding: 0.8rem;
+    padding: 0.8rem !important;
     font-size: 0.9rem;
     line-height: 1.3;
   }
   
-  /* 新增：确保问题和箭头之间有足够的空间 */
+  /* 确保问题和箭头之间有足够的空间 */
   .faq-question::after {
     margin-left: 0.5rem;
     font-size: 0.7rem;
   }
   
-  /* 新增：确保答案在移动端有合适的间距 */
+  /* 确保答案在移动端有合适的间距 */
   .faq-answer {
     padding: 0 0.8rem 0.8rem;
     font-size: 0.85rem;
     line-height: 1.4;
   }
-}
-
-/* 可选：如果问题列表包含数字序号，添加数字和文本之间的间距 */
-.faq-question {
-  padding-left: 1.2rem;
-  text-indent: -0.5rem;
+  
+  /* 移动端FAQ序号调整 */
+  .faq-number {
+    margin-right: 6px;
+    font-size: 0.9rem;
+  }
 }
