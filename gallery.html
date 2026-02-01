@@ -12,17 +12,28 @@
 
 <body>
 
-  <!-- ===== Header / Navigasi（与 motor.html 保持一致）===== -->
-  <header class="assessment-header">
-    <div class="container">
-      <a href="/" class="logo">JF Gadai</a>
-      <nav class="main-nav">
-        <a href="/motor.html">Gadai Motor</a>
-        <a href="/electronics.html">Gadai Elektronik</a>
-        <a href="/gallery.html" class="active">Galeri</a>
-      </nav>
-    </div>
-  </header>
+<!-- 头部导航 -->
+<header class="assessment-header">
+
+  <!-- 返回首页 -->
+  <div class="container">
+    <a href="/index.html" class="back-btn">
+      <img src="/images/logo-jf.png" alt="JF Gadai" class="logo-image">
+      <strong>← Kembali ke Beranda</strong>
+    </a>
+  </div>
+
+  <!-- 主导航 -->
+  <div class="container">
+    <a href="/" class="logo">JF Gadai</a>
+    <nav class="main-nav">
+      <a href="/motor.html">Gadai Motor</a>
+      <a href="/electronics.html">Gadai Elektronik</a>
+      <a href="/gallery.html" class="active">Galeri</a>
+    </nav>
+  </div>
+
+</header>
 
   <!-- ===== 主体内容 ===== -->
   <main class="container">
@@ -87,13 +98,30 @@
 
   </main>
 
-  <!-- ===== Footer（与 motor.html 保持一致）===== -->
-  <footer>
-    <div class="footer-content container">
-      <p>&copy; 2026 JF Gadai. Seluruh hak cipta dilindungi.</p>
-      <p>WhatsApp: <a href="https://wa.me/6289515692586">+62 895-1569-2586</a></p>
+<!-- 页脚 -->
+<footer id="lokasi">
+  <div class="container">
+    <div class="footer-content">
+      <p class="copyright">© 2026 <span class="highlight">JF Gadai</span></p>
+      <p class="company-info">Melayani area Bangil • Beji • Gempol dan sekitarnya</p>
+      <a href="https://wa.me/6289515692586" 
+         target="_blank" 
+         class="contact-link" 
+         rel="noopener noreferrer"
+         aria-label="Hubungi kami via WhatsApp">
+        <img src="/images/wa-logo.png" alt="WhatsApp" width="20" height="20">
+        WhatsApp: +62 895-1569-2586
+      </a>
+      <p class="operating-hours">
+        ⏰ Jam kerja: 08:00-18:00 | Libur hari Sabtu dan Minggu
+      </p>
+      <p class="security-note">
+        🔒 Situs ini menggunakan koneksi aman (HTTPS).
+      </p>
     </div>
-  </footer>
+  </div>
+</footer>
 
 </body>
 </html>
+
