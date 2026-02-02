@@ -876,3 +876,40 @@ footer {
   color: #facc15 !important;
 }
 
+/* =========================
+   修复右侧主导航（仅 nav-forward）
+========================= */
+
+a.nav-forward {
+  display: flex;              /* 关键 */
+  align-items: center;        /* 垂直居中 */
+  gap: 12px;                  /* 元素间距 */
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* 文字 + 箭头必须同行 */
+a.nav-forward strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 防止图片被全站样式“拉走” */
+a.nav-forward .nav-icon {
+  display: inline-block;
+  height: 36px;
+  width: auto;
+}
+
+/* 箭头禁止换行 */
+a.nav-forward .arrow {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* hover 与首页一致 */
+a.nav-forward:hover {
+  color: #facc15;
+}
+
