@@ -134,16 +134,25 @@ body {
   display: block;
 }
 
-/* 响应式调整 */
+/* ===== 响应式调整（只针对导航） ===== */
 @media (max-width: 768px) {
-  .back-btn {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
+  .assessment-header .container {
+    padding: 0 0.8rem; /* 手机端稍微减小内边距 */
   }
   
-  .logo-image {
-    height: 28px;
+  .back-btn,
+  .nav-forward {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    gap: 8px;
   }
+  
+  .logo-image,
+  .nav-icon {
+    height: 25px;
+  }
+}
+
   
   /* 移动端可进一步减小间隙 */
   .assessment-header .container {
