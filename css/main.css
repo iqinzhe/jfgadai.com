@@ -835,3 +835,14 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .image-grid figcaption {
+    font-size: 0.9rem;
+  }
+}
+
