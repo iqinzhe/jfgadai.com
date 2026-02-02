@@ -860,3 +860,19 @@ footer {
   opacity: 1;
 }
 
+/* ===== 临时测试：强制让左右一致 ===== */
+.back-btn,
+.nav-forward {
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-btn:hover,
+.nav-forward:hover {
+  color: #facc15 !important;
+}
+
