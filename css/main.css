@@ -45,7 +45,7 @@ body {
 }
 
 /* ======================================================
-   3. Header / 顶部导航（唯一生效版本）- 更新手机端样式
+   3. Header / 顶部导航（唯一生效版本）
    ====================================================== */
 .assessment-header {
   background: rgba(11, 44, 74, 0.95);
@@ -64,7 +64,7 @@ body {
   gap: 1rem;
 }
 
-/* 不允许加粗（手机端很重要） */
+/* 不允许加粗 */
 .assessment-header strong {
   font-weight: normal;
 }
@@ -82,7 +82,6 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
-  flex-shrink: 0;
 }
 
 .back-btn:hover {
@@ -111,7 +110,6 @@ a.nav-forward {
   border: 2px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
-  flex-shrink: 0;
 }
 
 a.nav-forward:hover {
@@ -126,43 +124,28 @@ a.nav-forward:hover {
   display: block;
 }
 
-/* ===== 手机端响应式调整 ===== */
+/* ===== 平板和手机响应式 ===== */
 @media (max-width: 768px) {
-  /* 确保容器与下方内容对齐 */
   .assessment-header .container {
     padding: 0;
   }
   
-  /* 允许按钮内容换行，但不固定高度 */
+  /* 简化手机端样式，只做必要调整 */
   .back-btn,
   a.nav-forward {
-    min-height: 44px; /* 最小高度而不是固定高度 */
-    padding: 0.5rem 0.8rem;
+    padding: 0.5rem;
     font-size: 0.9rem;
-    align-items: center;
-    flex-wrap: wrap; /* 允许内容换行 */
-    justify-content: center; /* 内容居中 */
-    text-align: center;
   }
   
-  /* 确保图标在手机端也保持合适大小 */
   .logo-image,
   .nav-icon {
-    height: 28px;
+    height: 30px;
   }
   
-  /* 隐藏箭头符号，节省空间 */
+  /* 隐藏箭头节省空间 */
   .back-btn .arrow,
   a.nav-forward .arrow {
     display: none;
-  }
-  
-  /* 允许文字换行，但要控制最大行数 */
-  .back-btn strong,
-  a.nav-forward strong {
-    white-space: normal; /* 允许换行 */
-    line-height: 1.2;
-    max-width: 100px; /* 限制宽度，触发换行 */
   }
 }
 
