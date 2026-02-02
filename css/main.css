@@ -819,3 +819,44 @@ footer {
   white-space: nowrap;
 }
 
+/* =========================
+   内页 Header（与首页风格对称）
+========================= */
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 通用链接风格：继承首页 */
+.header-row a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* hover：与首页一致（白 → 黄） */
+.header-row a:hover {
+  color: #facc15; /* 黄 */
+}
+
+/* 返回首页 */
+.nav-back .arrow {
+  font-size: 18px;
+}
+
+/* 主业务入口 */
+.nav-forward .nav-icon {
+  height: 28px;
+  width: auto;
+}
+
+/* 当前页可略微强调（可选） */
+.nav-forward.active {
+  opacity: 1;
+}
+
