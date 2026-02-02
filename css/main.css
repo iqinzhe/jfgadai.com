@@ -74,17 +74,15 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-
   color: var(--text-light);
   text-decoration: none;
   font-size: 0.95rem;
-
   padding: 0.5rem 1rem;
   border-radius: var(--radius-sm);
   border: 2px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.05);
-
   transition: all 0.3s ease;
+  flex-shrink: 0; /* 防止按钮被压缩 */
 }
 
 .back-btn:hover {
@@ -105,17 +103,15 @@ a.nav-forward {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-
   color: var(--text-light);
   text-decoration: none;
   font-size: 0.95rem;
-
   padding: 0.5rem 1rem;
   border-radius: var(--radius-sm);
   border: 2px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.05);
-
   transition: all 0.3s ease;
+  flex-shrink: 0; /* 防止按钮被压缩 */
 }
 
 a.nav-forward:hover {
@@ -125,10 +121,47 @@ a.nav-forward:hover {
 }
 
 .nav-icon {
-  heightisplay: block;
   height: 34px;
   width: auto;
+  display: block;
 }
+
+/* ===== 手机端响应式调整 ===== */
+@media (max-width: 768px) {
+  /* 确保容器与下方内容对齐 */
+  .assessment-header .container {
+    padding: 0; /* 移除内边距，让按钮直接对齐边缘 */
+  }
+  
+  /* 统一两个按钮的高度 */
+  .back-btn,
+  a.nav-forward {
+    height: 44px; /* 固定高度，确保一致 */
+    padding: 0.5rem 0.8rem; /* 调整内边距适应固定高度 */
+    font-size: 0.9rem; /* 稍微减小字体 */
+    align-items: center;
+  }
+  
+  /* 确保图标在手机端也保持合适大小 */
+  .logo-image,
+  .nav-icon {
+    height: 28px; /* 手机端图标稍微小一点 */
+  }
+  
+  /* 隐藏箭头符号，节省空间 */
+  .back-btn .arrow,
+  a.nav-forward .arrow {
+    display: none;
+  }
+  
+  /* 调整按钮内的文字换行 */
+  .back-btn strong,
+  a.nav-forward strong {
+    white-space: nowrap; /* 防止文字换行 */
+  }
+}
+
+
 
 /* ======================================================
    4. 统一卡片（页面主体）
