@@ -111,6 +111,37 @@ body {
   transform: scale(1.05);
 }
 
+/* ===== 右：主业务入口 ===== */
+.nav-forward {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.nav-forward:hover {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-forward strong {
+  font-weight: 700;
+}
+
+.nav-icon {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+
 /* 响应式调整 */
 @media (max-width: 768px) {
   .back-btn {
@@ -120,23 +151,6 @@ body {
   
   .logo-image {
     height: 28px;
-  }
-}
-
-/* 超小屏幕调整 */
-@media (max-width: 480px) {
-  .back-btn {
-    font-size: 0.75rem;
-    padding: 0.3rem 0.6rem;
-    gap: 6px;
-  }
-  
-  .logo-image {
-    height: 24px;
-  }
-  
-  .back-btn strong {
-    display: inline-block; /* 确保文字正确显示 */
   }
 }
 
