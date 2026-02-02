@@ -52,11 +52,11 @@ body {
   gap: 0.5rem; /* 减少两个项目之间的主间隙，原为1rem */
 }
 
-/* ===== 左：返回按钮（已包含Logo） ===== */
+/* ===== 左：返回按钮（包含Logo） ===== */
 .back-btn {
   color: var(--text-light);
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   transition: all 0.3s ease;
   
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -107,14 +107,14 @@ body {
   transform: scale(1.05);
 }
 
-/* ===== 右：主业务入口 ===== */
+/* ===== 右：主业务入口（包含Logo） ===== */
 .nav-forward {
   display: inline-flex;
   align-items: center;
   gap: 3px; /* 减少图标和文字之间的间隙，原为10px */
   color: var(--text-light);
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   border: 2px solid rgba(255, 255, 255, 0.2);
