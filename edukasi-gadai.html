@@ -404,6 +404,76 @@ f.parentNode.insertBefore(j,f);
         line-height: 1.3;
       }
     }
+
+    /* 响应式显示控制 */
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+/* 移动端情况列表样式 */
+.situations-list {
+  margin: 1.5rem 0;
+}
+
+.situation-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--secondary-color);
+}
+
+.situation-item strong {
+  color: var(--secondary-color);
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.situation-item p {
+  margin: 0.3rem 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+}
+
+.situation-item em {
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* 检查表结果样式 */
+.checklist-result {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #2ecc71;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+  
+  .mobile-only {
+    display: block;
+  }
+  
+  .comparison-table {
+    font-size: 0.85rem;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.5rem;
+  }
+}
   </style>
 </head>
 
