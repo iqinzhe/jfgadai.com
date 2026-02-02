@@ -45,7 +45,7 @@ body {
 }
 
 /* ======================================================
-   3. Header / 顶部导航（唯一生效版本）
+   3. Header / 顶部导航（唯一生效版本）- 更新手机端样式
    ====================================================== */
 .assessment-header {
   background: rgba(11, 44, 74, 0.95);
@@ -82,7 +82,7 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
-  flex-shrink: 0; /* 防止按钮被压缩 */
+  flex-shrink: 0;
 }
 
 .back-btn:hover {
@@ -111,7 +111,7 @@ a.nav-forward {
   border: 2px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
-  flex-shrink: 0; /* 防止按钮被压缩 */
+  flex-shrink: 0;
 }
 
 a.nav-forward:hover {
@@ -130,22 +130,25 @@ a.nav-forward:hover {
 @media (max-width: 768px) {
   /* 确保容器与下方内容对齐 */
   .assessment-header .container {
-    padding: 0; /* 移除内边距，让按钮直接对齐边缘 */
+    padding: 0;
   }
   
-  /* 统一两个按钮的高度 */
+  /* 允许按钮内容换行，但不固定高度 */
   .back-btn,
   a.nav-forward {
-    height: 44px; /* 固定高度，确保一致 */
-    padding: 0.5rem 0.8rem; /* 调整内边距适应固定高度 */
-    font-size: 0.9rem; /* 稍微减小字体 */
+    min-height: 44px; /* 最小高度而不是固定高度 */
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
     align-items: center;
+    flex-wrap: wrap; /* 允许内容换行 */
+    justify-content: center; /* 内容居中 */
+    text-align: center;
   }
   
   /* 确保图标在手机端也保持合适大小 */
   .logo-image,
   .nav-icon {
-    height: 28px; /* 手机端图标稍微小一点 */
+    height: 28px;
   }
   
   /* 隐藏箭头符号，节省空间 */
@@ -154,14 +157,14 @@ a.nav-forward:hover {
     display: none;
   }
   
-  /* 调整按钮内的文字换行 */
+  /* 允许文字换行，但要控制最大行数 */
   .back-btn strong,
   a.nav-forward strong {
-    white-space: nowrap; /* 防止文字换行 */
+    white-space: normal; /* 允许换行 */
+    line-height: 1.2;
+    max-width: 100px; /* 限制宽度，触发换行 */
   }
 }
-
-
 
 /* ======================================================
    4. 统一卡片（页面主体）
