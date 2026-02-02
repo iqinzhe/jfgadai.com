@@ -74,6 +74,11 @@ body {
   gap: 1rem;
 }
 
+.assessment-header strong {
+  font-weight: normal; /* 关键：不加粗 */
+}
+
+
 /* ===== 返回首页（左） ===== */
 .back-btn {
   display: inline-flex;
@@ -111,29 +116,26 @@ body {
 a.nav-forward {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 
   color: var(--text-light);
   text-decoration: none;
-  font-weight: 600;
+  font-size: 0.95rem;
 
-  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+
+  /* 👇 和左侧 back-btn 完全一致 */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+
+  transition: all 0.3s ease;
 }
 
-a.nav-forward strong {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-a.nav-forward .nav-icon {
-  height: 36px;
-  width: auto;
-}
-
-.back-btn:hover,
 a.nav-forward:hover {
   color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 
