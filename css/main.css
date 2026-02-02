@@ -791,4 +791,31 @@ footer {
   background-color: #1f2937; /* 深色 */
   color: #ffffff;
 }
+/* =========================
+   Header 单行布局
+========================= */
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* 返回首页 */
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+/* 主导航不换行 */
+.main-nav {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
 
