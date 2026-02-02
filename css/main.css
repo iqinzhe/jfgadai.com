@@ -564,6 +564,48 @@ footer {
 .delay-5 { animation-delay: 0.5s; }
 .delay-6 { animation-delay: 0.6s; }
 
+/* ===== Image Grid for Gallery & Value Messages ===== */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+.image-grid .gallery-item {
+  text-align: center;
+}
+
+.image-grid .gallery-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+.image-grid figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+}
+.image-grid .gallery-item img {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.image-grid .gallery-item:hover img {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .image-grid figcaption {
+    font-size: 0.9rem;
+  }
+}
+
 /* ==================== 响应式设计 ==================== */
 
 /* 平板竖屏和横屏（769px-1200px） */
@@ -773,46 +815,3 @@ footer {
     line-height: 1.3; /* 减小行距 */
   }
 }
-
-/* ===== Image Grid for Gallery & Value Messages ===== */
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.2rem;
-  margin-top: 1rem;
-}
-.image-grid .gallery-item {
-  text-align: center;
-}
-
-.image-grid .gallery-item img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 10px;
-  background-color: #f5f5f5;
-}
-.image-grid figcaption {
-  margin-top: 0.6rem;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #444;
-}
-.image-grid .gallery-item img {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.image-grid .gallery-item:hover img {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-}
-@media (max-width: 768px) {
-  .image-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .image-grid figcaption {
-    font-size: 0.9rem;
-  }
-}
-
