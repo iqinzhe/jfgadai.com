@@ -61,7 +61,7 @@ body {
   
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem;
   
   display: inline-flex;
   align-items: center;
@@ -111,11 +111,11 @@ body {
 .nav-forward {
   display: inline-flex;
   align-items: center;
-  gap: 3px; /* 减少图标和文字之间的间隙，原为10px */
+  gap: 2px; /* 减少图标和文字之间的间隙，原为10px */
   color: var(--text-light);
   text-decoration: none;
   font-size: 0.8rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem;
   border-radius: 8px;
   border: 2px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.05);
