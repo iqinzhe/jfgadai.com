@@ -48,27 +48,27 @@ body {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
-  gap: 0.5rem; /* 减少两个项目之间的主间隙，原为1rem */
+  padding: 0.5rem 0.5rem;
+  gap: 0.5rem; /* 减少两个项目之间的主间隙 */
 }
 
 /* ===== 左：返回按钮（包含Logo） ===== */
 .back-btn {
   color: var(--text-light);
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   transition: all 0.3s ease;
   
   border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  padding: 0.5rem 0.5rem; /* ← 这里控制按钮内容与边框的间距 */
-                          /* 上/下0.5rem，左/右0.5rem */
+  border-radius: 5px;
+  padding: 0.5rem 0.5rem; /* 按钮内容与边框的间距 */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 2px;  /* ← 这里控制Logo图片和"文字"之间的间距 */
-  
+  gap: 2px; /* Logo图片和文字之间的间距 */
   background: rgba(255, 255, 255, 0.05);
+  white-space: normal; /* 允许文字换行 */
+  text-align: center; /* 文字居中 */
 }
 
 .back-btn:hover {
@@ -80,26 +80,15 @@ body {
 
 /* Logo图片样式（在返回按钮内） */
 .logo-image {
-  /* 关键：使用object-fit确保图片完全填充且保持比例 */
   object-fit: contain;
-  
-  /* 图片尺寸设置 */
   width: auto;
-  height: 30px; /* 调整到合适的高度 */
-  
-  /* 完全居中且无间隙 */
+  height: 30px;
   display: block;
-  
-  /* 清除所有样式 */
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
   padding: 0 !important;
-  
-  /* 防止基线对齐导致的底部间隙 */
   vertical-align: middle;
-  
-  /* 图片过渡效果 */
   transition: transform 0.3s ease;
 }
 
@@ -111,15 +100,17 @@ body {
 .nav-forward {
   display: inline-flex;
   align-items: center;
-  gap: 2px; /* 减少图标和文字之间的间隙，原为10px */
+  gap: 2px; /* 图标和文字之间的间隙 */
   color: var(--text-light);
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   padding: 0.5rem 0.5rem;
-  border-radius: 8px;
+  border-radius: 5px;
   border: 2px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
+  white-space: normal; /* 允许文字换行 */
+  text-align: center; /* 文字居中 */
 }
 
 .nav-forward:hover {
@@ -134,34 +125,36 @@ body {
   display: block;
 }
 
-/* ===== 响应式调整（只针对导航） ===== */
+/* ===== 响应式调整（手机端 768px及以下） ===== */
 @media (max-width: 768px) {
+  /* 容器调整 */
   .assessment-header .container {
-    padding: 0.2rem 0.2rem; /* 手机端稍微减小内边距 */
+    padding: 0.2rem 0.2rem;
+    gap: 0.2rem; /* 两个按钮之间的间距 */
   }
   
+  /* 返回按钮和导航按钮通用调整 */
   .back-btn,
   .nav-forward {
     padding: 0.2rem 0.2rem;
     font-size: 0.6rem;
-    gap: 3px;
+    gap: 1px; /* 图片与文字间距 */
+    white-space: normal; /* 允许换行 */
+    text-align: center; /* 居中对齐 */
+    flex-wrap: wrap; /* 允许内容换行 */
+    justify-content: center; /* 内容居中 */
   }
   
+  /* 图片尺寸调整 */
   .logo-image,
   .nav-icon {
-    height: 25px;
-  }
-}
-
-  
-  /* 移动端可进一步减小间隙 */
-  .assessment-header .container {
-    gap: 0.2rem;
+    height: 20px;
   }
   
-  .back-btn,
+  /* 导航按钮额外调整（如果需要） */
   .nav-forward {
-    gap: 6px;
+    /* 这里可以添加.nav-forward特有的调整 */
+    /* 例如：min-width: 80px; */
   }
 }
 
