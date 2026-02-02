@@ -49,10 +49,10 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
-  gap: 1rem;
+  gap: 0.5rem; /* 减少两个项目之间的主间隙，原为1rem */
 }
 
-/* 返回按钮（已包含Logo） */
+/* ===== 左：返回按钮（已包含Logo） ===== */
 .back-btn {
   color: var(--text-light);
   text-decoration: none;
@@ -66,7 +66,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px; /* 添加Logo和文字之间的间距 */
+  gap: 8px; /* 微调Logo和文字之间的间距，原为10px */
   
   background: rgba(255, 255, 255, 0.05);
 }
@@ -78,9 +78,7 @@ body {
   transform: translateY(-2px);
 }
 
-.back-btn strong {
-  font-weight: 700;
-}
+/* 已取消strong标签的加粗样式，如需加粗可重新添加 font-weight: 700; */
 
 /* Logo图片样式（在返回按钮内） */
 .logo-image {
@@ -115,7 +113,7 @@ body {
 .nav-forward {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px; /* 减少图标和文字之间的间隙，原为10px */
   color: var(--text-light);
   text-decoration: none;
   font-size: 0.95rem;
@@ -132,9 +130,7 @@ body {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.nav-forward strong {
-  font-weight: 700;
-}
+/* 已取消strong标签的加粗样式，如需加粗可重新添加 font-weight: 700; */
 
 .nav-icon {
   height: 34px;
@@ -151,6 +147,16 @@ body {
   
   .logo-image {
     height: 28px;
+  }
+  
+  /* 移动端可进一步减小间隙 */
+  .assessment-header .container {
+    gap: 0.3rem;
+  }
+  
+  .back-btn,
+  .nav-forward {
+    gap: 6px;
   }
 }
 
