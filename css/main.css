@@ -137,14 +137,14 @@ body {
 /* ===== 响应式调整（只针对导航） ===== */
 @media (max-width: 768px) {
   .assessment-header .container {
-    padding: 0 0.8rem; /* 手机端稍微减小内边距 */
+    padding: 0.2rem 0.2rem; /* 手机端稍微减小内边距 */
   }
   
   .back-btn,
   .nav-forward {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.85rem;
-    gap: 8px;
+    padding: 0.2rem 0.2rem;
+    font-size: 0.6rem;
+    gap: 3px;
   }
   
   .logo-image,
