@@ -45,7 +45,7 @@ body {
 }
 
 /* ======================================================
-   3. Header / 顶部导航（唯一生效版本）
+   3. 头部导航
    ====================================================== */
 .assessment-header {
   background: rgba(11, 44, 74, 0.95);
@@ -61,12 +61,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
   gap: 1rem;
-}
-
-/* 不允许加粗 */
-.assessment-header strong {
-  font-weight: normal;
 }
 
 /* ===== 左：返回首页 ===== */
@@ -78,7 +76,7 @@ body {
   text-decoration: none;
   font-size: 0.95rem;
   padding: 0.5rem 1rem;
-  border-radius: var(--radius-sm);
+  border-radius: 8px;
   border: 2px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
@@ -97,8 +95,12 @@ body {
   display: block;
 }
 
+.back-btn strong {
+  font-weight: 700;
+}
+
 /* ===== 右：主业务入口 ===== */
-a.nav-forward {
+.nav-forward {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -106,16 +108,20 @@ a.nav-forward {
   text-decoration: none;
   font-size: 0.95rem;
   padding: 0.5rem 1rem;
-  border-radius: var(--radius-sm);
+  border-radius: 8px;
   border: 2px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
 }
 
-a.nav-forward:hover {
+.nav-forward:hover {
   color: var(--secondary-color);
   border-color: var(--secondary-color);
   background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-forward strong {
+  font-weight: 700;
 }
 
 .nav-icon {
@@ -124,28 +130,22 @@ a.nav-forward:hover {
   display: block;
 }
 
-/* ===== 平板和手机响应式 ===== */
+/* ===== 响应式调整（只针对导航） ===== */
 @media (max-width: 768px) {
   .assessment-header .container {
-    padding: 0;
+    padding: 0 0.8rem; /* 手机端稍微减小内边距 */
   }
   
-  /* 简化手机端样式，只做必要调整 */
   .back-btn,
-  a.nav-forward {
-    padding: 0.5rem;
-    font-size: 0.9rem;
+  .nav-forward {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    gap: 8px;
   }
   
   .logo-image,
   .nav-icon {
-    height: 30px;
-  }
-  
-  /* 隐藏箭头节省空间 */
-  .back-btn .arrow,
-  a.nav-forward .arrow {
-    display: none;
+    height: 28px;
   }
 }
 
