@@ -61,12 +61,12 @@ body {
   
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  padding: 0.5rem 0.5rem;
-  
+  padding: 0.5rem 0.5rem; /* ← 这里控制按钮内容与边框的间距 */
+                          /* 上/下0.5rem，左/右0.5rem */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 2px; /* 微调Logo和文字之间的间距，原为10px */
+  gap: 2px;  /* ← 这里控制Logo图片和"文字"之间的间距 */
   
   background: rgba(255, 255, 255, 0.05);
 }
