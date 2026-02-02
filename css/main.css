@@ -774,68 +774,38 @@ footer {
   }
 }
 
-/* ==================== 图库页面专用样式 ==================== */
-/* 仅适用于 gallery.html 页面 */
-.gallery-item {
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-  margin: var(--spacing-md) 0;
-  border-radius: var(--border-radius);
-}
-
-.gallery-item img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  display: block;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  object-fit: cover;
-}
-
-.gallery-item figcaption {
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  margin-top: var(--spacing-sm);
-  padding: 0 var(--spacing-sm);
-  line-height: 1.4;
-}
-
-/* 只在图库页面中调整统一卡片的样式 */
-.gallery-page .unified-card {
-  padding: var(--spacing-lg); /* 恢复默认间距 */
-}
-
-/* 确保图库页面中的卡片标题有适当间距 */
-.gallery-page .card-subtitle {
-  color: var(--secondary-color);
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: var(--spacing-md);
-  text-align: center;
-}
-
+/* ===== Image Grid for Gallery & Value Messages ===== */
 .image-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.2rem;
+  margin-top: 1rem;
+}
+.image-grid .gallery-item {
+  text-align: center;
 }
 
-.gallery-item img {
+.image-grid .gallery-item img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 10px;
+  background-color: #f5f5f5;
+}
+.image-grid figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+}
+.image-grid .gallery-item img {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-@media (max-width: 768px) {
-  .image-grid {
-    grid-template-columns: 1fr;
-  }
+.image-grid .gallery-item:hover img {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
-
 @media (max-width: 768px) {
   .image-grid {
     grid-template-columns: 1fr;
