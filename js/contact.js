@@ -204,16 +204,7 @@ Terima kasih.`;
         if (submitText) submitText.style.display = 'none';
         if (loadingText) loadingText.style.display = 'inline';
       }
-      
-      // 发送Google Analytics事件
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'form_submit', {
-          'event_category': 'Contact',
-          'event_label': 'WhatsApp Form',
-          'item_type': formData.item
-        });
-      }
-      
+            
       // 延迟执行，让用户看到加载状态
       setTimeout(() => {
         // 构建WhatsApp URL
@@ -222,16 +213,6 @@ Terima kasih.`;
         // 隐藏表单，显示成功消息
         form.style.display = 'none';
         if (formSuccess) formSuccess.style.display = 'block';
-        
-        // 发送Google Analytics转化事件
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-17845187332/EqUyCKvIxZ4ZENvK3tQp',
-            'value': 1.0,
-            'currency': 'IDR',
-            'transaction_id': 'form_' + Date.now()
-          });
-        }
         
         // 在显示成功消息后延迟打开WhatsApp
         setTimeout(() => {
