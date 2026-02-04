@@ -42,13 +42,6 @@ window.addEventListener('error', function(e) {
   console.error('File:', e.filename);
   console.error('Line:', e.lineno);
   
-  // 发送错误到Google Analytics（如果可用）
-  if (window.gtag) {
-    gtag('event', 'exception', {
-      'description': e.message,
-      'fatal': true
-    });
-  }
 });
 
 // 未处理的Promise错误
@@ -836,15 +829,6 @@ function validateSystem() {
   if (allValid) {
     console.log('✅ 系统验证通过：所有核心功能正常');
     
-    // 发送验证事件到Google Analytics
-    if (window.gtag) {
-      gtag('event', 'system_validated', {
-        'event_category': 'System',
-        'event_label': 'Assessment System',
-        'value': 1
-      });
-    }
-    
     // 显示系统就绪消息
     console.log('💰 系统已准备就绪，可以开始评估');
     
@@ -854,15 +838,6 @@ function validateSystem() {
     Object.entries(checks).forEach(([key, value]) => {
       if (!value) console.error(`  - ${key}: 失败`);
     });
-    
-    // 发送错误事件到Google Analytics
-    if (window.gtag) {
-      gtag('event', 'system_error', {
-        'event_category': 'System',
-        'event_label': 'Assessment System',
-        'value': 0
-      });
-    }
     
     return false;
   }
