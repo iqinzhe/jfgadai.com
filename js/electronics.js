@@ -20,13 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const whatsappBtn = document.querySelector('.whatsapp-btn');
   if (whatsappBtn) {
     whatsappBtn.addEventListener('click', function(e) {
-      // 发送Google Analytics事件
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'whatsapp_click', {
-          'event_category': 'Electronics',
-          'event_label': 'Electronics Page'
-        });
-      }
     });
   }
 
