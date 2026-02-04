@@ -209,7 +209,7 @@ body {
 /* ==================== 通用横幅样式 ==================== */
 .full-banner {
   width: 100%;
-  height: 155px; /* ← 直接修改网页横幅高度 */
+  height: 156px; /* ← 直接修改网页横幅高度 */
   overflow: hidden;
   position: relative;
   display: flex;
