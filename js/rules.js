@@ -32,15 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (printBtn) {
     printBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      
-      // 发送Google Analytics事件
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'print_rules', {
-          'event_category': 'Rules',
-          'event_label': 'Rules Page Print'
-        });
-      }
-      
+         
       // 打印页面
       window.print();
     });
@@ -51,13 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
   whatsappBtns.forEach(btn => {
     btn.addEventListener('click', function(e) {
       if (this.href.includes('wa.me')) {
-        // 发送Google Analytics事件
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'whatsapp_click', {
-            'event_category': 'Rules',
-            'event_label': 'Rules Page WhatsApp'
-          });
-        }
       }
     });
   });
