@@ -900,10 +900,10 @@ footer {
 .gallery-item figcaption {
   text-align: center;
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   margin-top: var(--spacing-sm);
   padding: 0 var(--spacing-sm);
-  line-height: 1.2; /* 图库说明文字行距 */
+  line-height: 1.0; /* 图库说明文字行距 */
 }
 
 /* 只在图库页面中调整统一卡片的样式 */
