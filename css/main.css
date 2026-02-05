@@ -423,96 +423,6 @@ body {
   justify-content: center;
 }
 
-/* ==================== 页脚优化 ==================== */
-footer {
-  background: rgba(11, 44, 74, 0.9);
-  margin-top: var(--spacing-md);
-  padding: var(--spacing-md) 0 var(--spacing-sm);
-  border-top: 2px solid var(--secondary-color);
-}
-
-.footer-content {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.copyright {
-  font-size: 1.15rem;
-  margin-bottom: 0.3rem;
-  line-height: 1.0; /* 版权信息行距 */
-}
-
-.highlight {
-  color: var(--secondary-color);
-  font-weight: bold;
-}
-
-.company-info {
-  color: var(--text-muted);
-  margin-bottom: 0.8rem;
-  font-size: 1rem;
-  line-height: 1.2; /* 公司信息行距 */
-  padding: 0 0.5rem;
-}
-
-/* 联系电话布局 */
-.contact-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0.5rem auto;
-  padding: 0.4rem 0;
-  max-width: 550px;
-}
-
-.contact-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--text-light);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-  padding: 6px 12px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  white-space: nowrap;
-}
-
-.contact-link:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: var(--secondary-color);
-  color: var(--secondary-color);
-  transform: translateY(-2px);
-}
-
-/* 落地页信任区块 */
-.trust-box {
-  margin: 1.5rem 0 1rem;
-  padding: 1rem 1.2rem;
-  background: rgba(15, 76, 129, 0.35);
-  border: 1px solid rgba(245, 197, 66, 0.35);
-  border-radius: 12px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.8rem;
-  text-align: center;
-}
-
-.trust-item {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.2; /* 信任区块项行距 */
-}
-
-.trust-item strong {
-  color: #f5c542;
-  font-weight: 600;
-}
-
 /* SEO 文本信息区块 + 贷款信息区块 */
 .seo-text-content.loan-info-section {
   background: rgba(15, 76, 129, 0.25);
@@ -826,26 +736,6 @@ footer {
     min-width: 160px;
   }
   
-  /* 页脚优化 */
-  .contact-info {
-    flex-direction: column;
-    gap: var(--spacing-sm);
-    align-items: center;
-  }
-  
-  .contact-link {
-    padding: 5px 10px;
-    font-size: 0.85rem;
-  }
-  
-  footer {
-    padding: var(--spacing-sm) 0;
-  }
-  
-  .copyright {
-    font-size: 1rem;
-  }
-  
   /* SEO格手机端调整 */
   .seo-text-content {
     margin: var(--spacing-md) auto;
@@ -919,4 +809,143 @@ footer {
   margin-bottom: var(--spacing-md);
   text-align: center;
   line-height: 1.2; /* 图库页面卡片副标题行距 */
+}
+
+/* ==================== 页脚优化 - 完整版 ==================== */
+footer {
+  background: rgba(11, 44, 74, 0.9);
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md) 0 var(--spacing-sm);
+  border-top: 2px solid var(--secondary-color);
+}
+
+.footer-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.copyright {
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.0;
+}
+
+.highlight {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.company-info {
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  padding: 0 0.5rem;
+}
+
+/* 工作时间信息 */
+.operating-hours {
+  color: var(--text-muted);
+  font-size: 0.85rem; /* 工作时间文字大小 */
+  line-height: 1.3;
+  margin: 0.5rem 0;
+}
+
+/* 安全提示信息 */
+.security-note {
+  color: var(--text-muted);
+  font-size: 0.8rem; /* 安全提示文字大小（更小） */
+  line-height: 1.3;
+  margin: 0.3rem 0 0;
+  opacity: 0.8;
+}
+
+/* 联系电话布局 */
+.contact-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem auto;
+  padding: 0.4rem 0;
+  max-width: 550px;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+}
+
+.contact-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* 落地页信任区块（保留原有） */
+.trust-box {
+  margin: 1.5rem 0 1rem;
+  padding: 1rem 1.2rem;
+  background: rgba(15, 76, 129, 0.35);
+  border: 1px solid rgba(245, 197, 66, 0.35);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  text-align: center;
+}
+
+.trust-item {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.2;
+}
+
+.trust-item strong {
+  color: #f5c542;
+  font-weight: 600;
+}
+
+/* ==================== 移动端响应式 ==================== */
+@media (max-width: 768px) {
+  footer {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .copyright {
+    font-size: 1rem;
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: center;
+  }
+  
+  .contact-link {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+  }
+  
+  .operating-hours {
+    font-size: 0.8rem; /* 移动端工作时间文字稍小 */
+    line-height: 1.2;
+  }
+  
+  .security-note {
+    font-size: 0.75rem; /* 移动端安全提示文字更小 */
+    line-height: 1.2;
+  }
 }
