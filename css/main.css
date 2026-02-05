@@ -427,6 +427,85 @@ body {
   justify-content: center;
 }
 
+/* 平衡网格布局-贷款信息 */
+.balanced-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.grid-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-card-highlight {
+  border: 2px solid #ffc107;
+  background: #fffdf6;
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.card-icon-large {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-header h3 {
+  color: #2a2a2a;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.card-body p {
+  color: #555;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.warning-box {
+  background: #fff8e1;
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.warning-icon-small {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.warning-box p {
+  font-size: 0.9rem;
+  color: #856404;
+  margin: 0;
+  text-align: left;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+  .balanced-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .balanced-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ==================== 页脚优化 ==================== */
 footer {
   background: rgba(11, 44, 74, 0.9);
