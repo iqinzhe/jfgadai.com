@@ -49,7 +49,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0.5rem 0.5rem;
-  gap: 0.5rem; /* 减少两个项目之间的主间隙 */
+  gap: 0.5rem;
 }
 
 /* ===== 左：返回按钮（包含Logo） ===== */
@@ -58,17 +58,16 @@ body {
   text-decoration: none;
   font-size: 0.7rem;
   transition: all 0.3s ease;
-  
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
-  padding: 0.5rem 0.5rem; /* 按钮内容与边框的间距 */
+  padding: 0.5rem 0.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 2px; /* Logo图片和文字之间的间距 */
+  gap: 2px;
   background: rgba(255, 255, 255, 0.05);
-  white-space: normal; /* 允许文字换行 */
-  text-align: center; /* 文字居中 */
+  white-space: normal;
+  text-align: center;
 }
 
 .back-btn:hover {
@@ -78,7 +77,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* Logo图片样式（在返回按钮内） */
 .logo-image {
   object-fit: contain;
   width: auto;
@@ -100,7 +98,7 @@ body {
 .nav-forward {
   display: inline-flex;
   align-items: center;
-  gap: 2px; /* 图标和文字之间的间隙 */
+  gap: 2px;
   color: var(--text-light);
   text-decoration: none;
   font-size: 0.7rem;
@@ -109,8 +107,8 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
-  white-space: normal; /* 允许文字换行 */
-  text-align: center; /* 文字居中 */
+  white-space: normal;
+  text-align: center;
 }
 
 .nav-forward:hover {
@@ -127,25 +125,22 @@ body {
 
 /* ===== 响应式调整（手机端 768px及以下） ===== */
 @media (max-width: 768px) {
-  /* 容器调整 */
   .assessment-header .container {
     padding: 0.2rem 0.2rem;
-    gap: 0.2rem; /* 两个按钮之间的间距 */
+    gap: 0.2rem;
   }
   
-  /* 返回按钮和导航按钮通用调整 */
   .back-btn,
   .nav-forward {
     padding: 0.2rem 0.2rem;
     font-size: 0.6rem;
-    gap: 1px; /* 图片与文字间距 */
-    white-space: normal; /* 允许换行 */
-    text-align: center; /* 居中对齐 */
-    flex-wrap: wrap; /* 允许内容换行 */
-    justify-content: center; /* 内容居中 */
+    gap: 1px;
+    white-space: normal;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
-  /* 图片尺寸调整 */
   .logo-image,
   .nav-icon {
     height: 20px;
@@ -170,7 +165,6 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto auto;
-   /* 行间距8px，列间距12px */
   gap: 8px 12px;
   margin: var(--spacing-xl) auto;
 }
@@ -209,7 +203,7 @@ body {
 /* ==================== 通用横幅样式 ==================== */
 .full-banner {
   width: 100%;
-  height: 156px; /* ← 直接修改网页横幅高度 */
+  height: 156px;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -427,85 +421,6 @@ body {
   justify-content: center;
 }
 
-/* 平衡网格布局-贷款信息 */
-.balanced-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.grid-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-}
-
-.grid-card-highlight {
-  border: 2px solid #ffc107;
-  background: #fffdf6;
-}
-
-.card-header {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.card-icon-large {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.card-header h3 {
-  color: #2a2a2a;
-  margin: 0;
-  font-size: 1.1rem;
-}
-
-.card-body p {
-  color: #555;
-  margin: 0.5rem 0;
-  text-align: center;
-}
-
-.warning-box {
-  background: #fff8e1;
-  border-radius: 8px;
-  padding: 0.75rem;
-  margin-top: 1rem;
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.warning-icon-small {
-  font-size: 1.2rem;
-  flex-shrink: 0;
-}
-
-.warning-box p {
-  font-size: 0.9rem;
-  color: #856404;
-  margin: 0;
-  text-align: left;
-}
-
-/* 响应式调整 */
-@media (max-width: 992px) {
-  .balanced-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .balanced-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* ==================== 页脚优化 ==================== */
 footer {
   background: rgba(11, 44, 74, 0.9);
@@ -612,8 +527,7 @@ footer {
   letter-spacing: 1px;
 }
 
-/* 平衡网格布局 - 调整为深色主题 */
-/* 平衡网格布局-贷款信息 - 修正为统一深色主题 */
+/* ==================== 贷款信息网格布局 ==================== */
 .balanced-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -631,8 +545,8 @@ footer {
   border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  min-height: 220px; /* 统一高度 */
-  justify-content: space-between; /* 内容均匀分布 */
+  min-height: 220px;
+  justify-content: space-between;
 }
 
 .grid-card:hover {
@@ -670,13 +584,12 @@ footer {
 
 .card-body p {
   color: var(--text-muted);
-  margin: 0.5rem 0;
+  margin: 0.2rem 0; /* 紧凑边距 */
   text-align: center;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  line-height: 1.2; /* 紧凑行距 */
 }
 
-/* 警告框样式调整为深色主题 */
 .warning-box {
   background: rgba(245, 197, 66, 0.15);
   border-radius: 8px;
@@ -703,7 +616,7 @@ footer {
   line-height: 1.4;
 }
 
-/* 响应式调整 */
+/* 贷款信息响应式 */
 @media (max-width: 992px) {
   .balanced-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -716,7 +629,7 @@ footer {
   }
   
   .grid-card {
-    min-height: auto; /* 移动端自适应高度 */
+    min-height: auto;
     padding: 1.2rem;
   }
 }
@@ -748,29 +661,10 @@ footer {
 
 /* 平板竖屏和横屏（769px-1200px） */
 @media (max-width: 1200px) and (min-width: 769px) {
-  .quick-actions { 
-    flex-direction: row; 
-    flex-wrap: wrap;
-    gap: 2px;
-  }
-  
-  .quick-action-card { 
-    flex: 1 1 calc(50% - var(--spacing-md));
-    min-width: 280px;
-    max-width: none;
-  }
-  
-  .contact-info {
-    max-width: 600px;
-  }
-}
-
-/* 平板竖屏和横屏（769px-1200px） - 修复了缺少的大括号 */
-@media (max-width: 1200px) and (min-width: 769px) {
   .asymmetric-grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
-    gap: 4px 8px; /* 平板端间距调小一点 */
+    gap: 4px 8px;
   }
 
   #assessment-system { 
@@ -819,15 +713,15 @@ footer {
 @media (max-width: 768px) {
   /* 调整横幅高度 */
   .full-banner {
-    height: 75px; /* ← 直接修改手机横幅高度 */
+    height: 75px;
   }
   
-  /* 手机端六宫格间距调整 - 让6个格子之间的间距更小 */
+  /* 手机端六宫格间距调整 */
   .asymmetric-grid {
     display: flex;
     flex-direction: column;
-    gap: 4px; /* 将间距从var(--spacing-sm)减小到4px，更紧凑 */
-    margin: var(--spacing-md) auto; /* 减少上下边距 */
+    gap: 4px;
+    margin: var(--spacing-md) auto;
   }
   
   /* 手机端显示顺序 */
@@ -838,28 +732,28 @@ footer {
   #contact-form { order: 5; }
   #contact-navigation { order: 6; }
   
-  /* 统一卡片响应式 - 卡片内部间距也调小一点 */
+  /* 统一卡片响应式 */
   .unified-card {
-    padding: var(--spacing-md); /* 从lg改为md，减小内边距 */
-    margin-bottom: 4px; /* 减小卡片之间的间距 */
+    padding: var(--spacing-md);
+    margin-bottom: 4px;
   }
   
   .card-title {
-    font-size: 1.3rem; /* 稍微减小标题字号 */
-    margin-bottom: var(--spacing-sm); /* 减小标题下边距 */
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
   }
   
   .card-desc {
-    font-size: 0.95rem; /* 减小描述文字字号 */
-    line-height: 1.4; /* 减小行距 */
-    margin-bottom: var(--spacing-sm); /* 减小下边距 */
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: var(--spacing-sm);
   }
   
   .card-cta-btn {
-    padding: 0.8rem 1.5rem; /* 减小按钮内边距 */
-    font-size: 0.95rem; /* 减小按钮字号 */
-    min-width: 180px; /* 减小最小宽度 */
-    margin-top: var(--spacing-sm); /* 减小上边距 */
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+    min-width: 180px;
+    margin-top: var(--spacing-sm);
   }
   
   .card-cta-btn:active {
@@ -870,92 +764,91 @@ footer {
   .quick-actions {
     flex-direction: column;
     align-items: center;
-    gap: 4px; /* 减小操作栏间距 */
-    margin: var(--spacing-sm) auto; /* 减小外边距 */
+    gap: 4px;
+    margin: var(--spacing-sm) auto;
   }
   
   .quick-action-card {
     width: 100%;
     max-width: 100%;
-    margin-bottom: 4px; /* 减小卡片下边距 */
-    padding: var(--spacing-md); /* 减小内边距 */
+    margin-bottom: 4px;
+    padding: var(--spacing-md);
   }
   
   .action-icon {
-    font-size: 1.8rem; /* 减小图标大小 */
-    margin-bottom: 0.5rem; /* 减小下边距 */
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
   }
   
   .action-title {
-    font-size: 1.1rem; /* 减小标题字号 */
-    margin-bottom: 0.5rem; /* 减小下边距 */
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
   }
   
   .action-description {
-    font-size: 0.9rem; /* 减小描述文字字号 */
-    line-height: 1.4; /* 减小行距 */
-    margin-bottom: var(--spacing-sm); /* 减小下边距 */
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: var(--spacing-sm);
   }
   
   .action-btn {
-    padding: 0.7rem 1.2rem; /* 减小按钮内边距 */
-    font-size: 0.9rem; /* 减小按钮字号 */
-    min-width: 160px; /* 减小最小宽度 */
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+    min-width: 160px;
   }
   
   /* 页脚优化 */
   .contact-info {
     flex-direction: column;
-    gap: var(--spacing-sm); /* 保持适当间距 */
+    gap: var(--spacing-sm);
     align-items: center;
   }
   
   .contact-link {
-    padding: 5px 10px; /* 调整内边距 */
-    font-size: 0.85rem; /* 减小字号 */
+    padding: 5px 10px;
+    font-size: 0.85rem;
   }
   
   footer {
-    padding: var(--spacing-sm) 0; /* 减小内边距 */
+    padding: var(--spacing-sm) 0;
   }
   
   .copyright {
-    font-size: 1rem; /* 减小字号 */
+    font-size: 1rem;
   }
   
-  /* SEO格手机端调整 - 压缩文本行距，减小间距 */
+  /* SEO格手机端调整 */
   .seo-text-content {
-    margin: var(--spacing-md) auto; /* 减小上下外边距 */
-    padding: var(--spacing-md); /* 减小内边距 */
-    font-size: 0.85rem; /* 减小字号 */
-    line-height: 1.4; /* 压缩行距，从1.7改为1.4 */
+    margin: var(--spacing-md) auto;
+    padding: var(--spacing-md);
+    font-size: 0.85rem;
+    line-height: 1.4;
   }
   
   .seo-text-content h2 {
-    font-size: 1rem; /* 减小标题字号 */
-    margin-bottom: 0.5rem; /* 减小下边距 */
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
   }
   
   .seo-text-content p {
-    margin-bottom: 0.5rem; /* 减小段落间距 */
+    margin-bottom: 0.5rem;
   }
   
   /* 落地页信任区块手机端调整 */
   .trust-box {
-    margin: 1rem 0 0.5rem; /* 减小上下边距 */
-    padding: 0.8rem 1rem; /* 减小内边距 */
-    gap: 0.5rem; /* 减小项间距 */
-    grid-template-columns: 1fr; /* 手机端改为单列布局 */
+    margin: 1rem 0 0.5rem;
+    padding: 0.8rem 1rem;
+    gap: 0.5rem;
+    grid-template-columns: 1fr;
   }
   
   .trust-item {
-    font-size: 0.75rem; /* 减小字号 */
-    line-height: 1.3; /* 减小行距 */
+    font-size: 0.75rem;
+    line-height: 1.3;
   }
 }
 
 /* ==================== 图库页面专用样式 ==================== */
-/* 仅适用于 gallery.html 页面 */
 .gallery-item {
   width: 100%;
   max-width: 100%;
@@ -985,7 +878,7 @@ footer {
 
 /* 只在图库页面中调整统一卡片的样式 */
 .gallery-page .unified-card {
-  padding: var(--spacing-lg); /* 恢复默认间距 */
+  padding: var(--spacing-lg);
 }
 
 /* 确保图库页面中的卡片标题有适当间距 */
