@@ -848,8 +848,8 @@ footer {
 /* 工作时间信息 */
 .operating-hours {
   color: var(--text-muted);
-  font-size: 0.6rem; /* 工作时间文字大小 */
-  line-height: 1.3;
+  font-size: 0.8rem; /* 工作时间文字大小 */
+  line-height: 1.2;
   margin: 0.2rem 0;
 }
 
@@ -857,7 +857,7 @@ footer {
 .security-note {
   color: var(--text-muted);
   font-size: 0.8rem; /* 安全提示文字大小（更小） */
-  line-height: 1.3;
+  line-height: 1.2;
   margin: 0.3rem 0 0;
   opacity: 0.8;
 }
@@ -940,7 +940,7 @@ footer {
   }
   
   .operating-hours {
-    font-size: 0.6rem; /* 移动端工作时间文字稍小 */
+    font-size: 0.7rem; /* 移动端工作时间文字稍小 */
     line-height: 1.0;
   }
   
