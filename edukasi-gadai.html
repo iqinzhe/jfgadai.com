@@ -111,12 +111,12 @@ f.parentNode.insertBefore(j,f);
   <style>
 
     /* 自定义教育页面样式 */
-  <style>
+    <style>
     .edu-header {
       background: linear-gradient(135deg, rgba(11, 44, 74, 0.9) 0%, rgba(26, 82, 118, 0.9) 100%);
-      padding: 2.5rem 2rem;
+      padding: 2.5rem 2rem; /* 段落距离：页头内边距 */
       border-radius: 12px;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem; /* 段落距离：页头下边距 */
       text-align: center;
       color: white;
     }
@@ -124,19 +124,19 @@ f.parentNode.insertBefore(j,f);
     .edu-header h1 {
       color: var(--secondary-color);
       font-size: 1.8rem; /* 文字大小：教育页面主标题 */
-      margin-bottom: 1rem;
+      margin-bottom: 1rem 1rem; /* 段落距离：主标题下边距 */
       line-height: 1.3; /* 行距：主标题行高 */
     }
     
     .edu-header .subtitle {
-      font-size: 1.0rem; /* 文字大小：副标题 */
-      line-height: 1.2; /* 行距：副标题行高 */
-      margin-bottom: 1.0rem;
+      font-size: 1.1rem; /* 文字大小：副标题 */
+      line-height: 1.5; /* 行距：副标题行高 */
+      margin-bottom: 1.2rem; /* 段落距离：副标题下边距 */
       color: rgba(255, 255, 255, 0.9);
     }
     
     .edu-content-section {
-      padding: 2rem 0;
+      padding: 2rem 0; /* 段落距离：内容区块上下内边距 */
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     
@@ -146,7 +146,7 @@ f.parentNode.insertBefore(j,f);
     
     .edu-content-section h2 {
       color: var(--secondary-color);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.5rem; /* 段落距离：章节标题下边距 */
       font-size: 1.5rem; /* 文字大小：章节标题 */
       display: flex;
       align-items: center;
@@ -162,33 +162,33 @@ f.parentNode.insertBefore(j,f);
       color: var(--dark-color);
       border-radius: 50%;
       font-weight: bold;
-      font-size: 1.0rem; /* 文字大小：章节数字 */
-      margin-right: 12px;
+      font-size: 0.9rem; /* 文字大小：章节数字 */
+      margin-right: 12px; /* 段落距离：章节数字右边距 */
     }
     
     .edu-content-section h3 {
       color: #ffffff;
-      margin: 1.5rem 0 0.8rem 0;
+      margin: 1.5rem 0 0.8rem 0; /* 段落距离：小节标题上下边距 */
       font-size: 1.2rem; /* 文字大小：小节标题 */
     }
     
     .edu-content-section p, 
     .edu-content-section li {
-      line-height: 1.5; /* 行距：正文和列表项行高 */
-      margin-bottom: 0.8rem;
+      line-height: 1.7; /* 行距：正文和列表项行高 */
+      margin-bottom: 0.8rem; /* 段落距离：段落和列表项下边距 */
       color: rgba(255, 255, 255, 0.85);
     }
     
     .edu-content-section ul, 
     .edu-content-section ol {
-      padding-left: 1.5rem;
-      margin: 1rem 0;
+      padding-left: 1.5rem; /* 段落距离：列表左内边距 */
+      margin: 1rem 0; /* 段落距离：列表上下外边距 */
     }
     
     .info-box, .tip-box, .warning-box {
-      padding: 1.2rem;
+      padding: 1.2rem; /* 段落距离：信息框内边距 */
       border-radius: 8px;
-      margin: 1.5rem 0;
+      margin: 1.5rem 0; /* 段落距离：信息框上下外边距 */
       border-left: 4px solid;
     }
     
@@ -210,7 +210,7 @@ f.parentNode.insertBefore(j,f);
     .comparison-table {
       width: 100%;
       border-collapse: collapse;
-      margin: 1.5rem 0;
+      margin: 1.5rem 0; /* 段落距离：表格上下外边距 */
       background: rgba(255, 255, 255, 0.05);
       border-radius: 8px;
       overflow: hidden;
@@ -219,14 +219,14 @@ f.parentNode.insertBefore(j,f);
     .comparison-table th {
       background: rgba(245, 197, 66, 0.2);
       color: var(--secondary-color);
-      padding: 1rem;
+      padding: 0.5rem; /* 段落距离：表头内边距 */
       text-align: left;
       font-weight: 600;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     .comparison-table td {
-      padding: 1rem;
+      padding: 1rem; /* 段落距离：表格单元格内边距 */
       border: 1px solid rgba(255, 255, 255, 0.1);
       color: rgba(255, 255, 255, 0.85);
     }
@@ -238,51 +238,51 @@ f.parentNode.insertBefore(j,f);
     .consultation-cta {
       background: linear-gradient(135deg, rgba(26, 82, 118, 0.9) 0%, rgba(11, 44, 74, 0.9) 100%);
       border-radius: 12px;
-      padding: 2rem;
-      margin: 2.5rem 0;
+      padding: 2rem; /* 段落距离：CTA区块内边距 */
+      margin: 2.5rem 0; /* 段落距离：CTA区块上下外边距 */
       border: 1px solid rgba(245, 197, 66, 0.3);
     }
     
     .consultation-cta h3 {
       color: var(--secondary-color);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.5rem; /* 段落距离：CTA标题下边距 */
       font-size: 1.4rem; /* 文字大小：CTA标题 */
     }
     
     .cta-subtitle {
       color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.5rem; /* 段落距离：CTA副标题下边距 */
     }
     
     .benefits-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin: 1.5rem 0;
+      gap: 1.5rem; /* 段落距离：网格项间距 */
+      margin: 1.5rem 0; /* 段落距离：网格上下外边距 */
     }
     
     .benefit-item {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 8px;
-      padding: 1.2rem;
+      padding: 1.2rem; /* 段落距离：优势项内边距 */
     }
     
     .benefit-item strong {
       color: var(--secondary-color);
       display: block;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.8rem; /* 段落距离：优势标题下边距 */
     }
     
     .benefit-item ul {
       margin: 0;
-      padding-left: 1.2rem;
+      padding-left: 1.2rem; /* 段落距离：列表左内边距 */
     }
     
     .quote-box {
       background: rgba(255, 255, 255, 0.05);
       border-left: 3px solid var(--secondary-color);
-      padding: 1.2rem;
-      margin: 1.5rem 0;
+      padding: 1.2rem; /* 段落距离：引用框内边距 */
+      margin: 1.5rem 0; /* 段落距离：引用框上下外边距 */
       font-style: italic;
     }
     
@@ -290,7 +290,7 @@ f.parentNode.insertBefore(j,f);
       text-align: right;
       font-weight: bold;
       color: var(--secondary-color);
-      margin-top: 0.5rem;
+      margin-top: 0.5rem; /* 段落距离：作者上边距 */
     }
     
     .action-btn {
@@ -301,12 +301,12 @@ f.parentNode.insertBefore(j,f);
       background: #25D366;
       color: white;
       text-decoration: none;
-      padding: 0.9rem 1.5rem;
+      padding: 0.9rem 1.5rem; /* 段落距离：按钮内边距 */
       border-radius: 10px;
       font-weight: 600;
       font-size: 1rem; /* 文字大小：按钮文字 */
       transition: all 0.3s ease;
-      margin: 1.5rem 0;
+      margin: 1.5rem 0; /* 段落距离：按钮上下外边距 */
     }
     
     .action-btn:hover {
@@ -317,7 +317,7 @@ f.parentNode.insertBefore(j,f);
     
     .back-to-home {
       display: inline-block;
-      margin: 2rem 0;
+      margin: 2rem 0; /* 段落距离：返回链接上下外边距 */
       color: var(--secondary-color);
       text-decoration: none;
       font-weight: 600;
@@ -336,7 +336,7 @@ f.parentNode.insertBefore(j,f);
     }
     
     .faq-number {
-      margin-right: 8px;
+      margin-right: 8px; /* 段落距离：FAQ数字右边距 */
       font-weight: 600;
       color: var(--secondary-color);
       flex-shrink: 0;
@@ -352,7 +352,7 @@ f.parentNode.insertBefore(j,f);
     /* 移动端优化 */
     @media (max-width: 768px) {
       .edu-header {
-        padding: 1.5rem 1rem;
+        padding: 1.5rem 1rem; /* 移动端段落距离：页头内边距 */
       }
       
       .edu-header h1 {
@@ -360,7 +360,7 @@ f.parentNode.insertBefore(j,f);
       }
       
       .edu-content-section {
-        padding: 1.5rem 0;
+        padding: 1.5rem 0; /* 移动端段落距离：内容区块内边距 */
       }
       
       .edu-content-section h2 {
@@ -373,7 +373,7 @@ f.parentNode.insertBefore(j,f);
       
       .benefits-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1rem; /* 移动端段落距离：网格项间距 */
       }
       
       .comparison-table {
@@ -382,18 +382,18 @@ f.parentNode.insertBefore(j,f);
       
       .comparison-table th,
       .comparison-table td {
-        padding: 0.7rem;
+        padding: 0.7rem; /* 移动端段落距离：表格单元格内边距 */
       }
       
       .faq-number {
-        margin-right: 6px;
+        margin-right: 6px; /* 移动端段落距离：FAQ数字右边距 */
         font-size: 0.9rem; /* 移动端文字大小：FAQ数字 */
         min-width: 18px;
       }
       
       .faq-question-text {
-        font-size: 1.0rem; /* 移动端文字大小：FAQ问题文字 */
-        line-height: 1.2; /* 移动端行距：FAQ问题行高 */
+        font-size: 0.9rem; /* 移动端文字大小：FAQ问题文字 */
+        line-height: 1.3; /* 移动端行距：FAQ问题行高 */
       }
     }
 
@@ -408,26 +408,26 @@ f.parentNode.insertBefore(j,f);
 
 /* 移动端情况列表样式 */
 .situations-list {
-  margin: 1.5rem 0;
+  margin: 1.5rem 0; /* 段落距离：情况列表上下外边距 */
 }
 
 .situation-item {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: 1rem; /* 段落距离：情况项内边距 */
+  margin-bottom: 1rem; /* 段落距离：情况项下边距 */
   border-left: 4px solid var(--secondary-color);
 }
 
 .situation-item strong {
   color: var(--secondary-color);
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem; /* 段落距离：情况标题下边距 */
   font-size: 1.1rem; /* 文字大小：情况项标题 */
 }
 
 .situation-item p {
-  margin: 0.3rem 0;
+  margin: 0.3rem 0; /* 段落距离：情况正文上下外边距 */
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.95rem; /* 文字大小：情况项正文 */
 }
@@ -440,10 +440,10 @@ f.parentNode.insertBefore(j,f);
 
 /* 检查表结果样式 */
 .checklist-result {
-  margin-top: 15px;
+  margin-top: 15px; /* 段落距离：检查结果上边距 */
   font-weight: bold;
   color: #2ecc71;
-  padding-top: 10px;
+  padding-top: 10px; /* 段落距离：检查结果上内边距 */
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -458,12 +458,12 @@ f.parentNode.insertBefore(j,f);
   }
   
   .comparison-table {
-    font-size: 0.9rem; /* 移动端文字大小：表格文字（响应式） */
+    font-size: 0.85rem; /* 移动端文字大小：表格文字（响应式） */
   }
   
   .comparison-table th,
   .comparison-table td {
-    padding: 0.5rem;
+    padding: 0.5rem; /* 移动端段落距离：表格单元格内边距（更小） */
   }
 }
   </style>
