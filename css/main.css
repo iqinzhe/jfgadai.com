@@ -613,47 +613,45 @@ footer {
 }
 
 /* 平衡网格布局 - 调整为深色主题 */
+/* 平衡网格布局-贷款信息 - 修正为统一深色主题 */
 .balanced-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem;
-  margin: 1.5rem 0;
+  margin: 2rem 0;
 }
 
 .grid-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
-  padding: var(--spacing-lg);
+  padding: 1.5rem;
   border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  min-height: 220px; /* 统一高度 */
+  justify-content: space-between; /* 内容均匀分布 */
 }
 
 .grid-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  border-color: rgba(245, 197, 66, 0.3);
+  border-color: rgba(245, 197, 66, 0.4);
   background: rgba(255, 255, 255, 0.12);
-}
-
-.grid-card-highlight {
-  border: 2px solid var(--secondary-color);
-  background: rgba(245, 197, 66, 0.1);
 }
 
 .card-header {
   text-align: center;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: 1rem;
 }
 
 .card-icon-large {
   font-size: 2.2rem;
   margin-bottom: 0.5rem;
   color: var(--secondary-color);
-  text-shadow: 0 0 10px rgba(245, 197, 66, 0.3);
+  text-shadow: 0 0 8px rgba(245, 197, 66, 0.4);
 }
 
 .card-header h3 {
@@ -661,6 +659,13 @@ footer {
   margin: 0;
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+.card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-body p {
@@ -671,105 +676,48 @@ footer {
   line-height: 1.5;
 }
 
+/* 警告框样式调整为深色主题 */
 .warning-box {
-  background: rgba(255, 193, 7, 0.15);
+  background: rgba(245, 197, 66, 0.15);
   border-radius: 8px;
   padding: 0.8rem;
   margin-top: 1rem;
   display: flex;
   gap: 0.5rem;
-  align-items: center;
+  align-items: flex-start;
   border-left: 3px solid var(--secondary-color);
 }
 
 .warning-icon-small {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   flex-shrink: 0;
   color: var(--secondary-color);
+  margin-top: 0.1rem;
 }
 
 .warning-box p {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-light);
   margin: 0;
   text-align: left;
   line-height: 1.4;
 }
 
-/* 贷款信息CTA按钮区域 */
-.seo-text-content.loan-info-section > .container > div:last-child {
-  text-align: center;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.seo-text-content.loan-info-section .card-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
-  color: var(--dark-color);
-  padding: 0.9rem 1.8rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.05rem;
-  transition: all 0.3s ease;
-  margin: 0 auto;
-  min-width: 200px;
-  border: 2px solid transparent;
-}
-
-.seo-text-content.loan-info-section .card-cta-btn:hover {
-  background: linear-gradient(135deg, var(--secondary-dark), var(--secondary-color));
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(245, 197, 66, 0.4);
-}
-
 /* 响应式调整 */
 @media (max-width: 992px) {
   .balanced-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-  
-  .grid-card {
-    padding: var(--spacing-md);
   }
 }
 
 @media (max-width: 768px) {
   .balanced-grid {
     grid-template-columns: 1fr;
-    gap: 0.8rem;
   }
   
-  .seo-text-content.loan-info-section h2 {
-    font-size: 1.4rem;
-    margin-bottom: var(--spacing-md);
-  }
-  
-  .card-header h3 {
-    font-size: 1.1rem;
-  }
-  
-  .card-body p {
-    font-size: 0.95rem;
-  }
-  
-  .warning-box {
-    padding: 0.7rem;
-  }
-  
-  .warning-box p {
-    font-size: 0.85rem;
-  }
-  
-  .seo-text-content.loan-info-section .card-cta-btn {
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    min-width: 180px;
+  .grid-card {
+    min-height: auto; /* 移动端自适应高度 */
+    padding: 1.2rem;
   }
 }
 
