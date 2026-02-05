@@ -940,12 +940,12 @@ footer {
   }
   
   .operating-hours {
-    font-size: 0.7rem; /* 移动端工作时间文字稍小 */
-    line-height: 1.2;
+    font-size: 0.6rem; /* 移动端工作时间文字稍小 */
+    line-height: 1.0;
   }
   
   .security-note {
     font-size: 0.7rem; /* 移动端安全提示文字更小 */
-    line-height: 1.2;
+    line-height: 1.0;
   }
 }
