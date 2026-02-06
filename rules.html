@@ -4,16 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/android-chrome-512x512.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#ffffff">
-
   <!-- SEO Meta Tags -->
   <title>Panduan Sukses Gadai Motor & Syarat Ketentuan | JF Gadai</title>
   <meta name="description" content="Pelajari dari kisah nyata sukses dan gagal gadai motor di JF Gadai. Pahami faktor risiko dan syarat ketentuan gadai motor, emas, HP, dan barang berharga lainnya.">
@@ -66,44 +56,9 @@
 
   <style>
     /* ==================== 风险到成功页面专用样式 ==================== */
-    /* 只保留绝对必要的、main.css中没有的样式 */
+    /* 只保留main.css中没有的、必须的功能性样式 */
     
-    /* 面包屑导航 - main.css中没有类似样式，保留 */
-    .page-breadcrumb {
-      max-width: 1200px;
-      margin: var(--spacing-md) auto var(--spacing-sm);
-      padding: 0 var(--spacing-lg);
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .page-breadcrumb a {
-      color: var(--text-muted) !important;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .page-breadcrumb a:hover {
-      color: var(--secondary-color) !important;
-    }
-
-    .separator {
-      color: var(--text-muted) !important;
-      font-weight: bold;
-    }
-
-    .current {
-      color: var(--secondary-color) !important;
-      font-weight: 600;
-    }
-
-    /* 页面英雄区域 - 基于main.css的unified-card但需要特殊背景 */
+    /* 1. 页面特有的结构样式 */
     .page-hero {
       background: linear-gradient(135deg, 
         rgba(15, 76, 129, 0.9) 0%, 
@@ -142,78 +97,9 @@
       line-height: 1.4;
     }
 
-    /* 章节标题 - 使用main.css中的card-title样式 */
-    .section-header {
-      text-align: center;
-      margin-bottom: var(--spacing-xl);
-      padding: 0 var(--spacing-lg);
-    }
-
-    .section-header h2 {
-      color: var(--secondary-color);
-      font-size: 1.8rem;
-      margin-bottom: var(--spacing-sm);
-      position: relative;
-      display: inline-block;
-      line-height: 1.2;
-    }
-
-    .section-header h2::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 25%;
-      right: 25%;
-      height: 3px;
-      background: var(--secondary-color);
-      border-radius: 2px;
-    }
-
-    .section-icon {
-      font-size: 2.5rem;
-      margin-bottom: var(--spacing-sm);
-      display: inline-block;
-    }
-
-    .section-subtitle {
-      color: var(--text-light);
-      font-size: 1.1rem;
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.4;
-    }
-
-    /* 介绍部分 - 使用main.css的unified-card样式 */
-    .key-message {
-      background: rgba(245, 197, 66, 0.08);
-      border: 1px solid rgba(245, 197, 66, 0.2);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-lg);
-      margin-top: var(--spacing-lg);
-      animation: fadeIn 0.8s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from { 
-        opacity: 0; 
-        transform: translateY(10px); 
-      }
-      to { 
-        opacity: 1; 
-        transform: translateY(0); 
-      }
-    }
-
-    /* 案例网格布局 */
-    .cases-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--spacing-lg);
-      margin-top: var(--spacing-lg);
-    }
-
-    /* 案例卡片 - 基于main.css的grid-card但需要可点击展开 */
+    /* 2. 案例卡片特有的功能样式（展开/收起） */
     .case-card {
+      position: relative;
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(10px);
       border-radius: var(--border-radius);
@@ -239,6 +125,7 @@
       transform: translateY(0);
     }
 
+    /* 风险/成功卡片颜色区别 */
     .risk-card {
       border-color: rgba(244, 67, 54, 0.3);
     }
@@ -259,7 +146,7 @@
       box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
     }
 
-    /* 案例标签 - 使用main.css中的highlight样式理念 */
+    /* 案例标签 - 特殊样式 */
     .case-label {
       font-size: 0.75rem;
       font-weight: 700;
@@ -441,7 +328,14 @@
       line-height: 1.4;
     }
 
-    /* 成功因素部分 - 使用main.css的grid-card样式 */
+    /* 3. 网格布局（main.css中已有类似的网格样式，但需要特定调整） */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-lg);
+    }
+
     .factors-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -449,81 +343,7 @@
       margin-top: var(--spacing-lg);
     }
 
-    .factor-card {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(10px);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-xl);
-      text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 0.5s ease forwards;
-      animation-delay: calc(var(--factor-index, 0) * 0.1s);
-    }
-
-    .factor-card.animated {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .factor-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-      border-color: rgba(245, 197, 66, 0.4);
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .factor-icon {
-      font-size: 3rem;
-      margin-bottom: var(--spacing-md);
-      color: var(--secondary-color);
-    }
-
-    .factor-card h3 {
-      color: var(--text-light);
-      font-size: 1.3rem;
-      margin-bottom: var(--spacing-md);
-      line-height: 1.2;
-    }
-
-    .factor-list {
-      list-style: none;
-      text-align: left;
-      margin-bottom: var(--spacing-lg);
-    }
-
-    .factor-list li {
-      color: var(--text-light);
-      padding: 0.4rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      display: flex;
-      align-items: center;
-    }
-
-    .factor-list li::before {
-      content: "✓";
-      color: var(--secondary-color);
-      margin-right: 0.5rem;
-      font-weight: bold;
-    }
-
-    .factor-list li strong {
-      color: var(--text-muted);
-      margin-right: 0.3rem;
-    }
-
-    .factor-tip {
-      color: var(--secondary-color);
-      font-size: 0.9rem;
-      font-style: italic;
-      padding-top: var(--spacing-md);
-      border-top: 1px solid rgba(245, 197, 66, 0.2);
-    }
-
-    /* CTA部分 - 使用main.css的unified-card样式 */
+    /* 4. CTA区域特殊样式 */
     .cta-card {
       background: linear-gradient(135deg, 
         rgba(15, 76, 129, 0.8), 
@@ -533,23 +353,6 @@
       border: 2px solid rgba(245, 197, 66, 0.4);
       box-shadow: var(--shadow-lg);
       text-align: center;
-    }
-
-    .cta-content h2 {
-      color: var(--secondary-color);
-      font-size: 2.2rem;
-      margin-bottom: var(--spacing-sm);
-      line-height: 1.2;
-    }
-
-    .cta-subtitle {
-      color: var(--text-light);
-      font-size: 1.2rem;
-      margin-bottom: var(--spacing-xl);
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.4;
     }
 
     .cta-options {
@@ -588,42 +391,7 @@
       color: var(--secondary-color);
     }
 
-    .cta-option h3 {
-      color: var(--light-color);
-      font-size: 1.3rem;
-      margin-bottom: var(--spacing-sm);
-      line-height: 1.2;
-    }
-
-    .cta-option p {
-      color: var(--text-light);
-      margin-bottom: var(--spacing-lg);
-      font-size: 0.95rem;
-      line-height: 1.4;
-    }
-
-    /* CTA备注 */
-    .cta-note {
-      margin-top: var(--spacing-xl);
-      padding: var(--spacing-lg);
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: var(--border-radius);
-      color: var(--text-light);
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-
-    .cta-note strong {
-      color: var(--secondary-color);
-    }
-
-    /* ==================== 条款页面样式 ==================== */
-    .rules-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 1rem;
-    }
-    
+    /* 5. 条款页面特有样式 */
     .legal-banner {
       background: rgba(245, 197, 66, 0.15);
       border: 1px solid var(--secondary-color);
@@ -668,13 +436,6 @@
     }
     
     /* FAQ样式 */
-    .faq-section {
-      background: rgba(11, 44, 74, 0.9);
-      padding: var(--spacing-lg) 0;
-      margin-top: var(--spacing-xl);
-      border-radius: var(--border-radius);
-    }
-    
     .faq-list {
       max-width: 850px;
       margin: 0 auto;
@@ -862,6 +623,18 @@
       transform: translateY(-2px);
     }
 
+    /* 6. 动画效果（main.css中已有fadeIn，但需要其他动画） */
+    @keyframes fadeIn {
+      from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+
     /* ==================== 响应式设计 ==================== */
     /* 平板设备（769px-1024px） */
     @media (min-width: 769px) and (max-width: 1024px) {
@@ -882,6 +655,10 @@
       .process-grid {
         grid-template-columns: 1fr;
       }
+      
+      .cta-options {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* 移动设备（768px及以下） */
@@ -897,19 +674,6 @@
       }
       
       .hero-subtitle {
-        font-size: 1rem;
-      }
-      
-      /* 章节调整 */
-      .section-header {
-        margin-bottom: var(--spacing-lg);
-      }
-      
-      .section-header h2 {
-        font-size: 1.4rem;
-      }
-      
-      .section-subtitle {
         font-size: 1rem;
       }
       
@@ -942,17 +706,9 @@
         gap: var(--spacing-md);
       }
       
-      .factor-card {
-        padding: var(--spacing-lg);
-      }
-      
       /* CTA部分调整 */
       .cta-card {
         padding: var(--spacing-lg);
-      }
-      
-      .cta-content h2 {
-        font-size: 1.6rem;
       }
       
       .cta-options {
@@ -1036,7 +792,7 @@
       <p>JF Gadai membagikan pengalaman nyata gadai motor untuk membantu pelanggan memahami faktor sukses dan kegagalan. Pelajari dari studi kasus nyata tentang risiko dokumen, kondisi motor, faktor manusia, dan cara menghindari masalah umum. Panduan ini didasarkan pada pengalaman langsung tim JF Gadai melayani gadai motor di wilayah Bangil, Beji, dan Gempol. Kami menunjukkan transparansi dalam proses gadai dan berkomitmen membantu pelanggan mencapai kesepakatan yang adil dan menguntungkan kedua belah pihak.</p>
   </div>
 
-  <!-- 头部导航 - 使用main.css中的assessment-header样式 -->
+  <!-- 头部导航 - 完全使用main.css中的assessment-header样式 -->
   <header class="assessment-header">
     <div class="container">
       <a href="/" class="back-btn">
@@ -1073,20 +829,21 @@
   </section>
 
   <main class="container">
-    <!-- 介绍部分 -->
+    <!-- 介绍部分 - 使用main.css中的unified-card类 -->
     <section class="intro-section">
       <div class="section-header">
-        <h2>Panduan Gadai Motor Nyata</h2>
+        <!-- 这里section-header会自动从main.css继承样式 -->
+        <h2 class="card-title">Panduan Gadai Motor Nyata</h2>
         <p class="section-subtitle">
           <strong class="highlight">Persiapan baik = sukses gadai.</strong> 
           Kisah nyata dari pelanggan JF Gadai (nama dirahasiakan).
         </p>
       </div>
       
-      <div class="key-message">
+      <div class="key-message unified-card">
         <div class="message-content">
-          <h3>💡Filosofi Kami: Transparansi untuk Kesuksesan</h3>
-          <p>Kami percaya pelanggan yang terinformasi adalah pelanggan yang sukses. Dengan memahami risiko sejak awal, Anda bisa menghindari kekecewaan dan memaksimalkan peluang gadai motor Anda.</p>
+          <h3 class="card-title">💡Filosofi Kami: Transparansi untuk Kesuksesan</h3>
+          <p class="card-desc">Kami percaya pelanggan yang terinformasi adalah pelanggan yang sukses. Dengan memahami risiko sejak awal, Anda bisa menghindari kekecewaan dan memaksimalkan peluang gadai motor Anda.</p>
         </div>
       </div>
     </section>
@@ -1095,7 +852,7 @@
     <section class="cases-section risk-cases">
       <div class="section-header">
         <div class="section-icon">⚠️</div>
-        <h2>Kasus Gagal Gadai</h2>
+        <h2 class="card-title">Kasus Gagal Gadai</h2>
         <p class="section-subtitle">
           Situasi yang <strong class="highlight">menghambat proses gadai</strong>. 
           Kenali dan hindari pengalaman serupa.
@@ -1104,7 +861,7 @@
       
       <div class="cases-grid">
         <!-- 案例1: 证件问题 -->
-        <div class="case-card risk-card">
+        <div class="case-card risk-card grid-card">
           <div class="case-header case-header-toggle">
             <div>
               <span class="case-label risk-label">DOKUMEN</span>
@@ -1138,7 +895,7 @@
         </div>
         
         <!-- 案例2: 事故车隐瞒 -->
-        <div class="case-card risk-card">
+        <div class="case-card risk-card grid-card">
           <div class="case-header case-header-toggle">
             <div>
               <span class="case-label risk-label">KONDISI</span>
@@ -1172,7 +929,7 @@
         </div>
         
         <!-- 案例3: 家庭连环典当 -->
-        <div class="case-card risk-card">
+        <div class="case-card risk-card grid-card">
           <div class="case-header case-header-toggle">
             <div>
               <span class="case-label risk-label">FAKTOR MANUSIA</span>
@@ -1206,7 +963,7 @@
         </div>
         
         <!-- 案例4: OJOL司机高风险 -->
-        <div class="case-card risk-card">
+        <div class="case-card risk-card grid-card">
           <div class="case-header case-header-toggle">
             <div>
               <span class="case-label risk-label">PENGGUNAAN</span>
@@ -1245,7 +1002,7 @@
     <section class="cases-section success-cases">
       <div class="section-header">
         <div class="section-icon">🎯</div>
-        <h2>Kisah Sukses Gadai</h2>
+        <h2 class="card-title">Kisah Sukses Gadai</h2>
         <p class="section-subtitle">
           <strong class="highlight">Komunikasi terbuka</strong> menghasilkan kesepakatan 
           menguntungkan semua pihak.
@@ -1254,7 +1011,7 @@
       
       <div class="cases-grid">
         <!-- 成功案例1 -->
-        <div class="case-card success-card">
+        <div class="case-card success-card grid-card">
           <div class="case-header case-header-toggle">
             <div>
               <span class="case-label success-label">TRANSFORMASI</span>
@@ -1289,7 +1046,7 @@
         </div>
         
         <!-- 成功案例2 -->
-        <div class="case-card success-card">
+        <div class="case-card success-card grid-card">
           <div class="case-header case-header-toggle">
             <div>
               <span class="case-label success-label">KOLABORASI</span>
@@ -1327,14 +1084,14 @@
     <!-- 第三部分：关键成功因素 -->
     <section class="success-factors">
       <div class="section-header">
-        <h2>3 Faktor Kunci Sukses Gadai</h2>
+        <h2 class="card-title">3 Faktor Kunci Sukses Gadai</h2>
         <p class="section-subtitle">
           Analisis 50+ kasus: faktor pembeda sukses vs gagal.
         </p>
       </div>
       
       <div class="factors-grid">
-        <div class="factor-card">
+        <div class="factor-card grid-card">
           <div class="factor-icon">📄</div>
           <h3>1. Dokumen Lengkap & Jelas</h3>
           <ul class="factor-list">
@@ -1345,7 +1102,7 @@
           <p class="factor-tip"><strong>Tips:</strong> Cek masa berlaku STNK dan pajak motor.</p>
         </div>
         
-        <div class="factor-card">
+        <div class="factor-card grid-card">
           <div class="factor-icon">🔍</div>
           <h3>2. Kejujuran tentang Kondisi</h3>
           <ul class="factor-list">
@@ -1356,7 +1113,7 @@
           <p class="factor-tip"><strong>Fakta:</strong> Motor yang diakui riwayatnya dinilai lebih cepat.</p>
         </div>
         
-        <div class="factor-card">
+        <div class="factor-card grid-card">
           <div class="factor-icon">💬</div>
           <h3>3. Komunikasi Terbuka</h3>
           <ul class="factor-list">
@@ -1372,17 +1129,17 @@
     <!-- 第四部分：行动号召部分 -->
     <section class="cta-section">
       <div class="section-header">
-        <h2>Siap Gadai Motor Anda?</h2>
+        <h2 class="card-title">Siap Gadai Motor Anda?</h2>
         <p class="section-subtitle">
           Pelajari dari kasus nyata, gunakan pengetahuan untuk sukses gadai Anda.
         </p>
       </div>
       
-      <div class="cta-card">
+      <div class="cta-card unified-card">
         <div class="cta-content">
           <div class="option-icon">📱</div>
-          <h2>Hubungi Kami via WhatsApp</h2>
-          <p class="cta-subtitle">
+          <h2 class="card-title">Hubungi Kami via WhatsApp</h2>
+          <p class="cta-subtitle card-desc">
             Konsultasi gratis, penilaian fair, proses cepat. 
             Jadilah bagian dari kisah sukses gadai berikutnya.
           </p>
@@ -1403,18 +1160,18 @@
     <!-- 第五部分：条款与条件 -->
     <section class="faq-section">
       <div class="section-header">
-        <h2>📋 Syarat dan Ketentuan Gadai</h2>
+        <h2 class="card-title">📋 Syarat dan Ketentuan Gadai</h2>
         <p class="section-subtitle">
           Aturan lengkap untuk layanan gadai di JF Gadai.
         </p>
       </div>
       
-      <!-- 主要卡片 -->
-      <div class="legal-banner fade-in delay-1">
+      <!-- 主要卡片 - 使用main.css的unified-card样式 -->
+      <div class="legal-banner unified-card">
         <div class="legal-icon">⚖️</div>
         <div>
-          <h3>📌 INFORMASI PENTING</h3>
-          <p>
+          <h3 class="card-title">📌 INFORMASI PENTING</h3>
+          <p class="card-desc">
             <strong>Semua transaksi di JF Gadai mengikuti aturan hukum yang berlaku di Indonesia.</strong><br>
             Kami berkomitmen untuk memberikan layanan yang adil, transparan, dan melindungi hak kedua belah pihak.
           </p>
@@ -1619,19 +1376,19 @@
       </div>
       
       <!-- 同意框 -->
-      <div class="agreement-box">
-        <h3>📝 Pernyataan Persetujuan</h3>
-        <p>
+      <div class="agreement-box unified-card">
+        <h3 class="card-title">📝 Pernyataan Persetujuan</h3>
+        <p class="card-desc">
           Dengan menggunakan layanan JF Gadai, Anda menyatakan telah membaca, memahami, dan menyetujui seluruh syarat dan ketentuan yang tercantum di halaman ini.
         </p>
-        <p>
+        <p class="card-desc">
           Syarat dan ketentuan dapat diperbarui sewaktu-waktu tanpa pemberitahuan sebelumnya. Versi terbaru selalu tersedia di halaman ini.
         </p>
       </div>
     </section>
   </main>
 
-  <!-- 页脚 - 使用main.css中的footer样式 -->
+  <!-- 页脚 - 完全使用main.css中的footer样式 -->
   <footer id="lokasi">
     <div class="container">
       <div class="footer-content">
