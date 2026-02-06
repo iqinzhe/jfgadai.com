@@ -74,6 +74,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
   <style>
+    /* motor.css - 精简版，只保留特有样式 */
     
     main.container {
       margin-top: 24px;
@@ -86,7 +87,7 @@
       text-align: center;
     }
     
-    /* 价值计算器 - 特有样式 */
+    /* 价值计算器 - 使用unified-card样式基础上调整 */
     .value-calculator {
       background: linear-gradient(135deg, rgba(15, 76, 129, 0.4), rgba(245, 197, 66, 0.2));
       border: 2px solid var(--secondary-color);
@@ -94,12 +95,14 @@
       padding: var(--spacing-xl);
       margin: var(--spacing-xl) 0;
       text-align: center;
+      position: relative;
     }
     
     .calculator-title {
       color: var(--secondary-color);
       font-size: 1.4rem;
       margin-bottom: var(--spacing-md);
+      font-weight: 700;
     }
     
     /* 警告框 - 特有样式 */
@@ -109,6 +112,44 @@
       border-radius: var(--border-radius);
       padding: var(--spacing-md);
       margin: var(--spacing-lg) 0;
+    }
+    
+    /* 流程步骤样式 */
+    .process-step {
+      text-align: center;
+      flex: 1;
+      min-width: 150px;
+    }
+    
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: var(--secondary-color);
+      color: var(--dark-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--spacing-sm);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    .step-title {
+      font-weight: bold;
+      color: var(--light-color);
+      margin-bottom: 4px;
+    }
+    
+    .step-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    
+    /* 文档卡片特殊边框 */
+    .doc-card {
+      border: 1px solid rgba(245, 197, 66, 0.3);
+      background: rgba(245, 197, 66, 0.1);
     }
     
     /* 响应式调整 */
@@ -154,9 +195,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
     <div class="value-calculator">
       <h3 class="calculator-title">💰 Estimasi Nilai Gadai Motor</h3>
-      <p>Motor Anda bernilai lebih dari yang Anda kira!<br>
-      <strong>Honda & Yamaha: Rp 1-10 juta</strong><br>
-      <strong>Matic & Sport: Nilai lebih tinggi</strong></p>
+      <p class="card-desc">Motor Anda bernilai lebih dari yang Anda kira!<br>
+      <strong class="card-highlight">Honda & Yamaha: Rp 1-10 juta</strong><br>
+      <strong class="card-highlight">Matic & Sport: Nilai lebih tinggi</strong></p>
     </div>
     
     <!-- 主要CTA -->
@@ -170,11 +211,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   
   <!-- 好处网格 - 使用balanced-grid样式 -->
-  <div class="balanced-grid responsive-benefits-grid">
+  <div class="balanced-grid">
     <div class="grid-card fade-in delay-2">
       <div class="card-header">
         <div class="card-icon-large">⚡</div>
         <h3>Proses Super Cepat</h3>
+      </div>
+      <div class="card-body">
+        <p>Dana cair dalam 30-60 menit</p>
       </div>
     </div>
     
@@ -183,12 +227,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="card-icon-large">🔒</div>
         <h3>Keamanan Terjamin</h3>
       </div>
+      <div class="card-body">
+        <p>Motor tersimpan di gudang aman</p>
+      </div>
     </div>
     
     <div class="grid-card fade-in delay-4">
       <div class="card-header">
         <div class="card-icon-large">💵</div>
         <h3>Bunga Kompetitif</h3>
+      </div>
+      <div class="card-body">
+        <p>Suku bunga terjangkau</p>
       </div>
     </div>
     
@@ -197,13 +247,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="card-icon-large">🔄</div>
         <h3>Fleksibel</h3>
       </div>
+      <div class="card-body">
+        <p>Proses penebusan mudah</p>
+      </div>
     </div>
   </div>
   
   <!-- 两栏信息 -->
-  <div class="balanced-grid info-grid">
+  <div class="balanced-grid">
     <!-- 接受的物品 -->
-    <div class="grid-card info-card">
+    <div class="grid-card">
       <div class="card-header">
         <h3 style="color: #4CAF50;">✅ Motor yang Diterima</h3>
       </div>
@@ -217,7 +270,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     
     <!-- 不接受的物品 -->
-    <div class="grid-card info-card">
+    <div class="grid-card">
       <div class="card-header">
         <h3 style="color: #f44336;">❌ Motor yang Tidak Diterima</h3>
       </div>
@@ -231,33 +284,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   
-  <!-- 所需文件 - 使用balanced-grid样式 -->
-  <div class="balanced-grid responsive-documents-grid">
-    <div class="grid-card doc-card">
-      <div class="card-header">
-        <div class="card-icon-large">🆔</div>
-        <h4>KTP Asli</h4>
-      </div>
+  <!-- 所需文档 -->
+  <div class="grid-card" style="margin: var(--spacing-lg) 0;">
+    <div class="card-header">
+      <h3 style="color: var(--secondary-color); text-align: center;">📋 Dokumen yang Diperlukan</h3>
     </div>
-    
-    <div class="grid-card doc-card">
-      <div class="card-header">
-        <div class="card-icon-large">📋</div>
-        <h4>BPKB Asli</h4>
-      </div>
-    </div>
-    
-    <div class="grid-card doc-card">
-      <div class="card-header">
-        <div class="card-icon-large">📄</div>
-        <h4>STNK Asli</h4>
-      </div>
-    </div>
-    
-    <div class="grid-card doc-card">
-      <div class="card-header">
-        <div class="card-icon-large">🔑</div>
-        <h4>Kunci Motor</h4>
+    <div class="card-body">
+      <div class="balanced-grid">
+        <div class="grid-card doc-card">
+          <div class="card-header">
+            <div class="card-icon-large">🆔</div>
+            <h4>KTP Asli</h4>
+          </div>
+        </div>
+        
+        <div class="grid-card doc-card">
+          <div class="card-header">
+            <div class="card-icon-large">📋</div>
+            <h4>BPKB Asli</h4>
+          </div>
+        </div>
+        
+        <div class="grid-card doc-card">
+          <div class="card-header">
+            <div class="card-icon-large">📄</div>
+            <h4>STNK Asli</h4>
+          </div>
+        </div>
+        
+        <div class="grid-card doc-card">
+          <div class="card-header">
+            <div class="card-icon-large">🔑</div>
+            <h4>Kunci Motor</h4>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -265,7 +325,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- 警告提示 -->
   <div class="warning-box">
     <h4 style="color: #ff5757; margin-top: 0;">⚠️ PERINGATAN PENTING:</h4>
-    <ul style="color: var(--text-light); margin-bottom: 0;">
+    <ul class="card-list" style="margin-bottom: 0;">
       <li>Pastikan semua dokumen ASLI dan ATAS NAMA SENDIRI</li>
       <li>Motor akan diperiksa secara menyeluruh oleh tim ahli kami</li>
       <li>Nilai gadai berdasarkan kondisi fisik, tahun, dan kelengkapan</li>
@@ -280,37 +340,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="card-body">
       <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--spacing-md); margin-top: var(--spacing-lg);">
-        <div style="text-align: center; flex: 1; min-width: 150px;">
-          <div style="width: 50px; height: 50px; background: var(--secondary-color); color: var(--dark-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-sm); font-weight: bold; font-size: 1.2rem;">1</div>
-          <div style="font-weight: bold; color: var(--light-color);">Konsultasi</div>
-          <div style="font-size: 0.9rem; color: var(--text-muted);">Via WhatsApp atau datang langsung</div>
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div class="step-title">Konsultasi</div>
+          <div class="step-desc">Via WhatsApp atau datang langsung</div>
         </div>
-        <div style="text-align: center; flex: 1; min-width: 150px;">
-          <div style="width: 50px; height: 50px; background: var(--secondary-color); color: var(--dark-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-sm); font-weight: bold; font-size: 1.2rem;">2</div>
-          <div style="font-weight: bold; color: var(--light-color);">Penilaian</div>
-          <div style="font-size: 0.9rem; color: var(--text-muted);">Tim ahli nilai kondisi & harga</div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div class="step-title">Penilaian</div>
+          <div class="step-desc">Tim ahli nilai kondisi & harga</div>
         </div>
-        <div style="text-align: center; flex: 1; min-width: 150px;">
-          <div style="width: 50px; height: 50px; background: var(--secondary-color); color: var(--dark-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-sm); font-weight: bold; font-size: 1.2rem;">3</div>
-          <div style="font-weight: bold; color: var(--light-color);">Dokumen</div>
-          <div style="font-size: 0.9rem; color: var(--text-muted);">Verifikasi & persetujuan</div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div class="step-title">Dokumen</div>
+          <div class="step-desc">Verifikasi & persetujuan</div>
         </div>
-        <div style="text-align: center; flex: 1; min-width: 150px;">
-          <div style="width: 50px; height: 50px; background: var(--secondary-color); color: var(--dark-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-sm); font-weight: bold; font-size: 1.2rem;">4</div>
-          <div style="font-weight: bold; color: var(--light-color);">Pencairan</div>
-          <div style="font-size: 0.9rem; color: var(--text-muted);">Dana langsung cair di tempat</div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <div class="step-title">Pencairan</div>
+          <div class="step-desc">Dana langsung cair di tempat</div>
         </div>
       </div>
     </div>
   </div>
   
   <!-- 底部CTA -->
-  <div style="text-align: center; margin: var(--spacing-xl) 0;">
+  <div class="unified-card" style="text-align: center; margin: var(--spacing-xl) 0; padding: var(--spacing-lg);">
     <h3 style="color: var(--secondary-color); margin-bottom: var(--spacing-md);">
       🚀 Siap Gadai Motor Anda?
     </h3>
     <p class="card-desc">
-      Kirim foto motor dan dokumen via WhatsApp untuk <strong>estimasi gratis</strong>.
+      Kirim foto motor dan dokumen via WhatsApp untuk <strong class="card-highlight">estimasi gratis</strong>.
     </p>
     
     <div style="display: flex; justify-content: center; gap: var(--spacing-md); flex-wrap: wrap; margin-top: var(--spacing-lg);">
@@ -336,20 +396,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       
       <p class="company-info">Melayani area Bangil • Beji • Gempol dan sekitarnya</p>
       
-      <a href="https://wa.me/6289515692586" 
-         target="_blank" 
-         class="contact-link" 
-         rel="noopener noreferrer"
-         aria-label="Hubungi kami via WhatsApp">
-        <img 
-          src="/images/logo-wa.png" 
-          alt="WhatsApp" 
-          width="20" 
-          height="20"
-          style="vertical-align: middle; margin-right: 6px;"
-        >
-        WhatsApp: +62 895-1569-2586
-      </a>
+      <div class="contact-info">
+        <a href="https://wa.me/6289515692586" 
+           target="_blank" 
+           class="contact-link" 
+           rel="noopener noreferrer"
+           aria-label="Hubungi kami via WhatsApp">
+          <img 
+            src="/images/logo-wa.png" 
+            alt="WhatsApp" 
+            width="20" 
+            height="20"
+            style="vertical-align: middle; margin-right: 6px;"
+          >
+          WhatsApp: +62 895-1569-2586
+        </a>
+      </div>
       
       <p class="operating-hours">
         ⏰ Jam kerja: 08:00-18:00 | Libur Sabtu–Minggu

@@ -22,8 +22,325 @@
   <meta name="description" content="Hubungi JF Gadai via WhatsApp untuk konsultasi gadai gratis. Proses cepat, transparan, dan aman. Layanan wilayah Bangil, Beji, Gempol.">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="css/contact.css">
- <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* contact.css - 精简版，只保留特有样式 */
+    
+    /* 顶部双栏布局 */
+    .top-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    /* 卡片样式 */
+    .intro-card, .form-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius-lg);
+      padding: 1.8rem;
+      border: 1px solid rgba(245, 197, 66, 0.2);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* 介绍卡片内容 */
+    .intro-desc {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: var(--light-color);
+    }
+    
+    .feature-icon {
+      color: var(--secondary-color);
+      margin-right: 10px;
+      font-size: 1.1rem;
+      min-width: 24px;
+      text-align: center;
+    }
+    
+    .response-time {
+      background: rgba(245, 197, 66, 0.1);
+      border: 1px solid var(--secondary-color);
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    
+    /* 表单样式 */
+    .form-desc {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+    
+    .form-label.required::after {
+      content: " *";
+      color: #ff4757;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--border-radius);
+      color: var(--light-color);
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 0 2px rgba(245, 197, 66, 0.2);
+    }
+    
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    select.form-control {
+      cursor: pointer;
+    }
+    
+    .form-textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+    
+    .form-success {
+      background: rgba(46, 204, 113, 0.1);
+      border: 1px solid #2ecc71;
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      text-align: center;
+      margin: 1.5rem 0;
+      display: none;
+    }
+    
+    .form-success h3 {
+      color: #2ecc71;
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+    
+    .whatsapp-link {
+      color: #25D366;
+      text-decoration: underline;
+    }
+    
+    .whatsapp-link:hover {
+      text-decoration: none;
+    }
+    
+    .form-error {
+      background: rgba(255, 71, 87, 0.1);
+      border: 1px solid #ff4757;
+      border-radius: var(--border-radius);
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      color: #ff6b81;
+      font-size: 0.9rem;
+      display: none;
+    }
+    
+    .form-note {
+      text-align: center;
+      margin-top: 1rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    #loadingText {
+      display: none;
+    }
+    
+    /* 常见问题 */
+    .faq-section {
+      background: rgba(11, 44, 74, 0.9);
+      padding: 1.5rem 0;
+      margin-top: 2rem;
+    }
+    
+    .faq-list {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius);
+      margin-bottom: 0.8rem;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .faq-question {
+      padding: 1rem;
+      color: var(--text-light);
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      transition: background 0.2s ease;
+      font-size: 0.95em;
+    }
+    
+    .faq-question:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    
+    .faq-question::after {
+      content: '▶';
+      color: var(--secondary-color);
+      transition: transform 0.2s ease;
+      font-size: 0.8em;
+      flex-shrink: 0;
+      margin-left: 10px;
+    }
+    
+    .faq-item.active .faq-question::after {
+      transform: rotate(90deg);
+    }
+    
+    /* FAQ序号样式 */
+    .faq-number {
+      margin-right: 8px;
+      font-weight: 600;
+      color: var(--secondary-color);
+      flex-shrink: 0;
+      min-width: 20px;
+    }
+    
+    /* FAQ标题文本 */
+    .faq-question-text {
+      flex: 1;
+      white-space: normal;
+      word-break: normal;
+    }
+    
+    .faq-answer {
+      padding: 0 1rem 1rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      display: none;
+      font-size: 0.9em;
+    }
+    
+    .faq-item.active .faq-answer {
+      display: block;
+      animation: slideDown 0.2s ease;
+    }
+    
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* 所有下拉框深色主题 */
+    select {
+      background-color: #0b2c4a;
+      color: var(--light-color);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 11px 13px;
+      border-radius: var(--border-radius);
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 5px;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 14px;
+      padding-right: 35px;
+      cursor: pointer;
+      font-size: 0.95em;
+    }
+    
+    select option {
+      background-color: #0b2c4a;
+      color: var(--light-color);
+      padding: 8px;
+      font-size: 0.9em;
+    }
+    
+    /* 移动端优化 */
+    @media (max-width: 768px) {
+      .top-section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .intro-card, .form-card {
+        padding: 1.5rem;
+      }
+      
+      /* FAQ问题在移动端的间距调整 */
+      .faq-question {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+        line-height: 1.3;
+      }
+      
+      .faq-question::after {
+        font-size: 0.7rem;
+        margin-left: 8px;
+      }
+      
+      .faq-answer {
+        padding: 0 0.8rem 0.8rem;
+        font-size: 0.85rem;
+        line-height: 1.4;
+      }
+      
+      .faq-number {
+        margin-right: 6px;
+        font-size: 0.9rem;
+        min-width: 18px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -53,39 +370,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- 顶部双栏布局 -->
   <div class="top-section">
     <!-- 左侧：介绍 -->
-    <div class="intro-card">
-      <h2 class="main-title">
+    <div class="intro-card unified-card">
+      <h2 class="main-title card-title">
         <span class="main-title-icon">💬</span>
         Hubungi JF Gadai
       </h2>
       
-      <p class="intro-desc">
-        Konsultasi gadai <strong>gratis</strong> via WhatsApp. Tim kami siap membantu Anda dengan proses yang cepat, aman, dan transparan.
+      <p class="intro-desc card-desc">
+        Konsultasi gadai <strong class="card-highlight">gratis</strong> via WhatsApp. Tim kami siap membantu Anda dengan proses yang cepat, aman, dan transparan.
       </p>
       
       <!-- 特色列表 -->
       <ul class="feature-list">
         <li class="feature-item">
           <span class="feature-icon">⚡</span>
-          <span>Respon cepat 5-15 menit (jam kerja)</span>
+          <span><strong>Respon cepat 5-15 menit</strong> (jam kerja)</span>
         </li>
         <li class="feature-item">
           <span class="feature-icon">💰</span>
-          <span>Konsultasi sepenuhnya GRATIS</span>
+          <span><strong>Konsultasi sepenuhnya GRATIS</strong></span>
         </li>
         <li class="feature-item">
           <span class="feature-icon">🔒</span>
-          <span>Privasi dan keamanan data terjamin</span>
+          <span><strong>Privasi dan keamanan data terjamin</strong></span>
         </li>
         <li class="feature-item">
           <span class="feature-icon">👨‍💼</span>
-          <span>Dilayani oleh tim ahli berpengalaman</span>
+          <span><strong>Dilayani oleh tim ahli berpengalaman</strong></span>
         </li>
       </ul>
       
       <!-- 直接WhatsApp按钮 -->
       <a href="https://wa.me/6289515692586" 
-         class="unified-btn" 
+         class="card-cta-btn" 
          target="_blank" 
          rel="noopener noreferrer"
          onclick="gtag('event', 'whatsapp_click', {'event_category': 'Contact', 'event_label': 'Contact Page'})">
@@ -94,13 +411,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     
     <!-- 右侧：表单 -->
-    <div class="form-card">
-      <h2 class="main-title">
+    <div class="form-card unified-card">
+      <h2 class="main-title card-title">
         <span class="main-title-icon">📋</span>
         Formulir Konsultasi
       </h2>
       
-      <p class="form-desc">
+      <p class="form-desc card-desc">
         Isi formulir di bawah ini untuk konsultasi gadai. Data Anda akan dikirim ke WhatsApp kami untuk respon yang lebih personal.
       </p>
       
@@ -143,7 +460,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="form-error" id="descriptionError"></div>
         </div>
         
-        <button type="submit" class="unified-btn" id="submitBtn">
+        <button type="submit" class="card-cta-btn" id="submitBtn" style="margin-top: 1.5rem;">
           <span>📤 Kirim ke WhatsApp</span>
           <span id="loadingText">⏳ Mengirim...</span>
         </button>
@@ -161,74 +478,75 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   
-<!-- 常见问题 -->
-<div class="faq-section">
-  <h2>❓ Pertanyaan yang Sering Diajukan</h2>
-  
-  <div class="faq-list">
-    <!-- FAQ 1 -->
-    <div class="faq-item">
-      <div class="faq-question">
-        <span class="faq-number">1.</span>
-        <span class="faq-question-text">Berapa lama waktu respon via WhatsApp?</span>
-      </div>
-      <div class="faq-answer">
-        <p>Biasanya dalam <strong>5-15 menit</strong> pada jam kerja (08:00-18:00). Di luar jam kerja, kami akan merespons di hari kerja berikutnya.</p>
-        <p><strong>Tips:</strong> Untuk respon tercepat, kirim pesan di jam kerja dan sertakan informasi lengkap tentang barang yang akan digadaikan.</p>
-      </div>
-    </div>
+  <!-- 常见问题 -->
+  <div class="faq-section">
+    <h2 class="card-title" style="text-align: center; margin-bottom: 1.5rem;">❓ Pertanyaan yang Sering Diajukan</h2>
     
-    <!-- FAQ 2 -->
-    <div class="faq-item">
-      <div class="faq-question">
-        <span class="faq-number">2.</span>
-        <span class="faq-question-text">Apakah konsultasi dikenakan biaya?</span>
+    <div class="faq-list">
+      <!-- FAQ 1 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-number">1.</span>
+          <span class="faq-question-text">Berapa lama waktu respon via WhatsApp?</span>
+        </div>
+        <div class="faq-answer">
+          <p>Biasanya dalam <strong>5-15 menit</strong> pada jam kerja (08:00-18:00). Di luar jam kerja, kami akan merespons di hari kerja berikutnya.</p>
+          <p><strong>Tips:</strong> Untuk respon tercepat, kirim pesan di jam kerja dan sertakan informasi lengkap tentang barang yang akan digadaikan.</p>
+        </div>
       </div>
-      <div class="faq-answer">
-        <p>Tidak. <strong>Konsultasi via WhatsApp sepenuhnya GRATIS</strong> tanpa biaya apapun.</p>
-        <p><strong>Hati-hati:</strong> JF Gadai tidak pernah meminta biaya konsultasi atau biaya administrasi di awal. Biaya hanya dikenakan setelah kesepakatan gadai.</p>
+      
+      <!-- FAQ 2 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-number">2.</span>
+          <span class="faq-question-text">Apakah konsultasi dikenakan biaya?</span>
+        </div>
+        <div class="faq-answer">
+          <p>Tidak. <strong>Konsultasi via WhatsApp sepenuhnya GRATIS</strong> tanpa biaya apapun.</p>
+          <p><strong>Hati-hati:</strong> JF Gadai tidak pernah meminta biaya konsultasi atau biaya administrasi di awal. Biaya hanya dikenakan setelah kesepakatan gadai.</p>
+        </div>
       </div>
-    </div>
-    
-    <!-- FAQ 3 -->
-    <div class="faq-item">
-      <div class="faq-question">
-        <span class="faq-number">3.</span>
-        <span class="faq-question-text">Apa saja dokumen yang perlu disiapkan?</span>
+      
+      <!-- FAQ 3 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-number">3.</span>
+          <span class="faq-question-text">Apa saja dokumen yang perlu disiapkan?</span>
+        </div>
+        <div class="faq-answer">
+          <p>Dokumen yang diperlukan tergantung pada jenis barang:</p>
+          <ul class="card-list">
+            <li><strong>KTP Asli</strong> (wajib untuk所有交易)</li>
+            <li><strong>BPKB dan STNK</strong> (untuk gadai motor/kendaraan)</li>
+            <li><strong>Sertifikat atau faktur pembelian</strong> (untuk emas/perhiasan)</li>
+            <li><strong>Kotak dan aksesori lengkap</strong> (untuk HP/elektronik, jika ada)</li>
+          </ul>
+          <p><strong>Pastikan:</strong> Semua dokumen harus asli dan atas nama Anda sendiri atau dengan surat kuasa yang sah.</p>
+        </div>
       </div>
-      <div class="faq-answer">
-        <p>Dokumen yang diperlukan tergantung pada jenis barang:</p>
-        <ul>
-          <li><strong>KTP Asli</strong> (wajib untuk所有交易)</li>
-          <li><strong>BPKB dan STNK</strong> (untuk gadai motor/kendaraan)</li>
-          <li><strong>Sertifikat atau faktur pembelian</strong> (untuk emas/perhiasan)</li>
-          <li><strong>Kotak dan aksesori lengkap</strong> (untuk HP/elektronik, jika ada)</li>
-        </ul>
-        <p><strong>Pastikan:</strong> Semua dokumen harus asli dan atas nama Anda sendiri atau dengan surat kuasa yang sah.</p>
-      </div>
-    </div>
-    
-    <!-- FAQ 4 -->
-    <div class="faq-item">
-      <div class="faq-question">
-        <span class="faq-number">4.</span>
-        <span class="faq-question-text">Berapa lama proses pencairan dana?</span>
-      </div>
-      <div class="faq-answer">
-        <p>Setelah kesepakatan nilai dan penyerahan barang, <strong>dana bisa dicairkan langsung di tempat</strong> dalam waktu kurang dari 30 menit.</p>
-        <p><strong>Proses lengkap:</strong></p>
-        <ol>
-          <li>Konsultasi dan penilaian barang (10-15 menit)</li>
-          <li>Pemeriksaan dokumen (5 menit)</li>
-          <li>Penandatanganan perjanjian (5 menit)</li>
-          <li>Pencairan dana (5 menit)</li>
-        </ol>
-        <p>Total waktu biasanya <strong>25-40 menit</strong> dari awal sampai pencairan.</p>
+      
+      <!-- FAQ 4 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-number">4.</span>
+          <span class="faq-question-text">Berapa lama proses pencairan dana?</span>
+        </div>
+        <div class="faq-answer">
+          <p>Setelah kesepakatan nilai dan penyerahan barang, <strong>dana bisa dicairkan langsung di tempat</strong> dalam waktu kurang dari 30 menit.</p>
+          <p><strong>Proses lengkap:</strong></p>
+          <ol class="card-list">
+            <li>Konsultasi dan penilaian barang (10-15 menit)</li>
+            <li>Pemeriksaan dokumen (5 menit)</li>
+            <li>Penandatanganan perjanjian (5 menit)</li>
+            <li>Pencairan dana (5 menit)</li>
+          </ol>
+          <p>Total waktu biasanya <strong>25-40 menit</strong> dari awal sampai pencairan.</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</main> <!-- 在这里关闭 main 标签 -->
+</main>
+
 <!-- 页脚 -->
 <footer id="lokasi">
   <div class="container">
@@ -238,14 +556,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       
       <p class="company-info">Melayani area Bangil • Beji • Gempol dan sekitarnya</p>
       
-      <a href="https://wa.me/6289515692586" 
-         target="_blank" 
-         class="contact-link" 
-         rel="noopener noreferrer"
-         aria-label="Hubungi kami via WhatsApp">
-        <img src="/images/logo-wa.png" alt="WhatsApp" width="20" height="20">
-        WhatsApp: +62 895-1569-2586
-      </a>
+      <div class="contact-info">
+        <a href="https://wa.me/6289515692586" 
+           target="_blank" 
+           class="contact-link" 
+           rel="noopener noreferrer"
+           aria-label="Hubungi kami via WhatsApp">
+          <img src="/images/logo-wa.png" alt="WhatsApp" width="20" height="20">
+          WhatsApp: +62 895-1569-2586
+        </a>
+      </div>
       
       <p class="operating-hours">
         ⏰ Jam kerja: 08:00-18:00 | Libur hari Sabtu dan Minggu
