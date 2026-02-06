@@ -52,6 +52,15 @@ body {
   gap: 0.5rem;
 }
 
+.section-subtitle {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto var(--spacing-lg) auto;
+  line-height: 1.4;
+  text-align: center;
+}
+
 /* ===== 左：返回按钮（包含Logo） ===== */
 .back-btn {
   color: var(--text-light);
