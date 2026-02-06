@@ -501,7 +501,7 @@ body {
   color: var(--text-muted);
   margin: 0.1rem 0 !important; /* 最小边距 */
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   line-height: 1.0 !important; /* 贷款卡片正文行距 - 非常紧凑 */
 }
 
@@ -523,18 +523,10 @@ body {
 }
 
 .warning-icon-small {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   flex-shrink: 0;
   color: var(--secondary-color);
   margin-top: 0.05rem;
-}
-
-.warning-box p {
-  font-size: 0.8rem;
-  color: var(--text-light);
-  margin: 0;
-  text-align: left;
-  line-height: 1.0 !important; /* 警告框文本行距 - 非常紧凑 */
 }
 
 /* 贷款信息响应式 */
