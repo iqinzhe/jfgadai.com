@@ -52,7 +52,7 @@ body {
   gap: 0.5rem;
 }
 
-/* ===== 左：返回按钮（包含Logo） ===== */
+/* ===== 左：返回首页（包含Logo） ===== */
 .back-btn {
   color: var(--text-light);
   text-decoration: none;
@@ -94,7 +94,7 @@ body {
   transform: scale(1.05);
 }
 
-/* ===== 右：主业务入口（包含Logo） ===== */
+/* ===== 右：典当摩托（包含Logo） ===== */
 .nav-forward {
   display: inline-flex;
   align-items: center;
@@ -203,7 +203,7 @@ body {
 /* ==================== 通用横幅样式 ==================== */
 .full-banner {
   width: 100%;
-  height: 156px;
+  height: 165px;
   overflow: hidden;
   position: relative;
   display: flex;
