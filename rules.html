@@ -1177,32 +1177,7 @@
           </p>
         </div>
       </div>
-      
-      <!-- 案例学习链接 -->
-      <div class="case-study-link">
-        <h4>🎓 <strong>Ingin melihat bagaimana aturan ini diterapkan?</strong></h4>
-        <a href="#risk-cases">
-          📚 Lihat Studi Kasus Gadai Motor di atas &uarr;
-        </a>
-        <p>
-          Pelajari dari kisah nyata sukses dan gagal gadai motor di JF Gadai.
-        </p>
-      </div>
-      
-      <!-- 打印建议区域 -->
-      <div class="print-suggestion">
-        <h4>🖨️ <strong>Butuh Salinan Aturan?</strong></h4>
-        <p>
-          Gunakan fitur print browser untuk mencetak halaman ini sebagai referensi pribadi.
-        </p>
-        <button class="print-btn" onclick="window.print()">
-          🖨️ Cetak Halaman Ini
-        </button>
-        <p>
-          <em>Tekan Ctrl+P (Windows) atau Cmd+P (Mac) untuk langsung mencetak</em>
-        </p>
-      </div>
-      
+            
       <!-- FAQ组件 -->
       <div class="faq-list">
         <!-- 第一部分: Persyaratan Umum -->
@@ -1359,22 +1334,6 @@
         </div>
       </div>
       
-      <!-- 版本信息 -->
-      <div class="version-info">
-        <div class="version-item">
-          <span class="version-label">📅 Berlaku Sejak</span>
-          <span class="version-value">1 Januari 2025</span>
-        </div>
-        <div class="version-item">
-          <span class="version-label">🔄 Terakhir Diperbarui</span>
-          <span class="version-value">1 Maret 2025</span>
-        </div>
-        <div class="version-item">
-          <span class="version-label">📄 Versi Dokumen</span>
-          <span class="version-value">2.0</span>
-        </div>
-      </div>
-      
       <!-- 同意框 -->
       <div class="agreement-box unified-card">
         <h3 class="card-title">📝 Pernyataan Persetujuan</h3>
@@ -1480,12 +1439,7 @@
           answer.style.display = isVisible ? 'none' : 'block';
         });
       });
-      
-      // 默认展开第一个FAQ
-      if (faqQuestions.length > 0) {
-        faqQuestions[0].nextElementSibling.style.display = 'block';
-      }
-      
+        
       // 打印功能
       document.querySelector('.print-btn').addEventListener('click', function() {
         window.print();
