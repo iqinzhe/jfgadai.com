@@ -337,6 +337,7 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   overflow: hidden;
   transition: all 0.3s ease;
+  margin-top: var(--spacing-md); /* 或具体像素值，如 20px */
   margin-bottom: var(--spacing-lg);
 }
 
