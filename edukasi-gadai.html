@@ -106,16 +106,16 @@ f.parentNode.insertBefore(j,f);
 }
 </script>
 
-  <link rel="stylesheet" href="css/contact.css">
+  <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
   <style>
-
-    /* 自定义教育页面样式 */
-  <style>
+    /* edukasi-gadai.css - 精简版，只保留特有样式 */
+    
+    /* 教育页面头部 */
     .edu-header {
       background: linear-gradient(135deg, rgba(11, 44, 74, 0.9) 0%, rgba(26, 82, 118, 0.9) 100%);
       padding: 2.5rem 2rem;
-      border-radius: 12px;
+      border-radius: var(--border-radius-lg);
       margin-bottom: 2rem;
       text-align: center;
       color: white;
@@ -123,18 +123,19 @@ f.parentNode.insertBefore(j,f);
     
     .edu-header h1 {
       color: var(--secondary-color);
-      font-size: 1.8rem; /* 文字大小：教育页面主标题 */
+      font-size: 1.8rem;
       margin-bottom: 1rem;
-      line-height: 1.3; /* 行距：主标题行高 */
+      line-height: 1.3;
     }
     
     .edu-header .subtitle {
-      font-size: 1.0rem; /* 文字大小：副标题 */
-      line-height: 1.2; /* 行距：副标题行高 */
+      font-size: 1.0rem;
+      line-height: 1.4;
       margin-bottom: 1.5rem;
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--text-light);
     }
     
+    /* 内容部分 */
     .edu-content-section {
       padding: 2rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -147,7 +148,7 @@ f.parentNode.insertBefore(j,f);
     .edu-content-section h2 {
       color: var(--secondary-color);
       margin-bottom: 1.5rem;
-      font-size: 1.5rem; /* 文字大小：章节标题 */
+      font-size: 1.5rem;
       display: flex;
       align-items: center;
     }
@@ -162,21 +163,21 @@ f.parentNode.insertBefore(j,f);
       color: var(--dark-color);
       border-radius: 50%;
       font-weight: bold;
-      font-size: 1.0rem; /* 文字大小：章节数字 */
+      font-size: 1.0rem;
       margin-right: 12px;
     }
     
     .edu-content-section h3 {
-      color: #ffffff;
+      color: var(--light-color);
       margin: 1.5rem 0 0.8rem 0;
-      font-size: 1.2rem; /* 文字大小：小节标题 */
+      font-size: 1.2rem;
     }
     
     .edu-content-section p, 
     .edu-content-section li {
-      line-height: 1.5; /* 行距：正文和列表项行高 */
+      line-height: 1.5;
       margin-bottom: 0.8rem;
-      color: rgba(255, 255, 255, 0.85);
+      color: var(--text-light);
     }
     
     .edu-content-section ul, 
@@ -185,9 +186,10 @@ f.parentNode.insertBefore(j,f);
       margin: 1rem 0;
     }
     
+    /* 信息框样式 */
     .info-box, .tip-box, .warning-box {
       padding: 1.2rem;
-      border-radius: 8px;
+      border-radius: var(--border-radius);
       margin: 1.5rem 0;
       border-left: 4px solid;
     }
@@ -207,12 +209,13 @@ f.parentNode.insertBefore(j,f);
       border-left-color: #e74c3c;
     }
     
+    /* 比较表格 - 使用grid-card样式基础上调整 */
     .comparison-table {
       width: 100%;
       border-collapse: collapse;
       margin: 1.5rem 0;
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
+      border-radius: var(--border-radius);
       overflow: hidden;
     }
     
@@ -228,16 +231,17 @@ f.parentNode.insertBefore(j,f);
     .comparison-table td {
       padding: 1rem;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.85);
+      color: var(--text-light);
     }
     
     .comparison-table tr:nth-child(even) {
       background: rgba(255, 255, 255, 0.03);
     }
     
+    /* CTA区域 */
     .consultation-cta {
       background: linear-gradient(135deg, rgba(26, 82, 118, 0.9) 0%, rgba(11, 44, 74, 0.9) 100%);
-      border-radius: 12px;
+      border-radius: var(--border-radius-lg);
       padding: 2rem;
       margin: 2.5rem 0;
       border: 1px solid rgba(245, 197, 66, 0.3);
@@ -246,14 +250,15 @@ f.parentNode.insertBefore(j,f);
     .consultation-cta h3 {
       color: var(--secondary-color);
       margin-bottom: 0.5rem;
-      font-size: 1.4rem; /* 文字大小：CTA标题 */
+      font-size: 1.4rem;
     }
     
     .cta-subtitle {
-      color: rgba(255, 255, 255, 0.8);
+      color: var(--text-muted);
       margin-bottom: 1.5rem;
     }
     
+    /* 好处网格 */
     .benefits-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -263,7 +268,7 @@ f.parentNode.insertBefore(j,f);
     
     .benefit-item {
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
+      border-radius: var(--border-radius);
       padding: 1.2rem;
     }
     
@@ -278,6 +283,7 @@ f.parentNode.insertBefore(j,f);
       padding-left: 1.2rem;
     }
     
+    /* 引用框 */
     .quote-box {
       background: rgba(255, 255, 255, 0.05);
       border-left: 3px solid var(--secondary-color);
@@ -293,28 +299,7 @@ f.parentNode.insertBefore(j,f);
       margin-top: 0.5rem;
     }
     
-    .action-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: #25D366;
-      color: white;
-      text-decoration: none;
-      padding: 0.9rem 1.5rem;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 1rem; /* 文字大小：按钮文字 */
-      transition: all 0.3s ease;
-      margin: 1.5rem 0;
-    }
-    
-    .action-btn:hover {
-      background: #128C7E;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-    }
-    
+    /* 返回首页链接 */
     .back-to-home {
       display: inline-block;
       margin: 2rem 0;
@@ -329,12 +314,56 @@ f.parentNode.insertBefore(j,f);
       transform: translateX(-5px);
     }
     
-    /* 确保FAQ序号正确显示 */
-    .faq-question {
-      display: flex;
-      align-items: flex-start;
+    /* FAQ样式 - 从contact.css中精简而来 */
+    .faq-section {
+      background: rgba(11, 44, 74, 0.9);
+      padding: 1.5rem 0;
+      margin-top: 2rem;
     }
     
+    .faq-list {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius);
+      margin-bottom: 0.8rem;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .faq-question {
+      padding: 1rem;
+      color: var(--text-light);
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      transition: background 0.2s ease;
+      font-size: 0.95em;
+    }
+    
+    .faq-question:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    
+    .faq-question::after {
+      content: '▶';
+      color: var(--secondary-color);
+      transition: transform 0.2s ease;
+      font-size: 0.8em;
+      flex-shrink: 0;
+      margin-left: 10px;
+    }
+    
+    .faq-item.active .faq-question::after {
+      transform: rotate(90deg);
+    }
+    
+    /* FAQ序号样式 */
     .faq-number {
       margin-right: 8px;
       font-weight: 600;
@@ -343,10 +372,85 @@ f.parentNode.insertBefore(j,f);
       min-width: 20px;
     }
     
+    /* FAQ标题文本 */
     .faq-question-text {
       flex: 1;
       white-space: normal;
       word-break: normal;
+    }
+    
+    .faq-answer {
+      padding: 0 1rem 1rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      display: none;
+      font-size: 0.9em;
+    }
+    
+    .faq-item.active .faq-answer {
+      display: block;
+      animation: slideDown 0.2s ease;
+    }
+    
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* 情况列表样式 */
+    .situations-list {
+      margin: 1.5rem 0;
+    }
+    
+    .situation-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--secondary-color);
+    }
+    
+    .situation-item strong {
+      color: var(--secondary-color);
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .situation-item p {
+      margin: 0.3rem 0;
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+    
+    .situation-item em {
+      color: var(--text-muted);
+      font-style: italic;
+      font-weight: 500;
+    }
+    
+    /* 检查表结果 */
+    .checklist-result {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #2ecc71;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* 响应式显示控制 */
+    .desktop-only {
+      display: block;
+    }
+    
+    .mobile-only {
+      display: none;
     }
     
     /* 移动端优化 */
@@ -356,7 +460,7 @@ f.parentNode.insertBefore(j,f);
       }
       
       .edu-header h1 {
-        font-size: 1.4rem; /* 移动端文字大小：主标题 */
+        font-size: 1.4rem;
       }
       
       .edu-content-section {
@@ -364,11 +468,11 @@ f.parentNode.insertBefore(j,f);
       }
       
       .edu-content-section h2 {
-        font-size: 1.3rem; /* 移动端文字大小：章节标题 */
+        font-size: 1.3rem;
       }
       
       .edu-content-section h3 {
-        font-size: 1.1rem; /* 移动端文字大小：小节标题 */
+        font-size: 1.1rem;
       }
       
       .benefits-grid {
@@ -377,7 +481,7 @@ f.parentNode.insertBefore(j,f);
       }
       
       .comparison-table {
-        font-size: 0.9rem; /* 移动端文字大小：表格文字 */
+        font-size: 0.9rem;
       }
       
       .comparison-table th,
@@ -387,85 +491,23 @@ f.parentNode.insertBefore(j,f);
       
       .faq-number {
         margin-right: 6px;
-        font-size: 0.9rem; /* 移动端文字大小：FAQ数字 */
+        font-size: 0.9rem;
         min-width: 18px;
       }
       
       .faq-question-text {
-        font-size: 0.9rem; /* 移动端文字大小：FAQ问题文字 */
-        line-height: 1.2; /* 移动端行距：FAQ问题行高 */
+        font-size: 0.9rem;
+        line-height: 1.2;
+      }
+      
+      .desktop-only {
+        display: none;
+      }
+      
+      .mobile-only {
+        display: block;
       }
     }
-
-    /* 响应式显示控制 */
-.desktop-only {
-  display: block;
-}
-
-.mobile-only {
-  display: none;
-}
-
-/* 移动端情况列表样式 */
-.situations-list {
-  margin: 1.5rem 0;
-}
-
-.situation-item {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-left: 4px solid var(--secondary-color);
-}
-
-.situation-item strong {
-  color: var(--secondary-color);
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem; /* 文字大小：情况项标题 */
-}
-
-.situation-item p {
-  margin: 0.3rem 0;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.95rem; /* 文字大小：情况项正文 */
-}
-
-.situation-item em {
-  color: rgba(255, 255, 255, 0.7);
-  font-style: italic;
-  font-weight: 500;
-}
-
-/* 检查表结果样式 */
-.checklist-result {
-  margin-top: 15px;
-  font-weight: bold;
-  color: #2ecc71;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* 响应式调整 */
-@media (max-width: 768px) {
-  .desktop-only {
-    display: none;
-  }
-  
-  .mobile-only {
-    display: block;
-  }
-  
-  .comparison-table {
-    font-size: 0.9rem; /* 移动端文字大小：表格文字（响应式） */
-  }
-  
-  .comparison-table th,
-  .comparison-table td {
-    padding: 0.5rem;
-  }
-}
   </style>
 </head>
 
@@ -495,21 +537,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
 <main class="container">
 
 <!-- 页面标题区域 -->
-<div class="edu-header">
-  <h1>Panduan Lengkap Gadai di Indonesia</h1>
-  <p class="subtitle">JF Gadai melayani kebutuhan gadai masyarakat di wilayah 
-    <strong>Bangil</strong>, <strong>Beji</strong>, dan <strong>Gempol</strong>. 
+<div class="edu-header unified-card">
+  <h1 class="card-title">Panduan Lengkap Gadai di Indonesia</h1>
+  <p class="subtitle card-desc">
+    JF Gadai melayani kebutuhan gadai masyarakat di wilayah 
+    <strong class="card-highlight">Bangil</strong>, <strong class="card-highlight">Beji</strong>, dan <strong class="card-highlight">Gempol</strong>. 
     Kami siap membantu proses gadai motor, emas, dan barang berharga lainnya 
-    dengan cepat dan aman.</p>
-  <p class="subtitle"><strong>Halaman edukasi ini disusun oleh JF Gadai</strong> 
+    dengan cepat dan aman.
+  </p>
+  <p class="subtitle card-desc">
+    <strong class="card-highlight">Halaman edukasi ini disusun oleh JF Gadai</strong> 
     untuk memberikan pemahaman komprehensif, netral, dan berbasis fakta tentang sistem 
     gadai yang berlaku di Indonesia. Tujuannya adalah memberdayakan masyarakat dengan 
-    pengetahuan sebelum mengambil keputusan keuangan.</p>
+    pengetahuan sebelum mengambil keputusan keuangan.
+  </p>
 </div>
 
 <!-- 常见问题部分 -->
 <div class="faq-section">
-  <h2>📚 Panduan Lengkap Gadai - 12 Bagian Edukasi</h2>
+  <h2 class="card-title" style="text-align: center; margin-bottom: 1.5rem;">📚 Panduan Lengkap Gadai - 12 Bagian Edukasi</h2>
   
   <div class="faq-list">
     <!-- Bagian 1: Pendahuluan -->
@@ -550,7 +596,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
             ekonomi masyarakat, baik dalam bentuk informal (<em>gadai keluarga</em>) maupun 
             formal melalui lembaga seperti Pegadaian (didirikan 1901).</p>
           <h3>Prinsip Inti Gadai:</h3>
-          <ul>
+          <ul class="card-list">
             <li><strong>Berbasis Barang (Asset-Based):</strong> Nilai pinjaman ditentukan 
               oleh nilai ekonomi barang jaminan, bukan profil kredit peminjam.</li>
             <li><strong>Jaminan Fisik (Collateral):</strong> Barang harus diserahkan secara 
@@ -577,7 +623,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
         <section class="edu-content-section">
           <h2><span class="section-number">3</span> Landasan Hukum Gadai di Indonesia</h2>
           <p>Aktivitas gadai diatur dalam kerangka hukum yang jelas. Berikut dasar hukum utamanya:</p>
-          <ul>
+          <ul class="card-list">
             <li><strong>Kitab Undang-Undang Hukum Perdata (KUHPer) Pasal 1150-1160:</strong> 
               Mendefinisikan gadai (<em>pand</em>) sebagai hak yang diperoleh kreditur atas 
               suatu barang bergerak yang diserahkan oleh debitur.</li>
@@ -612,28 +658,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
           <p>Tidak semua barang bisa digadaikan. Kriteria utama: memiliki nilai pasar yang jelas, mudah dinilai, dan relatif stabil harganya.</p>
           
           <h3>A. Gadai Emas & Perhiasan (Paling Umum)</h3>
-          <ul>
+          <ul class="card-list">
             <li><strong>Keunggulan:</strong> Likuiditas tinggi, nilai stabil, proses penilaian cepat.</li>
             <li><strong>Yang Dinilai:</strong> Kadar emas (cth: 22K, 24K), berat (dalam gram), kondisi fisik.</li>
             <li><strong>Persentase Pinjaman:</strong> Biasanya 60-70% dari harga emas hari itu.</li>
           </ul>
           
           <h3>B. Gadai Kendaraan Bermotor</h3>
-          <ul>
+          <ul class="card-list">
             <li><strong>Syarat:</strong> STNK &amp; BPKB asli atas nama peminjam, kondisi mesin dan body.</li>
             <li><strong>Proses:</strong> Penilaian lebih kompleks, melibatkan tahun, merk, model, kilometer, kondisi.</li>
             <li><strong>Kendaraan:</strong> Motor (skuter, matic, sport) dan mobil (LCGC, SUV, MPV).</li>
           </ul>
           
           <h3>C. Gadai Barang Elektronik</h3>
-          <ul>
+          <ul class="card-list">
             <li><strong>Contoh:</strong> Smartphone (iPhone, Samsung flagship), Laptop (Apple, Dell, Lenovo), Kamera DSLR.</li>
             <li><strong>Faktor Penilaian:</strong> Merek, spesifikasi, kondisi fisik, usia pakai, kelengkapan aksesoris.</li>
             <li><strong>Risiko:</strong> Harga depresiasi teknologi sangat cepat.</li>
           </ul>
           
           <h3>D. Barang Berharga Lainnya</h3>
-          <ul>
+          <ul class="card-list">
             <li>Jam tangan mewah (Rolex, Omega).</li>
             <li>Tas branded (Hermès, Louis Vuitton) dengan sertifikat keaslian.</li>
             <li>Perak, berlian, atau batu permata (dengan sertifikat gemologi).</li>
@@ -654,7 +700,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
       <div class="faq-answer">
         <section class="edu-content-section">
           <h2><span class="section-number">5</span> Proses Gadai Langkah demi Langkah</h2>
-          <ol>
+          <ol class="card-list">
             <li><strong>Konsultasi &amp; Penilaian Awal:</strong> Bawa barang ke lembaga gadai. Ahli akan memeriksa dan memberikan estimasi nilai taksir dan jumlah pinjaman yang mungkin.</li>
             <li><strong>Penyerahan Dokumen:</strong> KTP asli pemilik barang. Untuk kendaraan: STNK, BPKB, buku servis (jika ada).</li>
             <li><strong>Penandatanganan Perjanjian:</strong> Baca dengan seksama! Pastikan Anda pahami: jumlah pinjaman, bunga/biaya per bulan, tenor, denda keterlambatan, dan prosedur lelang jika tidak ditebus.</li>
@@ -678,7 +724,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
           <h2><span class="section-number">6</span> Memahami Perhitungan Bunga &amp; Biaya</h2>
           <p>Ini adalah bagian paling kritis. Mintalah rincian tertulis sebelum setuju.</p>
           <h3>Contoh Perhitungan Sederhana:</h3>
-          <ul>
+          <ul class="card-list">
             <li>Nilai Taksir Emas: Rp 10.000.000</li>
             <li>Pinjaman yang Diberikan (60%): Rp 6.000.000</li>
             <li>Bunga: 10% per bulan</li>
@@ -703,7 +749,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
       <div class="faq-answer">
         <section class="edu-content-section">
           <h2><span class="section-number">7</span> Risiko & Hal yang Perlu Diwaspadai</h2>
-          <ul>
+          <ul class="card-list">
             <li><strong>Kehilangan Barang (Lelang):</strong> Risiko terbesar jika tidak bisa menebus dalam waktu yang disepakati (termasuk masa tenggang).</li>
             <li><strong>Bunga yang Membengkak:</strong> Bunga bergulung dapat membuat total hutang membengkak dengan cepat.</li>
             <li><strong>Penilaian yang Tidak Adil:</strong> Nilai taksir sengaja ditekan untuk memberikan pinjaman lebih kecil.</li>
@@ -752,7 +798,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
       <div class="faq-answer">
         <section class="edu-content-section">
           <h2><span class="section-number">9</span> Tips Memilih Lembaga Gadai yang Aman</h2>
-          <ol>
+          <ol class="card-list">
             <li><strong>Cek Legalitas:</strong> Pastikan memiliki tempat usaha fisik dan NPWP. Tanyakan izin operasionalnya.</li>
             <li><strong>Transparansi:</strong> Semua biaya, bunga, dan ketentuan harus dijelaskan dengan jelas dan tertulis sebelum transaksi.</li>
             <li><strong>Keamanan Penyimpanan:</strong> Tanyakan bagaimana barang disimpan (gudang berpengaman, asuransi).</li>
@@ -821,7 +867,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
       <h2><span class="section-number">12</span> Kapan Gadai Menjadi Pilihan Tepat?</h2>
       
       <div class="tip-box">
-        <strong>💡 Panduan Cepat:</strong> Gadai adalah <strong>solusi strategis jangka pendek</strong>, bukan solusi keuangan permanen. Gunakan dengan bijak saat kondisi tertentu.
+        <strong>💡 Panduan Cepat:</strong> Gadai adalah <strong>solusi strategis jangka pendek</strong>, bukan solusi keuangan permanent. Gunakan dengan bijak saat kondisi tertentu.
       </div>
       
       <h3>✅ Situasi Ideal untuk Memilih Gadai:</h3>
@@ -890,12 +936,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
   <p><em>Kenapa Gadai Cocok:</em> Pinjaman Rp 1-50 juta, sesuai nilai barang</p>
   <p><em>Contoh Kasus:</em> Renovasi rumah, biaya pendidikan anak</p>
 </div>
+        </div>
+      </div>
       
       <h3>🚫 Situasi yang Perlu Dipertimbangkan Ulang:</h3>
       
       <div class="warning-box">
         <strong>Hindari Gadai Jika:</strong>
-        <ul>
+        <ul class="card-list">
           <li>Kebutuhan rutin bulanan (cari sumber pendapatan tetap)</li>
           <li>Dana sangat besar (lebih dari Rp 100 juta, pertimbangkan KPR)</li>
           <li>Tanpa rencana tebus yang jelas (risiko kehilangan barang sentimental)</li>
@@ -908,7 +956,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
       
       <div class="info-box">
         <strong>Jawab 4 pertanyaan ini:</strong>
-        <ol>
+        <ol class="card-list">
           <li><strong>Mendesak?</strong> Apakah kebutuhan ini harus dipenuhi dalam 7 hari?</li>
           <li><strong>Ada barang jaminan?</strong> Apakah Anda memiliki barang berharga yang bisa digadaikan?</li>
           <li><strong>Ada rencana tebus?</strong> Apakah Anda punya sumber dana untuk menebus dalam 1-3 bulan?</li>
@@ -923,7 +971,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
       
       <div class="tip-box">
         <strong>Tips dari Ahli:</strong>
-        <ul>
+        <ul class="card-list">
           <li><strong>Start Small:</strong> Mulai dengan nilai pinjaman kecil untuk memahami sistem</li>
           <li><strong>Plan Ahead:</strong> Buat timeline tebus yang realistis sebelum menggadaikan</li>
           <li><strong>Choose Wisely:</strong> Gadaikan barang yang nilai pasarnya stabil (emas > elektronik)</li>
@@ -933,22 +981,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
       </div>
       
       <!-- 呼叫行动部分 -->
-      <div class="consultation-cta">
+      <div class="consultation-cta unified-card">
         <div class="cta-header">
-          <h3>🎯 Konsultasi Gratis Langsung dengan JF Gadai</h3>
-          <p class="cta-subtitle">Dapatkan analisis personal untuk situasi keuangan Anda</p>
+          <h3 class="card-title">🎯 Konsultasi Gratis Langsung dengan JF Gadai</h3>
+          <p class="cta-subtitle card-desc">Dapatkan analisis personal untuk situasi keuangan Anda</p>
         </div>
         
         <div class="cta-content">
-          <p><strong>Masih ragu apakah gadai solusi terbaik untuk Anda?</strong></p>
-          <p>Tim ahli JF Gadai siap menganalisis situasi Anda dan memberikan rekomendasi 
-          <strong>objektif dan jujur</strong> - tanpa biaya dan tanpa paksaan.</p>
+          <p class="card-desc"><strong>Masih ragu apakah gadai solusi terbaik untuk Anda?</strong></p>
+          <p class="card-desc">Tim ahli JF Gadai siap menganalisis situasi Anda dan memberikan rekomendasi 
+          <strong class="card-highlight">objektif dan jujur</strong> - tanpa biaya dan tanpa paksaan.</p>
         </div>
         
         <a href="https://wa.me/6289515692586" 
            target="_blank" 
-           class="action-btn whatsapp"
-           style="display: inline-flex; align-items: center; gap: 10px;">
+           class="card-cta-btn"
+           style="background: linear-gradient(135deg, #25D366, #128C7E); display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
           
           <img src="/images/logo-wa.png" alt="WhatsApp" 
                style="height: 20px; width: 20px; object-fit: contain;">
@@ -959,7 +1007,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
         <div class="benefits-grid">
           <div class="benefit-item">
             <strong>⭐ Apa yang Anda dapatkan:</strong>
-            <ul>
+            <ul class="card-list">
               <li>Analisis kebutuhan personal</li>
               <li>Estimasi nilai barang Anda</li>
               <li>Perbandingan opsi keuangan</li>
@@ -969,7 +1017,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
           
           <div class="benefit-item">
             <strong>⭐ Kenapa konsultasi dulu:</strong>
-            <ul>
+            <ul class="card-list">
               <li>Hindari keputusan terburu-buru</li>
               <li>Pahami semua opsi yang ada</li>
               <li>Dapatkan insight dari ahli</li>
@@ -989,6 +1037,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </div>
 </div>
 
+  </div>
+</div>
+
 </main>
   
   <!-- 页脚 -->
@@ -1000,20 +1051,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
         
         <p class="company-info">Melayani area Bangil • Beji • Gempol dan sekitarnya</p>
         
-        <a href="https://wa.me/6289515692586" 
-           target="_blank" 
-           class="contact-link" 
-           rel="noopener noreferrer"
-           aria-label="Hubungi kami via WhatsApp">
-          <img 
-            src="/images/logo-wa.png" 
-            alt="WhatsApp" 
-            width="20" 
-            height="20"
-            style="vertical-align: middle; margin-right: 6px;"
-          >
-          WhatsApp: +62 895-1569-2586
-        </a>
+        <div class="contact-info">
+          <a href="https://wa.me/6289515692586" 
+             target="_blank" 
+             class="contact-link" 
+             rel="noopener noreferrer"
+             aria-label="Hubungi kami via WhatsApp">
+            <img 
+              src="/images/logo-wa.png" 
+              alt="WhatsApp" 
+              width="20" 
+              height="20"
+              style="vertical-align: middle; margin-right: 6px;"
+            >
+            WhatsApp: +62 895-1569-2586
+          </a>
+        </div>
         
         <p class="operating-hours">
           ⏰ Jam kerja: 08:00-18:00 | Libur Sabtu–Minggu
@@ -1025,7 +1078,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
         
       </div>
     </div>
-  </footer>
+</footer>
 
 <!-- 添加JS文件引用 -->
 <script src="js/main.js"></script>
