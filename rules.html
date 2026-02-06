@@ -1380,84 +1380,9 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // 案例卡片交互功能
-    document.addEventListener('DOMContentLoaded', function() {
-      // 案例卡片切换功能
-      const caseHeaders = document.querySelectorAll('.case-header-toggle');
-      
-      caseHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-          const caseCard = this.closest('.case-card');
-          const isExpanded = caseCard.classList.contains('expanded');
-          
-          // 关闭所有其他打开的卡片
-          document.querySelectorAll('.case-card.expanded').forEach(openCard => {
-            if (openCard !== caseCard) {
-              openCard.classList.remove('expanded');
-            }
-          });
-          
-          // 切换当前卡片状态
-          caseCard.classList.toggle('expanded', !isExpanded);
-          
-          // 添加动画类
-          if (!caseCard.classList.contains('animated')) {
-            caseCard.classList.add('animated');
-          }
-        });
-      });
-      
-      // 成功因素卡片动画
-      const factorCards = document.querySelectorAll('.factor-card');
-      factorCards.forEach((card, index) => {
-        card.style.setProperty('--factor-index', index);
-        setTimeout(() => {
-          card.classList.add('animated');
-        }, 100 * index);
-      });
-      
-      // CTA选项动画
-      const ctaOptions = document.querySelectorAll('.cta-option');
-      ctaOptions.forEach((option, index) => {
-        option.style.setProperty('--option-index', index);
-        setTimeout(() => {
-          option.classList.add('animated');
-        }, 150 * index);
-      });
-      
-      // FAQ交互功能
-      const faqQuestions = document.querySelectorAll('.faq-question');
-      faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
-          const answer = this.nextElementSibling;
-          const isVisible = answer.style.display === 'block';
-          
-          // 关闭所有其他打开的FAQ
-          document.querySelectorAll('.faq-answer').forEach(ans => {
-            ans.style.display = 'none';
-          });
-          
-          // 切换当前FAQ
-          answer.style.display = isVisible ? 'none' : 'block';
-        });
-      });
-        
-      // 打印功能
-      document.querySelector('.print-btn').addEventListener('click', function() {
-        window.print();
-      });
-      
-      // 案例卡片动画延迟
-      const caseCards = document.querySelectorAll('.case-card');
-      caseCards.forEach((card, index) => {
-        card.style.setProperty('--card-index', index);
-        setTimeout(() => {
-          card.classList.add('animated');
-        }, 100 * index);
-      });
-    });
-  </script>
+  
+<script src="js/main.js" defer></script>
+<script src="js/rules.js" defer></script>
+  
 </body>
 </html>
