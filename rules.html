@@ -1,21 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <!-- Google Tag Manager -->
-  <script>
-  (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),
-          dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-M2GMSNWS');
-  </script>
-  <!-- End Google Tag Manager -->
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -30,274 +15,636 @@
   <meta name="theme-color" content="#ffffff">
 
   <!-- SEO Meta Tags -->
-  <title>Syarat & Ketentuan Gadai | JF Gadai - Aturan Jelas & Transparan</title>
-  <meta name="description" content="Baca syarat dan ketentuan gadai di JF Gadai. Aturan lengkap untuk gadai motor, emas, HP, dan barang berharga lainnya.">
+  <title>Panduan Sukses Gadai Motor & Syarat Ketentuan | JF Gadai</title>
+  <meta name="description" content="Pelajari dari kisah nyata sukses dan gagal gadai motor di JF Gadai. Pahami faktor risiko dan syarat ketentuan gadai motor, emas, HP, dan barang berharga lainnya.">
   <meta name="author" content="JF Gadai">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Syarat & Ketentuan | JF Gadai - Aturan Gadai yang Jelas">
-  <meta property="og:description" content="Pelajari aturan lengkap gadai di JF Gadai untuk keamanan dan kenyamanan transaksi Anda.">
-  <meta property="og:image" content="https://www.jfgadai.com/images/og-rules-risk.jpg">
-  <meta property="og:url" content="https://www.jfgadai.com/rules.html">
+  <meta property="og:title" content="Panduan Sukses Gadai Motor & Syarat Ketentuan | JF Gadai">
+  <meta property="og:description" content="Kisah nyata gadai motor: dari risiko ke sukses. Pelajari cara menghindari kegagalan dan memaksimalkan peluang gadai Anda.">
+  <meta property="og:image" content="https://www.jfgadai.com/images/101.jpeg">
+  <meta property="og:url" content="https://www.jfgadai.com/risk-to-success.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="id_ID">
   <meta property="og:site_name" content="JF Gadai">
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.jfgadai.com/rules.html">
+  <link rel="canonical" href="https://www.jfgadai.com/risk-to-success.html">
 
-  <!-- Structured Data -->
+  <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Syarat dan Ketentuan JF Gadai",
-    "description": "Halaman syarat dan ketentuan resmi untuk layanan gadai di JF Gadai",
-    "url": "https://www.jfgadai.com/rules.html",
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "JF Gadai",
-      "url": "https://www.jfgadai.com"
-    },
+    "name": "Panduan Sukses Gadai Motor & Syarat Ketentuan",
+    "description": "Kumpulan studi kasus dan panduan praktis untuk sukses gadai motor di JF Gadai wilayah Bangil, Beji, dan Gempol",
+    "url": "https://www.jfgadai.com/risk-to-success.html",
     "mainEntity": {
-      "@type": "LegalService",
-      "name": "Syarat dan Ketentuan Gadai",
-      "provider": {
-        "@type": "PawnBroker",
+      "@type": "Article",
+      "headline": "Mengapa Beberapa Gadai Motor Gagal dan Lainnya Sukses?",
+      "author": {
+        "@type": "Organization",
         "name": "JF Gadai"
+      },
+      "datePublished": "2024-01-01",
+      "dateModified": "2024-01-01",
+      "publisher": {
+        "@type": "Organization",
+        "name": "JF Gadai",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.jfgadai.com/images/100.jpeg"
+        }
       }
     }
   }
   </script>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/contact.css">
+  <!-- 引用现有的main.css -->
   <link rel="stylesheet" href="css/main.css">
+
   <style>
-    /* 自定义规则页面样式 */
+    /* ==================== 风险到成功页面专用样式 ==================== */
+    /* 只保留绝对必要的、main.css中没有的样式 */
+    
+    /* 面包屑导航 - main.css中没有类似样式，保留 */
+    .page-breadcrumb {
+      max-width: 1200px;
+      margin: var(--spacing-md) auto var(--spacing-sm);
+      padding: 0 var(--spacing-lg);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .page-breadcrumb a {
+      color: var(--text-muted) !important;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .page-breadcrumb a:hover {
+      color: var(--secondary-color) !important;
+    }
+
+    .separator {
+      color: var(--text-muted) !important;
+      font-weight: bold;
+    }
+
+    .current {
+      color: var(--secondary-color) !important;
+      font-weight: 600;
+    }
+
+    /* 页面英雄区域 - 基于main.css的unified-card但需要特殊背景 */
+    .page-hero {
+      background: linear-gradient(135deg, 
+        rgba(15, 76, 129, 0.9) 0%, 
+        rgba(245, 197, 66, 0.15) 100%);
+      padding: var(--spacing-lg) 0;
+      margin-bottom: var(--spacing-lg);
+      border-bottom: 3px solid var(--secondary-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      padding: var(--spacing-md) 0;
+    }
+
+    .hero-title {
+      font-size: 1.8rem;
+      color: var(--light-color);
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: var(--spacing-md);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.4;
+    }
+
+    /* 章节标题 - 使用main.css中的card-title样式 */
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--spacing-xl);
+      padding: 0 var(--spacing-lg);
+    }
+
+    .section-header h2 {
+      color: var(--secondary-color);
+      font-size: 1.8rem;
+      margin-bottom: var(--spacing-sm);
+      position: relative;
+      display: inline-block;
+      line-height: 1.2;
+    }
+
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 25%;
+      right: 25%;
+      height: 3px;
+      background: var(--secondary-color);
+      border-radius: 2px;
+    }
+
+    .section-icon {
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-sm);
+      display: inline-block;
+    }
+
+    .section-subtitle {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.4;
+    }
+
+    /* 介绍部分 - 使用main.css的unified-card样式 */
+    .key-message {
+      background: rgba(245, 197, 66, 0.08);
+      border: 1px solid rgba(245, 197, 66, 0.2);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      margin-top: var(--spacing-lg);
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+
+    /* 案例网格布局 */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-lg);
+    }
+
+    /* 案例卡片 - 基于main.css的grid-card但需要可点击展开 */
+    .case-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: var(--border-radius);
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      margin-bottom: var(--spacing-md);
+      cursor: pointer;
+      min-height: 150px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.5s ease forwards;
+      animation-delay: calc(var(--card-index, 0) * 0.1s);
+    }
+
+    .case-card.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .risk-card {
+      border-color: rgba(244, 67, 54, 0.3);
+    }
+
+    .risk-card:hover {
+      border-color: rgba(244, 67, 54, 0.5);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(244, 67, 54, 0.2);
+    }
+
+    .success-card {
+      border-color: rgba(76, 175, 80, 0.3);
+    }
+
+    .success-card:hover {
+      border-color: rgba(76, 175, 80, 0.5);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+    }
+
+    /* 案例标签 - 使用main.css中的highlight样式理念 */
+    .case-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.5rem;
+      width: fit-content;
+    }
+
+    .risk-label {
+      background: rgba(244, 67, 54, 0.15);
+      color: #FF6B6B;
+    }
+
+    .success-label {
+      background: rgba(76, 175, 80, 0.15);
+      color: #4CAF50;
+    }
+
+    /* 案例头部 - 可点击区域 */
+    .case-header-toggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      padding: var(--spacing-md) var(--spacing-lg);
+      margin: 0;
+      transition: all 0.3s ease;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+      min-height: 80px;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      flex: 0 0 auto;
+      position: relative;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .case-header-toggle::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: transparent;
+      transition: background-color 0.3s ease;
+    }
+
+    .case-header-toggle:hover::after {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .case-header-toggle h3 {
+      margin-bottom: 0;
+      font-size: 1.2rem;
+      line-height: 1.4;
+      color: var(--light-color);
+      flex: 1;
+      margin-right: var(--spacing-sm);
+      position: relative;
+      z-index: 1;
+    }
+
+    .toggle-icon {
+      font-size: 1.2rem;
+      color: var(--secondary-color);
+      transition: transform 0.3s ease;
+      margin-left: var(--spacing-sm);
+      flex-shrink: 0;
+      min-width: 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .case-card:not(.expanded) .toggle-icon {
+      transform: rotate(0deg);
+    }
+
+    .case-card.expanded .toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    /* 案例内容区域 - 展开/收起功能 */
+    .case-card:not(.expanded) .case-content {
+      max-height: 0 !important;
+      opacity: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      visibility: hidden !important;
+    }
+
+    .case-card.expanded .case-content {
+      max-height: 5000px !important;
+      opacity: 1 !important;
+      padding: var(--spacing-lg) !important;
+      padding-top: var(--spacing-md) !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+      visibility: visible !important;
+    }
+
+    .case-content {
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      overflow: hidden;
+      flex: 1 1 auto;
+    }
+
+    /* 案例内容细节 */
+    .case-scenario, .case-process, .case-outcome, .case-lesson, .case-quote {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .case-scenario p, .case-process p, .case-lesson p {
+      color: var(--text-light);
+      font-size: 1.05rem;
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+
+    .case-scenario strong {
+      color: var(--text-muted);
+    }
+
+    .case-process h4, .case-outcome h4, .case-lesson h4 {
+      color: var(--secondary-color);
+      font-size: 1.1rem;
+      margin-bottom: var(--spacing-sm);
+      margin-top: var(--spacing-md);
+      line-height: 1.2;
+    }
+
+    .case-process ul, .case-process ol {
+      color: var(--text-light);
+      padding-left: var(--spacing-md);
+      margin-bottom: 0;
+    }
+
+    .case-process li {
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+      line-height: 1.4;
+    }
+
+    .outcome-bad, .outcome-warning, .outcome-good {
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+
+    .outcome-bad {
+      background: rgba(244, 67, 54, 0.2);
+      color: #FF6B6B;
+    }
+
+    .outcome-warning {
+      background: rgba(255, 193, 7, 0.2);
+      color: #FFC107;
+    }
+
+    .outcome-good {
+      background: rgba(76, 175, 80, 0.2);
+      color: #4CAF50;
+    }
+
+    .case-quote blockquote {
+      margin: 0;
+      padding: var(--spacing-md);
+      background: rgba(245, 197, 66, 0.08);
+      border-left: 4px solid var(--secondary-color);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      font-style: italic;
+      color: var(--text-light);
+      font-size: 1.05rem;
+      line-height: 1.4;
+    }
+
+    /* 成功因素部分 - 使用main.css的grid-card样式 */
+    .factors-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-lg);
+    }
+
+    .factor-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-xl);
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.5s ease forwards;
+      animation-delay: calc(var(--factor-index, 0) * 0.1s);
+    }
+
+    .factor-card.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .factor-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      border-color: rgba(245, 197, 66, 0.4);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .factor-icon {
+      font-size: 3rem;
+      margin-bottom: var(--spacing-md);
+      color: var(--secondary-color);
+    }
+
+    .factor-card h3 {
+      color: var(--text-light);
+      font-size: 1.3rem;
+      margin-bottom: var(--spacing-md);
+      line-height: 1.2;
+    }
+
+    .factor-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .factor-list li {
+      color: var(--text-light);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+    }
+
+    .factor-list li::before {
+      content: "✓";
+      color: var(--secondary-color);
+      margin-right: 0.5rem;
+      font-weight: bold;
+    }
+
+    .factor-list li strong {
+      color: var(--text-muted);
+      margin-right: 0.3rem;
+    }
+
+    .factor-tip {
+      color: var(--secondary-color);
+      font-size: 0.9rem;
+      font-style: italic;
+      padding-top: var(--spacing-md);
+      border-top: 1px solid rgba(245, 197, 66, 0.2);
+    }
+
+    /* CTA部分 - 使用main.css的unified-card样式 */
+    .cta-card {
+      background: linear-gradient(135deg, 
+        rgba(15, 76, 129, 0.8), 
+        rgba(245, 197, 66, 0.2));
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-xxl);
+      border: 2px solid rgba(245, 197, 66, 0.4);
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+    }
+
+    .cta-content h2 {
+      color: var(--secondary-color);
+      font-size: 2.2rem;
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.2;
+    }
+
+    .cta-subtitle {
+      color: var(--text-light);
+      font-size: 1.2rem;
+      margin-bottom: var(--spacing-xl);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.4;
+    }
+
+    .cta-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-lg);
+      margin: var(--spacing-xl) 0;
+    }
+
+    .cta-option {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-xl);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.5s ease forwards;
+      animation-delay: calc(var(--option-index, 0) * 0.15s);
+    }
+
+    .cta-option.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cta-option:hover {
+      transform: translateY(-5px);
+      border-color: var(--secondary-color);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .option-icon {
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-md);
+      color: var(--secondary-color);
+    }
+
+    .cta-option h3 {
+      color: var(--light-color);
+      font-size: 1.3rem;
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.2;
+    }
+
+    .cta-option p {
+      color: var(--text-light);
+      margin-bottom: var(--spacing-lg);
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    /* CTA备注 */
+    .cta-note {
+      margin-top: var(--spacing-xl);
+      padding: var(--spacing-lg);
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: var(--border-radius);
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .cta-note strong {
+      color: var(--secondary-color);
+    }
+
+    /* ==================== 条款页面样式 ==================== */
     .rules-container {
       max-width: 900px;
       margin: 0 auto;
       padding: 1rem;
     }
     
-    .page-header {
-      text-align: center;
-      margin: 2rem 0 2.5rem 0;
-      padding: 2rem;
-      background: linear-gradient(135deg, rgba(11, 44, 74, 0.9) 0%, rgba(26, 82, 118, 0.9) 100%);
-      border-radius: 12px;
-      color: white;
-    }
-    
-    .page-header h1 {
-      color: var(--secondary-color);
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-    }
-    
-    .page-subtitle {
-      font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.9);
-      margin-top: 0.5rem;
-    }
-    
     .legal-banner {
       background: rgba(245, 197, 66, 0.15);
       border: 1px solid var(--secondary-color);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 2rem 0;
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      margin: var(--spacing-xl) 0;
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: var(--spacing-md);
     }
     
     .legal-icon {
       font-size: 2rem;
     }
     
-    .rules-section {
-      margin: 2rem 0;
-    }
-    
-    .clause-numbering {
-      padding: 1.5rem;
-    }
-    
-    .rules-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    
-    .clause-item {
-      padding-left: 1rem;
-      border-left: 3px solid var(--secondary-color);
-    }
-    
-    .clause-item strong {
-      color: var(--secondary-color);
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    
-    .subclause-item {
-      margin: 0.5rem 0 0 1rem;
-      padding-left: 1rem;
-      border-left: 2px solid rgba(245, 197, 66, 0.5);
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 0.95rem;
-    }
-    
-    .process-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin: 1.5rem 0;
-    }
-    
-    .process-grid h5 {
-      color: var(--secondary-color);
-      margin-bottom: 0.8rem;
-    }
-    
-    .process-grid ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    
-    .process-grid li {
-      padding: 0.3rem 0;
-      display: flex;
-      align-items: center;
-    }
-    
-    .process-grid li:before {
-      content: "✓";
-      color: #2ecc71;
-      margin-right: 0.5rem;
-      font-weight: bold;
-    }
-    
-    .warning-card {
-      background: rgba(231, 76, 60, 0.1);
-      border: 1px solid #e74c3c;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-    }
-    
-    .warning-card h4 {
-      color: #e74c3c;
-      margin-bottom: 1rem;
-    }
-    
-    .warning-card li:before {
-      content: "✗";
-      color: #e74c3c;
-    }
-    
-    .version-info {
-      display: flex;
-      justify-content: space-between;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
-      padding: 1.2rem;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    
-    .version-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 120px;
-    }
-    
-    .version-label {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-    }
-    
-    .version-value {
-      color: var(--secondary-color);
-      font-weight: 600;
-    }
-    
-    .agreement-box {
-      background: rgba(52, 152, 219, 0.1);
-      border: 1px solid #3498db;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-    }
-    
-    .agreement-box h3 {
-      color: #3498db;
-      margin-bottom: 1rem;
-    }
-    
-    .action-buttons {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
-    
-    .action-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: var(--secondary-color);
-      color: var(--dark-color);
-      text-decoration: none;
-      padding: 0.9rem 1.5rem;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-    }
-    
-    .action-btn:hover {
-      background: #f0b630;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
-    }
-    
-    .print-btn {
-      background: #95a5a6;
-      color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      margin: 0.5rem 0;
-      transition: all 0.3s ease;
-    }
-    
-    .print-btn:hover {
-      background: #7f8c8d;
-      transform: translateY(-2px);
-    }
-    
     .case-study-link {
       background: rgba(46, 204, 113, 0.1);
       border: 1px solid #2ecc71;
-      border-radius: 8px;
-      padding: 1.2rem;
-      margin: 1.5rem 0;
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      margin: var(--spacing-lg) 0;
     }
     
     .case-study-link a {
@@ -315,25 +662,17 @@
     .print-suggestion {
       background: rgba(155, 89, 182, 0.1);
       border: 1px solid #9b59b6;
-      border-radius: 8px;
-      padding: 1.2rem;
-      margin: 1.5rem 0;
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      margin: var(--spacing-lg) 0;
     }
     
-    /* FAQ样式适配 */
+    /* FAQ样式 */
     .faq-section {
       background: rgba(11, 44, 74, 0.9);
-      padding: 1.5rem 0;
-      margin-top: 2rem;
-      border-radius: 12px;
-    }
-    
-    .faq-section h2 {
-      text-align: center;
-      color: var(--secondary-color);
-      margin-bottom: 1.5rem;
-      line-height: 1.1;
-      font-size: 1.6rem;
+      padding: var(--spacing-lg) 0;
+      margin-top: var(--spacing-xl);
+      border-radius: var(--border-radius);
     }
     
     .faq-list {
@@ -341,9 +680,30 @@
       margin: 0 auto;
     }
     
+    .faq-item {
+      margin-bottom: var(--spacing-lg);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: var(--spacing-lg);
+    }
+    
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    
     .faq-question {
       font-size: 1.1rem;
       font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--spacing-md);
+      padding: var(--spacing-sm);
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+    
+    .faq-question:hover {
+      background: rgba(245, 197, 66, 0.1);
     }
     
     .faq-number {
@@ -356,112 +716,737 @@
       color: var(--dark-color);
       border-radius: 50%;
       font-weight: bold;
-      margin-right: 12px;
+      margin-right: var(--spacing-sm);
+      flex-shrink: 0;
     }
     
-    /* 移动端优化 */
-    @media (max-width: 768px) {
-      .page-header h1 {
-        font-size: 1.5rem;
-        flex-direction: column;
-        gap: 10px;
+    .faq-answer {
+      padding-left: 2.5rem;
+      animation: fadeIn 0.5s ease;
+    }
+
+    /* 条款列表 */
+    .rules-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+    
+    .clause-item {
+      padding-left: var(--spacing-md);
+      border-left: 3px solid var(--secondary-color);
+    }
+    
+    .clause-item strong {
+      color: var(--secondary-color);
+      display: block;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .subclause-item {
+      margin: var(--spacing-sm) 0 0 var(--spacing-lg);
+      padding-left: var(--spacing-md);
+      border-left: 2px solid rgba(245, 197, 66, 0.5);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.95rem;
+    }
+    
+    .process-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-lg);
+      margin: var(--spacing-lg) 0;
+    }
+    
+    .process-grid h5 {
+      color: var(--secondary-color);
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.2;
+    }
+    
+    .process-grid ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .process-grid li {
+      padding: var(--spacing-xs) 0;
+      display: flex;
+      align-items: center;
+      line-height: 1.4;
+    }
+    
+    .process-grid li:before {
+      content: "✓";
+      color: #2ecc71;
+      margin-right: var(--spacing-sm);
+      font-weight: bold;
+    }
+    
+    .warning-card {
+      background: rgba(231, 76, 60, 0.1);
+      border: 1px solid #e74c3c;
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      margin: var(--spacing-lg) 0;
+    }
+    
+    .warning-card h4 {
+      color: #e74c3c;
+      margin-bottom: var(--spacing-md);
+      line-height: 1.2;
+    }
+    
+    .warning-card li:before {
+      content: "✗";
+      color: #e74c3c;
+    }
+    
+    .version-info {
+      display: flex;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      margin: var(--spacing-xl) 0;
+      flex-wrap: wrap;
+      gap: var(--spacing-lg);
+    }
+    
+    .version-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 120px;
+    }
+    
+    .version-label {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .version-value {
+      color: var(--secondary-color);
+      font-weight: 600;
+    }
+    
+    .agreement-box {
+      background: rgba(52, 152, 219, 0.1);
+      border: 1px solid #3498db;
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      margin: var(--spacing-xl) 0;
+    }
+    
+    .agreement-box h3 {
+      color: #3498db;
+      margin-bottom: var(--spacing-md);
+      line-height: 1.2;
+    }
+    
+    .print-btn {
+      background: #95a5a6;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      margin: var(--spacing-sm) 0;
+      transition: all 0.3s ease;
+    }
+    
+    .print-btn:hover {
+      background: #7f8c8d;
+      transform: translateY(-2px);
+    }
+
+    /* ==================== 响应式设计 ==================== */
+    /* 平板设备（769px-1024px） */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .cases-grid {
+        gap: var(--spacing-md);
+      }
+      
+      .factors-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .factors-grid .factor-card:last-child {
+        grid-column: span 2;
+        max-width: 400px;
+        margin: 0 auto;
       }
       
       .process-grid {
         grid-template-columns: 1fr;
       }
-      
-      .version-info {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
+    }
+
+    /* 移动设备（768px及以下） */
+    @media (max-width: 768px) {
+      /* 基础调整 */
+      .page-hero {
+        padding: var(--spacing-md) 0;
+        margin-bottom: var(--spacing-md);
       }
       
-      .action-buttons {
-        flex-direction: column;
+      .hero-title {
+        font-size: 1.5rem;
       }
       
-      .action-btn {
-        width: 100%;
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      
+      /* 章节调整 */
+      .section-header {
+        margin-bottom: var(--spacing-lg);
+      }
+      
+      .section-header h2 {
+        font-size: 1.4rem;
+      }
+      
+      .section-subtitle {
+        font-size: 1rem;
+      }
+      
+      /* 案例网格调整 */
+      .cases-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+      }
+      
+      .case-card {
+        margin-bottom: var(--spacing-sm);
+      }
+      
+      .case-header-toggle {
+        padding: var(--spacing-sm);
+        min-height: auto;
+      }
+      
+      .case-header-toggle h3 {
+        font-size: 1.1rem;
+      }
+      
+      .case-card.expanded .case-content {
+        padding: var(--spacing-md);
+      }
+      
+      /* 成功因素网格调整 */
+      .factors-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+      }
+      
+      .factor-card {
+        padding: var(--spacing-lg);
+      }
+      
+      /* CTA部分调整 */
+      .cta-card {
+        padding: var(--spacing-lg);
+      }
+      
+      .cta-content h2 {
+        font-size: 1.6rem;
+      }
+      
+      .cta-options {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-option {
+        padding: var(--spacing-lg);
+      }
+      
+      /* 条款页面调整 */
+      .legal-banner {
+        flex-direction: column;
         text-align: center;
       }
       
       .faq-question {
         font-size: 1rem;
       }
+      
+      .faq-answer {
+        padding-left: var(--spacing-md);
+      }
+      
+      .version-info {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ==================== 打印样式 ==================== */
+    @media print {
+      .page-hero {
+        background: none !important;
+        border-bottom: 2px solid #000;
+      }
+      
+      .hero-title, .hero-subtitle, .case-header-toggle h3 {
+        color: #000 !important;
+      }
+      
+      .case-card {
+        break-inside: avoid;
+        border: 1px solid #ccc !important;
+        page-break-inside: avoid;
+      }
+      
+      .btn-primary, .btn-secondary, .toggle-icon {
+        display: none !important;
+      }
+      
+      .case-content {
+        max-height: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+      }
+      
+      .case-card, .factor-card, .cta-option {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
+      
+      a {
+        color: #000 !important;
+        text-decoration: underline;
+      }
     }
   </style>
 </head>
 
-<body class="rules-page">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  
-<!-- 头部导航 -->
-<header class="assessment-header">
-<header class="assessment-header">
-  <div class="container">
-
-    <a href="/" class="back-btn">
-      <img src="/images/logo-jf.png" alt="JF Gadai" class="logo-image">
-      <strong><span class="arrow">←</span> Kembali ke Beranda</strong>
-    </a>
-
-    <a href="/motor.html" class="nav-forward">
-      <strong>Gadai Motor <span class="arrow">→</span></strong>
-      <img src="/images/logo-motor.png" alt="Gadai Motor" class="nav-icon">
-    </a>
-
+<body>
+  <!-- ✅ SEO文本内容区块 -->
+  <div class="seo-text-content" style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden;">
+      <h1>Panduan Sukses Gadai Motor di JF Gadai Bangil, Beji, dan Gempol</h1>
+      <p>JF Gadai membagikan pengalaman nyata gadai motor untuk membantu pelanggan memahami faktor sukses dan kegagalan. Pelajari dari studi kasus nyata tentang risiko dokumen, kondisi motor, faktor manusia, dan cara menghindari masalah umum. Panduan ini didasarkan pada pengalaman langsung tim JF Gadai melayani gadai motor di wilayah Bangil, Beji, dan Gempol. Kami menunjukkan transparansi dalam proses gadai dan berkomitmen membantu pelanggan mencapai kesepakatan yang adil dan menguntungkan kedua belah pihak.</p>
   </div>
-</header>
-  
-  <div class="rules-container">
-    <!-- 主要卡片 -->
-    <div class="legal-banner fade-in delay-1">
-      <div class="legal-icon">⚖️</div>
-      <div>
-    <h2>
-      📜Syarat & Ketentuan Gadai
-    </h2>
-        <h3>📌 INFORMASI PENTING</h3>
-        <p>
-          <strong>Semua transaksi di JF Gadai mengikuti aturan hukum yang berlaku di Indonesia.</strong><br>
-          Kami berkomitmen untuk memberikan layanan yang adil, transparan, dan melindungi hak kedua belah pihak.
+
+  <!-- 头部导航 - 使用main.css中的assessment-header样式 -->
+  <header class="assessment-header">
+    <div class="container">
+      <a href="/" class="back-btn">
+        <img src="/images/logo-jf.png" alt="JF Gadai" class="logo-image">
+        <strong><span class="arrow">←</span> Kembali ke Beranda</strong>
+      </a>
+
+      <a href="/motor.html" class="nav-forward">
+        <strong>Gadai Motor <span class="arrow">→</span></strong>
+        <img src="/images/logo-motor.png" alt="Gadai Motor" class="nav-icon">
+      </a>
+    </div>
+  </header>
+
+  <!-- 页面标题横幅 -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Dari Risiko ke Sukses:<br>Panduan Nyata Gadai Motor</h1>
+        
+        <!-- 主描述 -->
+        <p class="hero-subtitle">
+          Belajar dari <span class="highlight">50+ kasus nyata</span> gadai motor di JF Gadai. 
+          Pahami mengapa beberapa berhasil dan lainnya gagal.
+        </p>
+        
+        <!-- 统计信息 -->
+        <p class="hero-subtitle">
+          <strong class="highlight">90%</strong> Sukses dengan persiapan tepat • 
+          <strong class="highlight">3x</strong> Lebih cepat prosesnya
         </p>
       </div>
     </div>
-    
-    <!-- 案例学习链接 -->
-    <div class="case-study-link">
-      <h4>🎓 <strong>Ingin melihat bagaimana aturan ini diterapkan?</strong></h4>
-      <a href="risk-to-success.html">
-        📚 Lihat Studi Kasus Gadai Motor &rarr;
-      </a>
-      <p>
-        Pelajari dari kisah nyata sukses dan gagal gadai motor di JF Gadai.
-      </p>
-    </div>
-    
-    <!-- 打印建议区域 -->
-    <div class="print-suggestion">
-      <h4>🖨️ <strong>Butuh Salinan Aturan?</strong></h4>
-      <p>
-        Gunakan fitur print browser untuk mencetak halaman ini sebagai referensi pribadi.
-      </p>
-      <button class="print-btn" onclick="window.print()">
-        🖨️ Cetak Halaman Ini
-      </button>
-      <p>
-        <em>Tekan Ctrl+P (Windows) atau Cmd+P (Mac) untuk langsung mencetak</em>
-      </p>
-    </div>
-    
-    <!-- FAQ组件替换手风琴 -->
-    <div class="faq-section">
-      <h2>📋 Syarat dan Ketentuan Lengkap</h2>
+  </section>
+
+  <main class="container">
+    <!-- 介绍部分 -->
+    <section class="intro-section">
+      <div class="section-header">
+        <h2>Panduan Gadai Motor Nyata</h2>
+        <p class="section-subtitle">
+          <strong class="highlight">Persiapan baik = sukses gadai.</strong> 
+          Kisah nyata dari pelanggan JF Gadai (nama dirahasiakan).
+        </p>
+      </div>
       
+      <div class="key-message">
+        <div class="message-content">
+          <h3>💡Filosofi Kami: Transparansi untuk Kesuksesan</h3>
+          <p>Kami percaya pelanggan yang terinformasi adalah pelanggan yang sukses. Dengan memahami risiko sejak awal, Anda bisa menghindari kekecewaan dan memaksimalkan peluang gadai motor Anda.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第一部分：风险警示案例 -->
+    <section class="cases-section risk-cases">
+      <div class="section-header">
+        <div class="section-icon">⚠️</div>
+        <h2>Kasus Gagal Gadai</h2>
+        <p class="section-subtitle">
+          Situasi yang <strong class="highlight">menghambat proses gadai</strong>. 
+          Kenali dan hindari pengalaman serupa.
+        </p>
+      </div>
+      
+      <div class="cases-grid">
+        <!-- 案例1: 证件问题 -->
+        <div class="case-card risk-card">
+          <div class="case-header case-header-toggle">
+            <div>
+              <span class="case-label risk-label">DOKUMEN</span>
+              <h3>Kasus: STNK Hilang, Buru-buru Mau Gadai</h3>
+            </div>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="case-content">
+            <div class="case-scenario">
+              <p><strong>Klien:</strong> Bapak Ahmad, Bangil</p>
+              <p><strong>Motor:</strong> Honda Beat 2020</p>
+              <p><strong>Masalah:</strong> STNK hilang saat perjalanan, butuh uang mendesak</p>
+            </div>
+            <div class="case-process">
+              <h4>Proses:</h4>
+              <ul>
+                <li>Klien datang dengan motor, tanpa STNK asli</li>
+                <li>Minta pengecualian karena "butuh banget"</li>
+                <li>Tidak terima penolakan kami</li>
+              </ul>
+            </div>
+            <div class="case-outcome">
+              <h4>Hasil: <span class="outcome-bad">GAGAL</span></h4>
+              <p>Tanpa STNK asli, proses gadai sah tidak bisa dilanjutkan.</p>
+            </div>
+            <div class="case-lesson">
+              <h4>Pelajaran:</h4>
+              <p><strong>Dokumen lengkap = proses lancar.</strong> Saran kami: urus duplikat STNK dulu (3-5 hari kerja).</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 案例2: 事故车隐瞒 -->
+        <div class="case-card risk-card">
+          <div class="case-header case-header-toggle">
+            <div>
+              <span class="case-label risk-label">KONDISI</span>
+              <h3>Kasus: Motor Bekas Kecelakaan, Tapi Dicat Ulang</h3>
+            </div>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="case-content">
+            <div class="case-scenario">
+              <p><strong>Klien:</strong> Mas Andi, Gempol</p>
+              <p><strong>Motor:</strong> Yamaha NMax 2019</p>
+              <p><strong>Masalah:</strong> Kecelakaan sedang, rangka sedikit melengkung</p>
+            </div>
+            <div class="case-process">
+              <h4>Proses:</h4>
+              <ul>
+                <li>Klien tidak informasikan riwayat kecelakaan</li>
+                <li>Pengecekan ahli kami menemukan ketidakwajaran</li>
+                <li>Setelah ditanya, klien akhirnya mengakui</li>
+              </ul>
+            </div>
+            <div class="case-outcome">
+              <h4>Hasil: <span class="outcome-bad">GAGAL</span></h4>
+              <p>Nilai turun 40% karena kecelakaan. Klien tidak terima, akhirnya batal.</p>
+            </div>
+            <div class="case-lesson">
+              <h4>Pelajaran:</h4>
+              <p><strong>Jujur tentang sejarah motor</strong> menghemat waktu semua pihak. Kami bisa beri penilaian realistis sejak awal.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 案例3: 家庭连环典当 -->
+        <div class="case-card risk-card">
+          <div class="case-header case-header-toggle">
+            <div>
+              <span class="case-label risk-label">FAKTOR MANUSIA</span>
+              <h3>Kasus: "Satu Keluarga" Gadai Berantai</h3>
+            </div>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="case-content">
+            <div class="case-scenario">
+              <p><strong>Klien:</strong> Keluarga Pak Budi, Beji</p>
+              <p><strong>Timeline:</strong> Minggu 1: Suami → Minggu 2: Istri → Minggu 3: Mertua</p>
+              <p><strong>Masalah:</strong> Tekanan finansial keluarga yang beruntun</p>
+            </div>
+            <div class="case-process">
+              <h4>Proses:</h4>
+              <ul>
+                <li>Suami gadai motor untuk "modal usaha kecil"</li>
+                <li>2 minggu kemudian, istri datang dengan alasan "anak sakit"</li>
+                <li>1 minggu lagi, mertua datang minta gadai juga</li>
+              </ul>
+            </div>
+            <div class="case-outcome">
+              <h4>Hasil: <span class="outcome-warning">DITOLAK (untuk yang ketiga)</span></h4>
+              <p>Kami tolak permintaan ketiga. Sarankan konsultasi keuangan keluarga.</p>
+            </div>
+            <div class="case-lesson">
+              <h4>Pelajaran:</h4>
+              <p><strong>Gadai bukan solusi permanen.</strong> Kami bertanggung jawab tidak memperburuk keadaan finansial keluarga.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 案例4: OJOL司机高风险 -->
+        <div class="case-card risk-card">
+          <div class="case-header case-header-toggle">
+            <div>
+              <span class="case-label risk-label">PENGGUNAAN</span>
+              <h3>Kasus: Driver Ojol, Motor Dipakai 24/7</h3>
+            </div>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="case-content">
+            <div class="case-scenario">
+              <p><strong>Klien:</strong> Driver Gojek full-time</p>
+              <p><strong>Motor:</strong> Honda Beat 2021 (45,000 km dalam 2 tahun)</p>
+              <p><strong>Masalah:</strong> Keausan ekstrem karena penggunaan ojol</p>
+            </div>
+            <div class="case-process">
+              <h4>Proses:</h4>
+              <ul>
+                <li>Klien jujur bahwa motor dipakai ojol</li>
+                <li>Pengecekan: kampas rem tipis, ban botak, mesin kasar</li>
+                <li>Klien terkejut dengan nilai yang kami tawarkan</li>
+              </ul>
+            </div>
+            <div class="case-outcome">
+              <h4>Hasil: <span class="outcome-warning">NILAI RENDAH</span></h4>
+              <p>Nilai hanya 50% dari harga pasar normal. Klien memilih tidak jadi.</p>
+            </div>
+            <div class="case-lesson">
+              <h4>Pelajaran:</h4>
+              <p><strong>Motor ojol = depresiasi cepat.</strong> Perawatan ekstra penting jika dipakai bisnis.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第二部分：成功转化案例 -->
+    <section class="cases-section success-cases">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <h2>Kisah Sukses Gadai</h2>
+        <p class="section-subtitle">
+          <strong class="highlight">Komunikasi terbuka</strong> menghasilkan kesepakatan 
+          menguntungkan semua pihak.
+        </p>
+      </div>
+      
+      <div class="cases-grid">
+        <!-- 成功案例1 -->
+        <div class="case-card success-card">
+          <div class="case-header case-header-toggle">
+            <div>
+              <span class="case-label success-label">TRANSFORMASI</span>
+              <h3>Dari Risiko ke Kepercayaan: Driver Ojol yang Transparan</h3>
+            </div>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="case-content">
+            <div class="case-scenario">
+              <p><strong>Klien:</strong> Mas Rudi, Driver Gojek 3 tahun</p>
+              <p><strong>Motor:</strong> Honda PCX 2020 (38,000 km)</p>
+              <p><strong>Kejujuran:</strong> "Motor saya dipakai ojol, semua servis rutin di AHASS"</p>
+            </div>
+            <div class="case-process">
+              <h4>Proses Kolaborasi:</h4>
+              <ul>
+                <li>Klien bawa semua buku servis dan faktur</li>
+                <li>Kami jelaskan faktor yang mempengaruhi nilai (mileage, penggunaan)</li>
+                <li>Diskusi terbuka tentang nilai realistis</li>
+              </ul>
+            </div>
+            <div class="case-outcome">
+              <h4>Hasil: <span class="outcome-good">SUKSES</span></h4>
+              <p>Nilai gadai 68% dari harga pasar. Klien puas dengan transparansi kami.</p>
+            </div>
+            <div class="case-quote">
+              <blockquote>
+                "Mereka fair, jelasin semua plus-minus. Meski motor ojol, tetap dapet nilai bagus karena servis teratur."
+              </blockquote>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 成功案例2 -->
+        <div class="case-card success-card">
+          <div class="case-header case-header-toggle">
+            <div>
+              <span class="case-label success-label">KOLABORASI</span>
+              <h3>Motor Warisan: Bimbingan dari Awal</h3>
+            </div>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="case-content">
+            <div class="case-scenario">
+              <p><strong>Klien:</strong> Ibu Siti, dapat motor dari almarhum ayah</p>
+              <p><strong>Masalah:</strong> STNK masih nama ayah, belum balik nama</p>
+              <p><strong>Durasi:</strong> Proses 2 minggu (bukan ditolak!)</p>
+            </div>
+            <div class="case-process">
+              <h4>Proses Terbimbing:</h4>
+              <ol>
+                <li>Kami beri daftar dokumen warisan yang diperlukan</li>
+                <li>Rekomendasikan notaris untuk proses cepat</li>
+                <li>Setelah dokumen lengkap, gadai selesai dalam 3 jam</li>
+              </ol>
+            </div>
+            <div class="case-outcome">
+              <h4>Hasil: <span class="outcome-good">SUKSES DENGAN BIMBINGAN</span></h4>
+              <p>Klien dapat dana yang dibutuhkan, semua dokumen jadi legal.</p>
+            </div>
+            <div class="case-lesson">
+              <h4>Pesan untuk Anda:</h4>
+              <p><strong>Masalah dokumen bukan akhir.</strong> Kami siap bimbing Anda melalui solusinya.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第三部分：关键成功因素 -->
+    <section class="success-factors">
+      <div class="section-header">
+        <h2>3 Faktor Kunci Sukses Gadai</h2>
+        <p class="section-subtitle">
+          Analisis 50+ kasus: faktor pembeda sukses vs gagal.
+        </p>
+      </div>
+      
+      <div class="factors-grid">
+        <div class="factor-card">
+          <div class="factor-icon">📄</div>
+          <h3>1. Dokumen Lengkap & Jelas</h3>
+          <ul class="factor-list">
+            <li><strong>STNK asli</strong> (bukan fotokopi)</li>
+            <li><strong>BPKB asli</strong> sesuai STNK</li>
+            <li><strong>KTP</strong> dengan alamat terkini</li>
+          </ul>
+          <p class="factor-tip"><strong>Tips:</strong> Cek masa berlaku STNK dan pajak motor.</p>
+        </div>
+        
+        <div class="factor-card">
+          <div class="factor-icon">🔍</div>
+          <h3>2. Kejujuran tentang Kondisi</h3>
+          <ul class="factor-list">
+            <li>Riwayat kecelakaan (jika ada)</li>
+            <li>Penggunaan intensitas (pribadi/ojol)</li>
+            <li>Masalah mekanis yang diketahui</li>
+          </ul>
+          <p class="factor-tip"><strong>Fakta:</strong> Motor yang diakui riwayatnya dinilai lebih cepat.</p>
+        </div>
+        
+        <div class="factor-card">
+          <div class="factor-icon">💬</div>
+          <h3>3. Komunikasi Terbuka</h3>
+          <ul class="factor-list">
+            <li>Jelaskan kebutuhan dana secara spesifik</li>
+            <li>Dengarkan penjelasan tim penilai</li>
+            <li>Negosiasi berdasarkan fakta</li>
+          </ul>
+          <p class="factor-tip"><strong>Ingat:</strong> Kami ingin Anda sukses sama seperti Anda.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 第四部分：行动号召部分 -->
+    <section class="cta-section">
+      <div class="section-header">
+        <h2>Siap Gadai Motor Anda?</h2>
+        <p class="section-subtitle">
+          Pelajari dari kasus nyata, gunakan pengetahuan untuk sukses gadai Anda.
+        </p>
+      </div>
+      
+      <div class="cta-card">
+        <div class="cta-content">
+          <div class="option-icon">📱</div>
+          <h2>Hubungi Kami via WhatsApp</h2>
+          <p class="cta-subtitle">
+            Konsultasi gratis, penilaian fair, proses cepat. 
+            Jadilah bagian dari kisah sukses gadai berikutnya.
+          </p>
+          
+          <!-- 使用main.css中的action-btn样式 -->
+          <a href="https://wa.me/6289515692586" class="action-btn whatsapp" target="_blank" rel="noopener">
+            💬 Chat Sekarang
+          </a>
+          
+          <div class="cta-note">
+            <strong>Catatan:</strong> Semua konsultasi gratis dan tanpa kewajiban. 
+            Informasi Anda aman dan rahasia.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第五部分：条款与条件 -->
+    <section class="faq-section">
+      <div class="section-header">
+        <h2>📋 Syarat dan Ketentuan Gadai</h2>
+        <p class="section-subtitle">
+          Aturan lengkap untuk layanan gadai di JF Gadai.
+        </p>
+      </div>
+      
+      <!-- 主要卡片 -->
+      <div class="legal-banner fade-in delay-1">
+        <div class="legal-icon">⚖️</div>
+        <div>
+          <h3>📌 INFORMASI PENTING</h3>
+          <p>
+            <strong>Semua transaksi di JF Gadai mengikuti aturan hukum yang berlaku di Indonesia.</strong><br>
+            Kami berkomitmen untuk memberikan layanan yang adil, transparan, dan melindungi hak kedua belah pihak.
+          </p>
+        </div>
+      </div>
+      
+      <!-- 案例学习链接 -->
+      <div class="case-study-link">
+        <h4>🎓 <strong>Ingin melihat bagaimana aturan ini diterapkan?</strong></h4>
+        <a href="#risk-cases">
+          📚 Lihat Studi Kasus Gadai Motor di atas &uarr;
+        </a>
+        <p>
+          Pelajari dari kisah nyata sukses dan gagal gadai motor di JF Gadai.
+        </p>
+      </div>
+      
+      <!-- 打印建议区域 -->
+      <div class="print-suggestion">
+        <h4>🖨️ <strong>Butuh Salinan Aturan?</strong></h4>
+        <p>
+          Gunakan fitur print browser untuk mencetak halaman ini sebagai referensi pribadi.
+        </p>
+        <button class="print-btn" onclick="window.print()">
+          🖨️ Cetak Halaman Ini
+        </button>
+        <p>
+          <em>Tekan Ctrl+P (Windows) atau Cmd+P (Mac) untuk langsung mencetak</em>
+        </p>
+      </div>
+      
+      <!-- FAQ组件 -->
       <div class="faq-list">
         <!-- 第一部分: Persyaratan Umum -->
         <div class="faq-item">
@@ -616,82 +1601,148 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
       </div>
-    </div>
-    
-    <!-- 版本信息 -->
-    <div class="version-info">
-      <div class="version-item">
-        <span class="version-label">📅 Berlaku Sejak</span>
-        <span class="version-value">1 Januari 2025</span>
+      
+      <!-- 版本信息 -->
+      <div class="version-info">
+        <div class="version-item">
+          <span class="version-label">📅 Berlaku Sejak</span>
+          <span class="version-value">1 Januari 2025</span>
+        </div>
+        <div class="version-item">
+          <span class="version-label">🔄 Terakhir Diperbarui</span>
+          <span class="version-value">1 Maret 2025</span>
+        </div>
+        <div class="version-item">
+          <span class="version-label">📄 Versi Dokumen</span>
+          <span class="version-value">2.0</span>
+        </div>
       </div>
-      <div class="version-item">
-        <span class="version-label">🔄 Terakhir Diperbarui</span>
-        <span class="version-value">1 Maret 2025</span>
+      
+      <!-- 同意框 -->
+      <div class="agreement-box">
+        <h3>📝 Pernyataan Persetujuan</h3>
+        <p>
+          Dengan menggunakan layanan JF Gadai, Anda menyatakan telah membaca, memahami, dan menyetujui seluruh syarat dan ketentuan yang tercantum di halaman ini.
+        </p>
+        <p>
+          Syarat dan ketentuan dapat diperbarui sewaktu-waktu tanpa pemberitahuan sebelumnya. Versi terbaru selalu tersedia di halaman ini.
+        </p>
       </div>
-      <div class="version-item">
-        <span class="version-label">📄 Versi Dokumen</span>
-        <span class="version-value">2.0</span>
-      </div>
-    </div>
-    
-    <!-- 同意框 -->
-    <div class="agreement-box">
-      <h3>📝 Pernyataan Persetujuan</h3>
-      <p>
-        Dengan menggunakan layanan JF Gadai, Anda menyatakan telah membaca, memahami, dan menyetujui seluruh syarat dan ketentuan yang tercantum di halaman ini.
-      </p>
-      <p>
-        Syarat dan ketentuan dapat diperbarui sewaktu-waktu tanpa pemberitahuan sebelumnya. Versi terbaru selalu tersedia di halaman ini.
-      </p>
-    </div>
-    
-  <!-- 底部行动 -->
-    <div class="rules-section">
-      <h3>Ada Pertanyaan tentang Aturan?</h3>
-      <p>
-        Tim kami siap menjelaskan detail syarat dan ketentuan secara langsung.
-      </p>
-    </div>
-  </div>
-</main>
+    </section>
+  </main>
 
-<!-- 页脚 -->
-<footer id="lokasi">
-  <div class="container">
-    <div class="footer-content">
-      
-      <p class="copyright">© 2026 <span class="highlight">JF Gadai</span></p>
-      
-      <p class="company-info">Melayani area Bangil • Beji • Gempol dan sekitarnya</p>
-      
-      <a href="https://wa.me/6289515692586" 
-         target="_blank" 
-         class="contact-link" 
-         rel="noopener noreferrer"
-         aria-label="Hubungi kami via WhatsApp">
-        <img src="/images/logo-wa.png" alt="WhatsApp" width="20" height="20">
-        WhatsApp: +62 895-1569-2586
-      </a>
-      
-      <p class="operating-hours">
-        ⏰ Jam kerja: 08:00-18:00 | Libur Sabtu–Minggu
-      </p>
-      
-      <p class="security-note">
-        🔒 Situs ini menggunakan koneksi aman (HTTPS).
-      </p>
-      
+  <!-- 页脚 - 使用main.css中的footer样式 -->
+  <footer id="lokasi">
+    <div class="container">
+      <div class="footer-content">
+        
+        <p class="copyright">© 2026 <span class="highlight">JF Gadai</span></p>
+        
+        <p class="company-info">Melayani area Bangil • Beji • Gempol dan sekitarnya</p>
+        
+        <a href="https://wa.me/6289515692586" 
+           target="_blank" 
+           class="contact-link" 
+           rel="noopener noreferrer"
+           aria-label="Hubungi kami via WhatsApp">
+          <img src="/images/logo-wa.png" alt="WhatsApp" width="20" height="20">
+          WhatsApp: +62 895-1569-2586
+        </a>
+        
+        <p class="operating-hours">
+          ⏰ Jam kerja: 08:00-18:00 | Libur Sabtu–Minggu
+        </p>
+        
+        <p class="security-note">
+          🔒 Situs ini menggunakan koneksi aman (HTTPS).
+        </p>
+        
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- 引入JavaScript文件 -->
-<script src="js/contact.js"></script>
-<script>
-  // 打印功能
-  document.querySelector('.print-btn').addEventListener('click', function() {
-    window.print();
-  });
-</script>
+  <script>
+    // 案例卡片交互功能
+    document.addEventListener('DOMContentLoaded', function() {
+      // 案例卡片切换功能
+      const caseHeaders = document.querySelectorAll('.case-header-toggle');
+      
+      caseHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+          const caseCard = this.closest('.case-card');
+          const isExpanded = caseCard.classList.contains('expanded');
+          
+          // 关闭所有其他打开的卡片
+          document.querySelectorAll('.case-card.expanded').forEach(openCard => {
+            if (openCard !== caseCard) {
+              openCard.classList.remove('expanded');
+            }
+          });
+          
+          // 切换当前卡片状态
+          caseCard.classList.toggle('expanded', !isExpanded);
+          
+          // 添加动画类
+          if (!caseCard.classList.contains('animated')) {
+            caseCard.classList.add('animated');
+          }
+        });
+      });
+      
+      // 成功因素卡片动画
+      const factorCards = document.querySelectorAll('.factor-card');
+      factorCards.forEach((card, index) => {
+        card.style.setProperty('--factor-index', index);
+        setTimeout(() => {
+          card.classList.add('animated');
+        }, 100 * index);
+      });
+      
+      // CTA选项动画
+      const ctaOptions = document.querySelectorAll('.cta-option');
+      ctaOptions.forEach((option, index) => {
+        option.style.setProperty('--option-index', index);
+        setTimeout(() => {
+          option.classList.add('animated');
+        }, 150 * index);
+      });
+      
+      // FAQ交互功能
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+          const answer = this.nextElementSibling;
+          const isVisible = answer.style.display === 'block';
+          
+          // 关闭所有其他打开的FAQ
+          document.querySelectorAll('.faq-answer').forEach(ans => {
+            ans.style.display = 'none';
+          });
+          
+          // 切换当前FAQ
+          answer.style.display = isVisible ? 'none' : 'block';
+        });
+      });
+      
+      // 默认展开第一个FAQ
+      if (faqQuestions.length > 0) {
+        faqQuestions[0].nextElementSibling.style.display = 'block';
+      }
+      
+      // 打印功能
+      document.querySelector('.print-btn').addEventListener('click', function() {
+        window.print();
+      });
+      
+      // 案例卡片动画延迟
+      const caseCards = document.querySelectorAll('.case-card');
+      caseCards.forEach((card, index) => {
+        card.style.setProperty('--card-index', index);
+        setTimeout(() => {
+          card.classList.add('animated');
+        }, 100 * index);
+      });
+    });
+  </script>
 </body>
 </html>
