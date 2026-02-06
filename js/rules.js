@@ -1,76 +1,84 @@
-// rules.js - 条款页面专用脚本
+// ==================== rules.js - 规则和案例页面专用 ====================
 document.addEventListener('DOMContentLoaded', function() {
-  // 手风琴功能
-  const accordionItems = document.querySelectorAll('.accordion-item');
+  console.log('rules.js - 规则和案例页面加载');
   
-  accordionItems.forEach(item => {
-    const header = item.querySelector('.accordion-header');
-    const content = item.querySelector('.accordion-content');
+  // 检查是否在规则页面
+  if (!document.querySelector('.case-card, .rules-card')) {
+    console.log('不在规则页面，跳过初始化');
+    return;
+  }
+  
+  // 初始化规则页面功能
+  initCaseToggles();
+  initPrintFunctionality();
+  initClauseEffects();
+});
+
+// ==================== 案例下拉切换 ====================
+function initCaseToggles() {
+  const caseHeaders = document.querySelectorAll('.case-header-toggle');
+  
+  if (!caseHeaders.length) return;
+  
+  caseHeaders.forEach(header => {
+    header.addEventListener('click', toggleCaseHandler);
     
-    header.addEventListener('click', () => {
-      // 关闭其他打开的手风琴项
-      accordionItems.forEach(otherItem => {
-        if (otherItem !== item && otherItem.classList.contains('active')) {
-          otherItem.classList.remove('active');
-          otherItem.querySelector('.accordion-content').style.maxHeight = null;
-        }
-      });
-      
-      // 切换当前项
-      item.classList.toggle('active');
-      
-      if (item.classList.contains('active')) {
-        content.style.maxHeight = content.scrollHeight + 'px';
-      } else {
-        content.style.maxHeight = null;
-      }
-    });
+    // 可访问性属性
+    header.setAttribute('role', 'button');
+    header.setAttribute('aria-expanded', 'false');
   });
   
-  // 打印按钮功能
+  // 初始状态：所有案例默认闭合
+  setTimeout(() => {
+    document.querySelectorAll('.case-card').forEach(card => {
+      card.classList.remove('expanded');
+      const header = card.querySelector('.case-header-toggle');
+      if (header) {
+        header.setAttribute('aria-expanded', 'false');
+        const icon = header.querySelector('.toggle-icon');
+        if (icon) icon.textContent = '▼';
+      }
+    });
+  }, 300);
+}
+
+function toggleCaseHandler(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  
+  const caseCard = this.closest('.case-card');
+  const icon = this.querySelector('.toggle-icon');
+  
+  if (caseCard.classList.contains('expanded')) {
+    // 收起案例
+    caseCard.classList.remove('expanded');
+    this.setAttribute('aria-expanded', 'false');
+    if (icon) icon.textContent = '▼';
+  } else {
+    // 展开案例
+    caseCard.classList.add('expanded');
+    this.setAttribute('aria-expanded', 'true');
+    if (icon) icon.textContent = '▲';
+  }
+}
+
+// ==================== 打印功能 ====================
+function initPrintFunctionality() {
   const printBtn = document.querySelector('.print-btn');
+  
   if (printBtn) {
     printBtn.addEventListener('click', function(e) {
       e.preventDefault();
-         
-      // 打印页面
+      console.log('打印功能触发');
       window.print();
     });
   }
-  
-  // WhatsApp按钮点击事件
-  const whatsappBtns = document.querySelectorAll('.action-btn');
-  whatsappBtns.forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      if (this.href.includes('wa.me')) {
-      }
-    });
-  });
-  
-  // 页面加载动画
-  const cards = document.querySelectorAll('.rules-card, .case-study-link, .print-suggestion');
-  cards.forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    
-    setTimeout(() => {
-      card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-      card.style.opacity = '1';
-      card.style.transform = 'translateY(0)';
-    }, 100);
-  });
-  
-  // 自动打开第一个手风琴项
-  if (accordionItems.length > 0) {
-    setTimeout(() => {
-      accordionItems[0].classList.add('active');
-      accordionItems[0].querySelector('.accordion-content').style.maxHeight = 
-        accordionItems[0].querySelector('.accordion-content').scrollHeight + 'px';
-    }, 500);
-  }
-  
-  // 为条款项目添加悬停效果
+}
+
+// ==================== 条款项目效果 ====================
+function initClauseEffects() {
   const clauseItems = document.querySelectorAll('.clause-item');
+  
   clauseItems.forEach(item => {
     item.addEventListener('mouseenter', function() {
       this.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
@@ -82,5 +90,37 @@ document.addEventListener('DOMContentLoaded', function() {
       this.style.backgroundColor = 'rgba(255, 255, 255, 0.03)';
       this.style.transform = 'translateX(0)';
     });
+    
+    // 条款点击效果
+    item.addEventListener('click', function() {
+      console.log('条款点击:', this.textContent);
+    });
   });
-});
+}
+
+// ==================== 全局工具函数 ====================
+window.rulesPage = {
+  // 展开所有案例
+  expandAllCases: function() {
+    document.querySelectorAll('.case-card').forEach(card => {
+      card.classList.add('expanded');
+      const header = card.querySelector('.case-header-toggle');
+      const icon = header ? header.querySelector('.toggle-icon') : null;
+      if (header) header.setAttribute('aria-expanded', 'true');
+      if (icon) icon.textContent = '▲';
+    });
+  },
+  
+  // 收起所有案例
+  collapseAllCases: function() {
+    document.querySelectorAll('.case-card').forEach(card => {
+      card.classList.remove('expanded');
+      const header = card.querySelector('.case-header-toggle');
+      const icon = header ? header.querySelector('.toggle-icon') : null;
+      if (header) header.setAttribute('aria-expanded', 'false');
+      if (icon) icon.textContent = '▼';
+    });
+  }
+};
+
+console.log('✅ rules.js - 规则和案例页面脚本加载完成');
