@@ -72,8 +72,53 @@
   </script>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="css/motor.css">
   <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* motor.css - 精简版，只保留特有样式 */
+    
+    main.container {
+      margin-top: 24px;
+    }
+    
+    .card-subtitle {
+      margin-top: 6px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    
+    /* 价值计算器 - 特有样式 */
+    .value-calculator {
+      background: linear-gradient(135deg, rgba(15, 76, 129, 0.4), rgba(245, 197, 66, 0.2));
+      border: 2px solid var(--secondary-color);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-xl);
+      margin: var(--spacing-xl) 0;
+      text-align: center;
+    }
+    
+    .calculator-title {
+      color: var(--secondary-color);
+      font-size: 1.4rem;
+      margin-bottom: var(--spacing-md);
+    }
+    
+    /* 警告框 - 特有样式 */
+    .warning-box {
+      background: rgba(255, 87, 87, 0.1);
+      border: 2px solid rgba(255, 87, 87, 0.5);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-md);
+      margin: var(--spacing-lg) 0;
+    }
+    
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+      main.container {
+        margin-top: 16px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -104,9 +149,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="unified-card fade-in delay-1">
     <div class="card-icon">🏍️</div>
     <h1 class="card-title">Gadai Motor Terpercaya</h1>
-<p class="card-subtitle">
-  Dana cepat tanpa proses rumit. Gadai motor dengan penilaian adil di JF Gadai.
-</p>
+    <p class="card-subtitle">
+      Dana cepat tanpa proses rumit. Gadai motor dengan penilaian adil di JF Gadai.
+    </p>
     
     <div class="value-calculator">
       <h3 class="calculator-title">💰 Estimasi Nilai Gadai Motor</h3>
@@ -125,72 +170,96 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
   </div>
   
-  <!-- 好处网格 - 已改为响应式布局 -->
-  <div class="responsive-benefits-grid">
-    <div class="benefit-card fade-in delay-2">
-      <div class="benefit-icon">⚡</div>
-      <h3>Proses Super Cepat</h3>
+  <!-- 好处网格 - 使用balanced-grid样式 -->
+  <div class="balanced-grid responsive-benefits-grid">
+    <div class="grid-card fade-in delay-2">
+      <div class="card-header">
+        <div class="card-icon-large">⚡</div>
+        <h3>Proses Super Cepat</h3>
+      </div>
     </div>
     
-    <div class="benefit-card fade-in delay-3">
-      <div class="benefit-icon">🔒</div>
-      <h3>Keamanan Terjamin</h3>
+    <div class="grid-card fade-in delay-3">
+      <div class="card-header">
+        <div class="card-icon-large">🔒</div>
+        <h3>Keamanan Terjamin</h3>
+      </div>
     </div>
     
-    <div class="benefit-card fade-in delay-4">
-      <div class="benefit-icon">💵</div>
-      <h3>Bunga Kompetitif</h3>
+    <div class="grid-card fade-in delay-4">
+      <div class="card-header">
+        <div class="card-icon-large">💵</div>
+        <h3>Bunga Kompetitif</h3>
+      </div>
     </div>
     
-    <div class="benefit-card fade-in delay-5">
-      <div class="benefit-icon">🔄</div>
-      <h3>Fleksibel</h3>
+    <div class="grid-card fade-in delay-5">
+      <div class="card-header">
+        <div class="card-icon-large">🔄</div>
+        <h3>Fleksibel</h3>
+      </div>
     </div>
   </div>
   
   <!-- 两栏信息 -->
-  <div class="info-grid">
+  <div class="balanced-grid info-grid">
     <!-- 接受的物品 -->
-    <div class="info-card">
-      <h3 style="color: #4CAF50;">✅ Motor yang Diterima</h3>
-      <ul class="card-list">
-        <li><span class="list-icon">✓</span> BPKB asli atas nama sendiri</li>
-        <li><span class="list-icon">✓</span> STNK masih aktif</li>
-        <li><span class="list-icon">✓</span> Kondisi fisik minimal 70% baik</li>
-      </ul>
+    <div class="grid-card info-card">
+      <div class="card-header">
+        <h3 style="color: #4CAF50;">✅ Motor yang Diterima</h3>
+      </div>
+      <div class="card-body">
+        <ul class="card-list">
+          <li><span class="list-icon">✓</span> BPKB asli atas nama sendiri</li>
+          <li><span class="list-icon">✓</span> STNK masih aktif</li>
+          <li><span class="list-icon">✓</span> Kondisi fisik minimal 70% baik</li>
+        </ul>
+      </div>
     </div>
     
     <!-- 不接受的物品 -->
-    <div class="info-card">
-      <h3 style="color: #f44336;">❌ Motor yang Tidak Diterima</h3>
-      <ul class="card-list">
-        <li><span class="list-icon">✗</span> BPKB atas nama orang lain</li>
-        <li><span class="list-icon">✗</span> STNK mati/lebih 3 tahun</li>
-        <li><span class="list-icon">✗</span> Dalam sengketa/hutang</li>
-      </ul>
+    <div class="grid-card info-card">
+      <div class="card-header">
+        <h3 style="color: #f44336;">❌ Motor yang Tidak Diterima</h3>
+      </div>
+      <div class="card-body">
+        <ul class="card-list">
+          <li><span class="list-icon">✗</span> BPKB atas nama orang lain</li>
+          <li><span class="list-icon">✗</span> STNK mati/lebih 3 tahun</li>
+          <li><span class="list-icon">✗</span> Dalam sengketa/hutang</li>
+        </ul>
+      </div>
     </div>
   </div>
   
-  <!-- 所需文件 - 已改为响应式布局 -->
-  <div class="responsive-documents-grid">
-    <div class="doc-card">
-      <div class="doc-icon">🆔</div>
-      <h4>KTP Asli</h4>
+  <!-- 所需文件 - 使用balanced-grid样式 -->
+  <div class="balanced-grid responsive-documents-grid">
+    <div class="grid-card doc-card">
+      <div class="card-header">
+        <div class="card-icon-large">🆔</div>
+        <h4>KTP Asli</h4>
+      </div>
     </div>
     
-    <div class="doc-card">
-      <div class="doc-icon">📋</div>
-      <h4>BPKB Asli</h4>
+    <div class="grid-card doc-card">
+      <div class="card-header">
+        <div class="card-icon-large">📋</div>
+        <h4>BPKB Asli</h4>
+      </div>
     </div>
     
-    <div class="doc-card">
-      <div class="doc-icon">📄</div>
-      <h4>STNK Asli</h4>
+    <div class="grid-card doc-card">
+      <div class="card-header">
+        <div class="card-icon-large">📄</div>
+        <h4>STNK Asli</h4>
+      </div>
     </div>
     
-    <div class="doc-card">
-      <div class="doc-icon">🔑</div>
-      <h4>Kunci Motor</h4>
+    <div class="grid-card doc-card">
+      <div class="card-header">
+        <div class="card-icon-large">🔑</div>
+        <h4>Kunci Motor</h4>
+      </div>
     </div>
   </div>
   
@@ -206,28 +275,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   
   <!-- 流程时间线 -->
-  <div class="info-card" style="margin: var(--spacing-xl) 0;">
-    <h3 style="text-align: center; color: var(--secondary-color);">⚡ Proses Gadai Motor di JF Gadai</h3>
-    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--spacing-md); margin-top: var(--spacing-lg);">
-      <div style="text-align: center; flex: 1; min-width: 150px;">
-        <div style="width: 50px; height: 50px; background: var(--secondary-color); color: var(--dark-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-sm); font-weight: bold; font-size: 1.2rem;">1</div>
-        <div style="font-weight: bold; color: var(--light-color);">Konsultasi</div>
-        <div style="font-size: 0.9rem; color: var(--text-muted);">Via WhatsApp atau datang langsung</div>
-      </div>
-      <div style="text-align: center; flex: 1; min-width: 150px;">
-        <div style="width: 50px; height: 50px; background: var(--secondary-color); color: var(--dark-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-sm); font-weight: bold; font-size: 1.2rem;">2</div>
-        <div style="font-weight: bold; color: var(--light-color);">Penilaian</div>
-        <div style="font-size: 0.9rem; color: var(--text-muted);">Tim ahli nilai kondisi & harga</div>
-      </div>
-      <div style="text-align: center; flex: 1; min-width: 150px;">
-        <div style="width: 50px; height: 50px; background: var(--secondary-color); color: var(--dark-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-sm); font-weight: bold; font-size: 1.2rem;">3</div>
-        <div style="font-weight: bold; color: var(--light-color);">Dokumen</div>
-        <div style="font-size: 0.9rem; color: var(--text-muted);">Verifikasi & persetujuan</div>
-      </div>
-      <div style="text-align: center; flex: 1; min-width: 150px;">
-        <div style="width: 50px; height: 50px; background: var(--secondary-color); color: var(--dark-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-sm); font-weight: bold; font-size: 1.2rem;">4</div>
-        <div style="font-weight: bold; color: var(--light-color);">Pencairan</div>
-        <div style="font-size: 0.9rem; color: var(--text-muted);">Dana langsung cair di tempat</div>
+  <div class="grid-card" style="margin: var(--spacing-xl) 0;">
+    <div class="card-header">
+      <h3 style="text-align: center; color: var(--secondary-color);">⚡ Proses Gadai Motor di JF Gadai</h3>
+    </div>
+    <div class="card-body">
+      <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--spacing-md); margin-top: var(--spacing-lg);">
+        <div style="text-align: center; flex: 1; min-width: 150px;">
+          <div style="width: 50px; height: 50px; background: var(--secondary-color); color: var(--dark-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-sm); font-weight: bold; font-size: 1.2rem;">1</div>
+          <div style="font-weight: bold; color: var(--light-color);">Konsultasi</div>
+          <div style="font-size: 0.9rem; color: var(--text-muted);">Via WhatsApp atau datang langsung</div>
+        </div>
+        <div style="text-align: center; flex: 1; min-width: 150px;">
+          <div style="width: 50px; height: 50px; background: var(--secondary-color); color: var(--dark-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-sm); font-weight: bold; font-size: 1.2rem;">2</div>
+          <div style="font-weight: bold; color: var(--light-color);">Penilaian</div>
+          <div style="font-size: 0.9rem; color: var(--text-muted);">Tim ahli nilai kondisi & harga</div>
+        </div>
+        <div style="text-align: center; flex: 1; min-width: 150px;">
+          <div style="width: 50px; height: 50px; background: var(--secondary-color); color: var(--dark-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-sm); font-weight: bold; font-size: 1.2rem;">3</div>
+          <div style="font-weight: bold; color: var(--light-color);">Dokumen</div>
+          <div style="font-size: 0.9rem; color: var(--text-muted);">Verifikasi & persetujuan</div>
+        </div>
+        <div style="text-align: center; flex: 1; min-width: 150px;">
+          <div style="width: 50px; height: 50px; background: var(--secondary-color); color: var(--dark-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-sm); font-weight: bold; font-size: 1.2rem;">4</div>
+          <div style="font-weight: bold; color: var(--light-color);">Pencairan</div>
+          <div style="font-size: 0.9rem; color: var(--text-muted);">Dana langsung cair di tempat</div>
+        </div>
       </div>
     </div>
   </div>
@@ -256,40 +329,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </main>
 
 <!-- 页脚 -->
-  <footer id="lokasi">
-    <div class="container">
-      <div class="footer-content">
-        
-        <p class="copyright">© 2026 <span class="highlight">JF Gadai</span></p>
-        
-        <p class="company-info">Melayani area Bangil • Beji • Gempol dan sekitarnya</p>
-        
-        <a href="https://wa.me/6289515692586" 
-           target="_blank" 
-           class="contact-link" 
-           rel="noopener noreferrer"
-           aria-label="Hubungi kami via WhatsApp">
-          <img 
-            src="/images/logo-wa.png" 
-            alt="WhatsApp" 
-            width="20" 
-            height="20"
-            style="vertical-align: middle; margin-right: 6px;"
-          >
-          WhatsApp: +62 895-1569-2586
-        </a>
-        
-        <p class="operating-hours">
-          ⏰ Jam kerja: 08:00-18:00 | Libur Sabtu–Minggu
-        </p>
-        
-        <p class="security-note">
-          🔒 Situs ini menggunakan koneksi aman (HTTPS).
-        </p>
-        
-      </div>
+<footer id="lokasi">
+  <div class="container">
+    <div class="footer-content">
+      
+      <p class="copyright">© 2026 <span class="highlight">JF Gadai</span></p>
+      
+      <p class="company-info">Melayani area Bangil • Beji • Gempol dan sekitarnya</p>
+      
+      <a href="https://wa.me/6289515692586" 
+         target="_blank" 
+         class="contact-link" 
+         rel="noopener noreferrer"
+         aria-label="Hubungi kami via WhatsApp">
+        <img 
+          src="/images/logo-wa.png" 
+          alt="WhatsApp" 
+          width="20" 
+          height="20"
+          style="vertical-align: middle; margin-right: 6px;"
+        >
+        WhatsApp: +62 895-1569-2586
+      </a>
+      
+      <p class="operating-hours">
+        ⏰ Jam kerja: 08:00-18:00 | Libur Sabtu–Minggu
+      </p>
+      
+      <p class="security-note">
+        🔒 Situs ini menggunakan koneksi aman (HTTPS).
+      </p>
+      
     </div>
-  </footer>
+  </div>
+</footer>
 
 <script src="js/main.js"></script>
 </body>
