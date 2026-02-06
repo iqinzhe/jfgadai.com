@@ -502,31 +502,13 @@ body {
   margin: 0.1rem 0 !important; /* 最小边距 */
   text-align: center;
   font-size: 1.2rem;
-  line-height: 1.0 !important; /* 贷款卡片正文行距 - 非常紧凑 */
+  line-height: 1.2 !important; /* 贷款卡片正文行距 - 非常紧凑 */
 }
 
 /* 强调文本样式 */
 .grid-card .card-body strong {
   color: var(--text-light);
   font-weight: 600;
-}
-
-.warning-box {
-  background: rgba(245, 197, 66, 0.15);
-  border-radius: 8px;
-  padding: 0.6rem;
-  margin-top: 0.8rem;
-  display: flex;
-  gap: 0.4rem;
-  align-items: flex-start;
-  border-left: 3px solid var(--secondary-color);
-}
-
-.warning-icon-small {
-  font-size: 1.2rem;
-  flex-shrink: 0;
-  color: var(--secondary-color);
-  margin-top: 0.05rem;
 }
 
 /* 贷款信息响应式 */
@@ -553,17 +535,6 @@ body {
     line-height: 1.0 !important; /* 移动端贷款卡片正文行距 - 更加紧凑 */
   }
   
-  .warning-box {
-    padding: 0.5rem;
-    margin-top: 0.6rem;
-  }
-  
-  .warning-box p {
-    font-size: 0.75rem;
-    line-height: 1.0 !important; /* 移动端警告框行距 */
-  }
-}
-
 /* ==================== 动画效果 ==================== */
 @keyframes fadeIn {
   from {
