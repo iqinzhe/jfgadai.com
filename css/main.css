@@ -449,6 +449,20 @@ body {
   margin: 2rem 0;
 }
 
+.accept-card{
+border-left:4px solid #4CAF50;
+}
+
+.reject-card{
+border-left:4px solid #f44336;
+}
+
+.trust-card{
+background:#f8fafc;
+text-align:center;
+font-weight:600;
+}
+
 .grid-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
