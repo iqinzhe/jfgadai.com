@@ -444,7 +444,7 @@ body {
 /* ==================== 贷款信息网格布局 ==================== */
 .balanced-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.2rem;
   margin: 2rem 0;
 }
