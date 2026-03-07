@@ -47,21 +47,20 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.jfgadai.com/assessment">
 
+  <!-- JSON-LD 结构化数据 -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "JF Gadai",
-    "alternateName": [
-      "JF Gadai Bangil",
-      "JF Gadai Beji",
-      "JF Gadai Gempol"
-    ],
-    "url": "https://www.jfgadai.com/"
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "JF Gadai",
+  "alternateName": ["JF Gadai Bangil","JF Gadai Beji","JF Gadai Gempol"],
+  "url": "https://www.jfgadai.com",
+  "publisher": {
+    "@id": "https://www.jfgadai.com/#organization"
   }
+}
   </script>
 
-  <!-- JSON-LD 结构化数据 -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -80,21 +79,29 @@
       "addressCountry": "ID"
     },
     "areaServed": [
-      {
-        "@type": "AdministrativeArea",
-        "name": "Bangil"
-      },
-      {
-        "@type": "AdministrativeArea",
-        "name": "Beji"
-      },
-      {
-        "@type": "AdministrativeArea",
-        "name": "Gempol"
-      }
+      {"@type":"AdministrativeArea","name":"Bangil"},
+      {"@type":"AdministrativeArea","name":"Beji"},
+      {"@type":"AdministrativeArea","name":"Gempol"}
     ]
   }
   </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.jfgadai.com/#organization",
+  "name": "JF Gadai",
+  "alternateName": "JF Gadai Indonesia",
+  "url": "https://www.jfgadai.com/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.jfgadai.com/images/logo-jf.png"
+  },
+  "sameAs": [
+    "https://www.jfgadai.com/"
+  ]
+}
+</script>
 
   <!-- CSS 文件 -->
   <link rel="stylesheet" href="css/assessment.css">
@@ -229,9 +236,9 @@
     <div class="container">
       <h1 class="fade-in">Penilaian Online Motor</h1>
       <p class="subtitle fade-in delay-1">Dapatkan perkiraan nilai gadai motor Anda dalam 3 menit!</p>
-      <p class="stats fade-in delay-2">Cepat & Mudah,Akurat 80%,Aman & Gratis</p>
-      </div>
-    </div>
+      <p class="stats fade-in delay-2">Cepat & Mudah,Akurat 80%,Aman & Gratis
+        </p>
+     </div>
   </section>
 
   <!-- 评估表单 -->
@@ -689,7 +696,7 @@
         
         <p class="company-info">Melayani area Bangil • Beji • Gempol dan sekitarnya</p>
         
-        <a href="https://wa.me/6289515692586" 
+        <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20mengetahui%20nilai%20gadai%20motor"
            target="_blank" 
            class="contact-link" 
            rel="noopener noreferrer"
