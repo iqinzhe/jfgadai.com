@@ -547,7 +547,7 @@ body {
 
 @media (max-width: 768px) {
   .balanced-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr;
   }
   
   .grid-card {
