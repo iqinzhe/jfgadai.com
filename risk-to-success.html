@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),
+          dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M2GMSNWS');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,6 +23,16 @@
   <meta name="description" content="Pelajari dari kisah nyata sukses dan gagal gadai motor di JF Gadai. Pahami faktor risiko dan syarat ketentuan gadai motor, emas, HP, dan barang berharga lainnya.">
   <meta name="author" content="JF Gadai">
   <meta name="robots" content="index, follow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/android-chrome-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#ffffff">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Panduan Sukses Gadai Motor & Syarat Ketentuan | JF Gadai">
@@ -780,13 +804,84 @@
         text-decoration: underline;
       }
     }
-  </style>
+  
+/* ===== Simulasi Pinjaman Motor Module ===== */
+.loan-simulation{
+  padding:60px 20px;
+  margin-top:40px;
+  text-align:center;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:12px;
+}
+
+.loan-simulation .section-title{
+  font-size:1.6rem;
+  margin-bottom:10px;
+}
+
+.loan-simulation .section-subtitle{
+  color:var(--text-light);
+  max-width:700px;
+  margin:0 auto 30px auto;
+}
+
+.simulation-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+  margin-top:20px;
+}
+
+.simulation-card{
+  background:rgba(255,255,255,0.08);
+  border-radius:10px;
+  padding:20px;
+  border:1px solid rgba(255,255,255,0.15);
+  transition:all .25s ease;
+}
+
+.simulation-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--secondary-color);
+}
+
+.simulation-card h3{
+  font-size:1.05rem;
+  margin-bottom:10px;
+}
+
+.loan-amount{
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--secondary-color);
+}
+
+.simulation-wa{
+  margin-top:30px;
+}
+
+.simulation-wa a{
+  display:inline-block;
+  padding:12px 26px;
+  border-radius:8px;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+}
+
+</style>
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
   <!-- ✅ SEO文本内容区块 -->
   <div class="seo-text-content" style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden;">
-      <h1>Panduan Sukses Gadai Motor di JF Gadai Bangil, Beji, dan Gempol</h1>
+      <h2>Panduan Sukses Gadai Motor di JF Gadai Bangil, Beji, dan Gempol</h2>
       <p>JF Gadai membagikan pengalaman nyata gadai motor untuk membantu pelanggan memahami faktor sukses dan kegagalan. Pelajari dari studi kasus nyata tentang risiko dokumen, kondisi motor, faktor manusia, dan cara menghindari masalah umum. Panduan ini didasarkan pada pengalaman langsung tim JF Gadai melayani gadai motor di wilayah Bangil, Beji, dan Gempol. Kami menunjukkan transparansi dalam proses gadai dan berkomitmen membantu pelanggan mencapai kesepakatan yang adil dan menguntungkan kedua belah pihak.</p>
   </div>
 
@@ -1080,6 +1175,45 @@
     </section>
 
     <!-- 第三部分：关键成功因素 -->
+    
+    <!-- Simulasi Pinjaman Motor -->
+    <section class="loan-simulation">
+      <h2 class="section-title">Simulasi Pinjaman Gadai Motor</h2>
+      <p class="section-subtitle">
+        Estimasi jumlah pinjaman berdasarkan jenis motor dan tahun produksi.
+        Nilai sebenarnya bisa berbeda tergantung kondisi kendaraan.
+      </p>
+
+      <div class="simulation-grid">
+
+        <div class="simulation-card">
+          <h3>Honda Beat 2022</h3>
+          <p class="loan-amount">Rp 5 – 6 juta</p>
+        </div>
+
+        <div class="simulation-card">
+          <h3>Honda Vario 2021</h3>
+          <p class="loan-amount">Rp 6 – 7 juta</p>
+        </div>
+
+        <div class="simulation-card">
+          <h3>Yamaha NMAX 2022</h3>
+          <p class="loan-amount">Rp 10 – 12 juta</p>
+        </div>
+
+        <div class="simulation-card">
+          <h3>Honda Scoopy 2021</h3>
+          <p class="loan-amount">Rp 5 – 6 juta</p>
+        </div>
+
+      </div>
+
+      <div class="simulation-wa">
+        <a href="https://wa.me/6289515692586" target="_blank">Tanya Estimasi Motor Anda</a>
+      </div>
+    </section>
+
+
     <section class="success-factors">
       <div class="section-header">
         <h2 class="card-title">3 Faktor Kunci Sukses Gadai</h2>
