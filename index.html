@@ -49,68 +49,68 @@
   <!-- 结构化数据 Structured Data -->
   <!-- ========================= -->
 
-  <!-- Organization -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://www.jfgadai.com/#organization",
-    "name": "JF Gadai",
-    "alternateName": "JF Gadai Indonesia",
-    "url": "https://www.jfgadai.com/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.jfgadai.com/images/logo-jf.png"
-    },
-    "sameAs": [
-      "https://www.jfgadai.com/"
-    ]
-  }
-  </script>
+ <!-- Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.jfgadai.com/#organization",
+  "name": "JF Gadai",
+  "alternateName": "JF Gadai Indonesia",
+  "url": "https://www.jfgadai.com/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.jfgadai.com/images/logo-jf.png"
+  },
+  "sameAs": [
+    "https://www.jfgadai.com/"
+  ]
+}
+</script>
 
-  <!-- Website (用于 Google Site Name 识别) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "JF Gadai",
-    "url": "https://www.jfgadai.com/",
-    "publisher": {
-      "@id": "https://www.jfgadai.com/#organization"
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.jfgadai.com/?s={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+<!-- Website -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "JF Gadai",
+  "url": "https://www.jfgadai.com/",
+  "publisher": {
+    "@id": "https://www.jfgadai.com/#organization"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.jfgadai.com/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
   }
-  </script>
+}
+</script>
 
-  <!-- Pawn Broker Local Business -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "PawnBroker",
-    "name": "JF Gadai",
-    "image": "https://www.jfgadai.com/images/jf-justfast.jpg",
-    "description": "Layanan gadai motor, emas, dan barang elektronik di Bangil, Beji, dan Gempol dengan proses cepat dan aman.",
-    "url": "https://www.jfgadai.com/",
-    "telephone": "+6289515692586",
-    "priceRange": "Rp",
-    "openingHours": "Sen-Jum 08:00-18:00",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Bangil",
-      "addressRegion": "Jawa Timur",
-      "addressCountry": "ID"
-    },
-    "areaServed": [
-      {"@type":"AdministrativeArea","name":"Bangil"},
-      {"@type":"AdministrativeArea","name":"Beji"},
-      {"@type":"AdministrativeArea","name":"Gempol"}
-    ]
-  }
-  </script>
+<!-- Pawn Broker -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PawnBroker",
+  "name": "JF Gadai",
+  "image": "https://www.jfgadai.com/images/jf-justfast.jpg",
+  "description": "Layanan gadai motor, emas, dan barang elektronik di Bangil, Beji, dan Gempol dengan proses cepat dan aman.",
+  "url": "https://www.jfgadai.com/",
+  "telephone": "+6289515692586",
+  "priceRange": "Rp",
+  "openingHours": "Sen-Jum 08:00-18:00",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bangil",
+    "addressRegion": "Jawa Timur",
+    "addressCountry": "ID"
+  },
+  "areaServed": [
+    {"@type": "AdministrativeArea", "name": "Bangil"},
+    {"@type": "AdministrativeArea", "name": "Beji"},
+    {"@type": "AdministrativeArea", "name": "Gempol"}
+  ]
+}
+</script>
 
   <!-- 样式 -->
   <link rel="stylesheet" href="css/main.css">
