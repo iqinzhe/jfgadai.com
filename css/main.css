@@ -218,7 +218,7 @@ body {
   object-fit: cover;
   object-position: center center;
   display: block;
-  border-radius: var(--border-radius-lg);
+  border-radius: 0;
   box-shadow: var(--shadow-lg);
 }
 
