@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id-ID">
 <head>
   <!-- Google Tag Manager -->
   <script>
@@ -51,9 +51,9 @@
       "addressCountry": "ID"
     },
     "areaServed": [
-      {"@type":"AdministrativeArea","name":"Bangil"},
-      {"@type":"AdministrativeArea","name":"Beji"},
-      {"@type":"AdministrativeArea","name":"Gempol"}
+      {"@type":"City","name":"Bangil"},
+      {"@type":"City","name":"Beji"},
+      {"@type":"City","name":"Gempol"}
     ]
   }
   </script>
@@ -77,7 +77,7 @@
   <title>Hubungi JF Gadai via WhatsApp | Konsultasi Gratis & Cepat</title>
   <meta name="description" content="Hubungi JF Gadai via WhatsApp untuk konsultasi gadai gratis. Proses cepat, transparan, dan aman. Layanan wilayah Bangil, Beji, Gempol.">
 
- <!-- Favicon -->
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
@@ -99,7 +99,7 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.jfgadai.com/contact.html">
 
-  <!-- CSS -->
+  <!-- CSS - 包含main.css和内联样式 -->
   <link rel="stylesheet" href="css/main.css">
   <style>
     
@@ -294,6 +294,7 @@
       align-items: flex-start;
       transition: background 0.2s ease;
       font-size: 0.95em;
+      margin: 0; /* 重置h3默认边距 */
     }
     
     .faq-question:hover {
@@ -309,7 +310,7 @@
       margin-left: 10px;
     }
     
-    .faq-item.active .faq-question::after {
+    .faq-item[aria-expanded="true"] .faq-question::after {
       transform: rotate(90deg);
     }
     
@@ -337,7 +338,7 @@
       font-size: 0.9em;
     }
     
-    .faq-item.active .faq-answer {
+    .faq-item[aria-expanded="true"] .faq-answer {
       display: block;
       animation: slideDown 0.2s ease;
     }
@@ -431,29 +432,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
 
     <a href="/" class="back-btn">
-      <img src="/images/logo-jf.png" alt="JF Gadai" class="logo-image">
-      <strong><span class="arrow">←</span> Kembali ke Beranda</strong>
+      <img src="/images/logo-jf.png" alt="JF Gadai" class="logo-image" loading="lazy">
+      <strong><span class="arrow" aria-hidden="true">←</span> Kembali ke Beranda</strong>
     </a>
 
     <a href="/motor.html" class="nav-forward">
-      <strong>Gadai Motor <span class="arrow">→</span></strong>
-      <img src="/images/logo-motor.png" alt="Gadai Motor" class="nav-icon">
+      <strong>Gadai Motor <span class="arrow" aria-hidden="true">→</span></strong>
+      <img src="/images/logo-motor.png" alt="" class="nav-icon" loading="lazy" aria-hidden="true">
     </a>
 
   </div>
 </header>
 
-<h1 style="text-align:center;margin:25px 0;">
-Hubungi JF Gadai – Layanan Gadai di Bangil, Beji & Gempol
-</h1>
-
 <main class="container">
+  <!-- 页面主标题 -->
+  <h1 style="text-align:center;margin:25px 0;">
+    Hubungi JF Gadai – Layanan Gadai di Bangil, Beji & Gempol
+  </h1>
+
   <!-- 顶部双栏布局 -->
   <div class="top-section">
     <!-- 左侧：介绍 -->
     <div class="intro-card unified-card">
       <h2 class="main-title card-title">
-        <span class="main-title-icon">💬</span>
+        <span class="main-title-icon" aria-hidden="true">💬</span>
         Hubungi JF Gadai
       </h2>
       
@@ -464,19 +466,19 @@ Hubungi JF Gadai – Layanan Gadai di Bangil, Beji & Gempol
       <!-- 特色列表 -->
       <ul class="feature-list">
         <li class="feature-item">
-          <span class="feature-icon">⚡</span>
+          <span class="feature-icon" aria-hidden="true">⚡</span>
           <span><strong>Respon cepat 5-15 menit</strong> (jam kerja)</span>
         </li>
         <li class="feature-item">
-          <span class="feature-icon">💰</span>
+          <span class="feature-icon" aria-hidden="true">💰</span>
           <span><strong>Konsultasi sepenuhnya GRATIS</strong></span>
         </li>
         <li class="feature-item">
-          <span class="feature-icon">🔒</span>
+          <span class="feature-icon" aria-hidden="true">🔒</span>
           <span><strong>Privasi dan keamanan data terjamin</strong></span>
         </li>
         <li class="feature-item">
-          <span class="feature-icon">👨‍💼</span>
+          <span class="feature-icon" aria-hidden="true">👨‍💼</span>
           <span><strong>Dilayani oleh tim ahli berpengalaman</strong></span>
         </li>
       </ul>
@@ -486,7 +488,7 @@ Hubungi JF Gadai – Layanan Gadai di Bangil, Beji & Gempol
          class="card-cta-btn" 
          target="_blank" 
          rel="noopener noreferrer"
-         onclick="gtag('event', 'whatsapp_click', {'event_category': 'Contact', 'event_label': 'Contact Page'})">
+         data-gtm-event="whatsapp_click">
         💬 Chat WhatsApp Sekarang
       </a>
     </div>
@@ -494,7 +496,7 @@ Hubungi JF Gadai – Layanan Gadai di Bangil, Beji & Gempol
     <!-- 右侧：表单 -->
     <div class="form-card unified-card">
       <h2 class="main-title card-title">
-        <span class="main-title-icon">📋</span>
+        <span class="main-title-icon" aria-hidden="true">📋</span>
         Formulir Konsultasi
       </h2>
       
@@ -505,19 +507,24 @@ Hubungi JF Gadai – Layanan Gadai di Bangil, Beji & Gempol
       <form id="whatsappForm" class="whatsapp-form">
         <div class="form-group">
           <label for="name" class="form-label required">Nama Lengkap</label>
-          <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama lengkap Anda" required>
-          <div class="form-error" id="nameError"></div>
+          <input type="text" id="name" name="name" class="form-control" 
+                 placeholder="Masukkan nama lengkap Anda" required
+                 aria-describedby="nameError">
+          <div class="form-error" id="nameError" role="alert"></div>
         </div>
         
         <div class="form-group">
           <label for="phone" class="form-label required">Nomor WhatsApp</label>
-          <input type="tel" id="phone" name="phone" class="form-control" placeholder="Contoh: 081234567890" required>
-          <div class="form-error" id="phoneError"></div>
+          <input type="tel" id="phone" name="phone" class="form-control" 
+                 placeholder="Contoh: 081234567890" required
+                 aria-describedby="phoneError">
+          <div class="form-error" id="phoneError" role="alert"></div>
         </div>
         
         <div class="form-group">
           <label for="item" class="form-label required">Jenis Barang</label>
-          <select id="item" name="item" class="form-control" required>
+          <select id="item" name="item" class="form-control" required
+                  aria-describedby="itemError">
             <option value="" selected disabled>-- Pilih Jenis Barang --</option>
             <option value="motor">🏍️ Motor / Kendaraan</option>
             <option value="emas">💰 Emas / Perhiasan</option>
@@ -526,13 +533,15 @@ Hubungi JF Gadai – Layanan Gadai di Bangil, Beji & Gempol
             <option value="elektronik">📺 Barang Elektronik Lainnya</option>
             <option value="lainnya">📦 Barang Berharga Lainnya</option>
           </select>
-          <div class="form-error" id="itemError"></div>
+          <div class="form-error" id="itemError" role="alert"></div>
         </div>
         
         <div class="form-group">
           <label for="description" class="form-label required">Deskripsi Barang</label>
-          <textarea id="description" name="description" class="form-control form-textarea" placeholder="Deskripsikan barang Anda (merk, tahun, kondisi, dll)..." required></textarea>
-          <div class="form-error" id="descriptionError"></div>
+          <textarea id="description" name="description" class="form-control form-textarea" 
+                    placeholder="Deskripsikan barang Anda (merk, tahun, kondisi, dll)..." required
+                    aria-describedby="descriptionError"></textarea>
+          <div class="form-error" id="descriptionError" role="alert"></div>
         </div>
         
         <button type="submit" class="card-cta-btn" id="submitBtn" style="margin-top: 1.5rem;">
@@ -540,7 +549,7 @@ Hubungi JF Gadai – Layanan Gadai di Bangil, Beji & Gempol
           <span id="loadingText">⏳ Mengirim...</span>
         </button>
         
-        <div id="formSuccess" class="form-success">
+        <div id="formSuccess" class="form-success" role="status">
           <h3>✓ Formulir Berhasil Dikirim!</h3>
           <p>Data Anda telah dikirim ke WhatsApp kami. Kami akan segera menghubungi Anda dalam 5-15 menit.</p>
           <p><a href="https://wa.me/6289515692586" class="whatsapp-link">Klik di sini untuk langsung ke WhatsApp</a></p>
@@ -559,36 +568,36 @@ Hubungi JF Gadai – Layanan Gadai di Bangil, Beji & Gempol
     
     <div class="faq-list">
       <!-- FAQ 1 -->
-      <div class="faq-item">
-        <div class="faq-question">
-          <span class="faq-number">1.</span>
+      <div class="faq-item" aria-expanded="false">
+        <h3 class="faq-question" role="button" tabindex="0" aria-controls="faq-answer-1">
+          <span class="faq-number" aria-hidden="true">1.</span>
           <span class="faq-question-text">Berapa lama waktu respon via WhatsApp?</span>
-        </div>
-        <div class="faq-answer">
+        </h3>
+        <div class="faq-answer" id="faq-answer-1" aria-hidden="true">
           <p>Biasanya dalam <strong>5-15 menit</strong> pada jam kerja (08:00-18:00). Di luar jam kerja, kami akan merespons di hari kerja berikutnya.</p>
           <p><strong>Tips:</strong> Untuk respon tercepat, kirim pesan di jam kerja dan sertakan informasi lengkap tentang barang yang akan digadaikan.</p>
         </div>
       </div>
       
       <!-- FAQ 2 -->
-      <div class="faq-item">
-        <div class="faq-question">
-          <span class="faq-number">2.</span>
+      <div class="faq-item" aria-expanded="false">
+        <h3 class="faq-question" role="button" tabindex="0" aria-controls="faq-answer-2">
+          <span class="faq-number" aria-hidden="true">2.</span>
           <span class="faq-question-text">Apakah konsultasi dikenakan biaya?</span>
-        </div>
-        <div class="faq-answer">
+        </h3>
+        <div class="faq-answer" id="faq-answer-2" aria-hidden="true">
           <p>Tidak. <strong>Konsultasi via WhatsApp sepenuhnya GRATIS</strong> tanpa biaya apapun.</p>
           <p><strong>Hati-hati:</strong> JF Gadai tidak pernah meminta biaya konsultasi atau biaya administrasi di awal. Biaya hanya dikenakan setelah kesepakatan gadai.</p>
         </div>
       </div>
       
       <!-- FAQ 3 -->
-      <div class="faq-item">
-        <div class="faq-question">
-          <span class="faq-number">3.</span>
+      <div class="faq-item" aria-expanded="false">
+        <h3 class="faq-question" role="button" tabindex="0" aria-controls="faq-answer-3">
+          <span class="faq-number" aria-hidden="true">3.</span>
           <span class="faq-question-text">Apa saja dokumen yang perlu disiapkan?</span>
-        </div>
-        <div class="faq-answer">
+        </h3>
+        <div class="faq-answer" id="faq-answer-3" aria-hidden="true">
           <p>Dokumen yang diperlukan tergantung pada jenis barang:</p>
           <ul class="card-list">
             <li><strong>KTP Asli</strong> (wajib untuk)</li>
@@ -601,12 +610,12 @@ Hubungi JF Gadai – Layanan Gadai di Bangil, Beji & Gempol
       </div>
       
       <!-- FAQ 4 -->
-      <div class="faq-item">
-        <div class="faq-question">
-          <span class="faq-number">4.</span>
+      <div class="faq-item" aria-expanded="false">
+        <h3 class="faq-question" role="button" tabindex="0" aria-controls="faq-answer-4">
+          <span class="faq-number" aria-hidden="true">4.</span>
           <span class="faq-question-text">Berapa lama proses pencairan dana?</span>
-        </div>
-        <div class="faq-answer">
+        </h3>
+        <div class="faq-answer" id="faq-answer-4" aria-hidden="true">
           <p>Setelah kesepakatan nilai dan penyerahan barang, <strong>dana bisa dicairkan langsung di tempat</strong> dalam waktu kurang dari 30 menit.</p>
           <p><strong>Proses lengkap:</strong></p>
           <ol class="card-list">
@@ -638,8 +647,8 @@ Hubungi JF Gadai – Layanan Gadai di Bangil, Beji & Gempol
            id="wa-contact" 
            rel="noopener noreferrer"
            aria-label="Hubungi kami via WhatsApp">
-          <img src="/images/logo-wa.png" alt="WhatsApp" width="20" height="20">
-          WhA: +62 895-1569-2586
+          <img src="/images/logo-wa.png" alt="" width="20" height="20" loading="lazy" aria-hidden="true">
+          WA: +62 895-1569-2586
         </a>
       </div>
       
