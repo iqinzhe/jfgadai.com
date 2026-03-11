@@ -19,7 +19,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- JSON-LD 结构化数据 (保持不变) -->
+  <!-- JSON-LD 结构化数据 -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -56,7 +56,7 @@
     ]
   }
   </script>
-  <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -76,7 +76,7 @@
   <title>Hubungi JF Gadai via WhatsApp | Konsultasi Gratis & Cepat</title>
   <meta name="description" content="Hubungi JF Gadai via WhatsApp untuk konsultasi gadai gratis. Proses cepat, transparan, dan aman. Layanan wilayah Bangil, Beji, Gempol.">
 
- <!-- Favicon -->
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
@@ -98,9 +98,9 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.jfgadai.com/contact.html">
 
-  <!-- CSS (内嵌，优化后仅保留双栏核心样式及必要变量) -->
+  <!-- CSS -->
   <style>
-    /* 全局变量（与原有main.css部分核心变量保持一致，确保视觉统一） */
+    /* 全局变量 */
     :root {
       --primary-color: #0b2c4a;
       --secondary-color: #f5c542;
@@ -128,19 +128,24 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
+      width: 100%;
     }
 
-    /* 头部导航 (简化适配) */
+    /* 头部导航 - 完全恢复原始结构 */
     .assessment-header {
       background: rgba(0,0,0,0.2);
       padding: 15px 0;
       border-bottom: 1px solid rgba(245,197,66,0.2);
+      width: 100%;
     }
+    
     .assessment-header .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: nowrap;
     }
+    
     .back-btn {
       display: flex;
       align-items: center;
@@ -148,15 +153,19 @@
       color: var(--text-light);
       text-decoration: none;
       font-weight: 500;
+      flex-shrink: 0;
     }
+    
     .back-btn .arrow {
       color: var(--secondary-color);
     }
+    
     .logo-image {
       height: 32px;
       width: auto;
       border-radius: 4px;
     }
+    
     .nav-forward {
       display: flex;
       align-items: center;
@@ -166,7 +175,9 @@
       background: rgba(255,255,255,0.1);
       padding: 6px 12px;
       border-radius: 30px;
+      flex-shrink: 0;
     }
+    
     .nav-icon {
       height: 24px;
       width: auto;
@@ -177,9 +188,10 @@
       margin: 30px 0 10px;
       font-size: 1.8rem;
       font-weight: 600;
+      padding: 0 20px;
     }
 
-    /* 双栏网格 —— 关键布局 */
+    /* 双栏网格 */
     .two-col-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -321,7 +333,7 @@
       text-align: center;
     }
 
-    /* FAQ卡片样式 (与左栏卡片视觉统一) */
+    /* FAQ卡片样式 */
     .faq-list {
       flex: 1;
     }
@@ -330,7 +342,6 @@
       border-radius: var(--border-radius);
       margin-bottom: 0.8rem;
       border: 1px solid rgba(255,255,255,0.05);
-      overflow: hidden;
     }
     .faq-question {
       padding: 1rem 1.2rem;
@@ -341,7 +352,8 @@
       align-items: flex-start;
       gap: 8px;
       font-size: 0.95rem;
-      transition: background-color 0.2s;
+      background: rgba(255,255,255,0.02);
+      border-radius: var(--border-radius);
     }
     .faq-question:hover {
       background: rgba(255,255,255,0.08);
@@ -366,15 +378,15 @@
       flex: 1;
     }
     .faq-answer {
-      padding: 0 1.2rem 1rem 3.2rem; /* 增加左内边距与序号对齐 */
+      padding: 0 1.2rem 1rem 3.2rem;
       color: var(--text-muted);
       display: none;
       font-size: 0.9rem;
       line-height: 1.5;
+      border-top: 1px solid rgba(255,255,255,0.05);
     }
     .faq-item.active .faq-answer {
       display: block;
-      animation: fadeIn 0.3s ease;
     }
     .faq-answer ul, .faq-answer ol {
       padding-left: 1.5rem;
@@ -383,12 +395,8 @@
     .faq-answer li {
       margin-bottom: 0.25rem;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-5px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
 
-    /* 页脚 (精简自原footer) */
+    /* 页脚 */
     footer {
       background: rgba(0,0,0,0.3);
       padding: 2rem 0 1.5rem;
@@ -426,7 +434,7 @@
       font-size: 0.8rem;
     }
 
-    /* 移动端：双栏变单栏 */
+    /* 移动端 */
     @media (max-width: 768px) {
       .two-col-grid {
         grid-template-columns: 1fr;
@@ -434,7 +442,6 @@
       }
       h1 {
         font-size: 1.4rem;
-        padding: 0 10px;
       }
       .card {
         padding: 1.5rem;
@@ -444,11 +451,30 @@
         font-size: 0.9rem;
       }
       .faq-answer {
-        padding-left: 2.8rem; /* 移动端调整对齐 */
+        padding-left: 2.8rem;
+      }
+      .assessment-header .container {
+        gap: 10px;
+      }
+      .back-btn strong {
+        font-size: 0.9rem;
+      }
+      .nav-forward strong {
+        font-size: 0.9rem;
       }
     }
 
-    /* 辅助类 */
+    @media (max-width: 480px) {
+      .back-btn strong span, .nav-forward strong span {
+        display: none;
+      }
+      .back-btn strong {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+    }
+
     .highlight {
       color: var(--secondary-color);
     }
@@ -459,8 +485,8 @@
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
+<!-- 头部导航 - 完全恢复原始结构 -->
 <header class="assessment-header">
   <div class="container">
     <a href="/" class="back-btn">
@@ -477,10 +503,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <main class="container">
   <h1>Hubungi JF Gadai – Layanan Gadai di Bangil, Beji & Gempol</h1>
 
-  <!-- 双栏网格：左栏表单 + 右栏FAQ (桌面并排，移动上下) -->
+  <!-- 双栏网格 -->
   <div class="two-col-grid">
     
-    <!-- 左栏：Formulir Konsultasi 卡片 -->
+    <!-- 左栏：表单卡片 -->
     <div class="card">
       <h2 class="card-title">
         <span class="card-title-icon">📋</span>
@@ -490,7 +516,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         Isi formulir di bawah ini untuk konsultasi gadai. Data Anda akan dikirim ke WhatsApp kami untuk respon yang lebih personal.
       </p>
       
-      <form id="whatsappForm" class="whatsapp-form">
+      <form id="whatsappForm">
         <div class="form-group">
           <label for="name" class="form-label required">Nama Lengkap</label>
           <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama lengkap Anda" required>
@@ -540,7 +566,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </form>
     </div>
     
-    <!-- 右栏：Pertanyaan yang Sering Diajukan 卡片 -->
+    <!-- 右栏：FAQ卡片 -->
     <div class="card">
       <h2 class="card-title">
         <span class="card-title-icon">❓</span>
@@ -609,7 +635,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </main>
 
-<!-- 页脚 (保持不变, 轻量) -->
+<!-- 页脚 -->
 <footer id="lokasi">
   <div class="container">
     <div class="footer-content">
@@ -627,89 +653,79 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-<!-- JavaScript (修复FAQ折叠功能) -->
+<!-- JavaScript - 简化且可靠的版本 -->
 <script>
-  (function() {
-    // 确保DOM完全加载后再执行
-    document.addEventListener('DOMContentLoaded', function() {
+// 直接执行，不依赖DOMContentLoaded事件
+(function() {
+  // FAQ折叠交互 - 最简版本
+  var faqItems = document.querySelectorAll('.faq-item');
+  
+  for (var i = 0; i < faqItems.length; i++) {
+    var item = faqItems[i];
+    var question = item.querySelector('.faq-question');
+    
+    question.onclick = function() {
+      // 切换当前项的active类
+      this.parentNode.classList.toggle('active');
+      return false;
+    };
+  }
+
+  // 表单提交处理
+  var form = document.getElementById('whatsappForm');
+  if (form) {
+    form.onsubmit = function(e) {
+      e.preventDefault();
       
-      // FAQ折叠交互 - 修复版本
-      const faqItems = document.querySelectorAll('.faq-item');
-      
-      faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        
-        question.addEventListener('click', function(e) {
-          // 切换当前点击项的active类
-          item.classList.toggle('active');
-          
-          // 可选：同时关闭其他项（取消注释下方代码可启用“同时只打开一个”的效果）
-          /*
-          faqItems.forEach(otherItem => {
-            if (otherItem !== item) {
-              otherItem.classList.remove('active');
-            }
-          });
-          */
-        });
-      });
-
-      // 表单模拟提交 (与原有contact.js逻辑类似，纯前端演示)
-      const form = document.getElementById('whatsappForm');
-      if (form) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault(); // 阻止实际提交
-          
-          // 简单清空错误显示
-          document.querySelectorAll('.form-error').forEach(el => el.style.display = 'none');
-          
-          // 模拟必填检查
-          const name = document.getElementById('name');
-          const phone = document.getElementById('phone');
-          const item = document.getElementById('item');
-          const desc = document.getElementById('description');
-          let hasError = false;
-
-          if (!name.value.trim()) {
-            document.getElementById('nameError').textContent = 'Nama harus diisi';
-            document.getElementById('nameError').style.display = 'block';
-            hasError = true;
-          }
-          if (!phone.value.trim()) {
-            document.getElementById('phoneError').textContent = 'Nomor WhatsApp harus diisi';
-            document.getElementById('phoneError').style.display = 'block';
-            hasError = true;
-          }
-          if (!item.value) {
-            document.getElementById('itemError').textContent = 'Pilih jenis barang';
-            document.getElementById('itemError').style.display = 'block';
-            hasError = true;
-          }
-          if (!desc.value.trim()) {
-            document.getElementById('descriptionError').textContent = 'Deskripsi barang harus diisi';
-            document.getElementById('descriptionError').style.display = 'block';
-            hasError = true;
-          }
-
-          if (!hasError) {
-            // 显示成功信息
-            const successDiv = document.getElementById('formSuccess');
-            successDiv.style.display = 'block';
-            // 可选: 重置表单
-            form.reset();
-            // 8秒后隐藏成功消息
-            setTimeout(() => {
-              successDiv.style.display = 'none';
-            }, 8000);
-          }
-        });
+      // 清空错误
+      var errors = document.querySelectorAll('.form-error');
+      for (var i = 0; i < errors.length; i++) {
+        errors[i].style.display = 'none';
       }
       
-    }); // DOMContentLoaded结束
-  })();
+      // 获取值
+      var name = document.getElementById('name');
+      var phone = document.getElementById('phone');
+      var item = document.getElementById('item');
+      var desc = document.getElementById('description');
+      var hasError = false;
+
+      if (!name.value.trim()) {
+        document.getElementById('nameError').textContent = 'Nama harus diisi';
+        document.getElementById('nameError').style.display = 'block';
+        hasError = true;
+      }
+      if (!phone.value.trim()) {
+        document.getElementById('phoneError').textContent = 'Nomor WhatsApp harus diisi';
+        document.getElementById('phoneError').style.display = 'block';
+        hasError = true;
+      }
+      if (!item.value) {
+        document.getElementById('itemError').textContent = 'Pilih jenis barang';
+        document.getElementById('itemError').style.display = 'block';
+        hasError = true;
+      }
+      if (!desc.value.trim()) {
+        document.getElementById('descriptionError').textContent = 'Deskripsi barang harus diisi';
+        document.getElementById('descriptionError').style.display = 'block';
+        hasError = true;
+      }
+
+      if (!hasError) {
+        var successDiv = document.getElementById('formSuccess');
+        successDiv.style.display = 'block';
+        form.reset();
+        
+        setTimeout(function() {
+          successDiv.style.display = 'none';
+        }, 8000);
+      }
+    };
+  }
+})();
 </script>
 
-<!-- 移除对外部js的依赖，但保留链接以防万一 -->
+<!-- 保留外部JS引用但不影响功能 -->
 <script src="js/main.js" defer></script>
 <script src="js/contact.js" defer></script>
 </body>
