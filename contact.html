@@ -341,16 +341,17 @@
       align-items: flex-start;
       gap: 8px;
       font-size: 0.95rem;
+      transition: background-color 0.2s;
     }
     .faq-question:hover {
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.08);
     }
     .faq-question::after {
       content: '▶';
       color: var(--secondary-color);
       margin-left: auto;
-      transition: transform 0.2s;
-      font-size: 0.8rem;
+      transition: transform 0.3s ease;
+      font-size: 0.9rem;
       flex-shrink: 0;
     }
     .faq-item.active .faq-question::after {
@@ -365,7 +366,7 @@
       flex: 1;
     }
     .faq-answer {
-      padding: 0 1.2rem 1rem 1.2rem;
+      padding: 0 1.2rem 1rem 3.2rem; /* 增加左内边距与序号对齐 */
       color: var(--text-muted);
       display: none;
       font-size: 0.9rem;
@@ -373,7 +374,7 @@
     }
     .faq-item.active .faq-answer {
       display: block;
-      animation: fadeIn 0.2s;
+      animation: fadeIn 0.3s ease;
     }
     .faq-answer ul, .faq-answer ol {
       padding-left: 1.5rem;
@@ -441,6 +442,9 @@
       .faq-question {
         padding: 0.9rem 1rem;
         font-size: 0.9rem;
+      }
+      .faq-answer {
+        padding-left: 2.8rem; /* 移动端调整对齐 */
       }
     }
 
@@ -623,73 +627,89 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-<!-- JavaScript (内联简化版本，仅处理FAQ折叠及表单模拟提交) -->
+<!-- JavaScript (修复FAQ折叠功能) -->
 <script>
   (function() {
-    // FAQ折叠交互
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      question.addEventListener('click', () => {
-        // 切换当前active
-        item.classList.toggle('active');
-      });
-    });
-
-    // 表单模拟提交 (与原有contact.js逻辑类似，纯前端演示)
-    const form = document.getElementById('whatsappForm');
-    if (form) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault(); // 阻止实际提交
+    // 确保DOM完全加载后再执行
+    document.addEventListener('DOMContentLoaded', function() {
+      
+      // FAQ折叠交互 - 修复版本
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
         
-        // 简单清空错误显示 (演示)
-        document.querySelectorAll('.form-error').forEach(el => el.style.display = 'none');
-        
-        // 模拟必填检查 (仅示例)
-        const name = document.getElementById('name');
-        const phone = document.getElementById('phone');
-        const item = document.getElementById('item');
-        const desc = document.getElementById('description');
-        let hasError = false;
-
-        if (!name.value.trim()) {
-          document.getElementById('nameError').textContent = 'Nama harus diisi';
-          document.getElementById('nameError').style.display = 'block';
-          hasError = true;
-        }
-        if (!phone.value.trim()) {
-          document.getElementById('phoneError').textContent = 'Nomor WhatsApp harus diisi';
-          document.getElementById('phoneError').style.display = 'block';
-          hasError = true;
-        }
-        if (!item.value) {
-          document.getElementById('itemError').textContent = 'Pilih jenis barang';
-          document.getElementById('itemError').style.display = 'block';
-          hasError = true;
-        }
-        if (!desc.value.trim()) {
-          document.getElementById('descriptionError').textContent = 'Deskripsi barang harus diisi';
-          document.getElementById('descriptionError').style.display = 'block';
-          hasError = true;
-        }
-
-        if (!hasError) {
-          // 显示成功信息 (模拟)
-          const successDiv = document.getElementById('formSuccess');
-          successDiv.style.display = 'block';
-          // 可选: 重置表单
-          form.reset();
-          // 隐藏成功消息5秒后 (可选)
-          setTimeout(() => {
-            successDiv.style.display = 'none';
-          }, 8000);
-        }
+        question.addEventListener('click', function(e) {
+          // 切换当前点击项的active类
+          item.classList.toggle('active');
+          
+          // 可选：同时关闭其他项（取消注释下方代码可启用“同时只打开一个”的效果）
+          /*
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+            }
+          });
+          */
+        });
       });
-    }
+
+      // 表单模拟提交 (与原有contact.js逻辑类似，纯前端演示)
+      const form = document.getElementById('whatsappForm');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault(); // 阻止实际提交
+          
+          // 简单清空错误显示
+          document.querySelectorAll('.form-error').forEach(el => el.style.display = 'none');
+          
+          // 模拟必填检查
+          const name = document.getElementById('name');
+          const phone = document.getElementById('phone');
+          const item = document.getElementById('item');
+          const desc = document.getElementById('description');
+          let hasError = false;
+
+          if (!name.value.trim()) {
+            document.getElementById('nameError').textContent = 'Nama harus diisi';
+            document.getElementById('nameError').style.display = 'block';
+            hasError = true;
+          }
+          if (!phone.value.trim()) {
+            document.getElementById('phoneError').textContent = 'Nomor WhatsApp harus diisi';
+            document.getElementById('phoneError').style.display = 'block';
+            hasError = true;
+          }
+          if (!item.value) {
+            document.getElementById('itemError').textContent = 'Pilih jenis barang';
+            document.getElementById('itemError').style.display = 'block';
+            hasError = true;
+          }
+          if (!desc.value.trim()) {
+            document.getElementById('descriptionError').textContent = 'Deskripsi barang harus diisi';
+            document.getElementById('descriptionError').style.display = 'block';
+            hasError = true;
+          }
+
+          if (!hasError) {
+            // 显示成功信息
+            const successDiv = document.getElementById('formSuccess');
+            successDiv.style.display = 'block';
+            // 可选: 重置表单
+            form.reset();
+            // 8秒后隐藏成功消息
+            setTimeout(() => {
+              successDiv.style.display = 'none';
+            }, 8000);
+          }
+        });
+      }
+      
+    }); // DOMContentLoaded结束
   })();
 </script>
 
-<!-- 移除对外部js的依赖，但保留链接以防万一（原有main.js/contact.js可能不存在，但无妨） -->
+<!-- 移除对外部js的依赖，但保留链接以防万一 -->
 <script src="js/main.js" defer></script>
 <script src="js/contact.js" defer></script>
 </body>
