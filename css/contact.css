@@ -1,12 +1,6 @@
 /* ==================== contact.css - 联系页面专用样式 ==================== */
 
-/* 联系页面特有的全局变量 - 只保留必要的 */
-.contact-page {
-  --primary-color: #0b2c4a;
-  --secondary-color: #f5c542;
-}
-
-/* 双栏网格布局 - 联系页面特有 */
+/* 双栏网格布局 */
 .two-col-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -14,12 +8,33 @@
   margin: 2rem 0;
 }
 
-/* 联系页面特有的卡片标题图标颜色 */
-.card-title-icon {
-  color: var(--secondary-color);
+/* 卡片样式 */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.8rem 1.8rem 2rem;
+  border: 1px solid rgba(245, 197, 66, 0.2);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-/* 表单样式 - 联系页面特有 */
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(245, 197, 66, 0.2);
+  padding-bottom: 0.75rem;
+  color: #ffffff;
+}
+
+.card-title-icon {
+  color: #f5c542;
+}
+
+/* 表单样式 */
 .form-desc {
   color: #cccccc;
   margin-bottom: 1.5rem;
@@ -80,12 +95,13 @@ select.form-control option {
   resize: vertical;
 }
 
-/* 移除 .card-cta-btn 的定义 - 让 main.css 控制按钮样式 */
+/* 注意：这里没有 .card-cta-btn 的定义，让 main.css 控制按钮样式 */
 
 #loadingText {
   display: none;
 }
 
+/* 表单成功消息 */
 .form-success {
   background: rgba(46, 204, 113, 0.15);
   border: 1px solid #2ecc71;
@@ -106,6 +122,7 @@ select.form-control option {
   text-decoration: underline;
 }
 
+/* 表单错误信息 */
 .form-error {
   background: rgba(255, 71, 87, 0.1);
   border: 1px solid #ff4757;
@@ -124,7 +141,7 @@ select.form-control option {
   text-align: center;
 }
 
-/* FAQ卡片样式 - 联系页面特有 */
+/* FAQ样式 */
 .faq-list {
   flex: 1;
 }
@@ -147,7 +164,6 @@ select.form-control option {
   font-size: 0.95rem;
   background: rgba(255, 255, 255, 0.02);
   border-radius: 8px;
-  position: relative;
 }
 
 .faq-question:hover {
@@ -195,13 +211,7 @@ select.form-control option {
   margin: 0.5rem 0;
 }
 
-.faq-answer li {
-  margin-bottom: 0.25rem;
-}
-
-/* 移除页脚WA按钮专用样式 - 让 main.css 控制页脚按钮样式 */
-
-/* 响应式布局 - 联系页面特有 */
+/* 响应式布局 */
 @media (max-width: 768px) {
   .two-col-grid {
     grid-template-columns: 1fr;
