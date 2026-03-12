@@ -1,14 +1,17 @@
 /* ==================== contact.css - 联系页面专用样式 ==================== */
 
-/* 双栏网格布局 */
-.two-col-grid {
+/* 单栏网格布局 - 修改为单栏 */
+.single-col-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;  /* 单栏 */
   gap: 2rem;
   margin: 2rem 0;
+  max-width: 800px;  /* 限制最大宽度，避免太宽 */
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* 卡片样式 */
+/* 卡片样式保持不变 */
 .card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
@@ -34,7 +37,7 @@
   color: #f5c542;
 }
 
-/* 表单样式 */
+/* 表单样式保持不变 */
 .form-desc {
   color: #cccccc;
   margin-bottom: 1.5rem;
@@ -95,13 +98,10 @@ select.form-control option {
   resize: vertical;
 }
 
-/* 注意：这里没有 .card-cta-btn 的定义，让 main.css 控制按钮样式 */
-
 #loadingText {
   display: none;
 }
 
-/* 表单成功消息 */
 .form-success {
   background: rgba(46, 204, 113, 0.15);
   border: 1px solid #2ecc71;
@@ -122,7 +122,6 @@ select.form-control option {
   text-decoration: underline;
 }
 
-/* 表单错误信息 */
 .form-error {
   background: rgba(255, 71, 87, 0.1);
   border: 1px solid #ff4757;
@@ -141,98 +140,20 @@ select.form-control option {
   text-align: center;
 }
 
-/* FAQ样式 */
-.faq-list {
-  flex: 1;
-}
-
-.faq-item {
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 8px;
-  margin-bottom: 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.faq-question {
-  padding: 1rem 1.2rem;
-  color: #f0f0f0;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-size: 0.95rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-}
-
-.faq-question:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.faq-question::after {
-  content: "▶";
-  color: #f5c542;
-  margin-left: auto;
-  font-size: 0.9rem;
-  transition: transform 0.3s ease;
-}
-
-.faq-item.open .faq-question::after {
-  transform: rotate(90deg);
-}
-
-.faq-number {
-  color: #f5c542;
-  font-weight: 600;
-  min-width: 24px;
-}
-
-.faq-question-text {
-  flex: 1;
-}
-
-.faq-answer {
-  padding: 0 1.2rem 1rem 3.2rem;
-  color: #cccccc;
-  display: none;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.faq-item.open .faq-answer {
-  display: block;
-}
-
-.faq-answer ul,
-.faq-answer ol {
-  padding-left: 1.5rem;
-  margin: 0.5rem 0;
-}
-
 /* 响应式布局 */
 @media (max-width: 768px) {
-  .two-col-grid {
-    grid-template-columns: 1fr;
+  .single-col-grid {
     gap: 1.5rem;
+    padding: 0 1rem;
   }
 
   h1 {
     font-size: 1.4rem;
+    padding: 0 1rem;
   }
 
   .card {
     padding: 1.5rem;
-  }
-
-  .faq-question {
-    padding: 0.9rem 1rem;
-    font-size: 0.9rem;
-  }
-
-  .faq-answer {
-    padding-left: 2.8rem;
   }
 }
 
