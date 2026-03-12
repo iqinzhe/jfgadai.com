@@ -4,41 +4,9 @@
 document.addEventListener('DOMContentLoaded', function() {
   console.log('contact.js - 联系页面加载');
   
-  // 初始化FAQ功能
-  initFaqAccordion();
-  
-  // 初始化联系表单
+  // 初始化联系表单（单栏布局不需要修改，因为表单功能不变）
   initContactForm();
 });
-
-// ==================== FAQ手风琴功能 ====================
-function initFaqAccordion() {
-  const faqItems = document.querySelectorAll('.faq-item');
-  
-  if (!faqItems.length) {
-    console.log('没有找到FAQ元素');
-    return;
-  }
-  
-  faqItems.forEach(function(item) {
-    const question = item.querySelector('.faq-question');
-    
-    if (question) {
-      question.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // 切换当前项的open类
-        if (item.classList.contains('open')) {
-          item.classList.remove('open');
-        } else {
-          item.classList.add('open');
-        }
-      });
-    }
-  });
-  
-  console.log('FAQ初始化完成');
-}
 
 // ==================== 表单验证工具 ====================
 const formValidator = {
@@ -56,12 +24,6 @@ const formValidator = {
   validatePhoneID: function(phone) {
     const phoneStr = phone.replace(/\D/g, '');
     return phoneStr.length >= 10 && phoneStr.length <= 13;
-  },
-  
-  // 验证KTP (16位数字)
-  validateKTP: function(ktp) {
-    const ktpStr = ktp.replace(/\D/g, '');
-    return ktpStr.length === 16;
   },
   
   // 显示错误信息
