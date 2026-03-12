@@ -1,6 +1,6 @@
 /* ==================== contact.css - 联系页面专用样式 ==================== */
 
-/* 单栏网格布局 - 修改为单栏 */
+/* 单栏网格布局 */
 .single-col-grid {
   display: grid;
   grid-template-columns: 1fr;  /* 单栏 */
