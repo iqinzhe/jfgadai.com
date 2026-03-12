@@ -440,7 +440,7 @@ body {
 .grid-card .card-body p {
   color: var(--text-muted);
   margin: 0.1rem 0 !important;
-  text-align: center;
+  text-align: center;!important;  /* 添加 !important */
   font-size: 0.9rem;
   line-height: 1.0 !important;
 }
