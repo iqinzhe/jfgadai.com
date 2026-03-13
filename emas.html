@@ -52,19 +52,19 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.jfgadai.com/emas.html">
 
-  <!-- CSS -->
+  <!-- CSS - 只引用main.css，不重复定义背景 -->
   <link rel="stylesheet" href="css/main.css">
   
   <style>
-    /* ===== Gaya Khusus Halaman Emas ===== */
+    /* ===== 仅保留页面特有的样式 ===== */
+    /* 不定义任何背景、颜色主题等全局样式，完全复用main.css */
     
-    /* Header Halaman */
+    /* Header Halaman - 只保留布局，背景由main.css继承 */
     .page-header {
-      background: linear-gradient(135deg, #0b2c4a 0%, #1a4b6d 100%);
       padding: 2.5rem 0;
       margin-bottom: 2rem;
       text-align: center;
-      border-bottom: 3px solid #f5c542;
+      border-bottom: 3px solid var(--secondary-color);
       position: relative;
       overflow: hidden;
     }
@@ -92,39 +92,39 @@
     .page-header h1 {
       font-size: 2.4rem;
       margin-bottom: 1rem;
-      color: #f5c542;
+      color: var(--secondary-color);
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
       position: relative;
     }
     
     .page-header p {
       font-size: 1.2rem;
-      color: #e0e0e0;
+      color: var(--text-light);
       max-width: 700px;
       margin: 0 auto;
       position: relative;
     }
     
-    /* Harga Emas Ticker */
+    /* Harga Emas Ticker - 只保留特有样式 */
     .gold-price-card {
       background: rgba(245, 197, 66, 0.15);
       border-radius: 50px;
       padding: 0.8rem 2rem;
       display: inline-block;
       margin: 1.5rem auto 0;
-      border: 1px solid #f5c542;
+      border: 1px solid var(--secondary-color);
       backdrop-filter: blur(5px);
       font-weight: 600;
       font-size: 1.2rem;
     }
     
     .gold-price-card span {
-      color: #f5c542;
+      color: var(--secondary-color);
       font-size: 1.4rem;
       margin-left: 0.5rem;
     }
     
-    /* Grid Informasi */
+    /* Grid Informasi - 复用main.css的卡片样式 */
     .info-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -133,8 +133,8 @@
     }
     
     .info-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.05); /* 与main.css中grid-card保持一致 */
+      border-radius: var(--border-radius);
       padding: 1.8rem 1.2rem;
       text-align: center;
       border: 1px solid rgba(245, 197, 66, 0.2);
@@ -142,26 +142,26 @@
     }
     
     .info-card:hover {
-      transform: translateY(-8px);
-      background: rgba(255, 255, 255, 0.08);
-      border-color: #f5c542;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--secondary-color);
+      box-shadow: var(--shadow-lg);
     }
     
     .info-icon {
       font-size: 2.8rem;
       margin-bottom: 1rem;
-      color: #f5c542;
+      color: var(--secondary-color);
     }
     
     .info-card h3 {
-      color: #f5c542;
+      color: var(--secondary-color);
       font-size: 1.3rem;
       margin-bottom: 0.8rem;
     }
     
     .info-card p {
-      color: #ddd;
+      color: var(--text-light);
       font-size: 0.95rem;
       line-height: 1.4;
     }
@@ -176,13 +176,13 @@
     
     .column-card {
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
+      border-radius: var(--border-radius-lg);
       padding: 2rem;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     .column-title {
-      color: #f5c542;
+      color: var(--secondary-color);
       font-size: 1.8rem;
       margin-bottom: 1.5rem;
       padding-bottom: 0.5rem;
@@ -197,20 +197,20 @@
     }
     
     .list-icon {
-      color: #f5c542;
+      color: var(--secondary-color);
       font-size: 1.3rem;
       min-width: 28px;
       text-align: center;
     }
     
     .list-content h4 {
-      color: white;
+      color: var(--light-color);
       font-size: 1.1rem;
       margin-bottom: 0.3rem;
     }
     
     .list-content p {
-      color: #bbb;
+      color: var(--text-muted);
       font-size: 0.95rem;
       line-height: 1.4;
     }
@@ -218,15 +218,15 @@
     /* Tabel Simulasi */
     .simulation-section {
       margin: 3rem 0;
-      background: linear-gradient(145deg, rgba(15,76,129,0.3) 0%, rgba(10,50,80,0.4) 100%);
-      border-radius: 24px;
+      background: rgba(15, 76, 129, 0.3);
+      border-radius: var(--border-radius-lg);
       padding: 2.5rem;
       border: 1px solid rgba(245,197,66,0.3);
     }
     
     .simulation-title {
       text-align: center;
-      color: #f5c542;
+      color: var(--secondary-color);
       font-size: 2rem;
       margin-bottom: 2rem;
     }
@@ -240,13 +240,13 @@
       width: 100%;
       border-collapse: collapse;
       background: rgba(0,0,0,0.2);
-      border-radius: 16px;
+      border-radius: var(--border-radius);
       overflow: hidden;
     }
     
     .simulation-table th {
       background: rgba(245, 197, 66, 0.2);
-      color: #f5c542;
+      color: var(--secondary-color);
       padding: 1rem;
       font-weight: 600;
       text-align: center;
@@ -256,7 +256,7 @@
       padding: 1rem;
       text-align: center;
       border-bottom: 1px solid rgba(255,255,255,0.1);
-      color: #eee;
+      color: var(--text-light);
     }
     
     .simulation-table tr:hover td {
@@ -265,7 +265,7 @@
     
     .table-note {
       text-align: center;
-      color: #aaa;
+      color: var(--text-muted);
       font-size: 0.9rem;
       margin-top: 1rem;
     }
@@ -280,14 +280,14 @@
     
     .pros-box {
       background: rgba(76, 175, 80, 0.1);
-      border-radius: 20px;
+      border-radius: var(--border-radius-lg);
       padding: 2rem;
       border-left: 5px solid #4CAF50;
     }
     
     .cons-box {
       background: rgba(255, 87, 87, 0.1);
-      border-radius: 20px;
+      border-radius: var(--border-radius-lg);
       padding: 2rem;
       border-left: 5px solid #ff5757;
     }
@@ -298,6 +298,7 @@
       display: flex;
       align-items: center;
       gap: 0.8rem;
+      color: var(--light-color);
     }
     
     .pros-cons-item {
@@ -305,6 +306,7 @@
       gap: 1rem;
       margin-bottom: 1rem;
       align-items: flex-start;
+      color: var(--text-light);
     }
     
     .pros-icon { color: #4CAF50; font-size: 1.3rem; }
@@ -317,7 +319,7 @@
     
     .faq-item {
       background: rgba(255,255,255,0.03);
-      border-radius: 12px;
+      border-radius: var(--border-radius);
       margin-bottom: 1rem;
       border: 1px solid rgba(255,255,255,0.05);
     }
@@ -329,7 +331,7 @@
       justify-content: space-between;
       align-items: center;
       font-weight: 600;
-      color: #f5c542;
+      color: var(--secondary-color);
       font-size: 1.1rem;
     }
     
@@ -337,7 +339,7 @@
       content: "▼";
       font-size: 0.8rem;
       transition: transform 0.3s;
-      color: #f5c542;
+      color: var(--secondary-color);
     }
     
     .faq-item.active .faq-question::after {
@@ -347,7 +349,7 @@
     .faq-answer {
       display: none;
       padding: 0 1.5rem 1.2rem 1.5rem;
-      color: #ccc;
+      color: var(--text-muted);
       line-height: 1.6;
     }
     
@@ -355,30 +357,30 @@
       display: block;
     }
     
-    /* CTA Section */
+    /* CTA Section - 复用card-cta-btn样式 */
     .cta-section {
-      background: linear-gradient(135deg, #f5c542 0%, #e0b339 100%);
-      border-radius: 24px;
+      background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
+      border-radius: var(--border-radius-lg);
       padding: 3rem;
       text-align: center;
       margin: 3rem 0;
     }
     
     .cta-section h2 {
-      color: #0b2c4a;
+      color: var(--dark-color);
       font-size: 2rem;
       margin-bottom: 1rem;
     }
     
     .cta-section p {
-      color: #0b2c4a;
+      color: var(--dark-color);
       font-size: 1.2rem;
       margin-bottom: 2rem;
       opacity: 0.9;
     }
     
     .cta-wa-button {
-      background: #0b2c4a;
+      background: var(--dark-color);
       color: white;
       padding: 1.2rem 3rem;
       border-radius: 60px;
@@ -393,7 +395,7 @@
     }
     
     .cta-wa-button:hover {
-      background: #1a3d5e;
+      background: var(--primary-dark);
       transform: scale(1.05);
       border-color: white;
     }
@@ -443,7 +445,7 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <!-- Header (dipertahankan dari file asli) -->
+  <!-- Header -->
   <header class="assessment-header">
     <div class="container">
       <a href="/" class="back-btn">
@@ -459,9 +461,9 @@
   <!-- Page Header -->
   <div class="page-header">
     <div class="container">
-<div class="gold-price-card">
-  📈 Harga Emas Berdasarkan Ketentuan Resmi
-</div>
+      <div class="gold-price-card">
+        📈 Harga Emas Berdasarkan Ketentuan Resmi
+      </div>
       <h1>🥇 Panduan Lengkap Gadai Emas</h1>
       <p>Solusi dana cepat dengan jaminan emas - proses mudah, biaya transparan, aman dan terpercaya</p>
     </div>
@@ -474,22 +476,22 @@
       <div class="info-card">
         <div class="info-icon">⚡</div>
         <h3>Proses Cepat</h3>
-        <p>Dana cair kurang dari 30 menit setelah survei dan kesepakatan [citation:2]</p>
+        <p>Dana cair kurang dari 30 menit setelah survei dan kesepakatan</p>
       </div>
       <div class="info-card">
         <div class="info-icon">📋</div>
         <h3>Syarat Mudah</h3>
-        <p>Cukup KTP dan emas (batangan/perhiasan), tanpa BI checking [citation:5]</p>
+        <p>Cukup KTP dan emas (batangan/perhiasan), tanpa BI checking</p>
       </div>
       <div class="info-card">
         <div class="info-icon">💰</div>
         <h3>Pinjaman Tinggi</h3>
-        <p>Hingga 95% dari nilai taksiran emas Anda [citation:5]</p>
+        <p>Hingga 95% dari nilai taksiran emas Anda</p>
       </div>
       <div class="info-card">
         <div class="info-icon">🔒</div>
         <h3>Aman & Terpercaya</h3>
-        <p>Emas disimpan di brankas dengan asuransi perlindungan penuh [citation:6]</p>
+        <p>Emas disimpan di brankas dengan asuransi perlindungan penuh</p>
       </div>
     </div>
 
@@ -503,7 +505,7 @@
           <div class="list-icon">1️⃣</div>
           <div class="list-content">
             <h4>Kartu Identitas</h4>
-            <p>KTP asli (masa berlaku minimal 6 bulan) [citation:5]</p>
+            <p>KTP asli (masa berlaku minimal 6 bulan)</p>
           </div>
         </div>
         
@@ -511,7 +513,7 @@
           <div class="list-icon">2️⃣</div>
           <div class="list-content">
             <h4>Emas Jaminan</h4>
-            <p>Emas batangan atau perhiasan (kadar minimal 18 karat) [citation:9]</p>
+            <p>Emas batangan atau perhiasan (kadar minimal 18 karat)</p>
           </div>
         </div>
         
@@ -519,7 +521,7 @@
           <div class="list-icon">3️⃣</div>
           <div class="list-content">
             <h4>Surat Kepemilikan (opsional)</h4>
-            <p>Kwitansi pembelian atau sertifikat (jika ada) [citation:6]</p>
+            <p>Kwitansi pembelian atau sertifikat (jika ada)</p>
           </div>
         </div>
         
@@ -527,54 +529,55 @@
           <div class="list-icon">4️⃣</div>
           <div class="list-content">
             <h4>Usia Minimal</h4>
-            <p>17 tahun atau sudah menikah [citation:5]</p>
+            <p>17 tahun atau sudah menikah</p>
           </div>
         </div>
         
-        <p style="color: #f5c542; margin-top: 1.5rem; font-style: italic;">
-          * Emas tetap bisa digadaikan meski tanpa surat, akan ditaksir oleh petugas [citation:5]
+        <p style="color: var(--secondary-color); margin-top: 1.5rem; font-style: italic;">
+          * Emas tetap bisa digadaikan meski tanpa surat, akan ditaksir oleh petugas
         </p>
       </div>
       
-<!-- Prosedur Gadai - 4 Langkah -->
-<div class="column-card">
-  <h2 class="column-title">📋 Prosedur Gadai</h2>
-  
-  <div class="list-item">
-    <div class="list-icon">1️⃣</div>
-    <div class="list-content">
-      <h4>Datang & Isi Formulir</h4>
-      <p>Kunjungi cabang JF Gadai terdekat (Bangil, Beji, atau Gempol) dan lengkapi formulir data diri serta informasi emas yang akan digadaikan</p>
+      <!-- Prosedur Gadai - 4 Langkah -->
+      <div class="column-card">
+        <h2 class="column-title">📋 Prosedur Gadai</h2>
+        
+        <div class="list-item">
+          <div class="list-icon">1️⃣</div>
+          <div class="list-content">
+            <h4>Datang & Isi Formulir</h4>
+            <p>Kunjungi cabang JF Gadai terdekat (Bangil, Beji, atau Gempol) dan lengkapi formulir data diri serta informasi emas yang akan digadaikan</p>
+          </div>
+        </div>
+        
+        <div class="list-item">
+          <div class="list-icon">2️⃣</div>
+          <div class="list-content">
+            <h4>Penaksiran Emas</h4>
+            <p>Petugas melakukan penimbangan dan uji kadar emas (karatase) untuk menentukan nilai taksiran</p>
+          </div>
+        </div>
+        
+        <div class="list-item">
+          <div class="list-icon">3️⃣</div>
+          <div class="list-content">
+            <h4>Konfirmasi & Penandatanganan</h4>
+            <p>Petugas menawarkan nilai pinjaman berdasarkan hasil taksiran, kemudian tanda tangani Surat Bukti Gadai (SBG)</p>
+          </div>
+        </div>
+        
+        <div class="list-item">
+          <div class="list-icon">4️⃣</div>
+          <div class="list-content">
+            <h4>Pencairan Dana</h4>
+            <p>Dana langsung cair melalui transfer atau tunai, siap digunakan untuk kebutuhan Anda</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  
-  <div class="list-item">
-    <div class="list-icon">2️⃣</div>
-    <div class="list-content">
-      <h4>Penaksiran Emas</h4>
-      <p>Petugas melakukan penimbangan dan uji kadar emas (karatase) untuk menentukan nilai taksiran</p>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <div class="list-icon">3️⃣</div>
-    <div class="list-content">
-      <h4>Konfirmasi & Penandatanganan</h4>
-      <p>Petugas menawarkan nilai pinjaman berdasarkan hasil taksiran, kemudian tanda tangani Surat Bukti Gadai (SBG)</p>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <div class="list-icon">4️⃣</div>
-    <div class="list-content">
-      <h4>Pencairan Dana</h4>
-      <p>Dana langsung cair melalui transfer atau tunai, siap digunakan untuk kebutuhan Anda</p>
-    </div>
-  </div>
-</div>
 
     <!-- Keuntungan vs Kerugian Gadai Emas -->
-    <h2 style="text-align: center; color: #f5c542; font-size: 2rem; margin: 3rem 0 1.5rem;">⚖️ Pertimbangan Gadai Emas</h2>
+    <h2 style="text-align: center; color: var(--secondary-color); font-size: 2rem; margin: 3rem 0 1.5rem;">⚖️ Pertimbangan Gadai Emas</h2>
     
     <div class="pros-cons">
       <div class="pros-box">
@@ -582,23 +585,23 @@
         
         <div class="pros-cons-item">
           <span class="pros-icon">✓</span>
-          <div>Emas tidak dijual, hanya dijadikan jaminan - tetap menjadi milik Anda [citation:2]</div>
+          <div>Emas tidak dijual, hanya dijadikan jaminan - tetap menjadi milik Anda</div>
         </div>
         <div class="pros-cons-item">
           <span class="pros-icon">✓</span>
-          <div>Proses cepat dan mudah, tanpa BI checking [citation:2]</div>
+          <div>Proses cepat dan mudah, tanpa BI checking</div>
         </div>
         <div class="pros-cons-item">
           <span class="pros-icon">✓</span>
-          <div>Nilai pinjaman tinggi karena emas mudah ditaksir [citation:2]</div>
+          <div>Nilai pinjaman tinggi karena emas mudah ditaksir</div>
         </div>
         <div class="pros-cons-item">
           <span class="pros-icon">✓</span>
-          <div>Menghindari lilitan utang karena ada agunan [citation:2]</div>
+          <div>Menghindari lilitan utang karena ada agunan</div>
         </div>
         <div class="pros-cons-item">
           <span class="pros-icon">✓</span>
-          <div>Emas diasuransikan selama masa gadai [citation:6]</div>
+          <div>Emas diasuransikan selama masa gadai</div>
         </div>
       </div>
       
@@ -607,19 +610,19 @@
         
         <div class="pros-cons-item">
           <span class="cons-icon">✗</span>
-          <div>Emas tidak bisa digunakan selama masa gadai [citation:2]</div>
+          <div>Emas tidak bisa digunakan selama masa gadai</div>
         </div>
         <div class="pros-cons-item">
           <span class="cons-icon">✗</span>
-          <div>Nilai pinjaman mungkin lebih rendah dari harga beli (tergantung harga pasar) [citation:2]</div>
+          <div>Nilai pinjaman mungkin lebih rendah dari harga beli (tergantung harga pasar)</div>
         </div>
         <div class="pros-cons-item">
           <span class="cons-icon">✗</span>
-          <div>Jika tidak bisa membayar, emas akan dilelang [citation:2]</div>
+          <div>Jika tidak bisa membayar, emas akan dilelang</div>
         </div>
         <div class="pros-cons-item">
           <span class="cons-icon">✗</span>
-          <div>Ada biaya sewa modal dan administrasi [citation:6]</div>
+          <div>Ada biaya sewa modal dan administrasi</div>
         </div>
       </div>
     </div>
@@ -633,103 +636,116 @@
           <div class="list-icon">1️⃣</div>
           <div class="list-content">
             <h4>Pastikan keaslian emas</h4>
-            <p>Bawa surat/sertifikat jika ada, tapi tanpa surat pun bisa diproses [citation:6]</p>
+            <p>Bawa surat/sertifikat jika ada, tapi tanpa surat pun bisa diproses</p>
           </div>
         </div>
         <div class="list-item">
           <div class="list-icon">2️⃣</div>
           <div class="list-content">
             <h4>Pantau harga emas terkini</h4>
-            <p>Gadai saat harga tinggi untuk mendapatkan nilai pinjaman maksimal [citation:6]</p>
+            <p>Gadai saat harga tinggi untuk mendapatkan nilai pinjaman maksimal</p>
           </div>
         </div>
         <div class="list-item">
           <div class="list-icon">3️⃣</div>
           <div class="list-content">
             <h4>Pilih tempat gadai terpercaya</h4>
-            <p>Hindari tempat gadai ilegal, pilih lembaga berizin resmi [citation:6]</p>
+            <p>Hindari tempat gadai ilegal, pilih lembaga berizin resmi</p>
           </div>
         </div>
         <div class="list-item">
           <div class="list-icon">4️⃣</div>
           <div class="list-content">
             <h4>Pahami syarat dan ketentuan</h4>
-            <p>Baca dengan teliti sebelum menandatangani [citation:6]</p>
+            <p>Baca dengan teliti sebelum menandatangani</p>
           </div>
         </div>
         <div class="list-item">
           <div class="list-icon">5️⃣</div>
           <div class="list-content">
             <h4>Ketahui nilai taksir</h4>
-            <p>Nilai taksir berbeda dengan harga pasar, pahami perhitungannya [citation:6]</p>
+            <p>Nilai taksir berbeda dengan harga pasar, pahami perhitungannya</p>
           </div>
         </div>
         <div class="list-item">
           <div class="list-icon">6️⃣</div>
           <div class="list-content">
             <h4>Perhitungkan biaya dan bunga</h4>
-            <p>Faktor biaya administrasi dan sewa modal dalam perencanaan [citation:6]</p>
+            <p>Faktor biaya administrasi dan sewa modal dalam perencanaan</p>
           </div>
         </div>
         <div class="list-item">
           <div class="list-icon">7️⃣</div>
           <div class="list-content">
             <h4>Hindari jatuh tempo</h4>
-            <p>Bayar tepat waktu agar emas tidak dilelang [citation:6]</p>
+            <p>Bayar tepat waktu agar emas tidak dilelang</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- FAQ Section -->
-    <h2 style="text-align: center; color: #f5c542; font-size: 2rem; margin: 3rem 0 1.5rem;">❓ Pertanyaan Umum</h2>
+    <h2 style="text-align: center; color: var(--secondary-color); font-size: 2rem; margin: 3rem 0 1.5rem;">❓ Pertanyaan Umum</h2>
     
     <div class="faq-container">
       <div class="faq-item">
         <div class="faq-question">Apakah emas perhiasan bisa digadaikan?</div>
         <div class="faq-answer">
-          <p>Ya, emas perhiasan seperti cincin, kalung, gelang, anting, dan liontin bisa digadaikan. Kadar emas yang diterima minimal 18 karat. Nilai pinjaman akan disesuaikan dengan berat dan kadar emas tersebut. [citation:9]</p>
+          <p>Ya, emas perhiasan seperti cincin, kalung, gelang, anting, dan liontin bisa digadaikan. Kadar emas yang diterima minimal 18 karat. Nilai pinjaman akan disesuaikan dengan berat dan kadar emas tersebut.</p>
         </div>
       </div>
       
       <div class="faq-item">
         <div class="faq-question">Berapa lama proses pencairan dana?</div>
         <div class="faq-answer">
-          <p>Proses pencairan dana sangat cepat. Setelah semua dokumen lengkap dan kesepakatan nilai pinjaman, dana akan cair kurang dari 30 menit baik secara tunai maupun transfer ke rekening Anda. [citation:2]</p>
+          <p>Proses pencairan dana sangat cepat. Setelah semua dokumen lengkap dan kesepakatan nilai pinjaman, dana akan cair kurang dari 30 menit baik secara tunai maupun transfer ke rekening Anda.</p>
         </div>
       </div>
       
       <div class="faq-item">
         <div class="faq-question">Bagaimana jika surat emas hilang? Apakah masih bisa gadai?</div>
         <div class="faq-answer">
-          <p>Bisa. Anda tetap dapat menggadaikan emas meskipun surat atau sertifikat hilang. Petugas akan melakukan penaksiran langsung pada fisik emas Anda. Nilai pinjaman tetap mengikuti hasil taksiran tersebut. [citation:5]</p>
+          <p>Bisa. Anda tetap dapat menggadaikan emas meskipun surat atau sertifikat hilang. Petugas akan melakukan penaksiran langsung pada fisik emas Anda. Nilai pinjaman tetap mengikuti hasil taksiran tersebut.</p>
         </div>
       </div>
       
       <div class="faq-item">
         <div class="faq-question">Berapa persen dana yang bisa saya dapatkan dari nilai emas?</div>
         <div class="faq-answer">
-          <p>Anda bisa mendapatkan pinjaman hingga 92-95% dari nilai taksiran emas. Persentase ini tergantung pada jenis produk gadai yang dipilih dan kebijakan yang berlaku. [citation:5]</p>
+          <p>Anda bisa mendapatkan pinjaman hingga 92-95% dari nilai taksiran emas. Persentase ini tergantung pada jenis produk gadai yang dipilih dan kebijakan yang berlaku.</p>
         </div>
       </div>
       
       <div class="faq-item">
         <div class="faq-question">Berapa lama jangka waktu gadai emas?</div>
         <div class="faq-answer">
-          <p>Jangka waktu gadai emas standar adalah 120 hari (4 bulan) dan dapat diperpanjang berkali-kali sesuai kebutuhan. Anda juga bisa melunasi atau mencicil sewaktu-waktu. [citation:5]</p>
+          <p>Jangka waktu gadai emas standar adalah 120 hari (4 bulan) dan dapat diperpanjang berkali-kali sesuai kebutuhan. Anda juga bisa melunasi atau mencicil sewaktu-waktu.</p>
         </div>
       </div>
       
       <div class="faq-item">
         <div class="faq-question">Apakah emas saya aman selama digadaikan?</div>
         <div class="faq-answer">
-          <p>Sangat aman. Emas Anda akan disimpan di brankas khusus dengan sistem keamanan tinggi, dilengkapi CCTV 24 jam, dan dilindungi asuransi selama masa gadai. [citation:6]</p>
+          <p>Sangat aman. Emas Anda akan disimpan di brankas khusus dengan sistem keamanan tinggi, dilengkapi CCTV 24 jam, dan dilindungi asuransi selama masa gadai.</p>
         </div>
       </div>
     </div>
+
+    <!-- CTA WhatsApp -->
+    <div class="cta-section">
+      <h2>🥇 Siap Gadai Emas?</h2>
+      <p>Konsultasi gratis via WhatsApp • Taksir emas Anda • Dapatkan dana cepat</p>
+      <a href="https://wa.me/6289515692586?text=Halo%20JF%20Gadai%2C%20saya%20mau%20konsultasi%20gadai%20emas" 
+         class="cta-wa-button" 
+         target="_blank"
+         rel="noopener noreferrer">
+        <img src="/images/logo-wa.png" alt="WA" width="24" height="24" style="filter: brightness(0) invert(1);">
+        Tanya via WhatsApp
+      </a>
+    </div>
   </main>
 
-  <!-- Footer (dipertahankan dari file asli) -->
+  <!-- Footer -->
   <footer id="lokasi">
     <div class="container">
       <div class="footer-content">
