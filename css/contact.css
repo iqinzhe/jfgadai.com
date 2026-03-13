@@ -1,301 +1,178 @@
 /* ===================================
 CONTACT PAGE
 =================================== */
-
 .contact-page{
 padding-bottom:70px;
 }
 
-
 /* ===================================
 双列表单布局
 =================================== */
-
 .contact-grid{
-
 display:grid;
 grid-template-columns:1fr 1fr;
-
 gap:32px;
-
 margin-top:35px;
-
 align-items:stretch;
-
 }
-
 
 /* ===================================
 卡片
 =================================== */
-
 .card{
-
 background:#1b1b1b;
-
 padding:32px;
-
 border-radius:14px;
-
 border:1px solid rgba(255,255,255,0.06);
-
 box-shadow:0 12px 30px rgba(0,0,0,0.4);
-
 display:flex;
-
 flex-direction:column;
-
 transition:0.25s;
-
 }
-
 
 /* hover效果 */
-
 .card:hover{
-
 transform:translateY(-4px);
-
 border-color:rgba(245,197,66,0.4);
-
 box-shadow:0 18px 40px rgba(0,0,0,0.55);
-
 }
-
 
 /* ===================================
 标题
 =================================== */
-
 .card-title{
-
 font-size:22px;
-
 margin-bottom:10px;
-
 color:#f5c542;
-
 font-weight:600;
-
 letter-spacing:0.3px;
-
 }
-
 
 /* 表单说明 */
-
 .form-desc{
-
 font-size:14px;
-
 color:#bdbdbd;
-
 margin-bottom:24px;
-
 line-height:1.6;
-
 }
-
 
 /* ===================================
 表单结构
 =================================== */
-
 .form-group{
-
 margin-bottom:18px;
-
 }
-
 
 .form-label{
-
 display:block;
-
 font-size:14px;
-
 font-weight:600;
-
 margin-bottom:6px;
-
 color:#e2e2e2;
-
 }
-
 
 /* 输入框 */
-
 .form-control{
-
 width:100%;
-
 padding:11px 12px;
-
 border-radius:8px;
-
 border:1px solid rgba(255,255,255,0.15);
-
 background:#121212;
-
 color:#eeeeee;
-
 font-size:14px;
-
 transition:0.2s;
-
 }
-
 
 /* focus */
-
 .form-control:focus{
-
 border-color:#f5c542;
-
 box-shadow:0 0 0 1px rgba(245,197,66,0.3);
-
 outline:none;
-
 }
-
 
 /* textarea */
-
 .form-textarea{
-
 min-height:90px;
-
 resize:vertical;
-
 }
-
 
 /* ===================================
 按钮
 =================================== */
-
 .card-cta-btn{
-
 margin-top:14px;
-
 padding:13px;
-
 border:none;
-
 border-radius:10px;
-
 background:linear-gradient(135deg,#f5c542,#e0b233);
-
 color:#000;
-
 font-weight:600;
-
 cursor:pointer;
-
 font-size:15px;
-
 transition:0.25s;
-
 width:100%;
-
 }
-
 
 .card-cta-btn:hover{
-
 transform:translateY(-1px);
-
 box-shadow:0 6px 15px rgba(245,197,66,0.35);
-
 }
-
 
 /* ===================================
 信任区块
 =================================== */
-
 .trust-box{
-
-margin-top:55px;
-
+margin:55px auto 0;
 display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
+grid-template-columns:repeat(3,260px);
+justify-content:center;   /* 整体水平居中 */
 gap:22px;
-
 }
-
 
 .trust-item{
-
 background:#1b1b1b;
-
 padding:20px;
-
 border-radius:10px;
-
 border:1px solid rgba(255,255,255,0.05);
-
 box-shadow:0 8px 20px rgba(0,0,0,0.35);
-
 text-align:center;
-
 color:#dcdcdc;
-
 font-size:14px;
-
 line-height:1.6;
-
-transition:0.25s;
-
 }
 
+.trust-item strong{
+display:block;
+font-size:16px;
+margin-bottom:6px;
+}
 
 /* 信任卡片 hover */
-
 .trust-item:hover{
-
 transform:translateY(-3px);
-
 border-color:rgba(245,197,66,0.4);
-
 }
-
 
 /* ===================================
 手机适配
 =================================== */
-
 @media (max-width:900px){
-
 .contact-grid{
-
 grid-template-columns:1fr;
-
 }
 
 .trust-box{
-
 grid-template-columns:1fr 1fr;
-
 }
-
 }
 
 
 @media (max-width:600px){
-
 .trust-box{
-
 grid-template-columns:1fr;
-
 }
 
 .card{
-
 padding:26px;
-
 }
-
 }
