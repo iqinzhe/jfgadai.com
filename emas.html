@@ -692,7 +692,7 @@
       </div>
     </div>
 
-    <!-- FAQ Section -->
+        <!-- FAQ Section -->
     <h2 style="text-align: center; color: var(--secondary-color); font-size: 2rem; margin: 3rem 0 1.5rem;">❓ Pertanyaan Umum</h2>
     
     <div class="faq-container">
@@ -759,14 +759,34 @@
     </div>
   </footer>
   
-  <!-- JavaScript untuk FAQ -->
+  <!-- JavaScript untuk FAQ - Fixed version -->
   <script>
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.addEventListener('click', function() {
-        this.classList.toggle('active');
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all FAQ items
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      // Add click event to each FAQ item
+      faqItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+          // Toggle active class on the clicked item
+          this.classList.toggle('active');
+        });
       });
+      
+      // Optional: Open first FAQ item by default
+      if (faqItems.length > 0) {
+        faqItems[0].classList.add('active');
+      }
     });
   </script>
+  
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script> 
+  
+</body>
+</html>
+
   
   <script src="js/main.js"></script>
 <script src="js/contact.js"></script> 
