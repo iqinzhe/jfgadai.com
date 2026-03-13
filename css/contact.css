@@ -1,610 +1,222 @@
-<!DOCTYPE html>
-<html lang="id-ID">
-<head>
-  <!-- Google Tag Manager -->
-  <script>
-  (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),
-          dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-M2GMSNWS');
-  </script>
-  <!-- End Google Tag Manager -->
+/* ============================= */
+/* CONTACT PAGE */
+/* ============================= */
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- JSON-LD 结构化数据 -->
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "JF Gadai",
-  "alternateName": ["JF Gadai indonesia"],
-  "url": "https://www.jfgadai.com",
-  "publisher": {
-    "@id": "https://www.jfgadai.com/#organization"
-  }
+.contact-page{
+padding-bottom:60px;
 }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "PawnBroker",
-    "name": "JF Gadai",
-    "image": "https://www.jfgadai.com/images/og-contact.jpg",
-    "description": "Layanan gadai motor, emas, dan barang berharga lainnya di Bangil, Beji, dan Gempol. Proses cepat, aman, dan terpercaya.",
-    "url": "https://www.jfgadai.com",
-    "telephone": "+6289515692586",
-    "priceRange": "Rp",
-    "openingHours": "Mo-Fr 08:00-18:00",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Bangil",
-      "addressRegion": "Jawa Timur",
-      "addressCountry": "ID"
-    },
-    "areaServed": [
-      {"@type":"AdministrativeArea","name":"Bangil"},
-      {"@type":"AdministrativeArea","name":"Beji"},
-      {"@type":"AdministrativeArea","name":"Gempol"}
-    ]
-  }
-  </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://www.jfgadai.com/#organization",
-  "name": "JF Gadai",
-  "alternateName": "JF Gadai Indonesia",
-  "url": "https://www.jfgadai.com/",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://www.jfgadai.com/images/logo-jf.png"
-  },
-  "sameAs": []
+
+
+/* ============================= */
+/* 双列表单布局 */
+/* ============================= */
+
+.contact-grid{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+
+gap:30px;
+
+margin-top:30px;
+
 }
-</script>
-  
-  <!-- SEO Meta 标签 (dioptimalkan untuk dua layanan) -->
-  <title>Hubungi JF Gadai: Konsultasi Gadai & Pendaftaran Waralaba</title>
-  <meta name="description" content="Hubungi JF Gadai via WhatsApp. Konsultasi gadai motor/emas atau daftar kemitraan waralaba. Proses cepat untuk wilayah Bangil, Beji, Gempol.">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/android-chrome-512x512.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#ffffff">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="JF Gadai | Konsultasi Gadai & Kemitraan">
-  <meta property="og:description" content="Layanan gadai emas, kendaraan, dan pendaftaran waralaba gadai. Proses cepat, aman, dan terpercaya di Bangil & Gempol.">
-  <meta property="og:image" content="https://www.jfgadai.com/images/og-contact.jpg">
-  <meta property="og:url" content="https://www.jfgadai.com">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="id_ID">
-  <meta property="og:site_name" content="JF Gadai">
+/* ============================= */
+/* 表单卡片 */
+/* ============================= */
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.jfgadai.com/contact.html">
+.card{
 
-  <!-- CSS 引用: main.css + contact.css (memuat gaya dasar dan dua kolom) -->
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/contact.css">
-  <style>
-    /* ========== DUA KOLUM PARALEL (override sementara dari single-col-grid) ========== */
-    .two-col-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin: 2rem 0;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+background:#ffffff;
 
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      padding: 1.8rem 1.8rem 2rem;
-      border: 1px solid rgba(245, 197, 66, 0.2);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
+padding:28px;
 
-    /* penyesuaian tombol agar tetap konsisten */
-    .card-cta-btn {
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
-      background: #f5c542;
-      border: none;
-      color: #0b2c4a !important;
-      font-weight: 700;
-      padding: 0.9rem 1.5rem;
-      border-radius: 50px;
-      cursor: pointer;
-      font-size: 1rem;
-      width: 100%;
-      max-width: 280px;
-      margin: 1rem auto 0.5rem !important;
-      transition: 0.2s;
-      gap: 6px;
-      text-align: center;
-      line-height: 1;
-    }
+border-radius:14px;
 
-    .card-cta-btn:hover {
-      background: #e0b438;
-      transform: scale(1.02);
-    }
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
 
-    /* loading dan success styling */
-    .loadingText, .loadingTextFranchise {
-      display: none;
-    }
+border:1px solid rgba(0,0,0,0.05);
 
-    .form-success, .form-success-franchise {
-      background: rgba(46, 204, 113, 0.15);
-      border: 1px solid #2ecc71;
-      border-radius: 8px;
-      padding: 1.5rem;
-      text-align: center;
-      margin: 1.5rem 0 0.5rem;
-      display: none;
-    }
+}
 
-    .form-success h3, .form-success-franchise h3 {
-      color: #2ecc71;
-      margin-bottom: 0.5rem;
-    }
 
-    .whatsapp-link {
-      color: #25D366;
-      text-decoration: underline;
-    }
+/* 标题 */
 
-    @media (max-width: 768px) {
-      .two-col-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0 1rem;
-      }
-      .card-cta-btn {
-        max-width: 100%;
-      }
-    }
+.card-title{
 
-    /* bidang formulir waralaba tambahan */
-    .form-hint {
-      color: #aaa;
-      font-size: 0.8rem;
-      margin-top: 0.2rem;
-    }
-  </style>
-</head>
-<body class="contact-page">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+font-size:22px;
 
-<!-- 头部导航 (sama dengan aslinya) -->
-<header class="assessment-header">
-  <div class="container">
-    <a href="/" class="back-btn">
-      <img src="/images/logo-jf.png" alt="JF Gadai" class="logo-image">
-      <strong><span class="arrow">←</span> Kembali ke Beranda</strong>
-    </a>
-    <a href="/motor.html" class="nav-forward">
-      <strong>Gadai Motor <span class="arrow">→</span></strong>
-      <img src="/images/logo-motor.png" alt="Gadai Motor" class="nav-icon">
-    </a>
-  </div>
-</header>
+margin-bottom:10px;
 
-<main class="container">
-  <h1>Hubungi JF Gadai – Konsultasi Gadai & Informasi Waralaba</h1>
+color:#333;
 
-  <!-- GRID DUA KOLOM: kiri Gadai, kanan Franchise -->
-  <div class="two-col-grid">
-    
-    <!-- ========== KIRI: Formulir Konsultasi Gadai (barang) ========== -->
-    <div class="card">
-      <h2 class="card-title">
-        <span class="card-title-icon">📋</span>
-        Konsultasi Gadai
-      </h2>
-      <p class="form-desc">
-        Isi formulir di bawah untuk konsultasi gadai motor, emas, atau barang berharga. Data akan dikirim ke WhatsApp kami.
-      </p>
-      
-      <form id="whatsappFormPawn">
-        <div class="form-group">
-          <label for="pawnName" class="form-label required">Nama Lengkap</label>
-          <input type="text" id="pawnName" name="pawnName" class="form-control" placeholder="Nama lengkap Anda" required>
-          <div class="form-error" id="pawnNameError"></div>
-        </div>
-        
-        <div class="form-group">
-          <label for="pawnPhone" class="form-label required">Nomor WhatsApp</label>
-          <input type="tel" id="pawnPhone" name="pawnPhone" class="form-control" placeholder="Contoh: 081234567890" required>
-          <div class="form-error" id="pawnPhoneError"></div>
-        </div>
-        
-        <div class="form-group">
-          <label for="pawnItem" class="form-label required">Jenis Barang</label>
-          <select id="pawnItem" name="pawnItem" class="form-control" required>
-            <option value="" selected disabled>-- Pilih Jenis Barang --</option>
-            <option value="motor">🏍️ Motor / Kendaraan</option>
-            <option value="emas">💰 Emas / Perhiasan</option>
-            <option value="hp">📱 HP / Smartphone</option>
-            <option value="laptop">💻 Laptop / Komputer</option>
-            <option value="elektronik">📺 Barang Elektronik Lainnya</option>
-            <option value="lainnya">📦 Barang Berharga Lainnya</option>
-          </select>
-          <div class="form-error" id="pawnItemError"></div>
-        </div>
-        
-        <div class="form-group">
-          <label for="pawnDescription" class="form-label required">Deskripsi Barang</label>
-          <textarea id="pawnDescription" name="pawnDescription" class="form-control form-textarea" placeholder="Merk, tahun, kondisi, dll..." required></textarea>
-          <div class="form-error" id="pawnDescriptionError"></div>
-        </div>
-        
-        <button type="submit" class="card-cta-btn" id="submitPawnBtn">
-          <span>📤 Kirim ke WhatsApp</span>
-          <span class="loadingText" id="loadingPawnText">⏳ Mengirim...</span>
-        </button>
-        
-        <div id="pawnSuccess" class="form-success">
-          <h3>✓ Terkirim!</h3>
-          <p>Data gadai Anda sudah dikirim. Kami akan membalas dalam 5-15 menit.</p>
-          <p><a href="#" class="whatsapp-link" id="pawnWhatsappLink">Klik untuk langsung ke WhatsApp</a></p>
-        </div>
-        
-        <p class="form-note">
-          * Data Anda aman dan hanya untuk keperluan konsultasi.
-        </p>
-      </form>
-    </div>
-    
-    <!-- ========== KANAN: Formulir Pendaftaran Waralaba / Franchise ========== -->
-    <div class="card">
-      <h2 class="card-title">
-        <span class="card-title-icon">🤝</span>
-        Info Waralaba & Kemitraan
-      </h2>
-      <p class="form-desc">
-        Tertarik menjadi mitra JF Gadai? Isi formulir di bawah untuk konsultasi peluang waralaba.
-      </p>
-      
-      <form id="whatsappFormFranchise">
-        <div class="form-group">
-          <label for="franchiseName" class="form-label required">Nama Lengkap</label>
-          <input type="text" id="franchiseName" name="franchiseName" class="form-control" placeholder="Nama Anda" required>
-          <div class="form-error" id="franchiseNameError"></div>
-        </div>
-        
-        <div class="form-group">
-          <label for="franchisePhone" class="form-label required">Nomor WhatsApp</label>
-          <input type="tel" id="franchisePhone" name="franchisePhone" class="form-control" placeholder="Contoh: 081234567890" required>
-          <div class="form-error" id="franchisePhoneError"></div>
-        </div>
-        
-        <div class="form-group">
-          <label for="franchiseCity" class="form-label required">Kota / Domisili</label>
-          <input type="text" id="franchiseCity" name="franchiseCity" class="form-control" placeholder="Misal: Bangil, Beji, Gempol" required>
-          <div class="form-error" id="franchiseCityError"></div>
-        </div>
-        
-        <div class="form-group">
-          <label for="investmentRange" class="form-label required">Rencana Investasi</label>
-          <select id="investmentRange" name="investmentRange" class="form-control" required>
-            <option value="" selected disabled>-- Perkiraan dana siap --</option>
-            <option value="<50jt">Di bawah Rp 50 juta</option>
-            <option value="50-100jt">Rp 50 - 100 juta</option>
-            <option value="100-250jt">Rp 100 - 250 juta</option>
-            <option value=">250jt">Lebih dari Rp 250 juta</option>
-          </select>
-          <div class="form-error" id="investmentRangeError"></div>
-        </div>
-        
-        <div class="form-group">
-          <label for="franchiseMessage" class="form-label required">Pertanyaan / Minat</label>
-          <textarea id="franchiseMessage" name="franchiseMessage" class="form-control form-textarea" placeholder="Ceritakan minat Anda, pengalaman bisnis, atau lokasi yang diinginkan..." required></textarea>
-          <div class="form-error" id="franchiseMessageError"></div>
-          <div class="form-hint">Minimal 10 karakter.</div>
-        </div>
-        
-        <button type="submit" class="card-cta-btn" id="submitFranchiseBtn">
-          <span>📤 Kirim ke WhatsApp (Waralaba)</span>
-          <span class="loadingTextFranchise" id="loadingFranchiseText">⏳ Mengirim...</span>
-        </button>
-        
-        <div id="franchiseSuccess" class="form-success-franchise">
-          <h3>✓ Permintaan Terkirim!</h3>
-          <p>Data waralaba Anda sudah kami terima. Tim kemitraan akan segera menghubungi Anda.</p>
-          <p><a href="#" class="whatsapp-link" id="franchiseWhatsappLink">Klik untuk chat langsung</a></p>
-        </div>
-        
-        <p class="form-note">
-          * Data Anda hanya untuk keperluan diskusi kemitraan.
-        </p>
-      </form>
-    </div>
-  </div>
-</main>
+}
 
-<!-- 页脚 (sama dengan aslinya, hanya menyesuaikan konten) -->
-<footer id="lokasi">
-  <div class="container">
-    <div class="footer-content">
-      
-      <p class="copyright">© 2026 <span class="highlight">JF Gadai</span></p>
-      
-      <p class="company-info">Melayani area Bangil • Beji • Gempol dan sekitarnya</p>
-      
-      <a href="https://wa.me/6289515692586" 
-         target="_blank" 
-         class="card-cta-btn"
-         rel="noopener noreferrer"
-         aria-label="Hubungi kami via WhatsApp">
-        <img 
-          src="/images/logo-wa.png" 
-          alt="WhatsApp" 
-          width="20" 
-          height="20"
-          style="vertical-align: middle; margin-right: 6px;"
-        >
-        WA: +62 895-1569-2586
-      </a>
-      
-      <p class="operating-hours">
-        ⏰ Jam kerja: 08:00-18:00 | Libur hari Sabtu dan Minggu
-      </p>
-      
-      <p class="security-note">
-        🔒 Situs ini menggunakan koneksi aman (HTTPS).
-      </p>
-      
-    </div>
-  </div>
-</footer>
 
-<!-- JavaScript: contact.js yang sudah dimodifikasi untuk menangani dua form -->
-<script>
-(function() {
-  // ==================== UTILS ====================
-  const formValidator = {
-    validateRequired: function(value) { return value && value.trim() !== ''; },
-    validateMinLength: function(value, min) { return value && value.trim().length >= min; },
-    validatePhoneID: function(phone) {
-      const phoneStr = phone.replace(/\D/g, '');
-      return phoneStr.length >= 10 && phoneStr.length <= 13;
-    },
-    showError: function(fieldId, message) {
-      const errorDiv = document.getElementById(fieldId + 'Error');
-      if (errorDiv) { errorDiv.textContent = message; errorDiv.style.display = 'block'; }
-    },
-    clearError: function(fieldId) {
-      const errorDiv = document.getElementById(fieldId + 'Error');
-      if (errorDiv) { errorDiv.style.display = 'none'; }
-    }
-  };
+/* 表单说明 */
 
-  const whatsappUtils = {
-    buildURL: function(phone, message) {
-      const cleanPhone = phone.replace(/\D/g, '');
-      const formattedPhone = cleanPhone.startsWith('0') ? '62' + cleanPhone.substring(1) : cleanPhone;
-      return `https://wa.me/${formattedPhone}?text=${encodeURIComponent(message)}`;
-    }
-  };
+.form-desc{
 
-  // ==================== FORM GADAI (KIRI) ====================
-  const pawnForm = document.getElementById('whatsappFormPawn');
-  if (pawnForm) {
-    const pawnSubmitBtn = document.getElementById('submitPawnBtn');
-    const pawnLoading = document.getElementById('loadingPawnText');
-    const pawnSuccessDiv = document.getElementById('pawnSuccess');
-    const pawnLink = document.getElementById('pawnWhatsappLink');
-    const adminPhone = '6289515692586';
+font-size:14px;
 
-    // item mapping
-    const itemTypes = {
-      'motor': 'Motor / Kendaraan', 'emas': 'Emas / Perhiasan', 'hp': 'HP / Smartphone',
-      'laptop': 'Laptop / Komputer', 'elektronik': 'Barang Elektronik Lainnya', 'lainnya': 'Barang Berharga Lainnya'
-    };
+color:#777;
 
-    function validatePawnField(fieldId, value) {
-      switch(fieldId) {
-        case 'pawnName': 
-          if (!formValidator.validateRequired(value)) formValidator.showError('pawnName', 'Nama harus diisi');
-          else formValidator.clearError('pawnName'); break;
-        case 'pawnPhone':
-          if (!formValidator.validateRequired(value)) formValidator.showError('pawnPhone', 'Nomor WA harus diisi');
-          else if (!formValidator.validatePhoneID(value)) formValidator.showError('pawnPhone', 'Format tidak valid');
-          else formValidator.clearError('pawnPhone'); break;
-        case 'pawnItem':
-          if (!value) formValidator.showError('pawnItem', 'Pilih jenis barang');
-          else formValidator.clearError('pawnItem'); break;
-        case 'pawnDescription':
-          if (!formValidator.validateRequired(value)) formValidator.showError('pawnDescription', 'Deskripsi harus diisi');
-          else if (!formValidator.validateMinLength(value, 10)) formValidator.showError('pawnDescription', 'Minimal 10 karakter');
-          else formValidator.clearError('pawnDescription'); break;
-      }
-    }
+margin-bottom:20px;
 
-    pawnForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const formData = {
-        name: document.getElementById('pawnName')?.value || '',
-        phone: document.getElementById('pawnPhone')?.value || '',
-        item: document.getElementById('pawnItem')?.value || '',
-        description: document.getElementById('pawnDescription')?.value || ''
-      };
-      
-      // validasi manual
-      let isValid = true;
-      if (!formValidator.validateRequired(formData.name)) { formValidator.showError('pawnName', 'Nama harus diisi'); isValid = false; } else formValidator.clearError('pawnName');
-      if (!formValidator.validateRequired(formData.phone)) { formValidator.showError('pawnPhone', 'Nomor WA harus diisi'); isValid = false; } else if (!formValidator.validatePhoneID(formData.phone)) { formValidator.showError('pawnPhone', 'Format tidak valid'); isValid = false; } else formValidator.clearError('pawnPhone');
-      if (!formData.item) { formValidator.showError('pawnItem', 'Pilih jenis barang'); isValid = false; } else formValidator.clearError('pawnItem');
-      if (!formValidator.validateRequired(formData.description)) { formValidator.showError('pawnDescription', 'Deskripsi harus diisi'); isValid = false; } else if (!formValidator.validateMinLength(formData.description, 10)) { formValidator.showError('pawnDescription', 'Minimal 10 karakter'); isValid = false; } else formValidator.clearError('pawnDescription');
-      
-      if (!isValid) return;
+}
 
-      // loading state
-      pawnSubmitBtn.disabled = true;
-      pawnSubmitBtn.querySelector('span:first-child').style.display = 'none';
-      pawnLoading.style.display = 'inline';
 
-      setTimeout(() => {
-        const itemLabel = itemTypes[formData.item] || formData.item;
-        const message = `Halo JF Gadai, saya ingin konsultasi gadai barang.
+/* ============================= */
+/* 表单 */
+/* ============================= */
 
-*DATA GADAI:*
-👤 Nama: ${formData.name}
-📱 WhatsApp: ${formData.phone}
-🏷️ Jenis: ${itemLabel}
+.form-group{
 
-📝 Deskripsi: ${formData.description}
+margin-bottom:18px;
 
-Mohon info taksiran dan prosedur. Terima kasih.`;
-        const waUrl = whatsappUtils.buildURL(adminPhone, message);
+}
 
-        // sembunyikan form, tampilkan sukses
-        pawnForm.style.display = 'none';
-        pawnSuccessDiv.style.display = 'block';
-        pawnLink.href = waUrl;
 
-        setTimeout(() => { window.open(waUrl, '_blank'); }, 1500);
+.form-label{
 
-        // reset tombol (form tetap hilang)
-        pawnSubmitBtn.disabled = false;
-        pawnSubmitBtn.querySelector('span:first-child').style.display = 'inline';
-        pawnLoading.style.display = 'none';
-      }, 1000);
-    });
+display:block;
 
-    // realtime blur
-    ['pawnName','pawnPhone','pawnItem','pawnDescription'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) {
-        el.addEventListener('blur', function() { validatePawnField(this.id, this.value); });
-        el.addEventListener('input', function() { formValidator.clearError(this.id); });
-      }
-    });
-  }
+font-weight:600;
 
-  // ==================== FORM FRANCHISE (KANAN) ====================
-  const franchiseForm = document.getElementById('whatsappFormFranchise');
-  if (franchiseForm) {
-    const franchiseBtn = document.getElementById('submitFranchiseBtn');
-    const franchiseLoading = document.getElementById('loadingFranchiseText');
-    const franchiseSuccessDiv = document.getElementById('franchiseSuccess');
-    const franchiseLink = document.getElementById('franchiseWhatsappLink');
-    const adminPhone = '6289515692586';
+margin-bottom:6px;
 
-    function validateFranchiseField(fieldId, value) {
-      switch(fieldId) {
-        case 'franchiseName':
-          if (!formValidator.validateRequired(value)) formValidator.showError('franchiseName', 'Nama harus diisi');
-          else formValidator.clearError('franchiseName'); break;
-        case 'franchisePhone':
-          if (!formValidator.validateRequired(value)) formValidator.showError('franchisePhone', 'Nomor WA harus diisi');
-          else if (!formValidator.validatePhoneID(value)) formValidator.showError('franchisePhone', 'Format tidak valid');
-          else formValidator.clearError('franchisePhone'); break;
-        case 'franchiseCity':
-          if (!formValidator.validateRequired(value)) formValidator.showError('franchiseCity', 'Kota harus diisi');
-          else formValidator.clearError('franchiseCity'); break;
-        case 'investmentRange':
-          if (!value) formValidator.showError('investmentRange', 'Pilih rentang investasi');
-          else formValidator.clearError('investmentRange'); break;
-        case 'franchiseMessage':
-          if (!formValidator.validateRequired(value)) formValidator.showError('franchiseMessage', 'Pertanyaan harus diisi');
-          else if (!formValidator.validateMinLength(value, 10)) formValidator.showError('franchiseMessage', 'Minimal 10 karakter');
-          else formValidator.clearError('franchiseMessage'); break;
-      }
-    }
+font-size:14px;
 
-    franchiseForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const data = {
-        name: document.getElementById('franchiseName')?.value || '',
-        phone: document.getElementById('franchisePhone')?.value || '',
-        city: document.getElementById('franchiseCity')?.value || '',
-        investment: document.getElementById('investmentRange')?.value || '',
-        message: document.getElementById('franchiseMessage')?.value || ''
-      };
+}
 
-      let valid = true;
-      if (!formValidator.validateRequired(data.name)) { formValidator.showError('franchiseName', 'Nama harus diisi'); valid = false; } else formValidator.clearError('franchiseName');
-      if (!formValidator.validateRequired(data.phone)) { formValidator.showError('franchisePhone', 'Nomor WA harus diisi'); valid = false; } else if (!formValidator.validatePhoneID(data.phone)) { formValidator.showError('franchisePhone', 'Format tidak valid'); valid = false; } else formValidator.clearError('franchisePhone');
-      if (!formValidator.validateRequired(data.city)) { formValidator.showError('franchiseCity', 'Kota harus diisi'); valid = false; } else formValidator.clearError('franchiseCity');
-      if (!data.investment) { formValidator.showError('investmentRange', 'Pilih rentang investasi'); valid = false; } else formValidator.clearError('investmentRange');
-      if (!formValidator.validateRequired(data.message)) { formValidator.showError('franchiseMessage', 'Pertanyaan harus diisi'); valid = false; } else if (!formValidator.validateMinLength(data.message, 10)) { formValidator.showError('franchiseMessage', 'Minimal 10 karakter'); valid = false; } else formValidator.clearError('franchiseMessage');
 
-      if (!valid) return;
+.form-control{
 
-      franchiseBtn.disabled = true;
-      franchiseBtn.querySelector('span:first-child').style.display = 'none';
-      franchiseLoading.style.display = 'inline';
+width:100%;
 
-      setTimeout(() => {
-        const investText = {
-          '<50jt': 'di bawah Rp50jt', '50-100jt': 'Rp50-100jt', '100-250jt': 'Rp100-250jt', '>250jt': '>Rp250jt'
-        }[data.investment] || data.investment;
+padding:10px 12px;
 
-        const message = `Halo JF Gadai, saya tertarik dengan waralaba.
+border-radius:8px;
 
-*DATA CALON MITRA:*
-👤 Nama: ${data.name}
-📱 WA: ${data.phone}
-🏙️ Domisili: ${data.city}
-💰 Investasi: ${investText}
+border:1px solid #ccc;
 
-📝 Pesan: ${data.message}
+font-size:14px;
 
-Mohon info syarat dan peluang kemitraan. Terima kasih.`;
-        const waUrl = whatsappUtils.buildURL(adminPhone, message);
+}
 
-        franchiseForm.style.display = 'none';
-        franchiseSuccessDiv.style.display = 'block';
-        franchiseLink.href = waUrl;
 
-        setTimeout(() => { window.open(waUrl, '_blank'); }, 1500);
+.form-control:focus{
 
-        franchiseBtn.disabled = false;
-        franchiseBtn.querySelector('span:first-child').style.display = 'inline';
-        franchiseLoading.style.display = 'none';
-      }, 1000);
-    });
+outline:none;
 
-    // blur events
-    ['franchiseName','franchisePhone','franchiseCity','investmentRange','franchiseMessage'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) {
-        el.addEventListener('blur', function() { validateFranchiseField(this.id, this.value); });
-        el.addEventListener('input', function() { formValidator.clearError(this.id); });
-      }
-    });
-  }
+border-color:#d4af37;
 
-  console.log('✅ Dua formulir (gadai & waralaba) siap.');
-})();
-</script>
+}
 
-<!-- tetap referensi contact.js untuk menjaga struktur, namun semua fungsi sudah ditimpa di atas, agar tidak konflik kita kosongkan. jika ingin memuat eksternal bisa dihapus, namun lebih baik gunakan internal agar dua form jalan -->
-<!-- <script src="/js/contact.js" defer></script>  (dikomen karena sudah ditangani internal) -->
-</body>
-</html>
+
+.form-textarea{
+
+min-height:90px;
+
+resize:vertical;
+
+}
+
+
+/* ============================= */
+/* 提交按钮 */
+/* ============================= */
+
+.card-cta-btn{
+
+width:100%;
+
+margin-top:10px;
+
+padding:12px;
+
+border:none;
+
+border-radius:10px;
+
+background:#d4af37;
+
+color:white;
+
+font-weight:600;
+
+cursor:pointer;
+
+font-size:15px;
+
+transition:0.2s;
+
+}
+
+
+.card-cta-btn:hover{
+
+background:#b9962d;
+
+}
+
+
+/* ============================= */
+/* 信任区块 */
+/* ============================= */
+
+.trust-box{
+
+margin-top:50px;
+
+display:flex;
+
+gap:20px;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+}
+
+
+.trust-item{
+
+background:#fff;
+
+padding:18px;
+
+border-radius:10px;
+
+box-shadow:0 6px 15px rgba(0,0,0,0.06);
+
+text-align:center;
+
+max-width:200px;
+
+font-size:14px;
+
+}
+
+
+/* ============================= */
+/* 手机适配 */
+/* ============================= */
+
+@media (max-width:768px){
+
+.contact-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.card{
+
+padding:22px;
+
+}
+
+}
