@@ -76,24 +76,26 @@ color:#e2e2e2;
 width:100%;
 padding:11px 12px;
 border-radius:8px;
-border:1px solid rgba(255,255,255,0.15);
-background:#121212;
-color:#eeeeee;
+border:1px solid rgba(255,255,255,0.2);
+/* 新颜色 */
+background:#e8f2ff;
+color:#222;
 font-size:14px;
 transition:0.2s;
 }
 
-/* focus */
 .form-control:focus{
 border-color:#f5c542;
-box-shadow:0 0 0 1px rgba(245,197,66,0.3);
+background:#ffffff;
 outline:none;
+box-shadow:0 0 0 2px rgba(245,197,66,0.25);
 }
 
 /* textarea */
 .form-textarea{
 min-height:90px;
 resize:vertical;
+background:#e8f2ff;
 }
 
 /* ===================================
