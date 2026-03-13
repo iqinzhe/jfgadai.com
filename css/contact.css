@@ -1,15 +1,15 @@
-/* ============================= */
-/* CONTACT PAGE */
-/* ============================= */
+/* ===================================
+CONTACT PAGE
+=================================== */
 
 .contact-page{
 padding-bottom:60px;
 }
 
 
-/* ============================= */
-/* 双列表单布局 */
-/* ============================= */
+/* ===================================
+双列表单布局
+=================================== */
 
 .contact-grid{
 
@@ -20,24 +20,32 @@ gap:30px;
 
 margin-top:30px;
 
+align-items:stretch;
+
 }
 
 
-/* ============================= */
-/* 表单卡片 */
-/* ============================= */
+/* ===================================
+卡片
+=================================== */
 
 .card{
 
-background:#ffffff;
+background:#1c1c1c;
 
-padding:28px;
+padding:30px;
 
 border-radius:14px;
 
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+border:1px solid rgba(255,255,255,0.08);
 
-border:1px solid rgba(0,0,0,0.05);
+box-shadow:0 10px 25px rgba(0,0,0,0.35);
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:flex-start;
 
 }
 
@@ -50,27 +58,31 @@ font-size:22px;
 
 margin-bottom:10px;
 
-color:#333;
+color:#f5c542;
+
+font-weight:600;
 
 }
 
 
-/* 表单说明 */
+/* 描述 */
 
 .form-desc{
 
 font-size:14px;
 
-color:#777;
+color:#bbbbbb;
 
-margin-bottom:20px;
+margin-bottom:22px;
+
+line-height:1.5;
 
 }
 
 
-/* ============================= */
-/* 表单 */
-/* ============================= */
+/* ===================================
+表单结构
+=================================== */
 
 .form-group{
 
@@ -79,18 +91,24 @@ margin-bottom:18px;
 }
 
 
+/* 标签 */
+
 .form-label{
 
 display:block;
+
+font-size:14px;
 
 font-weight:600;
 
 margin-bottom:6px;
 
-font-size:14px;
+color:#dddddd;
 
 }
 
+
+/* 输入框 */
 
 .form-control{
 
@@ -100,21 +118,31 @@ padding:10px 12px;
 
 border-radius:8px;
 
-border:1px solid #ccc;
+border:1px solid rgba(255,255,255,0.18);
+
+background:#111;
+
+color:#eeeeee;
 
 font-size:14px;
 
+transition:0.2s;
+
 }
 
+
+/* focus */
 
 .form-control:focus{
 
-outline:none;
+border-color:#f5c542;
 
-border-color:#d4af37;
+outline:none;
 
 }
 
+
+/* textarea */
 
 .form-textarea{
 
@@ -125,13 +153,11 @@ resize:vertical;
 }
 
 
-/* ============================= */
-/* 提交按钮 */
-/* ============================= */
+/* ===================================
+按钮
+=================================== */
 
 .card-cta-btn{
-
-width:100%;
 
 margin-top:10px;
 
@@ -141,9 +167,9 @@ border:none;
 
 border-radius:10px;
 
-background:#d4af37;
+background:#f5c542;
 
-color:white;
+color:#000;
 
 font-weight:600;
 
@@ -153,19 +179,21 @@ font-size:15px;
 
 transition:0.2s;
 
+width:100%;
+
 }
 
 
 .card-cta-btn:hover{
 
-background:#b9962d;
+background:#e0b233;
 
 }
 
 
-/* ============================= */
-/* 信任区块 */
-/* ============================= */
+/* ===================================
+信任区块
+=================================== */
 
 .trust-box{
 
@@ -173,9 +201,9 @@ margin-top:50px;
 
 display:flex;
 
-gap:20px;
-
 justify-content:center;
+
+gap:20px;
 
 flex-wrap:wrap;
 
@@ -184,26 +212,32 @@ flex-wrap:wrap;
 
 .trust-item{
 
-background:#fff;
+background:#1c1c1c;
 
 padding:18px;
 
 border-radius:10px;
 
-box-shadow:0 6px 15px rgba(0,0,0,0.06);
+border:1px solid rgba(255,255,255,0.08);
+
+box-shadow:0 6px 15px rgba(0,0,0,0.25);
 
 text-align:center;
 
-max-width:200px;
+color:#dddddd;
 
 font-size:14px;
+
+max-width:220px;
+
+line-height:1.5;
 
 }
 
 
-/* ============================= */
-/* 手机适配 */
-/* ============================= */
+/* ===================================
+手机适配
+=================================== */
 
 @media (max-width:768px){
 
@@ -215,7 +249,15 @@ grid-template-columns:1fr;
 
 .card{
 
-padding:22px;
+padding:24px;
+
+}
+
+.trust-box{
+
+margin-top:40px;
+
+gap:14px;
 
 }
 
