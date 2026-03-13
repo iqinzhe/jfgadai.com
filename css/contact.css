@@ -10,7 +10,7 @@ padding-bottom:70px;
 =================================== */
 .contact-grid{
 display:grid;
-grid-template-columns:1fr 1fr;
+grid-template-columns:repeat(2,minmax(0,1fr));
 gap:32px;
 margin-top:35px;
 align-items:stretch;
@@ -28,9 +28,10 @@ box-shadow:0 12px 30px rgba(0,0,0,0.4);
 display:flex;
 flex-direction:column;
 transition:0.25s;
+width:100%;
+min-width:0;
 }
 
-/* hover效果 */
 .card:hover{
 transform:translateY(-4px);
 border-color:rgba(245,197,66,0.4);
@@ -46,6 +47,7 @@ margin-bottom:10px;
 color:#f5c542;
 font-weight:600;
 letter-spacing:0.3px;
+text-align:center;
 }
 
 /* 表单说明 */
@@ -54,6 +56,7 @@ font-size:14px;
 color:#bdbdbd;
 margin-bottom:24px;
 line-height:1.6;
+text-align:center;
 }
 
 /* ===================================
@@ -77,11 +80,11 @@ width:100%;
 padding:11px 12px;
 border-radius:8px;
 border:1px solid rgba(255,255,255,0.2);
-/* 新颜色 */
 background:#e8f2ff;
 color:#222;
 font-size:14px;
 transition:0.2s;
+box-sizing:border-box;
 }
 
 .form-control:focus{
@@ -101,6 +104,7 @@ background:#e8f2ff;
 /* ===================================
 按钮
 =================================== */
+
 .card-cta-btn{
 margin-top:14px;
 padding:13px;
@@ -121,56 +125,10 @@ box-shadow:0 6px 15px rgba(245,197,66,0.35);
 }
 
 /* ===================================
-信任区块
-=================================== */
-.trust-box{
-margin:55px auto 0;
-display:grid;
-grid-template-columns:repeat(3,260px);
-justify-content:center;   /* 整体水平居中 */
-gap:22px;
-}
-
-.trust-item{
-background:#1b1b1b;
-padding:20px;
-border-radius:10px;
-border:1px solid rgba(255,255,255,0.05);
-box-shadow:0 8px 20px rgba(0,0,0,0.35);
-text-align:center;
-color:#dcdcdc;
-font-size:14px;
-line-height:1.6;
-}
-
-.trust-item strong{
-display:block;
-font-size:16px;
-margin-bottom:6px;
-}
-
-/* 信任卡片 hover */
-.trust-item:hover{
-transform:translateY(-3px);
-border-color:rgba(245,197,66,0.4);
-}
-
-/* ===================================
 手机适配
 =================================== */
 @media (max-width:900px){
 .contact-grid{
-grid-template-columns:1fr;
-}
-
-.trust-box{
-grid-template-columns:1fr 1fr;
-}
-}
-
-
-@media (max-width:600px){
-.trust-box{
 grid-template-columns:1fr;
 }
 
