@@ -52,144 +52,101 @@ Isi formulir berikut dan tim kami akan segera menghubungi Anda.
 
 
 <!-- ================= 左：典当咨询 ================= -->
-
-<div class="card">
-
-<h2 class="card-title">
-📋 Konsultasi Gadai
-</h2>
-
-<p class="form-desc">
-Isi formulir untuk mengetahui estimasi pinjaman dan prosedur gadai.
-</p>
-
 <form id="pawnForm">
 
 <div class="form-group">
-<label class="form-label required">Nama Lengkap</label>
+<label class="form-label">Nama Lengkap</label>
 <input type="text" id="pawnName" class="form-control" required>
 </div>
 
 <div class="form-group">
-<label class="form-label required">Nomor WhatsApp</label>
+<label class="form-label">Nomor WhatsApp</label>
 <input type="tel" id="pawnPhone" class="form-control" required>
 </div>
 
 <div class="form-group">
-<label class="form-label required">Jenis Barang</label>
+<label class="form-label">Jenis Barang</label>
 
 <select id="pawnItem" class="form-control">
 
-<option value="">Pilih Barang</option>
-
-<option value="Motor / Kendaraan">Motor / Kendaraan</option>
-
-<option value="Emas / Perhiasan">Emas / Perhiasan</option>
-
-<option value="HP / Smartphone">HP / Smartphone</option>
-
-<option value="Laptop / Komputer">Laptop / Komputer</option>
-
-<option value="Elektronik Lainnya">Elektronik Lainnya</option>
-
-<option value="Barang Lainnya">Barang Lainnya</option>
+<option>Motor</option>
+<option>Emas</option>
+<option>HP</option>
+<option>Laptop</option>
+<option>Lainnya</option>
 
 </select>
 
 </div>
 
 <div class="form-group">
-<label class="form-label required">Deskripsi Barang</label>
+<label class="form-label">Deskripsi Barang</label>
 
 <textarea id="pawnDesc"
 class="form-control form-textarea"
-placeholder="Merk, tahun, kondisi, dll..."
-required></textarea>
+placeholder="Merk / Tahun / Kondisi"></textarea>
 
 </div>
 
-<button type="submit" class="card-cta-btn">
+<div class="form-group">
+<label class="form-label">Pesan Tambahan</label>
 
-📤 Kirim Konsultasi
+<textarea class="form-control form-textarea"></textarea>
 
+</div>
+
+<button class="card-cta-btn">
+Kirim Konsultasi
 </button>
 
 </form>
 
-</div>
-
-
 
 <!-- ================= 右：加盟 ================= -->
-
-<div class="card">
-
-<h2 class="card-title">
-🤝 Join Us – Kemitraan
-</h2>
-
-<p class="form-desc">
-Tertarik membuka usaha gadai bersama kami?
-Isi formulir berikut untuk informasi kemitraan.
-</p>
-
 <form id="franchiseForm">
 
 <div class="form-group">
-<label class="form-label required">Nama Lengkap</label>
+<label class="form-label">Nama Lengkap</label>
 <input type="text" id="franchiseName" class="form-control" required>
 </div>
 
 <div class="form-group">
-<label class="form-label required">Nomor WhatsApp</label>
+<label class="form-label">Nomor WhatsApp</label>
 <input type="tel" id="franchisePhone" class="form-control" required>
 </div>
 
 <div class="form-group">
-<label class="form-label required">Kota / Domisili</label>
-<input type="text" id="franchiseCity" class="form-control" required>
+<label class="form-label">Kota</label>
+<input type="text" id="franchiseCity" class="form-control">
 </div>
 
 <div class="form-group">
-<label class="form-label required">Rencana Investasi</label>
+<label class="form-label">Rencana Investasi</label>
 
 <select id="franchiseInvest" class="form-control">
 
-<option value="">Pilih</option>
-
-<option value="<50jt">Di bawah Rp 50 juta</option>
-
-<option value="50-100jt">Rp 50 - 100 juta</option>
-
-<option value="100-250jt">Rp 100 - 250 juta</option>
-
-<option value=">250jt">Lebih dari Rp 250 juta</option>
+<option>50 juta</option>
+<option>100 juta</option>
+<option>200 juta</option>
+<option>> 200 juta</option>
 
 </select>
 
 </div>
 
 <div class="form-group">
-<label class="form-label">Pesan / Pertanyaan</label>
+<label class="form-label">Pesan</label>
 
 <textarea id="franchiseMsg"
-class="form-control form-textarea"
-placeholder="Ceritakan minat Anda..."
-></textarea>
+class="form-control form-textarea"></textarea>
 
 </div>
 
-<button type="submit" class="card-cta-btn">
-
-📤 Kirim Info Kemitraan
-
+<button class="card-cta-btn">
+Kirim Info Kemitraan
 </button>
 
 </form>
-
-</div>
-
-</div>
 
 
 <!-- 信任区块 -->
