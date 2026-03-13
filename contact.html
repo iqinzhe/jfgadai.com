@@ -41,18 +41,24 @@ Hubungi JF Gadai
 </h1>
 
 <p style="text-align:center;max-width:700px;margin:1rem auto 2rem;">
-Konsultasi gadai atau peluang kemitraan bisnis bersama JF Gadai.
+Butuh dana cepat? Konsultasikan kebutuhan gadai Anda atau bergabung menjadi mitra bisnis bersama JF Gadai.  
 Isi formulir berikut dan tim kami akan segera menghubungi Anda.
 </p>
 
 
-<!-- 双列结构 -->
+<!-- ================= 双列表单 ================= -->
 
 <div class="contact-grid">
 
 
 <!-- ================= 左：典当咨询 ================= -->
-<form id="pawnForm">
+<form id="pawnForm" class="card">
+
+<h2 class="card-title">Konsultasi Gadai</h2>
+
+<p class="form-desc">
+Tanyakan estimasi pinjaman untuk motor, emas, HP, laptop, atau barang lainnya.
+</p>
 
 <div class="form-group">
 <label class="form-label">Nama Lengkap</label>
@@ -102,8 +108,16 @@ Kirim Konsultasi
 </form>
 
 
+
 <!-- ================= 右：加盟 ================= -->
-<form id="franchiseForm">
+<form id="franchiseForm" class="card">
+
+<h2 class="card-title">Join Us – Kemitraan</h2>
+
+<p class="form-desc">
+Tertarik membuka usaha gadai bersama JF Gadai?  
+Kami menyediakan sistem, SOP, dan dukungan operasional.
+</p>
 
 <div class="form-group">
 <label class="form-label">Nama Lengkap</label>
@@ -145,11 +159,15 @@ class="form-control form-textarea"></textarea>
 <button class="card-cta-btn">
 Kirim Info Kemitraan
 </button>
+
 </form>
 
+</div>
 
-<!-- 信任区块 -->
-  <div class="trust-box">
+
+<!-- ================= 信任区块 ================= -->
+
+<div class="trust-box">
 
 <div class="trust-item">
 <strong>⚡ Proses Cepat</strong><br>
@@ -165,8 +183,13 @@ Syarat lebih mudah
 <strong>🔒 Aman & Terpercaya</strong><br>
 Barang dijaga dengan aman
 </div>
+
 </div>
+
+
 </main>
+
+
 
 <footer id="lokasi">
 
@@ -213,12 +236,11 @@ WA: +62 895-1569-2586
 const adminPhone = "6289515692586";
 
 function buildWA(message){
-
 return `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
-
 }
 
 
+/* ================= 典当咨询 ================= */
 
 document.getElementById("pawnForm").addEventListener("submit",function(e){
 
@@ -247,6 +269,7 @@ window.open(buildWA(message),"_blank");
 });
 
 
+/* ================= 加盟咨询 ================= */
 
 document.getElementById("franchiseForm").addEventListener("submit",function(e){
 
@@ -275,7 +298,6 @@ window.open(buildWA(message),"_blank");
 });
 
 </script>
-
 
 </body>
 </html>
