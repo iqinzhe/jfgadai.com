@@ -52,14 +52,9 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.jfgadai.com/emas.html">
 
-  <!-- CSS - 只引用main.css，不重复定义背景 -->
   <link rel="stylesheet" href="css/main.css">
-  
   <style>
-    /* ===== 仅保留页面特有的样式 ===== */
-    /* 不定义任何背景、颜色主题等全局样式，完全复用main.css */
     
-    /* Header Halaman - 只保留布局，背景由main.css继承 */
     .page-header {
       padding: 2.5rem 0;
       margin-bottom: 2rem;
@@ -105,7 +100,6 @@
       position: relative;
     }
     
-    /* Harga Emas Ticker - 只保留特有样式 */
     .gold-price-card {
       background: rgba(245, 197, 66, 0.15);
       border-radius: 50px;
@@ -124,7 +118,6 @@
       margin-left: 0.5rem;
     }
     
-    /* Grid Informasi - 复用main.css的卡片样式 */
     .info-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -357,7 +350,7 @@
       display: block;
     }
     
-    /* CTA Section - 复用card-cta-btn样式 */
+    /* CTA Section */
     .cta-section {
       background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
       border-radius: var(--border-radius-lg);
