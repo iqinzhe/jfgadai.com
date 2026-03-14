@@ -655,6 +655,40 @@ footer {
   }
 }
 
+/* ==================== Gallery Visual Upgrade ==================== */
+
+.gallery-grid .unified-card:nth-child(1) .gallery-item img{
+aspect-ratio:16/9;
+object-fit:cover;
+}
+
+.gallery-grid .unified-card:nth-child(4) .gallery-item img{
+aspect-ratio:4/5;
+object-fit:cover;
+}
+
+.gallery-grid .unified-card:nth-child(7) .gallery-item img{
+aspect-ratio:16/9;
+object-fit:cover;
+}
+
+.gallery-grid .gallery-item img{
+width:100%;
+height:auto;
+border-radius:8px;
+display:block;
+}
+
+/* 卡片轻微悬浮效果 */
+
+.unified-card{
+transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.unified-card:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 24px rgba(0,0,0,0.08);
+}
 /* ==================== 图库页面样式 ==================== */
 .gallery-item {
   width: 100%;
