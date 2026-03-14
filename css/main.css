@@ -635,6 +635,26 @@ footer {
   font-weight: 600;
 }
 
+/* ==================== Gallery Grid 桌面布局 ==================== */
+.gallery-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* 电脑端卡片间距优化 */
+.gallery-grid .unified-card{
+  margin:0;
+}
+
+/* 手机端恢复单列 */
+@media (max-width:768px){
+  .gallery-grid{
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
 /* ==================== 图库页面样式 ==================== */
 .gallery-item {
   width: 100%;
