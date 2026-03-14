@@ -731,11 +731,15 @@ footer {
     margin: var(--spacing-md) auto;
   }
   
+    /* =========================
+     以下 order 控制手机端显示顺序
+     数字越小，显示越靠前
+     ========================= */
   #assessment-system { order: 1; }
   #motor-pawn { order: 2; }
-  #electronics-pawn { order: 3; }
-  #our-services { order: 4; }
-  #contact-form { order: 5; }
+   #contact-form { order: 3; }
+  #electronics-pawn { order: 4; }
+  #our-services { order: 5; }
   #contact-navigation { order: 6; }
   
   .unified-card {
