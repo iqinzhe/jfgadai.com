@@ -384,7 +384,7 @@ body {
 /* ==================== 贷款信息网格布局 ==================== */
 .balanced-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);  /* 默认3列，适用于电脑和平板 */
+  grid-template-columns: repeat(4, 1fr);  /* 默认3列，适用于电脑和平板 */
   gap: 1.5rem;
   margin: 2rem 0;
   justify-content: center;
