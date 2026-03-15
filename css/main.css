@@ -185,7 +185,7 @@ body {
     rgba(15, 76, 129, 0.4), 
     rgba(245, 197, 66, 0.2));
   border-radius: var(--border-radius-lg);
-  padding: var(--spacing-lg) var(--spacing-md); /* 调整：减小上下左右内边距，原为 var(--spacing-xl) */
+  padding: var(--spacing-lg) var(--spacing-md);
   text-align: center;
   border: 2px solid rgba(245, 197, 66, 0.4);
   box-shadow: 
@@ -219,7 +219,7 @@ body {
   color: var(--secondary-color);
   font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: var(--spacing-xs); /* 调整：减小底部间距，原为 var(--spacing-md) */
+  margin-bottom: var(--spacing-xs); 
   text-shadow: 1px 1px 2px #000;
   line-height: 1.2;
 }
@@ -227,7 +227,7 @@ body {
 .card-desc {
   color: var(--text-light);
   font-size: 1.1rem;
-  margin-bottom: var(--spacing-md); /* 调整：减小底部间距，原为 var(--spacing-lg) */
+  margin-bottom: var(--spacing-md); 
   line-height: 1.2;
 }
 
@@ -253,7 +253,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 0; /* 调整：减小上下内边距，原为 0.6rem */
+  padding: 0.5rem 0; 
   border-bottom: 1px solid rgba(255,255,255,0.1);
   color: var(--text-light);
   font-size: 1rem;
@@ -284,7 +284,7 @@ body {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
   border-radius: var(--border-radius-lg);
-  padding: var(--spacing-md) var(--spacing-sm); /* 调整：减小内边距，原为 var(--spacing-lg) */
+  padding: var(--spacing-md) var(--spacing-sm);
   text-align: center;
   flex: 1;
   min-width: 260px;
@@ -314,7 +314,7 @@ body {
 /* 快速操作图标 */
 .action-icon { 
   font-size: 2.5rem;
-  margin-bottom: var(--spacing-xs); /* 调整：减小底部间距，原为 var(--spacing-sm) */
+  margin-bottom: var(--spacing-xs); 
 }
 
 .action-title { 
@@ -322,12 +322,12 @@ body {
   font-size: 1.4rem;
   font-weight: 700;
   text-shadow: 1px 1px 2px #000;
-  margin-bottom: var(--spacing-xs); /* 调整：减小底部间距，原为 var(--spacing-sm) */
+  margin-bottom: var(--spacing-xs); 
 }
 
 .action-description { 
   color: var(--text-light); 
-  margin-bottom: var(--spacing-sm); /* 调整：减小底部间距，原为 var(--spacing-md) */
+  margin-bottom: var(--spacing-sm); 
   font-size: 1rem; 
   line-height: 1.2;
 }
@@ -480,7 +480,7 @@ body {
 /* 手机响应式 */
 @media (max-width: 768px) {
   .balanced-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1.5fr !important;
   }
 }
 
