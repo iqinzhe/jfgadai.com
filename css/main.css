@@ -425,7 +425,7 @@ body {
 /* 卡片图标 */
 .grid-card .card-icon-large {
   font-size: 2.5rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
   color: var(--secondary-color);
   text-shadow: 0 0 8px rgba(245, 197, 66, 0.4);
 }
