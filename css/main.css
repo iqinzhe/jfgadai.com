@@ -185,7 +185,7 @@ body {
     rgba(15, 76, 129, 0.4), 
     rgba(245, 197, 66, 0.2));
   border-radius: var(--border-radius-lg);
-  padding: var(--spacing-xl);
+  padding: var(--spacing-lg) var(--spacing-md); /* 调整：减小上下左右内边距，原为 var(--spacing-xl) */
   text-align: center;
   border: 2px solid rgba(245, 197, 66, 0.4);
   box-shadow: 
@@ -219,7 +219,7 @@ body {
   color: var(--secondary-color);
   font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-xs); /* 调整：减小底部间距，原为 var(--spacing-md) */
   text-shadow: 1px 1px 2px #000;
   line-height: 1.2;
 }
@@ -227,7 +227,7 @@ body {
 .card-desc {
   color: var(--text-light);
   font-size: 1.1rem;
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md); /* 调整：减小底部间距，原为 var(--spacing-lg) */
   line-height: 1.2;
 }
 
@@ -239,7 +239,7 @@ body {
   background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
   color: var(--dark-color);
   padding: 1rem 2rem;
-  border-radius: 12px;  /* ← 改按钮的圆角大小 */
+  border-radius: 12px;
   text-decoration: none;
   font-weight: 700;
   font-size: 1.15rem;
@@ -253,7 +253,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.6rem 0;
+  padding: 0.4rem 0; /* 调整：减小上下内边距，原为 0.6rem */
   border-bottom: 1px solid rgba(255,255,255,0.1);
   color: var(--text-light);
   font-size: 1rem;
@@ -284,7 +284,7 @@ body {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
   border-radius: var(--border-radius-lg);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-sm); /* 调整：减小内边距，原为 var(--spacing-lg) */
   text-align: center;
   flex: 1;
   min-width: 260px;
@@ -314,7 +314,7 @@ body {
 /* 快速操作图标 */
 .action-icon { 
   font-size: 2.5rem;
-  margin-bottom: var(--spacing-sm); 
+  margin-bottom: var(--spacing-xs); /* 调整：减小底部间距，原为 var(--spacing-sm) */
 }
 
 .action-title { 
@@ -322,12 +322,12 @@ body {
   font-size: 1.4rem;
   font-weight: 700;
   text-shadow: 1px 1px 2px #000;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs); /* 调整：减小底部间距，原为 var(--spacing-sm) */
 }
 
 .action-description { 
   color: var(--text-light); 
-  margin-bottom: var(--spacing-md); 
+  margin-bottom: var(--spacing-sm); /* 调整：减小底部间距，原为 var(--spacing-md) */
   font-size: 1rem; 
   line-height: 1.2;
 }
@@ -391,7 +391,7 @@ body {
 /* ==================== 贷款信息网格布局 (4列卡片) ==================== */
 .balanced-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);  /* 电脑/平板默认4列 */
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   margin: 2rem 0;
   justify-content: center;
@@ -402,7 +402,7 @@ body {
 .grid-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
-  padding: 1.2rem 1rem; 
+  padding: 1rem 0.8rem; /* 调整：减小内边距，原为 1.2rem 1rem */
   border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
@@ -425,7 +425,7 @@ body {
 /* 卡片图标 */
 .grid-card .card-icon-large {
   font-size: 2.5rem;
-  margin-bottom: 0.1rem; 
+  margin-bottom: 0.05rem; /* 调整：减小底部间距，原为 0.1rem */
   color: var(--secondary-color);
   text-shadow: 0 0 5px rgba(245, 197, 66, 0.4);
 }
@@ -435,14 +435,14 @@ body {
   color: var(--secondary-color);
   font-size: 1.4rem;
   font-weight: 600;
-  margin: 0.1rem 0 0.1rem 0; 
+  margin: 0.05rem 0; /* 调整：减小上下边距，原为 0.1rem 0 */
   line-height: 1.2;
 }
 
 /* 卡片正文 */
 .grid-card p {
   color: var(--text-light);
-  margin: 0.1rem 0; 
+  margin: 0.05rem 0; /* 调整：减小上下边距，原为 0.1rem */
   font-size: 1rem;
   line-height: 1.2;
 }
@@ -456,10 +456,10 @@ body {
 .grid-card .warning-box {
   background: rgba(245, 197, 66, 0.15);
   border-radius: 8px;
-  padding: 0.5rem; 5
-  margin-top: 0.5rem;  5
+  padding: 0.4rem; /* 调整：减小内边距，原为 0.5rem */
+  margin-top: 0.4rem; /* 调整：减小上边距，原为 0.5rem */
   display: flex;
-  gap: 0.3rem; 
+  gap: 0.3rem;
   align-items: flex-start;
   border-left: 4px solid var(--secondary-color);
 }
@@ -586,7 +586,7 @@ footer {
 /* ==================== 图库页面网格布局 ==================== */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);  /* 电脑端2列 */
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
@@ -659,18 +659,18 @@ footer {
   }
   
   .grid-card {
-    padding: 1rem 0.9rem;  /* 修改：平板端更紧凑 */
+    padding: 0.9rem 0.7rem; /* 调整：平板端更紧凑，原为 1rem 0.9rem */
     min-height: 160px;
   }
   
   .grid-card h3 {
     font-size: 1.3rem;
-    margin: 0.1rem 0 0.1rem 0;  /* 修改：平板端标题间距 */
+    margin: 0.05rem 0; /* 调整：平板端标题间距减小，原为 0.1rem 0 */
   }
   
   .grid-card p {
     font-size: 0.95rem;
-    margin: 0.1rem 0;  /* 修改：平板端段落间距 */
+    margin: 0.05rem 0; /* 调整：平板端段落间距减小，原为 0.1rem 0 */
   }
 }
 
@@ -726,27 +726,27 @@ footer {
   
   /* 通用卡片手机端紧凑 */
   .unified-card {
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-xs); /* 调整：手机端内边距更小，原为 var(--spacing-md) */
     margin-bottom: 4px;
   }
   
   .card-title {
     font-size: 1.3rem;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 0.2rem; /* 调整：手机端标题底部间距减小，原为 var(--spacing-sm) */
     line-height: 1.0;
   }
   
   .card-desc {
     font-size: 0.95rem;
     line-height: 1.2;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 0.3rem; /* 调整：手机端描述底部间距减小，原为 var(--spacing-sm) */
   }
   
   .card-cta-btn {
-    padding: 0.8rem 1.5rem;
+    padding: 0.6rem 1.2rem; /* 调整：手机端按钮内边距减小，原为 0.8rem 1.5rem */
     font-size: 0.95rem;
     min-width: 180px;
-    margin-top: var(--spacing-sm);
+    margin-top: 0.2rem; /* 调整：手机端按钮上边距减小，原为 var(--spacing-sm) */
   }
   
   /* 快速操作栏手机端纵向 */
@@ -761,27 +761,27 @@ footer {
     width: 100%;
     max-width: 100%;
     margin-bottom: 4px;
-    padding: var(--spacing-md);
+    padding: var(--spacing-xs); /* 调整：手机端内边距减小，原为 var(--spacing-md) */
   }
   
   .action-icon {
     font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem; /* 调整：手机端图标底部间距减小，原为 0.5rem */
   }
   
   .action-title {
     font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem; /* 调整：手机端标题底部间距减小，原为 0.5rem */
   }
   
   .action-description {
     font-size: 0.9rem;
     line-height: 1.2;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 0.3rem; /* 调整：手机端描述底部间距减小，原为 var(--spacing-sm) */
   }
   
   .action-btn {
-    padding: 0.7rem 1.2rem;
+    padding: 0.5rem 1rem; /* 调整：手机端按钮内边距减小，原为 0.7rem 1.2rem */
     font-size: 0.9rem;
     min-width: 160px;
   }
@@ -795,35 +795,35 @@ footer {
   
   .grid-card {
     min-height: auto;
-    padding: 0.9rem 0.8rem;  /* 修改：手机端更紧凑 */
+    padding: 0.7rem 0.6rem; /* 调整：手机端更紧凑，原为 0.9rem 0.8rem */
   }
   
   .grid-card .card-icon-large {
     font-size: 2.2rem;
-    margin-bottom: 0.1rem;  /* 修改：手机端图标底部间距 */
+    margin-bottom: 0.05rem; /* 调整：手机端图标底部间距减小，原为 0.1rem */
   }
   
   .grid-card h3 {
     font-size: 1.2rem;
-    margin: 0.1rem 0 0.1rem 0;  /* 修改：手机端标题间距 */
+    margin: 0.05rem 0; /* 调整：手机端标题间距减小，原为 0.1rem 0 */
   }
   
   .grid-card p {
     font-size: 0.9rem;
-    margin: 0.1rem 0;  /* 修改：手机端段落间距 */
+    margin: 0.05rem 0; /* 调整：手机端段落间距减小，原为 0.1rem 0 */
   }
   
   .grid-card .card-body p {
-    margin: 0.05rem 0 !important;
+    margin: 0.03rem 0 !important; /* 调整：手机端正文段落间距减小，原为 0.05rem 0 */
     font-size: 0.85rem;
     line-height: 1.1 !important;
   }
   
   /* 警告框手机端紧凑 */
   .grid-card .warning-box {
-    padding: 0.5rem;  /* 修改：手机端警告框内边距 */
-    margin-top: 0.4rem;  /* 修改：手机端警告框上边距 */
-    gap: 0.3rem;  /* 修改：手机端警告框间隙 */
+    padding: 0.3rem; /* 调整：手机端警告框内边距减小，原为 0.5rem */
+    margin-top: 0.3rem; /* 调整：手机端警告框上边距减小，原为 0.4rem */
+    gap: 0.2rem; /* 调整：手机端警告框间隙减小，原为 0.3rem */
   }
   
   .grid-card .warning-box p {
