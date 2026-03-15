@@ -717,7 +717,7 @@ footer {
   .asymmetric-grid {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 3px;
     margin: var(--spacing-md) auto;
   }
   
@@ -731,13 +731,13 @@ footer {
   
   /* 通用卡片手机端紧凑 */
   .unified-card {
-    padding: var(--spacing-sm) var(--spacing-xs); /* 调整：手机端内边距更小，原为 var(--spacing-md) */
+    padding: var(--spacing-sm) var(--spacing-md); /* 调整：手机端内边距 */
     margin-bottom: 4px;
   }
   
   .card-title {
     font-size: 1.3rem;
-    margin-bottom: 0.2rem; /* 调整：手机端标题底部间距减小，原为 var(--spacing-sm) */
+    margin-bottom: 0.3rem; /* 调整：手机端标题底部间距减小，原为 var(--spacing-sm) */
     line-height: 1.0;
   }
   
@@ -800,7 +800,7 @@ footer {
   
   .grid-card {
     min-height: auto;
-    padding: 0.7rem 0.6rem; /* 调整：手机端更紧凑，原为 0.9rem 0.8rem */
+    padding: 0.8rem 0.7rem; /* 调整：手机端更紧凑，原为 0.9rem 0.8rem */
   }
   
   .grid-card .card-icon-large {
