@@ -434,7 +434,7 @@ body {
 /* 卡片内容文字 */
 .grid-card p {
   color: var(--text-light);
-  margin: 0.3rem 0;
+  margin: 0.5rem 0;
   font-size: 1rem;
   line-height: 1.8;
 }
@@ -511,7 +511,7 @@ body {
   }
   
   .grid-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-bottom: 0.8rem;
   }
   
