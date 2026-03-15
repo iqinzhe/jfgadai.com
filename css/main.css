@@ -685,10 +685,6 @@ footer {
   .container {
     padding: 0 var(--spacing-md);
   }
-
-    /* 新增：让图库在手机端显示为单列 */
-  .gallery-grid {
-    grid-template-columns: 1fr;
   
   /* 头部导航手机端紧凑布局 */
   .assessment-header .container {
