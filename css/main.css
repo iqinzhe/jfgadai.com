@@ -467,7 +467,7 @@ body {
 .balanced-grid {
   display: grid !important;
   grid-template-columns: repeat(4, 1fr) !important;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
 }
 
 /* 平板响应式 */
@@ -717,7 +717,7 @@ footer {
   .asymmetric-grid {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
     margin: var(--spacing-md) auto;
   }
   
@@ -758,7 +758,7 @@ footer {
   .quick-actions {
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
     margin: var(--spacing-sm) auto;
   }
   
@@ -821,18 +821,6 @@ footer {
   .grid-card .card-body p {
     margin: 0.03rem 0 !important; /* 调整：手机端正文段落间距减小，原为 0.05rem 0 */
     font-size: 0.85rem;
-    line-height: 1.1 !important;
-  }
-  
-  /* 警告框手机端紧凑 */
-  .grid-card .warning-box {
-    padding: 0.3rem; /* 调整：手机端警告框内边距减小，原为 0.5rem */
-    margin-top: 0.3rem; /* 调整：手机端警告框上边距减小，原为 0.4rem */
-    gap: 0.2rem; /* 调整：手机端警告框间隙减小，原为 0.3rem */
-  }
-  
-  .grid-card .warning-box p {
-    font-size: 0.75rem;
     line-height: 1.1 !important;
   }
   
