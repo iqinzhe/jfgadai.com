@@ -159,92 +159,6 @@
       line-height: 1.4;
     }
     
-    /* Tabel Simulasi */
-    .simulation-section {
-      margin: 3rem 0;
-      background: rgba(15, 76, 129, 0.3);
-      border-radius: var(--border-radius-lg);
-      padding: 2.5rem;
-      border: 1px solid rgba(245,197,66,0.3);
-    }
-    
-    .simulation-title {
-      text-align: center;
-      color: var(--secondary-color);
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-    
-    .simulation-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: rgba(0,0,0,0.2);
-      border-radius: var(--border-radius);
-      overflow: hidden;
-    }
-    
-    .simulation-table th {
-      background: rgba(245, 197, 66, 0.2);
-      color: var(--secondary-color);
-      padding: 1rem;
-      font-weight: 600;
-      text-align: center;
-    }
-    
-    .simulation-table td {
-      padding: 1rem;
-      text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      color: var(--text-light);
-    }
-    
-    .simulation-table tr:hover td {
-      background: rgba(255,255,255,0.05);
-    }
-    
-    /* CTA Section */
-    .cta-section {
-      background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
-      border-radius: var(--border-radius-lg);
-      padding: 3rem;
-      text-align: center;
-      margin: 3rem 0;
-    }
-    
-    .cta-section h2 {
-      color: var(--dark-color);
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    
-    .cta-section p {
-      color: var(--dark-color);
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
-    
-    .cta-wa-button {
-      background: var(--dark-color);
-      color: white;
-      padding: 1.2rem 3rem;
-      border-radius: 60px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.2rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 1rem;
-      transition: all 0.3s;
-      border: 2px solid transparent;
-    }
-    
-    .cta-wa-button:hover {
-      background: var(--primary-dark);
-      transform: scale(1.05);
-      border-color: white;
-    }
-    
     /* Responsive */
     @media (max-width: 992px) {
       .info-grid-card {
@@ -261,15 +175,6 @@
       }
       .info-grid-card {
         grid-template-columns: 1fr;
-      }
-      .simulation-section {
-        padding: 1.5rem;
-      }
-      .cta-section {
-        padding: 2rem;
-      }
-      .cta-section h2 {
-        font-size: 1.5rem;
       }
     }
   </style>
@@ -302,7 +207,7 @@
 
   <main class="container">
     
-    <!-- Dua Kolom: Syarat & Prosedur (diletakkan di atas) -->
+    <!-- Dua Kolom: Syarat & Prosedur -->
     <div class="two-column">
       <!-- Syarat Gadai -->
       <div class="column-card">
@@ -383,51 +288,7 @@
       </div>
     </div>
 
-    <!-- Simulasi Pinjaman -->
-    <div class="simulation-section">
-      <h2 class="simulation-title">📊 Simulasi Pinjaman</h2>
-      <div class="table-container">
-        <table class="simulation-table">
-          <thead>
-            <tr>
-              <th>Nilai Emas</th>
-              <th>Pinjaman Maks (95%)</th>
-              <th>Biaya Admin</th>
-              <th>Dana Diterima</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Rp 1.000.000</td>
-              <td>Rp 950.000</td>
-              <td>Rp 15.000</td>
-              <td>Rp 935.000</td>
-            </tr>
-            <tr>
-              <td>Rp 2.500.000</td>
-              <td>Rp 2.375.000</td>
-              <td>Rp 25.000</td>
-              <td>Rp 2.350.000</td>
-            </tr>
-            <tr>
-              <td>Rp 5.000.000</td>
-              <td>Rp 4.750.000</td>
-              <td>Rp 40.000</td>
-              <td>Rp 4.710.000</td>
-            </tr>
-            <tr>
-              <td>Rp 10.000.000</td>
-              <td>Rp 9.500.000</td>
-              <td>Rp 75.000</td>
-              <td>Rp 9.425.000</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="table-note">* Simulasi bersifat indikatif, nilai aktual dapat berbeda sesuai hasil taksiran</p>
-    </div>
-
-    <!-- 4 Poin Utama - Dipindahkan ke bawah (sebelum footer) dan menggunakan grid-card -->
+    <!-- 4 Poin Utama - Menggunakan grid-card dari main.css -->
     <div class="info-grid-card">
       <div class="grid-card">
         <div class="card-icon-large">⚡</div>
@@ -454,15 +315,6 @@
       </div>
     </div>
 
-    <!-- CTA Section -->
-    <div class="cta-section">
-      <h2>Siap Gadai Emas?</h2>
-      <p>Konsultasi gratis via WhatsApp, tim kami siap membantu</p>
-      <a href="https://wa.me/6289515692586" target="_blank" class="cta-wa-button" rel="noopener noreferrer">
-        <img src="/images/logo-wa.png" alt="WA" width="24" height="24">
-        Chat WhatsApp Sekarang
-      </a>
-    </div>
   </main>
 
   <!-- Footer -->
