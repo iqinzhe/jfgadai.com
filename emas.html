@@ -52,9 +52,11 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.jfgadai.com/emas.html">
 
+  <!-- External CSS -->
   <link rel="stylesheet" href="css/main.css">
+  
+  <!-- Minimal inline styles only for page-specific layout -->
   <style>
-    
     .page-header {
       padding: 2.5rem 0;
       margin-bottom: 2rem;
@@ -100,63 +102,12 @@
       position: relative;
     }
     
-    .gold-price-card {
-      background: rgba(245, 197, 66, 0.15);
-      border-radius: 50px;
-      padding: 0.8rem 2rem;
-      display: inline-block;
-      margin: 1.5rem auto 0;
-      border: 1px solid var(--secondary-color);
-      backdrop-filter: blur(5px);
-      font-weight: 600;
-      font-size: 1.2rem;
-    }
-    
-    .gold-price-card span {
-      color: var(--secondary-color);
-      font-size: 1.4rem;
-      margin-left: 0.5rem;
-    }
-    
-    .info-grid {
+    /* Grid untuk 4 poin utama - menggunakan class dari main.css */
+    .info-grid-card {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
       margin: 3rem 0;
-    }
-    
-    .info-card {
-      background: rgba(255, 255, 255, 0.05); /* 与main.css中grid-card保持一致 */
-      border-radius: var(--border-radius);
-      padding: 1.8rem 1.2rem;
-      text-align: center;
-      border: 1px solid rgba(245, 197, 66, 0.2);
-      transition: all 0.3s ease;
-    }
-    
-    .info-card:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.12);
-      border-color: var(--secondary-color);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .info-icon {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-      color: var(--secondary-color);
-    }
-    
-    .info-card h3 {
-      color: var(--secondary-color);
-      font-size: 1.3rem;
-      margin-bottom: 0.8rem;
-    }
-    
-    .info-card p {
-      color: var(--text-light);
-      font-size: 0.95rem;
-      line-height: 1.4;
     }
     
     /* Dua Kolom */
@@ -224,11 +175,6 @@
       margin-bottom: 2rem;
     }
     
-    .table-container {
-      overflow-x: auto;
-      margin: 2rem 0;
-    }
-    
     .simulation-table {
       width: 100%;
       border-collapse: collapse;
@@ -254,100 +200,6 @@
     
     .simulation-table tr:hover td {
       background: rgba(255,255,255,0.05);
-    }
-    
-    .table-note {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-top: 1rem;
-    }
-    
-    /* Keuntungan & Kerugian */
-    .pros-cons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-    
-    .pros-box {
-      background: rgba(76, 175, 80, 0.1);
-      border-radius: var(--border-radius-lg);
-      padding: 2rem;
-      border-left: 5px solid #4CAF50;
-    }
-    
-    .cons-box {
-      background: rgba(255, 87, 87, 0.1);
-      border-radius: var(--border-radius-lg);
-      padding: 2rem;
-      border-left: 5px solid #ff5757;
-    }
-    
-    .pros-cons-title {
-      font-size: 1.6rem;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      color: var(--light-color);
-    }
-    
-    .pros-cons-item {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      align-items: flex-start;
-      color: var(--text-light);
-    }
-    
-    .pros-icon { color: #4CAF50; font-size: 1.3rem; }
-    .cons-icon { color: #ff5757; font-size: 1.3rem; }
-    
-    /* FAQ */
-    .faq-container {
-      margin: 3rem 0;
-    }
-    
-    .faq-item {
-      background: rgba(255,255,255,0.03);
-      border-radius: var(--border-radius);
-      margin-bottom: 1rem;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    
-    .faq-question {
-      padding: 1.2rem 1.5rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 600;
-      color: var(--secondary-color);
-      font-size: 1.1rem;
-    }
-    
-    .faq-question::after {
-      content: "▼";
-      font-size: 0.8rem;
-      transition: transform 0.3s;
-      color: var(--secondary-color);
-    }
-    
-    .faq-item.active .faq-question::after {
-      transform: rotate(180deg);
-    }
-    
-    .faq-answer {
-      display: none;
-      padding: 0 1.5rem 1.2rem 1.5rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-    
-    .faq-item.active .faq-answer {
-      display: block;
     }
     
     /* CTA Section */
@@ -395,10 +247,9 @@
     
     /* Responsive */
     @media (max-width: 992px) {
-      .info-grid {
+      .info-grid-card {
         grid-template-columns: repeat(2, 1fr);
       }
-      
       .two-column {
         grid-template-columns: 1fr;
       }
@@ -408,24 +259,15 @@
       .page-header h1 {
         font-size: 1.8rem;
       }
-      
-      .info-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-      
-      .pros-cons {
+      .info-grid-card {
         grid-template-columns: 1fr;
       }
-      
       .simulation-section {
         padding: 1.5rem;
       }
-      
       .cta-section {
         padding: 2rem;
       }
-      
       .cta-section h2 {
         font-size: 1.5rem;
       }
@@ -445,47 +287,22 @@
         <img src="/images/logo-jf.png" alt="JF Gadai" class="logo-image">
         <strong><span class="arrow">←</span> Kembali ke Beranda</strong>
       </a>
-    <a href="/motor.html" class="nav-forward">
-      <strong>Gadai Motor <span class="arrow">→</span></strong>
-      <img src="/images/logo-motor.png" alt="Gadai Motor" class="nav-icon">
-    </a>
+      <a href="/motor.html" class="nav-forward">
+        <strong>Gadai Motor <span class="arrow">→</span></strong>
+        <img src="/images/logo-motor.png" alt="Gadai Motor" class="nav-icon">
+      </a>
     </div>
   </header>
 
   <!-- Page Header -->
   <div class="page-header">
-      <h1>🥇 Panduan Lengkap Gadai Emas</h1>
-      <p>Solusi dana cepat dengan jaminan emas - proses mudah, biaya transparan, aman dan terpercaya</p>
-    </div>
+    <h1>🥇 Panduan Lengkap Gadai Emas</h1>
+    <p>Solusi dana cepat dengan jaminan emas - proses mudah, biaya transparan, aman dan terpercaya</p>
   </div>
 
   <main class="container">
     
-    <!-- Info Grid: 4 Poin Utama -->
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="info-icon">⚡</div>
-        <h3>Proses Cepat</h3>
-        <p>Dana cair kurang dari 30 menit setelah survei dan kesepakatan</p>
-      </div>
-      <div class="info-card">
-        <div class="info-icon">📋</div>
-        <h3>Syarat Mudah</h3>
-        <p>Cukup KTP dan emas (batangan/perhiasan), tanpa BI checking</p>
-      </div>
-      <div class="info-card">
-        <div class="info-icon">💰</div>
-        <h3>Pinjaman Tinggi</h3>
-        <p>Hingga 95% dari nilai taksiran emas Anda</p>
-      </div>
-      <div class="info-card">
-        <div class="info-icon">🔒</div>
-        <h3>Aman & Terpercaya</h3>
-        <p>Emas disimpan di brankas dengan asuransi perlindungan penuh</p>
-      </div>
-    </div>
-
-    <!-- Dua Kolom: Syarat & Prosedur -->
+    <!-- Dua Kolom: Syarat & Prosedur (diletakkan di atas) -->
     <div class="two-column">
       <!-- Syarat Gadai -->
       <div class="column-card">
@@ -528,7 +345,7 @@
         </p>
       </div>
       
-      <!-- Prosedur Gadai - 4 Langkah -->
+      <!-- Prosedur Gadai -->
       <div class="column-card">
         <h2 class="column-title">📋 Prosedur Gadai</h2>
         
@@ -536,7 +353,7 @@
           <div class="list-icon">1️⃣</div>
           <div class="list-content">
             <h4>Datang & Isi Formulir</h4>
-            <p>Kunjungi cabang JF Gadai terdekat (Bangil, Beji, atau Gempol) dan lengkapi formulir data diri serta informasi emas yang akan digadaikan</p>
+            <p>Kunjungi cabang JF Gadai terdekat (Bangil, Beji, atau Gempol) dan lengkapi formulir</p>
           </div>
         </div>
         
@@ -544,7 +361,7 @@
           <div class="list-icon">2️⃣</div>
           <div class="list-content">
             <h4>Penaksiran Emas</h4>
-            <p>Petugas melakukan penimbangan dan uji kadar emas (karatase) untuk menentukan nilai taksiran</p>
+            <p>Petugas melakukan penimbangan dan uji kadar emas untuk menentukan nilai taksiran</p>
           </div>
         </div>
         
@@ -552,7 +369,7 @@
           <div class="list-icon">3️⃣</div>
           <div class="list-content">
             <h4>Konfirmasi & Penandatanganan</h4>
-            <p>Petugas menawarkan nilai pinjaman berdasarkan hasil taksiran, kemudian tanda tangani Surat Bukti Gadai (SBG)</p>
+            <p>Setuju nilai pinjaman, tanda tangani Surat Bukti Gadai (SBG)</p>
           </div>
         </div>
         
@@ -560,12 +377,92 @@
           <div class="list-icon">4️⃣</div>
           <div class="list-content">
             <h4>Pencairan Dana</h4>
-            <p>Dana langsung cair melalui transfer atau tunai, siap digunakan untuk kebutuhan Anda</p>
+            <p>Dana langsung cair melalui transfer atau tunai</p>
           </div>
         </div>
       </div>
     </div>
-    
+
+    <!-- Simulasi Pinjaman -->
+    <div class="simulation-section">
+      <h2 class="simulation-title">📊 Simulasi Pinjaman</h2>
+      <div class="table-container">
+        <table class="simulation-table">
+          <thead>
+            <tr>
+              <th>Nilai Emas</th>
+              <th>Pinjaman Maks (95%)</th>
+              <th>Biaya Admin</th>
+              <th>Dana Diterima</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Rp 1.000.000</td>
+              <td>Rp 950.000</td>
+              <td>Rp 15.000</td>
+              <td>Rp 935.000</td>
+            </tr>
+            <tr>
+              <td>Rp 2.500.000</td>
+              <td>Rp 2.375.000</td>
+              <td>Rp 25.000</td>
+              <td>Rp 2.350.000</td>
+            </tr>
+            <tr>
+              <td>Rp 5.000.000</td>
+              <td>Rp 4.750.000</td>
+              <td>Rp 40.000</td>
+              <td>Rp 4.710.000</td>
+            </tr>
+            <tr>
+              <td>Rp 10.000.000</td>
+              <td>Rp 9.500.000</td>
+              <td>Rp 75.000</td>
+              <td>Rp 9.425.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">* Simulasi bersifat indikatif, nilai aktual dapat berbeda sesuai hasil taksiran</p>
+    </div>
+
+    <!-- 4 Poin Utama - Dipindahkan ke bawah (sebelum footer) dan menggunakan grid-card -->
+    <div class="info-grid-card">
+      <div class="grid-card">
+        <div class="card-icon-large">⚡</div>
+        <h3>Proses Cepat</h3>
+        <p>Dana cair kurang dari 30 menit setelah survei dan kesepakatan</p>
+      </div>
+      
+      <div class="grid-card">
+        <div class="card-icon-large">📋</div>
+        <h3>Syarat Mudah</h3>
+        <p>Cukup KTP dan emas (batangan/perhiasan), tanpa BI checking</p>
+      </div>
+      
+      <div class="grid-card">
+        <div class="card-icon-large">💰</div>
+        <h3>Pinjaman Tinggi</h3>
+        <p>Hingga 95% dari nilai taksiran emas Anda</p>
+      </div>
+      
+      <div class="grid-card">
+        <div class="card-icon-large">🔒</div>
+        <h3>Aman & Terpercaya</h3>
+        <p>Emas disimpan di brankas dengan asuransi perlindungan penuh</p>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+      <h2>Siap Gadai Emas?</h2>
+      <p>Konsultasi gratis via WhatsApp, tim kami siap membantu</p>
+      <a href="https://wa.me/6289515692586" target="_blank" class="cta-wa-button" rel="noopener noreferrer">
+        <img src="/images/logo-wa.png" alt="WA" width="24" height="24">
+        Chat WhatsApp Sekarang
+      </a>
+    </div>
   </main>
 
   <!-- Footer -->
@@ -573,51 +470,21 @@
     <div class="container">
       <div class="footer-content">
         <p class="copyright">© 2026 <span class="highlight">JF Gadai</span></p>
-        <p class="company-info">Melayani areaBangil • Beji • Gempol</p>
-        <a href="https://wa.me/6289515692586" 
-           target="_blank" 
-           class="card-cta-btn wa-btn"
-           rel="noopener noreferrer">
-          <img src="/images/logo-wa.png" alt="WA" width="20" height="20">
-          WA: +62 895-1569-2586
-        </a>
-        <p class="operating-hours">⏰ Jam kerja Mo-Fr 08:00-18:00 | Senin-Sabtu</p>
+        <p class="company-info">Melayani area Bangil • Beji • Gempol</p>
+        <div class="contact-info">
+          <a href="https://wa.me/6289515692586" target="_blank" class="contact-link" rel="noopener noreferrer">
+            <img src="/images/logo-wa.png" alt="WA" width="18" height="18">
+            +62 895-1569-2586
+          </a>
+        </div>
+        <p class="operating-hours">⏰ Jam kerja: Senin-Sabtu 08:00-18:00</p>
         <p class="security-note">🔒 Situs ini menggunakan koneksi aman (HTTPS)</p>
       </div>
     </div>
   </footer>
   
-  <!-- JavaScript untuk FAQ - Fixed version -->
-  <script>
-    // Wait for DOM to be fully loaded
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get all FAQ items
-      const faqItems = document.querySelectorAll('.faq-item');
-      
-      // Add click event to each FAQ item
-      faqItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-          // Toggle active class on the clicked item
-          this.classList.toggle('active');
-        });
-      });
-      
-      // Optional: Open first FAQ item by default
-      if (faqItems.length > 0) {
-        faqItems[0].classList.add('active');
-      }
-    });
-  </script>
-  
+  <!-- JavaScript -->
   <script src="js/main.js"></script>
-  <script src="js/contact.js"></script> 
-  
-</body>
-</html>
-
-  
-  <script src="js/main.js"></script>
-<script src="js/contact.js"></script> 
-  
+  <script src="js/contact.js"></script>
 </body>
 </html>
