@@ -217,7 +217,7 @@ body {
   background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
   color: var(--dark-color);
   padding: 1rem 2rem;
-  border-radius: 20px;  //* ← 改按钮的圆角大小 *//
+  border-radius: 12px;  //* ← 改按钮的圆角大小 *//
   text-decoration: none;
   font-weight: 700;
   font-size: 1.15rem;
