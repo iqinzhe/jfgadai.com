@@ -402,7 +402,7 @@ body {
 .grid-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
-  padding: 0.5rem 0..5rem; /* 调整：减小内边距，原为 1.2rem 1rem */
+  padding: var(--spacing-lg) var(--spacing-md);
   border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
