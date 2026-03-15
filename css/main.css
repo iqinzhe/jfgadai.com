@@ -384,7 +384,7 @@ body {
 /* ==================== 贷款信息网格布局 ==================== */
 .balanced-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);  /* 默认3列，适用于电脑和平板 */
+  grid-template-columns: repeat(4, 1fr);  /* 默认4列，适用于电脑和平板 */
   gap: 1.5rem;
   margin: 2rem 0;
   justify-content: center;
@@ -436,7 +436,7 @@ body {
   color: var(--text-light);
   margin: 0.3rem 0;
   font-size: 1rem;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .grid-card p strong {
@@ -471,7 +471,7 @@ body {
   line-height: 1.3;
 }
 
-/* 平板设备 - 保持3列但调整间距和内边距 */
+/* 平板设备 - 保持4列但调整间距和内边距 */
 @media (max-width: 992px) and (min-width: 769px) {
   .balanced-grid {
     gap: 1.2rem;
