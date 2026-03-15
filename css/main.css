@@ -398,7 +398,7 @@ body {
   align-items: stretch;
 }
 
-/* 贷款信息卡片样式 - 修改：内部间距更紧凑 */
+/* 贷款信息卡片样式 */
 .grid-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
@@ -409,7 +409,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  min-height: 60px;
+  min-height: 45px;
   justify-content: space-between;
   width: 100%;
   height: 100%;
