@@ -68,6 +68,28 @@ body {
 .delay-5 { animation-delay: 0.5s; }
 .delay-6 { animation-delay: 0.6s; }
 
+/* ==================== 全屏横幅样式 ==================== */
+.full-banner {
+  width: 100%;
+  height: 185px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark-color);
+}
+
+.full-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  border-radius: 0;
+  box-shadow: var(--shadow-lg);
+}
+
 /* ==================== 头部导航 ==================== */
 .assessment-header {
   background: rgba(11, 44, 74, 0.95);
@@ -366,28 +388,6 @@ body {
 #motor-pawn { grid-column: 2; grid-row: 2; }
 #contact-navigation { grid-column: 3; grid-row: 2; }
 
-/* ==================== 全屏横幅样式 ==================== */
-.full-banner {
-  width: 100%;
-  height: 185px;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--dark-color);
-}
-
-.full-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  display: block;
-  border-radius: 0;
-  box-shadow: var(--shadow-lg);
-}
-
 /* ==================== 贷款信息网格布局 (4列卡片) ==================== */
 .balanced-grid {
   display: grid;
@@ -425,9 +425,9 @@ body {
 /* 卡片图标 */
 .grid-card .card-icon-large {
   font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
   color: var(--secondary-color);
-  text-shadow: 0 0 8px rgba(245, 197, 66, 0.4);
+  text-shadow: 0 0 5px rgba(245, 197, 66, 0.4);
 }
 
 /* 卡片标题 */
@@ -435,8 +435,8 @@ body {
   color: var(--secondary-color);
   font-size: 1.4rem;
   font-weight: 600;
-  margin-bottom: 1rem;
-  line-height: 1;
+  margin-bottom: 0.2rem;
+  line-height: 0.5;
 }
 
 /* 卡片正文 */
@@ -444,7 +444,7 @@ body {
   color: var(--text-light);
   margin: 0.5rem 0;
   font-size: 1rem;
-  line-height: 1.2;
+  line-height: 1;
 }
 
 .grid-card p strong {
