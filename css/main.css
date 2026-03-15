@@ -409,7 +409,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  min-height: 120px;  /* 统一最小高度 */
+  min-height: 100px;  /* 统一最小高度 */
   justify-content: space-between;
   width: 100%;
   height: 100%;
