@@ -728,6 +728,10 @@ footer {
   #electronics-pawn { order: 4; }
   #our-services { order: 5; }
   #contact-navigation { order: 6; }
+
+    /* ===== 图库页面手机端单列显示 ===== */
+  .gallery-grid {
+    grid-template-columns: 1fr;
   
   /* 通用卡片手机端紧凑 */
   .unified-card {
