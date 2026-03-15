@@ -1,3 +1,4 @@
+
 /* ==================== 基础样式 ==================== */
 * { 
   margin: 0; 
@@ -392,8 +393,8 @@ body {
 .balanced-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);  /* 电脑/平板默认4列 */
-  gap: 1.2rem;  /* 减小卡片之间的间距 */
-  margin: 1.5rem 0;  /* 减小上下边距 */
+  gap: 1.5rem;
+  margin: 2rem 0;
   justify-content: center;
   align-items: stretch;
 }
@@ -402,14 +403,14 @@ body {
 .grid-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
-  padding: 1.2rem 1rem;  /* 减小内边距，从1.8rem 1.5rem调整为1.2rem 1rem */
+  padding: 1.8rem 1.5rem;
   border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  min-height: 60px;  /* 减小最小高度 */
+  min-height: 80px;  /* 统一最小高度 */
   justify-content: space-between;
   width: 100%;
   height: 100%;
@@ -425,7 +426,7 @@ body {
 /* 卡片图标 */
 .grid-card .card-icon-large {
   font-size: 2.5rem;
-  margin-bottom: 0.1rem;  /* 减小图标底部间距 */
+  margin-bottom: 0.2rem;
   color: var(--secondary-color);
   text-shadow: 0 0 5px rgba(245, 197, 66, 0.4);
 }
@@ -435,16 +436,16 @@ body {
   color: var(--secondary-color);
   font-size: 1.4rem;
   font-weight: 600;
-  margin: 0.1rem 0 0.2rem 0;  /* 调整标题上下间距 */
-  line-height: 1.1;  /* 稍微增加行高使文字更清晰 */
+  margin-bottom: 0.2rem;
+  line-height: 0.5;
 }
 
 /* 卡片正文 */
 .grid-card p {
   color: var(--text-light);
-  margin: 0.15rem 0;  /* 减小段落间距 */
+  margin: 0.5rem 0;
   font-size: 1rem;
-  line-height: 1.2;  /* 稍微增加行高使文字更清晰 */
+  line-height: 1;
 }
 
 .grid-card p strong {
@@ -455,28 +456,28 @@ body {
 /* 卡片内的警告框 */
 .grid-card .warning-box {
   background: rgba(245, 197, 66, 0.15);
-  border-radius: 6px;  /* 稍微减小圆角 */
-  padding: 0.5rem;  /* 减小内边距 */
-  margin-top: 0.5rem;  /* 减小上边距 */
+  border-radius: 8px;
+  padding: 0.8rem;
+  margin-top: 1rem;
   display: flex;
-  gap: 0.4rem;  /* 减小间隙 */
+  gap: 0.5rem;
   align-items: flex-start;
   border-left: 4px solid var(--secondary-color);
 }
 
 .grid-card .warning-icon-small {
-  font-size: 1.1rem;  /* 稍微减小图标大小 */
+  font-size: 1.2rem;
   flex-shrink: 0;
   color: var(--secondary-color);
   margin-top: 0.1rem;
 }
 
 .grid-card .warning-box p {
-  font-size: 0.85rem;  /* 稍微减小字体 */
+  font-size: 0.9rem;
   color: var(--text-light);
   margin: 0;
   text-align: left;
-  line-height: 1.2;
+  line-height: 1.3;
 }
 
 /* ==================== 页脚样式 ==================== */
@@ -625,79 +626,87 @@ footer {
 
 /* ==================== 平板设备响应式 (769px - 1200px) ==================== */
 @media (max-width: 1200px) and (min-width: 769px) {
-  /* ... 其他样式保持不变 ... */
+  /* 六宫格调整为2列布局 */
+  .asymmetric-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 4px 8px;
+  }
+
+  /* 六宫格平板位置重定义 */
+  #assessment-system { grid-column: 1 / span 2; grid-row: 1; }
+  #motor-pawn { grid-column: 1; grid-row: 2; }
+  #electronics-pawn { grid-column: 2; grid-row: 2; }
+  #our-services { grid-column: 1; grid-row: 3; }
+  #contact-navigation { grid-column: 2; grid-row: 3; }
+  
+  /* 快速操作栏平板布局 */
+  .quick-actions { 
+    flex-direction: row; 
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+  
+  .quick-action-card { 
+    flex: 1 1 calc(50% - var(--spacing-md));
+    min-width: 280px;
+    max-width: none;
+  }
   
   /* 贷款信息网格平板调整为2列 */
   .balanced-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;  /* 减小平板端卡片间距 */
+    gap: 1.2rem;
   }
   
   .grid-card {
-    padding: 1rem 0.9rem;  /* 减小平板端内边距 */
-    min-height: 150px;  /* 适当减小高度 */
+    padding: 1.5rem 1.2rem;
+    min-height: 180px;
   }
   
   .grid-card h3 {
-    font-size: 1.25rem;  /* 稍微减小标题字体 */
-    margin: 0.1rem 0 0.15rem 0;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
   }
   
   .grid-card p {
-    font-size: 0.9rem;
-    margin: 0.1rem 0;
+    font-size: 0.95rem;
   }
 }
 
 /* ==================== 手机设备响应式 (≤768px) ==================== */
 @media (max-width: 768px) {
-  /* ... 其他样式保持不变 ... */
-  
-  /* 贷款信息网格手机端改为1列 */
-  .balanced-grid {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;  /* 减小手机端卡片间距 */
-    margin: 1rem 0;  /* 减小手机端上下边距 */
+  /* 容器内边距调整 */
+  .container {
+    padding: 0 var(--spacing-md);
   }
   
-  .grid-card {
-    min-height: auto;
-    padding: 0.8rem 0.8rem;  /* 进一步减小手机端内边距 */
+  /* 头部导航手机端紧凑布局 */
+  .assessment-header .container {
+    padding: 0.2rem 0.2rem;
+    gap: 0.2rem;
   }
   
-  .grid-card .card-body p {
-    margin: 0.05rem 0 !important;
-    font-size: 0.85rem;
-    line-height: 1.0 !important;
+  .back-btn,
+  .nav-forward {
+    padding: 0.2rem 0.2rem;
+    font-size: 0.6rem;
+    gap: 1px;
+    white-space: normal;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
-  .grid-card .card-icon-large {
-    font-size: 2.2rem;
-    margin-bottom: 0.1rem;  /* 减小手机端图标底部间距 */
+  .logo-image,
+  .nav-icon {
+    height: 20px;
   }
   
-  .grid-card h3 {
-    font-size: 1.2rem;
-    margin: 0.1rem 0 0.1rem 0;  /* 减小手机端标题间距 */
+  /* 横幅高度手机端减小 */
+  .full-banner {
+    height: 75px;
   }
-  
-  .grid-card p {
-    font-size: 0.9rem;
-    margin: 0.1rem 0;  /* 减小手机端段落间距 */
-  }
-  
-  /* 警告框手机端紧凑 */
-  .warning-box {
-    padding: 0.4rem;  /* 减小手机端内边距 */
-    margin-top: 0.4rem;  /* 减小手机端上边距 */
-    gap: 0.3rem;
-  }
-  
-  .warning-box p {
-    font-size: 0.75rem;
-    line-height: 1.0 !important;
-  }
-}
   
   /* 六宫格手机端改为纵向排列 */
   .asymmetric-grid {
