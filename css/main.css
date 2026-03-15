@@ -680,7 +680,7 @@ footer {
   font-size: 1.2rem;
   margin-top: var(--spacing-sm);
   padding: 0 var(--spacing-sm);
-  line-height: 1.0;
+  line-height: 1.25;
 }
 
 /* ==================== Gallery 页面增强 ==================== */
