@@ -185,7 +185,7 @@ body {
     rgba(15, 76, 129, 0.4), 
     rgba(245, 197, 66, 0.2));
   border-radius: var(--border-radius-lg);
-  padding: var(--spacing-lg) var(--spacing-ld); /* 调整：减小上下左右内边距，原为 var(--spacing-xl) */
+  padding: var(--spacing-lg) var(--spacing-md); /* 调整：减小上下左右内边距，原为 var(--spacing-xl) */
   text-align: center;
   border: 2px solid rgba(245, 197, 66, 0.4);
   box-shadow: 
