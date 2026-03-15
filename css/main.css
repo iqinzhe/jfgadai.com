@@ -664,12 +664,14 @@ footer {
   border-radius: var(--border-radius);
 }
 
-.gallery-item img{
-width:100%;
-aspect-ratio: 4 / 5;
-object-fit: cover;
-display:block;
-border-radius:8px;
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
 }
 
 .gallery-item figcaption {
@@ -678,45 +680,7 @@ border-radius:8px;
   font-size: 1.2rem;
   margin-top: var(--spacing-sm);
   padding: 0 var(--spacing-sm);
-  line-height: 1.25;
-}
-
-/* ==================== Gallery 页面增强 ==================== */
-
-/* 统一卡片内部布局 */
-.gallery-grid .unified-card{
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-}
-
-/* 图片悬停效果 */
-.gallery-item img{
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.gallery-item:hover img{
-  transform: scale(1.03);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
-}
-
-/* 强化最后一个卡片 */
-.highlight-card{
-  background: linear-gradient(
-    135deg,
-    rgba(15,76,129,0.45),
-    rgba(245,197,66,0.28)
-  );
-}
-
-.highlight-card .card-subtitle{
-  font-size: 1.5rem;
-}
-
-.highlight-card figcaption{
-  font-size: 1.35rem;
-  line-height: 1.6;
-  color: var(--text-light);
+  line-height: 1.0;
 }
 
 /* ==================== 全局响应式 ==================== */
