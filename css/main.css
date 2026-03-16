@@ -1,6 +1,7 @@
 /* =================================================
-JF GADAI - MAIN GLOBAL CSS
-Global layout / header / cards / footer
+JF GADAI - GLOBAL MAIN.CSS
+Shared components for all pages
+Header / Banner / Cards / Footer / Buttons
 ================================================= */
 
 
@@ -15,7 +16,7 @@ ROOT VARIABLES
 --accent:#2e8bc0;
 
 --text-dark:#222;
---text-light:#ffffff;
+--text-light:#fff;
 
 --bg-light:#f5f7fa;
 
@@ -30,7 +31,7 @@ ROOT VARIABLES
 
 
 /* ================================
-BASE
+RESET / BASE
 ================================ */
 
 *{
@@ -40,12 +41,10 @@ padding:0;
 }
 
 body{
-
 font-family:Arial,Helvetica,sans-serif;
 color:var(--text-dark);
 line-height:1.6;
 background:#fff;
-
 }
 
 a{
@@ -64,125 +63,111 @@ CONTAINER
 ================================ */
 
 .container{
-
 max-width:var(--container-width);
 margin:auto;
 padding:0 20px;
-
 }
 
 
 /* ================================
-HEADER / NAV
+HEADER
 ================================ */
 
 .site-header{
-
 background:var(--primary);
 color:white;
 padding:14px 0;
-
 }
 
 .header-inner{
-
 display:flex;
 align-items:center;
 justify-content:space-between;
-
 }
 
 .logo{
-
 display:flex;
 align-items:center;
 gap:10px;
-
 }
 
 .logo img{
 height:36px;
 }
 
-.nav-actions{
 
+/* ================================
+NAVIGATION
+================================ */
+
+.nav-actions{
 display:flex;
 gap:12px;
 align-items:center;
-
 }
 
-
-/* ================================
-NAV BUTTON
-================================ */
-
 .nav-btn{
-
 background:white;
 color:var(--primary);
 padding:8px 14px;
 border-radius:6px;
 font-size:14px;
 font-weight:600;
-
 transition:.2s;
-
 }
 
 .nav-btn:hover{
-
 background:#f1f1f1;
-
 }
 
 
 /* ================================
-HERO BANNER
+FULL WIDTH BANNER
+================================ */
+
+.full-banner img{
+width:100%;
+height:auto;
+display:block;
+}
+
+
+/* ================================
+HERO BANNER (for future pages)
 ================================ */
 
 .hero-banner{
-
 background:linear-gradient(135deg,var(--primary),var(--secondary));
 color:white;
-
 padding:60px 20px;
 text-align:center;
-
 }
 
 .hero-banner h1{
-
 font-size:32px;
 margin-bottom:10px;
-
 }
 
 .hero-banner p{
-
 font-size:18px;
 opacity:0.95;
-
 }
 
 
 /* ================================
-CARD GRID
+HOME GRID (6 SERVICE CARDS)
 ================================ */
 
-.card-grid{
-
+.asymmetric-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
-
+grid-template-columns:repeat(3,1fr);
+gap:24px;
 padding:40px 0;
-
 }
 
 
 /* ================================
-CARD
+CARD COMPONENT
 ================================ */
 
 .unified-card{
@@ -259,15 +244,88 @@ background:var(--accent);
 
 
 /* ================================
+WHATSAPP BUTTON
+================================ */
+
+.wa-btn{
+
+display:inline-flex;
+align-items:center;
+gap:8px;
+
+white-space:nowrap;
+
+background:#25D366;
+color:white;
+
+padding:8px 14px;
+border-radius:6px;
+
+font-weight:600;
+
+}
+
+.wa-btn img{
+
+height:18px;
+
+}
+
+
+/* ================================
+SEO INFO GRID
+================================ */
+
+.balanced-grid{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+
+margin-bottom:40px;
+
+}
+
+.grid-card{
+
+background:white;
+
+padding:20px;
+
+border-radius:var(--radius);
+
+box-shadow:var(--shadow-soft);
+
+text-align:center;
+
+}
+
+.card-icon-large{
+
+font-size:36px;
+margin-bottom:10px;
+
+}
+
+.card-content{
+
+font-size:14px;
+
+}
+
+
+/* ================================
 TRUST BOX
 ================================ */
 
 .trust-box{
 
 background:var(--bg-light);
+
 padding:30px 20px;
 
 text-align:center;
+
 font-size:14px;
 
 }
@@ -315,61 +373,30 @@ text-align:center;
 
 
 /* ================================
-WHATSAPP BUTTON INLINE
-================================ */
-
-.wa-btn{
-
-display:inline-flex;
-align-items:center;
-gap:8px;
-
-background:#25D366;
-color:white;
-
-padding:8px 14px;
-border-radius:6px;
-
-font-weight:600;
-
-}
-
-.wa-btn img{
-
-height:18px;
-
-}
-
-
-/* ================================
 RESPONSIVE
 ================================ */
 
 @media(max-width:768px){
 
+.header-inner{
+flex-direction:column;
+gap:10px;
+}
+
 .hero-banner{
-
 padding:40px 20px;
-
 }
 
 .hero-banner h1{
-
 font-size:24px;
-
 }
 
-.card-grid{
-
-gap:16px;
-
+.asymmetric-grid{
+grid-template-columns:1fr;
 }
 
-.header-inner{
-
-flex-direction:column;
-gap:10px;
-
+.balanced-grid{
+grid-template-columns:1fr;
 }
 
 }
