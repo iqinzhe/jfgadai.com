@@ -659,13 +659,13 @@ footer {
   position: relative;
   overflow: hidden;
   width: auto;
-  min-width: 260px;
+  min-width: 250px;
   font-weight: 500;
 }
 
 .contact-link img {
-  width: 24px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
   object-fit: contain;
 }
 
@@ -741,12 +741,12 @@ footer {
   
   .company-info {
     font-size: 1.0rem;
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.2rem;
     line-height: 1.0;
   }
   
   .contact-link {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     padding: 6px 25px;
     min-width: 350px;
     margin: 0.08rem 0;
