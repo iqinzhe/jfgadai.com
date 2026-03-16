@@ -639,7 +639,7 @@ footer {
   margin: 0.5rem auto;
   padding: 0.4rem 0;
   width: 100%;
-  max-width: 550px;
+  max-width: 500px;
 }
 
 .contact-link {
@@ -748,8 +748,8 @@ footer {
   .contact-link {
     font-size: 1.2rem;
     padding: 6px 25px;
-    min-width: 350px;
-    margin: 0.08rem 0;
+    min-width: 320px;
+    margin: 0.1rem 0;
   }
   
   .operating-hours {
@@ -762,8 +762,8 @@ footer {
   .security-note {
     display: flex !important; /* 确保显示，并覆盖可能的隐藏规则 */
     font-size: 0.8rem;
-    margin: 0.1rem 0;
-    line-height: 1.2;
+    margin: 0.2rem 0;
+    line-height: 1.0;
     color: var(--text-muted);
     opacity: 0.8;
     align-items: center;
@@ -845,7 +845,6 @@ footer {
     gap: 0.15rem;
   }
 }
-
 
 /* ==================== 信任区块模块 ==================== */
 .trust-box {
