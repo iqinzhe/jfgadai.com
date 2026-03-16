@@ -1,243 +1,375 @@
+/* =================================================
+JF GADAI - MAIN GLOBAL CSS
+Global layout / header / cards / footer
+================================================= */
 
-/* =====================================================
-JF Gadai – Professional Structured CSS
-Optimized for GitHub Pages
-Cleaned duplicates, fixed media structure, reduced size
-===================================================== */
 
-/* ================= BASE RESET ================= */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+/* ================================
+ROOT VARIABLES
+================================ */
 
 :root{
-  --primary-color:#0f4c81;
-  --primary-dark:#0c3d67;
-  --secondary-color:#f5c542;
-  --secondary-dark:#e0b339;
-  --light-color:#ffffff;
-  --dark-color:#0b2c4a;
-  --text-light:#e6f3fb;
-  --text-muted:#cfe3f2;
 
-  --radius:14px;
-  --radius-lg:20px;
+--primary:#0c2d48;
+--secondary:#145da0;
+--accent:#2e8bc0;
 
-  --space-xs:0.5rem;
-  --space-sm:0.75rem;
-  --space-md:1rem;
-  --space-lg:1.5rem;
-  --space-xl:2rem;
+--text-dark:#222;
+--text-light:#ffffff;
+
+--bg-light:#f5f7fa;
+
+--radius:8px;
+
+--container-width:1100px;
+
+--shadow-soft:0 4px 12px rgba(0,0,0,0.08);
+--shadow-hover:0 6px 16px rgba(0,0,0,0.12);
+
+}
+
+
+/* ================================
+BASE
+================================ */
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
 body{
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  background:linear-gradient(135deg,#0b2c4a 0%,#0e4b6e 100%) fixed;
-  color:var(--light-color);
-  line-height:1.35;
-  overflow-x:hidden;
-  font-size:1.1rem;
+
+font-family:Arial,Helvetica,sans-serif;
+color:var(--text-dark);
+line-height:1.6;
+background:#fff;
+
 }
 
-/* ================= CONTAINER ================= */
+a{
+text-decoration:none;
+color:inherit;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+
+/* ================================
+CONTAINER
+================================ */
+
 .container{
-  max-width:1200px;
-  margin:auto;
-  padding:0 var(--space-md);
+
+max-width:var(--container-width);
+margin:auto;
+padding:0 20px;
+
 }
 
-/* ================= BANNER ================= */
-.full-banner{
-  width:100%;
-  height:185px;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:var(--dark-color);
+
+/* ================================
+HEADER / NAV
+================================ */
+
+.site-header{
+
+background:var(--primary);
+color:white;
+padding:14px 0;
+
 }
 
-.full-banner img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+.header-inner{
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
 }
 
-/* ================= CARD ================= */
+.logo{
+
+display:flex;
+align-items:center;
+gap:10px;
+
+}
+
+.logo img{
+height:36px;
+}
+
+.nav-actions{
+
+display:flex;
+gap:12px;
+align-items:center;
+
+}
+
+
+/* ================================
+NAV BUTTON
+================================ */
+
+.nav-btn{
+
+background:white;
+color:var(--primary);
+padding:8px 14px;
+border-radius:6px;
+font-size:14px;
+font-weight:600;
+
+transition:.2s;
+
+}
+
+.nav-btn:hover{
+
+background:#f1f1f1;
+
+}
+
+
+/* ================================
+HERO BANNER
+================================ */
+
+.hero-banner{
+
+background:linear-gradient(135deg,var(--primary),var(--secondary));
+color:white;
+
+padding:60px 20px;
+text-align:center;
+
+}
+
+.hero-banner h1{
+
+font-size:32px;
+margin-bottom:10px;
+
+}
+
+.hero-banner p{
+
+font-size:18px;
+opacity:0.95;
+
+}
+
+
+/* ================================
+CARD GRID
+================================ */
+
+.card-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+
+padding:40px 0;
+
+}
+
+
+/* ================================
+CARD
+================================ */
+
 .unified-card{
-  background:linear-gradient(135deg,rgba(15,76,129,.4),rgba(245,197,66,.2));
-  border-radius:var(--radius-lg);
-  padding:var(--space-lg) var(--space-md);
-  text-align:center;
-  border:2px solid rgba(245,197,66,.4);
-  margin:var(--space-md) 0 var(--space-lg);
-  transition:.3s;
+
+background:white;
+border-radius:var(--radius);
+padding:22px;
+
+box-shadow:var(--shadow-soft);
+
+text-align:center;
+
+transition:.25s;
+
 }
 
 .unified-card:hover{
-  transform:translateY(-5px);
+
+transform:translateY(-3px);
+box-shadow:var(--shadow-hover);
+
+}
+
+.card-icon{
+
+font-size:40px;
+margin-bottom:10px;
+
 }
 
 .card-title{
-  color:var(--secondary-color);
-  font-size:1.8rem;
-  font-weight:700;
-  margin-bottom:var(--space-xs);
+
+font-size:18px;
+font-weight:bold;
+margin-bottom:6px;
+
 }
 
 .card-desc{
-  color:var(--text-light);
-  font-size:1.1rem;
-  margin-bottom:var(--space-md);
+
+font-size:14px;
+color:#555;
+margin-bottom:14px;
+
 }
+
+
+/* ================================
+BUTTON
+================================ */
 
 .card-cta-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:.6rem;
-  background:linear-gradient(135deg,var(--secondary-color),var(--secondary-dark));
-  color:var(--dark-color);
-  padding:.9rem 1.8rem;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:700;
-  font-size:1.1rem;
+
+display:inline-block;
+
+background:var(--secondary);
+color:white;
+
+padding:10px 16px;
+border-radius:6px;
+
+font-size:14px;
+font-weight:600;
+
+transition:.2s;
+
 }
 
-/* ================= GRID ================= */
-.asymmetric-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin:var(--space-xl) auto;
+.card-cta-btn:hover{
+
+background:var(--accent);
+
 }
 
-/* ================= LOAN INFO GRID ================= */
-.balanced-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:var(--space-md);
+
+/* ================================
+TRUST BOX
+================================ */
+
+.trust-box{
+
+background:var(--bg-light);
+padding:30px 20px;
+
+text-align:center;
+font-size:14px;
+
 }
 
-.grid-card{
-  background:rgba(255,255,255,.08);
-  border-radius:var(--radius);
-  padding:var(--space-sm);
-  border:1px solid rgba(255,255,255,.15);
-  text-align:center;
-}
 
-/* ================= FOOTER ================= */
+/* ================================
+FOOTER
+================================ */
+
 footer{
-  background:rgba(11,44,74,.9);
-  margin-top:var(--space-md);
-  padding:var(--space-md) 0;
-  border-top:2px solid var(--secondary-color);
+
+background:#0a1e2e;
+color:#ddd;
+
+padding:30px 20px;
+font-size:14px;
+
 }
 
-.footer-content{
-  text-align:center;
-  max-width:700px;
-  margin:auto;
+.footer-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+
 }
 
-.company-info{
-  color:var(--text-muted);
-  margin-bottom:.6rem;
+.footer-title{
+
+font-weight:bold;
+margin-bottom:8px;
+
+color:white;
+
 }
 
-.operating-hours,
-.security-note{
-  font-size:.8rem;
-  color:var(--text-muted);
+.footer-small{
+
+margin-top:18px;
+font-size:12px;
+opacity:0.7;
+text-align:center;
+
 }
 
-/* ================= WA BUTTON ================= */
-footer .wa-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  padding:.45rem 1.2rem;
-  margin:.3rem auto;
-  white-space:nowrap;
+
+/* ================================
+WHATSAPP BUTTON INLINE
+================================ */
+
+.wa-btn{
+
+display:inline-flex;
+align-items:center;
+gap:8px;
+
+background:#25D366;
+color:white;
+
+padding:8px 14px;
+border-radius:6px;
+
+font-weight:600;
+
 }
 
-footer .wa-btn img{
-  width:18px;
-  height:18px;
+.wa-btn img{
+
+height:18px;
+
 }
 
-/* =================================================
+
+/* ================================
 RESPONSIVE
-================================================= */
+================================ */
 
-/* ===== TABLET ===== */
-@media (max-width:1200px){
+@media(max-width:768px){
 
-  .asymmetric-grid{
-    grid-template-columns:1fr 1fr;
-  }
+.hero-banner{
 
-  .balanced-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+padding:40px 20px;
 
 }
 
-/* ===== MOBILE ===== */
-@media (max-width:768px){
+.hero-banner h1{
 
-  .full-banner{
-    height:75px;
-  }
-
-  .asymmetric-grid{
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-  }
-
-  .balanced-grid{
-    grid-template-columns:1fr;
-  }
-
-  .unified-card{
-    padding:var(--space-sm) var(--space-md);
-  }
-
-  .card-title{
-    font-size:1.3rem;
-  }
-
-  .card-desc{
-    font-size:.95rem;
-  }
-
-  .card-cta-btn{
-    padding:.6rem 1.2rem;
-    font-size:.95rem;
-  }
-
-  footer .wa-btn{
-    font-size:.9rem;
-  }
-
-  .operating-hours,
-  .security-note{
-    font-size:.7rem;
-  }
+font-size:24px;
 
 }
 
-/* ===== SMALL PHONE ===== */
-@media (max-width:480px){
+.card-grid{
 
-  .container{
-    padding:0 .8rem;
-  }
+gap:16px;
+
+}
+
+.header-inner{
+
+flex-direction:column;
+gap:10px;
+
+}
 
 }
