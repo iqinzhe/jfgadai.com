@@ -613,7 +613,6 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-sm);
 }
 
 .copyright {
@@ -772,111 +771,103 @@ footer {
   }
 }
 
-/* ==================== 手机设备优化 ==================== */
+/* ==================== 手机端页脚优化 ==================== */
 @media (max-width: 768px) {
   footer {
-    padding: var(--spacing-sm) 0; /* 减小上下内边距 */
+    padding: 0.5rem 0; /* 大幅减小上下内边距 */
   }
   
   .footer-content {
-    gap: 0.2rem; /* 大幅减小元素间距 */
-    padding: 0 0.75rem; /* 稍微减小左右内边距 */
+    gap: 0.15rem; /* 极小间距 */
+    padding: 0 0.5rem;
   }
   
   .copyright {
-    font-size: 0.9rem; /* 减小字体 */
-    margin-bottom: 0.1rem;
-    line-height: 1.2; /* 减小行高 */
+    font-size: 0.8rem; /* 减小字体 */
+    margin-bottom: 0;
+    line-height: 1.1;
   }
   
   .company-info {
-    font-size: 0.8rem; /* 减小字体 */
-    margin-bottom: 0.15rem;
-    line-height: 1.2;
-    padding: 0 0.25rem;
+    font-size: 0.7rem; /* 减小字体 */
+    margin-bottom: 0.1rem;
+    line-height: 1.1;
+    padding: 0 0.2rem;
   }
   
   .contact-info {
-    margin: 0.1rem auto; /* 减小上下边距 */
-    padding: 0.1rem 0;
+    margin: 0.1rem auto;
+    padding: 0;
   }
   
   .contact-link {
-    padding: 6px 12px; /* 大幅减小按钮内边距 */
-    font-size: 0.8rem; /* 减小字体 */
-    min-width: 160px; /* 减小最小宽度 */
-    gap: 0.3rem;
-    border-radius: 6px; /* 稍微减小圆角 */
+    padding: 4px 10px; /* 极小内边距 */
+    font-size: 0.7rem; /* 减小字体 */
+    min-width: 140px; /* 减小最小宽度 */
+    gap: 0.2rem;
+    border-radius: 4px;
   }
   
   .contact-link img {
-    width: 16px; /* 减小图标尺寸 */
-    height: 16px;
+    width: 14px; /* 减小图标 */
+    height: 14px;
   }
   
   .operating-hours {
-    font-size: 0.65rem; /* 大幅减小字体 */
-    line-height: 1.1; /* 减小行高 */
+    font-size: 0.55rem; /* 极小字体 */
+    line-height: 1;
     margin: 0.1rem 0;
-    padding: 0.2rem 0; /* 减小上下内边距 */
-    border-top: 1px dashed rgba(255, 255, 255, 0.1);
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-    width: 95%;
-    max-width: 300px; /* 限制最大宽度 */
+    padding: 0.15rem 0;
+    border-top: 0.5px dashed rgba(255, 255, 255, 0.15);
+    border-bottom: 0.5px dashed rgba(255, 255, 255, 0.15);
+    max-width: 280px;
   }
   
   .security-note {
-    font-size: 0.6rem; /* 大幅减小字体 */
-    line-height: 1.1;
-    margin: 0.1rem 0;
-    gap: 0.2rem;
-  }
-  
-  /* 移除不必要的边框和间距 */
-  .operating-hours {
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-width: 0.5px; /* 更细的边框 */
+    font-size: 0.5rem; /* 极小字体 */
+    line-height: 1;
+    margin: 0.05rem 0;
+    gap: 0.15rem;
   }
 }
 
 /* 小屏手机进一步优化 */
 @media (max-width: 480px) {
   footer {
-    padding: 0.4rem 0; /* 进一步减小内边距 */
+    padding: 0.3rem 0;
   }
   
   .footer-content {
-    gap: 0.15rem;
+    gap: 0.1rem;
   }
   
   .copyright {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
   
   .company-info {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
   }
   
   .contact-link {
-    padding: 5px 10px;
-    font-size: 0.75rem;
-    min-width: 140px;
+    padding: 3px 8px;
+    font-size: 0.65rem;
+    min-width: 130px;
   }
   
   .contact-link img {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
   }
   
   .operating-hours {
-    font-size: 0.6rem;
-    padding: 0.15rem 0;
-    max-width: 280px;
+    font-size: 0.5rem;
+    padding: 0.1rem 0;
+    max-width: 250px;
   }
   
   .security-note {
-    font-size: 0.55rem;
+    font-size: 0.45rem;
   }
 }
 
