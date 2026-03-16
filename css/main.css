@@ -764,6 +764,92 @@ box-shadow:0 0 0 0 rgba(37,211,102,0);
 
 }
 
+/* ================= Floating WhatsApp ================= */
+
+.floating-wa{
+
+position:fixed;
+
+right:20px;
+bottom:20px;
+
+width:60px;
+height:60px;
+
+background:#25D366;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+box-shadow:0 6px 18px rgba(0,0,0,0.25);
+
+z-index:9999;
+
+transition:transform .25s ease;
+
+animation:waFloat 3s infinite;
+
+}
+
+.floating-wa img{
+
+width:32px;
+height:32px;
+
+}
+
+/* hover效果 */
+
+.floating-wa:hover{
+
+transform:scale(1.1);
+
+}
+
+/* 呼吸动画 */
+
+@keyframes waFloat{
+
+0%{
+box-shadow:0 0 0 0 rgba(37,211,102,0.5);
+}
+
+70%{
+box-shadow:0 0 0 12px rgba(37,211,102,0);
+}
+
+100%{
+box-shadow:0 0 0 0 rgba(37,211,102,0);
+}
+
+}
+
+/* 手机端稍大 */
+
+@media (max-width:768px){
+
+.floating-wa{
+
+width:65px;
+height:65px;
+
+right:16px;
+bottom:16px;
+
+}
+
+.floating-wa img{
+
+width:34px;
+height:34px;
+
+}
+
+}
+
 /* ==================== 信任区块模块 ==================== */
 .trust-box {
   margin: 1.5rem 0 1rem;
