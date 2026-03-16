@@ -12,6 +12,7 @@
 content="Hubungi JF Gadai untuk konsultasi gadai motor, emas, HP, laptop, dan barang elektronik. Tersedia peluang kemitraan bisnis gadai dengan sistem profesional.">
 
 <link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/contact.css">
 
 <style>
 
@@ -307,11 +308,8 @@ class="card-cta-btn wa-btn">
 width="20"
 height="20"
 style="vertical-align:middle;margin-right:6px">
-
 WA: +62 895-1569-2586
-
 </a>
-
 <p class="operating-hours">
 ⏰ Jam kerja:Mo-Fr 08:00-18:00 | Libur Sabtu & Minggu
 </p>
@@ -321,88 +319,10 @@ WA: +62 895-1569-2586
 </p>
 
 </div>
-
 </div>
-
 </footer>
 
-
-
-<!-- ================= JS ================= -->
-
-<script>
-
-const adminPhone = "6289515692586";
-
-function buildWA(message){
-return `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
-}
-
-
-
-/* ================= KONSULTASI GADAI ================= */
-
-document.getElementById("pawnForm").addEventListener("submit",function(e){
-
-e.preventDefault();
-
-const name = pawnName.value;
-const phone = pawnPhone.value;
-const item = pawnItem.value;
-const desc = pawnDesc.value;
-const msg = pawnMsg.value;
-
-const message =
-`Halo JF Gadai, saya ingin konsultasi gadai.
-
-Nama: ${name}
-WA: ${phone}
-
-Barang: ${item}
-
-Deskripsi:
-${desc}
-
-Pesan Tambahan:
-${msg}
-
-Mohon info taksiran pinjaman.`;
-
-window.open(buildWA(message),"_blank");
-
-});
-
-
-
-/* ================= KEMITRAAN ================= */
-
-document.getElementById("franchiseForm").addEventListener("submit",function(e){
-
-e.preventDefault();
-
-const name = franchiseName.value;
-const phone = franchisePhone.value;
-const city = franchiseCity.value;
-const invest = franchiseInvest.value;
-const msg = franchiseMsg.value;
-
-const message =
-`Halo JF Gadai, saya tertarik kemitraan bisnis.
-
-Nama: ${name}
-WA: ${phone}
-Kota: ${city}
-
-Rencana Investasi: ${invest}
-
-Pesan:
-${msg}`;
-
-window.open(buildWA(message),"_blank");
-
-});
-
-</script>
+<script src="/js/contact.js"></script>
 
 </body>
 </html>
