@@ -800,7 +800,7 @@ footer {
   .copyright {
     font-size: 0.8rem; /* 减小字体 */
     margin-bottom: 0;
-    line-height: 1.1;
+    line-height: 1.0;
   }
   
   .company-info {
@@ -811,21 +811,21 @@ footer {
   }
   
   .contact-info {
-    margin: 0.1rem auto;
+    margin: 0.2rem auto;
     padding: 0;
   }
   
   .contact-link {
     padding: 4px 10px; /* 极小内边距 */
-    font-size: 0.7rem; /* 减小字体 */
-    min-width: 140px; /* 减小最小宽度 */
+    font-size: 0.8rem; /* 减小字体 */
+    min-width: 150px; /* 减小最小宽度 */
     gap: 0.2rem;
     border-radius: 4px;
   }
   
   .contact-link img {
-    width: 14px; /* 减小图标 */
-    height: 14px;
+    width: 15px; /* 减小图标 */
+    height: 15px;
   }
   
   .operating-hours {
