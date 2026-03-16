@@ -130,17 +130,5 @@ console.log("JF Gadai main.js loaded");
 /* =========================================
 AUTO COPYRIGHT YEAR
 ========================================= */
-
-document.addEventListener("DOMContentLoaded", function(){
-
-    const yearElement = document.getElementById("copyright-year");
-
-    if(yearElement){
-
-        const currentYear = new Date().getFullYear();
-
-        yearElement.textContent = currentYear;
-
-    }
-
-});
+// 自动更新年份
+document.getElementById('year').textContent = new Date().getFullYear();
