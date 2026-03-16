@@ -629,7 +629,7 @@ footer{
 
 /* 公司信息 */
 .company-info{
-  font-size:1rem;
+  font-size:0.9rem;
   color:var(--text-muted);
   max-width:600px;
 }
@@ -675,21 +675,21 @@ footer{
 
 /* 营业时间 */
 .operating-hours{
-  font-size:.9rem;
+  font-size:0.8rem;
   color:var(--text-muted);
   line-height:1.4;
 
   border-top:1px dashed rgba(255,255,255,0.15);
   border-bottom:1px dashed rgba(255,255,255,0.15);
 
-  padding:6px 0;
-  margin:4px 0;
+  padding:4px 0;
+  margin:2px 0;
   max-width:500px;
 }
 
 /* 安全提示 */
 .security-note{
-  font-size:.8rem;
+  font-size:0.7rem;
   color:var(--text-muted);
   opacity:.8;
 
