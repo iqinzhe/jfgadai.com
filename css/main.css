@@ -726,7 +726,7 @@ footer {
 /* 桌面端特定样式 */
 @media (min-width: 1201px) {
   footer {
-    padding: var(--spacing-xg) 0;
+    padding: var(--spacing-xl) 0;
   }
   
   .footer-content {
