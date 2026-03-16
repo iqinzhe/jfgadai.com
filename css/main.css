@@ -739,7 +739,7 @@ footer {
   
   .company-info {
     font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.05rem;
   }
   
   .contact-link {
@@ -749,12 +749,12 @@ footer {
   }
   
   .operating-hours {
-    font-size: 1rem;
-    padding: 0.2rem 0;
+    font-size: 0.9rem;
+    padding: 0.05rem 0;
   }
   
   .security-note {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -820,7 +820,7 @@ footer {
     padding: 0.15rem 0;
     border-top: 0.5px dashed rgba(255, 255, 255, 0.15);
     border-bottom: 0.5px dashed rgba(255, 255, 255, 0.15);
-    max-width: 280px;
+    max-width: 350px;
   }
   
   .security-note {
