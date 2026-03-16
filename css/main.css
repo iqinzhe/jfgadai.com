@@ -485,6 +485,14 @@ body {
 }
 
 /* ==================== 页脚样式 ==================== */
+:root {
+  --spacing-md: 2rem;
+  --spacing-sm: 1rem;
+  --secondary-color: #ffd700;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --text-light: #ffffff;
+}
+
 footer {
   background: rgba(11, 44, 74, 0.9);
   margin-top: var(--spacing-md);
@@ -503,11 +511,7 @@ footer {
   font-size: 1.15rem;
   margin-bottom: 0.3rem;
   line-height: 1.0;
-}
-
-.highlight {
-  color: var(--secondary-color);
-  font-weight: bold;
+  color: var(--text-light);
 }
 
 .company-info {
@@ -516,21 +520,6 @@ footer {
   font-size: 1rem;
   line-height: 1.2;
   padding: 0 0.5rem;
-}
-
-.operating-hours {
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  line-height: 1.2;
-  margin: 0.2rem 0;
-}
-
-.security-note {
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  line-height: 1.2;
-  margin: 0.3rem 0 0;
-  opacity: 0.8;
 }
 
 .contact-info {
@@ -550,8 +539,8 @@ footer {
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 1rem;
-  padding: 3px 12px;
-  border-radius: 3px;
+  padding: 8px 16px;
+  border-radius: 5px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   white-space: nowrap;
@@ -562,6 +551,21 @@ footer {
   border-color: var(--secondary-color);
   color: var(--secondary-color);
   transform: translateY(-2px);
+}
+
+.operating-hours {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.2;
+  margin: 0.2rem 0;
+}
+
+.security-note {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.2;
+  margin: 0.3rem 0 0;
+  opacity: 0.8;
 }
 
 /* ==================== 信任区块 (3列布局) ==================== */
