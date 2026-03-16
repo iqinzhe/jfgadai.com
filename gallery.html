@@ -25,8 +25,8 @@
   content="Galeri poster promosi resmi JF Gadai Bangil: gadai motor, gadai laptop, serta solusi dana cepat dengan proses taksir transparan dan pencairan cepat.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-<link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" href="/css/gallery.css">
+  <!--引用外部 main.css，不写入内联样式-->
+  <link rel="stylesheet" href="/css/main.css">
 
 </head>
 
@@ -211,27 +211,36 @@
 
 </main>
 
-<!-- 页脚 -->
-<footer id="lokasi">
+<!-- ================= FOOTER ================= -->
+<footer>
   <div class="container">
     <div class="footer-content">
-      <p class="footer-small">© <span id="year"></span> JF Gadai</p>
-      <p class="company-info">Melayani area Bangil • Beji • Gempol</p>
 
-      <a href="https://wa.me/6289515692586" 
-         target="_blank" 
-         class="card-cta-btn wa-btn"
-         id="wa-contact" 
-         rel="noopener noreferrer"
-         aria-label="Hubungi kami via WhatsApp">
-        <img src="/images/logo-wa.png" alt="WhatsApp" width="20" height="20">
+      <p class="copyright">
+        © 2026 <span class="highlight">JF Gadai</span>
+      </p>
+
+      <p class="company-info">
+        Melayani area Bangil • Beji • Gempol
+      </p>
+
+      <a href="https://wa.me/6289515692586"
+         target="_blank"
+         class="card-cta-btn wa-btn">
+        <img src="/images/logo-wa.png"
+             width="20"
+             height="20"
+             style="vertical-align:middle;margin-right:6px"
+             alt="WhatsApp">
         WA: +62 895-1569-2586
       </a>
+
       <p class="operating-hours">
-        ⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu
+        ⏰ Jam kerja: Mo-Fr 08:00-18:00 | Libur Sabtu & Minggu
       </p>
+
       <p class="security-note">
-        🔒 Situs ini menggunakan koneksi aman (HTTPS).
+        🔒 Situs ini menggunakan koneksi aman (HTTPS)
       </p>
     </div>
   </div>
