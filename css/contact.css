@@ -78,3 +78,49 @@ margin-top:0.5rem;
 width:100%;
 justify-content:center;
 }
+
+/* ================================
+CONTACT FORM
+================================ */
+
+.contact-form{
+
+background:white;
+
+padding:28px;
+
+border-radius:8px;
+
+box-shadow:0 8px 22px rgba(0,0,0,0.08);
+
+}
+
+.contact-form input,
+.contact-form textarea{
+
+width:100%;
+
+padding:12px;
+
+border:1px solid #ddd;
+
+border-radius:6px;
+
+margin-bottom:14px;
+
+font-size:14px;
+
+transition:.2s;
+
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+
+border-color:var(--secondary);
+
+outline:none;
+
+box-shadow:0 0 0 2px rgba(20,93,160,0.15);
+
+}
