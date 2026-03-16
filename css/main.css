@@ -609,14 +609,14 @@ footer {
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
+  padding: 0 var(--spacing-xl);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .copyright {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   margin-bottom: 0.25rem;
   line-height: 1.4;
   color: var(--text-light);
@@ -626,8 +626,8 @@ footer {
 .company-info {
   color: var(--text-muted);
   margin-bottom: 0.5rem;
-  font-size: 1rem;
-  line-height: 1.4;
+  font-size: 1.1rem;
+  line-height: 1.2;
   padding: 0 0.5rem;
   max-width: 600px;
 }
@@ -701,7 +701,7 @@ footer {
 
 .operating-hours {
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.5;
   margin: 0.25rem 0;
   padding: 0.5rem 0;
@@ -713,7 +713,7 @@ footer {
 
 .security-note {
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   line-height: 1.4;
   margin: 0.25rem 0;
   opacity: 0.8;
