@@ -311,21 +311,16 @@ Barang dijaga dengan aman
 </footer>
 
 <!-- ================= JS ================= -->
-
+<script src="/js/main.js"></script>
+  
 <script>
-
 const adminPhone = "6289515692586";
-
 function buildWA(message){
 return `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
 }
 
-
-
 /* ================= KONSULTASI GADAI ================= */
-
 document.getElementById("pawnForm").addEventListener("submit",function(e){
-
 e.preventDefault();
 
 const name = pawnName.value;
@@ -353,8 +348,6 @@ Mohon info taksiran pinjaman.`;
 window.open(buildWA(message),"_blank");
 
 });
-
-
 
 /* ================= KEMITRAAN ================= */
 
