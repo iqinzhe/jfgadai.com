@@ -153,27 +153,37 @@ font-size:18px;
 opacity:0.95;
 }
 
-
 /* ================================
-HOME GRID (6 SERVICE CARDS)
+HOME SERVICE GRID
 ================================ */
 
 .asymmetric-grid{
+
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:24px;
-padding:40px 0;
-}
 
+gap:24px;
+
+padding:50px 0;
+
+background:#f7f9fc;
+
+}
 
 /* ================================
 CARD COMPONENT
 ================================ */
 
+
 .unified-card{
+
+display:flex;
+flex-direction:column;
+justify-content:space-between;
 
 background:white;
 border-radius:var(--radius);
+
 padding:22px;
 
 box-shadow:var(--shadow-soft);
@@ -182,38 +192,9 @@ text-align:center;
 
 transition:.25s;
 
-}
-
-.unified-card:hover{
-
-transform:translateY(-3px);
-box-shadow:var(--shadow-hover);
+height:100%;
 
 }
-
-.card-icon{
-
-font-size:40px;
-margin-bottom:10px;
-
-}
-
-.card-title{
-
-font-size:18px;
-font-weight:bold;
-margin-bottom:6px;
-
-}
-
-.card-desc{
-
-font-size:14px;
-color:#555;
-margin-bottom:14px;
-
-}
-
 
 /* ================================
 BUTTON
@@ -330,7 +311,6 @@ font-size:14px;
 
 }
 
-
 /* ================================
 FOOTER
 ================================ */
@@ -341,36 +321,36 @@ background:#0a1e2e;
 color:#ddd;
 
 padding:30px 20px;
+
 font-size:14px;
+
+text-align:center;
 
 }
 
 .footer-grid{
 
 display:grid;
+
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
 gap:20px;
 
-}
-
-.footer-title{
-
-font-weight:bold;
-margin-bottom:8px;
-
-color:white;
+text-align:left;
 
 }
 
 .footer-small{
 
 margin-top:18px;
+
 font-size:12px;
+
 opacity:0.7;
+
 text-align:center;
 
 }
-
 
 /* ================================
 RESPONSIVE
