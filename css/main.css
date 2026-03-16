@@ -730,39 +730,46 @@ footer {
   }
   
   .footer-content {
-    gap: 0.5rem; /* 从var(--spacing-xl)改为0.5rem，大幅减小间距 */
+    gap: 0.5rem;
   }
   
   .copyright {
     font-size: 1.2rem;
-    margin-bottom: 0.1rem; /* 添加底部外边距控制 */
-    line-height: 1.3; /* 减小行高 */
+    margin-bottom: 0.1rem;
+    line-height: 1.3;
   }
   
   .company-info {
     font-size: 1.2rem;
-    margin-bottom: 0.1rem; /* 减小底部外边距 */
-    line-height: 1.3; /* 减小行高 */
+    margin-bottom: 0.1rem;
+    line-height: 1.3;
   }
   
   .contact-link {
     font-size: 1.15rem;
-    padding: 10px 24px; /* 从14px 28px减小为10px 24px */
-    min-width: 260px; /* 从280px减小为260px */
-    margin: 0.1rem 0; /* 添加上下外边距控制 */
+    padding: 10px 24px;
+    min-width: 260px;
+    margin: 0.1rem 0;
   }
   
   .operating-hours {
     font-size: 0.9rem;
-    padding: 0.2rem 0; /* 减小上下内边距 */
-    margin: 0.1rem 0; /* 减小上下外边距 */
-    line-height: 1.3; /* 减小行高 */
+    padding: 0.2rem 0;
+    margin: 0.1rem 0;
+    line-height: 1.3;
   }
   
   .security-note {
+    display: flex !important; /* 确保显示，并覆盖可能的隐藏规则 */
     font-size: 0.8rem;
-    margin: 0.1rem 0; /* 减小上下外边距 */
-    line-height: 1.2; /* 减小行高 */
+    margin: 0.1rem 0;
+    line-height: 1.2;
+    color: var(--text-muted);
+    opacity: 0.8;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    width: 100%;
   }
 }
 
