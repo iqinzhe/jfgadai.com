@@ -1,0 +1,881 @@
+/* ==================== 基础样式 ==================== */
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+:root {
+  --primary-color: #0f4c81;
+  --primary-dark: #0c3d67;
+  --secondary-color: #f5c542;
+  --secondary-dark: #e0b339;
+  --light-color: #ffffff;
+  --dark-color: #0b2c4a;
+  --text-light: #e6f3fb;
+  --text-muted: #cfe3f2;
+  --border-radius: 14px;
+  --border-radius-lg: 20px;
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+  
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0b2c4a 0%, #0e4b6e 100%) fixed;
+  color: var(--light-color);
+  line-height: 1.35;
+  overflow-x: hidden;
+  font-size: 1.1rem;
+}
+
+/* ==================== 通用容器 ==================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* ==================== 通用动画 ==================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(245, 197, 66, 0.3); }
+  70% { box-shadow: 0 0 0 6px rgba(245, 197, 66, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 197, 66, 0); }
+}
+
+.fade-in { animation: fadeIn 0.6s ease-out forwards; }
+.slide-in { animation: slideIn 0.4s ease; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+
+/* ==================== 全屏横幅样式 ==================== */
+.full-banner {
+  width: 100%;
+  height: 185px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark-color);
+}
+
+.full-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  border-radius: 0;
+  box-shadow: var(--shadow-lg);
+}
+
+/* ==================== 头部导航 ==================== */
+.assessment-header {
+  background: rgba(11, 44, 74, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  border-bottom: 2px solid var(--secondary-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.assessment-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.5rem;
+  gap: 0.5rem;
+}
+
+.back-btn {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 0.7rem;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  padding: 0.5rem 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  white-space: normal;
+  text-align: center;
+}
+
+.back-btn:hover {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.logo-image {
+  object-fit: contain;
+  width: auto;
+  height: 30px;
+  display: block;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.back-btn:hover .logo-image {
+  transform: scale(1.05);
+}
+
+.nav-forward {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 0.7rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  white-space: normal;
+  text-align: center;
+}
+
+.nav-forward:hover {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-icon {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+/* ==================== 通用卡片组件 ==================== */
+.unified-card {
+  position: relative;
+  background: linear-gradient(135deg, 
+    rgba(15, 76, 129, 0.4), 
+    rgba(245, 197, 66, 0.2));
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg) var(--spacing-md);
+  text-align: center;
+  border: 2px solid rgba(245, 197, 66, 0.4);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.unified-card::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 0;
+  width: 6px;
+  background: var(--secondary-color);
+  border-radius: 3px;
+  z-index: 2;
+}
+
+.unified-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(245, 197, 66, 0.3);
+  border-color: rgba(245, 197, 66, 0.6);
+}
+
+.card-title {
+  color: var(--secondary-color);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-xs); 
+  text-shadow: 1px 1px 2px #000;
+  line-height: 1.2;
+}
+
+.card-desc {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-md); 
+  line-height: 1.2;
+}
+
+.card-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+  color: var(--dark-color);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.15rem;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+  min-width: 220px;
+  margin: 0 auto;
+}
+
+.card-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0; 
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-light);
+  font-size: 1rem;
+  text-align: left;
+  line-height: 1.2;
+}
+
+/* 列表图标样式 */
+.list-icon {
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  min-width: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ==================== 快速操作栏 ==================== */
+.quick-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) auto;
+  flex-wrap: wrap;
+}
+
+.quick-action-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md) var(--spacing-sm);
+  text-align: center;
+  flex: 1;
+  min-width: 260px;
+  max-width: 400px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.quick-action-card::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 0;
+  width: 5px;
+  background: var(--secondary-color);
+  border-radius: 3px;
+}
+
+.quick-action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(245, 197, 66, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* 快速操作图标 */
+.action-icon { 
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-xs); 
+}
+
+.action-title { 
+  color: var(--secondary-color); 
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px #000;
+  margin-bottom: var(--spacing-xs); 
+}
+
+.action-description { 
+  color: var(--text-light); 
+  margin-bottom: var(--spacing-sm); 
+  font-size: 1rem; 
+  line-height: 1.2;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  margin: 0 auto;
+  min-width: 160px;
+}
+
+.action-btn.whatsapp {
+  background-color: var(--secondary-color);
+  color: var(--dark-color);
+}
+
+.action-btn.whatsapp:hover {
+  background-color: var(--secondary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.4);
+}
+
+.action-btn.location {
+  background-color: transparent;
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+}
+
+.action-btn.location:hover {
+  background-color: rgba(245, 197, 66, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
+}
+
+/* ==================== 首页六宫格网格布局 ==================== */
+.asymmetric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 8px 12px;
+  margin: var(--spacing-xl) auto;
+}
+
+/* 六宫格各区块位置定义 */
+#our-services { grid-column: 1; grid-row: 1; }
+#assessment-system { grid-column: 2; grid-row: 1; }
+#contact-form { grid-column: 3; grid-row: 1; }
+#electronics-pawn { grid-column: 1; grid-row: 2; }
+#motor-pawn { grid-column: 2; grid-row: 2; }
+#contact-navigation { grid-column: 3; grid-row: 2; }
+
+/* 贷款信息卡片样式 */
+.grid-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  padding: var(--spacing-xs);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  min-height: 30px;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  
+  /* 新增：让图标和标题居中 */
+  align-items: center;  /* 水平居中所有子元素 */
+}
+
+/* 卡片图标 - 保持居中 */
+.grid-card .card-icon-large {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-xs);
+  color: var(--secondary-color);
+  text-shadow: 0 0 5px rgba(245, 197, 66, 0.4);
+  text-align: center;  /* 确保图标文字居中 */
+}
+
+/* 卡片标题 - 居中 */
+.grid-card h3 {
+  color: var(--secondary-color);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: var(--spacing-xs) 0;
+  line-height: 1.2;
+  text-align: center;  /* 标题居中 */
+  width: 100%;  /* 确保占满宽度 */
+}
+
+/* 卡片正文容器 - 左对齐 */
+.grid-card .card-content {
+  width: 100%;  /* 占满宽度 */
+  text-align: left;  /* 文字左对齐 */
+}
+
+/* 卡片正文 */
+.grid-card p {
+  color: var(--text-light);
+  margin: var(--spacing-xs) 0;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-align: left;  /* 段落左对齐 */
+  width: 100%;
+}
+
+/* 贷款信息卡片内容样式 */
+.grid-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.grid-card .card-content {
+  width: 100%;
+  text-align: left;
+  margin-top: 0.25rem;
+}
+
+.grid-card p {
+  margin: 0.25rem 0;
+  line-height: 1.3;
+}
+
+/* 确保网格容器正确显示 */
+.balanced-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: var(--spacing-md);
+}
+
+/* 平板响应式 */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .balanced-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* 手机响应式 */
+@media (max-width: 768px) {
+  .balanced-grid {
+    grid-template-columns: 1.5fr !important;
+  }
+}
+
+/* ==================== 页脚样式 ==================== */
+footer {
+  background: rgba(11, 44, 74, 0.9);
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md) 0 var(--spacing-sm);
+  border-top: 2px solid var(--secondary-color);
+}
+
+.footer-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.copyright {
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.0;
+}
+
+.highlight {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.company-info {
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  padding: 0 0.5rem;
+}
+
+.operating-hours {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.2;
+  margin: 0.2rem 0;
+}
+
+.security-note {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.2;
+  margin: 0.3rem 0 0;
+  opacity: 0.8;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem auto;
+  padding: 0.4rem 0;
+  max-width: 550px;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  padding: 3px 12px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+}
+
+.contact-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* ==================== 信任区块 (3列布局) ==================== */
+.trust-box {
+  margin: 1.5rem 0 1rem;
+  padding: 1rem 1.2rem;
+  background: rgba(15, 76, 129, 0.35);
+  border: 1px solid rgba(245, 197, 66, 0.35);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  text-align: center;
+}
+
+.trust-item {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.2;
+}
+
+.trust-item strong {
+  color: #f5c542;
+  font-weight: 600;
+}
+
+/* ==================== 图库页面网格布局 ==================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* 图库卡片间距优化 */
+.gallery-grid .unified-card {
+  margin: 0;
+}
+
+/* 图库项目样式 */
+.gallery-item {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  margin: var(--spacing-md) 0;
+  border-radius: var(--border-radius);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+.gallery-item figcaption {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  margin-top: var(--spacing-sm);
+  padding: 0 var(--spacing-sm);
+  line-height: 1.0;
+}
+
+/* ==================== 平板设备响应式 (769px - 1200px) ==================== */
+@media (max-width: 1200px) and (min-width: 769px) {
+  /* 六宫格调整为2列布局 */
+  .asymmetric-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 4px 8px;
+  }
+
+  /* 六宫格平板位置重定义 */
+  #assessment-system { grid-column: 1 / span 2; grid-row: 1; }
+  #motor-pawn { grid-column: 1; grid-row: 2; }
+  #electronics-pawn { grid-column: 2; grid-row: 2; }
+  #our-services { grid-column: 1; grid-row: 3; }
+  #contact-navigation { grid-column: 2; grid-row: 3; }
+  
+  /* 快速操作栏平板布局 */
+  .quick-actions { 
+    flex-direction: row; 
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+  
+  .quick-action-card { 
+    flex: 1 1 calc(50% - var(--spacing-md));
+    min-width: 280px;
+    max-width: none;
+  }
+  
+  /* 贷款信息网格平板调整为2列 */
+  .balanced-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+  
+  .grid-card {
+    padding: 0.9rem 0.7rem; /* 调整：平板端更紧凑，原为 1rem 0.9rem */
+    min-height: 160px;
+  }
+  
+  .grid-card h3 {
+    font-size: 1.3rem;
+    margin: 0.05rem 0; /* 调整：平板端标题间距减小，原为 0.1rem 0 */
+  }
+  
+  .grid-card p {
+    font-size: 0.95rem;
+    margin: 0.05rem 0; /* 调整：平板端段落间距减小，原为 0.1rem 0 */
+  }
+}
+
+/* ==================== 手机设备响应式 (≤768px) ==================== */
+@media (max-width: 768px) {
+  /* 容器内边距调整 */
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  /* 头部导航手机端紧凑布局 */
+  .assessment-header .container {
+    padding: 0.2rem 0.2rem;
+    gap: 0.2rem;
+  }
+  
+  .back-btn,
+  .nav-forward {
+    padding: 0.2rem 0.2rem;
+    font-size: 0.6rem;
+    gap: 1px;
+    white-space: normal;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .logo-image,
+  .nav-icon {
+    height: 20px;
+  }
+  
+  /* 横幅高度手机端减小 */
+  .full-banner {
+    height: 75px;
+  }
+  
+  /* 六宫格手机端改为纵向排列 */
+  .asymmetric-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: var(--spacing-md) auto;
+  }
+  
+  /* 手机端显示顺序定义 (数字越小越靠前) */
+  #assessment-system { order: 1; }
+  #motor-pawn { order: 2; }
+  #contact-form { order: 3; }
+  #electronics-pawn { order: 4; }
+  #our-services { order: 5; }
+  #contact-navigation { order: 6; }
+
+    /* ===== 图库页面手机端单列显示 ===== */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  
+  /* 通用卡片手机端紧凑 */
+  .unified-card {
+    padding: var(--spacing-sm) var(--spacing-md); /* 调整：手机端内边距 */
+    margin-bottom: 4px;
+  }
+  
+  .card-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem; /* 调整：手机端标题底部间距减小，原为 var(--spacing-sm) */
+    line-height: 1.0;
+  }
+  
+  .card-desc {
+    font-size: 0.95rem;
+    line-height: 1.2;
+    margin-bottom: 0.3rem; /* 调整：手机端描述底部间距减小，原为 var(--spacing-sm) */
+  }
+  
+  .card-cta-btn {
+    padding: 0.6rem 1.2rem; /* 调整：手机端按钮内边距减小，原为 0.8rem 1.5rem */
+    font-size: 0.95rem;
+    min-width: 180px;
+    margin-top: 0.2rem; /* 调整：手机端按钮上边距减小，原为 var(--spacing-sm) */
+  }
+  
+  /* 快速操作栏手机端纵向 */
+  .quick-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    margin: var(--spacing-sm) auto;
+  }
+  
+  .quick-action-card {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 4px;
+    padding: var(--spacing-xs); /* 调整：手机端内边距减小，原为 var(--spacing-md) */
+  }
+  
+  .action-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.2rem; /* 调整：手机端图标底部间距减小，原为 0.5rem */
+  }
+  
+  .action-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem; /* 调整：手机端标题底部间距减小，原为 0.5rem */
+  }
+  
+  .action-description {
+    font-size: 0.9rem;
+    line-height: 1.2;
+    margin-bottom: 0.3rem; /* 调整：手机端描述底部间距减小，原为 var(--spacing-sm) */
+  }
+  
+  .action-btn {
+    padding: 0.5rem 1rem; /* 调整：手机端按钮内边距减小，原为 0.7rem 1.2rem */
+    font-size: 0.9rem;
+    min-width: 160px;
+  }
+  
+  /* 贷款信息网格手机端改为1列 */
+  .balanced-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  
+  .grid-card {
+    min-height: auto;
+    padding: 0.8rem 0.7rem; /* 调整：手机端更紧凑，原为 0.9rem 0.8rem */
+  }
+  
+  .grid-card .card-icon-large {
+    font-size: 2.2rem;
+    margin-bottom: 0.05rem; /* 调整：手机端图标底部间距减小，原为 0.1rem */
+  }
+  
+  .grid-card h3 {
+    font-size: 1.2rem;
+    margin: 0.05rem 0; /* 调整：手机端标题间距减小，原为 0.1rem 0 */
+  }
+  
+  .grid-card p {
+    font-size: 0.9rem;
+    margin: 0.05rem 0; /* 调整：手机端段落间距减小，原为 0.1rem 0 */
+  }
+  
+  .grid-card .card-body p {
+    margin: 0.03rem 0 !important; /* 调整：手机端正文段落间距减小，原为 0.05rem 0 */
+    font-size: 0.85rem;
+    line-height: 1.1 !important;
+  }
+  
+  /* 页脚手机端紧凑 */
+  footer {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .copyright {
+    font-size: 1rem;
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: center;
+  }
+  
+  .contact-link {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+  }
+  
+  .operating-hours {
+    font-size: 0.7rem;
+    line-height: 1.0;
+  }
+  
+  .security-note {
+    font-size: 0.7rem;
+    line-height: 1.0;
+  }
+  
+  /* 信任区块手机端改为1列 */
+  .trust-box {
+    margin: 1rem 0 0.5rem;
+    padding: 0.8rem 1rem;
+    gap: 0.5rem;
+    grid-template-columns: 1fr;
+  }
+  
+  .trust-item {
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+}
+
+/* ==================== 小屏手机设备响应式 (≤480px) ==================== */
+@media (max-width: 480px) {
+  /* 确保贷款信息网格保持1列 (继承768px设置) */
+  .balanced-grid {
+    grid-template-columns: 1fr;
+  }
+}
