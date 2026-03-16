@@ -599,7 +599,7 @@ footer{
   background:rgba(11,44,74,0.9);
   border-top:2px solid var(--secondary-color);
   margin-top:var(--spacing-md);
-  padding:20px 0;
+  padding:10px 0;
 
   /* 防止Edge裁切 */
   height:auto;
