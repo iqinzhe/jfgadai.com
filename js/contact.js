@@ -1,23 +1,51 @@
+// contact.js - Gabungan dari kode lama dan baru
+
 const adminPhone = "6289515692586";
 
-function buildWA(message){
-return `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
+function buildWA(message) {
+  return `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
 }
 
+// Fungsi untuk memastikan semua elemen form sudah tersedia
+function getElementSafe(id) {
+  const el = document.getElementById(id);
+  if (!el) console.warn(`Element with id "${id}" not found`);
+  return el;
+}
 
-/* ================= KONSULTASI GADAI ================= */
+// Inisialisasi setelah DOM siap
+document.addEventListener("DOMContentLoaded", function() {
+  
+  /* ================= KONSULTASI GADAI ================= */
+  const pawnForm = getElementSafe("pawnForm");
+  if (pawnForm) {
+    pawnForm.addEventListener("submit", function(e) {
+      e.preventDefault();
 
-document.getElementById("pawnForm").addEventListener("submit",function(e){
+      const pawnName = getElementSafe("pawnName");
+      const pawnPhone = getElementSafe("pawnPhone");
+      const pawnItem = getElementSafe("pawnItem");
+      const pawnDesc = getElementSafe("pawnDesc");
+      const pawnMsg = getElementSafe("pawnMsg");
 
-e.preventDefault();
+      // Validasi elemen penting
+      if (!pawnName || !pawnPhone || !pawnItem || !pawnDesc) {
+        alert("Terjadi kesalahan pada form. Silakan muat ulang halaman.");
+        return;
+      }
 
-const name = pawnName.value;
-const phone = pawnPhone.value;
-const item = pawnItem.value;
-const desc = pawnDesc.value;
-const msg = pawnMsg.value;
+      const name = pawnName.value.trim();
+      const phone = pawnPhone.value.trim();
+      const item = pawnItem.value;
+      const desc = pawnDesc.value.trim();
+      const msg = pawnMsg ? pawnMsg.value.trim() : "";
 
-const message =
+      if (!name || !phone || !desc) {
+        alert("Harap isi nama, nomor WhatsApp, dan deskripsi barang.");
+        return;
+      }
+
+      const message = 
 `Halo JF Gadai, saya ingin konsultasi gadai.
 
 Nama: ${name}
@@ -33,24 +61,39 @@ ${msg}
 
 Mohon info taksiran pinjaman.`;
 
-window.open(buildWA(message),"_blank");
+      window.open(buildWA(message), "_blank");
+    });
+  }
 
-});
+  /* ================= KEMITRAAN ================= */
+  const franchiseForm = getElementSafe("franchiseForm");
+  if (franchiseForm) {
+    franchiseForm.addEventListener("submit", function(e) {
+      e.preventDefault();
 
+      const franchiseName = getElementSafe("franchiseName");
+      const franchisePhone = getElementSafe("franchisePhone");
+      const franchiseCity = getElementSafe("franchiseCity");
+      const franchiseInvest = getElementSafe("franchiseInvest");
+      const franchiseMsg = getElementSafe("franchiseMsg");
 
-/* ================= KEMITRAAN ================= */
+      if (!franchiseName || !franchisePhone || !franchiseInvest) {
+        alert("Terjadi kesalahan pada form. Silakan muat ulang halaman.");
+        return;
+      }
 
-document.getElementById("franchiseForm").addEventListener("submit",function(e){
+      const name = franchiseName.value.trim();
+      const phone = franchisePhone.value.trim();
+      const city = franchiseCity ? franchiseCity.value.trim() : "";
+      const invest = franchiseInvest.value;
+      const msg = franchiseMsg ? franchiseMsg.value.trim() : "";
 
-e.preventDefault();
+      if (!name || !phone) {
+        alert("Harap isi nama dan nomor WhatsApp.");
+        return;
+      }
 
-const name = franchiseName.value;
-const phone = franchisePhone.value;
-const city = franchiseCity.value;
-const invest = franchiseInvest.value;
-const msg = franchiseMsg.value;
-
-const message =
+      const message = 
 `Halo JF Gadai, saya tertarik kemitraan bisnis.
 
 Nama: ${name}
@@ -62,6 +105,7 @@ Rencana Investasi: ${invest}
 Pesan:
 ${msg}`;
 
-window.open(buildWA(message),"_blank");
-
+      window.open(buildWA(message), "_blank");
+    });
+  }
 });
