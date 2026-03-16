@@ -2,382 +2,178 @@
 <html lang="id-ID">
 
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Hubungi JF Gadai | Konsultasi Gadai & Kemitraan</title>
-
-<meta name="description"
-content="Hubungi JF Gadai untuk konsultasi gadai motor, emas, HP, laptop, dan barang elektronik. Tersedia peluang kemitraan bisnis gadai dengan sistem profesional.">
-
-<link rel="stylesheet" href="/css/main.css">
-
-<style>
-
-/* ================= CONTACT GRID ================= */
-
-.contact-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:2rem;
-margin:2rem 0;
-}
-
-@media(max-width:768px){
-.contact-grid{
-grid-template-columns:1fr;
-}
-}
-
-/* ================= FORM CARD ================= */
-
-.card{
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
-border-radius:14px;
-padding:1.8rem;
-border:1px solid rgba(255,255,255,0.15);
-box-shadow:0 6px 18px rgba(0,0,0,0.25);
-}
-
-.card-title{
-margin-bottom:0.6rem;
-}
-
-.form-desc{
-font-size:0.95rem;
-color:var(--text-light);
-margin-bottom:1.2rem;
-}
-
-/* ================= FORM ================= */
-
-.form-group{
-margin-bottom:1rem;
-text-align:left;
-}
-
-.form-label{
-display:block;
-font-size:0.9rem;
-margin-bottom:0.3rem;
-color:var(--secondary-color);
-}
-
-.form-control{
-width:100%;
-padding:0.6rem 0.7rem;
-border-radius:8px;
-border:1px solid rgba(255,255,255,0.25);
-background:rgba(255,255,255,0.08);
-color:white;
-font-size:0.95rem;
-}
-
-.form-control:focus{
-outline:none;
-border-color:var(--secondary-color);
-}
-
-.form-textarea{
-min-height:90px;
-resize:vertical;
-}
-
-/* ================= BUTTON ================= */
-
-.submit-btn{
-margin-top:0.5rem;
-width:100%;
-justify-content:center;
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hubungi JF Gadai | Konsultasi Gadai & Kemitraan</title>
+  <meta name="description" content="Hubungi JF Gadai untuk konsultasi gadai motor, emas, HP, laptop, dan barang elektronik. Tersedia peluang kemitraan bisnis gadai dengan sistem profesional.">
+  
+  <!-- CSS Eksternal -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/contact.css">
 </head>
 
 <body class="contact-page">
 
-<header class="assessment-header">
-<div class="container">
-
-<a href="/" class="back-btn">
-<img src="/images/logo-jf.png" class="logo-image">
-<strong>← Beranda</strong>
-</a>
-
-<a href="/motor.html" class="nav-forward">
-<strong>Gadai Motor →</strong>
-<img src="/images/logo-motor.png" class="nav-icon">
-</a>
-
-</div>
-</header>
-
-
-<main class="container">
-
-<h1 style="text-align:center;margin-top:2rem">
-Hubungi JF Gadai
-</h1>
-
-<p style="text-align:center;max-width:700px;margin:1rem auto 2rem;">
-Butuh dana cepat? Konsultasikan kebutuhan gadai Anda atau bergabung menjadi mitra bisnis bersama JF Gadai.  
-Isi formulir berikut dan tim kami akan segera menghubungi Anda melalui WhatsApp.
-</p>
-
-
-
-<!-- ================= FORM GRID ================= -->
-
-<div class="contact-grid">
-
-
-<!-- ================= KONSULTASI GADAI ================= -->
-
-<form id="pawnForm" class="card">
-
-<h2 class="card-title">Konsultasi Gadai</h2>
-
-<p class="form-desc">
-Konsultasikan gadai motor, emas, HP, laptop, atau barang lainnya.  
-Tim JF Gadai siap membantu dengan proses cepat dan aman.
-</p>
-
-<div class="form-group">
-<label class="form-label">Nama Lengkap</label>
-<input type="text" id="pawnName" class="form-control" required>
-</div>
-
-<div class="form-group">
-<label class="form-label">Nomor WhatsApp</label>
-<input type="tel" id="pawnPhone" class="form-control" placeholder="08xxxxxxxxxx" required>
-</div>
-
-<div class="form-group">
-<label class="form-label">Jenis Barang</label>
-
-<select id="pawnItem" class="form-control">
-
-<option>BPKB</option>
-<option>Motor</option>
-<option>Emas</option>
-<option>HP</option>
-<option>Laptop</option>
-<option>Barang Elektronik</option>
-<option>Lainnya</option>
-
-</select>
-
-</div>
-
-<div class="form-group">
-<label class="form-label">Deskripsi Barang</label>
-
-<textarea id="pawnDesc"
-class="form-control form-textarea"
-placeholder="Contoh: Honda Vario 2020, kondisi bagus"
-required></textarea>
-
-</div>
-
-<div class="form-group">
-<label class="form-label">Pesan Tambahan</label>
-
-<textarea id="pawnMsg"
-class="form-control form-textarea"
-placeholder="Tambahkan pertanyaan atau informasi tambahan"></textarea>
-
-</div>
-
-<button class="card-cta-btn submit-btn">
-Kirim Konsultasi
-</button>
-
-</form>
-
-
-
-<!-- ================= KEMITRAAN ================= -->
-
-<form id="franchiseForm" class="card">
-
-<h2 class="card-title">Join Us – Kemitraan</h2>
-
-<p class="form-desc">
-Tertarik membuka usaha gadai bersama JF Gadai?  
-Kami menyediakan sistem, SOP, dan dukungan operasional.
-</p>
-
-<div class="form-group">
-<label class="form-label">Nama Lengkap</label>
-<input type="text" id="franchiseName" class="form-control" required>
-</div>
-
-<div class="form-group">
-<label class="form-label">Nomor WhatsApp</label>
-<input type="tel" id="franchisePhone" class="form-control" placeholder="08xxxxxxxxxx" required>
-</div>
-
-<div class="form-group">
-<label class="form-label">Kota / Kecamatan</label>
-<input type="text" id="franchiseCity" class="form-control">
-</div>
-
-<div class="form-group">
-
-<label class="form-label">Rencana Investasi</label>
-
-<select id="franchiseInvest" class="form-control">
-
-<option>50 juta</option>
-<option>100 juta</option>
-<option>200 juta</option>
-<option>500 juta</option>
-<option>>500 juta</option>
-
-</select>
-
-</div>
-
-<div class="form-group">
-<label class="form-label">Pesan Tambahan</label>
-
-<textarea id="franchiseMsg"
-class="form-control form-textarea"></textarea>
-
-</div>
-
-<button class="card-cta-btn submit-btn">
-Kirim Info Kemitraan
-</button>
-
-</form>
-
-</div>
-
-
-
-<!-- ================= TRUST ================= -->
-
-<div class="trust-box">
-
-<div class="trust-item">
-<strong>⚡ Proses Cepat</strong><br>
-Pengajuan hanya beberapa menit
-</div>
-
-<div class="trust-item">
-<strong>📄 Tanpa BI Checking</strong><br>
-Syarat lebih mudah
-</div>
-
-<div class="trust-item">
-<strong>🔒 Aman & Terpercaya</strong><br>
-Barang dijaga dengan aman
-</div>
-</div>
-
-</main>
-
-<!-- 页脚 -->
-<footer id="lokasi">
-  <div class="container">
-    <div class="footer-content">
-      <p class="copyright">© <span id="year"></span> JF Gadai</p>
-      <p class="company-info">Melayani area Bangil • Beji • Gempol</p>
-
-      <div class="contact-info">
-        <a href="https://wa.me/6289515692586" 
-           target="_blank" 
-           class="contact-link"
-           id="wa-contact" 
-           rel="noopener noreferrer"
-           aria-label="Hubungi kami via WhatsApp">
-          <img src="/images/logo-wa.png" alt="WhatsApp" width="20" height="20">
-          WA: +62 895-1569-2586
-        </a>
-      </div>
-      
-      <p class="operating-hours">
-        ⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu
-      </p>
-      <p class="security-note">
-        🔒 Situs ini menggunakan koneksi aman (HTTPS).
-      </p>
+  <header class="assessment-header">
+    <div class="container">
+      <a href="/" class="back-btn">
+        <img src="/images/logo-jf.png" class="logo-image" alt="JF Gadai Logo">
+        <strong>← Beranda</strong>
+      </a>
+      <a href="/motor.html" class="nav-forward">
+        <strong>Gadai Motor →</strong>
+        <img src="/images/logo-motor.png" class="nav-icon" alt="Motor Icon">
+      </a>
     </div>
-  </div>
-</footer>
+  </header>
 
-<!-- ================= JS ================= -->
-<script src="/js/main.js"></script>
+  <main class="container">
+    <h1 style="text-align:center;margin-top:2rem">Hubungi JF Gadai</h1>
+    
+    <p style="text-align:center;max-width:700px;margin:1rem auto 2rem;">
+      Butuh dana cepat? Konsultasikan kebutuhan gadai Anda atau bergabung menjadi mitra bisnis bersama JF Gadai.
+      Isi formulir berikut dan tim kami akan segera menghubungi Anda melalui WhatsApp.
+    </p>
+
+    <!-- ================= FORM GRID ================= -->
+    <div class="contact-grid">
+
+      <!-- ================= KONSULTASI GADAI ================= -->
+      <form id="pawnForm" class="card">
+        <h2 class="card-title">Konsultasi Gadai</h2>
+        <p class="form-desc">
+          Konsultasikan gadai motor, emas, HP, laptop, atau barang lainnya.
+          Tim JF Gadai siap membantu dengan proses cepat dan aman.
+        </p>
+
+        <div class="form-group">
+          <label class="form-label" for="pawnName">Nama Lengkap</label>
+          <input type="text" id="pawnName" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pawnPhone">Nomor WhatsApp</label>
+          <input type="tel" id="pawnPhone" class="form-control" placeholder="08xxxxxxxxxx" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pawnItem">Jenis Barang</label>
+          <select id="pawnItem" class="form-control">
+            <option>BPKB</option>
+            <option>Motor</option>
+            <option>Emas</option>
+            <option>HP</option>
+            <option>Laptop</option>
+            <option>Barang Elektronik</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pawnDesc">Deskripsi Barang</label>
+          <textarea id="pawnDesc" class="form-control form-textarea" placeholder="Contoh: Honda Vario 2020, kondisi bagus" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pawnMsg">Pesan Tambahan</label>
+          <textarea id="pawnMsg" class="form-control form-textarea" placeholder="Tambahkan pertanyaan atau informasi tambahan"></textarea>
+        </div>
+
+        <button type="submit" class="card-cta-btn submit-btn">Kirim Konsultasi</button>
+      </form>
+
+      <!-- ================= KEMITRAAN ================= -->
+      <form id="franchiseForm" class="card">
+        <h2 class="card-title">Join Us – Kemitraan</h2>
+        <p class="form-desc">
+          Tertarik membuka usaha gadai bersama JF Gadai?
+          Kami menyediakan sistem, SOP, dan dukungan operasional.
+        </p>
+
+        <div class="form-group">
+          <label class="form-label" for="franchiseName">Nama Lengkap</label>
+          <input type="text" id="franchiseName" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="franchisePhone">Nomor WhatsApp</label>
+          <input type="tel" id="franchisePhone" class="form-control" placeholder="08xxxxxxxxxx" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="franchiseCity">Kota / Kecamatan</label>
+          <input type="text" id="franchiseCity" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="franchiseInvest">Rencana Investasi</label>
+          <select id="franchiseInvest" class="form-control">
+            <option>50 juta</option>
+            <option>100 juta</option>
+            <option>200 juta</option>
+            <option>500 juta</option>
+            <option>>500 juta</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="franchiseMsg">Pesan Tambahan</label>
+          <textarea id="franchiseMsg" class="form-control form-textarea"></textarea>
+        </div>
+
+        <button type="submit" class="card-cta-btn submit-btn">Kirim Info Kemitraan</button>
+      </form>
+    </div>
+
+    <!-- ================= TRUST ================= -->
+    <div class="trust-box">
+      <div class="trust-item">
+        <strong>⚡ Proses Cepat</strong><br>
+        Pengajuan hanya beberapa menit
+      </div>
+      <div class="trust-item">
+        <strong>📄 Tanpa BI Checking</strong><br>
+        Syarat lebih mudah
+      </div>
+      <div class="trust-item">
+        <strong>🔒 Aman & Terpercaya</strong><br>
+        Barang dijaga dengan aman
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer id="lokasi">
+    <div class="container">
+      <div class="footer-content">
+        <p class="copyright">© <span id="year"></span> JF Gadai</p>
+        <p class="company-info">Melayani area Bangil • Beji • Gempol</p>
+
+        <div class="contact-info">
+          <a href="https://wa.me/6289515692586" target="_blank" class="contact-link" id="wa-contact" rel="noopener noreferrer" aria-label="Hubungi kami via WhatsApp">
+            <img src="/images/logo-wa.png" alt="WhatsApp" width="20" height="20">
+            WA: +62 895-1569-2586
+          </a>
+        </div>
+
+        <p class="operating-hours">
+          ⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu
+        </p>
+        <p class="security-note">
+          🔒 Situs ini menggunakan koneksi aman (HTTPS).
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script src="/js/main.js"></script>
+  <script src="/js/contact.js"></script>
   
-<script>
-const adminPhone = "6289515692586";
-function buildWA(message){
-return `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
-}
-
-/* ================= KONSULTASI GADAI ================= */
-document.getElementById("pawnForm").addEventListener("submit",function(e){
-e.preventDefault();
-
-const name = pawnName.value;
-const phone = pawnPhone.value;
-const item = pawnItem.value;
-const desc = pawnDesc.value;
-const msg = pawnMsg.value;
-
-const message =
-`Halo JF Gadai, saya ingin konsultasi gadai.
-
-Nama: ${name}
-WA: ${phone}
-
-Barang: ${item}
-
-Deskripsi:
-${desc}
-
-Pesan Tambahan:
-${msg}
-
-Mohon info taksiran pinjaman.`;
-
-window.open(buildWA(message),"_blank");
-
-});
-
-/* ================= KEMITRAAN ================= */
-
-document.getElementById("franchiseForm").addEventListener("submit",function(e){
-
-e.preventDefault();
-
-const name = franchiseName.value;
-const phone = franchisePhone.value;
-const city = franchiseCity.value;
-const invest = franchiseInvest.value;
-const msg = franchiseMsg.value;
-
-const message =
-`Halo JF Gadai, saya tertarik kemitraan bisnis.
-
-Nama: ${name}
-WA: ${phone}
-Kota: ${city}
-
-Rencana Investasi: ${invest}
-
-Pesan:
-${msg}`;
-
-window.open(buildWA(message),"_blank");
-
-});
-
-</script>
-
+  <!-- Dynamic year in footer -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
+
 </html>
