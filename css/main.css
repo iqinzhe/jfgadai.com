@@ -597,30 +597,40 @@ body {
 footer {
   background: rgba(11, 44, 74, 0.9);
   margin-top: var(--spacing-md);
-  padding: var(--spacing-md) 0 var(--spacing-sm);
+  padding: var(--spacing-lg) 0; /* 增加上下内边距 */
   border-top: 2px solid var(--secondary-color);
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
 }
 
 .footer-content {
   text-align: center;
-  max-width: 700px;
+  max-width: 1200px; /* 增加最大宽度，与.container保持一致 */
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 var(--spacing-md); /* 使用变量保持一致性 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm); /* 添加间距让内容更透气 */
 }
 
 .copyright {
   font-size: 1.15rem;
-  margin-bottom: 0.3rem;
-  line-height: 1.0;
+  margin-bottom: 0.25rem;
+  line-height: 1.4; /* 增加行高 */
   color: var(--text-light);
+  font-weight: 500;
 }
 
 .company-info {
   color: var(--text-muted);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
   font-size: 1rem;
-  line-height: 1.2;
+  line-height: 1.4;
   padding: 0 0.5rem;
+  max-width: 600px; /* 限制宽度避免文字过长 */
 }
 
 .contact-info {
@@ -629,22 +639,174 @@ footer {
   align-items: center;
   margin: 0.5rem auto;
   padding: 0.4rem 0;
+  width: 100%;
   max-width: 550px;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.1rem; /* 桌面端稍微大一点 */
+  padding: 12px 24px; /* 增加内边距 */
+  border-radius: 8px; /* 稍微圆角大一点 */
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  width: auto;
+  min-width: 260px; /* 设置最小宽度 */
+  font-weight: 500;
+}
+
+.contact-link img {
+  width: 24px; /* 图标稍微大一点 */
+  height: 24px;
+  object-fit: contain;
+}
+
+.contact-link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.contact-link:hover::after {
+  animation: buttonShine 1.2s ease forwards;
+}
+
+.contact-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
 }
 
 .operating-hours {
   color: var(--text-muted);
-  font-size: 0.8rem;
-  line-height: 1.2;
-  margin: 0.2rem 0;
+  font-size: 0.95rem; /* 桌面端稍微大一点 */
+  line-height: 1.5;
+  margin: 0.25rem 0;
+  padding: 0.5rem 0;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 500px;
 }
 
 .security-note {
   color: var(--text-muted);
-  font-size: 0.8rem;
-  line-height: 1.2;
-  margin: 0.3rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0.25rem 0;
   opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+/* 在桌面端响应式中添加特定样式 */
+@media (min-width: 1201px) {
+  footer {
+    padding: var(--spacing-xl) 0; /* 桌面端更大的内边距 */
+  }
+  
+  .footer-content {
+    gap: var(--spacing-md);
+  }
+  
+  .copyright {
+    font-size: 1.2rem;
+  }
+  
+  .company-info {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .contact-link {
+    font-size: 1.15rem;
+    padding: 14px 28px;
+    min-width: 280px;
+  }
+  
+  .operating-hours {
+    font-size: 1rem;
+    padding: 0.75rem 0;
+  }
+  
+  .security-note {
+    font-size: 0.95rem;
+  }
+}
+
+/* 平板设备保持原有样式，但调整一些值 */
+@media (max-width: 1200px) and (min-width: 769px) {
+  /* ... 原有的平板样式保持不变 ... */
+  
+  /* 添加页脚平板优化 */
+  .contact-link {
+    font-size: 1rem;
+    padding: 10px 20px;
+    min-width: 240px;
+  }
+  
+  .operating-hours {
+    font-size: 0.9rem;
+  }
+}
+
+/* 手机设备 (≤768px) - 保持原有的手机样式，但做一些优化 */
+@media (max-width: 768px) {
+  /* ... 原有的手机样式 ... */
+  
+  footer {
+    padding: var(--spacing-md) 0;
+  }
+  
+  .footer-content {
+    gap: 0.5rem;
+  }
+  
+  .contact-link {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    min-width: 200px; /* 手机端稍微小一点 */
+  }
+  
+  .contact-link img {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .operating-hours {
+    font-size: 0.75rem;
+    padding: 0.4rem 0;
+    width: 90%; /* 手机端稍微窄一点 */
+  }
+  
+  .security-note {
+    font-size: 0.7rem;
+  }
 }
 
 /* ==================== 信任区块模块 ==================== */
