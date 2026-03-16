@@ -458,7 +458,7 @@ body {
   justify-content: center;
 }
 
-/* 网格卡片 */
+/* 网格卡片 - 贷款信息卡片 */
 .grid-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
@@ -586,9 +586,10 @@ body {
 #motor-pawn { grid-column: 2; grid-row: 2; }
 #contact-navigation { grid-column: 3; grid-row: 2; }
 
+/* 贷款信息网格 - 默认4列 */
 .balanced-grid {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-md);
 }
 
@@ -735,6 +736,7 @@ footer {
     max-width: none;
   }
   
+  /* 平板：贷款信息网格2列 */
   .balanced-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.2rem;
@@ -865,8 +867,9 @@ footer {
     min-width: 160px;
   }
   
+  /* 手机：贷款信息网格1列 - 修复了！ */
   .balanced-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 1rem;
     margin: 1.5rem 0;
   }
@@ -939,9 +942,9 @@ footer {
   }
 }
 
-/* 小屏手机 (≤480px) */
+/* 小屏手机 (≤480px) - 保持1列 */
 @media (max-width: 480px) {
   .balanced-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
