@@ -740,16 +740,16 @@ footer {
   }
   
   .company-info {
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     margin-bottom: 0.1rem;
-    line-height: 1.2;
+    line-height: 1.0;
   }
   
   .contact-link {
     font-size: 1.15rem;
     padding: 6px 25px;
-    min-width: 280px;
-    margin: 0.1rem 0;
+    min-width: 350px;
+    margin: 0.08rem 0;
   }
   
   .operating-hours {
@@ -846,45 +846,6 @@ footer {
   }
 }
 
-/* 小屏手机进一步优化 */
-@media (max-width: 480px) {
-  footer {
-    padding: 0.3rem 0;
-  }
-  
-  .footer-content {
-    gap: 0.1rem;
-  }
-  
-  .copyright {
-    font-size: 0.75rem;
-  }
-  
-  .company-info {
-    font-size: 0.65rem;
-  }
-  
-  .contact-link {
-    padding: 3px 8px;
-    font-size: 0.65rem;
-    min-width: 130px;
-  }
-  
-  .contact-link img {
-    width: 12px;
-    height: 12px;
-  }
-  
-  .operating-hours {
-    font-size: 0.5rem;
-    padding: 0.1rem 0;
-    max-width: 300px;
-  }
-  
-  .security-note {
-    font-size: 0.45rem;
-  }
-}
 
 /* ==================== 信任区块模块 ==================== */
 .trust-box {
