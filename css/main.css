@@ -835,7 +835,7 @@ footer {
     padding: 0.15rem 0;
     border-top: 0.5px dashed rgba(255, 255, 255, 0.15);
     border-bottom: 0.5px dashed rgba(255, 255, 255, 0.15);
-    max-width: 350px;
+    max-width: 500px;
   }
   
   .security-note {
@@ -878,7 +878,7 @@ footer {
   .operating-hours {
     font-size: 0.5rem;
     padding: 0.1rem 0;
-    max-width: 250px;
+    max-width: 300px;
   }
   
   .security-note {
