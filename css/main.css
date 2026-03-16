@@ -597,7 +597,7 @@ body {
 footer {
   background: rgba(11, 44, 74, 0.9);
   margin-top: var(--spacing-md);
-  padding: var(--spacing-lg) 0;
+  padding: var(--spacing-xl) 0;
   border-top: 2px solid var(--secondary-color);
   width: 100%;
   position: relative;
