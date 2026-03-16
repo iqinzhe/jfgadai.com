@@ -68,7 +68,7 @@ body {
 .delay-5 { animation-delay: 0.5s; }
 .delay-6 { animation-delay: 0.6s; }
 
-/* ==================== 全屏横幅样式 ==================== */
+/* ==================== 首页横幅 ==================== */
 .full-banner {
   width: 100%;
   height: 185px;
@@ -178,7 +178,7 @@ body {
   display: block;
 }
 
-/* ==================== 通用卡片组件 ==================== */
+/* ==================== 通用卡片 ==================== */
 .unified-card {
   position: relative;
   background: linear-gradient(135deg, 
@@ -261,7 +261,7 @@ body {
   line-height: 1.2;
 }
 
-/* 列表图标样式 */
+/* 列表图标 */
 .list-icon {
   color: var(--secondary-color);
   font-size: 1.1rem;
