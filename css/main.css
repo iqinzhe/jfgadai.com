@@ -442,12 +442,12 @@ body {
   }
   
   .page-header h1 {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     margin-bottom: 0.5rem;
   }
   
   .page-header p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding: 0 var(--spacing-md);
   }
   
