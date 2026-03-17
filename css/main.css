@@ -431,13 +431,13 @@ body {
   max-width: 700px;
   margin: 0 auto;
   position: relative;
-  line-height: 1.4;
+  line-height: 1.2;
 }
 
 /* 响应式调整 */
 @media (max-width: 768px) {
   .page-header {
-    padding: 1.0rem 0;
+    padding: 0.5rem 0;
     margin-bottom: 1rem;
   }
   
