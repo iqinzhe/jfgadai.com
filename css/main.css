@@ -386,7 +386,7 @@ body {
 
 /* ==================== 评估页面横幅 ==================== */
 .page-header {
-  padding: 0.5rem 0;
+  padding: 0.8rem 0;
   margin-bottom: 1.5rem;
   text-align: center;
   border-bottom: 3px solid var(--secondary-color);
