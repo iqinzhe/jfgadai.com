@@ -144,13 +144,18 @@
   };
 
   // 自动初始化（如果页面中有FAQ）
-  document.addEventListener('DOMContentLoaded', function() {
-    if (document.querySelector('.faq-section')) {
-      // 默认配置：允许同时打开多个
-      initFAQ();
-    }
-  });
-
-})();
+document.addEventListener('DOMContentLoaded', function() {
+  if (document.querySelector('.faq-section')) {
+    // 自定义配置
+    initFAQ('.faq-section', {
+      closeOthers: true,           // 一次只打开一个
+      activeClass: 'active',       // 激活状态的类名
+      onToggle: function(item, isOpen) {
+        // 可选：添加切换时的回调函数
+        console.log('FAQ toggled:', isOpen ? '打开' : '关闭');
+      }
+    });
+  }
+});
 
 console.log('✅ faq.js loaded - FAQ module ready');
