@@ -91,8 +91,9 @@
   <!-- CSS -->
   <link rel="stylesheet" href="/css/main.css">
   <style>
+    /* 电子设备页面专用样式 - 只保留main.css中没有的样式 */
     
-    /* 电子设备页面专用样式 */
+    /* 页面特定布局 */
     .electronics-body {
       min-height: 100vh;
       display: flex;
@@ -107,26 +108,7 @@
       width: 100%;
     }
     
-    /* 顶部单栏布局 */
-    .top-section {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      margin: 0.3rem 0 1rem;
-    }
-    
-    /* 介绍卡片 - 使用unified-card样式但调整内边距 */
-    .intro-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: var(--border-radius-lg);
-      padding: 1.2rem 1.5rem 1rem;
-      border: 1px solid rgba(245, 197, 66, 0.2);
-      text-align: center;
-      position: relative;
-      margin-bottom: var(--spacing-lg);
-    }
-    
-    /* 特色列表样式 */
+    /* 特色列表样式 - main.css中没有的 */
     .feature-list {
       list-style: none;
       padding: 0;
@@ -151,139 +133,10 @@
       text-align: center;
     }
     
-    /* 品牌标签容器 */
-    .brands-container {
-      text-align: center;
-      margin: 0.8rem 0 0.3rem;
-    }
-    
-    .brand-tag {
-      display: inline-block;
-      background: rgba(245, 197, 66, 0.15);
-      border-radius: 18px;
-      padding: 0.5rem 1rem;
-      margin: 0.2rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    /* ==================== 品牌标签模块 ==================== */
-.brands-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-}
-
-.brand-tag {
-  display: inline-block;
-  padding: 0.5rem 1.2rem;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-  border: 1px solid rgba(245, 197, 66, 0.3);
-  border-radius: 50px;
-  color: var(--secondary-color);
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-decoration: none;
-  backdrop-filter: blur(5px);
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  letter-spacing: 0.3px;
-}
-
-.brand-tag:hover {
-  background: var(--secondary-color);
-  color: var(--dark-color);
-  border-color: var(--secondary-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
-}
-
-/* 品牌标签在不同屏幕尺寸下的响应式调整 */
-@media (max-width: 768px) {
-  .brands-container {
-    gap: 0.4rem;
-    margin-top: 0.8rem;
-  }
-  
-  .brand-tag {
-    padding: 0.4rem 0.9rem;
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .brand-tag {
-    padding: 0.3rem 0.7rem;
-    font-size: 0.75rem;
-  }
-}
-    
-    /* 信息卡片区域 */
-    .info-section {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
-      margin: 1.8rem 0;
-    }
-    
-    .info-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: var(--border-radius);
-      padding: 1.2rem 1.5rem;
-      border: 1px solid rgba(245, 197, 66, 0.2);
-      text-align: center;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    /* WhatsApp按钮样式 - 重用action-btn样式但调整颜色 */
-    .whatsapp-btn-container {
-      text-align: center;
-      margin: 1rem 0;
-    }
-    
-    .whatsapp-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.9rem 1.8rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-      margin: 0 auto;
-      min-width: 200px;
-      background-color: var(--secondary-color);
-      color: var(--dark-color);
-    }
-    
-    .whatsapp-btn:hover {
-      background-color: var(--secondary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(245, 197, 66, 0.4);
-    }
-    
-    /* 移动端优化 */
+    /* 移动端优化 - 只保留main.css中没有的 */
     @media (max-width: 768px) {
       .electronics-main {
         padding: 0.4rem 0.6rem 0.8rem;
-      }
-      
-      .info-section {
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
-        margin: 1rem 0;
-      }
-      
-      .intro-card {
-        padding: 1rem 1.2rem 0.8rem;
       }
       
       .feature-list {
@@ -302,26 +155,6 @@
         margin-right: 8px;
         min-width: 20px;
       }
-      
-      .brands-container {
-        margin: 0.6rem 0 0.2rem;
-      }
-      
-      .info-card {
-        padding: 1rem 1.2rem;
-      }
-      
-      .brand-tag {
-        padding: 0.4rem 0.8rem;
-        margin: 0.15rem;
-        font-size: 0.85rem;
-      }
-      
-      .whatsapp-btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.95rem;
-        min-width: 180px;
-      }
     }
   </style>
 </head>
@@ -333,17 +166,14 @@
 <!-- 顶部导航 -->
 <header class="assessment-header">
   <div class="container">
-
     <a href="/" class="back-btn">
       <img src="/images/logo-jf.png" alt="JF Gadai" class="logo-image">
       <strong><span class="arrow">←</span> Beranda</strong>
     </a>
-
     <a href="/motor.html" class="nav-forward">
       <strong>Gadai Motor <span class="arrow">→</span></strong>
       <img src="/images/logo-motor.png" alt="Gadai Motor" class="nav-icon">
     </a>
-
   </div>
 </header>
 
@@ -356,8 +186,8 @@
       Penilaian transparan, dana cair <strong>≤ 15 menit</strong>.
     </p>
     
-    <!-- 品牌标签 -->
-    <div class="brands-container" style="margin-top: 1rem;">
+    <!-- 品牌标签 - 现在使用main.css中的样式 -->
+    <div class="brands-container">
       <span class="brand-tag">iPhone</span>
       <span class="brand-tag">Samsung</span>
       <span class="brand-tag">Laptop</span>
@@ -369,20 +199,18 @@
   
 <!-- 主要内容区域 -->
 <main class="container electronics-main">
-  <!-- 信息区域标题 -->
-  <h2 class="info-section-title card-title">
+  <!-- 信息区域标题 - 使用main.css中的card-title -->
+  <h2 class="card-title">
     Informasi Lengkap Gadai Elektronik
   </h2>
   
-  <!-- 三栏信息 -->
-  <div class="info-section balanced-grid">
+  <!-- 三栏信息 - 使用main.css中的balanced-grid和grid-card -->
+  <div class="balanced-grid">
     <!-- 左栏 -->
-    <div class="info-card grid-card">
-      <div class="section-header card-header">
-        <span class="section-icon card-icon-large">✅</span>
-        <h3>Barang Diterima</h3>
-      </div>
-      <div class="section-content card-body">
+    <div class="grid-card">
+      <div class="card-icon-large">✅</div>
+      <h3>Barang Diterima</h3>
+      <div class="card-content">
         <ul class="card-list">
           <li>Smartphone (semua merek)</li>
           <li>Laptop & Notebook</li>
@@ -393,28 +221,24 @@
     </div>
     
     <!-- 中栏 -->
-    <div class="info-card grid-card">
-      <div class="section-header card-header">
-        <span class="section-icon card-icon-large">⚡</span>
-        <h3>Proses 4 Langkah</h3>
-      </div>
-      <div class="section-content card-body">
+    <div class="grid-card">
+      <div class="card-icon-large">⚡</div>
+      <h3>Proses 4 Langkah</h3>
+      <div class="card-content">
         <ol class="card-list">
           <li><strong>Konsultasi</strong> via WhatsApp</li>
           <li><strong>Penilaian</strong> oleh ahli</li>
           <li><strong>Verifikasi</strong> dokumen</li>
           <li><strong>Pencairan</strong> dana tunai</li>
-        </ul>
+        </ol>
       </div>
     </div>
     
     <!-- 右栏 -->
-    <div class="info-card grid-card">
-      <div class="section-header card-header">
-        <span class="section-icon card-icon-large">📋</span>
-        <h3>Persyaratan</h3>
-      </div>
-      <div class="section-content card-body">
+    <div class="grid-card">
+      <div class="card-icon-large">📋</div>
+      <h3>Persyaratan</h3>
+      <div class="card-content">
         <ul class="card-list">
           <li>Bawa <strong>KTP asli</strong></li>
           <li>Barang berfungsi normal</li>
@@ -428,7 +252,6 @@
 
 <!-- 页脚 -->
 <footer id="lokasi" role="contentinfo">
-
   <div class="footer-content">
     <p class="copyright">
       © <span id="year"></span> JF Gadai
@@ -437,21 +260,15 @@
       JF Gadai – Melayani area Bangil • Beji • Gempol
     </p>
 
-<a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai"
-   target="_blank"
-   class="contact-link"
-   id="wa-contact"
-   rel="noopener noreferrer"
-   aria-label="Hubungi kami via WhatsApp">
-
-  <img src="/images/logo-wa.png"
-       alt="WhatsApp"
-       width="20"
-       height="20">
-
-  Chat WhatsApp Sekarang
-
-</a>
+    <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai"
+       target="_blank"
+       class="contact-link"
+       id="wa-contact"
+       rel="noopener noreferrer"
+       aria-label="Hubungi kami via WhatsApp">
+      <img src="/images/logo-wa.png" alt="WhatsApp" width="20" height="20">
+      Chat WhatsApp Sekarang
+    </a>
 
     <p class="operating-hours">
       ⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu
