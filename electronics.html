@@ -166,6 +166,60 @@
       font-size: 0.9rem;
       font-weight: 500;
     }
+
+    /* ==================== 品牌标签模块 ==================== */
+.brands-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.brand-tag {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(245, 197, 66, 0.3);
+  border-radius: 50px;
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.3px;
+}
+
+.brand-tag:hover {
+  background: var(--secondary-color);
+  color: var(--dark-color);
+  border-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.3);
+}
+
+/* 品牌标签在不同屏幕尺寸下的响应式调整 */
+@media (max-width: 768px) {
+  .brands-container {
+    gap: 0.4rem;
+    margin-top: 0.8rem;
+  }
+  
+  .brand-tag {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-tag {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.75rem;
+  }
+}
     
     /* 信息卡片区域 */
     .info-section {
