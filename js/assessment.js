@@ -50,6 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
   initPhotoUpload();
   initStepNavigation();
   
+  // 初始化FAQ功能
+  initFAQ();
+  
   // 设置默认值
   setTimeout(() => {
     const hondaOption = document.querySelector('.brand-option[data-brand="honda"]');
@@ -59,6 +62,31 @@ document.addEventListener('DOMContentLoaded', function() {
     updateMileageLabels(20000);
   }, 100);
 });
+
+// ==================== FAQ功能 ====================
+function initFAQ() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  if (!faqItems.length) return;
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    question.addEventListener('click', function() {
+      // 关闭其他FAQ项（可选，如果你想一次只打开一个）
+      // faqItems.forEach(otherItem => {
+      //   if (otherItem !== item) {
+      //     otherItem.classList.remove('active');
+      //   }
+      // });
+      
+      // 切换当前FAQ项的active类
+      item.classList.toggle('active');
+    });
+  });
+  
+  console.log('FAQ功能已初始化');
+}
 
 // ==================== 品牌选择 ====================
 function initBrandSelection() {
@@ -276,7 +304,10 @@ function initStepNavigation() {
     const match = btn.getAttribute('onclick').match(/nextStep\((\d+)\)/);
     if (match) {
       const step = parseInt(match[1]);
-      btn.addEventListener('click', () => nextStep(step));
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        nextStep(step);
+      });
     }
   });
   
@@ -284,20 +315,29 @@ function initStepNavigation() {
     const match = btn.getAttribute('onclick').match(/prevStep\((\d+)\)/);
     if (match) {
       const step = parseInt(match[1]);
-      btn.addEventListener('click', () => prevStep(step));
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        prevStep(step);
+      });
     }
   });
   
   // 绑定计算按钮
   const calculateBtn = document.querySelector('[onclick="calculateEstimation()"]');
   if (calculateBtn) {
-    calculateBtn.addEventListener('click', calculateEstimation);
+    calculateBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      calculateEstimation();
+    });
   }
   
   // 绑定重置按钮
   const resetBtn = document.querySelector('[onclick="resetForm()"]');
   if (resetBtn) {
-    resetBtn.addEventListener('click', resetAssessmentForm);
+    resetBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      resetAssessmentForm();
+    });
   }
 }
 
@@ -345,6 +385,12 @@ function updateProgressBar(step) {
 
 // ==================== 表单验证 ====================
 function validateAssessmentStep(stepNumber) {
+  // 确保全局验证器存在
+  if (typeof window.formValidator === 'undefined') {
+    console.warn('formValidator未找到，使用简单验证');
+    return simpleValidateStep(stepNumber);
+  }
+  
   const validator = window.formValidator;
   
   if (stepNumber === 1) {
@@ -401,13 +447,13 @@ function validateAssessmentStep(stepNumber) {
     const phoneNumber = document.getElementById('phoneNumber').value.trim();
     const location = document.getElementById('location').value;
     
-    if (!validator.validateRequired(fullName)) {
+    if (!fullName) {
       alert('👤 Silakan isi nama lengkap Anda');
       document.getElementById('fullName').focus();
       return false;
     }
     
-    if (!validator.validateRequired(phoneNumber)) {
+    if (!phoneNumber) {
       alert('📱 Silakan isi nomor WhatsApp Anda');
       document.getElementById('phoneNumber').focus();
       return false;
@@ -428,6 +474,59 @@ function validateAssessmentStep(stepNumber) {
   }
   
   else if (stepNumber === 4) {
+    return true;
+  }
+  
+  return false;
+}
+
+// 简单验证（当formValidator不存在时使用）
+function simpleValidateStep(stepNumber) {
+  if (stepNumber === 1) {
+    if (!document.getElementById('brand').value) {
+      alert('🚫 Silakan pilih merek motor');
+      return false;
+    }
+    if (!document.getElementById('model').value) {
+      alert('🚫 Silakan pilih model motor');
+      return false;
+    }
+    return true;
+  }
+  
+  else if (stepNumber === 2) {
+    if (!document.querySelector('input[name="engine"]:checked')) {
+      alert('🔧 Silakan pilih kondisi mesin motor Anda');
+      return false;
+    }
+    if (!document.querySelector('input[name="body"]:checked')) {
+      alert('🎨 Silakan pilih kondisi body & cat motor Anda');
+      return false;
+    }
+    if (!document.querySelector('input[name="documents"]:checked')) {
+      alert('📋 Silakan pilih kelengkapan dokumen (STNK & BPKB)');
+      return false;
+    }
+    return true;
+  }
+  
+  else if (stepNumber === 3) {
+    const fullName = document.getElementById('fullName').value.trim();
+    const phoneNumber = document.getElementById('phoneNumber').value.trim();
+    const location = document.getElementById('location').value;
+    
+    if (!fullName) {
+      alert('👤 Silakan isi nama lengkap Anda');
+      return false;
+    }
+    if (!phoneNumber || phoneNumber.length < 10) {
+      alert('📱 Silakan isi nomor WhatsApp yang valid (min. 10 digit)');
+      return false;
+    }
+    if (!location) {
+      alert('📍 Silakan pilih lokasi kota terdekat Anda');
+      return false;
+    }
     return true;
   }
   
@@ -514,7 +613,13 @@ function calculateEstimation() {
 }
 
 function displayEstimationResult(result) {
-  const formatter = window.currencyUtils;
+  // 确保货币格式化工具存在
+  const formatter = window.currencyUtils || {
+    formatSimple: (num) => {
+      return new Intl.NumberFormat('id-ID').format(num);
+    }
+  };
+  
   const middleValue = Math.round((result.minValue + result.maxValue) / 2);
   
   // 更新价值显示
