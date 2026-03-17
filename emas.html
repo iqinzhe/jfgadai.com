@@ -79,49 +79,67 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    .column-title {
-      color: var(--secondary-color);
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid rgba(245, 197, 66, 0.3);
-    }
     
-    .list-item {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1.2rem;
-      align-items: flex-start;
-    }
     
-    .list-icon {
-      color: var(--secondary-color);
-      font-size: 1.3rem;
-      min-width: 28px;
-      text-align: center;
-    }
     
-    .list-content h4 {
-      color: var(--light-color);
-      font-size: 1.1rem;
-      margin-bottom: 0.3rem;
-    }
     
-    .list-content p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.4;
-    }
     
-    /* Responsive */
-    @media (max-width: 992px) {
-      .info-grid-card {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .two-column {
-        grid-template-columns: 1fr;
-      }
+    <style>
+  /* Grid untuk 4 poin utama - menggunakan class dari main.css */
+  .info-grid-card {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin: 3rem 0;
+  }
+  
+  /* Dua Kolom */
+  .two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  
+  .column-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .column-title {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(245, 197, 66, 0.3);
+  }
+  
+  .list-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    align-items: flex-start;
+  }
+  
+  .list-icon {
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    min-width: 28px;
+    text-align: center;
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .info-grid-card {
+      grid-template-columns: repeat(2, 1fr);
     }
+    .two-column {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
     
   </style>
   
