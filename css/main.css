@@ -417,7 +417,7 @@ body {
 }
 
 .page-header h1 {
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
   color: var(--secondary-color);
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
@@ -442,12 +442,12 @@ body {
   }
   
   .page-header h1 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
   }
   
   .page-header p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding: 0 var(--spacing-md);
   }
   
