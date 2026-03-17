@@ -94,9 +94,8 @@
   text-align: center;
   width: 100%; 
   margin-top: var(--spacing-lg); /* 添加上边距与上方内容隔开 */
+  margin-bottom: var(--spacing-md);
 }
-
-/* 你可以根据需要调整 .info-section-title 的 margin-bottom */
 
 /* ================= BUTTON ================= */
 .submit-btn {
