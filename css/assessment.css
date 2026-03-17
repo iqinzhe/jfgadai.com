@@ -1,6 +1,4 @@
 /* ==================== 评估页面专用样式 ==================== */
-/* 注意：通用样式已在 main.css 中定义 */
-
 /* ==================== 进度条 ==================== */
 .progress-bar {
   display: flex;
@@ -1068,3 +1066,100 @@ select:disabled {
       }
     }
   </style>
+
+/* ==================== 页面专用样式（从HTML移动过来） ==================== */
+/* 照片预览样式 */
+.upload-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: none;
+  z-index: 2;
+}
+
+.upload-area.has-image .upload-preview {
+  display: block;
+}
+
+.upload-area.has-image .upload-icon,
+.upload-area.has-image .upload-text {
+  display: none;
+}
+
+/* 移除照片按钮 */
+.remove-photo {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(231, 76, 60, 0.95);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  border: 2px solid white;
+  font-weight: bold;
+}
+
+.upload-area.has-image:hover .remove-photo {
+  opacity: 1;
+}
+
+/* 信任与安全提示 */
+.trust-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding: 15px;
+  background: rgba(11, 44, 74, 0.6);
+  border-radius: 10px;
+  border-left: 4px solid #2ecc71;
+}
+
+.trust-item {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+}
+
+.trust-item strong {
+  color: #2ecc71;
+}
+
+/* 手机端额外优化 */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  
+  .form-row {
+    gap: 0.8rem !important;
+  }
+  
+  .photo-upload {
+    gap: 0.8rem !important;
+  }
+  
+  .upload-area {
+    padding: 1.5rem 0.8rem !important;
+  }
+  
+  .trust-box {
+    flex-direction: column;
+  }
+}
