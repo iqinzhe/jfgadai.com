@@ -65,6 +65,39 @@
   resize: vertical;
 }
 
+/* ================= CONTACT PAGE SPECIFIC ================= */
+.contact-page-title {
+  text-align: center;
+  margin-top: 2rem;
+  /* 如果 h1 默认有下边距，可以保留，或者重置 */
+  /* margin-bottom: 0; */
+}
+
+.contact-page-description {
+  text-align: center;
+  max-width: 700px;
+  margin: 1rem auto 2rem;
+  /* color 会从 body 继承，如果觉得太暗，可以取消下一行的注释 */
+  /* color: var(--text-light); */
+}
+
+.info-section-title {
+  /* 复制 card-title 的样式以确保视觉一致 */
+  color: var(--secondary-color);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-xs);
+  text-shadow: 1px 1px 2px #000;
+  line-height: 1.2;
+  
+  /* 新增样式以满足布局需求 */
+  text-align: center;
+  width: 100%; 
+  margin-top: var(--spacing-lg); /* 添加上边距与上方内容隔开 */
+}
+
+/* 你可以根据需要调整 .info-section-title 的 margin-bottom */
+
 /* ================= BUTTON ================= */
 .submit-btn {
   margin-top: 0.5rem;
