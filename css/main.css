@@ -426,7 +426,7 @@ body {
 }
 
 .page-header p {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   color: var(--text-light);
   max-width: 700px;
   margin: 0 auto;
