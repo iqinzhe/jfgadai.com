@@ -762,6 +762,12 @@ footer{
   font-size:.55rem;
 }
 
+/* 在这里添加文字靠左样式 */
+.operating-hours,
+.security-note {
+  text-align: left;
+}
+
 }
 
 /* WhatsApp 按钮轻呼吸动画 */
