@@ -608,7 +608,6 @@ body {
 #motor-pawn { grid-column: 2; grid-row: 2; }
 #contact-navigation { grid-column: 3; grid-row: 2; }
 
-/* ==================== 网格布局模块 ==================== */
 /* 贷款信息网格 - 自适应列数 */
 .balanced-grid {
   display: grid;
@@ -621,278 +620,143 @@ body {
   width: 100%;
 }
 
-/* 平板设备 (769px - 1200px) */
-@media (max-width: 1200px) and (min-width: 769px) {
-  .balanced-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-  }
-}
-
-/* 手机设备 (≤768px) */
-@media (max-width: 768px) {
-  .balanced-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1rem;
-    margin: 1.5rem 0;
-  }
-}
-
 /* ==================== 页脚模块 ==================== */
-footer{
-  width:100%;
-  background:rgba(11,44,74,0.9);
-  border-top:2px solid var(--secondary-color);
-  margin-top:var(--spacing-md);
-  padding:10px 0;
-
-  /* 防止Edge裁切 */
-  height:auto;
-  overflow:visible;
+footer {
+  width: 100%;
+  background: rgba(11, 44, 74, 0.9);
+  border-top: 2px solid var(--secondary-color);
+  margin-top: var(--spacing-md);
+  padding: 10px 0;
+  height: auto;
+  overflow: visible;
 }
 
 /* 容器 */
-.footer-content{
-  max-width:1200px;
-  margin:0 auto;
-  padding:0 20px;
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  gap:6px;
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
 }
 
 /* 版权 */
-.copyright{
-  font-size:1.1rem;
-  color:var(--text-light);
-  font-weight:500;
-  line-height:1.4;
+.copyright {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 /* 公司信息 */
-.company-info{
-  font-size:0.9rem;
-  color:var(--text-muted);
-  max-width:600px;
+.company-info {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 600px;
 }
 
 /* 联系区域 */
-.contact-info{
-  margin:6px 0;
+.contact-info {
+  margin: 6px 0;
 }
 
 /* 联系按钮 */
-.contact-link{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-
-  padding:8px 22px;
-  font-size:1.1rem;
-  font-weight:500;
-
-  color:var(--text-light);
-  text-decoration:none;
-
-  background:rgba(255,255,255,0.1);
-  border:1px solid rgba(255,255,255,0.2);
-  border-radius:8px;
-
-  transition:all .3s ease;
+.footer-content .contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 22px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-light);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  transition: all .3s ease;
 }
 
-.contact-link img{
-  width:22px;
-  height:22px;
+.footer-content .contact-link img {
+  width: 22px;
+  height: 22px;
 }
 
-/* hover效果 */
-.contact-link:hover{
-  background:rgba(255,255,255,0.2);
-  border-color:var(--secondary-color);
-  color:var(--secondary-color);
-  transform:translateY(-2px);
-  box-shadow:0 4px 12px rgba(245,197,66,0.2);
+.footer-content .contact-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
 }
 
 /* 营业时间 */
-.operating-hours{
-  font-size:0.8rem;
-  color:var(--text-muted);
-  line-height:1.4;
-
-  border-top:1px dashed rgba(255,255,255,0.15);
-  border-bottom:1px dashed rgba(255,255,255,0.15);
-
-  padding:2px 0;
-  margin:1px 0;
-  max-width:500px;
+.operating-hours {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+  padding: 2px 0;
+  margin: 1px 0;
+  max-width: 500px;
 }
 
 /* 安全提示 */
-.security-note{
-  font-size:0.75rem;
-  color:var(--text-muted);
-  opacity:.8;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:2px;
-}
-
-/* ================= MOBILE ================= */
-
-@media (max-width:768px){
-
-footer{
-  padding:8px 0;
-}
-
-.footer-content{
-  gap:4px;
-  padding:0 10px;
-}
-
-.copyright{
-  font-size:.8rem;
-}
-
-.company-info{
-  font-size:.7rem;
-}
-
-.contact-link{
-  font-size:.8rem;
-  padding:4px 12px;
-  border-radius:5px;
-}
-
-.contact-link img{
-  width:15px;
-  height:15px;
-}
-
-.operating-hours{
-  font-size:.6rem;
-  padding:3px 0;
-}
-
-.security-note{
-  font-size:.55rem;
-}
-
-/* 在这里添加文字靠左样式 */
-.operating-hours,
 .security-note {
-  text-align: left;
-}
-
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  opacity: .8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
 }
 
 /* WhatsApp 按钮轻呼吸动画 */
-
-#wa-contact{
+#wa-contact {
   animation: waPulse 3s infinite;
 }
 
-@keyframes waPulse{
-
-0%{
-box-shadow:0 0 0 0 rgba(37,211,102,0.4);
-}
-
-70%{
-box-shadow:0 0 0 10px rgba(37,211,102,0);
-}
-
-100%{
-box-shadow:0 0 0 0 rgba(37,211,102,0);
-}
-
+@keyframes waPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
 /* ================= Floating WhatsApp ================= */
-
-.floating-wa{
-
-position:fixed;
-
-right:20px;
-bottom:20px;
-
-width:60px;
-height:60px;
-
-background:#25D366;
-
-border-radius:50%;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-box-shadow:0 6px 18px rgba(0,0,0,0.25);
-
-z-index:9999;
-
-transition:transform .25s ease;
-
-animation:waFloat 3s infinite;
-
+.floating-wa {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+  transition: transform .25s ease;
+  animation: waFloat 3s infinite;
 }
 
-.floating-wa img{
-
-width:32px;
-height:32px;
-
+.floating-wa img {
+  width: 32px;
+  height: 32px;
 }
 
-/* hover效果 */
-
-.floating-wa:hover{
-
-transform:scale(1.1);
-
+.floating-wa:hover {
+  transform: scale(1.1);
 }
 
-/* 呼吸动画 */
-@keyframes waFloat{
-
-0%{
-box-shadow:0 0 0 0 rgba(37,211,102,0.5);
-}
-
-70%{
-box-shadow:0 0 0 12px rgba(37,211,102,0);
-}
-
-100%{
-box-shadow:0 0 0 0 rgba(37,211,102,0);
-}
-
-}
-
-/* 手机端稍大 */
-@media (max-width:768px){
-
-.floating-wa{
-width:50px;
-height:50px;
-
-right:15px;
-bottom:15px;
-}
-
-.floating-wa img{
-width:30px;
-height:30px;
-}
-  
+@keyframes waFloat {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
 /* ==================== 信任区块模块 ==================== */
@@ -1162,19 +1026,26 @@ height:30px;
     align-items: center;
   }
   
-  .contact-link {
+  .footer-content .contact-link {
     padding: 5px 10px;
     font-size: 0.85rem;
+  }
+  
+  .footer-content .contact-link img {
+    width: 15px;
+    height: 15px;
   }
   
   .operating-hours {
     font-size: 0.7rem;
     line-height: 1.0;
+    text-align: left;
   }
   
   .security-note {
     font-size: 0.7rem;
     line-height: 1.0;
+    text-align: left;
   }
   
   .trust-box {
@@ -1188,11 +1059,16 @@ height:30px;
     font-size: 0.75rem;
     line-height: 1.2;
   }
-}
-
-/* 小屏手机 (≤480px) - 保持1列 */
-@media (max-width: 480px) {
-  .balanced-grid {
-    grid-template-columns: 1fr !important;
+  
+  .floating-wa {
+    width: 50px;
+    height: 50px;
+    right: 15px;
+    bottom: 15px;
+  }
+  
+  .floating-wa img {
+    width: 30px;
+    height: 30px;
   }
 }
