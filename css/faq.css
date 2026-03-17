@@ -1,0 +1,102 @@
+/* ==================== faq.css - FAQ样式独立模块 ==================== */
+/* 此文件可被任何需要FAQ功能的页面引用 */
+
+.faq-section {
+  background: rgba(11, 44, 74, 0.9);
+  padding: 1.1rem 0;
+  margin-top: 1.5rem;
+}
+
+.faq-section h2 {
+  text-align: center;
+  color: var(--secondary-color, #f5c542);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.faq-list {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius, 8px);
+  margin-bottom: 0.8rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.faq-question {
+  padding: 1rem;
+  color: var(--text-light, #e0e0e0);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s ease;
+  font-size: 0.95em;
+  user-select: none;
+}
+
+.faq-question:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.faq-question::after {
+  content: '▶';
+  color: var(--secondary-color, #f5c542);
+  transition: transform 0.2s ease;
+  font-size: 0.8em;
+}
+
+.faq-item.active .faq-question::after {
+  transform: rotate(90deg);
+}
+
+.faq-answer {
+  padding: 0 1rem 1rem;
+  color: var(--text-muted, #a0a0a0);
+  line-height: 1.4;
+  display: none;
+  font-size: 0.9em;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+  animation: fadeIn 0.2s ease;
+}
+
+/* 确保动画存在 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 1rem 0;
+  }
+  
+  .faq-question {
+    padding: 0.9rem;
+    font-size: 0.9em;
+  }
+  
+  .faq-answer {
+    padding: 0 0.9rem 0.9rem;
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-question {
+    padding: 0.8rem;
+  }
+  
+  .faq-answer {
+    padding: 0 0.8rem 0.8rem;
+  }
+}
