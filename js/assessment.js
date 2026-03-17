@@ -49,44 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
   initMileageSlider();
   initPhotoUpload();
   initStepNavigation();
-  
-  // 初始化FAQ功能
-  initFAQ();
-  
-  // 设置默认值
-  setTimeout(() => {
-    const hondaOption = document.querySelector('.brand-option[data-brand="honda"]');
-    if (hondaOption) {
-      hondaOption.click();
-    }
-    updateMileageLabels(20000);
-  }, 100);
-});
-
-// ==================== FAQ功能 ====================
-function initFAQ() {
-  const faqItems = document.querySelectorAll('.faq-item');
-  
-  if (!faqItems.length) return;
-  
-  faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    
-    question.addEventListener('click', function() {
-      // 关闭其他FAQ项（可选，如果你想一次只打开一个）
-      // faqItems.forEach(otherItem => {
-      //   if (otherItem !== item) {
-      //     otherItem.classList.remove('active');
-      //   }
-      // });
-      
-      // 切换当前FAQ项的active类
-      item.classList.toggle('active');
-    });
-  });
-  
-  console.log('FAQ功能已初始化');
-}
 
 // ==================== 品牌选择 ====================
 function initBrandSelection() {
