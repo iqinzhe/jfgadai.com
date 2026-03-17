@@ -386,8 +386,8 @@ body {
 
 /* ==================== 评估页面横幅 ==================== */
 .page-header {
-  padding: 2.5rem 0;
-  margin-bottom: 2rem;
+  padding: 2.0rem 0;
+  margin-bottom: 1.5rem;
   text-align: center;
   border-bottom: 3px solid var(--secondary-color);
   position: relative;
@@ -437,7 +437,7 @@ body {
 /* 响应式调整 */
 @media (max-width: 768px) {
   .page-header {
-    padding: 1.5rem 0;
+    padding: 1.0rem 0;
     margin-bottom: 1rem;
   }
   
