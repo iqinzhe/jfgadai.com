@@ -608,11 +608,34 @@ body {
 #motor-pawn { grid-column: 2; grid-row: 2; }
 #contact-navigation { grid-column: 3; grid-row: 2; }
 
-/* 贷款信息网格 - 默认4列 */
+/* ==================== 网格布局模块 ==================== */
+/* 贷款信息网格 - 自适应列数 */
 .balanced-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-md);
+  justify-content: center;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* 平板设备 (769px - 1200px) */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .balanced-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+}
+
+/* 手机设备 (≤768px) */
+@media (max-width: 768px) {
+  .balanced-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
 }
 
 /* ==================== 页脚模块 ==================== */
