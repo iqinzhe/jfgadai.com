@@ -385,25 +385,86 @@ body {
 }
 
 /* ==================== 评估页面横幅 ==================== */
-.assessment-banner {
-  background: linear-gradient(135deg, rgba(15, 76, 129, 0.9), rgba(245, 197, 66, 0.2));
-  padding: 1.5rem 0 1.2rem;
+.page-header {
+  padding: 2.5rem 0;
+  margin-bottom: 2rem;
   text-align: center;
+  border-bottom: 3px solid var(--secondary-color);
+  position: relative;
+  overflow: hidden;
 }
 
-.assessment-banner h1 {
+.page-header::before {
+  content: "🥇";
+  position: absolute;
+  font-size: 8rem;
+  opacity: 0.1;
+  right: -20px;
+  bottom: -30px;
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+
+.page-header::after {
+  content: "✨";
+  position: absolute;
+  font-size: 8rem;
+  opacity: 0.1;
+  left: -20px;
+  top: -30px;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+.page-header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
   color: var(--secondary-color);
-  margin-bottom: 0.6rem;
-  line-height: 1.0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  position: relative;
+  line-height: 1.2;
 }
 
-.assessment-banner .subtitle {
+.page-header p {
+  font-size: 1.2rem;
   color: var(--text-light);
-  margin-bottom: 1.2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.3;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  line-height: 1.4;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .page-header {
+    padding: 1.5rem 0;
+    margin-bottom: 1rem;
+  }
+  
+  .page-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .page-header p {
+    font-size: 1rem;
+    padding: 0 var(--spacing-md);
+  }
+  
+  .page-header::before,
+  .page-header::after {
+    font-size: 5rem;
+  }
+  
+  .page-header::before {
+    right: -10px;
+    bottom: -20px;
+  }
+  
+  .page-header::after {
+    left: -10px;
+    top: -20px;
+  }
 }
 
 /* ==================== 卡片模块 ==================== */
