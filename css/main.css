@@ -24,15 +24,30 @@
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
   --spacing-xxl: 3rem;
+
+  /* ===== 文字大小统一变量 ===== */
+  /* 桌面端字体大小 */
+  --fs-hero-title: 2.2rem;      /* 英雄区大标题 */
+  --fs-section-title: 1.8rem;    /* 区块标题 */
+  --fs-card-title: 1.5rem;       /* 卡片标题 */
+  --fs-subtitle: 1.25rem;        /* 副标题 */
+  --fs-body: 1rem;               /* 正文 */
+  --fs-small: 0.9rem;            /* 小字 */
+  --fs-tiny: 0.8rem;             /* 极小字（版权、提示） */
+  
+  /* 按钮文字大小 */
+  --fs-btn-large: 1.15rem;       /* 大按钮 */
+  --fs-btn-medium: 1rem;          /* 中按钮 */
+  --fs-btn-small: 0.9rem;         /* 小按钮 */
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #0b2c4a 0%, #0e4b6e 100%) fixed;
   color: var(--light-color);
-  line-height: 1.35;
+  line-height: 1.5;
   overflow-x: hidden;
-  font-size: 1.1rem;
+  font-size: var(--fs-body);      /* 统一正文大小 */
 }
 
 .container {
@@ -113,7 +128,7 @@ body {
   animation: buttonShine 1.2s ease forwards;
 }
 
-/* 主要CTA按钮 */
+/* 主要CTA按钮 - 统一字体大小 */
 .card-cta-btn {
   display: inline-flex;
   align-items: center;
@@ -125,7 +140,7 @@ body {
   border-radius: 12px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: var(--fs-btn-large);  /* 统一大按钮字体 */
   transition: all 0.3s ease;
   border: 3px solid transparent;
   min-width: 220px;
@@ -156,7 +171,7 @@ body {
   animation: buttonShine 1.2s ease forwards;
 }
 
-/* 快速操作按钮 */
+/* 快速操作按钮 - 统一字体大小 */
 .action-btn {
   display: inline-flex;
   align-items: center;
@@ -166,7 +181,7 @@ body {
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: var(--fs-btn-medium);  /* 统一中按钮字体 */
   transition: all 0.3s ease;
   border: 2px solid transparent;
   margin: 0 auto;
@@ -220,7 +235,7 @@ body {
   box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
 }
 
-/* 页脚联系按钮 */
+/* 页脚联系按钮 - 统一字体大小 */
 .contact-link {
   display: inline-flex;
   align-items: center;
@@ -228,7 +243,7 @@ body {
   color: var(--text-light);
   text-decoration: none;
   transition: all 0.3s ease;
-  font-size: 1rem;
+  font-size: var(--fs-body);      /* 统一正文大小 */
   padding: 8px 16px;
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.1);
@@ -267,12 +282,12 @@ body {
   transform: translateY(-2px);
 }
 
-/* 导航按钮 */
+/* 导航按钮 - 统一字体大小 */
 .back-btn,
 .nav-forward {
   color: var(--text-light);
   text-decoration: none;
-  font-size: 0.7rem;
+  font-size: var(--fs-btn-small);  /* 统一小按钮字体 */
   transition: all 0.3s ease;
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
@@ -417,7 +432,7 @@ body {
 }
 
 .page-header h1 {
-  font-size: 1.8rem;
+  font-size: var(--fs-hero-title);  /* 统一英雄区标题大小 */
   margin-bottom: 1rem;
   color: var(--secondary-color);
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
@@ -426,45 +441,12 @@ body {
 }
 
 .page-header p {
-  font-size: 1.25rem;
+  font-size: var(--fs-subtitle);    /* 统一副标题大小 */
   color: var(--text-light);
   max-width: 700px;
   margin: 0 auto;
   position: relative;
-  line-height: 1.2;
-}
-
-/* 响应式调整 */
-@media (max-width: 768px) {
-  .page-header {
-    padding: 0.35rem 0;
-    margin-bottom: 1rem;
-  }
-  
-  .page-header h1 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .page-header p {
-    font-size: 1.5rem;
-    padding: 0 var(--spacing-md);
-  }
-  
-  .page-header::before,
-  .page-header::after {
-    font-size: 5rem;
-  }
-  
-  .page-header::before {
-    right: -10px;
-    bottom: -20px;
-  }
-  
-  .page-header::after {
-    left: -10px;
-    top: -20px;
-  }
+  line-height: 1.5;
 }
 
 /* ==================== 六宫格卡片使用 .unified-card ==================== */
@@ -506,18 +488,18 @@ body {
 
 .card-title {
   color: var(--secondary-color);
-  font-size: 1.8rem;
+  font-size: var(--fs-card-title);  /* 统一卡片标题大小 */
   font-weight: 700;
   margin-bottom: var(--spacing-xs); 
   text-shadow: 1px 1px 2px #000;
-  line-height: 1.2;
+  line-height: 1.3;
 }
 
 .card-desc {
   color: var(--text-light);
-  font-size: 1.1rem;
+  font-size: var(--fs-body);        /* 统一正文大小 */
   margin-bottom: var(--spacing-md); 
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 .card-list li {
@@ -527,20 +509,20 @@ body {
   padding: 0.5rem 0; 
   border-bottom: 1px solid rgba(255,255,255,0.1);
   color: var(--text-light);
-  font-size: 1rem;
+  font-size: var(--fs-body);        /* 统一正文大小 */
   text-align: left;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 .list-icon {
   color: var(--secondary-color);
-  font-size: 1.1rem;
+  font-size: var(--fs-body);        /* 统一正文大小 */
   min-width: 24px;
   display: flex;
   justify-content: center;
 }
 
-/* 贷款信息卡片使用 .grid-card片 */
+/* 贷款信息卡片使用 .grid-card */
 .grid-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
@@ -568,10 +550,10 @@ body {
 
 .grid-card h3 {
   color: var(--secondary-color);
-  font-size: 1.4rem;
+  font-size: var(--fs-card-title);  /* 统一卡片标题大小 */
   font-weight: 600;
   margin: var(--spacing-xs) 0;
-  line-height: 1.2;
+  line-height: 1.3;
   text-align: center;
   width: 100%;
 }
@@ -585,8 +567,8 @@ body {
 .grid-card p {
   color: var(--text-light);
   margin: 0.25rem 0;
-  font-size: 1rem;
-  line-height: 1.3;
+  font-size: var(--fs-body);        /* 统一正文大小 */
+  line-height: 1.5;
   text-align: left;
   width: 100%;
 }
@@ -639,7 +621,7 @@ body {
 
 .action-title { 
   color: var(--secondary-color); 
-  font-size: 1.4rem;
+  font-size: var(--fs-card-title);  /* 统一卡片标题大小 */
   font-weight: 700;
   text-shadow: 1px 1px 2px #000;
   margin-bottom: var(--spacing-xs); 
@@ -648,8 +630,8 @@ body {
 .action-description { 
   color: var(--text-light); 
   margin-bottom: var(--spacing-sm); 
-  font-size: 1rem; 
-  line-height: 1.2;
+  font-size: var(--fs-body);        /* 统一正文大小 */
+  line-height: 1.5;
 }
 
 /* ==================== 网格布局模块 ==================== */
@@ -694,9 +676,9 @@ body {
 }
 
 .trust-item {
-  font-size: 0.85rem;
+  font-size: var(--fs-small);       /* 统一小字大小 */
   color: rgba(255, 255, 255, 0.85);
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 .trust-item strong {
@@ -733,40 +715,23 @@ body {
   object-fit: cover;
 }
 
-/* ✅ 修复：将字体大小从 1.8rem 改为 1rem */
 .gallery-item figcaption {
   text-align: center;
   color: var(--text-muted);
-  font-size: 1rem;  /* 从 1.8rem 改为 1rem */
+  font-size: var(--fs-body);        /* 统一正文大小 */
   margin-top: var(--spacing-sm);
   padding: 0 var(--spacing-sm);
-  line-height: 1.8;  /* 从 1.0 改为 1.5，提高可读性 */
+  line-height: 1.5;
 }
 
-/* 卡片标题样式（如果还没有定义） */
+/* 卡片副标题 */
 .unified-card .card-subtitle {
   color: var(--secondary-color);
-  font-size: 1.5rem;
+  font-size: var(--fs-subtitle);    /* 统一副标题大小 */
   margin-bottom: var(--spacing-sm);
   text-align: center;
   font-weight: 600;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-/* 移动端适配 */
-@media (max-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .gallery-item figcaption {
-    font-size: 0.9rem;  /* 移动端稍微小一点 */
-    line-height: 1.8;
-  }
-  
-  .unified-card .card-subtitle {
-    font-size: 1.5rem;
-  }
 }
 
 /* ==================== 页脚模块 ==================== */
@@ -792,19 +757,20 @@ footer {
   gap: 6px;
 }
 
-/* 版权 */
+/* 版权 - 统一极小字 */
 .copyright {
-  font-size: 1.1rem;
+  font-size: var(--fs-tiny);       /* 统一极小字 */
   color: var(--text-light);
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-/* 公司信息 */
+/* 公司信息 - 统一小字 */
 .company-info {
-  font-size: 0.9rem;
+  font-size: var(--fs-small);       /* 统一小字 */
   color: var(--text-muted);
   max-width: 600px;
+  line-height: 1.5;
 }
 
 /* 联系区域 */
@@ -812,13 +778,13 @@ footer {
   margin: 6px 0;
 }
 
-/* 联系按钮 */
+/* 联系按钮 - 统一正文大小 */
 .footer-content .contact-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 8px 22px;
-  font-size: 1.1rem;
+  font-size: var(--fs-body);        /* 统一正文大小 */
   font-weight: 500;
   color: var(--text-light);
   text-decoration: none;
@@ -841,11 +807,11 @@ footer {
   box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
 }
 
-/* 营业时间 */
+/* 营业时间 - 统一极小字 */
 .operating-hours {
-  font-size: 0.8rem;
+  font-size: var(--fs-tiny);        /* 统一极小字 */
   color: var(--text-muted);
-  line-height: 1.4;
+  line-height: 1.5;
   border-top: 1px dashed rgba(255, 255, 255, 0.15);
   border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
   padding: 2px 0;
@@ -853,15 +819,16 @@ footer {
   max-width: 500px;
 }
 
-/* 安全提示 */
+/* 安全提示 - 统一极小字 */
 .security-note {
-  font-size: 0.75rem;
+  font-size: var(--fs-tiny);        /* 统一极小字 */
   color: var(--text-muted);
   opacity: .8;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2px;
+  line-height: 1.5;
 }
 
 /* WhatsApp 按钮轻呼吸动画 */
@@ -911,6 +878,20 @@ footer {
 /* ==================== 响应式模块 ==================== */
 /* 平板设备 (769px - 1200px) */
 @media (max-width: 1200px) and (min-width: 769px) {
+  /* 平板端字体变量调整 */
+  :root {
+    --fs-hero-title: 2rem;
+    --fs-section-title: 1.6rem;
+    --fs-card-title: 1.35rem;
+    --fs-subtitle: 1.15rem;
+    --fs-body: 0.95rem;
+    --fs-small: 0.85rem;
+    --fs-tiny: 0.75rem;
+    --fs-btn-large: 1.1rem;
+    --fs-btn-medium: 0.95rem;
+    --fs-btn-small: 0.85rem;
+  }
+
   .asymmetric-grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
@@ -945,20 +926,24 @@ footer {
     padding: 0.9rem 0.7rem;
     min-height: 160px;
   }
-  
-  .grid-card h3 {
-    font-size: 1.3rem;
-    margin: 0.05rem 0;
-  }
-  
-  .grid-card p {
-    font-size: 0.95rem;
-    margin: 0.05rem 0;
-  }
 }
 
 /* 手机设备 (≤768px) */
 @media (max-width: 768px) {
+  /* 手机端字体变量调整 */
+  :root {
+    --fs-hero-title: 1.8rem;
+    --fs-section-title: 1.4rem;
+    --fs-card-title: 1.2rem;
+    --fs-subtitle: 1.1rem;
+    --fs-body: 0.9rem;
+    --fs-small: 0.8rem;
+    --fs-tiny: 0.7rem;
+    --fs-btn-large: 1rem;
+    --fs-btn-medium: 0.9rem;
+    --fs-btn-small: 0.8rem;
+  }
+
   .container {
     padding: 0 var(--spacing-md);
   }
@@ -971,7 +956,7 @@ footer {
   .back-btn,
   .nav-forward {
     padding: 0.2rem 0.2rem;
-    font-size: 0.6rem;
+    font-size: var(--fs-btn-small);  /* 统一小按钮字体 */
     gap: 1px;
     white-space: normal;
     text-align: center;
@@ -1012,20 +997,20 @@ footer {
   }
   
   .card-title {
-    font-size: 1.0rem;
+    font-size: var(--fs-card-title);  /* 统一卡片标题大小 */
     margin-bottom: 0.3rem;
-    line-height: 1.2;
+    line-height: 1.3;
   }
   
   .card-desc {
-    font-size: 0.8rem;
-    line-height: 1.2;
+    font-size: var(--fs-body);        /* 统一正文大小 */
+    line-height: 1.5;
     margin-bottom: 0.3rem;
   }
   
   .card-cta-btn {
     padding: 0.6rem 1.2rem;
-    font-size: 0.95rem;
+    font-size: var(--fs-btn-large);   /* 统一大按钮字体 */
     min-width: 180px;
     margin-top: 0.2rem;
   }
@@ -1045,24 +1030,24 @@ footer {
   }
   
   .action-icon {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 0.2rem;
   }
   
   .action-title {
-    font-size: 1.1rem;
+    font-size: var(--fs-card-title);  /* 统一卡片标题大小 */
     margin-bottom: 0.2rem;
   }
   
   .action-description {
-    font-size: 0.9rem;
-    line-height: 1.2;
+    font-size: var(--fs-body);        /* 统一正文大小 */
+    line-height: 1.5;
     margin-bottom: 0.3rem;
   }
   
   .action-btn {
     padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+    font-size: var(--fs-btn-medium);  /* 统一中按钮字体 */
     min-width: 160px;
   }
   
@@ -1084,19 +1069,14 @@ footer {
   }
   
   .grid-card h3 {
-    font-size: 1.2rem;
+    font-size: var(--fs-card-title);  /* 统一卡片标题大小 */
     margin: 0.05rem 0;
   }
   
   .grid-card p {
-    font-size: 0.9rem;
+    font-size: var(--fs-body);        /* 统一正文大小 */
     margin: 0.05rem 0;
-  }
-  
-  .grid-card .card-body p {
-    margin: 0.03rem 0 !important;
-    font-size: 0.85rem;
-    line-height: 1.1 !important;
+    line-height: 1.5;
   }
   
   footer {
@@ -1104,7 +1084,7 @@ footer {
   }
   
   .copyright {
-    font-size: 1rem;
+    font-size: var(--fs-tiny);        /* 统一极小字 */
   }
   
   .contact-info {
@@ -1115,7 +1095,7 @@ footer {
   
   .footer-content .contact-link {
     padding: 5px 10px;
-    font-size: 0.85rem;
+    font-size: var(--fs-body);        /* 统一正文大小 */
   }
   
   .footer-content .contact-link img {
@@ -1124,14 +1104,14 @@ footer {
   }
   
   .operating-hours {
-    font-size: 0.7rem;
-    line-height: 1.0;
+    font-size: var(--fs-tiny);        /* 统一极小字 */
+    line-height: 1.5;
     text-align: left;
   }
   
   .security-note {
-    font-size: 0.7rem;
-    line-height: 1.0;
+    font-size: var(--fs-tiny);        /* 统一极小字 */
+    line-height: 1.5;
     text-align: left;
   }
   
@@ -1143,8 +1123,8 @@ footer {
   }
   
   .trust-item {
-    font-size: 0.75rem;
-    line-height: 1.2;
+    font-size: var(--fs-small);       /* 统一小字 */
+    line-height: 1.5;
   }
   
   .floating-wa {
