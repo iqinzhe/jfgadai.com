@@ -99,35 +99,71 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.jfgadai.com/">
 
-<style>
-  /* 首页特定的表情符号 */
-  .page-header::before {
-    content: "🏠" ;
-  }
+  <style>
+    /* 首页特定的表情符号 */
+    .page-header::before {
+      content: "🏠" !important;
+    }
+    
+    .page-header::after {
+      content: "💰" !important;
+    }
+    
+    /* 确保全屏横幅和page-header之间没有多余间距 */
+    .full-banner {
+      margin-bottom: 0;
+    }
+    
+    .page-header {
+      margin-top: 0;
+    }
+    
+    /* 贷款信息区块标题样式优化 */
+    .loan-info-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--secondary-color);
+      font-size: 2rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    /* 网格卡片内容样式优化 */
+    .grid-card .card-content p {
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.5;
+      margin: 0.5rem 0;
+    }
+    
+    .grid-card .card-content p strong {
+      color: var(--secondary-color);
+      font-weight: 600;
+    }
+    
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      .loan-info-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .grid-card .card-content p {
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+    }
+  </style>
   
-  .page-header::after {
-    content: "💰" ;
-  }
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai"
+     class="floating-wa"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat WhatsApp">
+    <img src="/images/logo-wa.png" alt="WhatsApp">
+  </a>
   
-  /* 确保全屏横幅和page-header之间没有多余间距 */
-  .full-banner {
-    margin-bottom: 0;
-  }
-  
-  .page-header {
-    margin-top: 0;
-  }
-  
-</style>
-  
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai"
-   class="floating-wa"
-   target="_blank"
-   rel="noopener noreferrer"
-   aria-label="Chat WhatsApp">
-  <img src="/images/logo-wa.png" alt="WhatsApp">
-</a>
   <!-- 样式表 -->
   <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -138,16 +174,16 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- 全屏横幅 -->
-<section class="full-banner">
-  <img src="images/jf-justfast.jpg" alt="JF Gadai - Tetap Maju di Saat Sulit" loading="lazy">
-</section>
+  <section class="full-banner">
+    <img src="images/jf-justfast.jpg" alt="JF Gadai - Tetap Maju di Saat Sulit" loading="lazy">
+  </section>
 
-<div class="page-header">
-  <div class="container">
-    <h1>JF Gadai - Solusi Gadai Cepat & Terpercaya di Bangil, Beji, Gempol</h1>
-    <p>Layanan gadai motor, emas, dan elektronik dengan proses cepat, aman, dan transparan.</p>
+  <div class="page-header">
+    <div class="container">
+      <h1>JF Gadai - Solusi Gadai Cepat & Terpercaya di Bangil, Beji, Gempol</h1>
+      <p>Layanan gadai motor, emas, dan elektronik dengan proses cepat, aman, dan transparan.</p>
+    </div>
   </div>
-</div>
 
   <!-- 六宫格布局 -->
   <main class="container asymmetric-grid">
@@ -242,94 +278,85 @@
     </section>
   </main>
 
-<!-- ✅ 贷款信息4区块 -->
-<!-- 贷款信息4区块 - 修复版 -->
-<section class="seo-text-content loan-info-section">
-  <div class="container">
-    <h2 style="text-align: center; margin-bottom: 2rem; color: #f5c542;">Pinjaman Cepat & Aman</h2>
-    
-    <div class="balanced-grid">
+  <!-- 贷款信息4区块 -->
+  <section class="seo-text-content loan-info-section">
+    <div class="container">
+      <h2>Pinjaman Cepat & Aman</h2>
       
-      <!-- 卡片1: Bunga & Biaya -->
-      <div class="grid-card">
-        <div class="card-icon-large">💰</div>
-        <h3>Transparan & Jelas</h3>
-        <div class="card-content">
-          <p><strong>Bunga & Biaya:</strong> Tanpa Tersembunyi</p>
-          <p>💡 Nilai Taksiran Sesuai Dana Cair — Tanpa Potongan</p>
+      <div class="balanced-grid">
+        
+        <!-- 卡片1: Bunga & Biaya -->
+        <div class="grid-card">
+          <div class="card-icon-large">💰</div>
+          <h3>Transparan & Jelas</h3>
+          <div class="card-content">
+            <p><strong>Bunga & Biaya:</strong> Tanpa Tersembunyi</p>
+            <p>💡 Nilai Taksiran Sesuai Dana Cair — Tanpa Potongan</p>
+          </div>
         </div>
-      </div>
-      
-      <!-- 卡片2: Jumlah & Waktu -->
-      <div class="grid-card">
-        <div class="card-icon-large">📈</div>
-        <h3>Jumlah & Waktu</h3>
-        <div class="card-content">
-          <p><strong>Pinjaman & Tenor:</strong> Rp1–10 juta / 1–5 bulan</p>
-          <p>✨ Bisa tebus kapan saja atau perpanjang</p>
+        
+        <!-- 卡片2: Jumlah & Waktu -->
+        <div class="grid-card">
+          <div class="card-icon-large">📈</div>
+          <h3>Jumlah & Waktu</h3>
+          <div class="card-content">
+            <p><strong>Pinjaman & Tenor:</strong> Rp1–10 juta / 1–5 bulan</p>
+            <p>✨ Bisa tebus kapan saja atau perpanjang</p>
+          </div>
         </div>
-      </div>
-      
-      <!-- 卡片3: Syarat & Ketentuan -->
-      <div class="grid-card">
-        <div class="card-icon-large">📋</div>
-        <h3>Syarat Pengajuan</h3>
-        <div class="card-content">
-          <p><strong>Syarat:</strong> WNI ≥23 tahun + KTP berlaku</p>
-          <p>⚠️ Perpanjangan: cukup bayar bunga</p>
+        
+        <!-- 卡片3: Syarat & Ketentuan -->
+        <div class="grid-card">
+          <div class="card-icon-large">📋</div>
+          <h3>Syarat Pengajuan</h3>
+          <div class="card-content">
+            <p><strong>Syarat:</strong> WNI ≥23 tahun + KTP berlaku</p>
+            <p>⚠️ Perpanjangan: cukup bayar bunga</p>
+          </div>
         </div>
-      </div>
-      
-      <!-- 卡片4: Keadilan & Kewaj -->
-      <div class="grid-card">
-        <div class="card-icon-large">⚖️</div>
-        <h3>Keadilan & Kewaj.</h3>
-        <div class="card-content">
-          <p><strong>Melayani:</strong> JF Gadai! Layanan cepat & adil</p>
-          <p>🔒 Hubungan kerja sama jangka panjang & stabil</p>
+        
+        <!-- 卡片4: Keadilan & Kewaj -->
+        <div class="grid-card">
+          <div class="card-icon-large">⚖️</div>
+          <h3>Keadilan & Kewaj.</h3>
+          <div class="card-content">
+            <p><strong>Melayani:</strong> JF Gadai! Layanan cepat & adil</p>
+            <p>🔒 Hubungan kerja sama jangka panjang & stabil</p>
+          </div>
         </div>
-      </div>
-      
-    </div> <!-- 闭合 .balanced-grid -->
-  </div> <!-- 闭合 .container -->
-</section>
+        
+      </div> <!-- 闭合 .balanced-grid -->
+    </div> <!-- 闭合 .container -->
+  </section>
 
-<!-- 页脚 -->
-<footer id="lokasi" role="contentinfo">
+  <!-- 页脚 -->
+  <footer id="lokasi" role="contentinfo">
+    <div class="footer-content">
+      <p class="copyright">
+        © <span id="year"></span> JF Gadai
+      </p>
+      <p class="company-info">
+        JF Gadai – Melayani area Bangil • Beji • Gempol
+      </p>
 
-  <div class="footer-content">
-    <p class="copyright">
-      © <span id="year"></span> JF Gadai
-    </p>
-    <p class="company-info">
-      JF Gadai – Melayani area Bangil • Beji • Gempol
-    </p>
+      <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai"
+         target="_blank"
+         class="contact-link"
+         id="wa-contact"
+         rel="noopener noreferrer"
+         aria-label="Hubungi kami via WhatsApp">
+        <img src="/images/logo-wa.png" alt="WhatsApp" width="20" height="20">
+        Chat WhatsApp Sekarang
+      </a>
 
-<a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai"
-   target="_blank"
-   class="contact-link"
-   id="wa-contact"
-   rel="noopener noreferrer"
-   aria-label="Hubungi kami via WhatsApp">
-
-  <img src="/images/logo-wa.png"
-       alt="WhatsApp"
-       width="20"
-       height="20">
-
-  Chat WhatsApp Sekarang
-
-</a>
-
-    <p class="operating-hours">
-      ⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu
-    </p>
-    <p class="security-note">
-      🔒 Situs ini menggunakan koneksi aman (HTTPS).
-    </p>
-  </div>
-
-</footer>
+      <p class="operating-hours">
+        ⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu
+      </p>
+      <p class="security-note">
+        🔒 Situs ini menggunakan koneksi aman (HTTPS).
+      </p>
+    </div>
+  </footer>
 
   <script src="/js/main.js"></script>
 </body>
