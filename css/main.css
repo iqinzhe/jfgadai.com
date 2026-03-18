@@ -27,13 +27,13 @@
 
   /* ===== 文字大小统一变量 ===== */
   /* 桌面端字体大小 */
-  --fs-hero-title: 2.2rem;      /* 英雄区大标题 */
+  --fs-hero-title: 2.0rem;      /* 英雄区大标题 */
   --fs-section-title: 1.8rem;    /* 区块标题 */
   --fs-card-title: 1.5rem;       /* 卡片标题 */
-  --fs-subtitle: 1.25rem;        /* 副标题 */
-  --fs-body: 1rem;               /* 正文 */
-  --fs-small: 0.9rem;            /* 小字 */
-  --fs-tiny: 0.8rem;             /* 极小字（版权、提示） */
+  --fs-subtitle: 1.4rem;        /* 副标题 */
+  --fs-body: 1.2rem;               /* 正文 */
+  --fs-small: 1.0rem;            /* 小字 */
+  --fs-tiny: 0.9rem;             /* 极小字（版权、提示） */
   
   /* 按钮文字大小 */
   --fs-btn-large: 1.15rem;       /* 大按钮 */
