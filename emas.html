@@ -90,7 +90,7 @@
   .list-item {
     display: flex;
     gap: 1rem;
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.8rem;  /* 增加项目之间的间距 */
     align-items: flex-start;
   }
   
@@ -101,27 +101,20 @@
     text-align: center;
   }
   
-  /* 引用 main.css 中通用卡片 (.unified-card) 的样式 */
+  /* 引用 main.css 中相似的样式 */
   .list-content h4 {
-    color: var(--light-color);           /* 从 .unified-card 的文字颜色借鉴 */
-    font-size: 1.2rem;
-    font-weight: 700;                    /* 从 .card-title 的 font-weight 借鉴 */
+    color: var(--light-color);        /* 从 main.css 的 .grid-card h3 借鉴 */
+    font-size: 1.2rem;                /* 从 main.css 的 .grid-card h3 借鉴 (1.4rem 调整) */
+    font-weight: 600;                 /* 从 main.css 的 .grid-card h3 借鉴 */
     margin-bottom: 0.2rem;
     line-height: 1.3;
-    text-shadow: 1px 1px 2px #000;       /* 从 .card-title 的 text-shadow 借鉴 */
   }
   
   .list-content p {
-    color: var(--text-light);             /* 从 .card-desc 的 color 借鉴 */
-    font-size: 1.1rem;
-    line-height: 1.5;                     /* 从 .card-desc 的 line-height 借鉴 (1.2 调整) */
+    color: var(--text-muted);          /* 从 main.css 的 .grid-card p 借鉴 */
+    font-size: 1.1rem;                 /* 从 main.css 的 .grid-card p 借鉴 (1rem 调整) */
+    line-height: 1.6;                  /* 从 main.css 的 body 借鉴 (1.35 调整) */
     margin: 0.15rem 0;
-  }
-  
-  /* 列表项的文字样式 - 参考 .card-list li 的样式 */
-  .list-content {
-    color: var(--text-light);             /* 从 .card-list li 的 color 借鉴 */
-    font-size: 1rem;                      /* 从 .card-list li 的 font-size 借鉴 */
   }
   
   /* 最后一个列表项减少底部间距 */
@@ -139,23 +132,19 @@
     }
   }
   
-  /* 移动端适配 - 参考 .unified-card 的移动端样式 */
+  /* 移动端适配 */
   @media (max-width: 768px) {
-    .column-card {
-      padding: var(--spacing-sm) var(--spacing-md);  /* 从 .unified-card 移动端样式借鉴 */
-    }
-    
     .list-item {
       margin-bottom: 1.5rem;
     }
     
     .list-content h4 {
-      font-size: 1.1rem;                 /* 从 .card-title 移动端样式借鉴 (1.0rem 调整) */
+      font-size: 1.1rem;
     }
     
     .list-content p {
-      font-size: 0.95rem;                 /* 从 .card-desc 移动端样式借鉴 (0.8rem 调整) */
-      line-height: 1.4;
+      font-size: 1rem;
+      line-height: 1.5;
     }
   }
 </style>
