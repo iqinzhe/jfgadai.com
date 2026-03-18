@@ -28,7 +28,7 @@
 }
 
 .faq-question {
-  padding: 1rem;
+   padding: 1rem 1.5rem;  /* 修改这里：上下1rem，左右1.5rem */
   color: var(--text-light, #e0e0e0);
   font-weight: 600;
   cursor: pointer;
@@ -56,7 +56,7 @@
 }
 
 .faq-answer {
-  padding: 0 1rem 1rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;  /* 修改这里：上0，右1.5rem，下1.5rem，左1.5rem */
   color: var(--text-muted, #a0a0a0);
   line-height: 1.4;
   display: none;
@@ -85,12 +85,6 @@
   margin: 0 auto;
 }
 
-/* 可选：让FAQ项目内部也有适当的内边距 */
-.faq-question {
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
-}
-
 /* 确保动画存在 */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-5px); }
@@ -99,27 +93,21 @@
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-  .faq-section {
-    padding: 1rem 0;
-  }
-  
   .faq-question {
-    padding: 0.9rem;
-    font-size: 0.9em;
+    padding: 1.2rem;  /* 移动端稍微减小 */
   }
   
   .faq-answer {
-    padding: 0 0.9rem 0.9rem;
-    font-size: 0.85em;
+    padding: 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
   .faq-question {
-    padding: 0.8rem;
+    padding: 1rem;
   }
   
   .faq-answer {
-    padding: 0 0.8rem 0.8rem;
+    padding: 1rem;
   }
 }
