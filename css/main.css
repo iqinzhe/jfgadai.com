@@ -39,13 +39,18 @@
   --fs-btn-large: 1.15rem;       /* 大按钮 */
   --fs-btn-medium: 1rem;          /* 中按钮 */
   --fs-btn-small: 0.9rem;         /* 小按钮 */
+  
+  /* ===== 行距统一变量 ===== */
+  --lh-tight: 1.2;               /* 标题、紧凑内容 */
+  --lh-normal: 1.4;              /* 正文标准 */
+  --lh-relaxed: 1.6;             /* 宽松正文 */
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #0b2c4a 0%, #0e4b6e 100%) fixed;
   color: var(--light-color);
-  line-height: 1.5;
+  line-height: var(--lh-normal);
   overflow-x: hidden;
   font-size: var(--fs-body);      /* 统一正文大小 */
 }
@@ -147,6 +152,7 @@ body {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+  line-height: 1.2;
 }
 
 .card-cta-btn::after {
@@ -188,6 +194,7 @@ body {
   min-width: 160px;
   position: relative;
   overflow: hidden;
+  line-height: 1.2;
 }
 
 .action-btn::after {
@@ -251,6 +258,7 @@ body {
   white-space: normal;
   position: relative;
   overflow: hidden;
+  line-height: var(--lh-tight);
 }
 
 .contact-link::after {
@@ -301,6 +309,7 @@ body {
   text-align: center;
   position: relative;
   overflow: hidden;
+  line-height: var(--lh-tight);
 }
 
 .back-btn::after,
@@ -437,7 +446,7 @@ body {
   color: var(--secondary-color);
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   position: relative;
-  line-height: 1.2;
+  line-height: var(--lh-tight);
 }
 
 .page-header p {
@@ -446,7 +455,7 @@ body {
   max-width: 700px;
   margin: 0 auto;
   position: relative;
-  line-height: 1.5;
+  line-height: var(--lh-normal);
 }
 
 /* ==================== 六宫格卡片使用 .unified-card ==================== */
@@ -492,14 +501,14 @@ body {
   font-weight: 700;
   margin-bottom: var(--spacing-xs); 
   text-shadow: 1px 1px 2px #000;
-  line-height: 1.3;
+  line-height: var(--lh-tight);
 }
 
 .card-desc {
   color: var(--text-light);
   font-size: var(--fs-body);        /* 统一正文大小 */
   margin-bottom: var(--spacing-md); 
-  line-height: 1.5;
+  line-height: var(--lh-normal);
 }
 
 .card-list li {
@@ -511,7 +520,7 @@ body {
   color: var(--text-light);
   font-size: var(--fs-body);        /* 统一正文大小 */
   text-align: left;
-  line-height: 1.5;
+  line-height: var(--lh-normal);
 }
 
 .list-icon {
@@ -553,7 +562,7 @@ body {
   font-size: var(--fs-card-title);  /* 统一卡片标题大小 */
   font-weight: 600;
   margin: var(--spacing-xs) 0;
-  line-height: 1.3;
+  line-height: var(--lh-tight);
   text-align: center;
   width: 100%;
 }
@@ -568,7 +577,7 @@ body {
   color: var(--text-light);
   margin: 0.25rem 0;
   font-size: var(--fs-body);        /* 统一正文大小 */
-  line-height: 1.5;
+  line-height: var(--lh-normal);
   text-align: left;
   width: 100%;
 }
@@ -625,13 +634,14 @@ body {
   font-weight: 700;
   text-shadow: 1px 1px 2px #000;
   margin-bottom: var(--spacing-xs); 
+  line-height: var(--lh-tight);
 }
 
 .action-description { 
   color: var(--text-light); 
   margin-bottom: var(--spacing-sm); 
   font-size: var(--fs-body);        /* 统一正文大小 */
-  line-height: 1.5;
+  line-height: var(--lh-normal);
 }
 
 /* ==================== 网格布局模块 ==================== */
@@ -678,7 +688,7 @@ body {
 .trust-item {
   font-size: var(--fs-small);       /* 统一小字大小 */
   color: rgba(255, 255, 255, 0.85);
-  line-height: 1.5;
+  line-height: var(--lh-normal);
 }
 
 .trust-item strong {
@@ -721,7 +731,7 @@ body {
   font-size: var(--fs-body);        /* 统一正文大小 */
   margin-top: var(--spacing-sm);
   padding: 0 var(--spacing-sm);
-  line-height: 1.5;
+  line-height: var(--lh-normal);
 }
 
 /* 卡片副标题 */
@@ -732,6 +742,7 @@ body {
   text-align: center;
   font-weight: 600;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  line-height: var(--lh-tight);
 }
 
 /* ==================== 页脚模块 ==================== */
@@ -762,7 +773,7 @@ footer {
   font-size: var(--fs-tiny);       /* 统一极小字 */
   color: var(--text-light);
   font-weight: 500;
-  line-height: 1.5;
+  line-height: var(--lh-tight);
 }
 
 /* 公司信息 - 统一小字 */
@@ -770,7 +781,7 @@ footer {
   font-size: var(--fs-small);       /* 统一小字 */
   color: var(--text-muted);
   max-width: 600px;
-  line-height: 1.5;
+  line-height: var(--lh-normal);
 }
 
 /* 联系区域 */
@@ -792,6 +803,7 @@ footer {
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   transition: all .3s ease;
+  line-height: var(--lh-tight);
 }
 
 .footer-content .contact-link img {
@@ -811,7 +823,7 @@ footer {
 .operating-hours {
   font-size: var(--fs-tiny);        /* 统一极小字 */
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: var(--lh-tight);
   border-top: 1px dashed rgba(255, 255, 255, 0.15);
   border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
   padding: 2px 0;
@@ -828,7 +840,7 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 2px;
-  line-height: 1.5;
+  line-height: var(--lh-tight);
 }
 
 /* WhatsApp 按钮轻呼吸动画 */
@@ -890,6 +902,10 @@ footer {
     --fs-btn-large: 1.1rem;
     --fs-btn-medium: 0.95rem;
     --fs-btn-small: 0.85rem;
+    
+    /* 平板端行距微调 */
+    --lh-normal: 1.35;
+    --lh-tight: 1.15;
   }
 
   .asymmetric-grid {
@@ -942,6 +958,10 @@ footer {
     --fs-btn-large: 1rem;
     --fs-btn-medium: 0.9rem;
     --fs-btn-small: 0.8rem;
+    
+    /* 手机端更紧凑的行距 */
+    --lh-normal: 1.3;
+    --lh-tight: 1.1;
   }
 
   .container {
@@ -998,14 +1018,14 @@ footer {
   
   .card-title {
     font-size: var(--fs-card-title);  /* 统一卡片标题大小 */
-    margin-bottom: 0.3rem;
-    line-height: 1.3;
+    margin-bottom: 0.2rem;
+    line-height: var(--lh-tight);
   }
   
   .card-desc {
     font-size: var(--fs-body);        /* 统一正文大小 */
-    line-height: 1.5;
-    margin-bottom: 0.3rem;
+    line-height: var(--lh-normal);
+    margin-bottom: 0.2rem;
   }
   
   .card-cta-btn {
@@ -1031,24 +1051,26 @@ footer {
   
   .action-icon {
     font-size: 2rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.1rem;
   }
   
   .action-title {
     font-size: var(--fs-card-title);  /* 统一卡片标题大小 */
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.1rem;
+    line-height: var(--lh-tight);
   }
   
   .action-description {
     font-size: var(--fs-body);        /* 统一正文大小 */
-    line-height: 1.5;
-    margin-bottom: 0.3rem;
+    line-height: var(--lh-normal);
+    margin-bottom: 0.2rem;
   }
   
   .action-btn {
     padding: 0.5rem 1rem;
     font-size: var(--fs-btn-medium);  /* 统一中按钮字体 */
     min-width: 160px;
+    line-height: var(--lh-tight);
   }
   
   /* 手机：贷款信息网格1列 */
@@ -1071,12 +1093,13 @@ footer {
   .grid-card h3 {
     font-size: var(--fs-card-title);  /* 统一卡片标题大小 */
     margin: 0.05rem 0;
+    line-height: var(--lh-tight);
   }
   
   .grid-card p {
     font-size: var(--fs-body);        /* 统一正文大小 */
     margin: 0.05rem 0;
-    line-height: 1.5;
+    line-height: var(--lh-normal);
   }
   
   footer {
@@ -1085,6 +1108,7 @@ footer {
   
   .copyright {
     font-size: var(--fs-tiny);        /* 统一极小字 */
+    line-height: var(--lh-tight);
   }
   
   .contact-info {
@@ -1096,6 +1120,7 @@ footer {
   .footer-content .contact-link {
     padding: 5px 10px;
     font-size: var(--fs-body);        /* 统一正文大小 */
+    line-height: var(--lh-tight);
   }
   
   .footer-content .contact-link img {
@@ -1105,13 +1130,13 @@ footer {
   
   .operating-hours {
     font-size: var(--fs-tiny);        /* 统一极小字 */
-    line-height: 1.5;
+    line-height: var(--lh-tight);
     text-align: left;
   }
   
   .security-note {
     font-size: var(--fs-tiny);        /* 统一极小字 */
-    line-height: 1.5;
+    line-height: var(--lh-tight);
     text-align: left;
   }
   
@@ -1124,7 +1149,7 @@ footer {
   
   .trust-item {
     font-size: var(--fs-small);       /* 统一小字 */
-    line-height: 1.5;
+    line-height: var(--lh-normal);
   }
   
   .floating-wa {
