@@ -262,7 +262,7 @@
     .case-scenario p, .case-process p, .case-lesson p {
       color: var(--text-light);
       font-size: 1.05rem;
-      line-height: 1.4;
+      line-height: 1.6;
       margin-bottom: 0.5rem;
     }
 
@@ -278,16 +278,72 @@
       line-height: 1.2;
     }
 
-    .case-process ul, .case-process ol {
-      color: var(--text-light);
-      padding-left: var(--spacing-md);
-      margin-bottom: 0;
+    /* 案例列表样式优化 - 参照标准模板 */
+    .case-process ul, 
+    .case-process ol,
+    .factor-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.5rem 0;
     }
 
-    .case-process li {
-      margin-bottom: 0.5rem;
+    .case-process li,
+    .factor-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+      color: var(--text-light);
       font-size: 1.05rem;
-      line-height: 1.4;
+      line-height: 1.6;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 0.8rem;
+    }
+
+    .case-process li:last-child,
+    .factor-list li:last-child {
+      margin-bottom: 0;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .case-process li::before {
+      content: "•";
+      color: var(--secondary-color);
+      font-size: 1.3rem;
+      font-weight: bold;
+      min-width: 24px;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .case-process ol li::before {
+      content: counter(item) ".";
+      counter-increment: item;
+      font-size: 1.1rem;
+      min-width: 28px;
+    }
+
+    .case-process ol {
+      counter-reset: item;
+    }
+
+    .factor-list li::before {
+      content: "✓";
+      color: var(--secondary-color);
+      font-size: 1.2rem;
+      font-weight: bold;
+      min-width: 24px;
+    }
+
+    .factor-tip {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius);
     }
 
     .outcome-bad, .outcome-warning, .outcome-good {
@@ -322,10 +378,10 @@
       font-style: italic;
       color: var(--text-light);
       font-size: 1.05rem;
-      line-height: 1.4;
+      line-height: 1.6;
     }
 
-    /* 3. 网格布局（main.css中已有类似的网格样式，但需要特定调整） */
+    /* 3. 网格布局 */
     .cases-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -388,6 +444,16 @@
       color: var(--secondary-color);
     }
 
+    .cta-note {
+      margin-top: var(--spacing-lg);
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      padding: var(--spacing-md);
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: var(--border-radius);
+    }
+
     /* 5. 条款页面特有样式 */
     .legal-banner {
       background: rgba(245, 197, 66, 0.15);
@@ -404,35 +470,7 @@
       font-size: 2rem;
     }
     
-    .case-study-link {
-      background: rgba(46, 204, 113, 0.1);
-      border: 1px solid #2ecc71;
-      border-radius: var(--border-radius);
-      padding: var(--spacing-lg);
-      margin: var(--spacing-lg) 0;
-    }
-    
-    .case-study-link a {
-      color: #2ecc71;
-      text-decoration: none;
-      font-weight: 600;
-      display: block;
-      margin: 0.5rem 0;
-    }
-    
-    .case-study-link a:hover {
-      text-decoration: underline;
-    }
-    
-    .print-suggestion {
-      background: rgba(155, 89, 182, 0.1);
-      border: 1px solid #9b59b6;
-      border-radius: var(--border-radius);
-      padding: var(--spacing-lg);
-      margin: var(--spacing-lg) 0;
-    }
-    
-    /* FAQ样式 */
+    /* FAQ样式优化 */
     .faq-list {
       max-width: 850px;
       margin: 0 auto;
@@ -458,6 +496,7 @@
       padding: var(--spacing-sm);
       border-radius: 6px;
       transition: background-color 0.3s;
+      color: var(--light-color);
     }
     
     .faq-question:hover {
@@ -483,7 +522,7 @@
       animation: fadeIn 0.5s ease;
     }
 
-    /* 条款列表 */
+    /* 条款列表优化 */
     .rules-list {
       display: flex;
       flex-direction: column;
@@ -493,20 +532,30 @@
     .clause-item {
       padding-left: var(--spacing-md);
       border-left: 3px solid var(--secondary-color);
+      margin-bottom: var(--spacing-md);
     }
     
     .clause-item strong {
       color: var(--secondary-color);
       display: block;
       margin-bottom: var(--spacing-sm);
+      font-size: 1.1rem;
+    }
+    
+    .clause-item p {
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
     }
     
     .subclause-item {
       margin: var(--spacing-sm) 0 0 var(--spacing-lg);
       padding-left: var(--spacing-md);
       border-left: 2px solid rgba(245, 197, 66, 0.5);
-      color: rgba(255, 255, 255, 0.8);
+      color: var(--text-muted);
       font-size: 0.95rem;
+      line-height: 1.5;
     }
     
     .process-grid {
@@ -520,6 +569,7 @@
       color: var(--secondary-color);
       margin-bottom: var(--spacing-sm);
       line-height: 1.2;
+      font-size: 1.1rem;
     }
     
     .process-grid ul {
@@ -528,17 +578,26 @@
     }
     
     .process-grid li {
-      padding: var(--spacing-xs) 0;
       display: flex;
-      align-items: center;
-      line-height: 1.4;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.5rem 0;
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.5;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
     
-    .process-grid li:before {
+    .process-grid li:last-child {
+      border-bottom: none;
+    }
+    
+    .process-grid li::before {
       content: "✓";
       color: #2ecc71;
-      margin-right: var(--spacing-sm);
+      font-size: 1.1rem;
       font-weight: bold;
+      min-width: 20px;
     }
     
     .warning-card {
@@ -553,11 +612,38 @@
       color: #e74c3c;
       margin-bottom: var(--spacing-md);
       line-height: 1.2;
+      font-size: 1.2rem;
     }
     
-    .warning-card li:before {
+    .warning-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .warning-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.5;
+      border-bottom: 1px solid rgba(231, 76, 60, 0.2);
+      padding-bottom: 0.8rem;
+    }
+    
+    .warning-card li:last-child {
+      margin-bottom: 0;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    
+    .warning-card li::before {
       content: "✗";
       color: #e74c3c;
+      font-size: 1.2rem;
+      font-weight: bold;
+      min-width: 20px;
     }
     
     .version-info {
@@ -601,6 +687,7 @@
       color: #3498db;
       margin-bottom: var(--spacing-md);
       line-height: 1.2;
+      font-size: 1.3rem;
     }
     
     .print-btn {
@@ -620,7 +707,7 @@
       transform: translateY(-2px);
     }
 
-    /* 6. 动画效果（main.css中已有fadeIn，但需要其他动画） */
+    /* 6. 动画效果 */
     @keyframes fadeIn {
       from { 
         opacity: 0; 
@@ -660,7 +747,6 @@
 
     /* 移动设备（768px及以下） */
     @media (max-width: 768px) {
-      /* 基础调整 */
       .page-hero {
         padding: var(--spacing-md) 0;
         margin-bottom: var(--spacing-md);
@@ -674,7 +760,6 @@
         font-size: 1rem;
       }
       
-      /* 案例网格调整 */
       .cases-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
@@ -697,13 +782,17 @@
         padding: var(--spacing-md);
       }
       
-      /* 成功因素网格调整 */
+      .case-process li,
+      .factor-list li {
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      
       .factors-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
       }
       
-      /* CTA部分调整 */
       .cta-card {
         padding: var(--spacing-lg);
       }
@@ -716,7 +805,6 @@
         padding: var(--spacing-lg);
       }
       
-      /* 条款页面调整 */
       .legal-banner {
         flex-direction: column;
         text-align: center;
@@ -730,6 +818,12 @@
         padding-left: var(--spacing-md);
       }
       
+      .faq-number {
+        width: 24px;
+        height: 24px;
+        font-size: 0.9rem;
+      }
+      
       .version-info {
         flex-direction: column;
         align-items: flex-start;
@@ -737,6 +831,10 @@
       
       .process-grid {
         grid-template-columns: 1fr;
+      }
+      
+      .warning-card li {
+        font-size: 0.95rem;
       }
     }
 
@@ -782,10 +880,6 @@
   </style>
 </head>
   
-    <!-- 样式表 -->
-  <link rel="stylesheet" href="css/main.css">
-</head>
-  
 <body>
   <!-- ✅ SEO文本内容区块 -->
   <div class="seo-text-content" style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden;">
@@ -827,12 +921,11 @@
     <!-- 介绍部分 - 使用main.css中的unified-card类 -->
     <section class="intro-section">
       <div class="section-header">
-        <!-- 这里section-header会自动从main.css继承样式 -->
         <h2 class="card-title">Panduan Gadai Motor Nyata</h2>
- <p class="section-subtitle" style="line-height: 1.2; margin: 0; margin-top: 8px; padding: 0;">
-  <strong class="highlight">Persiapan baik = sukses gadai.</strong> 
-  Kisah nyata dari pelanggan JF Gadai (nama dirahasiakan).
-</p>
+        <p class="section-subtitle" style="line-height: 1.2; margin: 0; margin-top: 8px; padding: 0;">
+          <strong class="highlight">Persiapan baik = sukses gadai.</strong> 
+          Kisah nyata dari pelanggan JF Gadai (nama dirahasiakan).
+        </p>
       </div>
       
       <div class="key-message unified-card">
@@ -1185,27 +1278,32 @@
             <div class="clause-numbering">
               <div class="rules-list">
                 <div class="clause-item">
-                  <strong>Kepemilikan Sah:</strong> Barang yang digadaikan harus benar-benar milik pribadi yang menggadaikan (bukan barang pinjaman, titipan, atau hasil tindakan melawan hukum).
+                  <strong>Kepemilikan Sah:</strong>
+                  <p>Barang yang digadaikan harus benar-benar milik pribadi yang menggadaikan (bukan barang pinjaman, titipan, atau hasil tindakan melawan hukum).</p>
                   <div class="subclause-item">Klien wajib membuktikan kepemilikan dengan dokumen yang sah.</div>
                 </div>
                 
                 <div class="clause-item">
-                  <strong>Identitas Lengkap:</strong> Pihak yang menggadaikan wajib menunjukkan KTP asli (Kartu Tanda Penduduk) yang masih berlaku.
+                  <strong>Identitas Lengkap:</strong>
+                  <p>Pihak yang menggadaikan wajib menunjukkan KTP asli (Kartu Tanda Penduduk) yang masih berlaku.</p>
                   <div class="subclause-item">KTP harus sesuai dengan alamat tempat tinggal terkini.</div>
                 </div>
                 
                 <div class="clause-item">
-                  <strong>Usia Minimum:</strong> Peminjam harus berusia minimal 21 tahun atau sudah menikah (dibuktikan dengan buku nikah).
+                  <strong>Usia Minimum:</strong>
+                  <p>Peminjam harus berusia minimal 21 tahun atau sudah menikah (dibuktikan dengan buku nikah).</p>
                   <div class="subclause-item">Untuk usia 18-21 tahun, diperlukan izin tertulis dari orang tua/wali.</div>
                 </div>
                 
                 <div class="clause-item">
-                  <strong>Kewarasan:</strong> Peminjam harus dalam keadaan sadar dan sehat jasmani/rohani saat melakukan transaksi.
+                  <strong>Kewarasan:</strong>
+                  <p>Peminjam harus dalam keadaan sadar dan sehat jasmani/rohani saat melakukan transaksi.</p>
                   <div class="subclause-item">JF Gadai berhak menolak transaksi jika peminjam tampak tidak waras.</div>
                 </div>
                 
                 <div class="clause-item">
-                  <strong>Dokumen Asli:</strong> Semua dokumen yang disyaratkan harus dalam bentuk asli, bukan fotokopi atau digital.
+                  <strong>Dokumen Asli:</strong>
+                  <p>Semua dokumen yang disyaratkan harus dalam bentuk asli, bukan fotokopi atau digital.</p>
                   <div class="subclause-item">Fotokopi hanya diterima untuk arsip internal dengan persetujuan klien.</div>
                 </div>
               </div>
@@ -1267,27 +1365,32 @@
             <div class="clause-numbering">
               <div class="rules-list">
                 <div class="clause-item">
-                  <strong>Penilaian Barang:</strong> Nilai gadai ditentukan berdasarkan kondisi fisik, usia, merek, dan kelengkapan barang. Penilaian dilakukan oleh tim ahli kami secara objektif.
+                  <strong>Penilaian Barang:</strong>
+                  <p>Nilai gadai ditentukan berdasarkan kondisi fisik, usia, merek, dan kelengkapan barang. Penilaian dilakukan oleh tim ahli kami secara objektif.</p>
                   <div class="subclause-item">Klien berhak meminta penjelasan detail tentang penilaian.</div>
                 </div>
                 
                 <div class="clause-item">
-                  <strong>Bunga & Biaya:</strong> Suku bunga dan biaya administrasi akan dijelaskan secara transparan sebelum kesepakatan. Tidak ada biaya tersembunyi.
+                  <strong>Bunga & Biaya:</strong>
+                  <p>Suku bunga dan biaya administrasi akan dijelaskan secara transparan sebelum kesepakatan. Tidak ada biaya tersembunyi.</p>
                   <div class="subclause-item">Semua biaya tercantum dalam kontrak gadai.</div>
                 </div>
                 
                 <div class="clause-item">
-                  <strong>Jangka Waktu:</strong> Masa gadai standar adalah 30 hari. Dapat diperpanjang dengan membayar bunga periode berikutnya sebelum jatuh tempo.
+                  <strong>Jangka Waktu:</strong>
+                  <p>Masa gadai standar adalah 30 hari. Dapat diperpanjang dengan membayar bunga periode berikutnya sebelum jatuh tempo.</p>
                   <div class="subclause-item">Perpanjangan maksimal 3 kali berturut-turut.</div>
                 </div>
                 
                 <div class="clause-item">
-                  <strong>Pelunasan:</strong> Pelunasan dapat dilakukan kapan saja sebelum jatuh tempo. Pelunasan lebih cepat tidak dikenakan penalti.
+                  <strong>Pelunasan:</strong>
+                  <p>Pelunasan dapat dilakukan kapan saja sebelum jatuh tempo. Pelunasan lebih cepat tidak dikenakan penalti.</p>
                   <div class="subclause-item">Bunga dihitung harian hingga tanggal pelunasan.</div>
                 </div>
                 
                 <div class="clause-item">
-                  <strong>Denda Keterlambatan:</strong> Jika tidak ditebus atau diperpanjang setelah 7 hari dari jatuh tempo, akan dikenakan dana denda sesuai ketentuan.
+                  <strong>Denda Keterlambatan:</strong>
+                  <p>Jika tidak ditebus atau diperpanjang setelah 7 hari dari jatuh tempo, akan dikenakan dana denda sesuai ketentuan.</p>
                   <div class="subclause-item">Setelah 30 hari lewat jatuh tempo, barang dianggap lelang.</div>
                 </div>
               </div>
@@ -1305,22 +1408,26 @@
             <div class="clause-numbering">
               <div class="rules-list">
                 <div class="clause-item">
-                  <strong>Jam Operasional:</strong> Layanan kami tersedia Senin-Sabtu pukul 08:00-18:00 WIB. Konsultasi via WhatsApp tersedia dalam jam operasional.
+                  <strong>Jam Operasional:</strong>
+                  <p>Layanan kami tersedia Senin-Sabtu pukul 08:00-18:00 WIB. Konsultasi via WhatsApp tersedia dalam jam operasional.</p>
                   <div class="subclause-item">Di luar jam operasional, klien dapat meninggalkan pesan.</div>
                 </div>
                 
                 <div class="clause-item">
-                  <strong>Keamanan Barang:</strong> Barang gadai disimpan di tempat yang aman, terlindung dari cuaca, pencurian, dan kerusakan.
+                  <strong>Keamanan Barang:</strong>
+                  <p>Barang gadai disimpan di tempat yang aman, terlindung dari cuaca, pencurian, dan kerusakan.</p>
                   <div class="subclause-item">JF Gadai bertanggung jawab atas keamanan barang selama masa gadai.</div>
                 </div>
                 
                 <div class="clause-item">
-                  <strong>Kerahasiaan:</strong> Data pribadi dan transaksi pelanggan dijamin kerahasiaannya dan tidak akan disalahgunakan.
+                  <strong>Kerahasiaan:</strong>
+                  <p>Data pribadi dan transaksi pelanggan dijamin kerahasiaannya dan tidak akan disalahgunakan.</p>
                   <div class="subclause-item">Data hanya digunakan untuk keperluan transaksi gadai.</div>
                 </div>
                 
                 <div class="clause-item">
-                  <strong>Pencairan Dana:</strong> Setelah kesepakatan dan penandatanganan dokumen, dana langsung dicairkan di tempat (cash atau transfer).
+                  <strong>Pencairan Dana:</strong>
+                  <p>Setelah kesepakatan dan penandatanganan dokumen, dana langsung dicairkan di tempat (cash atau transfer).</p>
                   <div class="subclause-item">Transfer maksimal 1 jam kerja setelah kontrak ditandatangani.</div>
                 </div>
               </div>
@@ -1378,8 +1485,8 @@
   </div>
 </footer>
 
-<script src="js/main.js" defer></script>
-<script src="js/risk-to-success.js" defer></script>
+<script src="/js/main.js" defer></script>
+<script src="/js/risk-to-success.js" defer></script>
   
 </body>
 </html>
