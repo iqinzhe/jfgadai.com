@@ -736,7 +736,7 @@ body {
 .gallery-item figcaption {
   text-align: center;
   color: var(--text-muted);
-  font-size: 1.0rem;
+  font-size: 1.8rem;
   margin-top: var(--spacing-sm);
   padding: 0 var(--spacing-sm);
   line-height: 1.0;
