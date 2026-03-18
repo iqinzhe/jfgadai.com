@@ -467,8 +467,7 @@ body {
   }
 }
 
-/* ==================== 卡片模块 ==================== */
-/* 通用卡片 */
+/* ==================== 六宫格卡片使用 .unified-card ==================== */
 .unified-card {
   position: relative;
   background: linear-gradient(135deg, 
@@ -541,7 +540,7 @@ body {
   justify-content: center;
 }
 
-/* 网格卡片 - 贷款信息卡片 */
+/* 贷款信息卡片使用 .grid-card片 */
 .grid-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
