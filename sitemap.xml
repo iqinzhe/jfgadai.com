@@ -9,7 +9,7 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.jfgadai.com/images/jf-justfast.jpg</image:loc>
+      <image:loc>https://www.jfgadai.com/images/gallery/jf-justfast.jpg</image:loc>
       <image:title>JF Gadai</image:title>
       <image:caption>Layanan Gadai Motor, Elektronik &amp; Emas di Bangil, Beji, dan Gempol</image:caption>
     </image:image>
@@ -24,14 +24,14 @@
     
     <!-- 图片1 -->
     <image:image>
-      <image:loc>https://www.jfgadai.com/images/jf-gadai-dana-cepat-cair-hari-ini.jpg</image:loc>
+      <image:loc>https://www.jfgadai.com/images/gallery/jf-gadai-dana-cepat-cair-hari-ini.jpg</image:loc>
       <image:title>Butuh Dana Cepat?</image:title>
       <image:caption>JF Gadai membantu menghadapi tekanan finansial, cair hari ini</image:caption>
     </image:image>
     
     <!-- 图片2 -->
     <image:image>
-      <image:loc>https://www.jfgadai.com/images/jf-gadai-terhormat-prinsip-layanan.jpg</image:loc>
+      <image:loc>https://www.jfgadai.com/images/gallery/jf-gadai-terhormat-prinsip-layanan.jpg</image:loc>
       <image:title>Butuh Dana Cepat, Tetap Terhormat</image:title>
       <image:caption>Solusi dana cepat tanpa mengorbankan harga diri dan rasa aman</image:caption>
     </image:image>
@@ -45,7 +45,7 @@
 
     <!-- 图片4 -->
     <image:image>
-      <image:loc>https://www.jfgadai.com/images/jf-gadai-keunggulan-layanan-lokal.jpg</image:loc>
+      <image:loc>https://www.jfgadai.com/images/gallery/jf-gadai-keunggulan-layanan-lokal.jpg</image:loc>
       <image:title>Mengapa Memilih Kami?</image:title>
       <image:caption>Bunga kompetitif dan jelas. Keamanan barang terjamin. Layanan lokal terpercaya. Pembayaran fleksibel.</image:caption>
     </image:image>
@@ -59,7 +59,7 @@
 
     <!-- 图片6 -->
     <image:image>
-      <image:loc>https://www.jfgadai.com/images/jf-gadai-ada-jaminan-ada-solusi.jpg</image:loc>
+      <image:loc>https://www.jfgadai.com/images/gallery/jf-gadai-ada-jaminan-ada-solusi.jpg</image:loc>
       <image:title>Ada Jaminan, Ada Solusi</image:title>
       <image:caption>Syarat jelas, tanpa jebakan. Taksir hari ini, cair hari ini.</image:caption>
     </image:image>
