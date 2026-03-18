@@ -704,7 +704,7 @@ body {
   font-weight: 600;
 }
 
-/* ==================== 图库模块 ==================== */
+/* ==================== 双列图库模块 ==================== */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -733,13 +733,40 @@ body {
   object-fit: cover;
 }
 
+/* ✅ 修复：将字体大小从 1.8rem 改为 1rem */
 .gallery-item figcaption {
   text-align: center;
   color: var(--text-muted);
-  font-size: 1.8rem;
+  font-size: 1rem;  /* 从 1.8rem 改为 1rem */
   margin-top: var(--spacing-sm);
   padding: 0 var(--spacing-sm);
-  line-height: 1.0;
+  line-height: 1.5;  /* 从 1.0 改为 1.5，提高可读性 */
+}
+
+/* 卡片标题样式（如果还没有定义） */
+.unified-card .card-subtitle {
+  color: var(--secondary-color);
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-sm);
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .gallery-item figcaption {
+    font-size: 0.9rem;  /* 移动端稍微小一点 */
+    line-height: 1.4;
+  }
+  
+  .unified-card .card-subtitle {
+    font-size: 1.1rem;
+  }
 }
 
 /* ==================== 页脚模块 ==================== */
