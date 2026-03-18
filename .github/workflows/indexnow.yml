@@ -37,6 +37,11 @@ jobs:
               "key": "'"$KEY"'",
               "keyLocation": "'"$LOCATION"'",
               "urlList": ["https://www.jfgadai.com/"]
+              "urlList": ["https://www.jfgadai.com/edukasi-gadai.html"]
+              "urlList": ["https://www.jfgadai.com/risk-to-success.html"]
+              "urlList": ["https://www.jfgadai.com/gallery.html"]
+              "urlList": ["https://www.jfgadai.com/contact.html"]
+              "urlList": ["https://www.jfgadai.com/assessment.html"]
             }'
           
           echo ""
