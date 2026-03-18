@@ -875,7 +875,7 @@ footer {
 .gallery-item figcaption {
   text-align: center;
   color: var(--text-muted);
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   margin-top: var(--spacing-sm);
   padding: 0 var(--spacing-sm);
   line-height: 1.0;
@@ -985,7 +985,7 @@ footer {
   }
   
   .card-title {
-    font-size: 1.0rem;
+    font-size: 0.8rem;
     margin-bottom: 0.3rem;
     line-height: 1.0;
   }
