@@ -442,12 +442,12 @@ body {
   }
   
   .page-header h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 0.5rem;
   }
   
   .page-header p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     padding: 0 var(--spacing-md);
   }
   
@@ -740,13 +740,13 @@ body {
   font-size: 1rem;  /* 从 1.8rem 改为 1rem */
   margin-top: var(--spacing-sm);
   padding: 0 var(--spacing-sm);
-  line-height: 1.5;  /* 从 1.0 改为 1.5，提高可读性 */
+  line-height: 1.8;  /* 从 1.0 改为 1.5，提高可读性 */
 }
 
 /* 卡片标题样式（如果还没有定义） */
 .unified-card .card-subtitle {
   color: var(--secondary-color);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   margin-bottom: var(--spacing-sm);
   text-align: center;
   font-weight: 600;
@@ -761,11 +761,11 @@ body {
   
   .gallery-item figcaption {
     font-size: 0.9rem;  /* 移动端稍微小一点 */
-    line-height: 1.4;
+    line-height: 1.8;
   }
   
   .unified-card .card-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
   }
 }
 
