@@ -87,8 +87,8 @@
 
 /* 可选：让FAQ项目内部也有适当的内边距 */
 .faq-question {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
 }
 
 /* 确保动画存在 */
