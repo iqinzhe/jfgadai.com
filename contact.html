@@ -8,45 +8,156 @@
   <meta name="description" content="Hubungi JF Gadai untuk konsultasi gadai motor, emas, HP, laptop, dan barang elektronik. Tersedia peluang kemitraan bisnis gadai dengan sistem profesional.">
 
   <!-- Floating WhatsApp Button -->
-<a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai"
-   class="floating-wa"
-   target="_blank"
-   rel="noopener noreferrer"
-   aria-label="Chat WhatsApp">
-  <img src="/images/logo-wa.png" alt="WhatsApp">
-</a>
+  <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai"
+     class="floating-wa"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat WhatsApp">
+    <img src="/images/logo-wa.png" alt="WhatsApp">
+  </a>
 
   <!-- CSS Eksternal -->
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/contact.css">
+  
+  <style>
+    /* 联系页面特定样式 */
+    .contact-page .page-header::before {
+      content: "📞" !important;
+    }
+    
+    .contact-page .page-header::after {
+      content: "💬" !important;
+    }
+    
+    /* 表单描述文字样式 */
+    .form-desc {
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(245, 197, 66, 0.2);
+    }
+    
+    /* 信息区块标题样式 */
+    .info-section-title {
+      text-align: center;
+      color: var(--secondary-color);
+      font-size: 1.8rem;
+      margin: 3rem 0 1.5rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      position: relative;
+    }
+    
+    .info-section-title::before,
+    .info-section-title::after {
+      content: "——";
+      color: var(--secondary-color);
+      opacity: 0.5;
+      margin: 0 1rem;
+    }
+    
+    /* 列表样式优化 - 参照标准模板 */
+    .info-section .grid-card .card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+    }
+    
+    .info-section .grid-card .card-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.5;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 0.8rem;
+    }
+    
+    .info-section .grid-card .card-list li:last-child {
+      margin-bottom: 0;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    
+    .info-section .grid-card .card-list li::before {
+      content: "✓";
+      color: var(--secondary-color);
+      font-size: 1.2rem;
+      font-weight: bold;
+      min-width: 24px;
+      text-align: center;
+      line-height: 1.3;
+    }
+    
+    /* 卡片内容间距优化 */
+    .info-section .grid-card .card-body {
+      padding: 0.5rem 0;
+    }
+    
+    /* 响应式优化 */
+    @media (max-width: 768px) {
+      .info-section-title {
+        font-size: 1.4rem;
+        margin: 2rem 0 1rem;
+      }
+      
+      .info-section-title::before,
+      .info-section-title::after {
+        content: "—";
+        margin: 0 0.5rem;
+      }
+      
+      .info-section .grid-card .card-list li {
+        font-size: 0.95rem;
+        line-height: 1.4;
+        margin-bottom: 0.8rem;
+        gap: 0.6rem;
+      }
+      
+      .info-section .grid-card .card-list li::before {
+        font-size: 1.1rem;
+        min-width: 20px;
+      }
+      
+      .form-desc {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 
-<!-- 顶部导航 -->
-<header class="assessment-header">
-  <div class="container">
-    <a href="/" class="back-btn">
-      <img src="/images/logo-jf.png" alt="JF Gadai" class="logo-image">
-      <strong><span class="arrow">←</span> Beranda</strong>
-    </a>
-    <a href="/motor.html" class="nav-forward">
-      <strong>Gadai Motor <span class="arrow">→</span></strong>
-      <img src="/images/logo-motor.png" alt="Gadai Motor" class="nav-icon">
-    </a>
-  </div>
-</header>
+<body class="contact-page">
+  <!-- 顶部导航栏 -->
+  <header class="assessment-header">
+    <div class="container">
+      <a href="/" class="back-btn">
+        <img src="/images/logo-jf.png" class="logo-image" alt="JF Gadai Logo">
+        <strong>← Beranda</strong>
+      </a>
+      <a href="/motor.html" class="nav-forward">
+        <strong>Gadai Motor →</strong>
+        <img src="/images/logo-motor.png" class="nav-icon" alt="Motor Icon">
+      </a>
+    </div>
+  </header>
 
   <!-- page-header 在外面，作为全宽元素 -->
-<div class="page-header">
-  <div class="container">  <!-- 内部用container限制内容宽度 -->
-    <h1>Hubungi JF Gadai</h1>
-    <p>
-      Butuh dana cepat? Konsultasikan kebutuhan gadai Anda atau bergabung menjadi mitra bisnis bersama JF Gadai.
-      Isi formulir berikut dan tim kami akan segera menghubungi Anda melalui WhatsApp.
-    </p>
+  <div class="page-header">
+    <div class="container">
+      <h1>Hubungi JF Gadai</h1>
+      <p>
+        Butuh dana cepat? Konsultasikan kebutuhan gadai Anda atau bergabung menjadi mitra bisnis bersama JF Gadai.
+        Isi formulir berikut dan tim kami akan segera menghubungi Anda melalui WhatsApp.
+      </p>
+    </div>
   </div>
-</div>
   
-<main class="container">
+  <main class="container">
     <div class="contact-grid">
 
       <!-- ================= KONSULTASI GADAI ================= -->
@@ -191,7 +302,6 @@
 
   <!-- 页脚 -->
   <footer id="lokasi" role="contentinfo">
-
     <div class="footer-content">
       <p class="copyright">
         © <span id="year"></span> JF Gadai
@@ -217,7 +327,6 @@
         🔒 Situs ini menggunakan koneksi aman (HTTPS).
       </p>
     </div>
-
   </footer>
 
   <!-- ================= JAVASCRIPT ================= -->
