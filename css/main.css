@@ -986,13 +986,13 @@ footer {
   }
   
   .card-title {
-    font-size: 1.3rem;
+    font-size: 1.0rem;
     margin-bottom: 0.3rem;
     line-height: 1.0;
   }
   
   .card-desc {
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     line-height: 1.2;
     margin-bottom: 0.3rem;
   }
