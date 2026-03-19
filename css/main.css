@@ -892,7 +892,7 @@ footer {
 @media (max-width: 1200px) and (min-width: 769px) {
   /* 平板端字体变量调整 */
   :root {
-    --fs-hero-title: 2rem;
+    --fs-hero-title: 1.8rem;
     --fs-section-title: 1.6rem;
     --fs-card-title: 1.25rem;
     --fs-subtitle: 1.2rem;
