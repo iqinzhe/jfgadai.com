@@ -1013,7 +1013,7 @@ footer {
   
   .unified-card {
     padding: var(--spacing-sm) var(--spacing-md);
-    margin-bottom: 4px;
+    margin-bottom: 2px;
   }
   
   .card-title {
