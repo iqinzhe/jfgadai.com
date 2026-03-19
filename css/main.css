@@ -948,7 +948,7 @@ footer {
 @media (max-width: 768px) {
   /* 手机端字体变量调整 */
   :root {
-    --fs-hero-title: 1.8rem;
+    --fs-hero-title: 1.6rem;
     --fs-section-title: 1.4rem;
     --fs-card-title: 1.2rem;
     --fs-subtitle: 1.1rem;
@@ -960,8 +960,8 @@ footer {
     --fs-btn-small: 0.8rem;
     
     /* 手机端更紧凑的行距 */
-    --lh-normal: 1.4;
-    --lh-tight: 1.2;
+    --lh-normal: 1.35;
+    --lh-tight: 1.15;
   }
 
   .container {
