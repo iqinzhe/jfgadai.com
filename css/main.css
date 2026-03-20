@@ -965,7 +965,7 @@ footer {
   }
 
   .container {
-    padding: 0 var(--spacing-xl);
+    padding: 0 var(--spacing-md);
   }
   
   .assessment-header .container {
