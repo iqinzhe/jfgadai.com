@@ -23,7 +23,7 @@
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
-  --spacing-xxl: 3rem;
+  --spacing-xxl: 2.3rem;
 
   /* ===== 文字大小统一变量 ===== */
   /* 桌面端字体大小 */
@@ -411,7 +411,7 @@ body {
 /* ==================== 评估页面横幅 ==================== */
 .page-header {
   padding: 0.8rem 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
   text-align: center;
   border-bottom: 3px solid var(--secondary-color);
   position: relative;
@@ -965,7 +965,7 @@ footer {
   }
 
   .container {
-    padding: 0 var(--spacing-md);
+    padding: 0 var(--spacing-xl);
   }
   
   .assessment-header .container {
