@@ -1119,7 +1119,7 @@ footer {
   
   .footer-content .contact-link {
     padding: 5px 10px;
-    font-size: var(--fs-body);        /* 统一正文大小 */
+    font-size: var(--fs-small);        /* 统一小字 */
     line-height: var(--lh-tight);
   }
   
