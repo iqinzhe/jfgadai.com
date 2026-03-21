@@ -1107,7 +1107,7 @@ footer {
   }
   
   .copyright {
-    font-size: var(--fs-tiny);        /* 统一极小字 */
+    font-size: var(--fs-body);        /* 统一正文大小 */
     line-height: var(--lh-tight);
   }
   
