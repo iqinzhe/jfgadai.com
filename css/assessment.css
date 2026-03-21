@@ -3,7 +3,7 @@
 .progress-bar {
   display: flex;
   justify-content: space-between;
-  margin: 0.8rem auto 0.8rem;
+  margin: 0.8rem 0 0.8rem;
   position: relative;
   max-width: 1200px;
 }
