@@ -410,8 +410,8 @@ body {
 
 /* ==================== 评估页面横幅 ==================== */
 .page-header {
-  padding: 0.5rem 0;
-  margin-bottom: 0.5rem;
+  padding: 0.8rem 0;
+  margin-bottom: 1.5rem;
   text-align: center;
   border-bottom: 3px solid var(--secondary-color);
   position: relative;
@@ -953,8 +953,8 @@ footer {
     --fs-card-title: 1.2rem;
     --fs-subtitle: 1.1rem;
     --fs-body: 1.0rem;
-    --fs-small: 0.8rem;
-    --fs-tiny: 0.75rem;
+    --fs-small: 0.9rem;
+    --fs-tiny: 0.8rem;
     --fs-btn-large: 1rem;
     --fs-btn-medium: 0.9rem;
     --fs-btn-small: 0.8rem;
@@ -1013,7 +1013,7 @@ footer {
   
   .unified-card {
     padding: var(--spacing-sm) var(--spacing-md);
-    margin-bottom: 2px;
+    margin-bottom: 4px;
   }
   
   .card-title {
@@ -1077,7 +1077,7 @@ footer {
   .balanced-grid {
     grid-template-columns: 1fr !important;
     gap: 1rem;
-    margin: 1.0rem 0;
+    margin: 1.5rem 0;
   }
   
   .grid-card {
