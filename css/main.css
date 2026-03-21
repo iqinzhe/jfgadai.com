@@ -1077,7 +1077,7 @@ footer {
   .balanced-grid {
     grid-template-columns: 1fr !important;
     gap: 1rem;
-    margin: 1.5rem 0;
+    margin: 1.0rem 0;
   }
   
   .grid-card {
