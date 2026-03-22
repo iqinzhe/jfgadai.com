@@ -46,7 +46,7 @@
   --lh-relaxed: 1.6;             /* 宽松正文 */
 
   /* ===== 图标统一尺寸 ===== */
-  --icon-size-large: 3rem;      /* 大图标（卡片内） */
+  --icon-size-large: 3rem;      /* 大图标（快速操作等） */
 }
 
 body {
@@ -64,6 +64,7 @@ body {
   padding: 0 var(--spacing-md);
 }
 
+/* 统一卡片内 emoji 大小 */
 .card-emoji {
   font-size: var(--fs-body);
   line-height: var(--lh-normal);
@@ -558,7 +559,8 @@ body {
   align-items: center;
 }
 
-.grid-card .card-icon-large {
+/* 卡片内图标容器（用于大图标） */
+.grid-card .card-icon {
   font-size: var(--icon-size-large);
   margin-bottom: var(--spacing-xs);
   color: var(--secondary-color);
@@ -975,8 +977,8 @@ footer {
     --lh-normal: 1.2;
     --lh-tight: 1.0;
 
-    /* 手机图标尺寸 */
-    --icon-size-large: 3rem;
+    /* 手机图标尺寸 - 调整为适中大小 */
+    --icon-size-large: 2rem;
   }
 
   .container {
@@ -1099,7 +1101,7 @@ footer {
     padding: 0.8rem 0.7rem;
   }
   
-  .grid-card .card-icon-large {
+  .grid-card .card-icon {
     margin-bottom: 0.05rem;
   }
   
@@ -1176,4 +1178,4 @@ footer {
     width: 30px;
     height: 30px;
   }
-} 
+}
