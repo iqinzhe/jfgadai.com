@@ -90,137 +90,9 @@
   
   <!-- CSS -->
   <link rel="stylesheet" href="/css/main.css">
-  <style>
-    /* 电子设备页面专用样式 - 只保留main.css中没有的样式 */
-    
-    /* 页面特定布局 */
-    .electronics-body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .electronics-main {
-      flex: 1;
-      padding: 0.5rem 0.8rem 1rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-    }
-    
-    /* 品牌标签样式 - 如果main.css中没有 */
-    .brands-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.8rem;
-      margin-top: 1.5rem;
-    }
-    
-    .brand-tag {
-      background: rgba(245, 197, 66, 0.15);
-      border: 1px solid var(--secondary-color);
-      color: var(--secondary-color);
-      padding: 0.4rem 1rem;
-      border-radius: 50px;
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-    
-    /* 卡片列表样式优化 - 参照 emas.html 的标准模板 */
-    .grid-card .card-list {
-      list-style: none;
-      padding: 0;
-      margin: 0.5rem 0 0;
-    }
-    
-    .grid-card .card-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.8rem;
-      margin-bottom: 1rem;
-      color: var(--text-light);
-      font-size: 1rem;
-      line-height: 1.5;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding-bottom: 0.8rem;
-    }
-    
-    .grid-card .card-list li:last-child {
-      margin-bottom: 0;
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-    
-    .grid-card .card-list li::before {
-      content: "•";
-      color: var(--secondary-color);
-      font-size: 1.3rem;
-      font-weight: bold;
-      min-width: 20px;
-      text-align: center;
-      line-height: 1.3;
-    }
-    
-    /* 有序列表特殊样式 */
-    .grid-card .card-list[type="1"] li::before,
-    .grid-card ol.card-list li::before {
-      content: counter(item) ".";
-      counter-increment: item;
-      color: var(--secondary-color);
-      font-size: 1rem;
-      font-weight: 600;
-      min-width: 24px;
-    }
-    
-    .grid-card ol.card-list {
-      counter-reset: item;
-      list-style: none;
-    }
-    
-    /* 列表中强调文字 */
-    .grid-card .card-list li strong {
-      color: var(--secondary-color);
-      font-weight: 600;
-    }
-    
-    /* 移动端优化 */
-    @media (max-width: 768px) {
-      .electronics-main {
-        padding: 0.2rem 0.3rem 0.2rem;
-      }
-      
-      .brands-container {
-        gap: 0.5rem;
-        margin-top: 0.5rem;
-      }
-      
-      .brand-tag {
-        padding: 0.3rem 0.8rem;
-        font-size: 0.85rem;
-      }
-      
-      .grid-card .card-list li {
-        font-size: 0.95rem;
-        line-height: 1.0;
-        margin-bottom: 0.5rem;
-        gap: 0.6rem;
-      }
-      
-      .grid-card .card-list li::before {
-        font-size: 1.2rem;
-        min-width: 18px;
-      }
-      
-      .grid-card ol.card-list li::before {
-        font-size: 0.95rem;
-        min-width: 22px;
-      }
-    }
-  </style>
 </head>
 
-<body class="electronics-body">
+<body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
@@ -238,7 +110,7 @@
   </div>
 </header>
 
-<!-- page-header 作为全宽元素 - 电子产品页面 -->
+<!-- 页面标题区 -->
 <div class="page-header">
   <div class="container">
     <h1>Gadai Elektronik Cepat Cair di Bangil & Gempol</h1>
@@ -246,30 +118,18 @@
       Butuh dana cepat? Gadai laptop, smartphone, tablet, dan elektronik lainnya di JF Gadai. 
       Penilaian transparan, dana cair <strong>≤ 15 menit</strong>.
     </p>
-    
-    <!-- 品牌标签 -->
-    <div class="brands-container">
-      <span class="brand-tag">iPhone</span>
-      <span class="brand-tag">Samsung</span>
-      <span class="brand-tag">Laptop</span>
-      <span class="brand-tag">Tablet</span>
-      <span class="brand-tag">Kamera</span>
-    </div>
   </div>
 </div>
   
 <!-- 主要内容区域 -->
-<main class="container electronics-main">
-  <!-- 信息区域标题 - 使用main.css中的card-title -->
-  <h2 class="card-title">
-    Informasi Lengkap Gadai Elektronik
-  </h2>
+<main class="container">
+  <h2 class="card-title">Informasi Lengkap Gadai Elektronik</h2>
   
-  <!-- 三栏信息 - 使用main.css中的balanced-grid和grid-card -->
+  <!-- 三栏卡片 - 使用 grid-card 结构 -->
   <div class="balanced-grid">
-    <!-- 左栏 -->
+    <!-- 卡片1: Barang Diterima -->
     <div class="grid-card">
-      <div class="card-icon-large">✅</div>
+      <div class="card-icon">✅</div>
       <h3>Barang Diterima</h3>
       <div class="card-content">
         <ul class="card-list">
@@ -281,23 +141,23 @@
       </div>
     </div>
     
-    <!-- 中栏 -->
+    <!-- 卡片2: Proses 4 Langkah -->
     <div class="grid-card">
-      <div class="card-icon-large">⚡</div>
+      <div class="card-icon">⚡</div>
       <h3>Proses 4 Langkah</h3>
       <div class="card-content">
-        <ol class="card-list">
-          <li>Konsultasi via WhatsApp</li>
-          <li>Penilaian oleh ahli</li>
-          <li>Verifikasi dokumen</li>
-          <li>Pencairan dana tunai</li>
-        </ol>
+        <ul class="card-list">
+          <li>1. Konsultasi via WhatsApp</li>
+          <li>2. Penilaian oleh ahli</li>
+          <li>3. Verifikasi dokumen</li>
+          <li>4. Pencairan dana tunai</li>
+        </ul>
       </div>
     </div>
     
-    <!-- 右栏 -->
+    <!-- 卡片3: Persyaratan -->
     <div class="grid-card">
-      <div class="card-icon-large">📋</div>
+      <div class="card-icon">📋</div>
       <h3>Persyaratan</h3>
       <div class="card-content">
         <ul class="card-list">
@@ -340,9 +200,11 @@
   </div>
 </footer>
 
-<!-- 引入JavaScript文件 -->
 <script src="/js/main.js" defer></script>
 <script src="/js/electronics.js" defer></script>
-  
+<script>
+  // 自动更新版权年份
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
