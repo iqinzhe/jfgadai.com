@@ -46,7 +46,7 @@
   --lh-relaxed: 1.6;             /* 宽松正文 */
 
   /* ===== 图标统一尺寸 ===== */
-  --icon-size-large: 3rem;      /* 大图标（快速操作等） */
+  --icon-size-large: 2.4rem;      /* 大图标（卡片内） */
 }
 
 body {
@@ -64,33 +64,10 @@ body {
   padding: 0 var(--spacing-md);
 }
 
-/* 统一卡片内 emoji 大小 */
 .card-emoji {
   font-size: var(--fs-body);
   line-height: var(--lh-normal);
   display: inline-block;
-}
-
-/* 统一放大卡片内所有图标一倍（不影响正文） */
-.unified-card .card-emoji,
-.grid-card .card-emoji,
-.quick-action-card .card-emoji {
-  font-size: calc(var(--fs-body) * 2) !important;
-}
-
-.grid-card .card-icon,
-.quick-action-card .action-icon {
-  font-size: calc(var(--icon-size-large) * 2) !important;
-}
-
-/* 统一卡片内图标容器居中（使用 flex 确保兼容） */
-.unified-card .card-icon,
-.grid-card .card-icon,
-.quick-action-card .action-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
 }
 
 /* ==================== 动画定义 ==================== */
@@ -581,8 +558,7 @@ body {
   align-items: center;
 }
 
-/* 卡片内图标容器（用于大图标） */
-.grid-card .card-icon {
+.grid-card .card-icon-large {
   font-size: var(--icon-size-large);
   margin-bottom: var(--spacing-xs);
   color: var(--secondary-color);
@@ -941,7 +917,7 @@ footer {
     --lh-tight: 1.15;
 
     /* 平板图标尺寸 */
-    --icon-size-large: 2.5rem;
+    --icon-size-large: 2.2rem;
   }
 
   .asymmetric-grid {
@@ -986,7 +962,7 @@ footer {
   :root {
     --fs-hero-title: 1.6rem;
     --fs-section-title: 1.45rem;
-    --fs-card-title: 1.45rem;
+    --fs-card-title: 1.2rem;
     --fs-subtitle: 1.1rem;
     --fs-body: 1.0rem;
     --fs-small: 0.8rem;
@@ -999,8 +975,8 @@ footer {
     --lh-normal: 1.2;
     --lh-tight: 1.0;
 
-    /* 手机图标尺寸 - 调整为适中大小 */
-    --icon-size-large: 1.6rem;
+    /* 手机图标尺寸 */
+    --icon-size-large: 2rem;
   }
 
   .container {
@@ -1008,7 +984,7 @@ footer {
   }
   
   .assessment-header .container {
-    padding: 0.5rem 0.5rem;
+    padding: 0.25rem 0.25rem;
     gap: 0.2rem;
   }
   
@@ -1052,12 +1028,12 @@ footer {
   
   .unified-card {
     padding: var(--spacing-sm) var(--spacing-md);
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
   
   .card-title {
     font-size: var(--fs-card-title);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
     line-height: var(--lh-tight);
   }
   
@@ -1089,12 +1065,12 @@ footer {
   }
   
   .action-icon {
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.1rem;
   }
   
   .action-title {
     font-size: var(--fs-card-title);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.1rem;
     line-height: var(--lh-tight);
   }
   
@@ -1112,22 +1088,19 @@ footer {
   }
   
   /* 手机：贷款信息网格1列 */
-  @media (max-width: 768px) {
   .balanced-grid {
     grid-template-columns: 1fr !important;
     gap: 1rem;
-    margin: 0.8rem 0.8rem;
-    justify-items: center;   /* ← 新增：让卡片在网格单元格内居中 */
-  }
-
-  .grid-card {
-    min-height: auto;
-    padding: 0.8rem 0.8rem;
-    text-align: center;      /* ← 新增：使卡片内所有文字居中（可选） */
+    margin: 1.5rem 0;
   }
   
-  .grid-card .card-icon {
-    margin-bottom: 0.8rem;
+  .grid-card {
+    min-height: auto;
+    padding: 0.8rem 0.7rem;
+  }
+  
+  .grid-card .card-icon-large {
+    margin-bottom: 0.05rem;
   }
   
   .grid-card h3 {
@@ -1135,11 +1108,12 @@ footer {
     margin: 0.05rem 0;
     line-height: var(--lh-tight);
   }
-
- .grid-card p {
-    text-align: center;      /* ← 覆盖原本的 left，段落也居中 */
+  
+  .grid-card p {
+    font-size: var(--fs-body);
+    margin: 0.05rem 0;
+    line-height: var(--lh-normal);
   }
-}
   
   footer {
     padding: var(--spacing-sm) 0;
@@ -1202,4 +1176,4 @@ footer {
     width: 30px;
     height: 30px;
   }
-}
+} 
