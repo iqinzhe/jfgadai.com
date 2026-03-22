@@ -542,18 +542,17 @@ body {
 }
 
 /* ==================== 贷款信息卡片（grid-card） ==================== */
-/* 外观保持原样，仅统一内部图标和文字 */
+/* 外观保持原样（毛玻璃、细边框、小圆角等），内边距与 unified-card 统一 */
 .grid-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
-  padding: var(--spacing-xs);
+  padding: var(--spacing-lg) var(--spacing-md);  /* 与六宫格内边距统一 */
   border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  min-height: 30px;
   justify-content: space-between;
   width: 100%;
   height: 100%;
@@ -947,6 +946,12 @@ footer {
     --icon-size-large: 2.2rem;
   }
 
+  /* 统一平板端卡片内边距 */
+  .unified-card,
+  .grid-card {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
   .asymmetric-grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
@@ -975,11 +980,6 @@ footer {
   .balanced-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.2rem;
-  }
-  
-  .grid-card {
-    padding: 0.9rem 0.7rem;
-    min-height: 160px;
   }
 }
 
@@ -1053,7 +1053,9 @@ footer {
     grid-template-columns: 1fr;
   }
   
-  .unified-card {
+  /* 统一手机端卡片内边距 */
+  .unified-card,
+  .grid-card {
     padding: var(--spacing-sm) var(--spacing-sm);
     margin-bottom: 4px;
   }
@@ -1118,12 +1120,7 @@ footer {
   .balanced-grid {
     grid-template-columns: 1fr !important;
     gap: 1rem;
-    margin: 0.8rem 0;
-  }
-  
-  .grid-card {
-    min-height: auto;
-    padding: 0.8rem 0.7rem;
+    margin: 1.5rem 0;
   }
   
   .grid-card .card-icon {
