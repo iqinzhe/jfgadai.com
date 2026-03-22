@@ -56,6 +56,15 @@
   <link rel="stylesheet" href="/css/main.css">
   
 <style>
+  /* 统一卡片图标样式，与贷款卡片图标一致 */
+  .grid-card .card-icon {
+    font-size: var(--icon-size-large);
+    margin-bottom: var(--spacing-xs);
+    color: var(--secondary-color);
+    text-shadow: 0 0 5px rgba(245, 197, 66, 0.4);
+    text-align: center;
+  }
+  
   /* Grid untuk 4 poin utama - menggunakan class dari main.css */
   .info-grid-card {
     display: grid;
@@ -172,8 +181,10 @@
 
   <!-- Page Header -->
   <div class="page-header">
-    <h1>🥇 Panduan Lengkap Gadai Emas</h1>
-    <p>Solusi dana cepat dengan jaminan emas - proses mudah, biaya transparan, aman dan terpercaya</p>
+    <div class="container">
+      <h1>🥇 Panduan Lengkap Gadai Emas</h1>
+      <p>Solusi dana cepat dengan jaminan emas - proses mudah, biaya transparan, aman dan terpercaya</p>
+    </div>
   </div>
 
   <main class="container">
@@ -259,30 +270,38 @@
       </div>
     </div>
 
-    <!-- 4 Poin Utama - Menggunakan grid-card dari main.css -->
+    <!-- 4 Poin Utama - Menggunakan grid-card dari main.css，统一结构 -->
     <div class="info-grid-card">
       <div class="grid-card">
-        <div class="card-icon-large">⚡</div>
+        <div class="card-icon">⚡</div>
         <h3>Proses Cepat</h3>
-        <p>Dana cair kurang dari 30 menit setelah survei dan kesepakatan</p>
+        <div class="card-content">
+          <p>Dana cair kurang dari 30 menit setelah survei dan kesepakatan</p>
+        </div>
       </div>
       
       <div class="grid-card">
-        <div class="card-icon-large">📋</div>
+        <div class="card-icon">📋</div>
         <h3>Syarat Mudah</h3>
-        <p>Cukup KTP dan emas (batangan/perhiasan), tanpa BI checking</p>
+        <div class="card-content">
+          <p>Cukup KTP dan emas (batangan/perhiasan), tanpa BI checking</p>
+        </div>
       </div>
       
       <div class="grid-card">
-        <div class="card-icon-large">💰</div>
+        <div class="card-icon">💰</div>
         <h3>Pinjaman Tinggi</h3>
-        <p>Hingga 95% dari nilai taksiran emas Anda</p>
+        <div class="card-content">
+          <p>Hingga 95% dari nilai taksiran emas Anda</p>
+        </div>
       </div>
       
       <div class="grid-card">
-        <div class="card-icon-large">🔒</div>
+        <div class="card-icon">🔒</div>
         <h3>Aman & Terpercaya</h3>
-        <p>Emas disimpan di brankas dengan asuransi perlindungan penuh</p>
+        <div class="card-content">
+          <p>Emas disimpan di brankas dengan asuransi perlindungan penuh</p>
+        </div>
       </div>
     </div>
 
@@ -329,5 +348,9 @@
   <!-- JavaScript -->
   <script src="js/main.js"></script>
   <script src="js/contact.js"></script>
+  <script>
+    // 自动更新版权年份
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
