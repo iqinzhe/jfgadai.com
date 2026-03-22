@@ -46,7 +46,7 @@
   --lh-relaxed: 1.6;             /* 宽松正文 */
 
   /* ===== 图标统一尺寸 ===== */
-  --icon-size-large: 2.4rem;      /* 大图标（卡片内） */
+  --icon-size-large: 3rem;      /* 大图标（卡片内） */
 }
 
 body {
