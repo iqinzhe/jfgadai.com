@@ -71,6 +71,18 @@ body {
   display: inline-block;
 }
 
+/* 统一放大卡片内所有图标一倍（不影响正文） */
+.unified-card .card-emoji,
+.grid-card .card-emoji,
+.quick-action-card .card-emoji {
+  font-size: calc(var(--fs-body) * 2) !important;
+}
+
+.grid-card .card-icon,
+.quick-action-card .action-icon {
+  font-size: calc(var(--icon-size-large) * 2) !important;
+}
+
 /* ==================== 动画定义 ==================== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
