@@ -1112,15 +1112,18 @@ footer {
   }
   
   /* 手机：贷款信息网格1列 */
+  @media (max-width: 768px) {
   .balanced-grid {
     grid-template-columns: 1fr !important;
     gap: 1rem;
     margin: 0.8rem 0.8rem;
+    justify-items: center;   /* ← 新增：让卡片在网格单元格内居中 */
   }
-  
+
   .grid-card {
     min-height: auto;
     padding: 0.8rem 0.8rem;
+    text-align: center;      /* ← 新增：使卡片内所有文字居中（可选） */
   }
   
   .grid-card .card-icon {
@@ -1132,12 +1135,11 @@ footer {
     margin: 0.05rem 0;
     line-height: var(--lh-tight);
   }
-  
-  .grid-card p {
-    font-size: var(--fs-body);
-    margin: 0.05rem 0;
-    line-height: var(--lh-normal);
+
+ .grid-card p {
+    text-align: center;      /* ← 覆盖原本的 left，段落也居中 */
   }
+}
   
   footer {
     padding: var(--spacing-sm) 0;
