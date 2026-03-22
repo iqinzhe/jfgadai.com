@@ -1115,12 +1115,12 @@ footer {
   .balanced-grid {
     grid-template-columns: 1fr !important;
     gap: 1rem;
-    margin: 0.2rem 0.1;
+    margin: 0.2rem 0.2;
   }
   
   .grid-card {
     min-height: auto;
-    padding: 0.8rem 0.7rem;
+    padding: 0.2rem 0.2rem;
   }
   
   .grid-card .card-icon {
