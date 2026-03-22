@@ -30,6 +30,15 @@
       content: "💬" !important;
     }
     
+    /* 统一卡片图标样式，与贷款卡片图标一致 */
+    .grid-card .card-icon {
+      font-size: var(--icon-size-large);
+      margin-bottom: var(--spacing-xs);
+      color: var(--secondary-color);
+      text-shadow: 0 0 5px rgba(245, 197, 66, 0.4);
+      text-align: center;
+    }
+    
     /* 表单描述文字样式 */
     .form-desc {
       color: var(--text-light);
@@ -59,14 +68,14 @@
       margin: 0 1rem;
     }
     
-    /* 列表样式优化 - 参照标准模板 */
-    .info-section .grid-card .card-list {
+    /* 卡片内列表样式 - 使用标准 .card-list 样式 */
+    .grid-card .card-list {
       list-style: none;
       padding: 0;
       margin: 0.5rem 0 0;
     }
     
-    .info-section .grid-card .card-list li {
+    .grid-card .card-list li {
       display: flex;
       align-items: flex-start;
       gap: 0.8rem;
@@ -78,13 +87,13 @@
       padding-bottom: 0.8rem;
     }
     
-    .info-section .grid-card .card-list li:last-child {
+    .grid-card .card-list li:last-child {
       margin-bottom: 0;
       border-bottom: none;
       padding-bottom: 0;
     }
     
-    .info-section .grid-card .card-list li::before {
+    .grid-card .card-list li::before {
       content: "✓";
       color: var(--secondary-color);
       font-size: 1.2rem;
@@ -92,11 +101,6 @@
       min-width: 24px;
       text-align: center;
       line-height: 1.3;
-    }
-    
-    /* 卡片内容间距优化 */
-    .info-section .grid-card .card-body {
-      padding: 0.5rem 0;
     }
     
     /* 响应式优化 */
@@ -112,20 +116,25 @@
         margin: 0 0.5rem;
       }
       
-      .info-section .grid-card .card-list li {
+      .grid-card .card-list li {
         font-size: 0.95rem;
         line-height: 1.4;
         margin-bottom: 0.8rem;
         gap: 0.6rem;
       }
       
-      .info-section .grid-card .card-list li::before {
+      .grid-card .card-list li::before {
         font-size: 1.1rem;
         min-width: 20px;
       }
       
       .form-desc {
         font-size: 0.95rem;
+      }
+      
+      /* 确保 info-section 在手机端为一列 */
+      .info-section {
+        grid-template-columns: 1fr !important;
       }
     }
   </style>
@@ -252,16 +261,14 @@
       Hubungi Kami dengan Mudah dan Aman
     </h2>
 
-    <!-- 三栏信息 -->
+    <!-- 三栏信息 - 使用标准 grid-card 结构 -->
     <div class="info-section balanced-grid">
 
       <!-- 左栏 -->
-      <div class="info-card grid-card">
-        <div class="section-header card-header">
-          <span class="card-icon-large">💬</span>
-          <h3>Respon Cepat</h3>
-        </div>
-        <div class="section-content card-body">
+      <div class="grid-card">
+        <div class="card-icon">💬</div>
+        <h3>Respon Cepat</h3>
+        <div class="card-content">
           <ul class="card-list">
             <li>Hubungi kami melalui WhatsApp kapan saja</li>
             <li>Kami biasanya merespon dalam beberapa menit</li>
@@ -270,12 +277,10 @@
       </div>
 
       <!-- 中栏 -->
-      <div class="info-card grid-card">
-        <div class="section-header card-header">
-          <span class="card-icon-large">🤝</span>
-          <h3>Konsultasi Gratis</h3>
-        </div>
-        <div class="section-content card-body">
+      <div class="grid-card">
+        <div class="card-icon">🤝</div>
+        <h3>Konsultasi Gratis</h3>
+        <div class="card-content">
           <ul class="card-list">
             <li>Tanya dulu tanpa kewajiban</li>
             <li>Kami siap membantu menjelaskan proses gadai</li>
@@ -284,12 +289,10 @@
       </div>
 
       <!-- 右栏 -->
-      <div class="info-card grid-card">
-        <div class="section-header card-header">
-          <span class="card-icon-large">🔒</span>
-          <h3>Privasi Terjamin</h3>
-        </div>
-        <div class="section-content card-body">
+      <div class="grid-card">
+        <div class="card-icon">🔒</div>
+        <h3>Privasi Terjamin</h3>
+        <div class="card-content">
           <ul class="card-list">
             <li>Data dan percakapan Anda dijaga dengan baik</li>
             <li>Layanan profesional dan terpercaya</li>
