@@ -1176,4 +1176,37 @@ footer {
     width: 30px;
     height: 30px;
   }
-} 
+}
+
+/* ==================== 新增调整：卡片标题图标放大一倍 ==================== */
+/* 六宫格卡片内标题上方图标放大一倍 */
+.unified-card .card-header-icon,
+.unified-card .title-icon,
+.unified-card > .card-emoji:first-of-type {
+  font-size: calc(var(--icon-size-large) * 2);
+}
+
+/* 贷款信息卡片内标题上方图标放大一倍（覆盖原有的 .card-icon-large） */
+.grid-card .card-icon-large {
+  font-size: calc(var(--icon-size-large) * 2);
+}
+
+/* ==================== 新增调整：正文前面的图标与正文大小一致 ==================== */
+/* 列表项图标（六宫格卡片常见） */
+.list-icon,
+.card-list li .list-icon {
+  font-size: var(--fs-body);
+  min-width: 1.4em;
+}
+
+/* 贷款卡片正文中的图标（若有） */
+.grid-card p .icon,
+.grid-card .card-content .icon {
+  font-size: var(--fs-body);
+}
+
+/* 卡片描述中的通用图标（如有） */
+.card-desc .icon,
+.card-content .icon {
+  font-size: var(--fs-body);
+}
