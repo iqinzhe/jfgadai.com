@@ -83,6 +83,16 @@ body {
   font-size: calc(var(--icon-size-large) * 2) !important;
 }
 
+/* 统一卡片内图标容器居中（使用 flex 确保兼容） */
+.unified-card .card-icon,
+.grid-card .card-icon,
+.quick-action-card .action-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 /* ==================== 动画定义 ==================== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
