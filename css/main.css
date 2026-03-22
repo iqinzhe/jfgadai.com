@@ -46,7 +46,7 @@
   --lh-relaxed: 1.6;             /* 宽松正文 */
 
   /* ===== 图标统一尺寸 ===== */
-  --icon-size-large: 2.4rem;      /* 大图标（卡片内） */
+  --icon-size-large: 3rem;      /* 大图标（快速操作等） */
 }
 
 body {
@@ -64,6 +64,7 @@ body {
   padding: 0 var(--spacing-md);
 }
 
+/* 统一卡片内 emoji 大小 */
 .card-emoji {
   font-size: var(--fs-body);
   line-height: var(--lh-normal);
@@ -558,7 +559,8 @@ body {
   align-items: center;
 }
 
-.grid-card .card-icon-large {
+/* 卡片内图标容器（用于大图标） */
+.grid-card .card-icon {
   font-size: var(--icon-size-large);
   margin-bottom: var(--spacing-xs);
   color: var(--secondary-color);
@@ -975,7 +977,7 @@ footer {
     --lh-normal: 1.2;
     --lh-tight: 1.0;
 
-    /* 手机图标尺寸 */
+    /* 手机图标尺寸 - 调整为适中大小 */
     --icon-size-large: 2rem;
   }
 
@@ -1099,7 +1101,7 @@ footer {
     padding: 0.8rem 0.7rem;
   }
   
-  .grid-card .card-icon-large {
+  .grid-card .card-icon {
     margin-bottom: 0.05rem;
   }
   
@@ -1176,37 +1178,4 @@ footer {
     width: 30px;
     height: 30px;
   }
-}
-
-/* ==================== 新增调整：卡片标题图标放大一倍 ==================== */
-/* 六宫格卡片内标题上方图标放大一倍 */
-.unified-card .card-header-icon,
-.unified-card .title-icon,
-.unified-card > .card-emoji:first-of-type {
-  font-size: calc(var(--icon-size-large) * 2);
-}
-
-/* 贷款信息卡片内标题上方图标放大一倍（覆盖原有的 .card-icon-large） */
-.grid-card .card-icon-large {
-  font-size: calc(var(--icon-size-large) * 2);
-}
-
-/* ==================== 新增调整：正文前面的图标与正文大小一致 ==================== */
-/* 列表项图标（六宫格卡片常见） */
-.list-icon,
-.card-list li .list-icon {
-  font-size: var(--fs-body);
-  min-width: 1.4em;
-}
-
-/* 贷款卡片正文中的图标（若有） */
-.grid-card p .icon,
-.grid-card .card-content .icon {
-  font-size: var(--fs-body);
-}
-
-/* 卡片描述中的通用图标（如有） */
-.card-desc .icon,
-.card-content .icon {
-  font-size: var(--fs-body);
 }
