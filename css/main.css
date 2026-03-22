@@ -64,6 +64,12 @@ body {
   padding: 0 var(--spacing-md);
 }
 
+.card-emoji {
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  display: inline-block;
+}
+
 /* ==================== 动画定义 ==================== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
