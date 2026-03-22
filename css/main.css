@@ -931,7 +931,7 @@ footer {
     --lh-tight: 1.15;
 
     /* 平板图标尺寸 */
-    --icon-size-large: 2.2rem;
+    --icon-size-large: 2.5rem;
   }
 
   .asymmetric-grid {
@@ -976,7 +976,7 @@ footer {
   :root {
     --fs-hero-title: 1.6rem;
     --fs-section-title: 1.45rem;
-    --fs-card-title: 1.2rem;
+    --fs-card-title: 1.45rem;
     --fs-subtitle: 1.1rem;
     --fs-body: 1.0rem;
     --fs-small: 0.8rem;
@@ -1042,7 +1042,7 @@ footer {
   
   .unified-card {
     padding: var(--spacing-sm) var(--spacing-md);
-    margin-bottom: 4px;
+    margin-bottom: 2px;
   }
   
   .card-title {
@@ -1105,7 +1105,7 @@ footer {
   .balanced-grid {
     grid-template-columns: 1fr !important;
     gap: 1rem;
-    margin: 1.5rem 0;
+    margin: 0.2rem 0.1;
   }
   
   .grid-card {
