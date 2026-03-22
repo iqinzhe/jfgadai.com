@@ -468,7 +468,7 @@ body {
   line-height: var(--lh-normal);
 }
 
-/* ==================== 六宫格卡片使用 .unified-card ==================== */
+/* ==================== 六宫格卡片（unified-card） ==================== */
 .unified-card {
   position: relative;
   background: linear-gradient(135deg, 
@@ -541,7 +541,8 @@ body {
   justify-content: center;
 }
 
-/* 贷款信息卡片使用 .grid-card */
+/* ==================== 贷款信息卡片（grid-card） ==================== */
+/* 外观保持原样，仅统一内部图标和文字 */
 .grid-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
@@ -559,7 +560,7 @@ body {
   align-items: center;
 }
 
-/* 卡片内图标容器（用于大图标） */
+/* 图标与六宫格统一 */
 .grid-card .card-icon {
   font-size: var(--icon-size-large);
   margin-bottom: var(--spacing-xs);
@@ -568,29 +569,53 @@ body {
   text-align: center;
 }
 
+/* 标题与六宫格 .card-title 统一 */
 .grid-card h3 {
   color: var(--secondary-color);
   font-size: var(--fs-card-title);
-  font-weight: 600;
+  font-weight: 700;
   margin: var(--spacing-xs) 0;
   line-height: var(--lh-tight);
   text-align: center;
   width: 100%;
+  text-shadow: 1px 1px 2px #000;
 }
 
-.grid-card .card-content {
-  width: 100%;
-  text-align: left;
-  margin-top: 0.25rem;
-}
-
-.grid-card p {
+/* 正文与六宫格 .card-desc 统一 */
+.grid-card .card-content p,
+.grid-card .card-content .card-desc {
   color: var(--text-light);
-  margin: 0.25rem 0;
   font-size: var(--fs-body);
   line-height: var(--lh-normal);
-  text-align: left;
+  margin: 0.25rem 0;
+}
+
+/* 若包含列表，与六宫格 .card-list 统一 */
+.grid-card .card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   width: 100%;
+}
+
+.grid-card .card-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  font-size: var(--fs-body);
+  text-align: left;
+  line-height: var(--lh-normal);
+}
+
+.grid-card .card-list .list-icon {
+  color: var(--secondary-color);
+  font-size: var(--fs-body);
+  min-width: 24px;
+  display: flex;
+  justify-content: center;
 }
 
 /* ==================== 快速操作模块 ==================== */
@@ -1111,7 +1136,8 @@ footer {
     line-height: var(--lh-tight);
   }
   
-  .grid-card p {
+  .grid-card .card-content p,
+  .grid-card .card-content .card-desc {
     font-size: var(--fs-body);
     margin: 0.05rem 0;
     line-height: var(--lh-normal);
