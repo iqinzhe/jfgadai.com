@@ -140,6 +140,13 @@
       color: var(--secondary-color);
       font-weight: 600;
     }
+
+    /* 统一卡片内 emoji 大小 */
+    .card-emoji {
+      font-size: var(--fs-body);
+      line-height: var(--lh-normal);
+      display: inline-block;
+    }
     
     /* 移动端适配 */
     @media (max-width: 768px) {
@@ -190,7 +197,7 @@
     <!-- 左上 -->
     <section class="grid-item our-services" id="our-services">
       <div class="unified-card fade-in delay-1">
-        <div class="card-icon">📚</div>
+        <div class="card-icon"><span class="card-emoji">📚</span></div>
         <h3 class="card-title">JF Promosi</h3>
         <p class="card-desc">
           Jelajahi materi resmi JF Gadai:poster,profil perusahaan.
@@ -205,7 +212,7 @@
     <!-- 中上 -->
     <section class="grid-item assessment-system" id="assessment-system">
       <div class="unified-card fade-in delay-2">
-        <div class="card-icon">🏍️</div>
+        <div class="card-icon"><span class="card-emoji">🏍️</span></div>
         <h3 class="card-title">Penilaian Motor Gratis</h3>
         <p class="card-desc">
           Ketahui perkiraan nilai gadai motor Anda dalam 3 menit!
@@ -220,7 +227,7 @@
     <!-- 右上 -->
     <section class="grid-item contact-form-section" id="contact-form">
       <div class="unified-card fade-in delay-3">
-        <div class="card-icon">🥇</div>
+        <div class="card-icon"><span class="card-emoji">🥇</span></div>
         <h3 class="card-title">Gadai Emas</h3>
         <p class="card-desc">
           Punya Emas? Ubah Jadi Dana Tunai Cepat Sekarang!
@@ -235,7 +242,7 @@
     <!-- 左下 -->
     <section class="grid-item electronics-pawn" id="electronics-pawn">
       <div class="unified-card fade-in delay-4">
-        <div class="card-icon">💻</div>
+        <div class="card-icon"><span class="card-emoji">💻</span></div>
         <h3 class="card-title">Gadai Elektronik</h3>
         <p class="card-desc">
           Gadai HP, laptop, tablet & barang elektronik lainnya.
@@ -250,7 +257,7 @@
     <!-- 中下 -->
     <section class="grid-item motor-pawn" id="motor-pawn">
       <div class="unified-card fade-in delay-5">
-        <div class="card-icon">🏍️</div>
+        <div class="card-icon"><span class="card-emoji">🏍️</span></div>
         <h3 class="card-title">Gadai Motor</h3>
         <p class="card-desc">
           Gadai Motor cepat & Mudah dengan nilai terbaik.
@@ -265,7 +272,7 @@
     <!-- 右下 -->
     <section class="grid-item contact-navigation" id="contact-navigation">
       <div class="unified-card fade-in delay-6">
-        <div class="card-icon">💬</div>
+        <div class="card-icon"><span class="card-emoji">💬</span></div>
         <h3 class="card-title">Hubungi Kami</h3>
         <p class="card-desc">
           Butuh gadai atau tertarik kemitraan?Silakan segera menghubungi kami.
@@ -287,41 +294,41 @@
         
         <!-- 卡片1: Bunga & Biaya -->
         <div class="grid-card">
-          <div class="card-icon-large">💰</div>
+          <div class="card-icon"><span class="card-emoji">💰</span></div>
           <h3>Transparan & Jelas</h3>
           <div class="card-content">
             <p><strong>Bunga & Biaya:</strong> Tanpa Tersembunyi</p>
-            <p>💡 Nilai Taksiran Sesuai Dana Cair — Tanpa Potongan</p>
+            <p><span class="card-emoji">💡</span> Nilai Taksiran Sesuai Dana Cair — Tanpa Potongan</p>
           </div>
         </div>
         
         <!-- 卡片2: Jumlah & Waktu -->
         <div class="grid-card">
-          <div class="card-icon-large">📈</div>
+          <div class="card-icon"><span class="card-emoji">📈</span></div>
           <h3>Jumlah & Waktu</h3>
           <div class="card-content">
             <p><strong>Pinjaman & Tenor:</strong> Rp1–10 juta / 1–5 bulan</p>
-            <p>✨ Bisa tebus kapan saja atau perpanjang</p>
+            <p><span class="card-emoji">✨</span> Bisa tebus kapan saja atau perpanjang</p>
           </div>
         </div>
         
         <!-- 卡片3: Syarat & Ketentuan -->
         <div class="grid-card">
-          <div class="card-icon-large">📋</div>
+          <div class="card-icon"><span class="card-emoji">📋</span></div>
           <h3>Syarat Pengajuan</h3>
           <div class="card-content">
             <p><strong>Syarat:</strong> WNI ≥23 tahun + KTP berlaku</p>
-            <p>⚠️ Perpanjangan: cukup bayar bunga</p>
+            <p><span class="card-emoji">⚠️</span> Perpanjangan: cukup bayar bunga</p>
           </div>
         </div>
         
         <!-- 卡片4: Keadilan & Kewaj -->
         <div class="grid-card">
-          <div class="card-icon-large">⚖️</div>
+          <div class="card-icon"><span class="card-emoji">⚖️</span></div>
           <h3>Keadilan & Kewaj.</h3>
           <div class="card-content">
             <p><strong>Melayani:</strong> JF Gadai! Layanan cepat & adil</p>
-            <p>🔒 Hubungan kerja sama jangka panjang & stabil</p>
+            <p><span class="card-emoji">🔒</span> Hubungan kerja sama jangka panjang & stabil</p>
           </div>
         </div>
         
@@ -359,5 +366,9 @@
   </footer>
 
   <script src="/js/main.js"></script>
+  <script>
+    // 自动更新版权年份
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
