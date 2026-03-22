@@ -1122,7 +1122,12 @@ footer {
     gap: 1rem;
     margin: 1.5rem 0;
   }
-  
+
+balanced-grid .grid-card {
+    padding-top: 0.2rem;   /* 或更小 */
+    padding-bottom: 0.2rem;
+  }
+ 
   .grid-card .card-icon {
     margin-bottom: 0.05rem;
   }
