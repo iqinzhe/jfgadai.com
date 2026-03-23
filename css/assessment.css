@@ -94,7 +94,7 @@
   cursor: pointer;
   text-align: center;
   padding: 1rem 1rem;
-  border-radius: 16px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid transparent;
   transition: all 0.2s ease;
