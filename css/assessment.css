@@ -94,7 +94,7 @@
   cursor: pointer;
   text-align: center;
   padding: 1rem 1rem;
-  border-radius: 16px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.04);
   /* 单边框：默认透明，激活时变黄 */
   border: 2px solid transparent;
@@ -980,82 +980,13 @@ select:disabled {
     padding: 0.75rem 0.5rem;
   }
   .brand-logo-img {
-    width: 80px;
-    height: 36px;
+    width: 120px;
+    height: 60px;
   }
 }
 
 @media (max-width: 600px) {
   .brand-selection {
     gap: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .assessment-banner {
-    padding: 1.2rem 0 0.8rem !important;
-  }
-  
-  .photo-upload {
-    grid-template-columns: 1fr;
-  }
-  
-  .condition-options {
-    gap: 0.5rem !important;
-  }
-  
-  .value {
-    font-size: 1.6rem !important;
-  }
-  
-  .form-navigation {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-  
-  .btn-prev, .btn-next, .btn-submit {
-    width: 100%;
-  }
-  
-  .adjustment-process {
-    grid-template-columns: 1fr;
-  }
-  
-  .contact-link img {
-    width: 13px;
-    height: 13px;
-    margin-right: 3px;
-  }
-  
-  .container {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-  }
-  
-  .form-row {
-    gap: 0.8rem !important;
-  }
-  
-  .photo-upload {
-    gap: 0.8rem !important;
-  }
-  
-  .upload-area {
-    padding: 1.5rem 0.8rem !important;
-  }
-  
-  .trust-box {
-    flex-direction: column;
-  }
-  
-  /* 品牌选择手机适配 */
-  .brand-option {
-    min-width: 85px;
-    max-width: 100px;
-    padding: 0.6rem 0.4rem;
-  }
-  .brand-logo-img {
-    width: 70px;
-    height: 32px;
   }
 }
