@@ -39,7 +39,7 @@ function formatRupiah(num) {
   return new Intl.NumberFormat('id-ID').format(num);
 }
 
-// ==================== 加载车型 ====================
+// ==================== 加载车型（只显示型号，不含品牌） ====================
 function loadModelsForBrand(brand) {
   const modelSelect = document.getElementById('model');
   if (!modelSelect) return;
@@ -51,13 +51,20 @@ function loadModelsForBrand(brand) {
     motorModels[brand].forEach(model => {
       const opt = document.createElement('option');
       opt.value = model.id;
-      opt.textContent = model.name;
+      // 只显示型号，去掉品牌前缀
+      let modelName = model.name;
+      if (brand === 'honda') {
+        modelName = modelName.replace(/^Honda\s+/i, '');
+      } else if (brand === 'yamaha') {
+        modelName = modelName.replace(/^Yamaha\s+/i, '');
+      }
+      opt.textContent = modelName;
       opt.dataset.basePrice = model.basePrice;
+      opt.dataset.fullName = model.name; // 保存完整名称（含品牌）
       modelSelect.appendChild(opt);
     });
   }
 
-  // 默认选择第一个车型
   if (modelSelect.options.length > 1) {
     modelSelect.selectedIndex = 1;
   }
@@ -356,8 +363,10 @@ function calculateEstimation() {
   // 获取表单数据
   const brand = document.getElementById('brand').value;
   const modelSelect = document.getElementById('model');
+  const selectedOption = modelSelect.selectedOptions[0];
   const modelId = modelSelect.value;
-  const modelName = modelSelect.selectedOptions[0]?.textContent || 'Motor';
+  const modelNameDisplay = selectedOption?.textContent || 'Motor';       // 纯型号
+  const modelFullName = selectedOption?.dataset.fullName || (brand.toUpperCase() + ' ' + modelNameDisplay); // 完整名称（含品牌）
   const yearRaw = document.getElementById('year').value;
   const ccRaw = document.getElementById('cc').value;
   const mileageRaw = document.getElementById('mileage').value;
@@ -377,7 +386,7 @@ function calculateEstimation() {
     return;
   }
   
-  const basePrice = parseInt(modelSelect.selectedOptions[0]?.dataset.basePrice) || 8000000;
+  const basePrice = parseInt(selectedOption?.dataset.basePrice) || 8000000;
   let estimatedValue = basePrice;
   
   // 年份调整
@@ -425,7 +434,8 @@ function calculateEstimation() {
     basePrice,
     formData: {
       brand,
-      modelName,
+      modelFullName,          // 完整型号（含品牌）
+      modelNameDisplay,       // 纯型号（备用）
       year,
       cc,
       mileage,
@@ -463,7 +473,7 @@ function displayEstimationResult(result) {
 
 📋 DATA MOTOR:
 • Merek: ${result.formData.brand.toUpperCase()}
-• Model: ${result.formData.modelName}
+• Model: ${result.formData.modelFullName}
 • Tahun: ${result.formData.year}
 • CC: ${result.formData.cc}cc
 • Kilometer: ${formatRupiah(result.formData.mileage)} KM
