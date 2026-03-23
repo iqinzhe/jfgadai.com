@@ -81,10 +81,10 @@
   line-height: 1.1;
 }
 
-/* ==================== 品牌选择 ==================== */
+/* ==================== 品牌选择（放大版） ==================== */
 .brand-selection {
   display: flex;
-  gap: 12px;
+  gap: 1.5rem;
   justify-content: center;
   margin: 1.5rem 0 1.5rem;
   flex-wrap: wrap;
@@ -93,14 +93,14 @@
 .brand-option {
   cursor: pointer;
   text-align: center;
-  padding: 10px 12px;
-  border-radius: 10px;
+  padding: 1rem 1rem;
+  border-radius: 16px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid transparent;
   transition: all 0.2s ease;
   user-select: none;
-  min-width: 90px;
-  max-width: 110px;
+  min-width: 120px;
+  max-width: 140px;
 }
 
 .brand-option:hover {
@@ -116,11 +116,11 @@
 }
 
 .brand-logo-img {
-  width: 75px;
-  height: 34px;
+  width: 100px;
+  height: 46px;
   object-fit: contain;
   display: block;
-  margin: 0 auto 5px;
+  margin: 0 auto 8px;
   pointer-events: none;
   transition: all 0.2s ease;
 }
@@ -137,12 +137,13 @@
 }
 
 .brand-name {
-  font-weight: 600;
+  font-weight: 700;
   pointer-events: none;
   display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 1.2rem;
 }
 
 /* ==================== 表单项布局 ==================== */
@@ -848,7 +849,78 @@ select:disabled {
   opacity: 0.7 !important;
 }
 
-/* ==================== 评估页面响应式 ==================== */
+/* ==================== 照片预览和移除按钮 ==================== */
+.upload-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: none;
+  z-index: 2;
+}
+
+.upload-area.has-image .upload-preview {
+  display: block;
+}
+
+.upload-area.has-image .upload-icon,
+.upload-area.has-image .upload-text {
+  display: none;
+}
+
+.remove-photo {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(231, 76, 60, 0.95);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  border: 2px solid white;
+  font-weight: bold;
+}
+
+.upload-area.has-image:hover .remove-photo {
+  opacity: 1;
+}
+
+/* ==================== 信任与安全提示 ==================== */
+.trust-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding: 15px;
+  background: rgba(11, 44, 74, 0.6);
+  border-radius: 10px;
+  border-left: 4px solid #2ecc71;
+}
+
+.trust-item {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+}
+
+.trust-item strong {
+  color: #2ecc71;
+}
+
+/* ==================== 响应式 ==================== */
 @media (max-width: 768px) {
   .assessment-banner {
     padding: 1.5rem 0 1rem !important;
@@ -903,21 +975,25 @@ select:disabled {
     width: 14px;
     height: 14px;
   }
+  
+  /* 品牌选择平板适配 */
+  .brand-option {
+    min-width: 100px;
+    max-width: 120px;
+    padding: 0.75rem 0.5rem;
+  }
+  .brand-logo-img {
+    width: 80px;
+    height: 36px;
+  }
+  .brand-name {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 600px) {
   .brand-selection {
     gap: 8px;
-  }
-  
-  .brand-logo-img {
-    width: 65px;
-    height: 30px;
-  }
-  
-  .brand-option {
-    min-width: 80px;
-    padding: 8px 10px;
   }
 }
 
@@ -928,16 +1004,6 @@ select:disabled {
   
   .photo-upload {
     grid-template-columns: 1fr;
-  }
-  
-  .brand-logo-img {
-    width: 55px !important;
-    height: 25px !important;
-  }
-  
-  .brand-option {
-    min-width: 70px;
-    padding: 6px 8px;
   }
   
   .condition-options {
@@ -966,182 +1032,7 @@ select:disabled {
     height: 13px;
     margin-right: 3px;
   }
-}
-
-  <!-- 页面专用样式 -->
-  <style>
-    /* 照片预览样式 */
-    .upload-preview {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-      display: none;
-      z-index: 2;
-    }
-    
-    .upload-area.has-image .upload-preview {
-      display: block;
-    }
-    
-    .upload-area.has-image .upload-icon,
-    .upload-area.has-image .upload-text {
-      display: none;
-    }
-    
-    /* 移除照片按钮 */
-    .remove-photo {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      width: 28px;
-      height: 28px;
-      background-color: rgba(231, 76, 60, 0.95);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 10;
-      border: 2px solid white;
-      font-weight: bold;
-    }
-    
-    .upload-area.has-image:hover .remove-photo {
-      opacity: 1;
-    }
-
-    /* 信任与安全提示 */
-    .trust-box {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 25px;
-      padding: 15px;
-      background: rgba(11, 44, 74, 0.6);
-      border-radius: 10px;
-      border-left: 4px solid #2ecc71;
-    }
-    
-    .trust-item {
-      flex: 1;
-      min-width: 200px;
-      padding: 10px;
-      font-size: 0.9rem;
-      color: #e0e0e0;
-    }
-    
-    .trust-item strong {
-      color: #2ecc71;
-    }
-
-    /* 手机端额外优化 */
-    @media (max-width: 480px) {
-      .container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-      }
-      
-      .form-row {
-        gap: 0.8rem !important;
-      }
-      
-      .photo-upload {
-        gap: 0.8rem !important;
-      }
-      
-      .upload-area {
-        padding: 1.5rem 0.8rem !important;
-      }
-      
-      .trust-box {
-        flex-direction: column;
-      }
-    }
-  </style>
-
-/* ==================== 页面专用样式（从HTML移动过来） ==================== */
-/* 照片预览样式 */
-.upload-preview {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-  display: none;
-  z-index: 2;
-}
-
-.upload-area.has-image .upload-preview {
-  display: block;
-}
-
-.upload-area.has-image .upload-icon,
-.upload-area.has-image .upload-text {
-  display: none;
-}
-
-/* 移除照片按钮 */
-.remove-photo {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 28px;
-  height: 28px;
-  background-color: rgba(231, 76, 60, 0.95);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 10;
-  border: 2px solid white;
-  font-weight: bold;
-}
-
-.upload-area.has-image:hover .remove-photo {
-  opacity: 1;
-}
-
-/* 信任与安全提示 */
-.trust-box {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 25px;
-  padding: 15px;
-  background: rgba(11, 44, 74, 0.6);
-  border-radius: 10px;
-  border-left: 4px solid #2ecc71;
-}
-
-.trust-item {
-  flex: 1;
-  min-width: 200px;
-  padding: 10px;
-  font-size: 0.9rem;
-  color: #e0e0e0;
-}
-
-.trust-item strong {
-  color: #2ecc71;
-}
-
-/* 手机端额外优化 */
-@media (max-width: 480px) {
+  
   .container {
     padding-left: 15px !important;
     padding-right: 15px !important;
@@ -1161,5 +1052,19 @@ select:disabled {
   
   .trust-box {
     flex-direction: column;
+  }
+  
+  /* 品牌选择手机适配 */
+  .brand-option {
+    min-width: 85px;
+    max-width: 100px;
+    padding: 0.6rem 0.4rem;
+  }
+  .brand-logo-img {
+    width: 70px;
+    height: 32px;
+  }
+  .brand-name {
+    font-size: 0.9rem;
   }
 }
