@@ -93,14 +93,14 @@
 .brand-option {
   cursor: pointer;
   text-align: center;
-  padding: 10px 12px;
+  padding: 14px 18px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid transparent;
   transition: all 0.2s ease;
   user-select: none;
-  min-width: 90px;
-  max-width: 110px;
+  min-width: 120px;
+  max-width: 140px;
 }
 
 .brand-option:hover {
@@ -116,11 +116,11 @@
 }
 
 .brand-logo-img {
-  width: 75px;
-  height: 34px;
+  width: 100px;
+  height: 46px;
   object-fit: contain;
   display: block;
-  margin: 0 auto 5px;
+  margin: 0 auto 8px;
   pointer-events: none;
   transition: all 0.2s ease;
 }
@@ -137,12 +137,19 @@
 }
 
 .brand-name {
+  font-size: 1rem;     
   font-weight: 600;
+}
   pointer-events: none;
   display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.brand-selection {
+  gap: 20px;
+  margin: 2rem 0;
 }
 
 /* ==================== 表单项布局 ==================== */
