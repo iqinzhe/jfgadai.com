@@ -522,12 +522,12 @@
               <a id="whatsappButton" href="https://wa.me/6289515692586" 
                 target="_blank" 
                 class="card-cta-btn wa-btn"
-                id="wa-contact" 
                 rel="noopener noreferrer">
                 <span>💬 Konsultasi & Penyesuaian Nilai</span>
               </a>
               
-              <button type="button" class="btn-recalculate" onclick="resetForm()">
+              <!-- 修复：调用 resetAssessmentForm 而不是 resetForm -->
+              <button type="button" class="btn-recalculate" onclick="resetAssessmentForm()">
                 <span>🔄 Hitung Ulang</span>
               </button>
               
@@ -630,6 +630,9 @@
 <script src="js/main.js"></script>
 <script src="js/faq.js"></script>           <!-- FAQ功能（轻量） -->
 <script src="js/assessment.js"></script>    <!-- 评估功能（重型） -->
-  
+<script>
+  // 自动更新版权年份
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
