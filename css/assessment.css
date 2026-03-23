@@ -1056,13 +1056,13 @@ select:disabled {
   
   /* 品牌选择手机适配 */
   .brand-option {
-    min-width: 85px;
-    max-width: 100px;
+    min-width: 100px;
+    max-width: 135px;
     padding: 0.6rem 0.4rem;
   }
   .brand-logo-img {
-    width: 70px;
-    height: 32px;
+    width: 90px;
+    height: 50px;
   }
   .brand-name {
     font-size: 0.9rem;
