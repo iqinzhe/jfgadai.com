@@ -978,13 +978,13 @@ select:disabled {
   
   /* 品牌选择平板适配 */
   .brand-option {
-    min-width: 100px;
-    max-width: 120px;
-    padding: 0.75rem 0.5rem;
+    min-width: 120px;
+    max-width: 150px;
+    padding: 0.5rem 0.5rem;
   }
   .brand-logo-img {
-    width: 80px;
-    height: 36px;
+    width: 100px;
+    height: 45px;
   }
   .brand-name {
     font-size: 1rem;
