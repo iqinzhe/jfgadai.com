@@ -940,7 +940,7 @@ select:disabled {
   }
   
   .form-step h2 {
-    margin-bottom: 0.6rem;  /* 移动端进一步缩小标题下边距 */
+    margin-bottom: 0.35rem;  /* 移动端进一步缩小标题下边距 */
     font-size: 1.3rem;
   }
   
