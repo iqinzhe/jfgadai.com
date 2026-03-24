@@ -931,7 +931,7 @@ select:disabled {
   }
   
   .progress-bar {
-    margin: -0.8rem auto 0.2rem !important;  /* 移动端同步修改：上边距为0，下边距稍增保持层次 */
+    margin: -1.2rem auto 0.5rem !important;  /* 移动端同步修改：上边距为0，下边距稍增保持层次 */
   }
   
   .progress-step {
