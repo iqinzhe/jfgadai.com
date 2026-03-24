@@ -931,11 +931,11 @@ select:disabled {
   }
   
   .progress-bar {
-    margin: 0 auto 0.5rem !important;  /* 移动端同步修改：上边距为0，下边距稍增保持层次 */
+    margin: -0.8rem auto 0.2rem !important;  /* 移动端同步修改：上边距为0，下边距稍增保持层次 */
   }
   
   .progress-step {
-    padding: 0.2rem 0.1rem;
+    padding: 0.6rem 0.3rem;
     font-size: 0.7rem;
   }
   
