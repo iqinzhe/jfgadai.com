@@ -1056,13 +1056,13 @@ footer {
   /* 手机端六宫格卡片内边距 */
   .unified-card {
     padding: var(--spacing-sm) var(--spacing-sm);
-    margin-bottom: 4px;
+    margin-bottom: 2px;
   }
   
   /* 手机端贷款卡片内边距 — 单独缩小上下间距，解决图标与边框距离偏大问题 */
   .grid-card {
-    padding: 0.4rem var(--spacing-sm);
-    margin-bottom: 4px;
+    padding: 0.5rem var(--spacing-sm);
+    margin-bottom: 2px;
   }
   
   .card-title {
