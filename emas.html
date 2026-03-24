@@ -100,7 +100,7 @@
     display: flex;
     gap: 1rem;
     margin-bottom: 1.8rem;
-    align-items: flex-start;  /* 桌面端保持顶部对齐 */
+    align-items: flex-start;  /* 桌面端顶部对齐 */
   }
   
   /* ===== 统一“Syarat & Prosedur”卡片与主卡片样式 ===== */
@@ -140,18 +140,23 @@
     margin-bottom: 0;
   }
   
-  /* 手机端适配：垂直居中 + 字体大小自动缩放 */
+  /* 手机端适配：标题缩小 + 列表保持顶部对齐 */
   @media (max-width: 768px) {
-    .list-item {
-      align-items: center;           /* 手机端图标与文字垂直居中对齐 */
+    .column-title {
+      font-size: 1.4rem !important;      /* 小于页面主标题 1.6rem */
       margin-bottom: 1rem;
+    }
+    .list-item {
+      align-items: flex-start !important;  /* 强制顶部对齐，不垂直居中 */
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
     }
     .list-icon {
       font-size: calc(var(--icon-size-large, 2rem) * 0.9);
       min-width: 2rem;
     }
     .list-content h4 {
-      font-size: var(--fs-card-title, 1.2rem);  /* 确保不大于页面主标题 (1.6rem) */
+      font-size: var(--fs-card-title, 1.2rem);
     }
     .list-content p {
       font-size: var(--fs-body, 1rem);
