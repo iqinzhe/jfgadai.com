@@ -931,7 +931,7 @@ select:disabled {
   }
   
   .progress-bar {
-    margin: 0 auto 0.8rem !important;  /* 移动端同步修改：上边距为0，下边距稍增保持层次 */
+    margin: 0 auto 0.5rem !important;  /* 移动端同步修改：上边距为0，下边距稍增保持层次 */
   }
   
   .progress-step {
@@ -945,19 +945,19 @@ select:disabled {
   }
   
   .brand-selection {
-    margin: 0.5rem 0 0.6rem;  /* 移动端调整品牌区上下边距 */
+    margin: 0.1rem 0 0.1rem;  /* 移动端调整品牌区上下边距 */
     gap: 0.6rem;
   }
   
   .brand-option {
-    min-width: 70px;
-    max-width: 100px;
-    padding: 0.5rem 0.3rem;
+    min-width: 100px;
+    max-width: 135px;
+    padding: 0.5rem 0.5rem;
   }
   
   .brand-logo-img {
-    width: 70px;
-    height: 38px;
+    width: 100px;
+    height: 60px;
   }
   
   .form-row {
@@ -1162,7 +1162,7 @@ select:disabled {
   /* FAQ 区域 */
   .faq-section {
     padding: 0.8rem 0;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
   
   .faq-section h2 {
