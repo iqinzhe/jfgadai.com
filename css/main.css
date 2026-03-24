@@ -484,7 +484,7 @@ body {
   overflow: hidden;
   transition: all 0.3s ease;
   margin-top: var(--spacing-md);
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
 }
 
 .unified-card::before {
