@@ -915,96 +915,274 @@ select:disabled {
 
 /* ==================== 响应式（仅保留 ≤768px 断点，合并所有手机样式） ==================== */
 @media (max-width: 768px) {
+  /* 原有规则保留，仅调整或新增紧凑化样式 */
   .assessment-banner {
-    padding: 1.5rem 0 1rem !important;
+    padding: 1rem 0 0.5rem !important;
   }
   
   .assessment-banner h1 {
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0.25rem !important;
+    font-size: 1.6rem;
   }
   
   .assessment-banner .subtitle {
-    margin-bottom: 1rem !important;
-    line-height: 1.2;
+    margin-bottom: 0.5rem !important;
+    font-size: 0.85rem;
   }
   
   .progress-bar {
-    margin: 1rem auto 1.5rem !important;
+    margin: 0.25rem auto 0.8rem !important;
   }
   
-  .progress-bar::before {
-    left: 5%;
-    right: 5%;
+  .progress-step {
+    padding: 0.2rem 0.1rem;
+    font-size: 0.7rem;
   }
   
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
+  .form-step h2 {
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
   }
   
-  .condition-options {
-    grid-template-columns: 1fr;
+  .brand-selection {
+    margin: 0.5rem 0 0.8rem;
     gap: 0.6rem;
   }
   
-  .photo-upload {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
-  }
-  
-  .estimation-card {
-    padding: 1.2rem;
-  }
-  
-  .value {
-    font-size: 1.6rem !important;
-  }
-  
-  .adjustment-process {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
-  }
-  
-  .contact-link img {
-    width: 14px;
-    height: 14px;
-  }
-  
-  .form-navigation {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-  
-  .btn-prev, .btn-next, .btn-submit {
-    width: 100%;
-  }
-  
-  .container {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-  }
-  
-  .upload-area {
-    padding: 1.5rem 0.8rem !important;
-  }
-  
-  .trust-box {
-    flex-direction: column;
-  }
-  
-  /* 品牌选择手机适配 */
-  .brand-selection {
-    gap: 0.8rem;
-  }
-  
   .brand-option {
-    min-width: 80px;
-    max-width: 120px;
-    padding: 0.75rem 0.5rem;
+    min-width: 70px;
+    max-width: 100px;
+    padding: 0.5rem 0.3rem;
   }
   
   .brand-logo-img {
-    width: 90px;
-    height: 50px;
+    width: 70px;
+    height: 38px;
+  }
+  
+  .form-row {
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 0.6rem;
+  }
+  
+  .form-group label {
+    margin-bottom: 0.2rem;
+    font-size: 0.85rem;
+  }
+  
+  select,
+  .assessment-container input[type="text"],
+  .assessment-container input[type="number"],
+  .assessment-container input[type="tel"] {
+    padding: 8px 12px !important;
+    font-size: 0.85rem;
+    margin-top: 3px !important;
+  }
+  
+  .mileage-slider {
+    margin-top: 0.3rem;
+  }
+  
+  .mileage-labels {
+    margin-top: 0.2rem;
+    font-size: 0.7rem;
+  }
+  
+  .condition-section {
+    margin-bottom: 0.6rem;
+  }
+  
+  .condition-section h3 {
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+  }
+  
+  .condition-options {
+    gap: 0.5rem;
+  }
+  
+  .option-content {
+    padding: 0.6rem 0.3rem;
+    min-height: 70px;
+  }
+  
+  .option-icon {
+    font-size: 1.2rem;
+    min-height: 1.4rem;
+  }
+  
+  .option-title {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+  }
+  
+  .option-desc {
+    font-size: 0.7rem;
+  }
+  
+  .photo-upload {
+    gap: 0.6rem;
+    margin-top: 0;
+  }
+  
+  .upload-area {
+    padding: 0.6rem 0.3rem !important;
+    height: 70px;
+  }
+  
+  .upload-icon {
+    font-size: 1.2rem;
+  }
+  
+  .upload-text {
+    font-size: 0.7rem;
+  }
+  
+  .form-note {
+    padding: 0.6rem;
+    margin: 0.6rem 0;
+    font-size: 0.75rem;
+  }
+  
+  .form-navigation {
+    margin-top: 1.2rem;
+    padding-top: 0.8rem;
+    gap: 0.6rem;
+  }
+  
+  .btn-prev, .btn-next, .btn-submit {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  /* 评估结果卡片紧凑化 */
+  .estimation-card {
+    padding: 1rem;
+  }
+  
+  .estimation-header {
+    margin-bottom: 0.8rem;
+  }
+  
+  .estimation-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .estimation-header h3 {
+    font-size: 1rem;
+  }
+  
+  .estimation-value {
+    padding: 0.6rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .value-range {
+    gap: 0.3rem;
+  }
+  
+  .range-label {
+    font-size: 0.7rem;
+  }
+  
+  .value {
+    font-size: 1.2rem !important;
+  }
+  
+  .estimation-details {
+    padding: 0.6rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .breakdown-list li {
+    padding: 0.2rem 0;
+    font-size: 0.75rem;
+  }
+  
+  .adjustment-factors {
+    gap: 0.4rem;
+  }
+  
+  .factor-item {
+    padding: 0.3rem;
+    gap: 0.3rem;
+  }
+  
+  .factor-item p {
+    font-size: 0.7rem;
+  }
+  
+  .action-buttons {
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+  
+  .btn-whatsapp, .btn-recalculate, .btn-home {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+  
+  /* 人工调整说明 */
+  .manual-adjustment {
+    padding: 0.8rem;
+    margin-top: 1rem;
+  }
+  
+  .manual-adjustment h4 {
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  .adjustment-process {
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .process-step p {
+    font-size: 0.7rem;
+  }
+  
+  /* 信任与安全提示 */
+  .trust-box {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    gap: 0.6rem;
+  }
+  
+  .trust-item {
+    padding: 0.3rem;
+    font-size: 0.75rem;
+  }
+  
+  /* FAQ 区域 */
+  .faq-section {
+    padding: 0.8rem 0;
+    margin-top: 1rem;
+  }
+  
+  .faq-section h2 {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+  }
+  
+  .faq-question {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .faq-answer {
+    padding: 0 0.6rem 0.6rem;
+    font-size: 0.75rem;
+  }
+  
+  /* 容器左右内边距微调 */
+  .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
   }
 }
