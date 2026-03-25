@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Gadai Bangil Pasuruan | Dana Cepat 30 Menit</title>
+<meta name="description" content="Gadai motor, BPKB, emas & HP di Bangil. Cair 15–30 menit, aman, tanpa ribet.">
 
+<!-- ✅ 主样式（控制所有视觉） -->
 <link rel="stylesheet" href="/css/main.css">
 
 <!-- Google Ads -->
@@ -21,24 +23,10 @@ function trackWA(){
 }
 </script>
 
+<!-- ✅ 页面只允许“布局 + 行为” -->
 <style>
 
-/* ✅ 不再黑色主题 */
-body {
-  background: #f5f7fb;
-  color: #333;
-}
-
-/* ✅ 信任区放大（保留结构） */
-.trust-item {
-  font-size: 1.05rem;
-}
-.trust-item strong {
-  font-size: 1.15rem;
-  display: block;
-}
-
-/* ✅ 卡片布局（结构不变，只控列数） */
+/* ===== 卡片布局（PC 4列 / 手机 2列） ===== */
 .balanced-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -51,18 +39,22 @@ body {
   }
 }
 
-/* ✅ 使用你原卡片风格（不再黑） */
+/* ===== 点击反馈（不影响UI风格） ===== */
 .grid-card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 14px 10px;
-  text-align: center;
   cursor: pointer;
-  transition: 0.2s;
 }
 
 .grid-card:active {
   transform: scale(0.97);
+}
+
+/* ===== 信任区字体放大 ===== */
+.trust-item {
+  font-size: 1.1rem;
+}
+
+.trust-item strong {
+  font-size: 1.2rem;
 }
 
 </style>
@@ -71,7 +63,7 @@ body {
 
 <body>
 
-<!-- ===== NAV（原结构保留）===== -->
+<!-- ===== NAV（保持你原模板）===== -->
 <header class="assessment-header">
   <div class="container">
     <a href="/" class="back-btn">
@@ -85,7 +77,7 @@ body {
   </div>
 </header>
 
-<!-- ===== HERO（结构不动）===== -->
+<!-- ===== HERO（保持结构）===== -->
 <div class="page-header">
   <div class="container">
 
@@ -96,7 +88,7 @@ body {
     </p>
 
     <div style="margin-top:1rem;">
-      <p style="color:#f5c542;">⚡ Respon cepat dalam beberapa menit</p>
+      <p>⚡ Respon cepat dalam beberapa menit</p>
 
       <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20gadai"
          class="card-cta-btn"
@@ -111,7 +103,7 @@ body {
 
 <main class="container">
 
-<!-- ===== 信任区（结构完全保留）===== -->
+<!-- ===== 信任区（结构不动）===== -->
 <div class="trust-box">
   <div class="trust-item">
     <strong>✔ Khusus Bangil</strong>
@@ -133,7 +125,7 @@ body {
 Melayani Bangil • Beji • Gempol
 </p>
 
-<!-- ===== 核心：卡片成交模块（结构不变，只加onclick）===== -->
+<!-- ===== 核心：卡片成交模块 ===== -->
 <h2 class="info-section-title">Layanan Gadai Bangil</h2>
 
 <div class="balanced-grid">
@@ -164,9 +156,9 @@ Melayani Bangil • Beji • Gempol
 
 </div>
 
-<!-- ===== CTA（结构保留）===== -->
+<!-- ===== CTA ===== -->
 <div style="text-align:center; margin:2rem 0;">
-  <p style="color:#f5c542;">⚡ Dana bisa cair hari ini</p>
+  <p>⚡ Dana bisa cair hari ini</p>
 
   <a href="https://wa.me/6289515692586"
      class="card-cta-btn"
@@ -178,7 +170,7 @@ Melayani Bangil • Beji • Gempol
 
 </main>
 
-<!-- ===== FOOTER（恢复）===== -->
+<!-- ===== FOOTER（保持原模板）===== -->
 <footer id="lokasi">
   <div class="footer-content">
     <p class="copyright">
@@ -201,10 +193,11 @@ Melayani Bangil • Beji • Gempol
   </div>
 </footer>
 
+<!-- ===== JS ===== -->
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* 🔥 核心成交逻辑（唯一新增核心） */
+/* 🔥 卡片成交逻辑 */
 function goWA(type){
 
   let text = "";
@@ -218,11 +211,11 @@ function goWA(type){
   }
 
   if(type === "hp"){
-    text = "Halo, saya ingin gadai HP atau laptop. Bisa cek harga hari ini?";
+    text = "Halo, saya ingin gadai HP atau laptop.";
   }
 
   if(type === "emas"){
-    text = "Halo, saya ingin gadai emas. Berapa estimasi pinjaman?";
+    text = "Halo, saya ingin gadai emas.";
   }
 
   let url = "https://wa.me/6289515692586?text=" + encodeURIComponent(text);
