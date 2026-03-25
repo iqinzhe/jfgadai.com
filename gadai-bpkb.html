@@ -235,45 +235,21 @@ function trackWABpkb(){
 .grid-card:active {
   transform: scale(0.97);
 }
-
-/* 导航栏本地化按钮样式（与首页保持一致） */
-.nav-location {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(245,197,66,0.15);
-  padding: 6px 12px;
-  border-radius: 40px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #f5c542;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-.nav-location:hover {
-  background: rgba(245,197,66,0.3);
-  transform: translateY(-1px);
-}
 </style>
 </head>
 <body>
 
-<!-- ===== 导航栏 ===== -->
+<!-- 顶部导航 -->
 <header class="assessment-header">
-  <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+  <div class="container">
     <a href="/" class="back-btn">
-      <img src="/images/logo-jf.png" class="logo-image" alt="JF Gadai" style="height:30px;" onerror="this.style.display='none'">
-      <strong>← Beranda</strong>
+      <img src="/images/logo-jf.png" alt="JF Gadai" class="logo-image">
+      <strong><span class="arrow">←</span> Beranda</strong>
     </a>
-    <div style="display: flex; gap: 12px; align-items: center;">
-      <a href="#lokasi" class="nav-location">
-        📍 Jl. Raya Bangil No.48
-      </a>
-      <a href="/contact.html" class="nav-forward">
-        <strong>Konsultasi →</strong>
-        <img src="/images/logo-wa.png" class="nav-icon" alt="WA" onerror="this.style.display='none'">
-      </a>
-    </div>
+    <a href="/emas.html" class="nav-forward">
+      <strong>Kontak Kami <span class="arrow">→</span></strong>
+      <img src="/images/logo-motor.png" alt="Gadai Motor" class="nav-icon">
+    </a>
   </div>
 </header>
 
