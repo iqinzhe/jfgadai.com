@@ -20,95 +20,49 @@ function trackWA(){
 }
 </script>
 
+<link rel="stylesheet" href="/css/main.css">
+
 <style>
 
-/* ===== 基础 ===== */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #111;
-  color: #fff;
-}
+/* ===== 只做增强，不破坏原UI ===== */
 
-.container {
-  padding: 20px;
-}
-
-/* ===== HERO ===== */
-.page-header {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-h1 {
-  font-size: 1.6rem;
-}
-
-.card-cta-btn {
-  display: inline-block;
-  background: #25D366;
-  color: #000;
-  padding: 14px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-/* ===== 信任区（放大版） ===== */
+/* 🔥 信任区放大 */
 .trust-box {
-  display: flex;
-  justify-content: space-between;
   margin: 20px 0;
 }
 
 .trust-item {
-  width: 32%;
   font-size: 1.05rem;
+  line-height: 1.4;
 }
 
 .trust-item strong {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   display: block;
 }
 
-/* ===== 卡片布局 ===== */
+/* 🔥 卡片成交布局 */
 .balanced-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
 
+/* 手机2列 */
 @media (max-width: 768px) {
   .balanced-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* 🔥 不破坏你原卡片风格，只增强点击感 */
 .grid-card {
-  background: #1c1c1c;
-  padding: 14px 10px;
-  border-radius: 10px;
-  text-align: center;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .grid-card:active {
-  transform: scale(0.96);
-}
-
-.card-icon {
-  font-size: 1.5rem;
-}
-
-.card-desc {
-  font-size: 0.8rem;
-}
-
-/* ===== CTA ===== */
-.cta-box {
-  text-align: center;
-  margin: 30px 0;
+  transform: scale(0.97);
 }
 
 </style>
@@ -117,22 +71,45 @@ h1 {
 
 <body>
 
-<!-- HERO -->
+<!-- ✅ 原导航（保持你的模板） -->
+<header class="assessment-header">
+  <div class="container">
+    <a href="/" class="back-btn">
+      <img src="/images/logo-jf.png" class="logo-image">
+      <strong>← Beranda</strong>
+    </a>
+    <a href="/contact.html" class="nav-forward">
+      <strong>Konsultasi →</strong>
+      <img src="/images/logo-wa.png" class="nav-icon">
+    </a>
+  </div>
+</header>
+
+<!-- HERO（可用你原来的，这里只是示例） -->
 <div class="page-header">
-  <h1>Butuh Dana Cepat di Bangil?</h1>
-  <p>⚡ Cair 15–30 menit • Aman • Tanpa Ribet</p>
+  <div class="container">
 
-  <p style="color:#f5c542;">⚡ Respon cepat dalam beberapa menit</p>
+    <h1>Butuh Dana Cepat di Bangil?</h1>
 
-  <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20gadai"
-     class="card-cta-btn"
-     onclick="trackWA()"
-     target="_blank">
-     💬 Ajukan Sekarang
-  </a>
+    <p>
+      ⚡ Cair 15–30 menit • Aman • Tanpa Ribet
+    </p>
+
+    <div style="margin-top:1rem;">
+      <p style="color:#f5c542;">⚡ Respon cepat dalam beberapa menit</p>
+
+      <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20gadai"
+         class="card-cta-btn"
+         onclick="trackWA()"
+         target="_blank">
+         💬 Ajukan Sekarang
+      </a>
+    </div>
+
+  </div>
 </div>
 
-<div class="container">
+<main class="container">
 
 <!-- 信任区 -->
 <div class="trust-box">
@@ -152,28 +129,30 @@ h1 {
   </div>
 </div>
 
-<p style="text-align:center;">Melayani Bangil • Beji • Gempol</p>
+<p style="text-align:center;">
+Melayani Bangil • Beji • Gempol
+</p>
 
-<!-- 服务卡片（成交版） -->
-<h2>Layanan Gadai Bangil</h2>
+<!-- 🔥 核心：卡片成交模块 -->
+<h2 class="info-section-title">Layanan Gadai Bangil</h2>
 
 <div class="balanced-grid">
 
   <div class="grid-card" onclick="goWA('motor')">
     <div class="card-icon">🏍️</div>
-    <h3>Motor</h3>
-    <p class="card-desc">Tetap dipakai</p>
+    <h3>Gadai Motor</h3>
+    <p class="card-desc">Motor tetap dipakai</p>
   </div>
 
   <div class="grid-card" onclick="goWA('bpkb')">
     <div class="card-icon">📄</div>
-    <h3>BPKB</h3>
+    <h3>Gadai BPKB</h3>
     <p class="card-desc">Pinjaman besar</p>
   </div>
 
   <div class="grid-card" onclick="goWA('hp')">
     <div class="card-icon">📱</div>
-    <h3>HP/Laptop</h3>
+    <h3>HP & Laptop</h3>
     <p class="card-desc">Cair cepat</p>
   </div>
 
@@ -185,8 +164,8 @@ h1 {
 
 </div>
 
-<!-- 底部CTA -->
-<div class="cta-box">
+<!-- CTA -->
+<div style="text-align:center; margin:2rem 0;">
   <p style="color:#f5c542;">⚡ Dana bisa cair hari ini</p>
 
   <a href="https://wa.me/6289515692586"
@@ -197,10 +176,35 @@ h1 {
   </a>
 </div>
 
-</div>
+</main>
 
-<!-- 核心成交逻辑 -->
+<!-- ✅ 原页脚（保持你的模板） -->
+<footer id="lokasi">
+  <div class="footer-content">
+    <p class="copyright">
+      © <span id="year"></span> JF Gadai
+    </p>
+
+    <p class="company-info">
+      JF Gadai – Bangil • Beji • Gempol
+    </p>
+
+    <a href="https://wa.me/6289515692586"
+       class="contact-link"
+       target="_blank">
+      Chat WhatsApp
+    </a>
+
+    <p class="operating-hours">
+      ⏰ 08:00–18:00
+    </p>
+  </div>
+</footer>
+
 <script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* 🔥 成交核心逻辑 */
 function goWA(type){
 
   let text = "";
