@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="id-ID">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Gadai BPKB Bangil | Pinjaman Besar Cair Cepat - JF Gadai</title>
+<meta name="description" content="Gadai BPKB mobil & motor di Bangil & radius 15km. Proses 30 menit, dana cair hari ini, BPKB aman, bunga ringan. Resmi terpercaya.">
+<meta name="keywords" content="gadai bpkb bangil, gadai bpkb mobil bangil, gadai bpkb motor bangil, pinjaman bpkb bangil, gadai bpkb cepat cair, gadai bpkb pasuruan">
+<meta name="geo.region" content="ID-JI">
+<meta name="geo.placename" content="Bangil, Pasuruan">
+<meta name="geo.position" content="-7.6065;112.8070">
+<link rel="canonical" href="https://www.jfgadai.com/gadai-bpkb.html">
+
+<!-- ✅ 外部样式：main.css + faq.css -->
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/faq.css">
+
+<!-- Google Ads Conversion & Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-XXXXXXXXX');
+
+function trackWABpkb(){
+  gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/bpkb_conv'});
+  console.log("BPKB conversion tracked");
+}
+</script>
+
+<style>
+/* ===== 页面专属样式：仅BPKB页面特有内容，不覆盖main.css ===== */
+
+/* BPKB 主题装饰 */
+.bpkb-hero-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+/* 服务特色亮点卡片 */
+.bpkb-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.feature-card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 1.2rem 0.8rem;
+  text-align: center;
+  border: 1px solid rgba(245,197,66,0.3);
+  transition: all 0.2s;
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: #f5c542;
+  background: rgba(245,197,66,0.1);
+}
+.feature-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.feature-card h4 {
+  color: #f5c542;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+.feature-card p {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+/* 贷款金额示意表 */
+.loan-table {
+  background: rgba(0,0,0,0.3);
+  border-radius: 24px;
+  padding: 1.2rem;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(245,197,66,0.3);
+}
+.loan-table h3 {
+  text-align: center;
+  color: #f5c542;
+  margin-bottom: 1rem;
+}
+.table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.table-row.header {
+  font-weight: bold;
+  color: #f5c542;
+  border-bottom: 2px solid #f5c542;
+}
+.table-row:last-child {
+  border-bottom: none;
+}
+
+/* 本地服务半径强化 */
+.radius-banner {
+  background: linear-gradient(135deg, #0f4c81, #0c3d67);
+  border-radius: 24px;
+  padding: 1.2rem 1.5rem;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-left: 6px solid #f5c542;
+}
+.radius-banner .text strong {
+  font-size: 1.2rem;
+  color: #f5c542;
+}
+.radius-badge {
+  background: rgba(245,197,66,0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 40px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: 1px solid rgba(245,197,66,0.5);
+}
+
+/* 流程步骤 */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+.step-item {
+  text-align: center;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 1.2rem;
+}
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: #f5c542;
+  color: #0f4c81;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0 auto 0.8rem;
+}
+.step-item h4 {
+  color: #f5c542;
+  margin-bottom: 0.5rem;
+}
+
+/* 本地信任网格 */
+.local-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.local-trust-item {
+  background: rgba(0,0,0,0.25);
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.local-trust-item .icon {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.local-trust-item strong {
+  color: #f5c542;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.local-trust-item small {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .bpkb-feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  .radius-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .loan-table {
+    padding: 1rem;
+  }
+  .table-row {
+    font-size: 0.85rem;
+  }
+  .local-trust-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+}
+
+/* 卡片网格布局：PC 4列，手机 2列 */
+.balanced-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 1.5rem auto;
+}
+@media (max-width: 768px) {
+  .balanced-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px;
+  }
+}
+.grid-card {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.grid-card:active {
+  transform: scale(0.97);
+}
+
+/* 导航栏本地化按钮样式（与首页保持一致） */
+.nav-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(245,197,66,0.15);
+  padding: 6px 12px;
+  border-radius: 40px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #f5c542;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-location:hover {
+  background: rgba(245,197,66,0.3);
+  transform: translateY(-1px);
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 导航栏 ===== -->
+<header class="assessment-header">
+  <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+    <a href="/" class="back-btn">
+      <img src="/images/logo-jf.png" class="logo-image" alt="JF Gadai" style="height:30px;" onerror="this.style.display='none'">
+      <strong>← Beranda</strong>
+    </a>
+    <div style="display: flex; gap: 12px; align-items: center;">
+      <a href="#lokasi" class="nav-location">
+        📍 Jl. Raya Bangil No.48
+      </a>
+      <a href="/contact.html" class="nav-forward">
+        <strong>Konsultasi →</strong>
+        <img src="/images/logo-wa.png" class="nav-icon" alt="WA" onerror="this.style.display='none'">
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO 区域：聚焦 BPKB ===== -->
+<div class="page-header">
+  <div class="container">
+    <div style="text-align: center;">
+      <div class="bpkb-hero-icon">📄🏍️🚗</div>
+      <div style="background: rgba(245,197,66,0.2); display: inline-block; padding: 4px 16px; border-radius: 40px; margin-bottom: 1rem;">
+        ⭐ Gadai BPKB Terpercaya di Bangil
+      </div>
+    </div>
+    <h1>Gadai BPKB <span style="color: #f5c542;">Mobil & Motor</span></h1>
+    <p style="font-size: 1.2rem;">
+      🔥 Pinjaman Besar • Proses 30 Menit • BPKB Aman • Kendaraan Tetap Dipakai
+    </p>
+    <div style="margin-top: 1.5rem;">
+      <a href="https://wa.me/6289515692586?text=Halo%2C%20saya%20ingin%20gadai%20BPKB%20%5Bmobil%2Fmotor%5D.%20Estimasi%20pinjaman%20berapa%3F"
+         class="card-cta-btn"
+         onclick="trackWABpkb()"
+         target="_blank">
+         💬 Konsultasi Gratis Sekarang
+      </a>
+      <p style="margin-top: 0.8rem; font-size: 0.85rem;">⚡ Respon < 5 menit • Gratis taksiran</p>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+
+<!-- ===== 本地服务半径强调 ===== -->
+<div class="radius-banner">
+  <div class="text">
+    <strong>📍 Melayani Warga Bangil & Radius 15 KM</strong><br>
+    Beji • Gempol • Rembang • Kraton • Pogar • Rejoso • Sukorejo
+  </div>
+  <div class="radius-badge">
+    🚗 Proses Prioritas untuk Warga Sekitar
+  </div>
+</div>
+
+<!-- ===== 4大核心优势 ===== -->
+<div class="bpkb-feature-grid">
+  <div class="feature-card">
+    <div class="feature-icon">💰</div>
+    <h4>Pinjaman Besar</h4>
+    <p>Hingga 85% nilai kendaraan</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">⚡</div>
+    <h4>Cair 30 Menit</h4>
+    <p>Proses cepat, tanpa BI checking</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🛡️</div>
+    <h4>BPKB Aman</h4>
+    <p>Disimpan di safe deposit box</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🏍️</div>
+    <h4>Kendaraan Tetap Dipakai</h4>
+    <p>Aktivitas sehari-hari tidak terganggu</p>
+  </div>
+</div>
+
+<!-- ===== 贷款金额示意表 (增强可信度) ===== -->
+<div class="loan-table">
+  <h3>📊 Estimasi Pinjaman Gadai BPKB</h3>
+  <div class="table-row header">
+    <span>Jenis Kendaraan</span>
+    <span>Estimasi Pinjaman</span>
+  </div>
+  <div class="table-row">
+    <span>🏍️ Motor Matic (3-5 tahun)</span>
+    <span>Rp 5 Juta - Rp 15 Juta</span>
+  </div>
+  <div class="table-row">
+    <span>🏍️ Motor Sport / Bebek</span>
+    <span>Rp 4 Juta - Rp 12 Juta</span>
+  </div>
+  <div class="table-row">
+    <span>🚗 Mobil City Car (5-10 tahun)</span>
+    <span>Rp 20 Juta - Rp 60 Juta</span>
+  </div>
+  <div class="table-row">
+    <span>🚙 Mobil SUV / Sedan</span>
+    <span>Rp 50 Juta - Rp 150 Juta+</span>
+  </div>
+  <div class="table-row">
+    <span>🚚 Mobil Pick Up / Colt</span>
+    <span>Rp 30 Juta - Rp 80 Juta</span>
+  </div>
+  <p style="font-size: 0.7rem; margin-top: 0.8rem; text-align: center;">*Estimasi tergantung tahun, kondisi, dan kelengkapan dokumen. Hubungi kami untuk taksiran akurat.</p>
+</div>
+
+<!-- ===== 流程步骤 ===== -->
+<h2 style="text-align: center; color: #f5c542; margin-top: 1rem;">⚙️ Cara Mudah Gadai BPKB di JF Gadai</h2>
+<div class="steps-grid">
+  <div class="step-item">
+    <div class="step-number">1</div>
+    <h4>Hubungi / Datang</h4>
+    <p>Chat WA atau datang ke kantor kami di Bangil</p>
+  </div>
+  <div class="step-item">
+    <div class="step-number">2</div>
+    <h4>Taksiran & Persetujuan</h4>
+    <p>Dokumen dicek, estimasi pinjaman dalam 15 menit</p>
+  </div>
+  <div class="step-item">
+    <div class="step-number">3</div>
+    <h4>Cair & BPKB Dititip</h4>
+    <p>Dana cair langsung, BPKB aman sampai lunas</p>
+  </div>
+</div>
+
+<!-- ===== 服务卡片：BPKB 车型分类 ===== -->
+<h2 class="info-section-title" style="display:block; text-align:center; margin-top: 0.5rem;">🏆 Layanan Gadai BPKB Kami</h2>
+
+<div class="balanced-grid">
+  <div class="grid-card" onclick="goWABpkb('mobil')">
+    <div class="card-icon">🚗</div>
+    <h3>Gadai BPKB Mobil</h3>
+    <p class="card-desc">Pinjaman hingga Rp 150 Juta</p>
+    <small style="color:#f5c542;">Mobil tetap dipakai</small>
+  </div>
+  <div class="grid-card" onclick="goWABpkb('motor')">
+    <div class="card-icon">🏍️</div>
+    <h3>Gadai BPKB Motor</h3>
+    <p class="card-desc">Cair cepat, proses mudah</p>
+    <small style="color:#f5c542;">Semua merk & tahun</small>
+  </div>
+  <div class="grid-card" onclick="goWABpkb('truck')">
+    <div class="card-icon">🚛</div>
+    <h3>Gadai BPKB Pick Up / Truk</h3>
+    <p class="card-desc">Pinjaman besar untuk usaha</p>
+    <small style="color:#f5c542;">Kendaraan operasional tetap jalan</small>
+  </div>
+  <div class="grid-card" onclick="goWABpkb('leasing')">
+    <div class="card-icon">📋</div>
+    <h3>BPKB Leasing / Kredit</h3>
+    <p class="card-desc">Masih cicilan? Bisa!</p>
+    <small style="color:#f5c542;">Konsultasi dulu, solusi terbaik</small>
+  </div>
+</div>
+
+<!-- ===== 本地信任理由 ===== -->
+<div class="local-trust-grid">
+  <div class="local-trust-item">
+    <div class="icon">🏪</div>
+    <strong>Kantor di Bangil Pusat</strong>
+    <small>Jl. Raya Bangil No.48, depan Bank BRI</small>
+  </div>
+  <div class="local-trust-item">
+    <div class="icon">🤝</div>
+    <strong>Proses Tanpa BI Checking</strong>
+    <small>Tidak ribet, cepat cair</small>
+  </div>
+  <div class="local-trust-item">
+    <div class="icon">🛡️</div>
+    <strong>Keamanan BPKB Terjamin</strong>
+    <small>Tersimpan di brankas khusus</small>
+  </div>
+</div>
+
+<!-- ===== FAQ 模块 - 使用 faq.css 样式 ===== -->
+<div class="faq-section">
+  <div class="container">
+    <h2>❓ Pertanyaan Umum Seputar Gadai BPKB</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">Apakah kendaraan masih bisa dipakai saat BPKB digadai?</div>
+        <div class="faq-answer">Ya, kendaraan tetap bisa Anda gunakan sehari-hari. Hanya BPKB yang dititipkan sebagai jaminan. Anda tetap bebas berkendara seperti biasa.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Berapa lama proses gadai BPKB?</div>
+        <div class="faq-answer">Proses taksiran dan pencairan sekitar 15-30 menit setelah dokumen lengkap. Kami prioritaskan warga Bangil & radius 15km untuk proses lebih cepat.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Apakah bisa gadai BPKB motor yang masih kredit?</div>
+        <div class="faq-answer">Bisa, namun akan kami sesuaikan dengan sisa cicilan. Konsultasikan dulu dengan tim kami untuk mendapatkan solusi terbaik sesuai kondisi Anda.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Dokumen apa saja yang diperlukan?</div>
+        <div class="faq-answer">BPKB asli, KTP pemilik, STNK, dan faktur/nota pembelian (jika ada). Untuk mobil, biasanya perlu SKPD. Siapkan dokumen lengkap agar proses lebih cepat.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Apakah melayani dari luar Bangil?</div>
+        <div class="faq-answer">Prioritas kami adalah warga Bangil & radius 15km (Beji, Gempol, Rembang, Kraton, Pogar, Rejoso). Jika Anda dari luar area, silakan chat dulu untuk diskusi kemungkinan layanan.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Berapa tenor maksimal gadai BPKB?</div>
+        <div class="faq-answer">Tenor fleksibel mulai dari 1 bulan hingga 12 bulan, dan dapat diperpanjang sesuai kesepakatan. Bunga ringan dan transparan.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CTA 底部双重行动 ===== -->
+<div style="text-align:center; margin: 2rem 0 1.5rem;">
+  <p style="font-size: 1.1rem;">🏠 Butuh dana tunai sekarang? Datang langsung atau hubungi kami</p>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 16px;">
+    <a href="https://wa.me/6289515692586?text=Halo%2C%20saya%20dari%20%5Bsebutkan%20kecamatan%5D%20mau%20gadai%20BPKB"
+       class="card-cta-btn" 
+       style="background: #25D366; color: #075E54; min-width: 200px;"
+       onclick="trackWABpkb()"
+       target="_blank">
+       💬 Konsultasi via WA
+    </a>
+    <a href="#lokasi" 
+       class="action-btn location" 
+       style="background: rgba(245,197,66,0.2); border:2px solid #f5c542; color:#f5c542; display: inline-flex; align-items: center; gap: 8px; padding: 0.8rem 1.5rem; border-radius: 12px; text-decoration: none; font-weight: 600;">
+       📍 Lihat Peta Lokasi Kami
+    </a>
+  </div>
+  <p style="margin-top: 16px; font-size: 0.85rem;">⏰ Jam Operasional: 08.00 - 18.00 (Senin-Minggu) | Tutup hanya hari besar</p>
+</div>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer id="lokasi">
+  <div class="footer-content">
+    <p class="copyright">© <span id="year"></span> JF Gadai Bangil | Khusus Gadai BPKB & Jaminan Kendaraan</p>
+    <p class="company-info">
+      <strong>📍 Alamat:</strong> Jl. Raya Bangil No.48, Kecamatan Bangil, Kabupaten Pasuruan, Jawa Timur<br>
+      <strong>📞 CS & WA:</strong> 0895-1569-2586 | <strong>Melayani:</strong> Bangil, Beji, Gempol, Rembang, Kraton, Pogar, Rejoso & radius 15 km.
+    </p>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+      <a href="https://wa.me/6289515692586?text=Halo%20saya%20dari%20Bangil%20mau%20gadai%20BPKB"
+         class="contact-link"
+         target="_blank">
+         💬 Chat WhatsApp
+      </a>
+      <a href="#" class="contact-link" id="showMapBtn">
+        🗺️ Lihat Google Maps
+      </a>
+    </div>
+    <p class="operating-hours">
+      ⏰ Layanan Tatap Muka & Online: 08.00–18.00 (termasuk weekend) • Khusus warga sekitar prioritas
+    </p>
+    <p class="security-note">🔒 Aman & Terpercaya • Resmi Terdaftar • BPKB Tersimpan Aman</p>
+  </div>
+</footer>
+
+<!-- Floating WA -->
+<div class="floating-wa" onclick="trackWABpkb(); window.open('https://wa.me/6289515692586?text=Halo%20saya%20dari%20Bangil%2C%20mau%20gadai%20BPKB','_blank')" style="position:fixed; right:20px; bottom:20px; width:55px; height:55px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.3); cursor:pointer; z-index:999;">
+  <img src="/images/logo-wa.png" alt="WhatsApp" style="width:32px; height:32px;" onerror="this.src='https://img.icons8.com/color/48/whatsapp--v1.png'">
+</div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* BPKB 卡片成交逻辑 */
+function goWABpkb(type){
+  let text = "";
+  const area = "Bangil atau sekitar 15km";
+  if(type === "mobil"){
+    text = "Halo, saya dari " + area + " ingin gadai BPKB mobil. Bisa info estimasi pinjaman dan syaratnya?";
+  } else if(type === "motor"){
+    text = "Halo, saya dari " + area + " ingin gadai BPKB motor. Mohon info estimasi dan prosesnya.";
+  } else if(type === "truck"){
+    text = "Halo, saya dari " + area + " ingin gadai BPKB pick up / truk untuk usaha. Bisa dibantu?";
+  } else if(type === "leasing"){
+    text = "Halo, saya dari " + area + " punya BPKB motor yang masih kredit. Apakah bisa digadai?";
+  } else {
+    text = "Halo, saya dari sekitar Bangil mau konsultasi gadai BPKB.";
+  }
+  let url = "https://wa.me/6289515692586?text=" + encodeURIComponent(text);
+  trackWABpkb();
+  window.open(url, "_blank");
+}
+
+/* FAQ 折叠功能 (配合 faq.css) */
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    const faqItem = question.parentElement;
+    faqItem.classList.toggle('active');
+  });
+});
+
+/* 地图按钮 */
+document.getElementById('showMapBtn')?.addEventListener('click', function(e){
+  e.preventDefault();
+  window.open('https://www.google.com/maps/search/Jl.+Raya+Bangil+No.48,+Pasuruan/@-7.6065,112.8070,17z', '_blank');
+});
+
+/* 图片容错 */
+document.querySelectorAll('img').forEach(img => {
+  img.onerror = function() { this.style.display = 'none'; };
+});
+
+/* 平滑滚动 */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const targetId = this.getAttribute('href');
+    if(targetId === "#" || targetId === "") return;
+    const targetEl = document.querySelector(targetId);
+    if(targetEl) {
+      e.preventDefault();
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
