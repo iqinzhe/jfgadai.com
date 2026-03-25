@@ -2,15 +2,14 @@
 <html lang="id-ID">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Gadai Bangil Pasuruan | Dana Cepat 30 Menit</title>
 <meta name="description" content="Gadai motor, BPKB, emas & HP di Bangil. Cair 15–30 menit, aman, tanpa ribet.">
 
-<!-- ✅ 主样式（控制所有视觉） -->
+<!-- ✅ 引用外部 main.css（所有基础样式、按钮、信任区、页脚等均由main.css控制） -->
 <link rel="stylesheet" href="/css/main.css">
 
-<!-- Google Ads -->
+<!-- Google Ads (保留原功能) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -23,73 +22,89 @@ function trackWA(){
 }
 </script>
 
-<!-- ✅ 页面只允许“布局 + 行为” -->
+<!-- 
+  ✅ 页面专属样式：仅控制卡片网格布局 (PC 4列 / 手机 2列)
+  此部分覆盖 main.css 中的 .balanced-grid 默认规则，
+  确保完全符合“网页端4列，手机端2列”的需求。
+  其余所有视觉、毛玻璃、按钮、信任区等仍由 main.css 统一定义。
+-->
 <style>
-
-/* ===== 卡片布局（PC 4列 / 手机 2列） ===== */
+/* 强制覆盖网格布局：桌面端4列 */
 .balanced-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto 1.5rem auto;
+  width: 100%;
 }
 
+/* 手机端 (最大宽度 768px) 改为两列布局 */
 @media (max-width: 768px) {
   .balanced-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px;
   }
 }
 
-/* ===== 点击反馈（不影响UI风格） ===== */
+/* 可选：平板保持4列 (1024px以内仍为4列，保持视觉一致) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .balanced-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+
+/* 
+  保持卡片点击反馈与交互一致性，
+  确保 .grid-card 的点击区域和视觉反馈不受影响。
+  (main.css 已定义 .grid-card 的样式，这里仅增加点击手型)
+*/
 .grid-card {
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .grid-card:active {
   transform: scale(0.97);
 }
 
-/* ===== 信任区字体放大 ===== */
-.trust-item {
-  font-size: 1.1rem;
-}
-
+/* 信任区字体微调（如需覆盖main.css，但保留原有风格） */
 .trust-item strong {
   font-size: 1.2rem;
+  display: block;
+  margin-bottom: 4px;
 }
-
 </style>
 
 </head>
-
 <body>
 
-<!-- ===== NAV（保持你原模板）===== -->
+<!-- ===== NAV（保持原模板，main.css控制样式）===== -->
 <header class="assessment-header">
   <div class="container">
     <a href="/" class="back-btn">
-      <img src="/images/logo-jf.png" class="logo-image">
+      <img src="/images/logo-jf.png" class="logo-image" alt="JF Gadai">
       <strong>← Beranda</strong>
     </a>
     <a href="/contact.html" class="nav-forward">
       <strong>Konsultasi →</strong>
-      <img src="/images/logo-wa.png" class="nav-icon">
+      <img src="/images/logo-wa.png" class="nav-icon" alt="WhatsApp">
     </a>
   </div>
 </header>
 
-<!-- ===== HERO（保持结构）===== -->
+<!-- ===== HERO（main.css控制样式）===== -->
 <div class="page-header">
   <div class="container">
-
     <h1>Butuh Dana Cepat di Bangil?</h1>
-
     <p>
       ⚡ Cair 15–30 menit • Aman • Tanpa Ribet
     </p>
-
     <div style="margin-top:1rem;">
       <p>⚡ Respon cepat dalam beberapa menit</p>
-
       <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20gadai"
          class="card-cta-btn"
          onclick="trackWA()"
@@ -97,37 +112,38 @@ function trackWA(){
          💬 Ajukan Sekarang
       </a>
     </div>
-
   </div>
 </div>
 
 <main class="container">
 
-<!-- ===== 信任区（结构不动）===== -->
+<!-- ===== 信任区（main.css 控制 .trust-box 样式）===== -->
 <div class="trust-box">
   <div class="trust-item">
     <strong>✔ Khusus Bangil</strong>
     Lebih dekat & cepat
   </div>
-
   <div class="trust-item">
     <strong>✔ Proses Cepat</strong>
     15–30 menit cair
   </div>
-
   <div class="trust-item">
     <strong>✔ Aman</strong>
     Barang dijaga
   </div>
 </div>
 
-<p style="text-align:center;">
-Melayani Bangil • Beji • Gempol
+<p style="text-align:center; margin-bottom:1rem;">
+  Melayani Bangil • Beji • Gempol
 </p>
 
 <!-- ===== 核心：卡片成交模块 ===== -->
-<h2 class="info-section-title">Layanan Gadai Bangil</h2>
+<h2 class="info-section-title" style="display:block; text-align:center;">Layanan Gadai Bangil</h2>
 
+<!-- 
+  网格容器：PC端4列 / 手机端2列 
+  完全由本页面内嵌样式控制，不依赖 main.css 中的 .balanced-grid 默认规则
+-->
 <div class="balanced-grid">
 
   <div class="grid-card" onclick="goWA('motor')">
@@ -156,10 +172,9 @@ Melayani Bangil • Beji • Gempol
 
 </div>
 
-<!-- ===== CTA ===== -->
+<!-- ===== 底部CTA ===== -->
 <div style="text-align:center; margin:2rem 0;">
   <p>⚡ Dana bisa cair hari ini</p>
-
   <a href="https://wa.me/6289515692586"
      class="card-cta-btn"
      onclick="trackWA()"
@@ -170,59 +185,60 @@ Melayani Bangil • Beji • Gempol
 
 </main>
 
-<!-- ===== FOOTER（保持原模板）===== -->
+<!-- ===== FOOTER（main.css 控制样式）===== -->
 <footer id="lokasi">
   <div class="footer-content">
     <p class="copyright">
       © <span id="year"></span> JF Gadai
     </p>
-
     <p class="company-info">
       JF Gadai – Bangil • Beji • Gempol
     </p>
-
     <a href="https://wa.me/6289515692586"
        class="contact-link"
        target="_blank">
       Chat WhatsApp
     </a>
-
     <p class="operating-hours">
       ⏰ 08:00–18:00
     </p>
   </div>
 </footer>
 
-<!-- ===== JS ===== -->
+<!-- ===== JS：成交逻辑与年份自动更新 ===== -->
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* 🔥 卡片成交逻辑 */
+/* 卡片成交逻辑：根据类型发送预设消息至 WhatsApp */
 function goWA(type){
-
   let text = "";
 
   if(type === "motor"){
     text = "Halo, saya di Bangil ingin gadai motor. Bisa cek estimasi pinjaman?";
   }
-
   if(type === "bpkb"){
     text = "Halo, saya ingin gadai BPKB. Mohon info estimasi pinjaman.";
   }
-
   if(type === "hp"){
     text = "Halo, saya ingin gadai HP atau laptop.";
   }
-
   if(type === "emas"){
     text = "Halo, saya ingin gadai emas.";
   }
 
   let url = "https://wa.me/6289515692586?text=" + encodeURIComponent(text);
-
+  
+  // 触发 Google Ads 转化追踪
   trackWA();
+  
+  // 在新标签页打开 WhatsApp 对话链接
   window.open(url, "_blank");
 }
+
+// 处理图片加载失败时的优雅降级（避免出现破碎图标）
+document.querySelectorAll('img').forEach(img => {
+  img.onerror = function() { this.style.display = 'none'; };
+});
 </script>
 
 </body>
