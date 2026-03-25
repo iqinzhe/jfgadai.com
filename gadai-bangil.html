@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Gadai Bangil Pasuruan | Dana Cepat 30 Menit</title>
-<meta name="description" content="Gadai motor, BPKB, emas & HP di Bangil. Cair 15–30 menit, aman, tanpa ribet.">
+
+<link rel="stylesheet" href="/css/main.css">
 
 <!-- Google Ads -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
@@ -20,43 +21,42 @@ function trackWA(){
 }
 </script>
 
-<link rel="stylesheet" href="/css/main.css">
-
 <style>
 
-/* ===== 只做增强，不破坏原UI ===== */
-
-/* 🔥 信任区放大 */
-.trust-box {
-  margin: 20px 0;
+/* ✅ 不再黑色主题 */
+body {
+  background: #f5f7fb;
+  color: #333;
 }
 
+/* ✅ 信任区放大（保留结构） */
 .trust-item {
   font-size: 1.05rem;
-  line-height: 1.4;
 }
-
 .trust-item strong {
   font-size: 1.15rem;
   display: block;
 }
 
-/* 🔥 卡片成交布局 */
+/* ✅ 卡片布局（结构不变，只控列数） */
 .balanced-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
 
-/* 手机2列 */
 @media (max-width: 768px) {
   .balanced-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* 🔥 不破坏你原卡片风格，只增强点击感 */
+/* ✅ 使用你原卡片风格（不再黑） */
 .grid-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px 10px;
+  text-align: center;
   cursor: pointer;
   transition: 0.2s;
 }
@@ -71,7 +71,7 @@ function trackWA(){
 
 <body>
 
-<!-- ✅ 原导航（保持你的模板） -->
+<!-- ===== NAV（原结构保留）===== -->
 <header class="assessment-header">
   <div class="container">
     <a href="/" class="back-btn">
@@ -85,7 +85,7 @@ function trackWA(){
   </div>
 </header>
 
-<!-- HERO（可用你原来的，这里只是示例） -->
+<!-- ===== HERO（结构不动）===== -->
 <div class="page-header">
   <div class="container">
 
@@ -111,7 +111,7 @@ function trackWA(){
 
 <main class="container">
 
-<!-- 信任区 -->
+<!-- ===== 信任区（结构完全保留）===== -->
 <div class="trust-box">
   <div class="trust-item">
     <strong>✔ Khusus Bangil</strong>
@@ -133,7 +133,7 @@ function trackWA(){
 Melayani Bangil • Beji • Gempol
 </p>
 
-<!-- 🔥 核心：卡片成交模块 -->
+<!-- ===== 核心：卡片成交模块（结构不变，只加onclick）===== -->
 <h2 class="info-section-title">Layanan Gadai Bangil</h2>
 
 <div class="balanced-grid">
@@ -164,7 +164,7 @@ Melayani Bangil • Beji • Gempol
 
 </div>
 
-<!-- CTA -->
+<!-- ===== CTA（结构保留）===== -->
 <div style="text-align:center; margin:2rem 0;">
   <p style="color:#f5c542;">⚡ Dana bisa cair hari ini</p>
 
@@ -178,7 +178,7 @@ Melayani Bangil • Beji • Gempol
 
 </main>
 
-<!-- ✅ 原页脚（保持你的模板） -->
+<!-- ===== FOOTER（恢复）===== -->
 <footer id="lokasi">
   <div class="footer-content">
     <p class="copyright">
@@ -204,7 +204,7 @@ Melayani Bangil • Beji • Gempol
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* 🔥 成交核心逻辑 */
+/* 🔥 核心成交逻辑（唯一新增核心） */
 function goWA(type){
 
   let text = "";
