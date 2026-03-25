@@ -149,26 +149,7 @@ function trackWA(){ gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/xxxx'}); 
   opacity: 0.8;
 }
 
-/* 5. 导航栏增加“Lokasi Kami”强化本地感 */
-.nav-location {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(245,197,66,0.15);
-  padding: 6px 12px;
-  border-radius: 40px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #f5c542;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-.nav-location:hover {
-  background: rgba(245,197,66,0.3);
-  transform: translateY(-1px);
-}
-
-/* 6. 手机端适配：半径卡片堆叠，信任网格2列 */
+/* 5. 手机端适配：半径卡片堆叠，信任网格2列 */
 @media (max-width: 768px) {
   .radius-card {
     flex-direction: column;
@@ -222,22 +203,17 @@ function trackWA(){ gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/xxxx'}); 
 </head>
 <body>
 
-<!-- ===== 顶部导航 (本地化增强：显示Lokasi kami) ===== -->
+<!-- 顶部导航 -->
 <header class="assessment-header">
-  <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+  <div class="container">
     <a href="/" class="back-btn">
-      <img src="/images/logo-jf.png" class="logo-image" alt="JF Gadai Bangil" style="height:30px;">
-      <strong>← Beranda</strong>
+      <img src="/images/logo-jf.png" alt="JF Gadai" class="logo-image">
+      <strong><span class="arrow">←</span> Beranda</strong>
     </a>
-    <div style="display: flex; gap: 12px; align-items: center;">
-      <a href="#lokasi" class="nav-location">
-        📍 Lokasi Kami → Jl. Raya Bangil No.48
-      </a>
-      <a href="/contact.html" class="nav-forward">
-        <strong>Konsultasi →</strong>
-        <img src="/images/logo-wa.png" class="nav-icon" alt="WA">
-      </a>
-    </div>
+    <a href="/emas.html" class="nav-forward">
+      <strong>Kontak Kami <span class="arrow">→</span></strong>
+      <img src="/images/logo-motor.png" alt="Gadai Motor" class="nav-icon">
+    </a>
   </div>
 </header>
 
