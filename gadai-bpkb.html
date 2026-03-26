@@ -123,7 +123,7 @@
   <link rel="stylesheet" href="/css/faq.css">
   
   <style>
-    /* ===== 页面专属样式：所有文字大小均使用 main.css 的 CSS 变量 ===== */
+    /* ===== 页面专属样式：严格使用 main.css 的 CSS 变量 ===== */
     
     /* 半径横幅 */
     .radius-banner {
@@ -144,9 +144,11 @@
       color: var(--secondary-color);
       display: block;
       margin-bottom: 0.25rem;
+      line-height: var(--lh-tight);
     }
     .radius-banner .text {
       font-size: var(--fs-body);
+      line-height: var(--lh-normal);
     }
     .radius-badge {
       background: rgba(245, 197, 66, 0.2);
@@ -156,6 +158,7 @@
       font-size: var(--fs-small);
       border: 1px solid rgba(245, 197, 66, 0.5);
       white-space: nowrap;
+      line-height: var(--lh-tight);
     }
     
     /* 特色亮点卡片网格 */
@@ -179,16 +182,22 @@
       border-color: var(--secondary-color);
       background: rgba(245, 197, 66, 0.1);
     }
+    .feature-card > div:first-child {
+      font-size: var(--icon-size-large);
+      margin-bottom: var(--spacing-xs);
+    }
     .feature-card h4 {
       color: var(--secondary-color);
       font-size: var(--fs-body);
       font-weight: 700;
       margin-bottom: var(--spacing-xs);
+      line-height: var(--lh-tight);
     }
     .feature-card p {
       font-size: var(--fs-small);
       opacity: 0.85;
       margin: 0;
+      line-height: var(--lh-normal);
     }
     
     /* 贷款金额示意表 */
@@ -204,6 +213,7 @@
       color: var(--secondary-color);
       margin-bottom: var(--spacing-md);
       font-size: var(--fs-card-title);
+      line-height: var(--lh-tight);
     }
     .table-row {
       display: grid;
@@ -211,6 +221,7 @@
       padding: 0.75rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       font-size: var(--fs-body);
+      line-height: var(--lh-normal);
     }
     .table-row.header {
       font-weight: bold;
@@ -221,8 +232,10 @@
     .table-row:last-child {
       border-bottom: none;
     }
-    .loan-table p {
+    .loan-table > p {
       font-size: var(--fs-tiny);
+      margin-top: var(--spacing-md);
+      line-height: var(--lh-tight);
     }
     
     /* 流程步骤 */
@@ -250,16 +263,19 @@
       font-weight: bold;
       font-size: var(--fs-card-title);
       margin: 0 auto var(--spacing-md);
+      line-height: var(--lh-tight);
     }
     .step-item h4 {
       color: var(--secondary-color);
       font-size: var(--fs-body);
       font-weight: 700;
       margin-bottom: var(--spacing-sm);
+      line-height: var(--lh-tight);
     }
     .step-item p {
       font-size: var(--fs-small);
       margin: 0;
+      line-height: var(--lh-normal);
     }
     
     /* 本地信任网格 */
@@ -282,15 +298,21 @@
       background: rgba(245, 197, 66, 0.1);
       border-color: var(--secondary-color);
     }
+    .local-trust-item-bpkb > div:first-child {
+      font-size: var(--icon-size-large);
+      margin-bottom: var(--spacing-xs);
+    }
     .local-trust-item-bpkb strong {
       color: var(--secondary-color);
       font-size: var(--fs-small);
       display: block;
       margin-bottom: 0.25rem;
+      line-height: var(--lh-tight);
     }
     .local-trust-item-bpkb small {
       font-size: var(--fs-tiny);
       opacity: 0.85;
+      line-height: var(--lh-tight);
     }
     
     /* 服务区域标签 */
@@ -311,6 +333,7 @@
       border: 1px solid rgba(245, 197, 66, 0.3);
       transition: all 0.2s;
       color: var(--text-light);
+      line-height: var(--lh-tight);
     }
     .area-tag:hover {
       background: rgba(245, 197, 66, 0.2);
@@ -331,14 +354,17 @@
       color: var(--secondary-color);
       font-size: var(--fs-card-title);
       margin-bottom: var(--spacing-md);
+      line-height: var(--lh-tight);
     }
     .address-card p {
       font-size: var(--fs-body);
       margin-bottom: var(--spacing-sm);
+      line-height: var(--lh-normal);
     }
     .address-card .address-detail {
       font-size: var(--fs-small);
       color: var(--text-muted);
+      line-height: var(--lh-normal);
     }
     .map-link {
       display: inline-flex;
@@ -367,6 +393,7 @@
       color: var(--secondary-color);
       font-weight: 700;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      line-height: var(--lh-tight);
     }
     
     /* 本地徽章 */
@@ -383,6 +410,65 @@
       color: var(--secondary-color);
       border: 1px solid rgba(245, 197, 66, 0.5);
       margin-bottom: var(--spacing-md);
+      line-height: var(--lh-tight);
+    }
+    
+    /* FAQ 区域样式 - 确保与 main.css 变量一致 */
+    .faq-section {
+      margin: var(--spacing-xl) 0;
+    }
+    .faq-section h2 {
+      font-size: var(--fs-section-title);
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+      color: var(--secondary-color);
+      line-height: var(--lh-tight);
+    }
+    .faq-list {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: var(--spacing-md);
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    .faq-question {
+      font-size: var(--fs-body);
+      font-weight: 600;
+      color: var(--secondary-color);
+      padding: var(--spacing-md) 0;
+      cursor: pointer;
+      position: relative;
+      padding-right: 2rem;
+      line-height: var(--lh-normal);
+    }
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: var(--fs-card-title);
+      font-weight: bold;
+      transition: transform 0.3s;
+    }
+    .faq-item.active .faq-question::after {
+      content: '−';
+    }
+    .faq-answer {
+      font-size: var(--fs-small);
+      color: var(--text-light);
+      padding: 0 0 var(--spacing-md) 0;
+      display: none;
+      line-height: var(--lh-normal);
+    }
+    .faq-item.active .faq-answer {
+      display: block;
     }
     
     /* 响应式 */
@@ -419,6 +505,12 @@
       .area-tag {
         font-size: 0.7rem;
         padding: 0.3rem 0.8rem;
+      }
+      .faq-list {
+        padding: var(--spacing-md);
+      }
+      .faq-question {
+        font-size: var(--fs-small);
       }
     }
     
@@ -465,7 +557,7 @@
         🔥 Pinjaman Besar • Proses 30 Menit • BPKB Aman • Kendaraan Tetap Dipakai
       </p>
       <div style="margin-top: var(--spacing-lg);">
-        <p style="font-size: var(--fs-subtitle);">📍 Melayani <strong>Bangil, Beji, Gempol, Rembang, Kraton, Pogar</strong> & radius <strong>15km</strong></p>
+        <p style="font-size: var(--fs-subtitle); line-height: var(--lh-normal);">📍 Melayani <strong>Bangil, Beji, Gempol, Rembang, Kraton, Pogar</strong> & radius <strong>15km</strong></p>
       </div>
     </div>
   </div>
@@ -499,22 +591,22 @@
     <!-- ===== 4大核心优势 ===== -->
     <div class="bpkb-feature-grid">
       <div class="feature-card">
-        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">💰</div>
+        <div>💰</div>
         <h4>Pinjaman Besar</h4>
         <p>Hingga 85% nilai kendaraan</p>
       </div>
       <div class="feature-card">
-        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">⚡</div>
+        <div>⚡</div>
         <h4>Cair 30 Menit</h4>
         <p>Proses cepat, tanpa BI checking</p>
       </div>
       <div class="feature-card">
-        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">🛡️</div>
+        <div>🛡️</div>
         <h4>BPKB Aman</h4>
         <p>Disimpan di safe deposit box</p>
       </div>
       <div class="feature-card">
-        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">🏍️</div>
+        <div>🏍️</div>
         <h4>Kendaraan Tetap Dipakai</h4>
         <p>Aktivitas sehari-hari tidak terganggu</p>
       </div>
@@ -559,7 +651,7 @@
         <h3>Gadai BPKB Mobil Bangil</h3>
         <div class="card-content">
           <p class="card-desc">Pinjaman hingga Rp 100 Juta+</p>
-          <small style="color: var(--secondary-color); display: block; margin-top: 4px;">Mobil tetap dipakai, proses cepat</small>
+          <small style="color: var(--secondary-color); display: block; margin-top: 4px; font-size: var(--fs-small);">Mobil tetap dipakai, proses cepat</small>
         </div>
       </div>
       <div class="grid-card" onclick="goWABpkb('motor')">
@@ -567,7 +659,7 @@
         <h3>Gadai BPKB Motor Bangil</h3>
         <div class="card-content">
           <p class="card-desc">Cair cepat, proses mudah</p>
-          <small style="color: var(--secondary-color); display: block; margin-top: 4px;">Semua merk & tahun, prioritas warga Bangil</small>
+          <small style="color: var(--secondary-color); display: block; margin-top: 4px; font-size: var(--fs-small);">Semua merk & tahun, prioritas warga Bangil</small>
         </div>
       </div>
       <div class="grid-card" onclick="goWABpkb('truck')">
@@ -575,7 +667,7 @@
         <h3>Gadai BPKB Pick Up / Truk</h3>
         <div class="card-content">
           <p class="card-desc">Pinjaman besar untuk usaha</p>
-          <small style="color: var(--secondary-color); display: block; margin-top: 4px;">Kendaraan operasional tetap jalan</small>
+          <small style="color: var(--secondary-color); display: block; margin-top: 4px; font-size: var(--fs-small);">Kendaraan operasional tetap jalan</small>
         </div>
       </div>
       <div class="grid-card" onclick="goWABpkb('leasing')">
@@ -583,7 +675,7 @@
         <h3>BPKB Leasing / Kredit</h3>
         <div class="card-content">
           <p class="card-desc">Masih cicilan? Bisa!</p>
-          <small style="color: var(--secondary-color); display: block; margin-top: 4px;">Konsultasi dulu, solusi terbaik</small>
+          <small style="color: var(--secondary-color); display: block; margin-top: 4px; font-size: var(--fs-small);">Konsultasi dulu, solusi terbaik</small>
         </div>
       </div>
     </div>
@@ -591,17 +683,17 @@
     <!-- ===== 本地信任理由 ===== -->
     <div class="local-trust-grid-bpkb">
       <div class="local-trust-item-bpkb">
-        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">🏪</div>
+        <div>🏪</div>
         <strong>Kantor di Bangil Pusat</strong>
         <small>Jl. Raya Bangil No.48, depan Bank BRI Bangil</small>
       </div>
       <div class="local-trust-item-bpkb">
-        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">🤝</div>
+        <div>🤝</div>
         <strong>Proses Tanpa BI Checking</strong>
         <small>Tidak ribet, cepat cair, khusus warga Bangil</small>
       </div>
       <div class="local-trust-item-bpkb">
-        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">🛡️</div>
+        <div>🛡️</div>
         <strong>Keamanan BPKB Terjamin</strong>
         <small>Tersimpan di brankas khusus kantor Bangil</small>
       </div>
@@ -611,12 +703,12 @@
     <div class="address-card">
       <h3>📍 Kunjungi Kantor JF Gadai Bangil</h3>
       <p><strong>JF Gadai - Layanan Gadai BPKB Bangil</strong><br>
-     Krajan Panas I, Oro-Oro Ombowetan, Kec. Rembang, Pasuruan<br>
+      Jl. Raya Bangil No.48, Kecamatan Bangil<br>
       Kabupaten Pasuruan, Jawa Timur 67153</p>
       <p class="address-detail">⏰ Jam Operasional: Senin - Jumat, 08:00 - 18:00<br>
       📞 Telepon/WA: 0895-1569-2586<br>
       🚗 Parkir luas • CCTV 24 jam</p>
-      <a href="https://www.google.com/maps/search/Krajan Panas I, Oro-Oro Ombowetan, Kec. Rembang, Pasuruan" 
+      <a href="https://www.google.com/maps/search/Jl.+Raya+Bangil+No.48+Bangil" 
          target="_blank" 
          class="map-link btn-shine">
         🗺️ Buka Google Maps • Petunjuk Arah
@@ -625,33 +717,31 @@
 
     <!-- ===== FAQ 模块 - 本地化内容 ===== -->
     <div class="faq-section">
-      <div class="container">
-        <h2>❓ Pertanyaan Umum Seputar Gadai BPKB di Bangil</h2>
-        <div class="faq-list">
-          <div class="faq-item">
-            <div class="faq-question">Apakah kendaraan masih bisa dipakai saat BPKB digadai di JF Gadai Bangil?</div>
-            <div class="faq-answer">Ya, kendaraan tetap bisa Anda gunakan sehari-hari. Hanya BPKB yang dititipkan sebagai jaminan di kantor Bangil kami. Anda tetap bebas berkendara seperti biasa.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">Berapa lama proses gadai BPKB di Bangil?</div>
-            <div class="faq-answer">Proses taksiran dan pencairan sekitar 15-30 menit setelah dokumen lengkap. Kami prioritaskan warga Bangil & radius 15km untuk proses lebih cepat.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">Apakah bisa gadai BPKB motor yang masih kredit di Bangil?</div>
-            <div class="faq-answer">Bisa, namun akan kami sesuaikan dengan sisa cicilan. Konsultasikan dulu dengan tim JF Gadai Bangil untuk mendapatkan solusi terbaik sesuai kondisi Anda.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">Dokumen apa saja yang diperlukan untuk gadai BPKB?</div>
-            <div class="faq-answer">BPKB asli, KTP pemilik, STNK, dan faktur/nota pembelian (jika ada). Untuk mobil, biasanya perlu SKPD. Siapkan dokumen lengkap agar proses lebih cepat di kantor Bangil.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">Apakah melayani gadai BPKB dari luar Bangil?</div>
-            <div class="faq-answer">Prioritas kami adalah warga Bangil & radius 15km (Beji, Gempol, Rembang, Kraton, Pogar, Rejoso). Jika Anda dari luar area, silakan chat dulu untuk diskusi kemungkinan layanan.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">Berapa tenor maksimal gadai BPKB di JF Gadai Bangil?</div>
-            <div class="faq-answer">Tenor fleksibel mulai dari 1 bulan hingga 12 bulan, dan dapat diperpanjang sesuai kesepakatan. Bunga ringan dan transparan, khusus warga Bangil.</div>
-          </div>
+      <h2>❓ Pertanyaan Umum Seputar Gadai BPKB di Bangil</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">Apakah kendaraan masih bisa dipakai saat BPKB digadai di JF Gadai Bangil?</div>
+          <div class="faq-answer">Ya, kendaraan tetap bisa Anda gunakan sehari-hari. Hanya BPKB yang dititipkan sebagai jaminan di kantor Bangil kami. Anda tetap bebas berkendara seperti biasa.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Berapa lama proses gadai BPKB di Bangil?</div>
+          <div class="faq-answer">Proses taksiran dan pencairan sekitar 15-30 menit setelah dokumen lengkap. Kami prioritaskan warga Bangil & radius 15km untuk proses lebih cepat.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Apakah bisa gadai BPKB motor yang masih kredit di Bangil?</div>
+          <div class="faq-answer">Bisa, namun akan kami sesuaikan dengan sisa cicilan. Konsultasikan dulu dengan tim JF Gadai Bangil untuk mendapatkan solusi terbaik sesuai kondisi Anda.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Dokumen apa saja yang diperlukan untuk gadai BPKB?</div>
+          <div class="faq-answer">BPKB asli, KTP pemilik, STNK, dan faktur/nota pembelian (jika ada). Untuk mobil, biasanya perlu SKPD. Siapkan dokumen lengkap agar proses lebih cepat di kantor Bangil.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Apakah melayani gadai BPKB dari luar Bangil?</div>
+          <div class="faq-answer">Prioritas kami adalah warga Bangil & radius 15km (Beji, Gempol, Rembang, Kraton, Pogar, Rejoso). Jika Anda dari luar area, silakan chat dulu untuk diskusi kemungkinan layanan.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Berapa tenor maksimal gadai BPKB di JF Gadai Bangil?</div>
+          <div class="faq-answer">Tenor fleksibel mulai dari 1 bulan hingga 12 bulan, dan dapat diperpanjang sesuai kesepakatan. Bunga ringan dan transparan, khusus warga Bangil.</div>
         </div>
       </div>
     </div>
@@ -663,7 +753,8 @@
     <div class="footer-content">
       <p class="copyright">
         © <span id="year"></span> JF Gadai Bangil
-   
+      </p>
+
       <a href="https://wa.me/6289515692586?text=Halo%20saya%20dari%20Bangil%2C%20mau%20tanya%20gadai%20BPKB"
          target="_blank"
          class="contact-link btn-shine"
@@ -719,7 +810,7 @@
       console.log("BPKB WA click tracked - Bangil page");
     }
 
-    /* FAQ 折叠功能 (配合 faq.css) */
+    /* FAQ 折叠功能 */
     document.querySelectorAll('.faq-question').forEach(question => {
       question.addEventListener('click', () => {
         const faqItem = question.parentElement;
