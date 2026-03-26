@@ -999,8 +999,8 @@ footer {
     --fs-btn-small: 0.75rem;
     
     /* 手机端更紧凑的行距 */
-    --lh-normal: 1.2;
-    --lh-tight: 1.0;
+    --lh-normal: 1.5;
+    --lh-tight: 1.2;
 
     /* 手机图标尺寸 - 调整为适中大小 */
     --icon-size-large: 1.5rem;
@@ -1067,7 +1067,7 @@ footer {
   
   .card-title {
     font-size: var(--fs-card-title);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.5rem;
     line-height: var(--lh-tight);
   }
   
