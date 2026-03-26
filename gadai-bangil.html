@@ -19,58 +19,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   
-  <!-- JSON-LD 结构化数据 -->
+  <!-- ========== 强化本地 SEO：结构化数据 + 地理位置 + 本地关键词 ========== -->
+  
+  <!-- JSON-LD 本地商家结构化数据（增强本地搜索）-->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "JF Gadai Bangil",
+  "alternateName": ["JF Gadai", "Gadai Bangil", "Pegadaian Bangil"],
+  "image": "https://www.jfgadai.com/images/jf-justfast.jpg",
+  "description": "Layanan gadai terpercaya di Bangil, Beji, Gempol. Melayani gadai BPKB, motor, emas, HP dengan proses cepat 15-30 menit.",
+  "url": "https://www.jfgadai.com/gadai-bangil.html",
+  "telephone": "+6289515692586",
+  "priceRange": "Rp",
+  "openingHours": "Mo-Fr 08:00-18:00",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Jl. Raya Bangil No.48",
+    "addressLocality": "Bangil",
+    "addressRegion": "Jawa Timur",
+    "postalCode": "67153",
+    "addressCountry": "ID"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "-7.6065",
+    "longitude": "112.8070"
+  },
+  "areaServed": [
+    {"@type":"City","name":"Bangil"},
+    {"@type":"City","name":"Beji"},
+    {"@type":"City","name":"Gempol"},
+    {"@type":"City","name":"Rembang"},
+    {"@type":"City","name":"Kraton"}
+  ],
+  "makesOffer": [
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Gadai BPKB"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Gadai Motor"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Gadai Emas"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Gadai HP"}}
+  ]
+}
+  </script>
+  
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "JF Gadai",
-  "alternateName": ["JF Gadai indonesia"],
+  "name": "JF Gadai Bangil",
   "url": "https://www.jfgadai.com",
   "publisher": {
     "@id": "https://www.jfgadai.com/#organization"
   }
 }
   </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "PawnBroker",
-    "name": "JF Gadai",
-    "image": "https://www.jfgadai.com/images/jf-justfast.jpg",
-    "description": "Layanan gadai motor, emas, dan barang berharga lainnya di Bangil, Beji, dan Gempol. Proses cepat, aman, dan terpercaya.",
-    "url": "https://www.jfgadai.com",
-    "telephone": "+6289515692586",
-    "priceRange": "Rp",
-    "openingHours": "Mo-Fr 08:00-18:00",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Bangil",
-      "addressRegion": "Jawa Timur",
-      "addressCountry": "ID"
-    },
-    "areaServed": [
-      {"@type":"AdministrativeArea","name":"Bangil"},
-      {"@type":"AdministrativeArea","name":"Beji"},
-      {"@type":"AdministrativeArea","name":"Gempol"}
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://www.jfgadai.com/#organization",
-  "name": "JF Gadai",
-  "alternateName": "JF Gadai Indonesia",
-  "url": "https://www.jfgadai.com/",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://www.jfgadai.com/images/logo-jf.png"
-  },
-  "sameAs": []
-}
-</script>
   
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -80,27 +83,41 @@
   <link rel="icon" type="image/png" sizes="512x512" href="/icons/android-chrome-512x512.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#0f4c81">
 
-  <!-- SEO Meta 标签 -->
-  <title>JF Gadai Bangil | Layanan Gadai Terpercaya di Bangil & Gempol</title>
-  <meta name="description" content="JF Gadai menyediakan layanan gadai di Bangil & Gempol. Proses cepat, aman, dan terpercaya. Cek sekarang layanan terbaik kami.">
-  <meta name="author" content="JF Gadai">
-  <meta name="robots" content="index, follow">
+  <!-- ========== SEO Meta 标签 - 强化本地关键词 ========== -->
+  <title>Gadai Bangil Terpercaya | Gadai BPKB, Motor, Emas di Bangil & Sekitarnya | JF Gadai</title>
+  <meta name="description" content="Cari tempat gadai terpercaya di Bangil? JF Gadai melayani gadai BPKB, motor, emas, HP di Bangil, Beji, Gempol. Proses 15 menit, cair hari ini, aman. Kantor di Jl. Raya Bangil No.48.">
+  <meta name="keywords" content="gadai bangil, tempat gadai di bangil, gadai bpkb bangil, gadai motor bangil, gadai emas bangil, pegadaian bangil, gadai hp bangil, gadai cepat bangil, jf gadai bangil, gadai terdekat bangil">
+  <meta name="author" content="JF Gadai Bangil">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  
+  <!-- 地理位置强化 -->
   <meta name="geo.region" content="ID-JI">
-  <meta name="geo.placename" content="Bangil, Pasuruan">
+  <meta name="geo.placename" content="Bangil, Pasuruan, Jawa Timur">
   <meta name="geo.position" content="-7.6065;112.8070">
   <meta name="ICBM" content="-7.6065, 112.8070">
+  <meta name="city" content="Bangil">
+  <meta name="district" content="Bangil">
+  <meta name="province" content="Jawa Timur">
+  
   <link rel="canonical" href="https://www.jfgadai.com/gadai-bangil.html">
+  
+  <!-- 本地化链接关系 -->
+  <link rel="alternate" href="https://www.jfgadai.com/gadai-bangil.html" hreflang="id-ID">
+  <link rel="alternate" href="https://www.jfgadai.com/gadai-bpkb.html" hreflang="id-ID">
+  <link rel="alternate" href="https://www.jfgadai.com/emas.html" hreflang="id-ID">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="JF Gadai Bangil | Layanan Gadai Terpercaya">
-  <meta property="og:description" content="Layanan gadai emas, kendaraan, dan elektronik dengan proses cepat, aman, dan terpercaya di Bangil & Gempol.">
-  <meta property="og:image" content="https://www.jfgadai.com/images/og-index.jpg">
+  <!-- Open Graph - 本地化 -->
+  <meta property="og:title" content="Gadai Bangil Terpercaya | JF Gadai - Proses Cepat 15 Menit">
+  <meta property="og:description" content="Tempat gadai terpercaya di Bangil. Layanan gadai BPKB, motor, emas, HP. Cair cepat, aman, bunga ringan. Kantor pusat di Jl. Raya Bangil No.48.">
+  <meta property="og:image" content="https://www.jfgadai.com/images/og-bangil.jpg">
   <meta property="og:url" content="https://www.jfgadai.com/gadai-bangil.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="id_ID">
-  <meta property="og:site_name" content="JF Gadai">
+  <meta property="og:site_name" content="JF Gadai Bangil">
+  <meta property="og:region" content="Jawa Timur">
+  <meta property="og:locality" content="Bangil">
 
   <!-- ✅ 外部主样式 -->
   <link rel="stylesheet" href="/css/main.css">
@@ -108,7 +125,7 @@
   <style>
     /* ===== 本地化强化样式：所有文字大小均使用 main.css 的 CSS 变量 ===== */
     
-    /* 地域徽章 */
+    /* 地域徽章 - 强化本地标识 */
     .local-badge {
       display: inline-flex;
       align-items: center;
@@ -124,7 +141,7 @@
       margin-bottom: var(--spacing-md);
     }
     
-    /* 服务半径强提醒卡片 */
+    /* 服务半径强提醒卡片 - 突出本地覆盖 */
     .radius-card {
       background: linear-gradient(135deg, rgba(15, 76, 129, 0.55), rgba(11, 44, 74, 0.75));
       border-left: 6px solid var(--secondary-color);
@@ -167,7 +184,7 @@
       white-space: nowrap;
     }
     
-    /* 覆盖范围列表（周边乡镇） */
+    /* 覆盖范围列表（周边乡镇）- 强化本地服务区域 */
     .serviced-areas {
       display: flex;
       flex-wrap: wrap;
@@ -235,7 +252,7 @@
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     }
     
-    /* 本地优势区域 */
+    /* 本地优势区域 - 强化本地卖点 */
     .local-benefit-grid {
       background: rgba(0, 0, 0, 0.2);
       border-radius: var(--border-radius-lg);
@@ -261,6 +278,47 @@
       font-size: var(--fs-small);
       opacity: 0.9;
       line-height: var(--lh-normal);
+    }
+    
+    /* 地址卡片 - 强化地理位置可见性 */
+    .address-card {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      margin: var(--spacing-xl) 0;
+      text-align: center;
+      border: 1px solid rgba(245, 197, 66, 0.3);
+    }
+    .address-card h3 {
+      color: var(--secondary-color);
+      font-size: var(--fs-card-title);
+      margin-bottom: var(--spacing-md);
+    }
+    .address-card p {
+      font-size: var(--fs-body);
+      margin-bottom: var(--spacing-sm);
+    }
+    .address-card .address-detail {
+      font-size: var(--fs-small);
+      color: var(--text-muted);
+    }
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--secondary-color);
+      color: var(--dark-color);
+      padding: 0.8rem 1.5rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: var(--fs-btn-medium);
+      margin-top: var(--spacing-md);
+      transition: all 0.3s ease;
+    }
+    .map-link:hover {
+      background: var(--secondary-dark);
+      transform: translateY(-2px);
     }
     
     /* 响应式 */
@@ -310,47 +368,47 @@
   <header class="assessment-header">
     <div class="container">
       <a href="/" class="back-btn btn-shine">
-        <img src="/images/logo-jf.png" alt="JF Gadai" class="logo-image" onerror="this.style.display='none'">
+        <img src="/images/logo-jf.png" alt="JF Gadai Bangil" class="logo-image" onerror="this.style.display='none'">
         <strong>← Beranda</strong>
       </a>
-      <a href="/kontak.html" class="nav-forward btn-shine">
-        <strong>Kontak Kami →</strong>
-        <img src="/images/logo-motor.png" alt="Gadai Motor" class="nav-icon" onerror="this.style.display='none'">
+      <a href="https://wa.me/6289515692586?text=Halo%20saya%20dari%20Bangil%2C%20mau%20tanya%20gadai" class="nav-forward btn-shine" target="_blank">
+        <strong>Hubungi Kami →</strong>
+        <img src="/images/logo-wa.png" alt="WhatsApp" class="nav-icon" onerror="this.style.display='none'">
       </a>
     </div>
   </header>
 
-  <!-- ===== HERO 区域 - 复用 page-header 样式 ===== -->
+  <!-- ===== HERO 区域 - 强化本地关键词 ===== -->
   <div class="page-header">
     <div class="container">
       <div style="text-align: center;">
         <div class="local-badge">
-          🏆 Resmi • Terpercaya di Bangil Sejak 2018
+          🏆 Tempat Gadai Terpercaya di Bangil Sejak 2018
         </div>
       </div>
-      <h1>Butuh Dana Cepat di <span style="color: var(--secondary-color);">Bangil</span>?</h1>
+      <h1>Butuh Dana Cepat di <span style="color: var(--secondary-color);">Bangil</span>? <span style="font-size: var(--fs-hero-title);">🏪</span></h1>
       <p>
-        ⚡ Cair 15–30 menit • Proses Tanpa Ribet • Toko Fisik di Bangil
+        ⚡ Cair 15–30 Menit • Proses Tanpa Ribet • Toko Fisik di Jl. Raya Bangil No.48
       </p>
       <div style="margin-top: var(--spacing-md);">
-        <p style="font-size: var(--fs-subtitle);">📍 Melayani radius <strong>15km dari Bangil</strong> — Beji, Gempol, Rembang, Kraton, Pogar & sekitarnya</p>
+        <p style="font-size: var(--fs-subtitle);">📍 Melayani <strong>Bangil, Beji, Gempol, Rembang, Kraton, Pogar</strong> & radius <strong>15km</strong></p>
       </div>
     </div>
   </div>
 
   <main class="container">
 
-    <!-- ===== 半径 & 本地服务范围模块 ===== -->
+    <!-- ===== 半径 & 本地服务范围模块（强化本地覆盖）===== -->
     <div class="radius-card">
       <div class="radius-icon">📍🚀</div>
       <div class="radius-text">
         <strong>Prioritas Warga Bangil & Radius 15 KM</strong>
-        <p>Kami fokus melayani masyarakat Bangil, Beji, Gempol, Rembang, Kraton, Pogar, Rejoso, dan sekitarnya. <strong>cepat, aman, dan kenal daerah Anda</strong>. Proses personal, survei ringan, pencairan super cepat.</p>
+        <p>Kami fokus melayani masyarakat <strong>Bangil, Beji, Gempol, Rembang, Kraton, Pogar, Rejoso, Sukorejo</strong> dan sekitarnya. Karena kami <strong>kenal daerah Anda</strong>, proses lebih personal, survei ringan, dan pencairan super cepat.</p>
       </div>
-      <div class="radius-highlight">⚡ Utamakan Warga Lokal</div>
+      <div class="radius-highlight">⚡ Utamakan Warga Bangil & Sekitarnya</div>
     </div>
 
-    <!-- 周边服务区域标签 -->
+    <!-- 周边服务区域标签（强化本地地理信号）-->
     <div class="serviced-areas">
       <span class="area-tag">🏠 Bangil Kota</span>
       <span class="area-tag">🚘 Beji</span>
@@ -361,6 +419,8 @@
       <span class="area-tag">⛰️ Rejoso</span>
       <span class="area-tag">🏘️ Sukorejo</span>
       <span class="area-tag">✨ Ngempit</span>
+      <span class="area-tag">🏞️ Kalirejo</span>
+      <span class="area-tag">🌾 Tambakrejo</span>
     </div>
 
     <!-- 本地信任理由4宫格 -->
@@ -368,32 +428,32 @@
       <div class="local-trust-item">
         <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">🏪</div>
         <span>Kantor di Bangil Pusat</span>
-        <small>Jl. Raya Bangil No.48, depan Bank BRI</small>
+        <small>Jl. Raya Bangil No.48, depan Bank BRI Bangil</small>
       </div>
       <div class="local-trust-item">
         <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">🤝</div>
         <span>Kenal dengan Warga Setempat</span>
-        <small>Kami memahami kebutuhan ekonomi Bangil</small>
+        <small>Kami memahami kebutuhan ekonomi warga Bangil</small>
       </div>
       <div class="local-trust-item">
         <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">⚡</div>
         <span>Estimasi Pinjaman 5 Menit</span>
-        <small>Datang / chat, langsung direspon owner</small>
+        <small>Datang langsung ke kantor Bangil, langsung direspon owner</small>
       </div>
       <div class="local-trust-item">
         <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">🛡️</div>
         <span>Garansi Keamanan Barang</span>
-        <small>Asuransi & CCTV 24 jam</small>
+        <small>Asuransi & CCTV 24 jam di kantor Bangil</small>
       </div>
     </div>
 
-    <!-- 核心服务卡片 - 完全复用 main.css 的 .balanced-grid 和 .grid-card -->
-    <h2 class="info-section-title">✨ Layanan Unggulan di Bangil ✨</h2>
+    <!-- 核心服务卡片 - 本地化服务描述 -->
+    <h2 class="info-section-title">✨ Layanan Gadai Unggulan di Bangil ✨</h2>
 
     <div class="balanced-grid">
       <div class="grid-card" onclick="goWA('motor')">
         <div class="card-icon">🏍️</div>
-        <h3>Gadai Motor</h3>
+        <h3>Gadai Motor Bangil</h3>
         <div class="card-content">
           <p class="card-desc">Motor tetap dipakai • Bisa nebus kapan saja</p>
           <small style="color: var(--secondary-color); display: block; margin-top: 4px;">Estimasi hingga 85% nilai motor</small>
@@ -401,83 +461,106 @@
       </div>
       <div class="grid-card" onclick="goWA('bpkb')">
         <div class="card-icon">📄</div>
-        <h3>Gadai BPKB</h3>
+        <h3>Gadai BPKB Bangil</h3>
         <div class="card-content">
-          <p class="card-desc">Pinjaman besar • Mobil/Motor</p>
-          <small style="color: var(--secondary-color); display: block; margin-top: 4px;">Proses cepat, tanpa potongan</small>
+          <p class="card-desc">Pinjaman besar • Mobil/Motor • Proses cepat</p>
+          <small style="color: var(--secondary-color); display: block; margin-top: 4px;">Cair hari ini, tanpa potongan</small>
         </div>
       </div>
       <div class="grid-card" onclick="goWA('hp')">
         <div class="card-icon">📱</div>
-        <h3>HP & Laptop</h3>
+        <h3>Gadai HP & Laptop</h3>
         <div class="card-content">
-          <p class="card-desc">Cair 15 menit • Semua merk</p>
-          <small style="color: var(--secondary-color); display: block; margin-top: 4px;">Terima iPhone, Samsung, Oppo, dll</small>
+          <p class="card-desc">Cair 15 menit • Semua merk terima</p>
+          <small style="color: var(--secondary-color); display: block; margin-top: 4px;">iPhone, Samsung, Oppo, Vivo, Xiaomi</small>
         </div>
       </div>
       <div class="grid-card" onclick="goWA('emas')">
         <div class="card-icon">💍</div>
-        <h3>Gadai Emas</h3>
+        <h3>Gadai Emas Bangil</h3>
         <div class="card-content">
-          <p class="card-desc">Nilai tinggi • harga naik</p>
+          <p class="card-desc">Nilai tinggi • harga emas naik</p>
           <small style="color: var(--secondary-color); display: block; margin-top: 4px;">Taksiran akurat & transparan</small>
         </div>
       </div>
     </div>
 
+    <!-- 地址卡片 - 强化地理位置可见性（关键本地SEO信号）-->
+    <div class="address-card">
+      <h3>📍 Kunjungi Kantor Kami di Bangil</h3>
+      <p><strong>JF Gadai Bangil</strong><br>
+      Jl. Raya Bangil No.48, Kecamatan Bangil<br>
+      Kabupaten Pasuruan, Jawa Timur 67153</p>
+      <p class="address-detail">⏰ Jam Operasional: Senin - Jumat, 08:00 - 18:00<br>
+      📞 Telepon: 0895-1569-2586</p>
+      <a href="https://www.google.com/maps/search/Jl.+Raya+Bangil+No.48,+Pasuruan/@-7.6065,112.8070,17z" 
+         target="_blank" 
+         class="map-link btn-shine">
+        🗺️ Buka Google Maps • Petunjuk Arah
+      </a>
+    </div>
+
     <!-- 为什么选择本地典当行？强化本地优势 -->
     <div class="local-benefit-grid">
-      <h3 style="color: var(--secondary-color); text-align: center; margin-bottom: var(--spacing-lg);">🏆 Kenapa Warga Bangil Pilih Kami?</h3>
+      <h3 style="color: var(--secondary-color); text-align: center; margin-bottom: var(--spacing-lg);">🏆 Kenapa Warga Bangil Pilih JF Gadai?</h3>
       <div class="local-benefit-flex">
         <div class="benefit-item">
           <span style="font-size: var(--icon-size-large);">📍</span>
           <div class="benefit-text">
-            <strong>Lokasi Strategis di Bangil</strong>
-            <small>Jl. Raya Bangil, dekat pasar & kawasan ramai. Mudah dijangkau warga Beji, Gempol, Rembang.</small>
+            <strong>Lokasi Strategis di Pusat Bangil</strong>
+            <small>Jl. Raya Bangil No.48, dekat pasar & perempatan. Mudah dijangkau dari Beji, Gempol, Rembang.</small>
           </div>
         </div>
         <div class="benefit-item">
           <span style="font-size: var(--icon-size-large);">🗣️</span>
           <div class="benefit-text">
             <strong>Berbahasa Jawa & Indonesia</strong>
-            <small>Komunikasi lebih nyaman, kami mengerti kondisi lokal.</small>
+            <small>Komunikasi lebih nyaman, kami mengerti kondisi dan kebutuhan warga Bangil.</small>
           </div>
         </div>
         <div class="benefit-item">
           <span style="font-size: var(--icon-size-large);">⏱️</span>
           <div class="benefit-text">
-            <strong>Prioritas untuk Warga 15km</strong>
-            <small>Jika Anda dari Bangil/Beji/Gempol, kami utamakan proses tanpa antri panjang.</small>
+            <strong>Prioritas untuk Warga Bangil & Radius 15km</strong>
+            <small>Jika Anda dari Bangil, Beji, Gempol, Rembang, kami utamakan proses tanpa antri.</small>
           </div>
         </div>
         <div class="benefit-item">
           <span style="font-size: var(--icon-size-large);">💸</span>
           <div class="benefit-text">
-            <strong>Bunga Ringan & Fleksibel</strong>
-            <small>Khusus tetangga sekitar, tenor panjang tanpa ribet.</small>
+            <strong>Bunga Ringan Khusus Warga Lokal</strong>
+            <small>Tenor panjang, proses mudah, tanpa ribet.</small>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- 本地服务承诺 -->
+    <div style="background: rgba(245, 197, 66, 0.1); border-radius: var(--border-radius); padding: var(--spacing-lg); margin: var(--spacing-xl) 0; text-align: center;">
+      <p style="font-size: var(--fs-body); margin-bottom: 0;">
+        ✅ <strong>Komitmen JF Gadai Bangil</strong> : Melayani warga Bangil dan sekitarnya dengan <strong>proses cepat, transparan, dan kekeluargaan</strong>. 
+        Kami hadir untuk membantu solusi keuangan Anda tanpa ribet.
+      </p>
+    </div>
+
   </main>
 
-  <!-- 页脚 - 完全复用 main.css -->
+  <!-- 页脚 - 完全复用 main.css，强化本地信息 -->
   <footer id="lokasi" role="contentinfo">
     <div class="footer-content">
       <p class="copyright">
-        © <span id="year"></span> JF Gadai
+        © <span id="year"></span> JF Gadai Bangil
       </p>
       <p class="company-info">
-        JF Gadai – Melayani area Bangil • Beji • Gempol
+        JF Gadai – Melayani area Bangil • Beji • Gempol • Rembang • Kraton • Pogar
       </p>
 
-      <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai"
+      <a href="https://wa.me/6289515692586?text=Halo%20saya%20dari%20Bangil%2C%20mau%20tanya%20gadai"
          target="_blank"
          class="contact-link btn-shine"
          id="wa-contact"
          rel="noopener noreferrer"
-         aria-label="Hubungi kami via WhatsApp">
+         aria-label="Hubungi JF Gadai Bangil via WhatsApp">
         <img src="/images/logo-wa.png"
              alt="WhatsApp"
              width="20"
@@ -487,7 +570,10 @@
       </a>
 
       <p class="operating-hours">
-        ⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu
+        ⏰ Jam kerja: Senin–Jumat, 08:00–18:00 | Tutup Sabtu–Minggu
+      </p>
+      <p class="address-detail" style="font-size: var(--fs-tiny); color: var(--text-muted);">
+        📍 Jl. Raya Bangil No.48, Bangil, Pasuruan, Jawa Timur 67153
       </p>
       <p class="security-note">
         🔒 Situs ini menggunakan koneksi aman (HTTPS).
@@ -503,20 +589,20 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    /* 卡片成交逻辑 */
+    /* 卡片成交逻辑 - 强化本地化话术 */
     function goWA(type){
       let text = "";
-      const area = "Bangil atau sekitar 15km";
+      const area = "Bangil atau sekitarnya (Beji, Gempol, Rembang)";
       if(type === "motor"){
-        text = "Halo, saya dari " + area + " ingin gadai motor. Bisa cek estimasi pinjaman dan syaratnya?";
+        text = "Halo, saya dari " + area + " ingin gadai motor di JF Gadai Bangil. Bisa cek estimasi pinjaman dan syaratnya?";
       } else if(type === "bpkb"){
-        text = "Halo, saya warga " + area + " ingin gadai BPKB mobil/motor. Mohon info estimasi pinjaman.";
+        text = "Halo, saya warga " + area + " ingin gadai BPKB mobil/motor. Saya tertarik dengan layanan JF Gadai Bangil. Mohon info estimasi pinjaman.";
       } else if(type === "hp"){
-        text = "Halo, saya di area " + area + " mau gadai HP/laptop. Apakah bisa langsung cair?";
+        text = "Halo, saya di area " + area + " mau gadai HP/laptop di JF Gadai Bangil. Apakah bisa langsung cair hari ini?";
       } else if(type === "emas"){
-        text = "Halo, saya dari " + area + " ingin gadai emas. Bisa ditaksir hari ini?";
+        text = "Halo, saya dari " + area + " ingin gadai emas di JF Gadai Bangil. Bisa ditaksir hari ini?";
       } else {
-        text = "Halo, saya di sekitar Bangil mau konsultasi gadai cepat.";
+        text = "Halo, saya dari sekitar Bangil mau konsultasi gadai cepat di JF Gadai.";
       }
       let url = "https://wa.me/6289515692586?text=" + encodeURIComponent(text);
       trackWA();
@@ -525,9 +611,9 @@
 
     function trackWA(){
       if(typeof gtag !== 'undefined'){
-        gtag('event', 'whatsapp_click', {'event_category': 'contact'});
+        gtag('event', 'whatsapp_click_bangil', {'event_category': 'contact', 'event_label': 'Bangil Local'});
       }
-      console.log("WA click tracked");
+      console.log("WA click tracked - Bangil page");
     }
 
     /* 图片容错 */
