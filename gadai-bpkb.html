@@ -105,9 +105,9 @@
   <link rel="stylesheet" href="/css/faq.css">
   
   <style>
-    /* ===== 页面专属样式：仅布局/容器，图标全部使用main.css现有类或纯emoji ===== */
+    /* ===== 页面专属样式：所有文字大小均使用 main.css 的 CSS 变量 ===== */
     
-    /* 半径横幅 - 布局样式，图标用emoji自然展示 */
+    /* 半径横幅 */
     .radius-banner {
       background: linear-gradient(135deg, rgba(15, 76, 129, 0.55), rgba(11, 44, 74, 0.75));
       border-radius: var(--border-radius-lg);
@@ -127,6 +127,9 @@
       display: block;
       margin-bottom: 0.25rem;
     }
+    .radius-banner .text {
+      font-size: var(--fs-body);
+    }
     .radius-badge {
       background: rgba(245, 197, 66, 0.2);
       padding: 0.5rem 1rem;
@@ -137,7 +140,7 @@
       white-space: nowrap;
     }
     
-    /* 特色亮点卡片网格 - 复用卡片样式理念 */
+    /* 特色亮点卡片网格 */
     .bpkb-feature-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -195,9 +198,13 @@
       font-weight: bold;
       color: var(--secondary-color);
       border-bottom: 2px solid var(--secondary-color);
+      font-size: var(--fs-body);
     }
     .table-row:last-child {
       border-bottom: none;
+    }
+    .loan-table p {
+      font-size: var(--fs-tiny);
     }
     
     /* 流程步骤 */
@@ -237,7 +244,7 @@
       margin: 0;
     }
     
-    /* 本地信任网格 - 复用信任区块风格 */
+    /* 本地信任网格 */
     .local-trust-grid-bpkb {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -268,7 +275,7 @@
       opacity: 0.85;
     }
     
-    /* 章节标题统一样式 */
+    /* 章节标题 */
     .section-title {
       font-size: var(--fs-section-title);
       text-align: center;
@@ -276,6 +283,22 @@
       color: var(--secondary-color);
       font-weight: 700;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* 本地徽章样式复用 main.css 的 local-badge */
+    .local-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 197, 66, 0.18);
+      backdrop-filter: blur(6px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-size: var(--fs-small);
+      font-weight: 600;
+      color: var(--secondary-color);
+      border: 1px solid rgba(245, 197, 66, 0.5);
+      margin-bottom: var(--spacing-md);
     }
     
     /* 响应式 */
@@ -329,20 +352,20 @@
     </div>
   </header>
 
-  <!-- ===== HERO 区域：复用 page-header 样式 ===== -->
+  <!-- ===== HERO 区域：复用 page-header 样式，文字大小自动继承 ===== -->
   <div class="page-header">
     <div class="container">
       <div style="text-align: center;">
-        <div class="local-badge" style="display: inline-flex; margin-bottom: var(--spacing-md);">
+        <div class="local-badge">
           ⭐ Gadai BPKB Terpercaya di Bangil
         </div>
       </div>
       <h1>Gadai BPKB <span style="color: var(--secondary-color);">Mobil & Motor</span></h1>
-      <p style="font-size: var(--fs-subtitle);">
+      <p>
         🔥 Pinjaman Besar • Proses 30 Menit • BPKB Aman • Kendaraan Tetap Dipakai
       </p>
       <div style="margin-top: var(--spacing-lg);">
-        <p style="font-size: var(--fs-body);">⚡ Respon < 5 menit • Gratis taksiran</p>
+        <p>⚡ Respon < 5 menit • Gratis taksiran</p>
       </div>
     </div>
   </div>
@@ -358,25 +381,25 @@
       <div class="radius-badge">⚡ Prioritas Warga Lokal</div>
     </div>
 
-    <!-- ===== 4大核心优势 - 图标使用emoji，布局自包含 ===== -->
+    <!-- ===== 4大核心优势 - 图标使用emoji ===== -->
     <div class="bpkb-feature-grid">
       <div class="feature-card">
-        <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">💰</div>
+        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">💰</div>
         <h4>Pinjaman Besar</h4>
         <p>Hingga 85% nilai kendaraan</p>
       </div>
       <div class="feature-card">
-        <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">⚡</div>
+        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">⚡</div>
         <h4>Cair 30 Menit</h4>
         <p>Proses cepat, tanpa BI checking</p>
       </div>
       <div class="feature-card">
-        <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🛡️</div>
+        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">🛡️</div>
         <h4>BPKB Aman</h4>
         <p>Disimpan di safe deposit box</p>
       </div>
       <div class="feature-card">
-        <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🏍️</div>
+        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">🏍️</div>
         <h4>Kendaraan Tetap Dipakai</h4>
         <p>Aktivitas sehari-hari tidak terganggu</p>
       </div>
@@ -409,7 +432,7 @@
         <span>🚚 Mobil Pick Up / Colt</span>
         <span>Rp 10 Juta - Rp 15 Juta+</span>
       </div>
-      <p style="font-size: var(--fs-tiny); margin-top: var(--spacing-md); text-align: center;">*Estimasi tergantung tahun, kondisi, dan kelengkapan dokumen. Hubungi kami untuk taksiran akurat.</p>
+      <p>*Estimasi tergantung tahun, kondisi, dan kelengkapan dokumen. Hubungi kami untuk taksiran akurat.</p>
     </div>
 
     <!-- ===== 流程步骤 ===== -->
@@ -441,7 +464,7 @@
         <h3>Gadai BPKB Mobil</h3>
         <div class="card-content">
           <p class="card-desc">Pinjaman hingga Rp 100 Juta+</p>
-          <small style="color: var(--secondary-color);">Mobil tetap dipakai</small>
+          <small style="color: var(--secondary-color); display: block; margin-top: 4px;">Mobil tetap dipakai</small>
         </div>
       </div>
       <div class="grid-card" onclick="goWABpkb('motor')">
@@ -449,7 +472,7 @@
         <h3>Gadai BPKB Motor</h3>
         <div class="card-content">
           <p class="card-desc">Cair cepat, proses mudah</p>
-          <small style="color: var(--secondary-color);">Semua merk & tahun</small>
+          <small style="color: var(--secondary-color); display: block; margin-top: 4px;">Semua merk & tahun</small>
         </div>
       </div>
       <div class="grid-card" onclick="goWABpkb('truck')">
@@ -457,7 +480,7 @@
         <h3>Gadai BPKB Pick Up / Truk</h3>
         <div class="card-content">
           <p class="card-desc">Pinjaman besar untuk usaha</p>
-          <small style="color: var(--secondary-color);">Kendaraan operasional tetap jalan</small>
+          <small style="color: var(--secondary-color); display: block; margin-top: 4px;">Kendaraan operasional tetap jalan</small>
         </div>
       </div>
       <div class="grid-card" onclick="goWABpkb('leasing')">
@@ -465,7 +488,7 @@
         <h3>BPKB Leasing / Kredit</h3>
         <div class="card-content">
           <p class="card-desc">Masih cicilan? Bisa!</p>
-          <small style="color: var(--secondary-color);">Konsultasi dulu, solusi terbaik</small>
+          <small style="color: var(--secondary-color); display: block; margin-top: 4px;">Konsultasi dulu, solusi terbaik</small>
         </div>
       </div>
     </div>
@@ -473,23 +496,23 @@
     <!-- ===== 本地信任理由 ===== -->
     <div class="local-trust-grid-bpkb">
       <div class="local-trust-item-bpkb">
-        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏪</div>
+        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">🏪</div>
         <strong>Kantor di Bangil Pusat</strong>
         <small>Jl. Raya Bangil No.48, depan Bank BRI</small>
       </div>
       <div class="local-trust-item-bpkb">
-        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🤝</div>
+        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">🤝</div>
         <strong>Proses Tanpa BI Checking</strong>
         <small>Tidak ribet, cepat cair</small>
       </div>
       <div class="local-trust-item-bpkb">
-        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🛡️</div>
+        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">🛡️</div>
         <strong>Keamanan BPKB Terjamin</strong>
         <small>Tersimpan di brankas khusus</small>
       </div>
     </div>
 
-    <!-- ===== FAQ 模块 - 使用 faq.css 样式 ===== -->
+    <!-- ===== FAQ 模块 - 使用 faq.css 样式，文字大小自动继承 ===== -->
     <div class="faq-section">
       <div class="container">
         <h2>❓ Pertanyaan Umum Seputar Gadai BPKB</h2>
