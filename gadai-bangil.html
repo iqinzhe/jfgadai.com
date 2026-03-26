@@ -123,9 +123,9 @@
   <link rel="stylesheet" href="/css/main.css">
 
   <style>
-    /* ===== 本地化强化样式：所有文字大小均使用 main.css 的 CSS 变量 ===== */
+    /* ===== 本地化强化样式：严格使用 main.css 的 CSS 变量 ===== */
     
-    /* 地域徽章 - 强化本地标识 */
+    /* 地域徽章 */
     .local-badge {
       display: inline-flex;
       align-items: center;
@@ -141,7 +141,7 @@
       margin-bottom: var(--spacing-md);
     }
     
-    /* 服务半径强提醒卡片 - 突出本地覆盖 */
+    /* 服务半径强提醒卡片 */
     .radius-card {
       background: linear-gradient(135deg, rgba(15, 76, 129, 0.55), rgba(11, 44, 74, 0.75));
       border-left: 6px solid var(--secondary-color);
@@ -168,11 +168,13 @@
       color: var(--secondary-color);
       display: block;
       margin-bottom: 0.25rem;
+      line-height: var(--lh-tight);
     }
     .radius-text p {
       margin: 0;
       font-size: var(--fs-body);
       opacity: 0.92;
+      line-height: var(--lh-normal);
     }
     .radius-highlight {
       background: rgba(245, 197, 66, 0.2);
@@ -184,7 +186,7 @@
       white-space: nowrap;
     }
     
-    /* 覆盖范围列表（周边乡镇）- 强化本地服务区域 */
+    /* 覆盖范围列表（周边乡镇）*/
     .serviced-areas {
       display: flex;
       flex-wrap: wrap;
@@ -202,6 +204,7 @@
       border: 1px solid rgba(245, 197, 66, 0.3);
       transition: all 0.2s;
       color: var(--text-light);
+      line-height: var(--lh-tight);
     }
     .area-tag:hover {
       background: rgba(245, 197, 66, 0.2);
@@ -229,12 +232,17 @@
       background: rgba(245, 197, 66, 0.1);
       border-color: var(--secondary-color);
     }
+    .local-trust-item div:first-child {
+      font-size: var(--icon-size-large);
+      margin-bottom: var(--spacing-xs);
+    }
     .local-trust-item span {
       font-size: var(--fs-small);
       font-weight: 700;
       color: var(--secondary-color);
       display: block;
       margin-bottom: 0.25rem;
+      line-height: var(--lh-tight);
     }
     .local-trust-item small {
       font-size: var(--fs-tiny);
@@ -250,9 +258,10 @@
       color: var(--secondary-color);
       font-weight: 700;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      line-height: var(--lh-tight);
     }
     
-    /* 本地优势区域 - 强化本地卖点 */
+    /* 本地优势区域 */
     .local-benefit-grid {
       background: rgba(0, 0, 0, 0.2);
       border-radius: var(--border-radius-lg);
@@ -269,10 +278,14 @@
       gap: 1rem;
       align-items: center;
     }
+    .benefit-item span:first-child {
+      font-size: var(--icon-size-large);
+    }
     .benefit-text strong {
       color: var(--secondary-color);
       font-size: var(--fs-body);
       display: block;
+      line-height: var(--lh-tight);
     }
     .benefit-text small {
       font-size: var(--fs-small);
@@ -280,7 +293,7 @@
       line-height: var(--lh-normal);
     }
     
-    /* 地址卡片 - 强化地理位置可见性 */
+    /* 地址卡片 */
     .address-card {
       background: rgba(0, 0, 0, 0.3);
       border-radius: var(--border-radius-lg);
@@ -293,10 +306,12 @@
       color: var(--secondary-color);
       font-size: var(--fs-card-title);
       margin-bottom: var(--spacing-md);
+      line-height: var(--lh-tight);
     }
     .address-card p {
       font-size: var(--fs-body);
       margin-bottom: var(--spacing-sm);
+      line-height: var(--lh-normal);
     }
     .address-card .address-detail {
       font-size: var(--fs-small);
@@ -386,19 +401,19 @@
           🏆 Tempat Gadai Terpercaya di Bangil Sejak 2018
         </div>
       </div>
-      <h1>Butuh Dana Cepat di <span style="color: var(--secondary-color);">Bangil</span>? <span style="font-size: var(--fs-hero-title);">🏪</span></h1>
+      <h1>Butuh Dana Cepat di <span style="color: var(--secondary-color);">Bangil</span>? <span>🏪</span></h1>
       <p>
         ⚡ Cair 15–30 Menit • Proses Tanpa Ribet • Toko Fisik di Jl. Raya Bangil No.48
       </p>
       <div style="margin-top: var(--spacing-md);">
-        <p style="font-size: var(--fs-subtitle);">📍 Melayani <strong>Bangil, Beji, Gempol, Rembang, Kraton, Pogar</strong> & radius <strong>15km</strong></p>
+        <p style="font-size: var(--fs-subtitle); line-height: var(--lh-normal);">📍 Melayani <strong>Bangil, Beji, Gempol, Rembang, Kraton, Pogar</strong> & radius <strong>15km</strong></p>
       </div>
     </div>
   </div>
 
   <main class="container">
 
-    <!-- ===== 半径 & 本地服务范围模块（强化本地覆盖）===== -->
+    <!-- ===== 半径 & 本地服务范围模块 ===== -->
     <div class="radius-card">
       <div class="radius-icon">🚀</div>
       <div class="radius-text">
@@ -408,7 +423,7 @@
       <div class="radius-highlight">⚡ Utamakan Warga Bangil & Sekitarnya</div>
     </div>
 
-    <!-- 周边服务区域标签（强化本地地理信号）-->
+    <!-- 周边服务区域标签 -->
     <div class="serviced-areas">
       <span class="area-tag">🏠 Bangil Kota</span>
       <span class="area-tag">🚘 Beji</span>
@@ -426,28 +441,28 @@
     <!-- 本地信任理由4宫格 -->
     <div class="local-trust-grid">
       <div class="local-trust-item">
-        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">🏪</div>
+        <div>🏪</div>
         <span>Kantor di Bangil Pusat</span>
         <small>Jl. Raya Bangil No.48, depan Bank BRI Bangil</small>
       </div>
       <div class="local-trust-item">
-        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">🤝</div>
+        <div>🤝</div>
         <span>Kenal dengan Warga Setempat</span>
         <small>Kami memahami kebutuhan ekonomi warga Bangil</small>
       </div>
       <div class="local-trust-item">
-        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">⚡</div>
+        <div>⚡</div>
         <span>Estimasi Pinjaman 5 Menit</span>
         <small>Datang langsung ke kantor Bangil, langsung direspon owner</small>
       </div>
       <div class="local-trust-item">
-        <div style="font-size: var(--icon-size-large); margin-bottom: var(--spacing-xs);">🛡️</div>
+        <div>🛡️</div>
         <span>Garansi Keamanan Barang</span>
         <small>Asuransi & CCTV 24 jam di kantor Bangil</small>
       </div>
     </div>
 
-    <!-- 核心服务卡片 - 本地化服务描述 -->
+    <!-- 核心服务卡片 -->
     <h2 class="info-section-title">✨ Layanan Gadai Unggulan di Bangil ✨</h2>
 
     <div class="balanced-grid">
@@ -456,7 +471,7 @@
         <h3>Gadai Motor Bangil</h3>
         <div class="card-content">
           <p class="card-desc">Motor tetap dipakai • Bisa nebus kapan saja</p>
-          <small style="color: var(--secondary-color); display: block; margin-top: 4px;">Estimasi hingga 85% nilai motor</small>
+          <small style="color: var(--secondary-color); display: block; margin-top: 4px; font-size: var(--fs-small);">Estimasi hingga 85% nilai motor</small>
         </div>
       </div>
       <div class="grid-card" onclick="goWA('bpkb')">
@@ -464,7 +479,7 @@
         <h3>Gadai BPKB Bangil</h3>
         <div class="card-content">
           <p class="card-desc">Pinjaman besar • Mobil/Motor • Proses cepat</p>
-          <small style="color: var(--secondary-color); display: block; margin-top: 4px;">Cair hari ini, tanpa potongan</small>
+          <small style="color: var(--secondary-color); display: block; margin-top: 4px; font-size: var(--fs-small);">Cair hari ini, tanpa potongan</small>
         </div>
       </div>
       <div class="grid-card" onclick="goWA('hp')">
@@ -472,7 +487,7 @@
         <h3>Gadai HP & Laptop</h3>
         <div class="card-content">
           <p class="card-desc">Cair 15 menit • Semua merk terima</p>
-          <small style="color: var(--secondary-color); display: block; margin-top: 4px;">iPhone, Samsung, Oppo, Vivo, Xiaomi</small>
+          <small style="color: var(--secondary-color); display: block; margin-top: 4px; font-size: var(--fs-small);">iPhone, Samsung, Oppo, Vivo, Xiaomi</small>
         </div>
       </div>
       <div class="grid-card" onclick="goWA('emas')">
@@ -480,12 +495,12 @@
         <h3>Gadai Emas Bangil</h3>
         <div class="card-content">
           <p class="card-desc">Nilai tinggi • harga emas naik</p>
-          <small style="color: var(--secondary-color); display: block; margin-top: 4px;">Taksiran akurat & transparan</small>
+          <small style="color: var(--secondary-color); display: block; margin-top: 4px; font-size: var(--fs-small);">Taksiran akurat & transparan</small>
         </div>
       </div>
     </div>
 
-    <!-- 地址卡片 - 强化地理位置可见性（关键本地SEO信号）-->
+    <!-- 地址卡片 -->
     <div class="address-card">
       <h3>📍 Kunjungi Kantor Kami di Bangil</h3>
       <p><strong>JF Gadai Bangil</strong><br>
@@ -493,40 +508,40 @@
       Kabupaten Pasuruan, Jawa Timur 67153</p>
       <p class="address-detail">⏰ Jam Operasional: Senin - Jumat, 08:00 - 18:00<br>
       📞 Telepon: 0895-1569-2586</p>
-      <a href="https://www.google.com/maps/search/Krajan Panas I, Oro-Oro Ombowetan, Kec. Rembang, Pasuruan" 
+      <a href="https://www.google.com/maps/search/Jl.+Raya+Bangil+No.48+Bangil" 
          target="_blank" 
          class="map-link btn-shine">
         🗺️ Buka Google Maps • Petunjuk Arah
       </a>
     </div>
 
-    <!-- 为什么选择本地典当行？强化本地优势 -->
+    <!-- 为什么选择本地典当行？ -->
     <div class="local-benefit-grid">
-      <h3 style="color: var(--secondary-color); text-align: center; margin-bottom: var(--spacing-lg);">🏆 Kenapa Warga Bangil Pilih JF Gadai?</h3>
+      <h3 style="color: var(--secondary-color); text-align: center; margin-bottom: var(--spacing-lg); font-size: var(--fs-card-title); line-height: var(--lh-tight);">🏆 Kenapa Warga Bangil Pilih JF Gadai?</h3>
       <div class="local-benefit-flex">
         <div class="benefit-item">
-          <span style="font-size: var(--icon-size-large);">📍</span>
+          <span>📍</span>
           <div class="benefit-text">
             <strong>Lokasi Strategis di Pusat Bangil</strong>
-            <small>Krajan Panas I, Oro-Oro Ombowetan, Kec. Rembang, Pasuruan.</small>
+            <small>Jl. Raya Bangil No.48, mudah dijangkau.</small>
           </div>
         </div>
         <div class="benefit-item">
-          <span style="font-size: var(--icon-size-large);">🗣️</span>
+          <span>🗣️</span>
           <div class="benefit-text">
             <strong>Berbahasa Jawa & Indonesia</strong>
             <small>Komunikasi lebih nyaman, kami mengerti kondisi dan kebutuhan warga Bangil.</small>
           </div>
         </div>
         <div class="benefit-item">
-          <span style="font-size: var(--icon-size-large);">⏱️</span>
+          <span>⏱️</span>
           <div class="benefit-text">
             <strong>Prioritas untuk Warga Bangil & Radius 15km</strong>
             <small>Jika Anda dari Bangil, Beji, Gempol, Rembang, kami utamakan proses tanpa antri.</small>
           </div>
         </div>
         <div class="benefit-item">
-          <span style="font-size: var(--icon-size-large);">💸</span>
+          <span>💸</span>
           <div class="benefit-text">
             <strong>Bunga Ringan Khusus Warga Lokal</strong>
             <small>Tenor panjang, proses mudah, tanpa ribet.</small>
@@ -537,7 +552,7 @@
 
     <!-- 本地服务承诺 -->
     <div style="background: rgba(245, 197, 66, 0.1); border-radius: var(--border-radius); padding: var(--spacing-lg); margin: var(--spacing-xl) 0; text-align: center;">
-      <p style="font-size: var(--fs-body); margin-bottom: 0;">
+      <p style="font-size: var(--fs-body); margin-bottom: 0; line-height: var(--lh-normal);">
         ✅ <strong>Komitmen JF Gadai Bangil</strong> : Melayani warga Bangil dan sekitarnya dengan <strong>proses cepat, transparan, dan kekeluargaan</strong>. 
         Kami hadir untuk membantu solusi keuangan Anda tanpa ribet.
       </p>
@@ -545,7 +560,7 @@
 
   </main>
 
-  <!-- 页脚 - 完全复用 main.css，强化本地信息 -->
+  <!-- 页脚 - 完全复用 main.css -->
   <footer id="lokasi" role="contentinfo">
     <div class="footer-content">
       <p class="copyright">
@@ -572,7 +587,7 @@
     </div>
   </footer>
 
-  <!-- Floating WhatsApp - 复用 main.css 的 .floating-wa 样式 -->
+  <!-- Floating WhatsApp -->
   <div class="floating-wa" onclick="trackWA(); window.open('https://wa.me/6289515692586?text=Halo%20saya%20dari%20Bangil%2C%20mau%20tanya%20gadai%20cepat','_blank')">
     <img src="/images/logo-wa.png" alt="WhatsApp" onerror="this.src='https://img.icons8.com/color/48/whatsapp--v1.png'">
   </div>
@@ -580,7 +595,7 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    /* 卡片成交逻辑 - 强化本地化话术 */
+    /* 卡片成交逻辑 */
     function goWA(type){
       let text = "";
       const area = "Bangil atau sekitarnya (Beji, Gempol, Rembang)";
