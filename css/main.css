@@ -987,11 +987,11 @@ footer {
 @media (max-width: 768px) {
   /* 手机端字体变量调整 */
   :root {
-    --fs-hero-title: 1.6rem;
-    --fs-section-title: 1.45rem;
-    --fs-card-title: 1.1rem;
-    --fs-subtitle: 1.0rem;
-    --fs-body: 0.9rem;
+    --fs-hero-title: 1.5rem;
+    --fs-section-title: 1.4rem;
+    --fs-card-title: 1.2rem;
+    --fs-subtitle: 1.1rem;
+    --fs-body: 1.0rem;
     --fs-small: 0.75rem;
     --fs-tiny: 0.65rem;
     --fs-btn-large: 1.0rem;
