@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html lang="id-ID">
 <head>
-  <!-- Google tag (gtag.js) -->
+
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845187332"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-17845187332');
 
-  gtag('config', 'AW-17845187332');
+// ✅ 转化跟踪函数（核心）
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17845187332/XXXXXXXXXX', // ← 替换
+      'event_callback': callback
+  });
+  return false;
+}
 </script>
   
   <!-- Google Tag Manager -->
