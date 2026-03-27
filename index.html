@@ -266,12 +266,12 @@ function gtag_report_conversion(url) {
     </section>
   </main>
 
+<!-- ✅ 浮动 WA（已绑定转化） -->
 <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai"
    class="floating-wa"
-   id="wa-float"
+   onclick="return gtag_report_conversion('https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai');"
    target="_blank"
-   rel="noopener noreferrer"
-   aria-label="Chat WhatsApp">
+   rel="noopener noreferrer">
   <img src="/images/logo-wa.png" alt="WhatsApp">
 </a>
 
@@ -336,15 +336,23 @@ function gtag_report_conversion(url) {
         JF Gadai – Melayani area Bangil • Beji • Gempol
       </p>
 
-      <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai"
-         target="_blank"
-         class="contact-link"
-         id="wa-contact"
-         rel="noopener noreferrer"
-         aria-label="Hubungi kami via WhatsApp">
-        <img src="/images/logo-wa.png" alt="WhatsApp" width="20" height="20">
-        Chat WhatsApp Sekarang
-      </a>
+    <!-- ✅ 页脚 WA（已绑定转化） -->
+    <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai"
+       onclick="return gtag_report_conversion('https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai');"
+       target="_blank"
+       rel="noopener noreferrer">
+      Chat WhatsApp Sekarang
+    </a>
+
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
 
       <p class="operating-hours">
         ⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu
