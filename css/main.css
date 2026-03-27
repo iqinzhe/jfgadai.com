@@ -1045,9 +1045,8 @@ footer {
   #assessment-system { order: 1; }
   #motor-pawn { order: 2; }
   #contact-form { order: 3; }
-  #electronics-pawn { order: 4; }
-  #our-services { order: 5; }
-  #contact-navigation { order: 6; }
+  #our-services { order: 4; }
+  #contact-navigation { order: 5; }
 
   .gallery-grid {
     grid-template-columns: 1fr;
