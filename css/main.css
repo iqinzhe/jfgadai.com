@@ -1045,7 +1045,10 @@ footer {
   #assessment-system { order: 1; }
   #motor-pawn { order: 2; }
   #contact-form { order: 3; }
-  #electronics-pawn { order: 4; }
+  #electronics-pawn {
+    display: none;
+  }
+}
   #our-services { order: 5; }
   #contact-navigation { order: 6; }
 
