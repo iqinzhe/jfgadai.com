@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Alat Estimasi Harga Laptop | Gadai Laptop Online</title>
+    <!-- Menggabungkan main.css dan assessment.css yang telah disediakan -->
+    <style>
+        /* ==================== 基础样式 (dari main.css) ==================== */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        :root {
+            --primary-color: #0f4c81;
+            --primary-dark: #0c3d67;
+            --secondary-color: #f5c542;
+            --secondary-dark: #e0b339;
+            --light-color: #ffffff;
+            --dark-color: #0b2c4a;
+            --text-light: #e6f3fb;
+            --text-muted: #cfe3f2;
+            --border-radius: 14px;
+            --border-radius-lg: 20px;
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 0.75rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-xxl: 3rem;
+            --fs-hero-title: 2.0rem;
+            --fs-section-title: 1.8rem;
+            --fs-card-title: 1.5rem;
+            --fs-subtitle: 1.4rem;
+            --fs-body: 1.2rem;
+            --fs-small: 1.0rem;
+            --fs-tiny: 0.9rem;
+            --fs-btn-large: 1.15rem;
+            --fs-btn-medium: 1rem;
+            --fs-btn-small: 0.9rem;
+            --lh-tight: 1.2;
+            --lh-normal: 1.4;
+            --lh-relaxed: 1.6;
+            --icon-size-large: 2.5rem;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0b2c4a 0%, #0e4b6e 100%) fixed;
+            color: var(--light-color);
+            line-height: var(--lh-normal);
+            overflow-x: hidden;
+            font-size: var(--fs-body);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* 动画 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(12px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .fade-in { animation: fadeIn 0.6s ease-out forwards; }
+        .slide-in { animation: slideIn 0.4s ease; }
+
+        /* 头部导航等通用样式（简化版，取自main.css） */
+        .page-header {
+            padding: 0.8rem 0;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+        .page-header h1 {
+            font-size: var(--fs-hero-title);
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            line-height: var(--lh-tight);
+        }
+        .page-header p {
+            font-size: var(--fs-subtitle);
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .trust-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 1rem 0 1.5rem;
+            padding: 15px;
+            background: rgba(11, 44, 74, 0.6);
+            border-radius: 10px;
+            border-left: 4px solid #2ecc71;
+        }
+        .trust-item {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px;
+            font-size: 0.9rem;
+            color: #e0e0e0;
+        }
+        .trust-item strong { color: #2ecc71; }
+
+        /* ==================== 评估页面专用样式 (dari assessment.css, disesuaikan untuk laptop) ==================== */
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto 0.2rem;
+            position: relative;
+            max-width: 1200px;
+        }
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 8%;
+            left: 8%;
+            right: 8%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        .progress-step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            flex: 1;
+            color: var(--text-muted);
+            font-weight: 600;
+            padding: 0.3rem;
+            background: var(--dark-color);
+            transition: all 0.3s ease;
+            min-width: 0;
+        }
+        .progress-step.active { color: var(--secondary-color); }
+        .progress-step::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        .progress-step.active::before {
+            background: var(--secondary-color);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(245, 197, 66, 0.3); }
+            70% { box-shadow: 0 0 0 6px rgba(245, 197, 66, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 197, 66, 0); }
+        }
+
+        .assessment-container { padding: 1.0rem 0 1.2rem; }
+        .assessment-form { max-width: 680px; margin: 0 auto; }
+        .form-step { display: none; animation: slideIn 0.4s ease; }
+        .form-step.active { display: block; }
+        .form-step h2 {
+            color: var(--secondary-color);
+            margin-bottom: 0.8rem;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        /* 品牌选择 (笔记本品牌) */
+        .brand-selection {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 0.75rem 0 0.8rem;
+            flex-wrap: wrap;
+        }
+        .brand-option {
+            cursor: pointer;
+            text-align: center;
+            padding: 1rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            user-select: none;
+            min-width: 100px;
+            max-width: 130px;
+        }
+        .brand-option.active {
+            background: rgba(245, 197, 66, 0.1);
+            border-color: var(--secondary-color);
+        }
+        .brand-logo-img {
+            width: 80px;
+            height: 40px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            pointer-events: none;
+        }
+        .brand-name { display: none; }
+
+        /* 表单项 */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.3rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+        select, input[type="text"], input[type="number"] {
+            background-color: #0b2c4a !important;
+            color: #ffffff !important;
+            border: 1px solid rgba(255, 255, 255, 0.25) !important;
+            padding: 11px 13px !important;
+            border-radius: 8px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            margin-top: 5px !important;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23f5c542' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
+            background-repeat: no-repeat !important;
+            background-position: right 12px center !important;
+            background-size: 14px !important;
+            padding-right: 35px !important;
+            cursor: pointer;
+        }
+        select:focus, input:focus {
+            outline: none;
+            border-color: #f5c542 !important;
+            box-shadow: 0 0 0 2px rgba(245, 197, 66, 0.2);
+        }
+
+        /* 条件选项 (状况选择) */
+        .condition-section { margin-bottom: 1.0rem; }
+        .condition-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8rem;
+        }
+        .condition-option { position: relative; }
+        .condition-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .option-content {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid transparent;
+            border-radius: var(--border-radius);
+            padding: 1rem 0.6rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+            height: 100%;
+        }
+        .condition-option input[type="radio"]:checked + .option-content {
+            border-color: var(--secondary-color);
+            background: rgba(245, 197, 66, 0.08);
+            transform: translateY(-1px);
+        }
+        .option-icon { font-size: 1.5rem; color: var(--secondary-color); }
+        .option-title { color: var(--text-light); font-weight: 600; }
+        .option-desc { color: var(--text-muted); font-size: 0.8rem; }
+
+        /* 表单导航 */
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .btn-prev, .btn-next, .btn-submit {
+            padding: 0.65rem 1.5rem;
+            border-radius: 25px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.95em;
+        }
+        .btn-prev {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .btn-next {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+        }
+        .btn-submit {
+            background: linear-gradient(135deg, #f5c542, #e0b339);
+            color: var(--dark-color);
+            padding: 0.75rem 2rem;
+        }
+
+        /* 结果卡片 */
+        .estimation-result { max-width: 540px; margin: 0 auto; }
+        .estimation-card {
+            background: linear-gradient(135deg, rgba(15, 76, 129, 0.25), rgba(245, 197, 66, 0.08));
+            border-radius: var(--border-radius-lg);
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(245, 197, 66, 0.15);
+        }
+        .estimation-value { text-align: center; margin-bottom: 1.5rem; padding: 1.2rem; background: rgba(11, 44, 74, 0.7); border-radius: var(--border-radius); border: 1px solid var(--secondary-color); }
+        .value-range { display: flex; align-items: center; justify-content: center; gap: 0.8rem; flex-wrap: wrap; }
+        .currency { color: var(--secondary-color); font-weight: bold; }
+        .value { font-weight: 900; color: var(--secondary-color); font-size: 1.4rem; }
+        .action-buttons { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1rem; }
+        .btn-whatsapp, .btn-recalculate {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.8rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-recalculate { background: rgba(255, 255, 255, 0.08); color: var(--text-light); border: 1px solid rgba(255, 255, 255, 0.15); }
+
+        @media (max-width: 768px) {
+            :root {
+                --fs-hero-title: 1.5rem;
+                --fs-body: 1rem;
+                --fs-subtitle: 1.1rem;
+            }
+            .form-row { grid-template-columns: 1fr; gap: 0.5rem; }
+            .condition-options { grid-template-columns: 1fr; gap: 0.5rem; }
+            .brand-selection { gap: 0.6rem; }
+            .brand-option { min-width: 80px; padding: 0.5rem; }
+            .brand-logo-img { width: 60px; height: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>💻 Estimasi Harga Laptop & Gadai</h1>
+            <p>Dapatkan perkiraan nilai pasar dan pinjaman gadai laptop Anda secara instan</p>
+        </div>
+
+        <!-- Trust section -->
+        <div class="trust-box">
+            <div class="trust-item">✅ <strong>Penilaian Profesional</strong><br>oleh tim ahli gadget</div>
+            <div class="trust-item">💰 <strong>Dana Cair Cepat</strong><br>proses 1 jam setelah survei</div>
+            <div class="trust-item">🔒 <strong>Data Dijamin Aman</strong><br>privasi terlindungi</div>
+        </div>
+
+        <div class="assessment-container">
+            <!-- Progress bar -->
+            <div class="progress-bar">
+                <div class="progress-step active" data-step="1">1. Spesifikasi</div>
+                <div class="progress-step" data-step="2">2. Kondisi Fisik</div>
+                <div class="progress-step" data-step="3">3. Hasil Estimasi</div>
+            </div>
+
+            <form id="laptopForm" class="assessment-form">
+                <!-- Step 1: Spesifikasi Laptop -->
+                <div id="step1" class="form-step active">
+                    <h2>📋 Spesifikasi Laptop</h2>
+                    <div class="brand-selection" id="brandSelection">
+                        <div class="brand-option active" data-brand="apple">
+                            <img class="brand-logo-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f5c542'%3E%3Cpath d='M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 15.36 5.44 9.6 8.6 9.6c1.28 0 2.21.84 3.38.84 1.16 0 1.87-.85 3.28-.85 1.35 0 2.27.73 3.01 1.48-1.2.72-1.79 1.68-1.79 3.08 0 1.47.86 2.23 1.73 3.35-.5 1.08-1.14 2.07-1.9 3zM15.5 5.9c.74-.86 1.23-2.05 1.1-3.2-1.11.07-2.44.74-3.23 1.66-.71.82-1.33 2.01-1.16 3.2 1.23.1 2.48-.63 3.29-1.66z'/%3E%3C/svg%3E" alt="Apple">
+                            <span class="brand-name">Apple</span>
+                        </div>
+                        <div class="brand-option" data-brand="lenovo">
+                            <img class="brand-logo-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f5c542'%3E%3Crect x='4' y='6' width='16' height='12' rx='1' fill='none' stroke='%23f5c542' stroke-width='1.5'/%3E%3Cpath d='M8 10h8' stroke='%23f5c542' stroke-width='1.5'/%3E%3C/svg%3E" alt="Lenovo">
+                            <span class="brand-name">Lenovo</span>
+                        </div>
+                        <div class="brand-option" data-brand="dell">
+                            <img class="brand-logo-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f5c542'%3E%3Cpath d='M5 7h14v10H5V7z' stroke='%23f5c542' fill='none' stroke-width='1.5'/%3E%3C/svg%3E" alt="Dell">
+                            <span class="brand-name">Dell</span>
+                        </div>
+                        <div class="brand-option" data-brand="asus">
+                            <img class="brand-logo-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f5c542'%3E%3Cpath d='M3 9h18v6H3z' stroke='%23f5c542' fill='none' stroke-width='1.5'/%3E%3C/svg%3E" alt="ASUS">
+                            <span class="brand-name">ASUS</span>
+                        </div>
+                        <div class="brand-option" data-brand="hp">
+                            <img class="brand-logo-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f5c542'%3E%3Cpath d='M6 8h12v8H6z' stroke='%23f5c542' fill='none' stroke-width='1.5'/%3E%3C/svg%3E" alt="HP">
+                            <span class="brand-name">HP</span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="brandInput" value="apple">
+
+                    <div class="form-group">
+                        <label>🖥️ Prosesor (CPU)</label>
+                        <select id="cpu">
+                            <option value="i3">Intel Core i3 / AMD Ryzen 3</option>
+                            <option value="i5" selected>Intel Core i5 / AMD Ryzen 5 (Mainstream)</option>
+                            <option value="i7">Intel Core i7 / AMD Ryzen 7 (High Performance)</option>
+                            <option value="i9">Intel Core i9 / AMD Ryzen 9 (Flagship)</option>
+                            <option value="apple_m">Apple M1/M2/M3 (Apple Silicon)</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>📀 RAM</label>
+                            <select id="ram">
+                                <option value="8">8 GB</option>
+                                <option value="16" selected>16 GB</option>
+                                <option value="32">32 GB</option>
+                                <option value="64">64 GB</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>💾 Penyimpanan (SSD)</label>
+                            <select id="storage">
+                                <option value="256">256 GB</option>
+                                <option value="512" selected>512 GB</option>
+                                <option value="1024">1 TB</option>
+                                <option value="2048">2 TB</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>🎮 Kartu Grafis (GPU)</label>
+                        <select id="gpu">
+                            <option value="integrated">Grafis Terintegrasi (Intel UHD/AMD Vega)</option>
+                            <option value="entry">Entry-level (MX series / GTX 1650)</option>
+                            <option value="mid" selected>Mid-range (RTX 3060/4060)</option>
+                            <option value="high">High-end (RTX 3080/4080)</option>
+                            <option value="flagship">Flagship (RTX 4090 / Pro)</option>
+                        </select>
+                    </div>
+                    <div class="form-navigation">
+                        <button type="button" class="btn-next">Selanjutnya →</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Kondisi Fisik & Kelengkapan -->
+                <div id="step2" class="form-step">
+                    <h2>🔍 Kondisi & Kelengkapan</h2>
+                    <div class="condition-section">
+                        <h3>✨ Kondisi Fisik & Bodhi</h3>
+                        <div class="condition-options">
+                            <label class="condition-option">
+                                <input type="radio" name="physical" value="mulus" checked>
+                                <div class="option-content">
+                                    <div class="option-icon">🌟</div>
+                                    <div class="option-title">Mulus / Seperti Baru</div>
+                                    <div class="option-desc">Tanpa goresan, LCD sempurna</div>
+                                </div>
+                            </label>
+                            <label class="condition-option">
+                                <input type="radio" name="physical" value="sedang">
+                                <div class="option-content">
+                                    <div class="option-icon">👍</div>
+                                    <div class="option-title">Normal (Pemakaian wajar)</div>
+                                    <div class="option-desc">Goresan minor, LCD baik</div>
+                                </div>
+                            </label>
+                            <label class="condition-option">
+                                <input type="radio" name="physical" value="rusak">
+                                <div class="option-content">
+                                    <div class="option-icon">⚠️</div>
+                                    <div class="option-title">Rusak / Lecet Berat</div>
+                                    <div class="option-desc">Penyok, LCD bermasalah</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="condition-section">
+                        <h3>🔋 Kesehatan Baterai</h3>
+                        <div class="condition-options">
+                            <label class="condition-option">
+                                <input type="radio" name="battery" value="baik" checked>
+                                <div class="option-content"><div class="option-icon">🔋</div><div class="option-title">> 85% (Sangat Baik)</div></div>
+                            </label>
+                            <label class="condition-option">
+                                <input type="radio" name="battery" value="sedang">
+                                <div class="option-content"><div class="option-icon">⚡</div><div class="option-title">70% - 85% (Masih Oke)</div></div>
+                            </label>
+                            <label class="condition-option">
+                                <input type="radio" name="battery" value="buruk">
+                                <div class="option-content"><div class="option-icon">🔌</div><div class="option-title">< 70% / Boros</div></div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="condition-section">
+                        <h3>📄 Kelengkapan & Aksesoris</h3>
+                        <div class="condition-options">
+                            <label class="condition-option">
+                                <input type="radio" name="accessories" value="lengkap" checked>
+                                <div class="option-content"><div class="option-icon">📦</div><div class="option-title">Lengkap (Box + Charger Asli)</div></div>
+                            </label>
+                            <label class="condition-option">
+                                <input type="radio" name="accessories" value="charger_only">
+                                <div class="option-content"><div class="option-icon">🔌</div><div class="option-title">Hanya Charger (non-box)</div></div>
+                            </label>
+                            <label class="condition-option">
+                                <input type="radio" name="accessories" value="none">
+                                <div class="option-content"><div class="option-icon">⚠️</div><div class="option-title">Tidak Ada Charger</div></div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-navigation">
+                        <button type="button" class="btn-prev">← Kembali</button>
+                        <button type="button" class="btn-submit">Hitung Estimasi</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Hasil Estimasi -->
+                <div id="step3" class="form-step">
+                    <div class="estimation-result" id="resultContainer">
+                        <!-- hasil akan diisi oleh JS -->
+                    </div>
+                    <div class="form-navigation">
+                        <button type="button" class="btn-prev" id="backToStep2">← Edit Data</button>
+                        <button type="button" class="btn-recalculate" id="resetAllBtn">Estimasi Ulang</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // ==================== LOGIKA ESTIMASI LAPTOP (Rp) ====================
+        // Harga dasar acuan berdasarkan merek + CPU tier
+        function getBasePrice(brand, cpu) {
+            const brandMultiplier = {
+                apple: 1.4,
+                lenovo: 1.0,
+                dell: 1.05,
+                asus: 1.0,
+                hp: 0.95
+            };
+            let cpuBase = 0;
+            switch(cpu) {
+                case 'i3': cpuBase = 4500000; break;
+                case 'i5': cpuBase = 7000000; break;
+                case 'i7': cpuBase = 11000000; break;
+                case 'i9': cpuBase = 18000000; break;
+                case 'apple_m': cpuBase = 13000000; break;
+                default: cpuBase = 7000000;
+            }
+            let multiplier = brandMultiplier[brand] || 1.0;
+            return Math.round(cpuBase * multiplier);
+        }
+
+        // Faktor RAM, Storage, GPU
+        function getRamFactor(ramGB) {
+            if (ramGB >= 32) return 1.25;
+            if (ramGB >= 16) return 1.1;
+            return 1.0;
+        }
+        function getStorageFactor(storageGB) {
+            if (storageGB >= 1024) return 1.15;
+            if (storageGB >= 512) return 1.05;
+            return 1.0;
+        }
+        function getGpuFactor(gpu) {
+            switch(gpu) {
+                case 'flagship': return 1.35;
+                case 'high': return 1.2;
+                case 'mid': return 1.08;
+                case 'entry': return 1.02;
+                default: return 1.0;
+            }
+        }
+
+        // Faktor kondisi fisik
+        function getPhysicalFactor(physical) {
+            if (physical === 'mulus') return 1.0;
+            if (physical === 'sedang') return 0.88;
+            return 0.70;
+        }
+        function getBatteryFactor(battery) {
+            if (battery === 'baik') return 1.0;
+            if (battery === 'sedang') return 0.92;
+            return 0.80;
+        }
+        function getAccessoriesFactor(acc) {
+            if (acc === 'lengkap') return 1.05;
+            if (acc === 'charger_only') return 0.95;
+            return 0.85;
+        }
+
+        // format Rupiah
+        function formatRp(num) {
+            return 'Rp ' + new Intl.NumberFormat('id-ID').format(num);
+        }
+
+        // fungsi utama hitung estimasi
+        function calculateEstimation() {
+            // ambil data
+            const brandElem = document.querySelector('.brand-option.active');
+            const brand = brandElem ? brandElem.dataset.brand : 'lenovo';
+            const cpu = document.getElementById('cpu').value;
+            const ram = parseInt(document.getElementById('ram').value);
+            const storage = parseInt(document.getElementById('storage').value);
+            const gpu = document.getElementById('gpu').value;
+            
+            const physical = document.querySelector('input[name="physical"]:checked')?.value || 'sedang';
+            const battery = document.querySelector('input[name="battery"]:checked')?.value || 'sedang';
+            const accessories = document.querySelector('input[name="accessories"]:checked')?.value || 'charger_only';
+            
+            // Hitung nilai dasar
+            let base = getBasePrice(brand, cpu);
+            base = Math.round(base * getRamFactor(ram) * getStorageFactor(storage) * getGpuFactor(gpu));
+            
+            // Terapkan faktor kondisi
+            let finalValue = base * getPhysicalFactor(physical) * getBatteryFactor(battery) * getAccessoriesFactor(accessories);
+            finalValue = Math.max(finalValue, 800000); // minimal 800rb
+            
+            // Rentang pasar ±12%
+            const minMarket = Math.round(finalValue * 0.88);
+            const maxMarket = Math.round(finalValue * 1.12);
+            // Nilai gadai (pinjaman) biasanya 65% - 75% dari nilai pasar
+            const pawnMin = Math.round(minMarket * 0.65);
+            const pawnMax = Math.round(maxMarket * 0.70);
+            
+            // Tampilkan hasil
+            displayResult({
+                marketMin: minMarket,
+                marketMax: maxMarket,
+                pawnMin: pawnMin,
+                pawnMax: pawnMax,
+                finalEstimate: finalValue,
+                brandName: brand.toUpperCase(),
+                cpuName: document.getElementById('cpu').options[document.getElementById('cpu').selectedIndex]?.text || cpu,
+                ramVal: ram,
+                storageVal: storage,
+                gpuName: document.getElementById('gpu').options[document.getElementById('gpu').selectedIndex]?.text || gpu
+            });
+        }
+        
+        function displayResult(data) {
+            const container = document.getElementById('resultContainer');
+            const avgMarket = Math.round((data.marketMin + data.marketMax)/2);
+            const avgPawn = Math.round((data.pawnMin + data.pawnMax)/2);
+            
+            const whatsappMsg = `Halo Admin JF Gadai, saya ingin menanyakan estimasi gadgetai laptop saya:
+
+💻 Spesifikasi: ${data.brandName} | ${data.cpuName} | RAM ${data.ramVal}GB | SSD ${data.storageVal}GB | GPU ${data.gpuName}
+💰 Estimasi Nilai Pasar: ${formatRp(data.marketMin)} - ${formatRp(data.marketMax)} (rata-rata ${formatRp(avgMarket)})
+🏦 Perkiraan Pinjaman Gadai: ${formatRp(data.pawnMin)} - ${formatRp(data.pawnMax)} (dapat disesuaikan setelah inspeksi)
+
+Saya berminat untuk menggadaikan laptop. Mohon informasi jadwal survei. Terima kasih.`;
+            const encodedMsg = encodeURIComponent(whatsappMsg);
+            
+            container.innerHTML = `
+                <div class="estimation-card">
+                    <div class="estimation-value">
+                        <div class="value-range">
+                            <div><span class="currency">Rp</span> <span class="value">${formatRp(data.marketMin)}</span> – <span class="value">${formatRp(data.marketMax)}</span></div>
+                        </div>
+                        <div style="margin-top: 10px;"><span class="currency">💰 Estimasi Pasar</span></div>
+                    </div>
+                    <div class="estimation-value" style="border-color: #25D366;">
+                        <div class="value-range">
+                            <div><span class="currency">Rp</span> <span class="value">${formatRp(data.pawnMin)}</span> – <span class="value">${formatRp(data.pawnMax)}</span></div>
+                        </div>
+                        <div style="margin-top: 5px;"><span class="currency">🏦 Perkiraan Pinjaman Gadai</span><br><small style="color:#cfe3f2">*Tergantung survei fisik final</small></div>
+                    </div>
+                    <div class="action-buttons">
+                        <a href="https://wa.me/6289515692586?text=${encodedMsg}" target="_blank" class="btn-whatsapp" id="waResultBtn">
+                            📱 Konsultasi via WhatsApp
+                        </a>
+                        <button class="btn-recalculate" id="recalcFromResult">↺ Hitung Ulang</button>
+                    </div>
+                    <div class="trust-item" style="margin-top: 15px; text-align:center; font-size:0.85rem;">
+                        ✅ Penawara mengikat setelah cek fisik langsung oleh tim kami.
+                    </div>
+                </div>
+            `;
+            // Event untuk tombol hitung ulang di dalam hasil
+            document.getElementById('recalcFromResult')?.addEventListener('click', () => {
+                resetToStep1();
+            });
+        }
+        
+        // Navigasi antar step
+        let currentStep = 1;
+        function updateProgressAndStep(stepNumber) {
+            const steps = document.querySelectorAll('.form-step');
+            const progressSteps = document.querySelectorAll('.progress-step');
+            steps.forEach((step, idx) => {
+                if (idx+1 === stepNumber) step.classList.add('active');
+                else step.classList.remove('active');
+            });
+            progressSteps.forEach((ps, idx) => {
+                if (idx+1 <= stepNumber) ps.classList.add('active');
+                else ps.classList.remove('active');
+            });
+            currentStep = stepNumber;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function resetToStep1() {
+            // reset form ke nilai default namun tanpa reload halaman
+            document.getElementById('cpu').value = 'i5';
+            document.getElementById('ram').value = '16';
+            document.getElementById('storage').value = '512';
+            document.getElementById('gpu').value = 'mid';
+            document.querySelector('input[name="physical"][value="mulus"]').checked = true;
+            document.querySelector('input[name="battery"][value="baik"]').checked = true;
+            document.querySelector('input[name="accessories"][value="lengkap"]').checked = true;
+            // reset brand ke apple
+            document.querySelectorAll('.brand-option').forEach(opt => opt.classList.remove('active'));
+            const defaultBrand = document.querySelector('.brand-option[data-brand="apple"]');
+            if(defaultBrand) defaultBrand.classList.add('active');
+            updateProgressAndStep(1);
+        }
+        
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            // brand selection
+            const brandOptions = document.querySelectorAll('.brand-option');
+            brandOptions.forEach(opt => {
+                opt.addEventListener('click', () => {
+                    brandOptions.forEach(o => o.classList.remove('active'));
+                    opt.classList.add('active');
+                });
+            });
+            
+            // navigasi step1 -> step2
+            const nextBtn = document.querySelector('.btn-next');
+            if(nextBtn) {
+                nextBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // validasi sederhana step1 (semua sudah ada pilihan)
+                    updateProgressAndStep(2);
+                });
+            }
+            
+            // tombol submit di step2 (hitung estimasi)
+            const submitBtn = document.querySelector('.btn-submit');
+            if(submitBtn) {
+                submitBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    calculateEstimation();
+                    updateProgressAndStep(3);
+                });
+            }
+            
+            // tombol kembali dari step2 ke step1
+            const prevBtn = document.querySelectorAll('.btn-prev');
+            prevBtn.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if(currentStep === 2) updateProgressAndStep(1);
+                    else if(currentStep === 3) updateProgressAndStep(2);
+                });
+            });
+            
+            // reset all button (estimasi ulang)
+            const resetBtn = document.getElementById('resetAllBtn');
+            if(resetBtn) resetBtn.addEventListener('click', () => resetToStep1());
+            
+            // back from step3 to step2
+            const backToStep2 = document.getElementById('backToStep2');
+            if(backToStep2) backToStep2.addEventListener('click', () => updateProgressAndStep(2));
+        });
+    </script>
+</body>
+</html>
