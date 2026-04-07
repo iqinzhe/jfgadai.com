@@ -1044,10 +1044,11 @@ footer {
   
   #assessment-system { order: 1; }
   #motor-pawn { order: 2; }
-  #contact-form { order: 3; }
-  #electronics-pawn {
+  #contact-form  {
     display: none;
   }
+}
+  #electronics-pawn { order: 3; }
 }
   #our-services { order: 5; }
   #contact-navigation { order: 6; }
