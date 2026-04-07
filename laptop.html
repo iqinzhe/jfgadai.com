@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="id-ID">
 <head>
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics & Tag Manager -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845187332"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -9,233 +9,73 @@
     gtag('js', new Date());
     gtag('config', 'AW-17845187332');
   </script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M2GMSNWS');</script>
   
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),
-          dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-M2GMSNWS');
-  </script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Estimator Harga Gadai Laptop",
-    "description": "Alat estimasi nilai gadgetai laptop secara online untuk wilayah Bangil, Beji, Gempol",
-    "url": "https://www.jfgadai.com/laptop.html"
-  }
-  </script>  
-  
-  <!-- SEO Meta Tags -->
   <title>Estimasi Gadai Laptop | JF Gadai Bangil Gempol</title>
-  <meta name="description" content="Estimasi nilai gadai laptop online. Harga realistis untuk elektronik bekas. Cek perkiraan pinjaman laptop Anda sekarang juga.">
-
-  <!-- Favicon (menggunakan placeholder inline, tapi referensi asli tetap ada) -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/android-chrome-512x512.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Estimasi Gadai Laptop | JF Gadai">
-  <meta property="og:description" content="Cek perkiraan pinjaman gadgetai laptop Anda. Cepat, mudah, dan transparan.">
-  <meta property="og:image" content="https://www.jfgadai.com/images/og-laptop.jpg">
-  <meta property="og:url" content="https://www.jfgadai.com/laptop.html">
-  <meta property="og:type" content="website">
-
-  <!-- Canonical URL -->
+  <meta name="description" content="Estimasi nilai gadai laptop online. Harga realistis untuk elektronik bekas. Cek perkiraan pinjaman laptop Anda.">
   <link rel="canonical" href="https://www.jfgadai.com/laptop.html">
   
-  <!-- External CSS (akan fallback ke internal jika tidak ditemukan) -->
+  <!-- External CSS (main.css & faq.css sebagai prioritas utama) -->
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/faq.css">
   
   <style>
-    /* ========== GAYA UTAMA (fallback + penyesuaian) ========== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    :root {
-      --primary-color: #0f4c81;
-      --primary-dark: #0c3d67;
-      --secondary-color: #f5c542;
-      --secondary-dark: #e0b339;
-      --light-color: #ffffff;
-      --dark-color: #0b2c4a;
-      --text-light: #e6f3fb;
-      --text-muted: #cfe3f2;
-      --border-radius: 14px;
-      --border-radius-lg: 20px;
-      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
-      --spacing-xs: 0.5rem;
-      --spacing-sm: 0.75rem;
-      --spacing-md: 1rem;
-      --spacing-lg: 1.5rem;
-      --spacing-xl: 2rem;
-      --fs-hero-title: 2.0rem;
-      --fs-section-title: 1.8rem;
-      --fs-card-title: 1.5rem;
-      --fs-subtitle: 1.4rem;
-      --fs-body: 1.2rem;
-      --fs-small: 1.0rem;
-      --fs-tiny: 0.9rem;
-      --icon-size-large: 2.5rem;
-      --lh-tight: 1.2;
-      --lh-normal: 1.4;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0b2c4a 0%, #0e4b6e 100%) fixed;
-      color: var(--light-color);
-      line-height: var(--lh-normal);
-      overflow-x: hidden;
-      font-size: var(--fs-body);
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 var(--spacing-md);
-    }
-    /* header & footer dari referensi */
-    .assessment-header {
-      background: rgba(11, 44, 74, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 1rem 0;
-      border-bottom: 2px solid var(--secondary-color);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .assessment-header .container {
+    /* ===== HANYA KOMPONEN KHUSUS HALAMAN INI ===== */
+    /* Tidak mendefinisikan ulang variabel global atau gaya yang sudah ada di main.css */
+    
+    /* Progress bar (khusus halaman) */
+    .laptop-progress {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 0.5rem;
-      gap: 0.5rem;
-    }
-    .back-btn, .nav-forward {
-      color: var(--text-light);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      border-radius: 5px;
-      padding: 0.5rem 0.8rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.05);
-    }
-    .back-btn:hover, .nav-forward:hover {
-      color: var(--secondary-color);
-      border-color: var(--secondary-color);
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-2px);
-    }
-    .logo-image, .nav-icon {
-      height: 30px;
-      width: auto;
-      display: block;
-    }
-    /* page header */
-    .page-header {
-      padding: 0.8rem 0;
-      margin-bottom: 1.5rem;
-      text-align: center;
-      border-bottom: 3px solid var(--secondary-color);
-    }
-    .page-header h1 {
-      font-size: var(--fs-hero-title);
-      margin-bottom: 0.5rem;
-      color: var(--secondary-color);
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-    .page-header p {
-      font-size: var(--fs-subtitle);
-      color: var(--text-light);
-    }
-    /* trust box */
-    .trust-box {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      background: rgba(11,44,74,0.6);
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 30px;
-      border-left: 4px solid #2ecc71;
-    }
-    .trust-item {
-      flex: 1;
-      font-size: 0.9rem;
-      color: #e0e0e0;
-    }
-    .trust-item strong { color: #2ecc71; }
-    /* progress bar */
-    .progress-bar {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
+      margin: 0 auto 1.5rem;
       position: relative;
     }
-    .progress-bar::before {
+    .laptop-progress::before {
       content: '';
       position: absolute;
       top: 50%;
       left: 10%;
       right: 10%;
       height: 2px;
-      background: rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.2);
       z-index: 1;
     }
     .progress-step {
       position: relative;
       z-index: 2;
-      background: var(--dark-color);
-      padding: 8px 12px;
+      background: var(--dark-color, #0b2c4a);
+      padding: 0.5rem 1rem;
       border-radius: 30px;
       text-align: center;
       flex: 1;
       margin: 0 4px;
       font-weight: bold;
-      color: var(--text-muted);
+      color: var(--text-muted, #cfe3f2);
     }
     .progress-step.active {
-      background: var(--secondary-color);
-      color: var(--dark-color);
+      background: var(--secondary-color, #f5c542);
+      color: var(--dark-color, #0b2c4a);
     }
-    /* form steps */
+    
+    /* Form steps */
     .form-step { display: none; animation: fadeIn 0.3s; }
     .form-step.active { display: block; }
     @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
-    /* brand selection */
+    
+    /* Brand selection (tidak menggunakan grid-card agar lebih fleksibel) */
     .brand-selection {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 1rem;
       justify-content: center;
-      margin: 20px 0;
+      margin: 1.5rem 0;
     }
     .brand-option {
       background: rgba(255,255,255,0.08);
       border-radius: 16px;
-      padding: 10px 16px;
+      padding: 0.5rem 1rem;
       text-align: center;
       cursor: pointer;
       transition: all 0.2s;
@@ -244,28 +84,31 @@
     }
     .brand-option.active {
       background: rgba(245,197,66,0.2);
-      border-color: var(--secondary-color);
+      border-color: var(--secondary-color, #f5c542);
     }
     .brand-icon { font-size: 1.8rem; display: block; }
-    .brand-name { font-weight: 600; margin-top: 5px; font-size: 0.85rem; }
-    /* form elements */
+    .brand-name { font-weight: 600; margin-top: 0.3rem; font-size: 0.85rem; }
+    
+    /* Form elements (melengkapi main.css) */
     .form-group { margin-bottom: 1rem; }
-    .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+    .form-group label { display: block; margin-bottom: 0.3rem; font-weight: 600; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
     select, input {
       width: 100%;
-      padding: 12px;
+      padding: 0.75rem;
       background: #0b2c4a;
       border: 1px solid rgba(255,255,255,0.3);
       border-radius: 12px;
       color: white;
       font-size: 1rem;
     }
+    
+    /* Condition options */
     .condition-options {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 8px;
+      gap: 1rem;
+      margin-top: 0.5rem;
     }
     .condition-option {
       position: relative;
@@ -278,37 +121,37 @@
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.15);
       border-radius: 16px;
-      padding: 12px 6px;
+      padding: 0.8rem 0.3rem;
       text-align: center;
       cursor: pointer;
       transition: 0.2s;
     }
     .condition-option input[type="radio"]:checked + .option-content {
-      border-color: var(--secondary-color);
+      border-color: var(--secondary-color, #f5c542);
       background: rgba(245,197,66,0.1);
     }
     .option-icon { font-size: 1.5rem; }
-    .option-title { font-weight: bold; margin: 5px 0 2px; }
-    .option-desc { font-size: 0.7rem; color: var(--text-muted); }
-    /* navigation */
+    .option-title { font-weight: bold; margin: 0.3rem 0 0.1rem; }
+    .option-desc { font-size: 0.7rem; color: var(--text-muted, #cfe3f2); }
+    
+    /* Navigation buttons */
     .form-navigation {
       display: flex;
       justify-content: space-between;
-      margin-top: 30px;
-      gap: 15px;
+      margin-top: 2rem;
+      gap: 1rem;
     }
-    button {
-      padding: 12px 24px;
+    .btn-prev, .btn-next, .btn-submit, .btn-recalculate {
+      padding: 0.75rem 1.5rem;
       border-radius: 40px;
-      border: none;
       font-weight: bold;
       cursor: pointer;
       transition: 0.2s;
-      font-size: 1rem;
+      border: none;
     }
     .btn-next, .btn-submit {
-      background: var(--secondary-color);
-      color: var(--dark-color);
+      background: var(--secondary-color, #f5c542);
+      color: var(--dark-color, #0b2c4a);
     }
     .btn-prev {
       background: transparent;
@@ -320,13 +163,14 @@
       color: white;
       border: 1px solid rgba(255,255,255,0.2);
     }
-    /* result card */
+    
+    /* Result card (menggunakan gaya dari main.css jika ada, fallback disini) */
     .estimation-card {
       background: linear-gradient(135deg, rgba(15,76,129,0.4), rgba(245,197,66,0.1));
       border-radius: 28px;
       padding: 1.5rem;
       margin-bottom: 1.5rem;
-      border: 1px solid var(--secondary-color);
+      border: 1px solid var(--secondary-color, #f5c542);
     }
     .estimation-value {
       background: rgba(11,44,74,0.8);
@@ -335,138 +179,36 @@
       text-align: center;
       margin-bottom: 1rem;
     }
-    .value { font-size: 1.6rem; font-weight: 900; color: var(--secondary-color); }
+    .value { font-size: 1.6rem; font-weight: 900; color: var(--secondary-color, #f5c542); }
     .action-buttons {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-top: 20px;
+      gap: 0.8rem;
+      margin-top: 1.2rem;
     }
     .btn-whatsapp {
       background: #25D366;
       color: white;
       text-decoration: none;
       text-align: center;
-      padding: 12px;
+      padding: 0.8rem;
       border-radius: 40px;
       font-weight: bold;
     }
-    /* FAQ */
-    .faq-section {
-      margin-top: 50px;
-      background: rgba(11,44,74,0.7);
-      border-radius: 24px;
-      padding: 1.5rem;
-    }
-    .faq-section h2 {
-      text-align: center;
-      color: var(--secondary-color);
-      margin-bottom: 1.5rem;
-    }
-    .faq-item {
-      background: rgba(255,255,255,0.05);
-      border-radius: 14px;
-      margin-bottom: 12px;
-      overflow: hidden;
-    }
-    .faq-question {
-      padding: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      background: rgba(0,0,0,0.2);
-    }
-    .faq-answer {
-      padding: 0 1rem 1rem;
-      display: none;
-      line-height: 1.5;
-      color: #cfe3f2;
-    }
-    .faq-item.active .faq-answer { display: block; }
-    .faq-question::after {
-      content: "▼";
-      font-size: 0.8rem;
-      transition: transform 0.2s;
-    }
-    .faq-item.active .faq-question::after {
-      transform: rotate(180deg);
-    }
-    /* footer dari referensi */
-    footer {
-      width: 100%;
-      background: rgba(11, 44, 74, 0.9);
-      border-top: 2px solid var(--secondary-color);
-      margin-top: 2rem;
-      padding: 20px 0;
-    }
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 8px;
-    }
-    .copyright {
-      font-size: var(--fs-tiny);
-      color: var(--text-light);
-    }
-    .company-info {
-      font-size: var(--fs-small);
-      color: var(--text-muted);
-    }
-    .contact-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 22px;
-      font-size: var(--fs-body);
-      font-weight: 500;
-      color: var(--text-light);
-      text-decoration: none;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      transition: all .3s ease;
-    }
-    .contact-link:hover {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: var(--secondary-color);
-      color: var(--secondary-color);
-      transform: translateY(-2px);
-    }
-    .contact-link img {
-      width: 22px;
-      height: 22px;
-    }
-    .operating-hours, .security-note {
-      font-size: var(--fs-tiny);
-      color: var(--text-muted);
-    }
+    
     @media (max-width: 768px) {
-      :root {
-        --fs-hero-title: 1.5rem;
-        --fs-subtitle: 1.1rem;
-        --fs-body: 1rem;
-      }
       .condition-options { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .value { font-size: 1.3rem; }
-      .brand-selection { gap: 8px; }
-      .brand-option { min-width: 70px; padding: 6px 10px; }
-      .brand-icon { font-size: 1.4rem; }
+      .brand-option { min-width: 70px; }
     }
   </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <!-- 顶部导航 (参考附件) -->
+  <!-- Header (mengacu ke struktur main.css) -->
   <header class="assessment-header">
     <div class="container">
       <a href="/" class="back-btn">
@@ -489,7 +231,7 @@
   </div>
 
   <div class="container">
-    <!-- Trust Box -->
+    <!-- Trust Box (menggunakan class dari main.css jika ada) -->
     <div class="trust-box">
       <div class="trust-item">✅ <strong>Penilaian Profesional</strong><br>tim ahli gadget</div>
       <div class="trust-item">💰 <strong>Dana Cair Cepat</strong><br>proses 1 jam setelah survei</div>
@@ -497,14 +239,14 @@
     </div>
 
     <div class="assessment-container">
-      <div class="progress-bar">
-        <div class="progress-step active">1. Spesifikasi</div>
-        <div class="progress-step">2. Kondisi & Usia</div>
-        <div class="progress-step">3. Hasil Gadai</div>
+      <div class="laptop-progress">
+        <div class="progress-step active" data-step="1">1. Spesifikasi</div>
+        <div class="progress-step" data-step="2">2. Kondisi & Usia</div>
+        <div class="progress-step" data-step="3">3. Hasil Gadai</div>
       </div>
 
       <form id="laptopForm">
-        <!-- STEP 1: Spesifikasi -->
+        <!-- STEP 1 -->
         <div id="step1" class="form-step active">
           <h2 style="color:var(--secondary-color); text-align:center;">📋 Spesifikasi Laptop</h2>
           <div class="brand-selection" id="brandSelection">
@@ -545,7 +287,7 @@
           </div>
         </div>
 
-        <!-- STEP 2: Kondisi & Usia -->
+        <!-- STEP 2 -->
         <div id="step2" class="form-step">
           <h2 style="color:var(--secondary-color); text-align:center;">🔍 Kondisi & Usia Pemakaian</h2>
           <div class="form-group">
@@ -587,7 +329,7 @@
           </div>
         </div>
 
-        <!-- STEP 3: Hasil Estimasi -->
+        <!-- STEP 3 -->
         <div id="step3" class="form-step">
           <div id="resultContainer"></div>
           <div class="form-navigation">
@@ -598,7 +340,7 @@
       </form>
     </div>
 
-    <!-- FAQ Section -->
+    <!-- FAQ Section (menggunakan class dari faq.css) -->
     <div class="faq-section">
       <h2>❓ Pertanyaan Umum (FAQ)</h2>
       <div class="faq-list">
@@ -609,15 +351,13 @@
     </div>
   </div>
 
-  <!-- Footer (sama persis dengan referensi) -->
+  <!-- Footer (mengikuti struktur main.css) -->
   <footer id="lokasi" role="contentinfo">
     <div class="footer-content">
       <p class="copyright">© <span id="year"></span> JF Gadai</p>
       <p class="company-info">JF Gadai – Melayani area Bangil • Beji • Gempol</p>
-      <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai%20laptop"
-         target="_blank" class="contact-link" id="wa-contact" rel="noopener noreferrer">
-        <img src="/images/logo-wa.png" alt="WhatsApp" width="20" height="20" onerror="this.style.display='none'">
-        Chat WhatsApp Sekarang
+      <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai%20laptop" target="_blank" class="contact-link" id="wa-contact" rel="noopener noreferrer">
+        <img src="/images/logo-wa.png" alt="WhatsApp" width="20" height="20" onerror="this.style.display='none'"> Chat WhatsApp Sekarang
       </a>
       <p class="operating-hours">⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu</p>
       <p class="security-note">🔒 Situs ini menggunakan koneksi aman (HTTPS).</p>
@@ -625,15 +365,13 @@
   </footer>
 
   <script>
-    // ========== FUNGSI ESTIMASI GADAI LAPTOP (REALISTIS) ==========
+    // ========== LOGIKA ESTIMASI GADAI (REALISTIS) ==========
     function formatRupiah(num) {
       return 'Rp ' + new Intl.NumberFormat('id-ID').format(num);
     }
 
     function getBasePrice(brand, cpu) {
-      const brandFactor = {
-        apple: 1.0, lenovo: 0.85, dell: 0.88, asus: 0.86, hp: 0.80, acer: 0.78, msi: 0.92
-      };
+      const brandFactor = { apple:1.0, lenovo:0.85, dell:0.88, asus:0.86, hp:0.80, acer:0.78, msi:0.92 };
       let cpuBase = 0;
       switch(cpu) {
         case 'i3': cpuBase = 2500000; break;
@@ -657,12 +395,7 @@
         default: return 1.0;
       }
     }
-    function getAgeFactor(age) {
-      if(age == 0) return 1.0;
-      if(age == 1) return 0.85;
-      if(age == 3) return 0.68;
-      return 0.50;
-    }
+    function getAgeFactor(age) { return age==0 ? 1.0 : (age==1 ? 0.85 : (age==3 ? 0.68 : 0.50)); }
     function getPhysicalFactor(p) { return p === 'mulus' ? 1.0 : (p === 'sedang' ? 0.82 : 0.60); }
     function getBatteryFactor(b) { return b === 'baik' ? 1.0 : (b === 'sedang' ? 0.88 : 0.70); }
     function getAccessoriesFactor(a) { return a === 'lengkap' ? 1.0 : (a === 'charger_only' ? 0.92 : 0.80); }
@@ -768,7 +501,6 @@ Saya tertarik untuk proses lebih lanjut. Terima kasih.`;
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      // Brand selection
       document.querySelectorAll('.brand-option').forEach(opt => {
         opt.addEventListener('click', () => {
           document.querySelectorAll('.brand-option').forEach(o => o.classList.remove('active'));
@@ -789,12 +521,10 @@ Saya tertarik untuk proses lebih lanjut. Terima kasih.`;
       });
       document.getElementById('resetAllBtn')?.addEventListener('click', () => resetToStep1());
       document.getElementById('backToStep2')?.addEventListener('click', () => updateStep(2));
-      // FAQ toggle
       document.querySelectorAll('.faq-item').forEach(item => {
         const q = item.querySelector('.faq-question');
         if(q) q.addEventListener('click', () => item.classList.toggle('active'));
       });
-      // Copyright year
       document.getElementById('year').textContent = new Date().getFullYear();
     });
   </script>
