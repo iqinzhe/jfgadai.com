@@ -24,6 +24,25 @@
   <style>
     /* ===== HANYA KOMPONEN KHUSUS HALAMAN INI ===== */
     /* Tidak mendefinisikan ulang variabel global atau gaya yang sudah ada di main.css */
+
+.brand-logo {
+  width: 60px;
+  height: 28px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* 适配深色背景 */
+  transition: 0.2s;
+}
+
+.brand-option.active .brand-logo {
+  filter: none; /* 选中时显示原色 */
+}
+
+.brand-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+}
     
     /* Progress bar (khusus halaman) */
     .laptop-progress {
