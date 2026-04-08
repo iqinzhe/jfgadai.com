@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="id-ID">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+<title>JF Gadai HP - Estimasi Gadai Cepat & Aman</title>
+
+<!-- 引用两个独立的CSS文件 -->
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/faq.css">
+
+<style>
+/* 估算工具专用补充样式 */
+.estimation-header {
+  text-align: center;
+  padding: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+.estimation-header h2 {
+  font-size: var(--fs-hero-title);
+  color: var(--secondary-color);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* 品牌选项网格 - 带Logo */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.brand-option {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(245, 197, 66, 0.3);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md) var(--spacing-sm);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: var(--fs-body);
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-option img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.brand-option.active img {
+  filter: none;
+  opacity: 1;
+}
+
+.brand-option:hover {
+  transform: translateY(-3px);
+  border-color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.brand-option.active {
+  background: linear-gradient(135deg, rgba(245, 197, 66, 0.3), rgba(245, 197, 66, 0.1));
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  box-shadow: 0 0 15px rgba(245, 197, 66, 0.3);
+}
+
+.brand-option.active img {
+  filter: drop-shadow(0 0 4px var(--secondary-color));
+}
+
+/* 配置卡片网格 */
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.spec-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.spec-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(245, 197, 66, 0.3);
+}
+
+.spec-card h4 {
+  color: var(--secondary-color);
+  font-size: var(--fs-subtitle);
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(245, 197, 66, 0.3);
+  padding-bottom: 8px;
+}
+
+/* 表单步骤 */
+.form-step {
+  display: none;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.form-step.active {
+  display: block;
+}
+
+/* 统一选择框样式 */
+.form-select {
+  width: 100%;
+  padding: 12px var(--spacing-md);
+  margin: var(--spacing-xs) 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(245, 197, 66, 0.3);
+  border-radius: var(--border-radius);
+  color: var(--light-color);
+  font-size: var(--fs-body);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-select:hover,
+.form-select:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.form-select option {
+  background: var(--dark-color);
+  color: var(--light-color);
+}
+
+/* 按钮区域 */
+.button-group {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  margin: var(--spacing-lg) 0;
+  flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: var(--fs-btn-medium);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+  color: var(--dark-color);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background: rgba(245, 197, 66, 0.1);
+  transform: translateY(-2px);
+}
+
+/* 估算结果卡片 */
+.estimation-card {
+  background: linear-gradient(135deg, rgba(15, 76, 129, 0.4), rgba(245, 197, 66, 0.2));
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  border: 2px solid rgba(245, 197, 66, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin: var(--spacing-lg) 0;
+}
+
+.estimation-card .value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin: var(--spacing-sm) 0;
+}
+
+.estimation-card .label {
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  background: #25D366;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: var(--fs-btn-large);
+  transition: all 0.3s ease;
+  margin-top: var(--spacing-md);
+  border: none;
+  cursor: pointer;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.spec-badge {
+  display: inline-block;
+  background: rgba(245, 197, 66, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: var(--fs-small);
+  margin: 4px;
+}
+
+.config-summary {
+  background: rgba(0,0,0,0.3);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  text-align: left;
+}
+
+/* 错误提示 */
+.error-message {
+  background: rgba(255, 68, 68, 0.2);
+  border: 1px solid #ff4444;
+  color: #ff8888;
+  padding: 12px;
+  border-radius: var(--border-radius);
+  margin: var(--spacing-md) 0;
+  text-align: center;
+}
+
+/* 条件标签 */
+.condition-tag {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: var(--fs-small);
+}
+
+.condition-tag:hover {
+  background: rgba(245, 197, 66, 0.2);
+  transform: translateY(-2px);
+}
+
+.condition-tag.selected {
+  background: linear-gradient(135deg, rgba(245, 197, 66, 0.3), rgba(245, 197, 66, 0.1));
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .brand-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .specs-grid {
+    grid-template-columns: 1fr;
+  }
+  .estimation-card {
+    padding: var(--spacing-lg);
+  }
+  .estimation-card .value {
+    font-size: 1.5rem;
+  }
+  .brand-option img {
+    width: 36px;
+    height: 36px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<header class="assessment-header">
+  <div class="container">
+    <a href="/" class="back-btn">
+      <img src="/images/logo-jf.png" alt="JF Gadai" class="logo-image">
+      <strong><span class="arrow">←</span> Beranda</strong>
+    </a>
+    <a href="/laptop.html" class="nav-forward">
+    <strong>Gadai Laptop <span class="arrow">→</span></strong>
+    <img src="/images/logo-laptop.png" alt="Gadai Laptop" class="nav-icon">
+    </a>
+  </div>
+</header>
+
+<!-- page-header 页面头部 -->
+<div class="page-header">
+  <div class="container">
+    <h1>📱 Estimasi Gadai HP</h1>
+    <p>Cair cepat, aman, dan bunga ringan • Proses 30 menit</p>
+  </div>
+</div>
+
+<div class="container">
+  <!-- STEP 1: 品牌 + RAM + 存储 -->
+  <div id="step1" class="form-step active">
+    <div class="unified-card">
+      <div class="card-title">✨ Pilih Merek HP</div>
+      <div class="card-desc">Klik logo merek HP Anda</div>
+      
+      <div class="brand-grid" id="brandSelection">
+        <div class="brand-option active" data-brand="apple">
+          <img src="/images/brands/apple.svg" alt="Apple" onerror="this.src='https://placehold.co/48x48/555/white?text=Apple'">
+          <span>Apple iPhone</span>
+        </div>
+        <div class="brand-option" data-brand="samsung">
+          <img src="/images/brands/samsung.svg" alt="Samsung" onerror="this.src='https://placehold.co/48x48/555/white?text=Samsung'">
+          <span>Samsung</span>
+        </div>
+        <div class="brand-option" data-brand="xiaomi">
+          <img src="/images/brands/xiaomi.svg" alt="Xiaomi" onerror="this.src='https://placehold.co/48x48/555/white?text=Xiaomi'">
+          <span>Xiaomi</span>
+        </div>
+        <div class="brand-option" data-brand="oppo">
+          <img src="/images/brands/oppo.svg" alt="Oppo" onerror="this.src='https://placehold.co/48x48/555/white?text=Oppo'">
+          <span>Oppo</span>
+        </div>
+        <div class="brand-option" data-brand="vivo">
+          <img src="/images/brands/vivo.svg" alt="Vivo" onerror="this.src='https://placehold.co/48x48/555/white?text=Vivo'">
+          <span>Vivo</span>
+        </div>
+        <div class="brand-option" data-brand="realme">
+          <img src="/images/brands/realme.svg" alt="Realme" onerror="this.src='https://placehold.co/48x48/555/white?text=Realme'">
+          <span>Realme</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 核心配置：RAM + 存储 -->
+    <div class="specs-grid">
+      <div class="spec-card">
+        <h4>💾 RAM</h4>
+        <select id="ram" class="form-select">
+          <option value="2">2 GB</option>
+          <option value="3">3 GB</option>
+          <option value="4">4 GB</option>
+          <option value="6">6 GB</option>
+          <option value="8" selected>8 GB</option>
+          <option value="12">12 GB</option>
+          <option value="16">16 GB</option>
+        </select>
+      </div>
+      
+      <div class="spec-card">
+        <h4>💽 Penyimpanan Internal</h4>
+        <select id="storage" class="form-select">
+          <option value="32">32 GB</option>
+          <option value="64">64 GB</option>
+          <option value="128" selected>128 GB</option>
+          <option value="256">256 GB</option>
+          <option value="512">512 GB</option>
+          <option value="1024">1 TB</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button class="btn-primary btn-next">Selanjutnya →</button>
+    </div>
+  </div>
+
+  <!-- STEP 2: 芯片 + 屏幕 + 相机 + 电池 + 年龄 + 物理条件 -->
+  <div id="step2" class="form-step">
+    <div class="unified-card">
+      <div class="card-title">🔧 Konfigurasi Lengkap</div>
+      <div class="card-desc">Informasi ini sangat mempengaruhi nilai gadai</div>
+    </div>
+    
+    <div class="specs-grid">
+      <div class="spec-card">
+        <h4>⚙️ Chipset (Processor)</h4>
+        <select id="chipset" class="form-select">
+          <option value="a14">Apple A14 Bionic</option>
+          <option value="a15" selected>Apple A15 Bionic</option>
+          <option value="a16">Apple A16 Bionic</option>
+          <option value="a17">Apple A17 Pro</option>
+          <option value="snapdragon6">Snapdragon 6 Series</option>
+          <option value="snapdragon7">Snapdragon 7 Series</option>
+          <option value="snapdragon8">Snapdragon 8 Series</option>
+          <option value="mediatek">MediaTek Dimensity</option>
+          <option value="exynos">Samsung Exynos</option>
+        </select>
+      </div>
+      
+      <div class="spec-card">
+        <h4>📺 Ukuran Layar</h4>
+        <select id="screen" class="form-select">
+          <option value="small">4.7 - 5.4 inch (Compact)</option>
+          <option value="medium" selected>5.5 - 6.1 inch (Standar)</option>
+          <option value="large">6.2 - 6.5 inch (Large)</option>
+          <option value="xl">6.7 inch ke atas (Extra Large)</option>
+        </select>
+      </div>
+      
+      <div class="spec-card">
+        <h4>📸 Kualitas Kamera</h4>
+        <select id="camera" class="form-select">
+          <option value="single">Single Camera (Basic)</option>
+          <option value="dual" selected>Dual Camera (Standar)</option>
+          <option value="triple">Triple Camera (Premium)</option>
+          <option value="quad">Quad Camera (Flagship)</option>
+        </select>
+      </div>
+      
+      <div class="spec-card">
+        <h4>🔋 Kondisi Baterai</h4>
+        <select id="battery" class="form-select">
+          <option value="excellent" selected>Excellent (Kapasitas >85%)</option>
+          <option value="good">Good (Kapasitas 70-85%)</option>
+          <option value="fair">Fair (Kapasitas 50-70%)</option>
+          <option value="poor">Poor (Kapasitas <50%)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="unified-card">
+      <div class="card-title">📅 Usia Pemakaian</div>
+      <select id="age" class="form-select">
+        <option value="1">Kurang dari 6 bulan (Like new)</option>
+        <option value="2" selected>6 - 12 bulan</option>
+        <option value="3">1 - 2 tahun</option>
+        <option value="4">2 - 3 tahun</option>
+        <option value="5">Lebih dari 3 tahun</option>
+      </select>
+    </div>
+
+    <div class="unified-card">
+      <div class="card-title">🔍 Kondisi Fisik</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--spacing-md);">
+        <div class="condition-tag" data-condition="screen_ok">✅ Layar Mulus</div>
+        <div class="condition-tag" data-condition="screen_scratched">⚠️ Layar Barets</div>
+        <div class="condition-tag" data-condition="screen_cracked">❌ Layar Retak</div>
+        <div class="condition-tag" data-condition="body_ok">✅ Body Mulus</div>
+        <div class="condition-tag" data-condition="body_scratched">⚠️ Body Barets</div>
+        <div class="condition-tag" data-condition="body_dent">❌ Body Penyok</div>
+      </div>
+      
+      <div class="trust-box" style="margin-top: var(--spacing-lg);">
+        <div class="trust-item">✅ <strong>Charger asli</strong><br>meningkatkan nilai</div>
+        <div class="trust-item">📦 <strong>Kelengkapan</strong><br>box & aksesoris</div>
+        <div class="trust-item">🔓 <strong>Tidak iCloud lock</strong><br>(untuk iPhone)</div>
+      </div>
+    </div>
+    
+    <div class="button-group">
+      <button class="btn-secondary btn-prev">← Kembali</button>
+      <button class="btn-primary btn-submit">Hitung Estimasi →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: 结果 -->
+  <div id="step3" class="form-step">
+    <div id="resultContainer"></div>
+    <div class="button-group">
+      <button class="btn-secondary btn-edit">✏️ Edit Data</button>
+      <button class="btn-primary btn-recalculate">🔄 Hitung Ulang</button>
+    </div>
+  </div>
+</div>
+
+<!-- 快速操作模块 -->
+<div class="quick-actions">
+  <div class="quick-action-card">
+    <div class="action-icon">⚡</div>
+    <div class="action-title">Proses Cepat</div>
+    <div class="action-description">Dana cair dalam 30 menit</div>
+    <a href="#" class="action-btn whatsapp" id="quickWaBtn">Hubungi Kami</a>
+  </div>
+  <div class="quick-action-card">
+    <div class="action-icon">🔒</div>
+    <div class="action-title">Aman & Terpercaya</div>
+    <div class="action-description">Terdaftar & diawasi OJK</div>
+    <a href="#" class="action-btn location">Cek Lokasi</a>
+  </div>
+</div>
+
+<!-- FAQ 区块 -->
+<div class="faq-section">
+  <div class="container">
+    <h2>❓ Pertanyaan Umum</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">Apakah semua merek HP bisa digadaikan?</div>
+        <div class="faq-answer">Ya, kami menerima berbagai merek. Nilai tergantung spesifikasi & kondisi.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Berapa lama proses penilaian?</div>
+        <div class="faq-answer">Estimasi online instan. Proses fisik 15-30 menit.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Apakah HP saya aman?</div>
+        <div class="faq-answer">100% aman, disimpan di ruang CCTV 24 jam + asuransi.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Apa yang mempengaruhi nilai gadai HP?</div>
+        <div class="faq-answer">Merek, chipset, RAM, penyimpanan, kondisi fisik, baterai, dan usia pemakaian.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Apakah HP dengan layar retak bisa digadaikan?</div>
+        <div class="faq-answer">Bisa, namun nilai akan berkurang sesuai tingkat kerusakan.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 页脚 -->
+<footer id="lokasi" role="contentinfo">
+  <div class="footer-content">
+    <p class="copyright">
+      © <span id="year"></span> JF Gadai HP • Solusi Dana Cepat & Aman
+    </p>
+
+    <div class="company-info">
+      JF Gadai berizin resmi • Melayani gadai HP, laptop, dan elektronik
+    </div>
+
+    <div class="contact-info">
+      <a href="https://wa.me/6289515692586" target="_blank" class="contact-link">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;">
+        Chat WhatsApp Sekarang
+      </a>
+    </div>
+
+    <p class="operating-hours">
+      ⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu
+    </p>
+    <p class="security-note">
+      🔒 Situs ini menggunakan koneksi aman (HTTPS).
+    </p>
+  </div>
+</footer>
+
+<!-- 浮动 WhatsApp -->
+<a href="https://wa.me/6289515692586" target="_blank" class="floating-wa" id="floatingWa">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
+</a>
+
+<!-- 引用外部JS文件 -->
+<script src="/js/faq.js"></script>
+
+<script>
+// 使用 IIFE 避免全局污染
+(function() {
+  'use strict';
+  
+  // ==================== 配置常量 ====================
+  const CONFIG = {
+    // 品牌系数 (基于市场保有量和保值率)
+    BRAND_FACTORS: {
+      apple: 1.0,      // iPhone 最保值
+      samsung: 0.75,   // Samsung 旗舰保值，中低端一般
+      xiaomi: 0.65,    // Xiaomi 性价比品牌
+      oppo: 0.62,      // Oppo 中规中矩
+      vivo: 0.60,      // Vivo 略低于Oppo
+      realme: 0.55     // Realme 性价比最高但保值率较低
+    },
+    
+    // 芯片基础价值 (单位: IDR)
+    CHIPSET_BASE_VALUE: {
+      a14: 3500000,
+      a15: 4500000,
+      a16: 6000000,
+      a17: 8000000,
+      snapdragon6: 1800000,
+      snapdragon7: 2800000,
+      snapdragon8: 5000000,
+      mediatek: 2200000,
+      exynos: 2500000
+    },
+    
+    // RAM 系数
+    RAM_FACTORS: {
+      2: 0.70,
+      3: 0.78,
+      4: 0.85,
+      6: 0.94,
+      8: 1.0,
+      12: 1.10,
+      16: 1.18
+    },
+    
+    // 存储系数
+    STORAGE_FACTORS: {
+      32: 0.80,
+      64: 0.90,
+      128: 1.0,
+      256: 1.10,
+      512: 1.20,
+      1024: 1.30
+    },
+    
+    // 屏幕系数
+    SCREEN_FACTORS: {
+      small: 0.90,
+      medium: 1.0,
+      large: 1.05,
+      xl: 1.08
+    },
+    
+    // 相机系数
+    CAMERA_FACTORS: {
+      single: 0.85,
+      dual: 1.0,
+      triple: 1.12,
+      quad: 1.20
+    },
+    
+    // 电池系数
+    BATTERY_FACTORS: {
+      excellent: 1.0,
+      good: 0.92,
+      fair: 0.82,
+      poor: 0.70
+    },
+    
+    // 年龄系数 (手机折旧更快)
+    AGE_FACTORS: {
+      1: 0.95,  // <6个月
+      2: 0.85,  // 6-12个月
+      3: 0.72,  // 1-2年
+      4: 0.58,  // 2-3年
+      5: 0.45   // >3年
+    },
+    
+    // 物理条件系数
+    PHYSICAL_FACTORS: {
+      screen_ok: 1.0,
+      screen_scratched: 0.92,
+      screen_cracked: 0.70,
+      body_ok: 1.0,
+      body_scratched: 0.95,
+      body_dent: 0.85
+    },
+    
+    // 基础抵押率
+    BASE_PAWN_RATIO: 0.60,
+    
+    // 最高抵押率
+    MAX_PAWN_RATIO: 0.70,
+    
+    // 最低估值 (IDR)
+    MIN_MARKET_VALUE: 300000
+  };
+  
+  // ==================== DOM 元素引用 ====================
+  const DOM = {
+    brandOptions: () => document.querySelectorAll('.brand-option'),
+    ram: () => document.getElementById('ram'),
+    storage: () => document.getElementById('storage'),
+    chipset: () => document.getElementById('chipset'),
+    screen: () => document.getElementById('screen'),
+    camera: () => document.getElementById('camera'),
+    battery: () => document.getElementById('battery'),
+    age: () => document.getElementById('age'),
+    conditionTags: () => document.querySelectorAll('.condition-tag'),
+    resultContainer: () => document.getElementById('resultContainer'),
+    steps: () => document.querySelectorAll('.form-step')
+  };
+  
+  let currentStep = 1;
+  let selectedConditions = {
+    screen_ok: true,
+    body_ok: true
+  };
+  
+  // ==================== 辅助函数 ====================
+  function formatRupiah(num) {
+    return "Rp " + new Intl.NumberFormat("id-ID").format(Math.round(num));
+  }
+  
+  function validateSelections() {
+    const required = ['ram', 'storage', 'chipset', 'screen', 'camera', 'battery', 'age'];
+    for (let id of required) {
+      const element = document.getElementById(id);
+      if (!element || !element.value) {
+        showError(`Harap lengkapi semua pilihan terlebih dahulu`);
+        return false;
+      }
+    }
+    return true;
+  }
+  
+  function showError(message) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.innerHTML = `⚠️ ${message}`;
+    
+    const existingError = document.querySelector('.error-message');
+    if (existingError) existingError.remove();
+    
+    const step2 = document.getElementById('step2');
+    if (step2 && currentStep === 2) {
+      step2.insertBefore(errorDiv, step2.firstChild);
+      setTimeout(() => errorDiv.remove(), 3000);
+    } else {
+      alert(message);
+    }
+  }
+  
+  function getPhysicalFactor() {
+    let factor = 1.0;
+    
+    // 屏幕条件
+    if (selectedConditions.screen_cracked) factor *= CONFIG.PHYSICAL_FACTORS.screen_cracked;
+    else if (selectedConditions.screen_scratched) factor *= CONFIG.PHYSICAL_FACTORS.screen_scratched;
+    
+    // 机身条件
+    if (selectedConditions.body_dent) factor *= CONFIG.PHYSICAL_FACTORS.body_dent;
+    else if (selectedConditions.body_scratched) factor *= CONFIG.PHYSICAL_FACTORS.body_scratched;
+    
+    return factor;
+  }
+  
+  // ==================== 计算函数 ====================
+  function getSelectedBrand() {
+    const activeBrand = document.querySelector('.brand-option.active');
+    return activeBrand ? activeBrand.getAttribute('data-brand') : 'samsung';
+  }
+  
+  function calculateMarketValue() {
+    const brand = getSelectedBrand();
+    const ram = parseInt(DOM.ram().value);
+    const storage = parseInt(DOM.storage().value);
+    const chipset = DOM.chipset().value;
+    const screen = DOM.screen().value;
+    const camera = DOM.camera().value;
+    const battery = DOM.battery().value;
+    const ageYear = parseInt(DOM.age().value);
+    const physicalFactor = getPhysicalFactor();
+    
+    // 获取基础价值
+    let marketValue = CONFIG.CHIPSET_BASE_VALUE[chipset] || CONFIG.CHIPSET_BASE_VALUE.snapdragon7;
+    
+    // 应用所有系数
+    marketValue *= CONFIG.BRAND_FACTORS[brand];
+    marketValue *= CONFIG.RAM_FACTORS[ram];
+    marketValue *= CONFIG.STORAGE_FACTORS[storage];
+    marketValue *= CONFIG.SCREEN_FACTORS[screen];
+    marketValue *= CONFIG.CAMERA_FACTORS[camera];
+    marketValue *= CONFIG.BATTERY_FACTORS[battery];
+    marketValue *= CONFIG.AGE_FACTORS[ageYear];
+    marketValue *= physicalFactor;
+    
+    // 确保最小值
+    marketValue = Math.max(Math.round(marketValue / 10000) * 10000, CONFIG.MIN_MARKET_VALUE);
+    
+    return marketValue;
+  }
+  
+  function calculatePawnValue(marketValue) {
+    const brand = getSelectedBrand();
+    const ram = parseInt(DOM.ram().value);
+    const storage = parseInt(DOM.storage().value);
+    const ageYear = parseInt(DOM.age().value);
+    const battery = DOM.battery().value;
+    const chipset = DOM.chipset().value;
+    
+    let pawnRatio = CONFIG.BASE_PAWN_RATIO;
+    
+    // 品牌加成
+    if (brand === 'apple') pawnRatio += 0.08;
+    if (brand === 'samsung') pawnRatio += 0.03;
+    
+    // 配置加成
+    if (ram >= 12) pawnRatio += 0.04;
+    else if (ram >= 8) pawnRatio += 0.02;
+    
+    if (storage >= 256) pawnRatio += 0.03;
+    else if (storage >= 128) pawnRatio += 0.02;
+    
+    if (ageYear <= 1) pawnRatio += 0.05;
+    else if (ageYear <= 2) pawnRatio += 0.03;
+    
+    if (battery === 'excellent') pawnRatio += 0.02;
+    
+    // 旗舰芯片加成
+    if (chipset === 'a17' || chipset === 'snapdragon8') pawnRatio += 0.03;
+    
+    // 物理条件扣减
+    if (selectedConditions.screen_cracked) pawnRatio -= 0.08;
+    if (selectedConditions.body_dent) pawnRatio -= 0.05;
+    
+    // 限制最高抵押率
+    pawnRatio = Math.min(Math.max(pawnRatio, 0.50), CONFIG.MAX_PAWN_RATIO);
+    
+    return Math.round(marketValue * pawnRatio);
+  }
+  
+  // ==================== UI 更新函数 ====================
+  function initConditionTags() {
+    DOM.conditionTags().forEach(tag => {
+      tag.addEventListener('click', function() {
+        const condition = this.getAttribute('data-condition');
+        
+        // 处理屏幕条件（互斥）
+        if (condition.includes('screen')) {
+          document.querySelectorAll('[data-condition^="screen"]').forEach(t => {
+            t.classList.remove('selected');
+          });
+          // 清除屏幕相关的选中状态
+          selectedConditions.screen_ok = false;
+          selectedConditions.screen_scratched = false;
+          selectedConditions.screen_cracked = false;
+        }
+        
+        // 处理机身条件（互斥）
+        if (condition.includes('body')) {
+          document.querySelectorAll('[data-condition^="body"]').forEach(t => {
+            t.classList.remove('selected');
+          });
+          // 清除机身相关的选中状态
+          selectedConditions.body_ok = false;
+          selectedConditions.body_scratched = false;
+          selectedConditions.body_dent = false;
+        }
+        
+        // 选中当前标签
+        this.classList.add('selected');
+        
+        // 更新选中状态
+        if (condition === 'screen_ok') selectedConditions.screen_ok = true;
+        else if (condition === 'screen_scratched') selectedConditions.screen_scratched = true;
+        else if (condition === 'screen_cracked') selectedConditions.screen_cracked = true;
+        else if (condition === 'body_ok') selectedConditions.body_ok = true;
+        else if (condition === 'body_scratched') selectedConditions.body_scratched = true;
+        else if (condition === 'body_dent') selectedConditions.body_dent = true;
+      });
+    });
+  }
+  
+  function getConfigSummary(result) {
+    const ramSizes = {2:'2GB',3:'3GB',4:'4GB',6:'6GB',8:'8GB',12:'12GB',16:'16GB'};
+    const storageSizes = {32:'32GB',64:'64GB',128:'128GB',256:'256GB',512:'512GB',1024:'1TB'};
+    const chipNames = {
+      a14:'A14 Bionic', a15:'A15 Bionic', a16:'A16 Bionic', a17:'A17 Pro',
+      snapdragon6:'Snapdragon 6', snapdragon7:'Snapdragon 7', snapdragon8:'Snapdragon 8',
+      mediatek:'Dimensity', exynos:'Exynos'
+    };
+    const screenSizes = {small:'4.7-5.4"', medium:'5.5-6.1"', large:'6.2-6.5"', xl:'6.7+"'};
+    const cameraTypes = {single:'Single', dual:'Dual', triple:'Triple', quad:'Quad'};
+    const batteryNames = {excellent:'Excellent (>85%)', good:'Good (70-85%)', fair:'Fair (50-70%)', poor:'Poor (<50%)'};
+    const ageText = {1:'<6 bulan', 2:'6-12 bulan', 3:'1-2 tahun', 4:'2-3 tahun', 5:'>3 tahun'};
+    
+    let conditionText = [];
+    if (selectedConditions.screen_ok) conditionText.push('Layar Mulus');
+    else if (selectedConditions.screen_scratched) conditionText.push('Layar Barets');
+    else if (selectedConditions.screen_cracked) conditionText.push('Layar Retak');
+    
+    if (selectedConditions.body_ok) conditionText.push('Body Mulus');
+    else if (selectedConditions.body_scratched) conditionText.push('Body Barets');
+    else if (selectedConditions.body_dent) conditionText.push('Body Penyok');
+    
+    return `
+      <div class="config-summary">
+        <strong>📋 Ringkasan Konfigurasi:</strong><br>
+        <span class="spec-badge">${result.brand.toUpperCase()}</span>
+        <span class="spec-badge">${chipNames[result.chipset] || result.chipset}</span>
+        <span class="spec-badge">${ramSizes[result.ram]}</span>
+        <span class="spec-badge">${storageSizes[result.storage]}</span>
+        <span class="spec-badge">${screenSizes[result.screen]}</span>
+        <span class="spec-badge">📸 ${cameraTypes[result.camera]}</span>
+        <span class="spec-badge">🔋 ${batteryNames[result.battery]}</span>
+        <span class="spec-badge">📅 ${ageText[result.ageYears]}</span>
+        <span class="spec-badge">🔍 ${conditionText.join(' + ')}</span>
+      </div>
+    `;
+  }
+  
+  function showResult() {
+    if (!validateSelections()) return;
+    
+    const marketValue = calculateMarketValue();
+    const pawnValue = calculatePawnValue(marketValue);
+    
+    const marketMin = Math.round(marketValue * 0.92);
+    const marketMax = Math.round(marketValue * 1.08);
+    
+    const brand = getSelectedBrand();
+    const ram = parseInt(DOM.ram().value);
+    const storage = parseInt(DOM.storage().value);
+    const chipset = DOM.chipset().value;
+    const screen = DOM.screen().value;
+    const camera = DOM.camera().value;
+    const battery = DOM.battery().value;
+    const ageYears = parseInt(DOM.age().value);
+    
+    const chipSelect = DOM.chipset();
+    const chipName = chipSelect.options[chipSelect.selectedIndex]?.text || chipset;
+    
+    let conditionDesc = [];
+    if (selectedConditions.screen_ok) conditionDesc.push('Layar Mulus');
+    else if (selectedConditions.screen_scratched) conditionDesc.push('Layar Barets');
+    else if (selectedConditions.screen_cracked) conditionDesc.push('Layar Retak');
+    
+    if (selectedConditions.body_ok) conditionDesc.push('Body Mulus');
+    else if (selectedConditions.body_scratched) conditionDesc.push('Body Barets');
+    else if (selectedConditions.body_dent) conditionDesc.push('Body Penyok');
+    
+    const message = `Halo Admin JF Gadai,
+
+Saya ingin menanyakan estimasi gadai HP:
+
+📱 *${brand.toUpperCase()}* ${chipName}
+📊 Spesifikasi:
+- RAM: ${ram} GB
+- Storage: ${storage >= 1024 ? (storage/1024)+'TB' : storage+'GB'}
+- Kamera: ${DOM.camera().options[DOM.camera().selectedIndex]?.text}
+- Baterai: ${DOM.battery().options[DOM.battery().selectedIndex]?.text}
+- Kondisi: ${conditionDesc.join(', ')}
+📅 Usia: ${ageYears == 1 ? '<6 bulan' : (ageYears == 2 ? '6-12 bulan' : (ageYears == 3 ? '1-2 tahun' : (ageYears == 4 ? '2-3 tahun' : '>3 tahun')))}
+
+📊 Estimasi Pinjaman:
+${formatRupiah(pawnValue)}
+
+Saya siap bawa HP ke kantor hari ini. Terima kasih.`;
+
+    const waUrl = `https://wa.me/6289515692586?text=${encodeURIComponent(message)}`;
+    
+    const resultHtml = `
+      <div class="estimation-card">
+        <div class="label">💰 Nilai Pasar (second)</div>
+        <div class="value">${formatRupiah(marketMin)} – ${formatRupiah(marketMax)}</div>
+        
+        <div style="margin: 20px 0; height: 2px; background: rgba(245,197,66,0.3);"></div>
+        
+        <div class="label">🏦 Estimasi Pinjaman (dapat cair)</div>
+        <div class="value" style="font-size: 2.2rem;">${formatRupiah(pawnValue)}</div>
+        <div style="margin-top: 8px; font-size: var(--fs-small); color: var(--text-muted);">
+          ✅ Harga tetap, tidak ada tawar-menawar • Transparan & adil
+        </div>
+        
+        ${getConfigSummary({brand, chipset, ram, storage, screen, camera, battery, ageYears})}
+        
+        <div class="trust-box" style="margin: 20px 0 10px; grid-template-columns: repeat(2,1fr);">
+          <div class="trust-item">✅ Proses <strong>30 menit</strong></div>
+          <div class="trust-item">🔒 Aman & terpercaya</div>
+        </div>
+        
+        <a href="${waUrl}" target="_blank" class="whatsapp-btn">
+          📱 WhatsApp Sekarang
+        </a>
+        <div style="margin-top: 16px; font-size: var(--fs-small); color: var(--text-muted);">
+          ⚠️ *Slot terbatas hari ini* | Bawa HP & charger asli
+        </div>
+      </div>
+    `;
+    
+    DOM.resultContainer().innerHTML = resultHtml;
+  }
+  
+  // ==================== 步骤导航 ====================
+  function showStep(step) {
+    const steps = DOM.steps();
+    steps.forEach((el, idx) => {
+      el.classList.toggle('active', idx + 1 === step);
+    });
+    currentStep = step;
+    
+    const errorMsg = document.querySelector('.error-message');
+    if (errorMsg) errorMsg.remove();
+    
+    window.scrollTo({ top: 120, behavior: 'smooth' });
+  }
+  
+  // ==================== 事件绑定 ====================
+  function bindEvents() {
+    // 品牌切换
+    DOM.brandOptions().forEach(opt => {
+      opt.addEventListener('click', function() {
+        DOM.brandOptions().forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+    
+    // 下一步按钮
+    const nextBtn = document.querySelector('.btn-next');
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => showStep(2));
+    }
+    
+    // 返回按钮
+    document.querySelectorAll('.btn-prev').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (currentStep === 2) showStep(1);
+      });
+    });
+    
+    // 编辑按钮
+    const editBtn = document.querySelector('.btn-edit');
+    if (editBtn) {
+      editBtn.addEventListener('click', () => showStep(2));
+    }
+    
+    // 重新计算按钮
+    const recalcBtn = document.querySelector('.btn-recalculate');
+    if (recalcBtn) {
+      recalcBtn.addEventListener('click', () => {
+        showResult();
+      });
+    }
+    
+    // 提交计算
+    const submitBtn = document.querySelector('.btn-submit');
+    if (submitBtn) {
+      submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (validateSelections()) {
+          showResult();
+          showStep(3);
+        }
+      });
+    }
+    
+    // 快速操作按钮
+    const quickWa = document.getElementById('quickWaBtn');
+    if (quickWa) {
+      quickWa.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.open('https://wa.me/6289515692586?text=Halo%20JF%20Gadai%2C%20saya%20tertarik%20gadai%20HP', '_blank');
+      });
+    }
+    
+    // 位置按钮
+    const locationBtn = document.querySelector('.action-btn.location');
+    if (locationBtn) {
+      locationBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('📍 Kantor kami: Krajan Panas I, Oro-Oro Ombowetan, \nKec. Rembang, Pasuruan, Jawa Timur 67152\n🕒 Buka: Senin-Sabtu 08:00-18:00');
+      });
+    }
+  }
+  
+  // ==================== 初始化 ====================
+  function init() {
+    // 更新版权年份
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // 确保只有一个品牌被选中
+    const brandOptions = DOM.brandOptions();
+    if (brandOptions.length > 0) {
+      brandOptions.forEach((opt, idx) => {
+        if (idx !== 0) opt.classList.remove('active');
+      });
+      brandOptions[0].classList.add('active');
+    }
+    
+    // 初始化条件标签
+    initConditionTags();
+    
+    // 默认选中良好的条件
+    const defaultScreenTag = document.querySelector('[data-condition="screen_ok"]');
+    const defaultBodyTag = document.querySelector('[data-condition="body_ok"]');
+    if (defaultScreenTag) defaultScreenTag.classList.add('selected');
+    if (defaultBodyTag) defaultBodyTag.classList.add('selected');
+    
+    // 绑定事件
+    bindEvents();
+  }
+  
+  // 启动应用
+  init();
+})();
+</script>
+</body>
+</html>
