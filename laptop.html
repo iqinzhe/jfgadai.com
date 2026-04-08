@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/css/faq.css">
 
 <style>
-/* 估算工具专用补充样式（与主CSS不冲突） */
+/* 估算工具专用补充样式 */
 .estimation-header {
   text-align: center;
   padding: var(--spacing-lg) 0 var(--spacing-md);
@@ -23,12 +23,7 @@
   margin-bottom: var(--spacing-sm);
 }
 
-.estimation-header p {
-  color: var(--text-light);
-  font-size: var(--fs-subtitle);
-}
-
-/* 品牌选项网格 - 符合六宫格视觉 */
+/* 品牌选项网格 - 带Logo */
 .brand-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -48,6 +43,24 @@
   font-weight: 600;
   font-size: var(--fs-body);
   color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-option img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.brand-option.active img {
+  filter: none;
+  opacity: 1;
 }
 
 .brand-option:hover {
@@ -61,6 +74,34 @@
   border-color: var(--secondary-color);
   color: var(--secondary-color);
   box-shadow: 0 0 15px rgba(245, 197, 66, 0.3);
+}
+
+.brand-option.active img {
+  filter: drop-shadow(0 0 4px var(--secondary-color));
+}
+
+/* 配置卡片网格 */
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.spec-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.spec-card h4 {
+  color: var(--secondary-color);
+  font-size: var(--fs-subtitle);
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* 表单步骤 */
@@ -77,7 +118,7 @@
 .form-select {
   width: 100%;
   padding: var(--spacing-md);
-  margin: var(--spacing-md) 0;
+  margin: var(--spacing-xs) 0;
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(245, 197, 66, 0.3);
   border-radius: var(--border-radius);
@@ -108,7 +149,6 @@
   flex-wrap: wrap;
 }
 
-/* 复用主CSS按钮样式，增加估算专用按钮 */
 .btn-primary, .btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -146,7 +186,7 @@
   transform: translateY(-2px);
 }
 
-/* 估算结果卡片 - 复用 unified-card 风格 */
+/* 估算结果卡片 */
 .estimation-card {
   background: linear-gradient(135deg, rgba(15, 76, 129, 0.4), rgba(245, 197, 66, 0.2));
   border-radius: var(--border-radius-lg);
@@ -192,55 +232,61 @@
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
-/* 响应式调整 */
+.spec-badge {
+  display: inline-block;
+  background: rgba(245, 197, 66, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: var(--fs-small);
+  margin: 4px;
+}
+
+.config-summary {
+  background: rgba(0,0,0,0.3);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  text-align: left;
+}
+
+/* 响应式 */
 @media (max-width: 768px) {
   .brand-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-sm);
   }
-  
+  .specs-grid {
+    grid-template-columns: 1fr;
+  }
   .estimation-card {
     padding: var(--spacing-lg);
   }
-  
   .estimation-card .value {
     font-size: 1.5rem;
   }
-  
-  .whatsapp-btn {
-    padding: 0.7rem 1.2rem;
-    font-size: var(--fs-btn-medium);
-  }
-}
-
-@media (max-width: 480px) {
-  .brand-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .brand-option img {
+    width: 36px;
+    height: 36px;
   }
 }
 </style>
 </head>
 <body>
 
-<!-- 顶部导航 - 符合 assessment-header 结构 -->
+<!-- 顶部导航 -->
 <div class="assessment-header">
   <div class="container">
     <a href="#" class="back-btn" onclick="return false;">
       <img src="https://placehold.co/30x30/0f4c81/f5c542?text=JF" alt="JF Gadai" class="logo-image" style="border-radius: 8px;">
-      <span style="font-size: var(--fs-btn-small);">JF Gadai</span>
+      <span>JF Gadai</span>
     </a>
     <div style="display: flex; gap: 8px;">
-      <a href="#" class="nav-forward" onclick="return false;">
-        <span>🏠</span>
-      </a>
-      <a href="#" class="nav-forward" onclick="return false;">
-        <span>📞</span>
-      </a>
+      <a href="#" class="nav-forward" onclick="return false;"><span>🏠</span></a>
+      <a href="#" class="nav-forward" onclick="return false;"><span>📞</span></a>
     </div>
   </div>
 </div>
 
-<!-- 页面头部横幅 -->
+<!-- 页面头部 -->
 <div class="page-header">
   <div class="container">
     <h1>💻 Estimasi Gadai Laptop</h1>
@@ -249,39 +295,67 @@
 </div>
 
 <div class="container">
-  <!-- STEP 1: 品牌 + 配置 -->
+  <!-- STEP 1: 品牌 -->
   <div id="step1" class="form-step active">
-    <div class="unified-card" style="margin-bottom: var(--spacing-lg);">
+    <div class="unified-card">
       <div class="card-title">✨ Pilih Merek Laptop</div>
-      <div class="card-desc">Klik merek laptop Anda di bawah ini</div>
+      <div class="card-desc">Klik logo merek laptop Anda</div>
       
       <div class="brand-grid" id="brandSelection">
-        <div class="brand-option active" data-brand="apple">🍎 Apple</div>
-        <div class="brand-option" data-brand="asus">💻 ASUS</div>
-        <div class="brand-option" data-brand="lenovo">📱 Lenovo</div>
-        <div class="brand-option" data-brand="acer">🖥️ Acer</div>
-        <div class="brand-option" data-brand="hp">🖨️ HP</div>
-        <div class="brand-option" data-brand="dell">⚡ Dell</div>
+        <div class="brand-option active" data-brand="apple">
+          <img src="/images/brands/apple.svg" alt="Apple" onerror="this.src='https://placehold.co/48x48/555/white?text=Apple'">
+          <span>Apple MacBook</span>
+        </div>
+        <div class="brand-option" data-brand="asus">
+          <img src="/images/brands/asus.svg" alt="ASUS" onerror="this.src='https://placehold.co/48x48/555/white?text=ASUS'">
+          <span>ASUS</span>
+        </div>
+        <div class="brand-option" data-brand="lenovo">
+          <img src="/images/brands/lenovo.svg" alt="Lenovo" onerror="this.src='https://placehold.co/48x48/555/white?text=Lenovo'">
+          <span>Lenovo</span>
+        </div>
+        <div class="brand-option" data-brand="acer">
+          <img src="/images/brands/acer.svg" alt="Acer" onerror="this.src='https://placehold.co/48x48/555/white?text=Acer'">
+          <span>Acer</span>
+        </div>
+        <div class="brand-option" data-brand="hp">
+          <img src="/images/brands/hp.svg" alt="HP" onerror="this.src='https://placehold.co/48x48/555/white?text=HP'">
+          <span>HP</span>
+        </div>
+        <div class="brand-option" data-brand="dell">
+          <img src="/images/brands/dell.svg" alt="Dell" onerror="this.src='https://placehold.co/48x48/555/white?text=Dell'">
+          <span>Dell</span>
+        </div>
       </div>
     </div>
 
-    <div class="grid-card" style="margin-bottom: var(--spacing-lg);">
-      <div class="card-icon">⚙️</div>
-      <h3>Spesifikasi Prosesor</h3>
-      <select id="cpu" class="form-select">
-        <option value="i3">Intel Core i3</option>
-        <option value="i5" selected>Intel Core i5 (Rekomendasi)</option>
-        <option value="i7">Intel Core i7</option>
-        <option value="i9">Intel Core i9</option>
-      </select>
+    <!-- 核心配置：CPU + RAM -->
+    <div class="specs-grid">
+      <div class="spec-card">
+        <h4>⚙️ Prosesor (CPU)</h4>
+        <select id="cpu" class="form-select">
+          <option value="i3">Intel Core i3</option>
+          <option value="i5" selected>Intel Core i5</option>
+          <option value="i7">Intel Core i7</option>
+          <option value="i9">Intel Core i9</option>
+          <option value="m1">Apple M1</option>
+          <option value="m2">Apple M2</option>
+          <option value="m3">Apple M3</option>
+          <option value="ryzen5">AMD Ryzen 5</option>
+          <option value="ryzen7">AMD Ryzen 7</option>
+        </select>
+      </div>
       
-      <h3 style="margin-top: var(--spacing-md);">💾 Kapasitas RAM</h3>
-      <select id="ram" class="form-select">
-        <option value="4">4 GB</option>
-        <option value="8">8 GB</option>
-        <option value="16" selected>16 GB</option>
-        <option value="32">32 GB</option>
-      </select>
+      <div class="spec-card">
+        <h4>💾 RAM</h4>
+        <select id="ram" class="form-select">
+          <option value="4">4 GB</option>
+          <option value="8">8 GB</option>
+          <option value="16" selected>16 GB</option>
+          <option value="32">32 GB</option>
+          <option value="64">64 GB</option>
+        </select>
+      </div>
     </div>
 
     <div class="button-group">
@@ -289,22 +363,63 @@
     </div>
   </div>
 
-  <!-- STEP 2: 年龄 /  kondisi -->
+  <!-- STEP 2: 硬盘 + 屏幕 + 显卡 + 电池 -->
   <div id="step2" class="form-step">
+    <div class="specs-grid">
+      <div class="spec-card">
+        <h4>💽 Penyimpanan (SSD/HDD)</h4>
+        <select id="storage" class="form-select">
+          <option value="256" >256 GB SSD</option>
+          <option value="512" selected>512 GB SSD</option>
+          <option value="1024">1 TB SSD</option>
+          <option value="2048">2 TB SSD</option>
+        </select>
+      </div>
+      
+      <div class="spec-card">
+        <h4>📺 Ukuran Layar</h4>
+        <select id="screen" class="form-select">
+          <option value="11">11 - 12 inch</option>
+          <option value="13" selected>13 - 14 inch</option>
+          <option value="15">15 - 16 inch</option>
+          <option value="17">17 inch ke atas</option>
+        </select>
+      </div>
+      
+      <div class="spec-card">
+        <h4>🎮 Kartu Grafis (GPU)</h4>
+        <select id="gpu" class="form-select">
+          <option value="integrated">Integrated (Intel UHD)</option>
+          <option value="entry" selected>Entry (MX series / Radeon)</option>
+          <option value="mid">Mid (RTX 3050/3060)</option>
+          <option value="high">High (RTX 3070/3080/4090)</option>
+        </select>
+      </div>
+      
+      <div class="spec-card">
+        <h4>🔋 Kondisi Baterai</h4>
+        <select id="battery" class="form-select">
+          <option value="excellent" selected>Excellent (>85%)</option>
+          <option value="good">Good (70-85%)</option>
+          <option value="fair">Fair (50-70%)</option>
+          <option value="poor">Poor (<50%)</option>
+        </select>
+      </div>
+    </div>
+
     <div class="unified-card">
-      <div class="card-title">📅 Usia Laptop</div>
-      <div class="card-desc">Berapa lama laptop sudah digunakan?</div>
+      <div class="card-title">📅 Usia Pemakaian</div>
       <select id="age" class="form-select">
         <option value="1">Kurang dari 1 tahun (Like new)</option>
-        <option value="2">1 - 2 tahun</option>
+        <option value="2" selected>1 - 2 tahun</option>
         <option value="3">3 - 4 tahun</option>
         <option value="5">Lebih dari 4 tahun</option>
       </select>
       
       <div class="trust-box" style="margin-top: var(--spacing-lg);">
-        <div class="trust-item">✅ <strong>Kondisi fisik</strong><br>normal tanpa kerusakan</div>
-        <div class="trust-item">🔋 <strong>Baterai</strong><br>masih berfungsi baik</div>
-        <div class="trust-item">📦 <strong>Kelengkapan</strong><br>charger asli</div>
+        <div class="trust-item">✅ <strong>Fisik mulus</strong><br>tanpa goresan/retak</div>
+        <div class="trust-item">🔌 <strong>Charger asli</strong><br>meningkatkan nilai</div>
+        <div class="trust-item">📦 <strong>Kelengkapan</strong><br>box & aksesoris</div>
       </div>
     </div>
     
@@ -323,133 +438,159 @@
   </div>
 </div>
 
-<!-- 快速操作模块 (与CSS匹配) -->
+<!-- 快速操作模块 -->
 <div class="quick-actions">
   <div class="quick-action-card">
     <div class="action-icon">⚡</div>
     <div class="action-title">Proses Cepat</div>
-    <div class="action-description">Dana cair dalam 30 menit setelah survei</div>
+    <div class="action-description">Dana cair dalam 30 menit</div>
     <a href="#" class="action-btn whatsapp" id="quickWaBtn">Hubungi Kami</a>
   </div>
   <div class="quick-action-card">
     <div class="action-icon">🔒</div>
     <div class="action-title">Aman & Terpercaya</div>
-    <div class="action-description">Terdaftar & diawasi OJK, barang disimpan aman</div>
+    <div class="action-description">Terdaftar & diawasi OJK</div>
     <a href="#" class="action-btn location">Cek Lokasi</a>
   </div>
 </div>
 
-<!-- FAQ 区块 - 符合 faq.css 结构 -->
+<!-- FAQ 区块 -->
 <div class="faq-section">
   <div class="container">
     <h2>❓ Pertanyaan Umum</h2>
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-question">Apakah semua merek laptop bisa digadaikan?</div>
-        <div class="faq-answer">Ya, kami menerima berbagai merek: Apple, ASUS, Lenovo, Acer, HP, Dell, dan lainnya. Nilai tergantung spesifikasi & kondisi.</div>
+        <div class="faq-answer">Ya, kami menerima berbagai merek. Nilai tergantung spesifikasi & kondisi.</div>
       </div>
       <div class="faq-item">
         <div class="faq-question">Berapa lama proses penilaian?</div>
-        <div class="faq-answer">Penilaian online estimasi instan. Jika setuju, proses fisik hanya 15-30 menit di kantor kami.</div>
+        <div class="faq-answer">Estimasi online instan. Proses fisik 15-30 menit.</div>
       </div>
       <div class="faq-item">
         <div class="faq-question">Apakah laptop saya aman?</div>
-        <div class="faq-answer">100% aman. Laptop disimpan di ruang khusus dengan CCTV 24 jam dan asuransi.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">Bisa gadai tanpa membawa charger?</div>
-        <div class="faq-answer">Sangat disarankan membawa charger asli untuk memaksimalkan nilai taksir.</div>
+        <div class="faq-answer">100% aman, disimpan di ruang CCTV 24 jam + asuransi.</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- 页脚模块 - 完全符合主CSS footer结构 -->
+<!-- 页脚 -->
 <footer>
   <div class="footer-content">
     <div class="copyright">© 2026 JF Gadai Laptop • Solusi Dana Cepat & Aman</div>
     <div class="company-info">JF Gadai berizin resmi • Melayani gadai laptop, smartphone, dan elektronik</div>
     <div class="contact-info">
-      <a href="https://wa.me/6289515692586" target="_blank" class="contact-link" id="footerWaLink">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;" onerror="this.style.display='none'">
+      <a href="https://wa.me/6289515692586" target="_blank" class="contact-link">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;">
         +62 895-1569-2586
       </a>
     </div>
-    <div class="operating-hours">🕒 Buka: Senin – Sabtu | 09:00 – 18:00 (Minggu & Tanggal Merah Tutup)</div>
-    <div class="security-note">🔒 Proses transparan • Bunga ringan • Tidak ada biaya tersembunyi</div>
+    <div class="operating-hours">🕒 Buka: Senin – Sabtu | 09:00 – 18:00</div>
+    <div class="security-note">🔒 Proses transparan • Bunga ringan</div>
   </div>
 </footer>
 
 <!-- 浮动 WhatsApp -->
-<a href="https://wa.me/6289515692586?text=Halo%20JF%20Gadai%2C%20saya%20ingin%20konsultasi%20gadai%20laptop" target="_blank" class="floating-wa" id="floatingWa">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" onerror="this.style.backgroundColor='#25D366';this.innerHTML='WA'">
+<a href="https://wa.me/6289515692586" target="_blank" class="floating-wa" id="floatingWa">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
 </a>
 
 <script>
-// ========== 辅助函数 ==========
 function formatRupiah(num) {
   return "Rp " + new Intl.NumberFormat("id-ID").format(Math.round(num));
 }
 
-// 品牌系数 (参考真实市场)
+// 品牌系数
 const brandFactors = {
-  apple: 1.0,
-  asus: 0.86,
-  lenovo: 0.85,
-  acer: 0.82,
-  hp: 0.84,
-  dell: 0.85
+  apple: 1.0, asus: 0.86, lenovo: 0.85, acer: 0.82, hp: 0.84, dell: 0.85
 };
 
 // CPU基础价值
 function getCpuBaseValue(cpu) {
-  const map = { i3: 2800000, i5: 4200000, i7: 6500000, i9: 8500000 };
+  const map = {
+    i3: 2800000, i5: 4200000, i7: 6500000, i9: 8500000,
+    m1: 7000000, m2: 8500000, m3: 10500000,
+    ryzen5: 4000000, ryzen7: 6000000
+  };
   return map[cpu] || 4200000;
 }
 
 // RAM系数
 function getRamFactor(ramGB) {
-  if (ramGB >= 32) return 1.25;
-  if (ramGB >= 16) return 1.1;
+  if (ramGB >= 64) return 1.35;
+  if (ramGB >= 32) return 1.2;
+  if (ramGB >= 16) return 1.08;
   if (ramGB >= 8) return 1.0;
-  return 0.9;
+  return 0.92;
 }
 
-// 年龄系数 (年数越小越好)
+// 存储系数 (SSD)
+function getStorageFactor(storageGB) {
+  if (storageGB >= 2048) return 1.15;
+  if (storageGB >= 1024) return 1.08;
+  if (storageGB >= 512) return 1.04;
+  if (storageGB >= 256) return 1.0;
+  return 0.95;
+}
+
+// 屏幕系数
+function getScreenFactor(screenSize) {
+  const map = { 11: 0.92, 13: 1.0, 15: 1.02, 17: 1.05 };
+  return map[screenSize] || 1.0;
+}
+
+// 显卡系数
+function getGpuFactor(gpuType) {
+  const map = { integrated: 0.92, entry: 1.0, mid: 1.1, high: 1.25 };
+  return map[gpuType] || 1.0;
+}
+
+// 电池系数
+function getBatteryFactor(batteryStatus) {
+  const map = { excellent: 1.0, good: 0.96, fair: 0.9, poor: 0.82 };
+  return map[batteryStatus] || 0.95;
+}
+
+// 年龄系数
 function getAgeFactor(ageYear) {
-  if (ageYear <= 1) return 0.88;   // like new
+  if (ageYear <= 1) return 0.88;
   if (ageYear <= 2) return 0.80;
   if (ageYear <= 4) return 0.68;
   return 0.55;
 }
 
-// 核心计算
 function calculateEstimation() {
-  // 获取选中的品牌
   const activeBrand = document.querySelector('.brand-option.active');
   let brand = activeBrand ? activeBrand.getAttribute('data-brand') : 'asus';
   
   const cpu = document.getElementById('cpu').value;
   const ram = parseInt(document.getElementById('ram').value);
+  const storage = parseInt(document.getElementById('storage').value);
+  const screen = parseInt(document.getElementById('screen').value);
+  const gpu = document.getElementById('gpu').value;
+  const battery = document.getElementById('battery').value;
   const ageYears = parseInt(document.getElementById('age').value);
   
-  // 基本市值
   let marketValue = getCpuBaseValue(cpu) * (brandFactors[brand] || 0.85);
-  marketValue = marketValue * getRamFactor(ram);
-  marketValue = marketValue * getAgeFactor(ageYears);
+  marketValue *= getRamFactor(ram);
+  marketValue *= getStorageFactor(storage);
+  marketValue *= getScreenFactor(screen);
+  marketValue *= getGpuFactor(gpu);
+  marketValue *= getBatteryFactor(battery);
+  marketValue *= getAgeFactor(ageYears);
   
-  // 四舍五入保底40万
   marketValue = Math.max(Math.round(marketValue / 10000) * 10000, 400000);
   
-  // 市值范围 ±8%
   const marketMin = Math.round(marketValue * 0.92);
   const marketMax = Math.round(marketValue * 1.08);
   
-  // 贷款比例 55% - 70% (依条件)
   let pawnRatio = 0.62;
   if (brand === 'apple') pawnRatio = 0.68;
   if (ram >= 16) pawnRatio += 0.02;
+  if (storage >= 512) pawnRatio += 0.01;
   if (ageYears <= 1) pawnRatio += 0.03;
+  if (battery === 'excellent') pawnRatio += 0.01;
   pawnRatio = Math.min(pawnRatio, 0.72);
   
   let pawnBase = Math.round(marketValue * pawnRatio);
@@ -457,22 +598,47 @@ function calculateEstimation() {
   const pawnMax = Math.round(pawnBase * 1.08);
   const pawnAvg = Math.round((pawnMin + pawnMax) / 2);
   
-  return { marketMin, marketMax, pawnMin, pawnMax, pawnAvg, brand: brand.toUpperCase(), cpu, ram, ageYears };
+  return { marketMin, marketMax, pawnMin, pawnMax, pawnAvg, brand, cpu, ram, storage, screen, gpu, battery, ageYears };
 }
 
-// 显示结果 + 生成WhatsApp链接
+function getConfigSummary(result) {
+  const cpuNames = { i3:'Core i3', i5:'Core i5', i7:'Core i7', i9:'Core i9', m1:'Apple M1', m2:'Apple M2', m3:'Apple M3', ryzen5:'Ryzen 5', ryzen7:'Ryzen 7' };
+  const gpuNames = { integrated:'Intel UHD', entry:'Entry GPU', mid:'RTX 3050/3060', high:'RTX 3070+' };
+  const batteryNames = { excellent:'Excellent (>85%)', good:'Good (70-85%)', fair:'Fair (50-70%)', poor:'Poor (<50%)' };
+  const screenSizes = { 11:'11-12"', 13:'13-14"', 15:'15-16"', 17:'17"+' };
+  const ageText = { 1:'<1 tahun', 2:'1-2 tahun', 3:'3-4 tahun', 5:'>4 tahun' };
+  
+  return `
+    <div class="config-summary">
+      <strong>📋 Ringkasan Konfigurasi:</strong><br>
+      <span class="spec-badge">${result.brand.toUpperCase()}</span>
+      <span class="spec-badge">${cpuNames[result.cpu] || result.cpu}</span>
+      <span class="spec-badge">${result.ram} GB RAM</span>
+      <span class="spec-badge">${result.storage >= 1024 ? (result.storage/1024)+'TB' : result.storage+'GB'} SSD</span>
+      <span class="spec-badge">${screenSizes[result.screen]}</span>
+      <span class="spec-badge">${gpuNames[result.gpu]}</span>
+      <span class="spec-badge">🔋 ${batteryNames[result.battery]}</span>
+      <span class="spec-badge">📅 ${ageText[result.ageYears]}</span>
+    </div>
+  `;
+}
+
 function showResult() {
   const result = calculateEstimation();
-  const brandName = result.brand;
-  const cpuName = document.getElementById('cpu').options[document.getElementById('cpu').selectedIndex]?.text || result.cpu.toUpperCase();
-  const ramText = result.ram + " GB";
+  const cpuSelect = document.getElementById('cpu');
+  const cpuName = cpuSelect.options[cpuSelect.selectedIndex]?.text || result.cpu.toUpperCase();
   
-  // 构建WA消息
   const message = `Halo Admin JF Gadai,
 
 Saya ingin menanyakan estimasi gadai laptop:
 
-💻 *${brandName}* ${cpuName} | RAM ${ramText}
+💻 *${result.brand.toUpperCase()}* ${cpuName}
+📊 Spesifikasi:
+- RAM: ${result.ram} GB
+- Storage: ${result.storage >= 1024 ? (result.storage/1024)+'TB' : result.storage+'GB'} SSD
+- Layar: ${result.screen == 13 ? '13-14"' : (result.screen == 15 ? '15-16"' : (result.screen == 17 ? '17"+' : '11-12"'))}
+- GPU: ${document.getElementById('gpu').options[document.getElementById('gpu').selectedIndex]?.text}
+- Baterai: ${document.getElementById('battery').options[document.getElementById('battery').selectedIndex]?.text}
 📅 Usia: ${result.ageYears == 1 ? '<1 tahun' : (result.ageYears <=2 ? '1-2 tahun' : (result.ageYears <=4 ? '3-4 tahun' : '>4 tahun'))}
 
 📊 Estimasi Pinjaman:
@@ -483,7 +649,6 @@ Saya siap bawa laptop ke kantor hari ini. Terima kasih.`;
 
   const waUrl = `https://wa.me/6289515692586?text=${encodeURIComponent(message)}`;
   
-  // 渲染结果卡片
   const resultHtml = `
     <div class="estimation-card">
       <div class="label">💰 Nilai Pasar (second)</div>
@@ -493,9 +658,11 @@ Saya siap bawa laptop ke kantor hari ini. Terima kasih.`;
       
       <div class="label">🏦 Estimasi Pinjaman (dapat cair)</div>
       <div class="value">${formatRupiah(result.pawnMin)} – ${formatRupiah(result.pawnMax)}</div>
-      <div style="margin-top: 8px; font-size: var(--fs-body);">
+      <div style="margin-top: 8px;">
         💡 Rata-rata: <strong style="color: var(--secondary-color);">${formatRupiah(result.pawnAvg)}</strong>
       </div>
+      
+      ${getConfigSummary(result)}
       
       <div class="trust-box" style="margin: 20px 0 10px; grid-template-columns: repeat(2,1fr);">
         <div class="trust-item">✅ Proses <strong>30 menit</strong></div>
@@ -512,117 +679,51 @@ Saya siap bawa laptop ke kantor hari ini. Terima kasih.`;
   `;
   
   document.getElementById('resultContainer').innerHTML = resultHtml;
-  
-  // 同时更新所有浮动按钮/底部链接的预填消息（提升体验）
-  const waLinks = document.querySelectorAll('#footerWaLink, #floatingWa, #quickWaBtn');
-  waLinks.forEach(link => {
-    if (link.tagName === 'A') {
-      const shortMsg = `Halo JF Gadai, saya ingin gadai ${brandName} ${cpuName} RAM ${ramText}. Mohon info lebih lanjut.`;
-      const newUrl = `https://wa.me/6289515692586?text=${encodeURIComponent(shortMsg)}`;
-      if (!link.hasAttribute('data-custom')) {
-        link.href = newUrl;
-      }
-    }
-  });
 }
 
-// ========== 步骤切换逻辑 ==========
 let currentStep = 1;
-
 function showStep(step) {
   document.querySelectorAll('.form-step').forEach((el, idx) => {
-    if (idx + 1 === step) {
-      el.classList.add('active');
-    } else {
-      el.classList.remove('active');
-    }
+    el.classList.toggle('active', idx + 1 === step);
   });
   currentStep = step;
   window.scrollTo({ top: 120, behavior: 'smooth' });
 }
 
-// ========== 事件绑定 & 初始化 ==========
 document.addEventListener('DOMContentLoaded', function() {
   // 品牌切换
-  const brandOptions = document.querySelectorAll('.brand-option');
-  brandOptions.forEach(opt => {
+  document.querySelectorAll('.brand-option').forEach(opt => {
     opt.addEventListener('click', function() {
-      brandOptions.forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.brand-option').forEach(b => b.classList.remove('active'));
       this.classList.add('active');
     });
   });
   
-  // 下一步按钮
-  const nextBtn = document.querySelector('.btn-next');
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      if (currentStep === 1) showStep(2);
-    });
-  }
-  
-  // 上一步按钮 (两个btn-prev)
-  const prevBtns = document.querySelectorAll('.btn-prev');
-  prevBtns.forEach(btn => {
+  document.querySelector('.btn-next')?.addEventListener('click', () => showStep(2));
+  document.querySelectorAll('.btn-prev').forEach(btn => {
     btn.addEventListener('click', () => {
       if (currentStep === 2) showStep(1);
       else if (currentStep === 3) showStep(2);
     });
   });
-  
-  // 提交/计算按钮
-  const submitBtn = document.querySelector('.btn-submit');
-  if (submitBtn) {
-    submitBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      showResult();
-      showStep(3);
-    });
-  }
-  
-  // FAQ 交互 (符合faq.css的展开逻辑)
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    if (question) {
-      question.addEventListener('click', () => {
-        // 切换当前active
-        const isActive = item.classList.contains('active');
-        // 可选: 关闭其他项 (提升体验)
-        faqItems.forEach(i => i.classList.remove('active'));
-        if (!isActive) {
-          item.classList.add('active');
-        }
-      });
-    }
+  document.querySelector('.btn-submit')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    showResult();
+    showStep(3);
   });
   
-  // 预设让第一个faq展开（可选）
-  if (faqItems.length > 0) faqItems[0].classList.add('active');
-  
-  // 针对快速操作whatsapp按钮，加上默认消息（但不会覆盖计算结果后的动态）
-  const quickWa = document.getElementById('quickWaBtn');
-  if (quickWa) {
-    quickWa.addEventListener('click', (e) => {
-      if (!quickWa.href.includes('text=')) {
-        e.preventDefault();
-        window.open('https://wa.me/6289515692586?text=Halo%20JF%20Gadai%2C%20saya%20tertarik%20gadai%20laptop', '_blank');
-      }
-    });
-  }
-  
-  // 防止back-btn / nav-forward 页面跳转 (保持风格)
-  const dummyLinks = document.querySelectorAll('.back-btn, .nav-forward, .action-btn.location');
-  dummyLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      if (link.classList.contains('location')) {
-        e.preventDefault();
-        alert('📍 Kantor kami: Jl. Gadai Indah No.45, Jakarta Selatan (buka Google Maps)');
-      } else if (link.classList.contains('back-btn') || link.classList.contains('nav-forward')) {
-        e.preventDefault();
-        // 只是UI演示，不做跳转
-      }
+  // FAQ
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-question');
+    q?.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!isActive) item.classList.add('active');
     });
   });
+  if (document.querySelectorAll('.faq-item').length) {
+    document.querySelectorAll('.faq-item')[0].classList.add('active');
+  }
 });
 </script>
 </body>
