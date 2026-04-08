@@ -7,22 +7,6 @@
 
 <!-- 主样式（你原来的） -->
 <link rel="stylesheet" href="main.css">
-
-<style>
-/* 兜底（防止 main.css 没加载） */
-body{background:#0b2c4a;color:white;font-family:sans-serif;margin:0}
-.container{max-width:900px;margin:auto;padding:20px}
-.brand-option{display:inline-block;padding:10px;border:1px solid #fff;margin:5px;cursor:pointer;border-radius:10px}
-.brand-option.active{background:#f5c542;color:#000}
-.form-step{display:none}
-.form-step.active{display:block}
-button{padding:10px 15px;margin-top:10px;border:none;border-radius:20px;cursor:pointer}
-.btn-next,.btn-submit{background:#f5c542}
-.btn-prev{background:#444;color:#fff}
-.estimation-card{margin-top:20px;padding:20px;border:1px solid #f5c542;border-radius:15px}
-.value{font-size:22px;font-weight:bold}
-header,footer{background:#081f36;padding:15px;text-align:center}
-</style>
 </head>
 
 <body>
@@ -40,10 +24,16 @@ header,footer{background:#081f36;padding:15px;text-align:center}
 <!-- STEP 1 -->
 <div id="step1" class="form-step active">
 
-<div>
-<div class="brand-option active" data-brand="apple">Apple</div>
-<div class="brand-option" data-brand="asus">ASUS</div>
-<div class="brand-option" data-brand="lenovo">Lenovo</div>
+<div id="brandSelection" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+
+  <div class="brand-option active" data-brand="apple">Apple</div>
+  <div class="brand-option" data-brand="asus">ASUS</div>
+  <div class="brand-option" data-brand="lenovo">Lenovo</div>
+
+  <div class="brand-option" data-brand="acer">Acer</div>
+  <div class="brand-option" data-brand="hp">HP</div>
+  <div class="brand-option" data-brand="dell">Dell</div>
+
 </div>
 
 <br>
