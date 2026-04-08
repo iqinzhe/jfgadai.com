@@ -1,14 +1,102 @@
 <!DOCTYPE html>
 <html lang="id-ID">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- SEO Meta Tags -->
-  <title>Gadai Motor Terpercaya | JF Gadai - Proses Cepat & Transparan</title>
-  <meta name="description" content="Gadai motor Honda, Yamaha. Penilaian adil, proses cepat, dana langsung cair. Konsultasi gratis di Bangil, Beji, Gempol.">
-  <meta name="author" content="JF Gadai">
-  <meta name="robots" content="index, follow">
+<!-- ✅ 唯一 Title（只能有一个） -->
+<title>JF Gadai - Layanan Gadai Cepat & Terpercaya di Bangil</title>
+
+<meta name="description" content="JF Gadai menyediakan layanan gadai motor, emas, HP, dan laptop di Bangil, Beji, dan Gempol. Proses cepat, aman, dan terpercaya.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.jfgadai.com/">
+
+<!-- ✅ Open Graph -->
+<meta property="og:title" content="JF Gadai - Layanan Gadai Terpercaya">
+<meta property="og:description" content="Gadai cepat, aman, dan transparan di Bangil & Gempol bersama JF Gadai.">
+<meta property="og:url" content="https://www.jfgadai.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JF Gadai">
+
+<!-- ✅ WebSite（唯一） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://www.jfgadai.com/#website",
+  "name": "JF Gadai",
+  "alternateName": "JF Gadai Indonesia",
+  "url": "https://www.jfgadai.com/",
+  "publisher": {
+    "@id": "https://www.jfgadai.com/#organization"
+  }
+}
+</script>
+
+<!-- ✅ Organization（唯一） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PawnShop",
+  "name": "JF Gadai",
+  "image": "https://www.jfgadai.com/images/jf-justfast.jpg",
+  "url": "https://www.jfgadai.com/",
+  "telephone": "+6289515692586",
+  "priceRange": "Rp",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bangil",
+    "addressRegion": "Jawa Timur",
+    "addressCountry": "ID"
+  },
+  "areaServed": [
+    "Bangil",
+    "Beji",
+    "Gempol"
+  ]
+}
+</script>
+
+<!-- ✅ Pawn（保留一个即可） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PawnBroker",
+  "name": "JF Gadai",
+  "image": "https://www.jfgadai.com/images/jf-justfast.jpg",
+  "url": "https://www.jfgadai.com/",
+  "telephone": "+6289515692586",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bangil",
+    "addressRegion": "Jawa Timur",
+    "addressCountry": "ID"
+  }
+}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845187332"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-17845187332');
+
+// ✅ 转化跟踪函数（核心）
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17845187332/NqKjClfo5d8bEITmn71C', // ← 替换
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -19,42 +107,6 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#ffffff">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Gadai Motor | JF Gadai - Dana Cepat untuk Motor Anda">
-  <meta property="og:description" content="Tempat gadai motor terpercaya di Bangil, Beji, Gempol. Proses aman, penilaian jujur, bunga kompetitif.">
-  <meta property="og:image" content="https://www.jfgadai.com/images/og-motor.jpg">
-  <meta property="og:url" content="https://www.jfgadai.com/motor.html">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="id_ID">
-  <meta property="og:site_name" content="JF Gadai">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.jfgadai.com/motor.html">
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Gadai Motor",
-    "provider": {
-      "@type": "PawnBroker",
-      "name": "JF Gadai",
-      "telephone": "+6289515692586"
-    },
-    "areaServed": {
-      "@type": "AdministrativeArea",
-      "name": ["Bangil", "Beji", "Gempol"]
-    },
-    "serviceOutput": {
-      "@type": "MonetaryAmount",
-      "description": "Pinjaman tunai dengan jaminan motor"
-    },
-    "description": "Layanan gadai motor berbagai merek dengan proses cepat, penilaian profesional, dan keamanan terjamin.",
-    "termsOfService": "https://www.jfgadai.com/risk-to-success.html"
-  }
-  </script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/css/main.css">
