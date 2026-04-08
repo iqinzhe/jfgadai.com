@@ -5,9 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Estimasi Gadai Laptop</title>
 
+<!-- 主样式（你原来的） -->
+<link rel="stylesheet" href="main.css">
+
 <style>
-body{font-family:sans-serif;background:#0b2c4a;color:white;margin:0;padding:20px}
-.container{max-width:800px;margin:auto}
+/* 兜底（防止 main.css 没加载） */
+body{background:#0b2c4a;color:white;font-family:sans-serif;margin:0}
+.container{max-width:900px;margin:auto;padding:20px}
 .brand-option{display:inline-block;padding:10px;border:1px solid #fff;margin:5px;cursor:pointer;border-radius:10px}
 .brand-option.active{background:#f5c542;color:#000}
 .form-step{display:none}
@@ -16,11 +20,19 @@ button{padding:10px 15px;margin-top:10px;border:none;border-radius:20px;cursor:p
 .btn-next,.btn-submit{background:#f5c542}
 .btn-prev{background:#444;color:#fff}
 .estimation-card{margin-top:20px;padding:20px;border:1px solid #f5c542;border-radius:15px}
-.value{font-size:20px;font-weight:bold}
+.value{font-size:22px;font-weight:bold}
+header,footer{background:#081f36;padding:15px;text-align:center}
 </style>
 </head>
 
 <body>
+
+<!-- HEADER -->
+<header>
+<h2>JF Gadai Laptop</h2>
+<div>Solusi Dana Cepat & Aman</div>
+</header>
+
 <div class="container">
 
 <h2>💻 Estimasi Gadai Laptop</h2>
@@ -34,6 +46,8 @@ button{padding:10px 15px;margin-top:10px;border:none;border-radius:20px;cursor:p
 <div class="brand-option" data-brand="lenovo">Lenovo</div>
 </div>
 
+<br>
+
 <select id="cpu">
 <option value="i3">i3</option>
 <option value="i5" selected>i5</option>
@@ -45,6 +59,7 @@ button{padding:10px 15px;margin-top:10px;border:none;border-radius:20px;cursor:p
 <option value="16" selected>16GB</option>
 </select>
 
+<br>
 <button class="btn-next">Next</button>
 </div>
 
@@ -56,6 +71,7 @@ button{padding:10px 15px;margin-top:10px;border:none;border-radius:20px;cursor:p
 <option value="3">3-4 tahun</option>
 </select>
 
+<br>
 <button class="btn-prev">Back</button>
 <button class="btn-submit">Hitung</button>
 </div>
@@ -68,28 +84,29 @@ button{padding:10px 15px;margin-top:10px;border:none;border-radius:20px;cursor:p
 
 </div>
 
+<!-- FOOTER -->
+<footer>
+<div>© 2026 JF Gadai Laptop</div>
+<div>WhatsApp: 6289515692586</div>
+</footer>
+
 <script>
 // ===== FORMAT =====
 function formatRupiah(num){
   return "Rp " + new Intl.NumberFormat("id-ID").format(num);
 }
 
-// ===== REAL ALGORITHM =====
+// ===== 算法（真实版但可控）=====
 function getBasePrice(brand,cpu){
   const brandFactor={apple:1,lenovo:0.85,asus:0.86};
   const cpuBase={i3:2500000,i5:3800000,i7:5500000};
   return (cpuBase[cpu]||3800000)*(brandFactor[brand]||0.85);
 }
 function getRamFactor(r){return r>=16?1.08:1}
-function getStorageFactor(){return 1.04}
-function getGpuFactor(){return 1.05}
 function getAgeFactor(a){return a==1?0.85:0.7}
-function getPhysicalFactor(){return 1}
-function getBatteryFactor(){return 1}
-function getAccessoriesFactor(){return 1}
 function getPawnRatio(){return 0.6}
 
-// ===== MAIN =====
+// ===== 主计算 =====
 function calculateAndShow(){
 
 const brand=document.querySelector('.brand-option.active')?.dataset.brand||'asus';
@@ -98,7 +115,7 @@ const ram=parseInt(document.getElementById('ram')?.value||16);
 const age=parseInt(document.getElementById('age')?.value||1);
 
 let value=getBasePrice(brand,cpu);
-value*=getRamFactor(ram)*getStorageFactor()*getGpuFactor();
+value*=getRamFactor(ram);
 value*=getAgeFactor(age);
 value=Math.max(Math.round(value),400000);
 
@@ -110,7 +127,7 @@ const pawnMin=Math.round(pawnValue*0.92);
 const pawnMax=Math.round(pawnValue*1.08);
 const pawnAvg=Math.round((pawnMin+pawnMax)/2);
 
-// ===== WhatsApp 成交文案 =====
+// ===== WhatsApp =====
 const message=`Halo Admin JF Gadai,
 
 Saya ingin gadai laptop:
@@ -119,9 +136,9 @@ Saya ingin gadai laptop:
 
 📊 Estimasi pinjaman:
 ${formatRupiah(pawnMin)} - ${formatRupiah(pawnMax)}
-(Rata-rata sekitar ${formatRupiah(pawnAvg)})
+(Rata-rata ${formatRupiah(pawnAvg)})
 
-Saya siap proses hari ini, mohon info langkah selanjutnya.`;
+Saya siap proses hari ini.`;
 
 const wa=encodeURIComponent(message);
 
@@ -134,10 +151,10 @@ document.getElementById('resultContainer').innerHTML=`
 
 <br>
 
-<div>🏦 Pinjaman</div>
+<div>🏦 Estimasi Pinjaman</div>
 <div class="value">${formatRupiah(pawnMin)} – ${formatRupiah(pawnMax)}</div>
 
-<div style="margin-top:8px;font-size:0.9rem">
+<div style="margin-top:8px">
 💡 Rata-rata: <b>${formatRupiah(pawnAvg)}</b>
 </div>
 
