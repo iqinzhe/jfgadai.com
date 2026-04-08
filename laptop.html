@@ -507,7 +507,7 @@ footer {
       </div>
     </div>
 
-    <!-- 系列选择 - 新增！ -->
+    <!-- 系列选择 -->
     <div class="unified-card">
       <div class="card-title">🏷️ Pilih Series Laptop</div>
       <div class="card-desc">Series sangat mempengaruhi nilai gadai (ROG > Vivobook, ThinkPad > Ideapad)</div>
@@ -765,9 +765,9 @@ footer {
       gpus: [
         { value: 'integrated', label: 'Integrated (Intel UHD / Iris Xe)', factor: 0.88, seriesCompatible: ['ideapad', 'thinkbook', 'thinkpad_e', 'thinkpad_t', 'thinkpad_x1', 'yoga'] },
         { value: 'entry', label: 'Entry (NVIDIA MX Series)', factor: 1.0, seriesCompatible: ['ideapad', 'thinkbook'] },
-        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.18, seriesCompatible: ['legion', 'ideapad_gaming'] },
+        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.18, seriesCompatible: ['legion'] },
         { value: 'high', label: 'High (NVIDIA RTX 3070/3080)', factor: 1.35, seriesCompatible: ['legion'] },
-        { value: 'flagship', label: 'Flagship (NVIDIA RTX 4080/4090)', factor: 1.55, seriesCompatible: ['legion_9'] }
+        { value: 'flagship', label: 'Flagship (NVIDIA RTX 4080/4090)', factor: 1.55, seriesCompatible: ['legion'] }
       ]
     },
     dell: {
@@ -860,7 +860,6 @@ footer {
   };
   
   let currentBrand = 'apple';
-  let currentSeries = null;
   
   // ==================== 辅助函数 ====================
   function formatRupiah(num) {
@@ -934,7 +933,6 @@ footer {
       seriesSelect.appendChild(option);
     });
     
-    // 更新CPU和GPU
     updateCpuOptions();
     updateGpuOptions();
   }
@@ -959,10 +957,8 @@ footer {
     const battery = document.getElementById('battery').value;
     const ageYear = parseInt(document.getElementById('age').value);
     
-    // 基础价值来自系列配置
     let marketValue = seriesData.basePrice;
     
-    // CPU系数（基于系列基础价值再调整）
     const cpuFactors = {
       i3_12: 0.85, i5_12: 1.0, i7_12: 1.2, i9_12: 1.45,
       ryzen5: 0.95, ryzen7: 1.15, ryzen9: 1.4,
@@ -970,7 +966,6 @@ footer {
       m3: 1.25, m3_pro: 1.45, m3_max: 1.65
     };
     
-    // GPU系数
     const gpuSelect = document.getElementById('gpu');
     const gpuData = brandData.gpus.find(g => g.value === gpu);
     const gpuFactor = gpuData ? gpuData.factor : 1.0;
@@ -998,7 +993,7 @@ footer {
     
     let pawnRatio = CONFIG.BASE_PAWN_RATIO;
     
-    // 系列加成（高端系列抵押率更高）
+    // 系列加成
     if (seriesData && seriesData.factor >= 1.6) pawnRatio += 0.05;
     else if (seriesData && seriesData.factor >= 1.3) pawnRatio += 0.03;
     
@@ -1017,7 +1012,9 @@ footer {
     
     pawnRatio = Math.min(pawnRatio, CONFIG.MAX_PAWN_RATIO);
     
-    return Math.round(marketValue * pawnRatio);
+    // 🔥 关键修改：取整到 100,000
+    const rawValue = marketValue * pawnRatio;
+    return Math.round(rawValue / 100000) * 100000;
   }
   
   // ==================== UI 更新函数 ====================
@@ -1128,7 +1125,6 @@ Saya siap bawa laptop ke kantor hari ini. Terima kasih.`;
         currentBrand = this.getAttribute('data-brand');
         updateSeriesOptions();
         
-        // 触发系列变更
         const seriesSelect = document.getElementById('series');
         if (seriesSelect) {
           onSeriesChange();
