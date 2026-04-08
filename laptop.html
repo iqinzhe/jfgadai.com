@@ -28,7 +28,7 @@ button{padding:10px 15px;margin-top:10px;border:none;border-radius:20px;cursor:p
 <!-- STEP 1 -->
 <div id="step1" class="form-step active">
 
-<div id="brandSelection">
+<div>
 <div class="brand-option active" data-brand="apple">Apple</div>
 <div class="brand-option" data-brand="asus">ASUS</div>
 <div class="brand-option" data-brand="lenovo">Lenovo</div>
@@ -69,141 +69,120 @@ button{padding:10px 15px;margin-top:10px;border:none;border-radius:20px;cursor:p
 </div>
 
 <script>
-// ===== SAFE CORE =====
-function getVal(id, def){
-  return document.getElementById(id)?.value || def;
+// ===== FORMAT =====
+function formatRupiah(num){
+  return "Rp " + new Intl.NumberFormat("id-ID").format(num);
 }
 
-function getBrand(){
-  return document.querySelector('.brand-option.active')?.dataset.brand || 'asus';
+// ===== REAL ALGORITHM =====
+function getBasePrice(brand,cpu){
+  const brandFactor={apple:1,lenovo:0.85,asus:0.86};
+  const cpuBase={i3:2500000,i5:3800000,i7:5500000};
+  return (cpuBase[cpu]||3800000)*(brandFactor[brand]||0.85);
 }
+function getRamFactor(r){return r>=16?1.08:1}
+function getStorageFactor(){return 1.04}
+function getGpuFactor(){return 1.05}
+function getAgeFactor(a){return a==1?0.85:0.7}
+function getPhysicalFactor(){return 1}
+function getBatteryFactor(){return 1}
+function getAccessoriesFactor(){return 1}
+function getPawnRatio(){return 0.6}
 
-function format(num){
-  return "Rp " + num.toLocaleString("id-ID");
-}
+// ===== MAIN =====
+function calculateAndShow(){
 
-<script>
-function calculateAndShow() {
-  const activeBrand = document.querySelector('.brand-option.active');
-  const brand = activeBrand?.dataset?.brand || 'lenovo';
+const brand=document.querySelector('.brand-option.active')?.dataset.brand||'asus';
+const cpu=document.getElementById('cpu')?.value||'i5';
+const ram=parseInt(document.getElementById('ram')?.value||16);
+const age=parseInt(document.getElementById('age')?.value||1);
 
-  const cpu = document.getElementById('cpu')?.value || 'i5';
-  const ram = parseInt(document.getElementById('ram')?.value || 16);
-  const storage = parseInt(document.getElementById('storage')?.value || 512);
-  const gpu = document.getElementById('gpu')?.value || 'mid';
-  const age = parseInt(document.getElementById('age')?.value || 1);
+let value=getBasePrice(brand,cpu);
+value*=getRamFactor(ram)*getStorageFactor()*getGpuFactor();
+value*=getAgeFactor(age);
+value=Math.max(Math.round(value),400000);
 
-  const physical = document.querySelector('input[name="physical"]:checked')?.value || 'sedang';
-  const battery = document.querySelector('input[name="battery"]:checked')?.value || 'sedang';
-  const accessories = document.querySelector('input[name="accessories"]:checked')?.value || 'lengkap';
+const marketMin=Math.round(value*0.9);
+const marketMax=Math.round(value*1.1);
 
-  let secondValue = getBasePrice(brand, cpu);
-  secondValue *= getRamFactor(ram) * getStorageFactor(storage) * getGpuFactor(gpu);
-  secondValue *= getAgeFactor(age) * getPhysicalFactor(physical) * getBatteryFactor(battery) * getAccessoriesFactor(accessories);
-  secondValue = Math.max(Math.round(secondValue), 400000);
+const pawnValue=Math.round(value*getPawnRatio());
+const pawnMin=Math.round(pawnValue*0.92);
+const pawnMax=Math.round(pawnValue*1.08);
+const pawnAvg=Math.round((pawnMin+pawnMax)/2);
 
-  const marketMin = Math.round(secondValue * 0.9);
-  const marketMax = Math.round(secondValue * 1.1);
-
-  const pawnRatio = getPawnRatio(physical, battery, accessories);
-  const pawnValue = Math.round(secondValue * pawnRatio);
-
-  const pawnMin = Math.round(pawnValue * 0.92);
-  const pawnMax = Math.round(pawnValue * 1.08);
-
-  // ⭐ 新增：平均值（关键转化点）
-  const pawnAvg = Math.round((pawnMin + pawnMax) / 2);
-
-  const brandName = activeBrand?.innerText || brand.toUpperCase();
-
-  // ⭐ 成交型 WhatsApp 文案（重点优化）
-  const message = `Halo Admin JF Gadai,
+// ===== WhatsApp 成交文案 =====
+const message=`Halo Admin JF Gadai,
 
 Saya ingin gadai laptop:
 
-💻 ${brandName} | ${cpu.toUpperCase()} | RAM ${ram}GB | SSD ${storage >= 1024 ? storage/1024 + 'TB' : storage + 'GB'}
+💻 ${brand.toUpperCase()} ${cpu.toUpperCase()} | RAM ${ram}GB
 
 📊 Estimasi pinjaman:
 ${formatRupiah(pawnMin)} - ${formatRupiah(pawnMax)}
 (Rata-rata sekitar ${formatRupiah(pawnAvg)})
 
-Saya serius ingin proses hari ini, mohon info langkah selanjutnya. Terima kasih.`;
+Saya siap proses hari ini, mohon info langkah selanjutnya.`;
 
-  const encodedMsg = encodeURIComponent(message);
+const wa=encodeURIComponent(message);
 
-  // ⭐ UI 优化（增强信任 + 引导成交）
-  const resultHtml = `
-    <div class="estimation-card">
-      
-      <div class="estimation-value">
-        <div>💰 Nilai Pasar Second</div>
-        <div class="value">${formatRupiah(marketMin)} – ${formatRupiah(marketMax)}</div>
-      </div>
+// ===== UI =====
+document.getElementById('resultContainer').innerHTML=`
+<div class="estimation-card">
 
-      <div class="estimation-value" style="border-color:#25D366;">
-        <div>🏦 Estimasi Pinjaman</div>
-        <div class="value">${formatRupiah(pawnMin)} – ${formatRupiah(pawnMax)}</div>
-        
-        <div style="margin-top:8px;font-size:0.9rem;color:#cfe3f2;">
-          💡 Rata-rata cair: <b>${formatRupiah(pawnAvg)}</b><br>
-          Laptop kondisi bagus biasanya mendekati angka atas
-        </div>
-      </div>
+<div>💰 Nilai Pasar</div>
+<div class="value">${formatRupiah(marketMin)} – ${formatRupiah(marketMax)}</div>
 
-      <div class="action-buttons">
-        <a href="https://wa.me/6289515692586?text=${encodedMsg}" 
-           target="_blank" 
-           class="btn-whatsapp">
-           📱 Konsultasi & Proses Cepat
-        </a>
-      </div>
+<br>
 
-      <div style="text-align:center;margin-top:10px;font-size:0.8rem;">
-        ✅ Semakin lengkap & mulus, semakin tinggi pencairan
-      </div>
+<div>🏦 Pinjaman</div>
+<div class="value">${formatRupiah(pawnMin)} – ${formatRupiah(pawnMax)}</div>
 
-    </div>
-  `;
+<div style="margin-top:8px;font-size:0.9rem">
+💡 Rata-rata: <b>${formatRupiah(pawnAvg)}</b>
+</div>
 
-  document.getElementById('resultContainer').innerHTML = resultHtml;
+<br>
+
+<a href="https://wa.me/6289515692586?text=${wa}" target="_blank">
+<button style="background:#25D366;color:white">WhatsApp Sekarang</button>
+</a>
+
+</div>
+`;
 }
-</script>
+
 // ===== STEP =====
 let step=1;
-
 function showStep(n){
-  document.querySelectorAll('.form-step').forEach((el,i)=>{
-    el.classList.toggle('active', i===n-1);
-  });
-  step=n;
+document.querySelectorAll('.form-step').forEach((el,i)=>{
+el.classList.toggle('active',i===n-1);
+});
+step=n;
 }
 
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded',()=>{
 
-// brand click (FIX ERROR)
 document.querySelectorAll('.brand-option').forEach(el=>{
-  el.addEventListener('click',()=>{
-    document.querySelectorAll('.brand-option').forEach(b=>b.classList.remove('active'));
-    el.classList.add('active');
-  });
+el.addEventListener('click',()=>{
+document.querySelectorAll('.brand-option').forEach(b=>b.classList.remove('active'));
+el.classList.add('active');
+});
 });
 
-// next
 document.querySelector('.btn-next')?.addEventListener('click',()=>showStep(2));
 
-// prev
 document.querySelectorAll('.btn-prev').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    if(step===2) showStep(1);
-    else if(step===3) showStep(2);
-  });
+btn.addEventListener('click',()=>{
+if(step===2)showStep(1);
+else if(step===3)showStep(2);
+});
 });
 
-// submit
-document.querySelector('.btn-submit')?.addEventListener('click',()=>{
-  calculate();
-  showStep(3);
+document.querySelector('.btn-submit')?.addEventListener('click',(e)=>{
+e.preventDefault();
+calculateAndShow();
+showStep(3);
 });
 
 });
