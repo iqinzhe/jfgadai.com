@@ -21,20 +21,35 @@
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.jfgadai.com/images/og/gadai-bpkb.jpg</image:loc>
+      <image:title>Gadai BPKB</image:title>
+      <image:caption>Layanan gadai BPKB motor/mobil cepat dan aman di Bangil</image:caption>
+    </image:image>
   </url>
 
   <url>
     <loc>https://www.jfgadai.com/motor.html</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://www.jfgadai.com/images/og/motor.jpg</image:loc>
+      <image:title>Gadai Motor</image:title>
+      <image:caption>Layanan gadai motor cepat cair, aman, terpercaya</image:caption>
+    </image:image>
   </url>
 
   <url>
     <loc>https://www.jfgadai.com/hp.html</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://www.jfgadai.com/images/og/hp.jpg</image:loc>
+      <image:title>Gadai HP</image:title>
+      <image:caption>Layanan gadai HP cepat cair, aman, terpercaya</image:caption>
+    </image:image>
   </url>
 
   <url>
@@ -42,6 +57,11 @@
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.jfgadai.com/images/og/laptop.jpg</image:loc>
+      <image:title>Gadai Laptop</image:title>
+      <image:caption>Layanan gadai laptop cepat cair, aman, terpercaya</image:caption>
+    </image:image>
   </url>
 
   <url>
@@ -49,6 +69,11 @@
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.jfgadai.com/images/og/electronics.jpg</image:loc>
+      <image:title>Gadai Elektronik</image:title>
+      <image:caption>Layanan gadai elektronik cepat cair, aman, terpercaya</image:caption>
+    </image:image>
   </url>
 
   <url>
@@ -56,6 +81,11 @@
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.jfgadai.com/images/og/assessment.jpg</image:loc>
+      <image:title>Assessment</image:title>
+      <image:caption>Taksiran barang gadai cepat dan transparan</image:caption>
+    </image:image>
   </url>
 
   <!-- 本地/城市页 -->
@@ -64,6 +94,11 @@
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.jfgadai.com/images/og/gadai-bangil.jpg</image:loc>
+      <image:title>Gadai Bangil</image:title>
+      <image:caption>Layanan gadai terpercaya di Bangil, Beji, Gempol</image:caption>
+    </image:image>
   </url>
 
   <!-- 内容/教育页 -->
@@ -72,6 +107,11 @@
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.jfgadai.com/images/og/edukasi-gadai.jpg</image:loc>
+      <image:title>Edukasi Gadai</image:title>
+      <image:caption>Tips dan edukasi seputar gadai aman dan cepat</image:caption>
+    </image:image>
   </url>
 
   <url>
@@ -79,14 +119,24 @@
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.jfgadai.com/images/og/risk-to-success.jpg</image:loc>
+      <image:title>Risk to Success</image:title>
+      <image:caption>Panduan risiko dan solusi dalam layanan gadai</image:caption>
+    </image:image>
   </url>
 
-  <!-- 联系/信任页 -->
+  <!-- 联系页 -->
   <url>
     <loc>https://www.jfgadai.com/contact.html</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.jfgadai.com/images/og/contact.jpg</image:loc>
+      <image:title>Kontak JF Gadai</image:title>
+      <image:caption>Hubungi kami untuk layanan gadai cepat dan aman</image:caption>
+    </image:image>
   </url>
 
   <!-- 展示页 -->
@@ -95,44 +145,11 @@
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
-
-    <!-- 图片示例 -->
     <image:image>
       <image:loc>https://www.jfgadai.com/images/gallery/jf-gadai-dana-cepat-cair-hari-ini.jpg</image:loc>
       <image:title>Butuh Dana Cepat?</image:title>
       <image:caption>JF Gadai membantu menghadapi tekanan finansial, cair hari ini</image:caption>
     </image:image>
-
-    <image:image>
-      <image:loc>https://www.jfgadai.com/images/gallery/jf-gadai-terhormat-prinsip-layanan.jpg</image:loc>
-      <image:title>Butuh Dana Cepat, Tetap Terhormat</image:title>
-      <image:caption>Solusi dana cepat tanpa mengorbankan harga diri dan rasa aman</image:caption>
-    </image:image>
-
-    <image:image>
-      <image:loc>https://www.jfgadai.com/images/jf-gadai-resmi-legal-barang-jaminan.jpg</image:loc>
-      <image:title>Gadai Resmi &amp; Legal</image:title>
-      <image:caption>Barang gadai menjadi dasar kepercayaan. Solusi dana yang aman, transparan, dan cepat.</image:caption>
-    </image:image>
-
-    <image:image>
-      <image:loc>https://www.jfgadai.com/images/gallery/jf-gadai-keunggulan-layanan-lokal.jpg</image:loc>
-      <image:title>Mengapa Memilih Kami?</image:title>
-      <image:caption>Bunga kompetitif dan jelas. Keamanan barang terjamin. Layanan lokal terpercaya. Pembayaran fleksibel.</image:caption>
-    </image:image>
-
-    <image:image>
-      <image:loc>https://www.jfgadai.com/images/gallery/jf-gadai-solusi-gadai-vs-bank-rentenir.jpg</image:loc>
-      <image:title>Butuh Dana? Gadai Saja</image:title>
-      <image:caption>Bank terlalu rumit. Rentenir terlalu berisiko. Gadai ada di tengah — cepat, terkendali, dan masuk akal.</image:caption>
-    </image:image>
-
-    <image:image>
-      <image:loc>https://www.jfgadai.com/images/gallery/jf-gadai-ada-jaminan-ada-solusi.jpg</image:loc>
-      <image:title>Ada Jaminan, Ada Solusi</image:title>
-      <image:caption>Syarat jelas, tanpa jebakan. Taksir hari ini, cair hari ini.</image:caption>
-    </image:image>
-
   </url>
 
 </urlset>
