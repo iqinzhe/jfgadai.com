@@ -287,20 +287,20 @@
 <body>
 
 <!-- 顶部导航 -->
-<div class="assessment-header">
+<header class="assessment-header">
   <div class="container">
-    <a href="#" class="back-btn" onclick="return false;">
-      <img src="https://placehold.co/30x30/0f4c81/f5c542?text=JF" alt="JF Gadai" class="logo-image" style="border-radius: 8px;">
-      <span>JF Gadai</span>
+    <a href="/" class="back-btn">
+      <img src="/images/logo-jf.png" alt="JF Gadai" class="logo-image">
+      <strong><span class="arrow">←</span> Beranda</strong>
     </a>
-    <div style="display: flex; gap: 8px;">
-      <a href="#" class="nav-forward" onclick="return false;"><span>🏠</span></a>
-      <a href="#" class="nav-forward" onclick="return false;"><span>📞</span></a>
-    </div>
+    <a href="/assessment.html" class="nav-forward">
+      <strong>Gadai Emas <span class="arrow">→</span></strong>
+      <img src="/images/logo-motor.png" alt="Gadai Motor" class="nav-icon">
+    </a>
   </div>
-</div>
 
-<!-- 页面头部 -->
+</header>
+<!-- page-header 页面头部 -->
 <div class="page-header">
   <div class="container">
     <h1>💻 Estimasi Gadai Laptop</h1>
@@ -500,18 +500,27 @@
 </div>
 
 <!-- 页脚 -->
-<footer>
+<footer id="lokasi" role="contentinfo">
   <div class="footer-content">
-    <div class="copyright">© 2026 JF Gadai Laptop • Solusi Dana Cepat & Aman</div>
-    <div class="company-info">JF Gadai berizin resmi • Melayani gadai laptop, smartphone, dan elektronik</div>
+    <p class="copyright">
+      © <span id="year"></span> JF Gadai Laptop • Solusi Dana Cepat & Aman
+    </p>
+
+    <div class="company-info">
+JF Gadai berizin resmi • Melayani gadai laptop, smartphone, dan elektronik</div>
+
     <div class="contact-info">
       <a href="https://wa.me/6289515692586" target="_blank" class="contact-link">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;">
-        +62 895-1569-2586
+        Chat WhatsApp Sekarang
       </a>
-    </div>
-    <div class="operating-hours">🕒 Buka: Senin – Sabtu | 09:00 – 18:00</div>
-    <div class="security-note">🔒 Proses transparan • Bunga ringan</div>
+
+    <p class="operating-hours">
+      ⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu
+    </p>
+    <p class="security-note">
+      🔒 Situs ini menggunakan koneksi aman (HTTPS).
+    </p>
   </div>
 </footer>
 
