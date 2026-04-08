@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  
+
   <!-- 首页 -->
   <url>
     <loc>https://www.jfgadai.com/</loc>
-    <lastmod>2026-01-20</lastmod>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -14,56 +14,125 @@
       <image:caption>Layanan Gadai Motor, Elektronik &amp; Emas di Bangil, Beji, dan Gempol</image:caption>
     </image:image>
   </url>
-  
-  <!-- 广告海报 / 图片展示页 -->
+
+  <!-- 核心业务页 -->
   <url>
-    <loc>https://www.jfgadai.com/gallery.html</loc>
-    <lastmod>2026-02-01</lastmod>
+    <loc>https://www.jfgadai.com/gadai-bpkb.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.jfgadai.com/motor.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.jfgadai.com/hp.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.jfgadai.com/laptop.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.jfgadai.com/electronics.html</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    
-    <!-- 图片1 -->
+  </url>
+
+  <url>
+    <loc>https://www.jfgadai.com/assessment</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 本地/城市页 -->
+  <url>
+    <loc>https://www.jfgadai.com/gadai-bangil.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 内容/教育页 -->
+  <url>
+    <loc>https://www.jfgadai.com/edukasi-gadai.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.jfgadai.com/risk-to-success.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 联系/信任页 -->
+  <url>
+    <loc>https://www.jfgadai.com/contact.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- 展示页 -->
+  <url>
+    <loc>https://www.jfgadai.com/gallery.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+
+    <!-- 图片示例 -->
     <image:image>
       <image:loc>https://www.jfgadai.com/images/gallery/jf-gadai-dana-cepat-cair-hari-ini.jpg</image:loc>
       <image:title>Butuh Dana Cepat?</image:title>
       <image:caption>JF Gadai membantu menghadapi tekanan finansial, cair hari ini</image:caption>
     </image:image>
-    
-    <!-- 图片2 -->
+
     <image:image>
       <image:loc>https://www.jfgadai.com/images/gallery/jf-gadai-terhormat-prinsip-layanan.jpg</image:loc>
       <image:title>Butuh Dana Cepat, Tetap Terhormat</image:title>
       <image:caption>Solusi dana cepat tanpa mengorbankan harga diri dan rasa aman</image:caption>
     </image:image>
-    
-    <!-- 图片3 -->
+
     <image:image>
       <image:loc>https://www.jfgadai.com/images/jf-gadai-resmi-legal-barang-jaminan.jpg</image:loc>
       <image:title>Gadai Resmi &amp; Legal</image:title>
       <image:caption>Barang gadai menjadi dasar kepercayaan. Solusi dana yang aman, transparan, dan cepat.</image:caption>
     </image:image>
 
-    <!-- 图片4 -->
     <image:image>
       <image:loc>https://www.jfgadai.com/images/gallery/jf-gadai-keunggulan-layanan-lokal.jpg</image:loc>
       <image:title>Mengapa Memilih Kami?</image:title>
       <image:caption>Bunga kompetitif dan jelas. Keamanan barang terjamin. Layanan lokal terpercaya. Pembayaran fleksibel.</image:caption>
     </image:image>
 
-    <!-- 图片5 -->
     <image:image>
       <image:loc>https://www.jfgadai.com/images/gallery/jf-gadai-solusi-gadai-vs-bank-rentenir.jpg</image:loc>
       <image:title>Butuh Dana? Gadai Saja</image:title>
       <image:caption>Bank terlalu rumit. Rentenir terlalu berisiko. Gadai ada di tengah — cepat, terkendali, dan masuk akal.</image:caption>
     </image:image>
 
-    <!-- 图片6 -->
     <image:image>
       <image:loc>https://www.jfgadai.com/images/gallery/jf-gadai-ada-jaminan-ada-solusi.jpg</image:loc>
       <image:title>Ada Jaminan, Ada Solusi</image:title>
       <image:caption>Syarat jelas, tanpa jebakan. Taksir hari ini, cair hari ini.</image:caption>
     </image:image>
- 
+
   </url>
-  
+
 </urlset>
