@@ -1,94 +1,102 @@
 <!DOCTYPE html>
 <html lang="id-ID">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845187332"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17845187332');
-</script>
-  
-<!-- Google Tag Manager -->
-<script>
-(function(w,d,s,l,i){
-w[l]=w[l]||[];
-w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),
-dl=l!='dataLayer'?'&l='+l:'';
-j.async=true;
-j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M2GMSNWS');
-</script>
-<!-- End GTM -->
-
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Schema.org -->
+<!-- ✅ 唯一 Title（只能有一个） -->
+<title>JF Gadai - Layanan Gadai Cepat & Terpercaya di Bangil</title>
+
+<meta name="description" content="JF Gadai menyediakan layanan gadai motor, emas, HP, dan laptop di Bangil, Beji, dan Gempol. Proses cepat, aman, dan terpercaya.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.jfgadai.com/">
+
+<!-- ✅ Open Graph -->
+<meta property="og:title" content="JF Gadai - Layanan Gadai Terpercaya">
+<meta property="og:description" content="Gadai cepat, aman, dan transparan di Bangil & Gempol bersama JF Gadai.">
+<meta property="og:url" content="https://www.jfgadai.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JF Gadai">
+
+<!-- ✅ WebSite（唯一） -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": "https://www.jfgadai.com/#website",
   "name": "JF Gadai",
-  "url": "https://www.jfgadai.com/"
-}
-</script>
-
-<script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "FAQPage",
-"mainEntity": [
-  {
-    "@type": "Question",
-    "name": "Apa itu gadai dan bagaimana prinsip dasarnya?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Gadai adalah sistem pembiayaan jangka pendek dengan jaminan barang berharga. Prinsipnya berbasis nilai barang, bukan data pribadi."
-    }
-  },
-  {
-    "@type": "Question",
-    "name": "Apa perbedaan gadai dan pinjaman online?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Gadai menggunakan barang jaminan fisik, sedangkan pinjaman online berbasis data tanpa jaminan fisik."
-    }
+  "alternateName": "JF Gadai Indonesia",
+  "url": "https://www.jfgadai.com/",
+  "publisher": {
+    "@id": "https://www.jfgadai.com/#organization"
   }
-]
 }
 </script>
 
+<!-- ✅ Organization（唯一） -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Panduan Lengkap Gadai di Indonesia",
-  "description": "Artikel edukasi komprehensif tentang sistem gadai di Indonesia.",
-  "author": {
-    "@type": "Organization",
-    "name": "JF Gadai"
+  "@type": "PawnShop",
+  "name": "JF Gadai",
+  "image": "https://www.jfgadai.com/images/jf-justfast.jpg",
+  "url": "https://www.jfgadai.com/",
+  "telephone": "+6289515692586",
+  "priceRange": "Rp",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bangil",
+    "addressRegion": "Jawa Timur",
+    "addressCountry": "ID"
   },
-  "publisher": {
-    "@type": "Organization",
-    "name": "JF Gadai"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://www.jfgadai.com/edukasi-gadai.html"
+  "areaServed": [
+    "Bangil",
+    "Beji",
+    "Gempol"
+  ]
+}
+</script>
+
+<!-- ✅ Pawn（保留一个即可） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PawnBroker",
+  "name": "JF Gadai",
+  "image": "https://www.jfgadai.com/images/jf-justfast.jpg",
+  "url": "https://www.jfgadai.com/",
+  "telephone": "+6289515692586",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bangil",
+    "addressRegion": "Jawa Timur",
+    "addressCountry": "ID"
   }
 }
-</script>  
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845187332"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-17845187332');
+
+// ✅ 转化跟踪函数（核心）
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17845187332/NqKjClfo5d8bEITmn71C', // ← 替换
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -101,17 +109,6 @@ f.parentNode.insertBefore(j,f);
 <meta name="description" content="Panduan edukasi gadai terlengkap di Indonesia: sejarah, hukum, jenis barang, proses, risiko, perbandingan dengan pinjaman online, dan tips aman. Disusun oleh JF Gadai secara netral dan berbasis fakta.">
 <meta name="author" content="JF Gadai">
 <meta name="robots" content="index, follow">
-
-<link rel="canonical" href="https://www.jfgadai.com/edukasi-gadai.html">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Panduan Lengkap Gadai di Indonesia">
-<meta property="og:description" content="Edukasi komprehensif tentang sistem gadai di Indonesia: prinsip, hukum, jenis barang, risiko, dan tips memilih lembaga yang aman.">
-<meta property="og:image" content="https://www.jfgadai.com/images/og-edukasi-gadai.jpg">
-<meta property="og:type" content="article">
-<meta property="og:locale" content="id_ID">
-<meta property="og:url" content="https://www.jfgadai.com/edukasi-gadai.html">
-<meta property="og:site_name" content="JF Gadai">
 
 <!-- CSS -->
 <link rel="stylesheet" href="/css/main.css">
@@ -569,11 +566,6 @@ f.parentNode.insertBefore(j,f);
 </head>
 
 <body>
-<noscript>
-<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GMSNWS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-
 <!-- 顶部导航 -->
 <header class="assessment-header">
   <div class="container">
