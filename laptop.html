@@ -89,10 +89,17 @@
 }
 
 .spec-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
   border-radius: var(--border-radius);
   padding: var(--spacing-md);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.spec-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(245, 197, 66, 0.3);
 }
 
 .spec-card h4 {
@@ -102,6 +109,8 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  border-bottom: 1px solid rgba(245, 197, 66, 0.3);
+  padding-bottom: 8px;
 }
 
 /* 表单步骤 */
@@ -117,7 +126,7 @@
 /* 统一选择框样式 */
 .form-select {
   width: 100%;
-  padding: var(--spacing-md);
+  padding: 12px var(--spacing-md);
   margin: var(--spacing-xs) 0;
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(245, 197, 66, 0.3);
@@ -268,6 +277,11 @@
     height: 36px;
   }
 }
+
+/* 确保步骤2内容可见 */
+#step2 .specs-grid {
+  display: grid !important;
+}
 </style>
 </head>
 <body>
@@ -295,7 +309,7 @@
 </div>
 
 <div class="container">
-  <!-- STEP 1: 品牌 -->
+  <!-- STEP 1: 品牌 + CPU + RAM -->
   <div id="step1" class="form-step active">
     <div class="unified-card">
       <div class="card-title">✨ Pilih Merek Laptop</div>
@@ -363,14 +377,20 @@
     </div>
   </div>
 
-  <!-- STEP 2: 硬盘 + 屏幕 + 显卡 + 电池 -->
+  <!-- STEP 2: 硬盘 + 屏幕 + 显卡 + 电池 + 年龄 -->
   <div id="step2" class="form-step">
+    <div class="unified-card">
+      <div class="card-title">🔧 Konfigurasi Lengkap</div>
+      <div class="card-desc">Informasi ini sangat mempengaruhi nilai gadai</div>
+    </div>
+    
     <div class="specs-grid">
       <div class="spec-card">
         <h4>💽 Penyimpanan (SSD/HDD)</h4>
         <select id="storage" class="form-select">
-          <option value="256" >256 GB SSD</option>
-          <option value="512" selected>512 GB SSD</option>
+          <option value="128">128 GB SSD</option>
+          <option value="256" selected>256 GB SSD</option>
+          <option value="512">512 GB SSD</option>
           <option value="1024">1 TB SSD</option>
           <option value="2048">2 TB SSD</option>
         </select>
@@ -379,30 +399,30 @@
       <div class="spec-card">
         <h4>📺 Ukuran Layar</h4>
         <select id="screen" class="form-select">
-          <option value="11">11 - 12 inch</option>
-          <option value="13" selected>13 - 14 inch</option>
-          <option value="15">15 - 16 inch</option>
-          <option value="17">17 inch ke atas</option>
+          <option value="11">11 - 12 inch (Compact)</option>
+          <option value="13" selected>13 - 14 inch (Standar)</option>
+          <option value="15">15 - 16 inch (Large)</option>
+          <option value="17">17 inch ke atas (Extra Large)</option>
         </select>
       </div>
       
       <div class="spec-card">
         <h4>🎮 Kartu Grafis (GPU)</h4>
         <select id="gpu" class="form-select">
-          <option value="integrated">Integrated (Intel UHD)</option>
-          <option value="entry" selected>Entry (MX series / Radeon)</option>
-          <option value="mid">Mid (RTX 3050/3060)</option>
-          <option value="high">High (RTX 3070/3080/4090)</option>
+          <option value="integrated">Integrated (Intel UHD / Iris)</option>
+          <option value="entry" selected>Entry (NVIDIA MX / AMD Radeon)</option>
+          <option value="mid">Mid (NVIDIA RTX 3050/3060)</option>
+          <option value="high">High (NVIDIA RTX 3070/3080/4090)</option>
         </select>
       </div>
       
       <div class="spec-card">
         <h4>🔋 Kondisi Baterai</h4>
         <select id="battery" class="form-select">
-          <option value="excellent" selected>Excellent (>85%)</option>
-          <option value="good">Good (70-85%)</option>
-          <option value="fair">Fair (50-70%)</option>
-          <option value="poor">Poor (<50%)</option>
+          <option value="excellent" selected>Excellent (Kapasitas >85%)</option>
+          <option value="good">Good (Kapasitas 70-85%)</option>
+          <option value="fair">Fair (Kapasitas 50-70%)</option>
+          <option value="poor">Poor (Kapasitas <50%)</option>
         </select>
       </div>
     </div>
@@ -410,7 +430,7 @@
     <div class="unified-card">
       <div class="card-title">📅 Usia Pemakaian</div>
       <select id="age" class="form-select">
-        <option value="1">Kurang dari 1 tahun (Like new)</option>
+        <option value="1">Kurang dari 1 tahun (Like new / Masih garansi)</option>
         <option value="2" selected>1 - 2 tahun</option>
         <option value="3">3 - 4 tahun</option>
         <option value="5">Lebih dari 4 tahun</option>
@@ -471,6 +491,10 @@
         <div class="faq-question">Apakah laptop saya aman?</div>
         <div class="faq-answer">100% aman, disimpan di ruang CCTV 24 jam + asuransi.</div>
       </div>
+      <div class="faq-item">
+        <div class="faq-question">Apa saja yang mempengaruhi nilai gadai?</div>
+        <div class="faq-answer">Merek, prosesor, RAM, penyimpanan, ukuran layar, GPU, kondisi baterai, dan usia pemakaian.</div>
+      </div>
     </div>
   </div>
 </div>
@@ -525,7 +549,7 @@ function getRamFactor(ramGB) {
   return 0.92;
 }
 
-// 存储系数 (SSD)
+// 存储系数
 function getStorageFactor(storageGB) {
   if (storageGB >= 2048) return 1.15;
   if (storageGB >= 1024) return 1.08;
@@ -591,6 +615,7 @@ function calculateEstimation() {
   if (storage >= 512) pawnRatio += 0.01;
   if (ageYears <= 1) pawnRatio += 0.03;
   if (battery === 'excellent') pawnRatio += 0.01;
+  if (gpu === 'high') pawnRatio += 0.02;
   pawnRatio = Math.min(pawnRatio, 0.72);
   
   let pawnBase = Math.round(marketValue * pawnRatio);
@@ -699,30 +724,61 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  document.querySelector('.btn-next')?.addEventListener('click', () => showStep(2));
+  // 步骤切换
+  const nextBtn = document.querySelector('.btn-next');
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => showStep(2));
+  }
+  
   document.querySelectorAll('.btn-prev').forEach(btn => {
     btn.addEventListener('click', () => {
       if (currentStep === 2) showStep(1);
       else if (currentStep === 3) showStep(2);
     });
   });
-  document.querySelector('.btn-submit')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    showResult();
-    showStep(3);
+  
+  const submitBtn = document.querySelector('.btn-submit');
+  if (submitBtn) {
+    submitBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      showResult();
+      showStep(3);
+    });
+  }
+  
+  // FAQ 交互
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    if (question) {
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(i => i.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+      });
+    }
   });
   
-  // FAQ
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const q = item.querySelector('.faq-question');
-    q?.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-      if (!isActive) item.classList.add('active');
+  if (faqItems.length > 0) {
+    faqItems[0].classList.add('active');
+  }
+  
+  // 快速操作按钮
+  const quickWa = document.getElementById('quickWaBtn');
+  if (quickWa) {
+    quickWa.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open('https://wa.me/6289515692586?text=Halo%20JF%20Gadai%2C%20saya%20tertarik%20gadai%20laptop', '_blank');
     });
-  });
-  if (document.querySelectorAll('.faq-item').length) {
-    document.querySelectorAll('.faq-item')[0].classList.add('active');
+  }
+  
+  // location按钮
+  const locationBtn = document.querySelector('.action-btn.location');
+  if (locationBtn) {
+    locationBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('📍 Kantor kami: Jl. Gadai Indah No.45, Jakarta Selatan\n🕒 Buka: Senin-Sabtu 09:00-18:00');
+    });
   }
 });
 </script>
