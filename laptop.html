@@ -258,6 +258,17 @@
   text-align: left;
 }
 
+/* 错误提示 */
+.error-message {
+  background: rgba(255, 68, 68, 0.2);
+  border: 1px solid #ff4444;
+  color: #ff8888;
+  padding: 12px;
+  border-radius: var(--border-radius);
+  margin: var(--spacing-md) 0;
+  text-align: center;
+}
+
 /* 响应式 */
 @media (max-width: 768px) {
   .brand-grid {
@@ -276,11 +287,6 @@
     width: 36px;
     height: 36px;
   }
-}
-
-/* 确保步骤2内容可见 */
-#step2 .specs-grid {
-  display: grid !important;
 }
 </style>
 </head>
@@ -453,7 +459,8 @@
   <div id="step3" class="form-step">
     <div id="resultContainer"></div>
     <div class="button-group">
-      <button class="btn-secondary btn-prev">✏️ Edit Data</button>
+      <button class="btn-secondary btn-edit">✏️ Edit Data</button>
+      <button class="btn-primary btn-recalculate">🔄 Hitung Ulang</button>
     </div>
   </div>
 </div>
@@ -499,7 +506,7 @@
   </div>
 </div>
 
-<!-- 页脚 - 修正HTML结构 -->
+<!-- 页脚 -->
 <footer id="lokasi" role="contentinfo">
   <div class="footer-content">
     <p class="copyright">
@@ -531,273 +538,446 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
 </a>
 
+<!-- 引用外部JS文件 -->
+<script src="/js/faq.js"></script>
+
 <script>
-// 自动更新版权年份
-document.getElementById('year').textContent = new Date().getFullYear();
-
-function formatRupiah(num) {
-  return "Rp " + new Intl.NumberFormat("id-ID").format(Math.round(num));
-}
-
-// 品牌系数
-const brandFactors = {
-  apple: 1.0, asus: 0.86, lenovo: 0.85, acer: 0.82, hp: 0.84, dell: 0.85
-};
-
-// CPU基础价值
-function getCpuBaseValue(cpu) {
-  const map = {
-    i3: 2800000, i5: 4200000, i7: 6500000, i9: 8500000,
-    m1: 7000000, m2: 8500000, m3: 10500000,
-    ryzen5: 4000000, ryzen7: 6000000
+// 使用 IIFE 避免全局污染
+(function() {
+  'use strict';
+  
+  // ==================== 配置常量 ====================
+  const CONFIG = {
+    // 品牌系数 (基于市场保有量和保值率)
+    BRAND_FACTORS: {
+      apple: 1.0,    // 苹果最保值
+      asus: 0.82,    // ASUS 中等偏上
+      lenovo: 0.80,  // Lenovo 稳定
+      dell: 0.81,    // Dell 商务本保值
+      hp: 0.78,      // HP 略低
+      acer: 0.75     // Acer 性价比品牌
+    },
+    
+    // CPU 基础价值 (单位: IDR)
+    CPU_BASE_VALUE: {
+      i3: 2800000,
+      i5: 4200000,
+      i7: 6500000,
+      i9: 8500000,
+      m1: 7000000,
+      m2: 8500000,
+      m3: 10500000,
+      ryzen5: 4000000,
+      ryzen7: 6000000
+    },
+    
+    // RAM 系数 (更合理的梯度)
+    RAM_FACTORS: {
+      4: 0.85,
+      8: 0.95,
+      16: 1.0,
+      32: 1.12,
+      64: 1.20
+    },
+    
+    // 存储系数
+    STORAGE_FACTORS: {
+      128: 0.90,
+      256: 1.0,
+      512: 1.08,
+      1024: 1.15,
+      2048: 1.22
+    },
+    
+    // 屏幕系数
+    SCREEN_FACTORS: {
+      11: 0.88,
+      13: 1.0,
+      15: 1.03,
+      17: 1.06
+    },
+    
+    // 显卡系数
+    GPU_FACTORS: {
+      integrated: 0.88,
+      entry: 1.0,
+      mid: 1.12,
+      high: 1.28
+    },
+    
+    // 电池系数 (更符合实际情况)
+    BATTERY_FACTORS: {
+      excellent: 1.0,
+      good: 0.92,
+      fair: 0.82,
+      poor: 0.70
+    },
+    
+    // 年龄系数 (更合理的折旧)
+    AGE_FACTORS: {
+      1: 0.92,  // <1年
+      2: 0.78,  // 1-2年
+      3: 0.62,  // 3-4年
+      5: 0.48   // >4年
+    },
+    
+    // 基础抵押率
+    BASE_PAWN_RATIO: 0.62,
+    
+    // 最高抵押率
+    MAX_PAWN_RATIO: 0.72,
+    
+    // 最低估值 (IDR)
+    MIN_MARKET_VALUE: 400000
   };
-  return map[cpu] || 4200000;
-}
-
-// RAM系数
-function getRamFactor(ramGB) {
-  if (ramGB >= 64) return 1.35;
-  if (ramGB >= 32) return 1.2;
-  if (ramGB >= 16) return 1.08;
-  if (ramGB >= 8) return 1.0;
-  return 0.92;
-}
-
-// 存储系数
-function getStorageFactor(storageGB) {
-  if (storageGB >= 2048) return 1.15;
-  if (storageGB >= 1024) return 1.08;
-  if (storageGB >= 512) return 1.04;
-  if (storageGB >= 256) return 1.0;
-  return 0.95;
-}
-
-// 屏幕系数
-function getScreenFactor(screenSize) {
-  const map = { 11: 0.92, 13: 1.0, 15: 1.02, 17: 1.05 };
-  return map[screenSize] || 1.0;
-}
-
-// 显卡系数
-function getGpuFactor(gpuType) {
-  const map = { integrated: 0.92, entry: 1.0, mid: 1.1, high: 1.25 };
-  return map[gpuType] || 1.0;
-}
-
-// 电池系数
-function getBatteryFactor(batteryStatus) {
-  const map = { excellent: 1.0, good: 0.96, fair: 0.9, poor: 0.82 };
-  return map[batteryStatus] || 0.95;
-}
-
-// 年龄系数
-function getAgeFactor(ageYear) {
-  if (ageYear <= 1) return 0.88;
-  if (ageYear <= 2) return 0.80;
-  if (ageYear <= 4) return 0.68;
-  return 0.55;
-}
-
-function calculateEstimation() {
-  const activeBrand = document.querySelector('.brand-option.active');
-  let brand = activeBrand ? activeBrand.getAttribute('data-brand') : 'asus';
   
-  const cpu = document.getElementById('cpu').value;
-  const ram = parseInt(document.getElementById('ram').value);
-  const storage = parseInt(document.getElementById('storage').value);
-  const screen = parseInt(document.getElementById('screen').value);
-  const gpu = document.getElementById('gpu').value;
-  const battery = document.getElementById('battery').value;
-  const ageYears = parseInt(document.getElementById('age').value);
+  // ==================== DOM 元素引用 ====================
+  const DOM = {
+    brandOptions: () => document.querySelectorAll('.brand-option'),
+    cpu: () => document.getElementById('cpu'),
+    ram: () => document.getElementById('ram'),
+    storage: () => document.getElementById('storage'),
+    screen: () => document.getElementById('screen'),
+    gpu: () => document.getElementById('gpu'),
+    battery: () => document.getElementById('battery'),
+    age: () => document.getElementById('age'),
+    resultContainer: () => document.getElementById('resultContainer'),
+    steps: () => document.querySelectorAll('.form-step')
+  };
   
-  let marketValue = getCpuBaseValue(cpu) * (brandFactors[brand] || 0.85);
-  marketValue *= getRamFactor(ram);
-  marketValue *= getStorageFactor(storage);
-  marketValue *= getScreenFactor(screen);
-  marketValue *= getGpuFactor(gpu);
-  marketValue *= getBatteryFactor(battery);
-  marketValue *= getAgeFactor(ageYears);
+  let currentStep = 1;
   
-  marketValue = Math.max(Math.round(marketValue / 10000) * 10000, 400000);
+  // ==================== 辅助函数 ====================
+  function formatRupiah(num) {
+    return "Rp " + new Intl.NumberFormat("id-ID").format(Math.round(num));
+  }
   
-  const marketMin = Math.round(marketValue * 0.92);
-  const marketMax = Math.round(marketValue * 1.08);
+  function validateSelections() {
+    const required = ['cpu', 'ram', 'storage', 'screen', 'gpu', 'battery', 'age'];
+    for (let id of required) {
+      const element = document.getElementById(id);
+      if (!element || !element.value) {
+        showError(`Harap lengkapi semua pilihan terlebih dahulu`);
+        return false;
+      }
+    }
+    return true;
+  }
   
-  let pawnRatio = 0.62;
-  if (brand === 'apple') pawnRatio = 0.68;
-  if (ram >= 16) pawnRatio += 0.02;
-  if (storage >= 512) pawnRatio += 0.01;
-  if (ageYears <= 1) pawnRatio += 0.03;
-  if (battery === 'excellent') pawnRatio += 0.01;
-  if (gpu === 'high') pawnRatio += 0.02;
-  pawnRatio = Math.min(pawnRatio, 0.72);
+  function showError(message) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.innerHTML = `⚠️ ${message}`;
+    
+    // 如果已经有错误提示，先移除
+    const existingError = document.querySelector('.error-message');
+    if (existingError) existingError.remove();
+    
+    // 插入到步骤2的开头
+    const step2 = document.getElementById('step2');
+    if (step2 && currentStep === 2) {
+      step2.insertBefore(errorDiv, step2.firstChild);
+      setTimeout(() => errorDiv.remove(), 3000);
+    } else {
+      alert(message);
+    }
+  }
   
-  let pawnBase = Math.round(marketValue * pawnRatio);
-  const pawnMin = Math.round(pawnBase * 0.92);
-  const pawnMax = Math.round(pawnBase * 1.08);
-  const pawnAvg = Math.round((pawnMin + pawnMax) / 2);
+  // ==================== 计算函数 ====================
+  function getSelectedBrand() {
+    const activeBrand = document.querySelector('.brand-option.active');
+    return activeBrand ? activeBrand.getAttribute('data-brand') : 'asus';
+  }
   
-  return { marketMin, marketMax, pawnMin, pawnMax, pawnAvg, brand, cpu, ram, storage, screen, gpu, battery, ageYears };
-}
-
-function getConfigSummary(result) {
-  const cpuNames = { i3:'Core i3', i5:'Core i5', i7:'Core i7', i9:'Core i9', m1:'Apple M1', m2:'Apple M2', m3:'Apple M3', ryzen5:'Ryzen 5', ryzen7:'Ryzen 7' };
-  const gpuNames = { integrated:'Intel UHD', entry:'Entry GPU', mid:'RTX 3050/3060', high:'RTX 3070+' };
-  const batteryNames = { excellent:'Excellent (>85%)', good:'Good (70-85%)', fair:'Fair (50-70%)', poor:'Poor (<50%)' };
-  const screenSizes = { 11:'11-12"', 13:'13-14"', 15:'15-16"', 17:'17"+' };
-  const ageText = { 1:'<1 tahun', 2:'1-2 tahun', 3:'3-4 tahun', 5:'>4 tahun' };
+  function calculateMarketValue() {
+    const brand = getSelectedBrand();
+    const cpu = DOM.cpu().value;
+    const ram = parseInt(DOM.ram().value);
+    const storage = parseInt(DOM.storage().value);
+    const screen = parseInt(DOM.screen().value);
+    const gpu = DOM.gpu().value;
+    const battery = DOM.battery().value;
+    const ageYear = parseInt(DOM.age().value);
+    
+    // 获取基础价值
+    let marketValue = CONFIG.CPU_BASE_VALUE[cpu] || CONFIG.CPU_BASE_VALUE.i5;
+    
+    // 应用所有系数
+    marketValue *= CONFIG.BRAND_FACTORS[brand];
+    marketValue *= CONFIG.RAM_FACTORS[ram];
+    marketValue *= CONFIG.STORAGE_FACTORS[storage];
+    marketValue *= CONFIG.SCREEN_FACTORS[screen];
+    marketValue *= CONFIG.GPU_FACTORS[gpu];
+    marketValue *= CONFIG.BATTERY_FACTORS[battery];
+    marketValue *= CONFIG.AGE_FACTORS[ageYear];
+    
+    // 确保最小值
+    marketValue = Math.max(Math.round(marketValue / 10000) * 10000, CONFIG.MIN_MARKET_VALUE);
+    
+    return marketValue;
+  }
   
-  return `
-    <div class="config-summary">
-      <strong>📋 Ringkasan Konfigurasi:</strong><br>
-      <span class="spec-badge">${result.brand.toUpperCase()}</span>
-      <span class="spec-badge">${cpuNames[result.cpu] || result.cpu}</span>
-      <span class="spec-badge">${result.ram} GB RAM</span>
-      <span class="spec-badge">${result.storage >= 1024 ? (result.storage/1024)+'TB' : result.storage+'GB'} SSD</span>
-      <span class="spec-badge">${screenSizes[result.screen]}</span>
-      <span class="spec-badge">${gpuNames[result.gpu]}</span>
-      <span class="spec-badge">🔋 ${batteryNames[result.battery]}</span>
-      <span class="spec-badge">📅 ${ageText[result.ageYears]}</span>
-    </div>
-  `;
-}
-
-function showResult() {
-  const result = calculateEstimation();
-  const cpuSelect = document.getElementById('cpu');
-  const cpuName = cpuSelect.options[cpuSelect.selectedIndex]?.text || result.cpu.toUpperCase();
+  function calculatePawnValue(marketValue) {
+    const brand = getSelectedBrand();
+    const ram = parseInt(DOM.ram().value);
+    const storage = parseInt(DOM.storage().value);
+    const ageYear = parseInt(DOM.age().value);
+    const battery = DOM.battery().value;
+    const gpu = DOM.gpu().value;
+    
+    let pawnRatio = CONFIG.BASE_PAWN_RATIO;
+    
+    // 品牌加成
+    if (brand === 'apple') pawnRatio += 0.06;
+    if (brand === 'asus' || brand === 'dell') pawnRatio += 0.02;
+    
+    // 配置加成
+    if (ram >= 32) pawnRatio += 0.03;
+    else if (ram >= 16) pawnRatio += 0.02;
+    
+    if (storage >= 1024) pawnRatio += 0.03;
+    else if (storage >= 512) pawnRatio += 0.02;
+    
+    if (ageYear <= 1) pawnRatio += 0.04;
+    else if (ageYear <= 2) pawnRatio += 0.02;
+    
+    if (battery === 'excellent') pawnRatio += 0.02;
+    
+    if (gpu === 'high') pawnRatio += 0.03;
+    else if (gpu === 'mid') pawnRatio += 0.02;
+    
+    // 限制最高抵押率
+    pawnRatio = Math.min(pawnRatio, CONFIG.MAX_PAWN_RATIO);
+    
+    return Math.round(marketValue * pawnRatio);
+  }
   
-  // 计算固定值：取平均值并四舍五入到千位（避免纠纷）
-  const fixedPawnValue = Math.round(result.pawnAvg / 1000) * 1000;
+  // ==================== UI 更新函数 ====================
+  function getConfigSummary(result) {
+    const cpuNames = {
+      i3: 'Core i3', i5: 'Core i5', i7: 'Core i7', i9: 'Core i9',
+      m1: 'Apple M1', m2: 'Apple M2', m3: 'Apple M3',
+      ryzen5: 'Ryzen 5', ryzen7: 'Ryzen 7'
+    };
+    
+    const gpuNames = {
+      integrated: 'Intel UHD',
+      entry: 'Entry GPU',
+      mid: 'RTX 3050/3060',
+      high: 'RTX 3070+'
+    };
+    
+    const batteryNames = {
+      excellent: 'Excellent (>85%)',
+      good: 'Good (70-85%)',
+      fair: 'Fair (50-70%)',
+      poor: 'Poor (<50%)'
+    };
+    
+    const screenSizes = {
+      11: '11-12"',
+      13: '13-14"',
+      15: '15-16"',
+      17: '17"+'
+    };
+    
+    const ageText = {
+      1: '<1 tahun',
+      2: '1-2 tahun',
+      3: '3-4 tahun',
+      5: '>4 tahun'
+    };
+    
+    return `
+      <div class="config-summary">
+        <strong>📋 Ringkasan Konfigurasi:</strong><br>
+        <span class="spec-badge">${result.brand.toUpperCase()}</span>
+        <span class="spec-badge">${cpuNames[result.cpu] || result.cpu}</span>
+        <span class="spec-badge">${result.ram} GB RAM</span>
+        <span class="spec-badge">${result.storage >= 1024 ? (result.storage/1024)+'TB' : result.storage+'GB'} SSD</span>
+        <span class="spec-badge">${screenSizes[result.screen]}</span>
+        <span class="spec-badge">${gpuNames[result.gpu]}</span>
+        <span class="spec-badge">🔋 ${batteryNames[result.battery]}</span>
+        <span class="spec-badge">📅 ${ageText[result.ageYears]}</span>
+      </div>
+    `;
+  }
   
-  const message = `Halo Admin JF Gadai,
+  function showResult() {
+    if (!validateSelections()) return;
+    
+    const marketValue = calculateMarketValue();
+    const pawnValue = calculatePawnValue(marketValue);
+    
+    const marketMin = Math.round(marketValue * 0.92);
+    const marketMax = Math.round(marketValue * 1.08);
+    
+    const brand = getSelectedBrand();
+    const cpu = DOM.cpu().value;
+    const ram = parseInt(DOM.ram().value);
+    const storage = parseInt(DOM.storage().value);
+    const screen = parseInt(DOM.screen().value);
+    const gpu = DOM.gpu().value;
+    const battery = DOM.battery().value;
+    const ageYears = parseInt(DOM.age().value);
+    
+    const cpuSelect = DOM.cpu();
+    const cpuName = cpuSelect.options[cpuSelect.selectedIndex]?.text || cpu.toUpperCase();
+    
+    const message = `Halo Admin JF Gadai,
 
 Saya ingin menanyakan estimasi gadai laptop:
 
-💻 *${result.brand.toUpperCase()}* ${cpuName}
+💻 *${brand.toUpperCase()}* ${cpuName}
 📊 Spesifikasi:
-- RAM: ${result.ram} GB
-- Storage: ${result.storage >= 1024 ? (result.storage/1024)+'TB' : result.storage+'GB'} SSD
-- Layar: ${result.screen == 13 ? '13-14"' : (result.screen == 15 ? '15-16"' : (result.screen == 17 ? '17"+' : '11-12"'))}
-- GPU: ${document.getElementById('gpu').options[document.getElementById('gpu').selectedIndex]?.text}
-- Baterai: ${document.getElementById('battery').options[document.getElementById('battery').selectedIndex]?.text}
-📅 Usia: ${result.ageYears == 1 ? '<1 tahun' : (result.ageYears <=2 ? '1-2 tahun' : (result.ageYears <=4 ? '3-4 tahun' : '>4 tahun'))}
+- RAM: ${ram} GB
+- Storage: ${storage >= 1024 ? (storage/1024)+'TB' : storage+'GB'} SSD
+- GPU: ${DOM.gpu().options[DOM.gpu().selectedIndex]?.text}
+- Baterai: ${DOM.battery().options[DOM.battery().selectedIndex]?.text}
+📅 Usia: ${ageYears == 1 ? '<1 tahun' : (ageYears <=2 ? '1-2 tahun' : (ageYears <=4 ? '3-4 tahun' : '>4 tahun'))}
 
 📊 Estimasi Pinjaman:
-${formatRupiah(fixedPawnValue)}
+${formatRupiah(pawnValue)}
 
 Saya siap bawa laptop ke kantor hari ini. Terima kasih.`;
 
-  const waUrl = `https://wa.me/6289515692586?text=${encodeURIComponent(message)}`;
-  
-  const resultHtml = `
-    <div class="estimation-card">
-      <div class="label">💰 Nilai Pasar (second)</div>
-      <div class="value">${formatRupiah(result.marketMin)} – ${formatRupiah(result.marketMax)}</div>
-      
-      <div style="margin: 20px 0; height: 2px; background: rgba(245,197,66,0.3);"></div>
-      
-      <div class="label">🏦 Estimasi Pinjaman (dapat cair)</div>
-      <div class="value" style="font-size: 2.2rem;">${formatRupiah(fixedPawnValue)}</div>
-      <div style="margin-top: 8px; font-size: var(--fs-small); color: var(--text-muted);">
-        ✅ Harga tetap, tidak ada tawar-menawar • Transparan & adil
+    const waUrl = `https://wa.me/6289515692586?text=${encodeURIComponent(message)}`;
+    
+    const resultHtml = `
+      <div class="estimation-card">
+        <div class="label">💰 Nilai Pasar (second)</div>
+        <div class="value">${formatRupiah(marketMin)} – ${formatRupiah(marketMax)}</div>
+        
+        <div style="margin: 20px 0; height: 2px; background: rgba(245,197,66,0.3);"></div>
+        
+        <div class="label">🏦 Estimasi Pinjaman (dapat cair)</div>
+        <div class="value" style="font-size: 2.2rem;">${formatRupiah(pawnValue)}</div>
+        <div style="margin-top: 8px; font-size: var(--fs-small); color: var(--text-muted);">
+          ✅ Harga tetap, tidak ada tawar-menawar • Transparan & adil
+        </div>
+        
+        ${getConfigSummary({brand, cpu, ram, storage, screen, gpu, battery, ageYears})}
+        
+        <div class="trust-box" style="margin: 20px 0 10px; grid-template-columns: repeat(2,1fr);">
+          <div class="trust-item">✅ Proses <strong>30 menit</strong></div>
+          <div class="trust-item">🔒 Aman & terpercaya</div>
+        </div>
+        
+        <a href="${waUrl}" target="_blank" class="whatsapp-btn">
+          📱 WhatsApp Sekarang
+        </a>
+        <div style="margin-top: 16px; font-size: var(--fs-small); color: var(--text-muted);">
+          ⚠️ *Slot terbatas hari ini* | Bawa laptop & charger asli
+        </div>
       </div>
-      
-      ${getConfigSummary(result)}
-      
-      <div class="trust-box" style="margin: 20px 0 10px; grid-template-columns: repeat(2,1fr);">
-        <div class="trust-item">✅ Proses <strong>30 menit</strong></div>
-        <div class="trust-item">🔒 Aman & terpercaya</div>
-      </div>
-      
-      <a href="${waUrl}" target="_blank" class="whatsapp-btn">
-        📱 WhatsApp Sekarang
-      </a>
-      <div style="margin-top: 16px; font-size: var(--fs-small); color: var(--text-muted);">
-        ⚠️ *Slot terbatas hari ini* | Bawa laptop & charger asli
-      </div>
-    </div>
-  `;
-  
-  document.getElementById('resultContainer').innerHTML = resultHtml;
-}
-
-let currentStep = 1;
-function showStep(step) {
-  document.querySelectorAll('.form-step').forEach((el, idx) => {
-    el.classList.toggle('active', idx + 1 === step);
-  });
-  currentStep = step;
-  window.scrollTo({ top: 120, behavior: 'smooth' });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  // 品牌切换
-  document.querySelectorAll('.brand-option').forEach(opt => {
-    opt.addEventListener('click', function() {
-      document.querySelectorAll('.brand-option').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-    });
-  });
-  
-  // 步骤切换
-  const nextBtn = document.querySelector('.btn-next');
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => showStep(2));
+    `;
+    
+    DOM.resultContainer().innerHTML = resultHtml;
   }
   
-  document.querySelectorAll('.btn-prev').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (currentStep === 2) showStep(1);
-      else if (currentStep === 3) showStep(2);
+  // ==================== 步骤导航 ====================
+  function showStep(step) {
+    const steps = DOM.steps();
+    steps.forEach((el, idx) => {
+      el.classList.toggle('active', idx + 1 === step);
     });
-  });
-  
-  const submitBtn = document.querySelector('.btn-submit');
-  if (submitBtn) {
-    submitBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      showResult();
-      showStep(3);
-    });
+    currentStep = step;
+    
+    // 清除错误提示
+    const errorMsg = document.querySelector('.error-message');
+    if (errorMsg) errorMsg.remove();
+    
+    window.scrollTo({ top: 120, behavior: 'smooth' });
   }
   
-  // FAQ 交互
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    if (question) {
-      question.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        faqItems.forEach(i => i.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
+  // ==================== 事件绑定 ====================
+  function bindEvents() {
+    // 品牌切换
+    DOM.brandOptions().forEach(opt => {
+      opt.addEventListener('click', function() {
+        DOM.brandOptions().forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+    
+    // 下一步按钮
+    const nextBtn = document.querySelector('.btn-next');
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => showStep(2));
+    }
+    
+    // 返回按钮
+    document.querySelectorAll('.btn-prev').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (currentStep === 2) showStep(1);
+      });
+    });
+    
+    // 编辑按钮 (从步骤3返回步骤2)
+    const editBtn = document.querySelector('.btn-edit');
+    if (editBtn) {
+      editBtn.addEventListener('click', () => showStep(2));
+    }
+    
+    // 重新计算按钮 (保持在步骤3)
+    const recalcBtn = document.querySelector('.btn-recalculate');
+    if (recalcBtn) {
+      recalcBtn.addEventListener('click', () => {
+        showResult();
       });
     }
-  });
-  
-  if (faqItems.length > 0) {
-    faqItems[0].classList.add('active');
+    
+    // 提交计算
+    const submitBtn = document.querySelector('.btn-submit');
+    if (submitBtn) {
+      submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (validateSelections()) {
+          showResult();
+          showStep(3);
+        }
+      });
+    }
+    
+    // 快速操作按钮
+    const quickWa = document.getElementById('quickWaBtn');
+    if (quickWa) {
+      quickWa.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.open('https://wa.me/6289515692586?text=Halo%20JF%20Gadai%2C%20saya%20tertarik%20gadai%20laptop', '_blank');
+      });
+    }
+    
+    // 位置按钮
+    const locationBtn = document.querySelector('.action-btn.location');
+    if (locationBtn) {
+      locationBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('📍 Kantor kami: Krajan Panas I, Oro-Oro Ombowetan, \nKec. Rembang, Pasuruan, Jawa Timur 67152\n🕒 Buka: Senin-Sabtu 08:00-18:00');
+      });
+    }
   }
   
-  // 快速操作按钮
-  const quickWa = document.getElementById('quickWaBtn');
-  if (quickWa) {
-    quickWa.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.open('https://wa.me/6289515692586?text=Halo%20JF%20Gadai%2C%20saya%20tertarik%20gadai%20laptop', '_blank');
-    });
+  // ==================== 初始化 ====================
+  function init() {
+    // 更新版权年份
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // 确保只有一个品牌被选中
+    const brandOptions = DOM.brandOptions();
+    if (brandOptions.length > 0) {
+      brandOptions.forEach((opt, idx) => {
+        if (idx !== 0) opt.classList.remove('active');
+      });
+    }
+    
+    // 绑定事件
+    bindEvents();
   }
   
-  // location按钮
-  const locationBtn = document.querySelector('.action-btn.location');
-  if (locationBtn) {
-    locationBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      alert('📍 Kantor kami: Krajan Panas I, Oro-Oro Ombowetan, 
-Kec. Rembang, Pasuruan, Jawa Timur 67152\n🕒 Buka: Senin-Sabtu 08:00-18:00');
-    });
-  }
-});
+  // 启动应用
+  init();
+})();
 </script>
 </body>
 </html>
