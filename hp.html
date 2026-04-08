@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 <title>JF Gadai HP - Estimasi Gadai Cepat & Aman</title>
 
-<!-- 引用两个独立的CSS文件 -->
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/faq.css">
 
@@ -16,14 +15,6 @@
   padding: var(--spacing-lg) 0 var(--spacing-md);
 }
 
-.estimation-header h2 {
-  font-size: var(--fs-hero-title);
-  color: var(--secondary-color);
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  margin-bottom: var(--spacing-sm);
-}
-
-/* 品牌选项网格 - 带Logo */
 .brand-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -80,7 +71,6 @@
   filter: drop-shadow(0 0 4px var(--secondary-color));
 }
 
-/* 配置卡片网格 */
 .specs-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -113,7 +103,6 @@
   padding-bottom: 8px;
 }
 
-/* 表单步骤 */
 .form-step {
   display: none;
   animation: fadeIn 0.4s ease-out;
@@ -123,7 +112,6 @@
   display: block;
 }
 
-/* 统一选择框样式 */
 .form-select {
   width: 100%;
   padding: 12px var(--spacing-md);
@@ -149,7 +137,6 @@
   color: var(--light-color);
 }
 
-/* 按钮区域 */
 .button-group {
   display: flex;
   gap: var(--spacing-md);
@@ -170,8 +157,6 @@
   transition: all 0.3s ease;
   cursor: pointer;
   border: none;
-  position: relative;
-  overflow: hidden;
 }
 
 .btn-primary {
@@ -195,7 +180,6 @@
   transform: translateY(-2px);
 }
 
-/* 估算结果卡片 */
 .estimation-card {
   background: linear-gradient(135deg, rgba(15, 76, 129, 0.4), rgba(245, 197, 66, 0.2));
   border-radius: var(--border-radius-lg);
@@ -258,7 +242,6 @@
   text-align: left;
 }
 
-/* 错误提示 */
 .error-message {
   background: rgba(255, 68, 68, 0.2);
   border: 1px solid #ff4444;
@@ -269,7 +252,6 @@
   text-align: center;
 }
 
-/* 条件标签 */
 .condition-tag {
   display: inline-block;
   padding: 8px 16px;
@@ -292,7 +274,183 @@
   color: var(--secondary-color);
 }
 
-/* 响应式 */
+.trust-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.trust-item {
+  background: rgba(0,0,0,0.3);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  text-align: center;
+  font-size: var(--fs-small);
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin: var(--spacing-xl) auto;
+  max-width: 800px;
+  padding: 0 var(--spacing-md);
+}
+
+.quick-action-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  text-align: center;
+  border: 1px solid rgba(245, 197, 66, 0.2);
+}
+
+.action-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.action-title {
+  font-weight: 700;
+  font-size: var(--fs-subtitle);
+  margin-bottom: var(--spacing-xs);
+}
+
+.action-description {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+.action-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--fs-small);
+  transition: all 0.3s ease;
+}
+
+.action-btn.whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+.action-btn.location {
+  background: rgba(245, 197, 66, 0.2);
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+}
+
+.faq-section {
+  background: rgba(0, 0, 0, 0.3);
+  padding: var(--spacing-xl) 0;
+  margin-top: var(--spacing-xl);
+}
+
+.faq-section h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-md);
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: var(--spacing-md);
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.5rem;
+}
+
+.faq-answer {
+  padding: 0 var(--spacing-md) var(--spacing-md);
+  display: none;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.faq-item.active .faq-question::after {
+  content: '-';
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+footer {
+  background: rgba(0, 0, 0, 0.5);
+  padding: var(--spacing-xl) 0 var(--spacing-md);
+  text-align: center;
+  margin-top: var(--spacing-xl);
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.copyright, .company-info, .operating-hours, .security-note {
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--secondary-color);
+  text-decoration: none;
+  margin: var(--spacing-sm) 0;
+}
+
+.floating-wa {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.floating-wa:hover {
+  transform: scale(1.1);
+}
+
+.floating-wa img {
+  width: 35px;
+  height: 35px;
+}
+
 @media (max-width: 768px) {
   .brand-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -303,12 +461,11 @@
   .estimation-card {
     padding: var(--spacing-lg);
   }
-  .estimation-card .value {
-    font-size: 1.5rem;
+  .trust-box {
+    grid-template-columns: 1fr;
   }
-  .brand-option img {
-    width: 36px;
-    height: 36px;
+  .quick-actions {
+    grid-template-columns: 1fr;
   }
 }
 </style>
@@ -372,7 +529,6 @@
       </div>
     </div>
 
-    <!-- 核心配置：RAM + 存储 -->
     <div class="specs-grid">
       <div class="spec-card">
         <h4>💾 RAM</h4>
@@ -467,7 +623,7 @@
         <div class="condition-tag" data-condition="body_dent">❌ Body Penyok</div>
       </div>
       
-      <div class="trust-box" style="margin-top: var(--spacing-lg);">
+      <div class="trust-box">
         <div class="trust-item">✅ <strong>Charger asli</strong><br>meningkatkan nilai</div>
         <div class="trust-item">📦 <strong>Kelengkapan</strong><br>box & aksesoris</div>
         <div class="trust-item">🔓 <strong>Tidak iCloud lock</strong><br>(untuk iPhone)</div>
@@ -527,10 +683,6 @@
         <div class="faq-question">Apa yang mempengaruhi nilai gadai HP?</div>
         <div class="faq-answer">Merek, chipset, RAM, penyimpanan, kondisi fisik, baterai, dan usia pemakaian.</div>
       </div>
-      <div class="faq-item">
-        <div class="faq-question">Apakah HP dengan layar retak bisa digadaikan?</div>
-        <div class="faq-answer">Bisa, namun nilai akan berkurang sesuai tingkat kerusakan.</div>
-      </div>
     </div>
   </div>
 </div>
@@ -538,27 +690,16 @@
 <!-- 页脚 -->
 <footer id="lokasi" role="contentinfo">
   <div class="footer-content">
-    <p class="copyright">
-      © <span id="year"></span> JF Gadai HP • Solusi Dana Cepat & Aman
-    </p>
-
-    <div class="company-info">
-      JF Gadai berizin resmi • Melayani gadai HP, laptop, dan elektronik
-    </div>
-
+    <p class="copyright">© <span id="year"></span> JF Gadai HP • Solusi Dana Cepat & Aman</p>
+    <div class="company-info">JF Gadai berizin resmi • Melayani gadai HP, laptop, dan elektronik</div>
     <div class="contact-info">
       <a href="https://wa.me/6289515692586" target="_blank" class="contact-link">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;">
         Chat WhatsApp Sekarang
       </a>
     </div>
-
-    <p class="operating-hours">
-      ⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu
-    </p>
-    <p class="security-note">
-      🔒 Situs ini menggunakan koneksi aman (HTTPS).
-    </p>
+    <p class="operating-hours">⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu</p>
+    <p class="security-note">🔒 Situs ini menggunakan koneksi aman (HTTPS).</p>
   </div>
 </footer>
 
@@ -567,29 +708,27 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
 </a>
 
-<!-- 引用外部JS文件 -->
 <script src="/js/faq.js"></script>
 
 <script>
-// 使用 IIFE 避免全局污染
 (function() {
   'use strict';
   
-  // ==================== 品牌专属配置数据 ====================
+  // ==================== 品牌专属配置数据（已调低估值） ====================
   const BRAND_SPECS = {
     apple: {
       name: 'Apple iPhone',
-      factor: 1.0,
+      brandFactor: 1.0,
       chipsets: [
-        { value: 'a12', label: 'A12 Bionic (iPhone XS/XR)' },
+        { value: 'a12', label: 'A12 Bionic (iPhone XS/XR)', selected: true },
         { value: 'a13', label: 'A13 Bionic (iPhone 11 Series)' },
         { value: 'a14', label: 'A14 Bionic (iPhone 12 Series)' },
-        { value: 'a15', label: 'A15 Bionic (iPhone 13 Series)', selected: true },
+        { value: 'a15', label: 'A15 Bionic (iPhone 13 Series)' },
         { value: 'a16', label: 'A16 Bionic (iPhone 14 Pro/15)' },
         { value: 'a17', label: 'A17 Pro (iPhone 15 Pro)' }
       ],
       screens: [
-        { value: 'small', label: '4.7 - 5.4 inch (SE, 12/13 mini)', selected: true },
+        { value: 'small', label: '4.7 - 5.4 inch (SE, mini)', selected: true },
         { value: 'medium', label: '5.5 - 6.1 inch (Standar)' },
         { value: 'large', label: '6.2 - 6.5 inch (Plus)' },
         { value: 'xl', label: '6.7 inch ke atas (Pro Max)' }
@@ -597,14 +736,13 @@
       cameras: [
         { value: 'single', label: 'Single Camera (SE Series)' },
         { value: 'dual', label: 'Dual Camera (Standar)', selected: true },
-        { value: 'triple', label: 'Triple Camera (Pro Series)' },
-        { value: 'quad', label: 'Quad Camera (Pro Max dengan LiDAR)' }
+        { value: 'triple', label: 'Triple Camera (Pro Series)' }
       ],
-      basePrice: 8000000
+      basePrice: 5500000  // 从 8000000 降低
     },
     samsung: {
       name: 'Samsung',
-      factor: 0.75,
+      brandFactor: 0.72,  // 从 0.75 降低
       chipsets: [
         { value: 'exynos1280', label: 'Exynos 1280 (A Series)' },
         { value: 'exynos1380', label: 'Exynos 1380 (A54)' },
@@ -623,14 +761,13 @@
       cameras: [
         { value: 'dual', label: 'Dual Camera (Entry Level)' },
         { value: 'triple', label: 'Triple Camera (Mid Range)', selected: true },
-        { value: 'quad', label: 'Quad Camera (Flagship)' },
-        { value: 'penta', label: 'Penta Camera (Ultra Series)' }
+        { value: 'quad', label: 'Quad Camera (Flagship)' }
       ],
-      basePrice: 4500000
+      basePrice: 3200000  // 从 4500000 降低
     },
     xiaomi: {
       name: 'Xiaomi',
-      factor: 0.65,
+      brandFactor: 0.60,  // 从 0.65 降低
       chipsets: [
         { value: 'snapdragon6', label: 'Snapdragon 6 Series (Redmi Note)' },
         { value: 'snapdragon7', label: 'Snapdragon 7 Series (Mi Lite)', selected: true },
@@ -639,19 +776,18 @@
       ],
       screens: [
         { value: 'medium', label: '6.1 - 6.4 inch', selected: true },
-        { value: 'large', label: '6.5 - 6.7 inch' },
-        { value: 'xl', label: '6.8 inch ke atas' }
+        { value: 'large', label: '6.5 - 6.7 inch' }
       ],
       cameras: [
         { value: 'dual', label: 'Dual Camera (Entry)' },
         { value: 'triple', label: 'Triple Camera (Mid Range)', selected: true },
         { value: 'quad', label: 'Quad Camera (Flagship)' }
       ],
-      basePrice: 3500000
+      basePrice: 2500000  // 从 3500000 降低
     },
     oppo: {
       name: 'Oppo',
-      factor: 0.62,
+      brandFactor: 0.56,  // 从 0.62 降低
       chipsets: [
         { value: 'mediatek', label: 'MediaTek Helio (A Series)' },
         { value: 'snapdragon6', label: 'Snapdragon 6 Series (Reno Lite)', selected: true },
@@ -664,14 +800,13 @@
       ],
       cameras: [
         { value: 'dual', label: 'Dual Camera' },
-        { value: 'triple', label: 'Triple Camera (Reno)', selected: true },
-        { value: 'quad', label: 'Quad Camera (Find Series)' }
+        { value: 'triple', label: 'Triple Camera (Reno)', selected: true }
       ],
-      basePrice: 3300000
+      basePrice: 2300000  // 从 3300000 降低
     },
     vivo: {
       name: 'Vivo',
-      factor: 0.60,
+      brandFactor: 0.54,  // 从 0.60 降低
       chipsets: [
         { value: 'mediatek', label: 'MediaTek Helio (Y Series)', selected: true },
         { value: 'snapdragon6', label: 'Snapdragon 6 Series (V Series)' },
@@ -683,14 +818,13 @@
       ],
       cameras: [
         { value: 'dual', label: 'Dual Camera', selected: true },
-        { value: 'triple', label: 'Triple Camera (V Series)' },
-        { value: 'quad', label: 'Quad Camera (X Series)' }
+        { value: 'triple', label: 'Triple Camera (V Series)' }
       ],
-      basePrice: 3000000
+      basePrice: 2100000  // 从 3000000 降低
     },
     realme: {
       name: 'Realme',
-      factor: 0.55,
+      brandFactor: 0.50,  // 从 0.55 降低
       chipsets: [
         { value: 'snapdragon6', label: 'Snapdragon 6 Series (C Series)', selected: true },
         { value: 'snapdragon7', label: 'Snapdragon 7 Series (Number Series)' },
@@ -704,79 +838,34 @@
         { value: 'dual', label: 'Dual Camera', selected: true },
         { value: 'triple', label: 'Triple Camera' }
       ],
-      basePrice: 2800000
+      basePrice: 1900000  // 从 2800000 降低
     }
   };
   
-  // 通用系数配置
+  // 通用系数配置 - 整体调低
   const CONFIG = {
-    RAM_FACTORS: { 2: 0.70, 3: 0.78, 4: 0.85, 6: 0.94, 8: 1.0, 12: 1.10, 16: 1.18 },
-    STORAGE_FACTORS: { 32: 0.80, 64: 0.90, 128: 1.0, 256: 1.10, 512: 1.20, 1024: 1.30 },
-    BATTERY_FACTORS: { excellent: 1.0, good: 0.92, fair: 0.82, poor: 0.70 },
-    AGE_FACTORS: { 1: 0.95, 2: 0.85, 3: 0.72, 4: 0.58, 5: 0.45 },
+    RAM_FACTORS: { 2: 0.65, 3: 0.72, 4: 0.78, 6: 0.86, 8: 0.92, 12: 1.0, 16: 1.05 },
+    STORAGE_FACTORS: { 32: 0.75, 64: 0.85, 128: 0.92, 256: 1.0, 512: 1.08, 1024: 1.15 },
+    BATTERY_FACTORS: { excellent: 1.0, good: 0.90, fair: 0.78, poor: 0.65 },
+    AGE_FACTORS: { 1: 0.92, 2: 0.82, 3: 0.68, 4: 0.54, 5: 0.42 },
     PHYSICAL_FACTORS: {
-      screen_ok: 1.0, screen_scratched: 0.92, screen_cracked: 0.70,
-      body_ok: 1.0, body_scratched: 0.95, body_dent: 0.85
+      screen_ok: 1.0, screen_scratched: 0.88, screen_cracked: 0.65,
+      body_ok: 1.0, body_scratched: 0.93, body_dent: 0.82
     },
-    BASE_PAWN_RATIO: 0.60,
-    MAX_PAWN_RATIO: 0.70,
-    MIN_MARKET_VALUE: 300000
+    BASE_PAWN_RATIO: 0.55,  // 从 0.60 降低
+    MAX_PAWN_RATIO: 0.65,   // 从 0.70 降低
+    MIN_MARKET_VALUE: 250000  // 从 300000 降低
   };
   
-  // ==================== DOM 元素引用 ====================
   let currentBrand = 'apple';
   let selectedConditions = { screen_ok: true, body_ok: true };
-  
-  // ==================== 动态更新表单 ====================
-  function updateFormByBrand(brand) {
-    const brandData = BRAND_SPECS[brand];
-    if (!brandData) return;
-    
-    // 更新芯片选项
-    const chipsetSelect = document.getElementById('chipset');
-    if (chipsetSelect) {
-      chipsetSelect.innerHTML = '';
-      brandData.chipsets.forEach(chip => {
-        const option = document.createElement('option');
-        option.value = chip.value;
-        option.textContent = chip.label;
-        if (chip.selected) option.selected = true;
-        chipsetSelect.appendChild(option);
-      });
-    }
-    
-    // 更新屏幕选项
-    const screenSelect = document.getElementById('screen');
-    if (screenSelect) {
-      screenSelect.innerHTML = '';
-      brandData.screens.forEach(screen => {
-        const option = document.createElement('option');
-        option.value = screen.value;
-        option.textContent = screen.label;
-        if (screen.selected) option.selected = true;
-        screenSelect.appendChild(option);
-      });
-    }
-    
-    // 更新相机选项
-    const cameraSelect = document.getElementById('camera');
-    if (cameraSelect) {
-      cameraSelect.innerHTML = '';
-      brandData.cameras.forEach(camera => {
-        const option = document.createElement('option');
-        option.value = camera.value;
-        option.textContent = camera.label;
-        if (camera.selected) option.selected = true;
-        cameraSelect.appendChild(option);
-      });
-    }
-  }
   
   // ==================== 辅助函数 ====================
   function formatRupiah(num) {
     return "Rp " + new Intl.NumberFormat("id-ID").format(Math.round(num));
   }
   
+  // 获取物理条件系数
   function getPhysicalFactor() {
     let factor = 1.0;
     if (selectedConditions.screen_cracked) factor *= CONFIG.PHYSICAL_FACTORS.screen_cracked;
@@ -786,17 +875,83 @@
     return factor;
   }
   
-  // ==================== 计算函数 ====================
+  // 更新芯片选项
+  function updateChipsetOptions() {
+    const brandData = BRAND_SPECS[currentBrand];
+    if (!brandData) return;
+    
+    const chipsetSelect = document.getElementById('chipset');
+    chipsetSelect.innerHTML = '';
+    brandData.chipsets.forEach(chip => {
+      const option = document.createElement('option');
+      option.value = chip.value;
+      option.textContent = chip.label;
+      if (chip.selected) option.selected = true;
+      chipsetSelect.appendChild(option);
+    });
+  }
+  
+  // 更新屏幕选项
+  function updateScreenOptions() {
+    const brandData = BRAND_SPECS[currentBrand];
+    if (!brandData) return;
+    
+    const screenSelect = document.getElementById('screen');
+    screenSelect.innerHTML = '';
+    brandData.screens.forEach(screen => {
+      const option = document.createElement('option');
+      option.value = screen.value;
+      option.textContent = screen.label;
+      if (screen.selected) option.selected = true;
+      screenSelect.appendChild(option);
+    });
+  }
+  
+  // 更新相机选项
+  function updateCameraOptions() {
+    const brandData = BRAND_SPECS[currentBrand];
+    if (!brandData) return;
+    
+    const cameraSelect = document.getElementById('camera');
+    cameraSelect.innerHTML = '';
+    brandData.cameras.forEach(camera => {
+      const option = document.createElement('option');
+      option.value = camera.value;
+      option.textContent = camera.label;
+      if (camera.selected) option.selected = true;
+      cameraSelect.appendChild(option);
+    });
+  }
+  
+  // 更新所有动态选项
+  function updateAllOptions() {
+    updateChipsetOptions();
+    updateScreenOptions();
+    updateCameraOptions();
+  }
+  
+  // ==================== 计算函数（保守原则） ====================
   function calculateMarketValue() {
     const brandData = BRAND_SPECS[currentBrand];
     const ram = parseInt(document.getElementById('ram').value);
     const storage = parseInt(document.getElementById('storage').value);
+    const chipset = document.getElementById('chipset').value;
+    const screen = document.getElementById('screen').value;
+    const camera = document.getElementById('camera').value;
     const battery = document.getElementById('battery').value;
     const ageYear = parseInt(document.getElementById('age').value);
     const physicalFactor = getPhysicalFactor();
     
-    // 基础价值来自品牌配置
-    let marketValue = brandData.basePrice;
+    // 芯片价值映射（保守估值）
+    const chipValues = {
+      a12: 1800000, a13: 2200000, a14: 2800000, a15: 3200000, a16: 3800000, a17: 4500000,
+      exynos1280: 800000, exynos1380: 1000000, exynos2200: 1500000,
+      snapdragon6: 700000, snapdragon7: 1200000, snapdragon8: 2500000,
+      snapdragon7gen1: 1300000, snapdragon8gen1: 2600000, snapdragon8gen2: 3000000, snapdragon8gen3: 3500000,
+      mediatek: 900000
+    };
+    
+    let marketValue = chipValues[chipset] || 1500000;
     
     // 应用所有系数
     marketValue *= CONFIG.RAM_FACTORS[ram];
@@ -804,6 +959,15 @@
     marketValue *= CONFIG.BATTERY_FACTORS[battery];
     marketValue *= CONFIG.AGE_FACTORS[ageYear];
     marketValue *= physicalFactor;
+    marketValue *= brandData.brandFactor;
+    
+    // 额外屏幕系数（基于品牌屏幕选项）
+    const screenFactors = { small: 0.92, medium: 1.0, large: 1.04, xl: 1.08 };
+    marketValue *= (screenFactors[screen] || 1.0);
+    
+    // 额外相机系数
+    const cameraFactors = { single: 0.90, dual: 1.0, triple: 1.08, quad: 1.14 };
+    marketValue *= (cameraFactors[camera] || 1.0);
     
     // 确保最小值
     marketValue = Math.max(Math.round(marketValue / 10000) * 10000, CONFIG.MIN_MARKET_VALUE);
@@ -817,50 +981,56 @@
     const storage = parseInt(document.getElementById('storage').value);
     const ageYear = parseInt(document.getElementById('age').value);
     const battery = document.getElementById('battery').value;
+    const chipset = document.getElementById('chipset').value;
     
     let pawnRatio = CONFIG.BASE_PAWN_RATIO;
     
-    // 品牌加成
-    if (currentBrand === 'apple') pawnRatio += 0.08;
-    if (currentBrand === 'samsung') pawnRatio += 0.03;
+    // 品牌加成（保守）
+    if (currentBrand === 'apple') pawnRatio += 0.05;
+    if (currentBrand === 'samsung') pawnRatio += 0.02;
     
-    // 配置加成
-    if (ram >= 12) pawnRatio += 0.04;
-    else if (ram >= 8) pawnRatio += 0.02;
-    if (storage >= 256) pawnRatio += 0.03;
-    else if (storage >= 128) pawnRatio += 0.02;
-    if (ageYear <= 1) pawnRatio += 0.05;
-    else if (ageYear <= 2) pawnRatio += 0.03;
-    if (battery === 'excellent') pawnRatio += 0.02;
+    // 配置加成（保守）
+    if (ram >= 12) pawnRatio += 0.03;
+    else if (ram >= 8) pawnRatio += 0.015;
+    if (storage >= 256) pawnRatio += 0.02;
+    else if (storage >= 128) pawnRatio += 0.01;
+    if (ageYear <= 1) pawnRatio += 0.03;
+    else if (ageYear <= 2) pawnRatio += 0.015;
+    if (battery === 'excellent') pawnRatio += 0.015;
+    
+    // 旗舰芯片加成
+    if (chipset === 'a17' || chipset === 'snapdragon8gen3') pawnRatio += 0.02;
     
     // 物理条件扣减
-    if (selectedConditions.screen_cracked) pawnRatio -= 0.08;
-    if (selectedConditions.body_dent) pawnRatio -= 0.05;
+    if (selectedConditions.screen_cracked) pawnRatio -= 0.10;
+    if (selectedConditions.body_dent) pawnRatio -= 0.06;
     
-    pawnRatio = Math.min(Math.max(pawnRatio, 0.50), CONFIG.MAX_PAWN_RATIO);
+    // 限制最高抵押率
+    pawnRatio = Math.min(Math.max(pawnRatio, 0.45), CONFIG.MAX_PAWN_RATIO);
     
-    return Math.round(marketValue * pawnRatio);
+    // 🔥 向下取整到 100,000（只减不加，保守原则）
+    const rawValue = marketValue * pawnRatio;
+    return Math.floor(rawValue / 100000) * 100000;
   }
   
+  // ==================== UI 更新函数 ====================
   function showResult() {
     const marketValue = calculateMarketValue();
     const pawnValue = calculatePawnValue(marketValue);
-    const marketMin = Math.round(marketValue * 0.92);
-    const marketMax = Math.round(marketValue * 1.08);
+    const marketMin = Math.round(marketValue * 0.90);
+    const marketMax = Math.round(marketValue * 0.98);
     
     const brandData = BRAND_SPECS[currentBrand];
     const ram = document.getElementById('ram').value;
     const storage = document.getElementById('storage').value;
     const chipSelect = document.getElementById('chipset');
-    const chipName = chipSelect.options[chipSelect.selectedIndex]?.text || '';
     const screenSelect = document.getElementById('screen');
-    const screenName = screenSelect.options[screenSelect.selectedIndex]?.text || '';
     const cameraSelect = document.getElementById('camera');
-    const cameraName = cameraSelect.options[cameraSelect.selectedIndex]?.text || '';
     const batterySelect = document.getElementById('battery');
-    const batteryName = batterySelect.options[batterySelect.selectedIndex]?.text || '';
     const ageYear = parseInt(document.getElementById('age').value);
-    const ageText = {1:'<6 bulan', 2:'6-12 bulan', 3:'1-2 tahun', 4:'2-3 tahun', 5:'>3 tahun'}[ageYear];
+    
+    const ageText = {1:'<6 bulan', 2:'6-12 bulan', 3:'1-2 tahun', 4:'2-3 tahun', 5:'>3 tahun'};
+    const batteryNames = { excellent: 'Excellent (>85%)', good: 'Good (70-85%)', fair: 'Fair (50-70%)', poor: 'Poor (<50%)' };
     
     let conditionText = [];
     if (selectedConditions.screen_ok) conditionText.push('Layar Mulus');
@@ -874,15 +1044,16 @@
 
 Saya ingin menanyakan estimasi gadai HP:
 
-📱 *${brandData.name}* - ${chipName}
+📱 *${brandData.name}*
 📊 Spesifikasi:
+- Chipset: ${chipSelect.options[chipSelect.selectedIndex]?.text}
 - RAM: ${ram} GB
 - Storage: ${storage >= 1024 ? (storage/1024)+'TB' : storage+'GB'}
-- Layar: ${screenName}
-- Kamera: ${cameraName}
-- Baterai: ${batteryName}
+- Layar: ${screenSelect.options[screenSelect.selectedIndex]?.text}
+- Kamera: ${cameraSelect.options[cameraSelect.selectedIndex]?.text}
+- Baterai: ${batteryNames[batterySelect.value]}
 - Kondisi: ${conditionText.join(', ')}
-📅 Usia: ${ageText}
+📅 Usia: ${ageText[ageYear]}
 
 📊 Estimasi Pinjaman:
 ${formatRupiah(pawnValue)}
@@ -893,7 +1064,7 @@ Saya siap bawa HP ke kantor hari ini. Terima kasih.`;
     
     const resultHtml = `
       <div class="estimation-card">
-        <div class="label">💰 Nilai Pasar (second)</div>
+        <div class="label">💰 Perkiraan Nilai Pasar</div>
         <div class="value">${formatRupiah(marketMin)} – ${formatRupiah(marketMax)}</div>
         
         <div style="margin: 20px 0; height: 2px; background: rgba(245,197,66,0.3);"></div>
@@ -901,25 +1072,26 @@ Saya siap bawa HP ke kantor hari ini. Terima kasih.`;
         <div class="label">🏦 Estimasi Pinjaman (dapat cair)</div>
         <div class="value" style="font-size: 2.2rem;">${formatRupiah(pawnValue)}</div>
         <div style="margin-top: 8px; font-size: var(--fs-small); color: var(--text-muted);">
-          ✅ Harga tetap, tidak ada tawar-menawar • Transparan & adil
+          ✅ Harga pasti • Transparan • Tidak ada tawar-menawar
         </div>
         
         <div class="config-summary">
           <strong>📋 Ringkasan Konfigurasi:</strong><br>
           <span class="spec-badge">${brandData.name}</span>
-          <span class="spec-badge">${chipName}</span>
-          <span class="spec-badge">${ram}GB RAM</span>
+          <span class="spec-badge">${chipSelect.options[chipSelect.selectedIndex]?.text}</span>
+          <span class="spec-badge">${ram} GB RAM</span>
           <span class="spec-badge">${storage >= 1024 ? (storage/1024)+'TB' : storage+'GB'}</span>
-          <span class="spec-badge">📺 ${screenName}</span>
-          <span class="spec-badge">📸 ${cameraName}</span>
-          <span class="spec-badge">🔋 ${batteryName}</span>
-          <span class="spec-badge">📅 ${ageText}</span>
+          <span class="spec-badge">📺 ${screenSelect.options[screenSelect.selectedIndex]?.text}</span>
+          <span class="spec-badge">📸 ${cameraSelect.options[cameraSelect.selectedIndex]?.text}</span>
+          <span class="spec-badge">🔋 ${batteryNames[batterySelect.value]}</span>
+          <span class="spec-badge">📅 ${ageText[ageYear]}</span>
           <span class="spec-badge">🔍 ${conditionText.join(' + ')}</span>
         </div>
         
-        <div class="trust-box" style="margin: 20px 0 10px; grid-template-columns: repeat(2,1fr);">
+        <div class="trust-box">
           <div class="trust-item">✅ Proses <strong>30 menit</strong></div>
           <div class="trust-item">🔒 Aman & terpercaya</div>
+          <div class="trust-item">📦 Box & charger asli</div>
         </div>
         
         <a href="${waUrl}" target="_blank" class="whatsapp-btn">
@@ -954,7 +1126,7 @@ Saya siap bawa HP ke kantor hari ini. Terima kasih.`;
         document.querySelectorAll('.brand-option').forEach(b => b.classList.remove('active'));
         this.classList.add('active');
         currentBrand = this.getAttribute('data-brand');
-        updateFormByBrand(currentBrand);
+        updateAllOptions();
       });
     });
     
@@ -1011,12 +1183,19 @@ Saya siap bawa HP ke kantor hari ini. Terima kasih.`;
       e.preventDefault();
       alert('📍 Kantor kami: Krajan Panas I, Oro-Oro Ombowetan, \nKec. Rembang, Pasuruan, Jawa Timur 67152\n🕒 Buka: Senin-Sabtu 08:00-18:00');
     });
+    
+    // FAQ折叠
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', function() {
+        this.parentElement.classList.toggle('active');
+      });
+    });
   }
   
   // ==================== 初始化 ====================
   function init() {
     document.getElementById('year').textContent = new Date().getFullYear();
-    updateFormByBrand('apple');
+    updateAllOptions();
     
     // 默认选中良好条件
     document.querySelector('[data-condition="screen_ok"]')?.classList.add('selected');
