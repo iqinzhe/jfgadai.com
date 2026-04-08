@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 <title>JF Gadai Laptop - Estimasi Gadai Cepat & Aman</title>
 
-<!-- 引用两个独立的CSS文件 -->
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/faq.css">
 
@@ -16,14 +15,6 @@
   padding: var(--spacing-lg) 0 var(--spacing-md);
 }
 
-.estimation-header h2 {
-  font-size: var(--fs-hero-title);
-  color: var(--secondary-color);
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  margin-bottom: var(--spacing-sm);
-}
-
-/* 品牌选项网格 - 带Logo */
 .brand-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -80,7 +71,6 @@
   filter: drop-shadow(0 0 4px var(--secondary-color));
 }
 
-/* 配置卡片网格 */
 .specs-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -113,7 +103,6 @@
   padding-bottom: 8px;
 }
 
-/* 表单步骤 */
 .form-step {
   display: none;
   animation: fadeIn 0.4s ease-out;
@@ -123,7 +112,6 @@
   display: block;
 }
 
-/* 统一选择框样式 */
 .form-select {
   width: 100%;
   padding: 12px var(--spacing-md);
@@ -149,7 +137,6 @@
   color: var(--light-color);
 }
 
-/* 按钮区域 */
 .button-group {
   display: flex;
   gap: var(--spacing-md);
@@ -170,8 +157,6 @@
   transition: all 0.3s ease;
   cursor: pointer;
   border: none;
-  position: relative;
-  overflow: hidden;
 }
 
 .btn-primary {
@@ -195,7 +180,6 @@
   transform: translateY(-2px);
 }
 
-/* 估算结果卡片 */
 .estimation-card {
   background: linear-gradient(135deg, rgba(15, 76, 129, 0.4), rgba(245, 197, 66, 0.2));
   border-radius: var(--border-radius-lg);
@@ -258,7 +242,6 @@
   text-align: left;
 }
 
-/* 错误提示 */
 .error-message {
   background: rgba(255, 68, 68, 0.2);
   border: 1px solid #ff4444;
@@ -269,7 +252,183 @@
   text-align: center;
 }
 
-/* 响应式 */
+.trust-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.trust-item {
+  background: rgba(0,0,0,0.3);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  text-align: center;
+  font-size: var(--fs-small);
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin: var(--spacing-xl) auto;
+  max-width: 800px;
+  padding: 0 var(--spacing-md);
+}
+
+.quick-action-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  text-align: center;
+  border: 1px solid rgba(245, 197, 66, 0.2);
+}
+
+.action-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.action-title {
+  font-weight: 700;
+  font-size: var(--fs-subtitle);
+  margin-bottom: var(--spacing-xs);
+}
+
+.action-description {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+.action-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--fs-small);
+  transition: all 0.3s ease;
+}
+
+.action-btn.whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+.action-btn.location {
+  background: rgba(245, 197, 66, 0.2);
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+}
+
+.faq-section {
+  background: rgba(0, 0, 0, 0.3);
+  padding: var(--spacing-xl) 0;
+  margin-top: var(--spacing-xl);
+}
+
+.faq-section h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-md);
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: var(--spacing-md);
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.5rem;
+}
+
+.faq-answer {
+  padding: 0 var(--spacing-md) var(--spacing-md);
+  display: none;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.faq-item.active .faq-question::after {
+  content: '-';
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+footer {
+  background: rgba(0, 0, 0, 0.5);
+  padding: var(--spacing-xl) 0 var(--spacing-md);
+  text-align: center;
+  margin-top: var(--spacing-xl);
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.copyright, .company-info, .operating-hours, .security-note {
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--secondary-color);
+  text-decoration: none;
+  margin: var(--spacing-sm) 0;
+}
+
+.floating-wa {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.floating-wa:hover {
+  transform: scale(1.1);
+}
+
+.floating-wa img {
+  width: 35px;
+  height: 35px;
+}
+
 @media (max-width: 768px) {
   .brand-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -280,12 +439,11 @@
   .estimation-card {
     padding: var(--spacing-lg);
   }
-  .estimation-card .value {
-    font-size: 1.5rem;
+  .trust-box {
+    grid-template-columns: 1fr;
   }
-  .brand-option img {
-    width: 36px;
-    height: 36px;
+  .quick-actions {
+    grid-template-columns: 1fr;
   }
 }
 </style>
@@ -300,8 +458,8 @@
       <strong><span class="arrow">←</span> Beranda</strong>
     </a>
     <a href="/assessment.html" class="nav-forward">
-    <strong>Gadai Motor <span class="arrow">→</span></strong>
-    <img src="/images/logo-motor.png" alt="Gadai Motor" class="nav-icon">
+      <strong>Gadai Motor <span class="arrow">→</span></strong>
+      <img src="/images/logo-motor.png" alt="Gadai Motor" class="nav-icon">
     </a>
   </div>
 </header>
@@ -315,7 +473,7 @@
 </div>
 
 <div class="container">
-  <!-- STEP 1: 品牌 + CPU + RAM -->
+  <!-- STEP 1: 品牌 + 系列 + CPU + RAM -->
   <div id="step1" class="form-step active">
     <div class="unified-card">
       <div class="card-title">✨ Pilih Merek Laptop</div>
@@ -349,20 +507,21 @@
       </div>
     </div>
 
+    <!-- 系列选择 - 新增！ -->
+    <div class="unified-card">
+      <div class="card-title">🏷️ Pilih Series Laptop</div>
+      <div class="card-desc">Series sangat mempengaruhi nilai gadai (ROG > Vivobook, ThinkPad > Ideapad)</div>
+      <select id="series" class="form-select">
+        <!-- 动态根据品牌填充 -->
+      </select>
+    </div>
+
     <!-- 核心配置：CPU + RAM -->
     <div class="specs-grid">
       <div class="spec-card">
         <h4>⚙️ Prosesor (CPU)</h4>
         <select id="cpu" class="form-select">
-          <option value="i3">Intel Core i3</option>
-          <option value="i5" selected>Intel Core i5</option>
-          <option value="i7">Intel Core i7</option>
-          <option value="i9">Intel Core i9</option>
-          <option value="m1">Apple M1</option>
-          <option value="m2">Apple M2</option>
-          <option value="m3">Apple M3</option>
-          <option value="ryzen5">AMD Ryzen 5</option>
-          <option value="ryzen7">AMD Ryzen 7</option>
+          <!-- 动态根据品牌填充 -->
         </select>
       </div>
       
@@ -415,10 +574,7 @@
       <div class="spec-card">
         <h4>🎮 Kartu Grafis (GPU)</h4>
         <select id="gpu" class="form-select">
-          <option value="integrated">Integrated (Intel UHD / Iris)</option>
-          <option value="entry" selected>Entry (NVIDIA MX / AMD Radeon)</option>
-          <option value="mid">Mid (NVIDIA RTX 3050/3060)</option>
-          <option value="high">High (NVIDIA RTX 3070/3080/4090)</option>
+          <!-- 动态根据品牌和系列填充 -->
         </select>
       </div>
       
@@ -442,7 +598,7 @@
         <option value="5">Lebih dari 4 tahun</option>
       </select>
       
-      <div class="trust-box" style="margin-top: var(--spacing-lg);">
+      <div class="trust-box">
         <div class="trust-item">✅ <strong>Fisik mulus</strong><br>tanpa goresan/retak</div>
         <div class="trust-item">🔌 <strong>Charger asli</strong><br>meningkatkan nilai</div>
         <div class="trust-item">📦 <strong>Kelengkapan</strong><br>box & aksesoris</div>
@@ -488,7 +644,11 @@
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-question">Apakah semua merek laptop bisa digadaikan?</div>
-        <div class="faq-answer">Ya, kami menerima berbagai merek. Nilai tergantung spesifikasi & kondisi.</div>
+        <div class="faq-answer">Ya, kami menerima berbagai merek. Nilai tergantung spesifikasi, SERIES, & kondisi.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Kenapa series laptop penting untuk nilai gadai?</div>
+        <div class="faq-answer">Series menentukan kualitas build, performa, dan harga pasar. Contoh: ASUS ROG bisa 2x lipat dari Vivobook dengan spesifikasi sama.</div>
       </div>
       <div class="faq-item">
         <div class="faq-question">Berapa lama proses penilaian?</div>
@@ -498,10 +658,6 @@
         <div class="faq-question">Apakah laptop saya aman?</div>
         <div class="faq-answer">100% aman, disimpan di ruang CCTV 24 jam + asuransi.</div>
       </div>
-      <div class="faq-item">
-        <div class="faq-question">Apa saja yang mempengaruhi nilai gadai?</div>
-        <div class="faq-answer">Merek, prosesor, RAM, penyimpanan, ukuran layar, GPU, kondisi baterai, dan usia pemakaian.</div>
-      </div>
     </div>
   </div>
 </div>
@@ -509,27 +665,16 @@
 <!-- 页脚 -->
 <footer id="lokasi" role="contentinfo">
   <div class="footer-content">
-    <p class="copyright">
-      © <span id="year"></span> JF Gadai Laptop • Solusi Dana Cepat & Aman
-    </p>
-
-    <div class="company-info">
-      JF Gadai berizin resmi • Melayani gadai laptop, smartphone, dan elektronik
-    </div>
-
+    <p class="copyright">© <span id="year"></span> JF Gadai Laptop • Solusi Dana Cepat & Aman</p>
+    <div class="company-info">JF Gadai berizin resmi • Melayani gadai laptop, smartphone, dan elektronik</div>
     <div class="contact-info">
       <a href="https://wa.me/6289515692586" target="_blank" class="contact-link">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;">
         Chat WhatsApp Sekarang
       </a>
     </div>
-
-    <p class="operating-hours">
-      ⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu
-    </p>
-    <p class="security-note">
-      🔒 Situs ini menggunakan koneksi aman (HTTPS).
-    </p>
+    <p class="operating-hours">⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu</p>
+    <p class="security-note">🔒 Situs ini menggunakan koneksi aman (HTTPS).</p>
   </div>
 </footer>
 
@@ -538,303 +683,377 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
 </a>
 
-<!-- 引用外部JS文件 -->
 <script src="/js/faq.js"></script>
 
 <script>
-// 使用 IIFE 避免全局污染
 (function() {
   'use strict';
   
-  // ==================== 配置常量 ====================
+  // ==================== 品牌专属配置数据（包含系列） ====================
+  const BRAND_SPECS = {
+    apple: {
+      name: 'Apple MacBook',
+      brandFactor: 1.0,
+      series: [
+        { value: 'macbook_air', label: 'MacBook Air', factor: 1.0, selected: true, basePrice: 7000000 },
+        { value: 'macbook_pro_13', label: 'MacBook Pro 13"', factor: 1.45, basePrice: 11000000 },
+        { value: 'macbook_pro_14', label: 'MacBook Pro 14"', factor: 1.65, basePrice: 15000000 },
+        { value: 'macbook_pro_16', label: 'MacBook Pro 16"', factor: 1.85, basePrice: 19000000 }
+      ],
+      cpus: [
+        { value: 'm1', label: 'Apple M1', seriesCompatible: ['macbook_air', 'macbook_pro_13'] },
+        { value: 'm2', label: 'Apple M2', seriesCompatible: ['macbook_air', 'macbook_pro_13'] },
+        { value: 'm2_pro', label: 'Apple M2 Pro', seriesCompatible: ['macbook_pro_14', 'macbook_pro_16'] },
+        { value: 'm2_max', label: 'Apple M2 Max', seriesCompatible: ['macbook_pro_14', 'macbook_pro_16'] },
+        { value: 'm3', label: 'Apple M3', seriesCompatible: ['macbook_air', 'macbook_pro_13'] },
+        { value: 'm3_pro', label: 'Apple M3 Pro', seriesCompatible: ['macbook_pro_14', 'macbook_pro_16'] },
+        { value: 'm3_max', label: 'Apple M3 Max', seriesCompatible: ['macbook_pro_14', 'macbook_pro_16'] }
+      ],
+      gpus: [
+        { value: 'integrated', label: 'Integrated (GPU bawaan Apple)', factor: 1.0 }
+      ]
+    },
+    asus: {
+      name: 'ASUS',
+      brandFactor: 0.82,
+      series: [
+        { value: 'vivobook', label: 'Vivobook (Entry/Mid)', factor: 1.0, selected: true, basePrice: 4500000 },
+        { value: 'zenbook', label: 'Zenbook (Premium Ultrabook)', factor: 1.35, basePrice: 8500000 },
+        { value: 'tuf', label: 'TUF Gaming (Mid Gaming)', factor: 1.25, basePrice: 8000000 },
+        { value: 'rog_strix', label: 'ROG Strix (High Gaming)', factor: 1.65, basePrice: 12000000 },
+        { value: 'rog_zephyrus', label: 'ROG Zephyrus (Premium Gaming)', factor: 1.85, basePrice: 15000000 },
+        { value: 'proart', label: 'ProArt (Creator/Workstation)', factor: 1.55, basePrice: 14000000 }
+      ],
+      cpus: [
+        { value: 'i3_12', label: 'Intel Core i3 (12th Gen+)', seriesCompatible: ['vivobook'] },
+        { value: 'i5_12', label: 'Intel Core i5 (12th Gen+)', seriesCompatible: ['vivobook', 'zenbook', 'tuf'] },
+        { value: 'i7_12', label: 'Intel Core i7 (12th Gen+)', seriesCompatible: ['vivobook', 'zenbook', 'tuf', 'rog_strix'] },
+        { value: 'i9_12', label: 'Intel Core i9 (12th Gen+)', seriesCompatible: ['rog_strix', 'rog_zephyrus', 'proart'] },
+        { value: 'ryzen5', label: 'AMD Ryzen 5', seriesCompatible: ['vivobook', 'tuf'] },
+        { value: 'ryzen7', label: 'AMD Ryzen 7', seriesCompatible: ['vivobook', 'zenbook', 'tuf', 'rog_strix'] },
+        { value: 'ryzen9', label: 'AMD Ryzen 9', seriesCompatible: ['rog_strix', 'rog_zephyrus', 'proart'] }
+      ],
+      gpus: [
+        { value: 'integrated', label: 'Integrated (Intel UHD / Iris Xe)', factor: 0.88, seriesCompatible: ['vivobook', 'zenbook'] },
+        { value: 'entry', label: 'Entry (NVIDIA MX Series)', factor: 1.0, seriesCompatible: ['vivobook', 'zenbook'] },
+        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.18, seriesCompatible: ['tuf', 'rog_strix'] },
+        { value: 'high', label: 'High (NVIDIA RTX 3070/3080)', factor: 1.35, seriesCompatible: ['rog_strix', 'rog_zephyrus'] },
+        { value: 'flagship', label: 'Flagship (NVIDIA RTX 4080/4090)', factor: 1.55, seriesCompatible: ['rog_zephyrus', 'proart'] }
+      ]
+    },
+    lenovo: {
+      name: 'Lenovo',
+      brandFactor: 0.80,
+      series: [
+        { value: 'ideapad', label: 'Ideapad (Entry/Mid)', factor: 1.0, selected: true, basePrice: 4300000 },
+        { value: 'legion', label: 'Legion (Gaming)', factor: 1.45, basePrice: 11000000 },
+        { value: 'thinkbook', label: 'ThinkBook (Business)', factor: 1.2, basePrice: 7000000 },
+        { value: 'thinkpad_e', label: 'ThinkPad E Series', factor: 1.15, basePrice: 6500000 },
+        { value: 'thinkpad_t', label: 'ThinkPad T Series', factor: 1.45, basePrice: 10000000 },
+        { value: 'thinkpad_x1', label: 'ThinkPad X1 Carbon/Nano', factor: 1.75, basePrice: 15000000 },
+        { value: 'yoga', label: 'Yoga (Premium 2-in-1)', factor: 1.3, basePrice: 9000000 }
+      ],
+      cpus: [
+        { value: 'i3_12', label: 'Intel Core i3 (12th Gen+)', seriesCompatible: ['ideapad'] },
+        { value: 'i5_12', label: 'Intel Core i5 (12th Gen+)', seriesCompatible: ['ideapad', 'thinkbook', 'thinkpad_e', 'yoga'] },
+        { value: 'i7_12', label: 'Intel Core i7 (12th Gen+)', seriesCompatible: ['ideapad', 'legion', 'thinkbook', 'thinkpad_t', 'thinkpad_x1', 'yoga'] },
+        { value: 'i9_12', label: 'Intel Core i9 (12th Gen+)', seriesCompatible: ['legion', 'thinkpad_x1'] },
+        { value: 'ryzen5', label: 'AMD Ryzen 5', seriesCompatible: ['ideapad', 'thinkbook'] },
+        { value: 'ryzen7', label: 'AMD Ryzen 7', seriesCompatible: ['ideapad', 'legion', 'thinkbook', 'yoga'] },
+        { value: 'ryzen9', label: 'AMD Ryzen 9', seriesCompatible: ['legion'] }
+      ],
+      gpus: [
+        { value: 'integrated', label: 'Integrated (Intel UHD / Iris Xe)', factor: 0.88, seriesCompatible: ['ideapad', 'thinkbook', 'thinkpad_e', 'thinkpad_t', 'thinkpad_x1', 'yoga'] },
+        { value: 'entry', label: 'Entry (NVIDIA MX Series)', factor: 1.0, seriesCompatible: ['ideapad', 'thinkbook'] },
+        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.18, seriesCompatible: ['legion', 'ideapad_gaming'] },
+        { value: 'high', label: 'High (NVIDIA RTX 3070/3080)', factor: 1.35, seriesCompatible: ['legion'] },
+        { value: 'flagship', label: 'Flagship (NVIDIA RTX 4080/4090)', factor: 1.55, seriesCompatible: ['legion_9'] }
+      ]
+    },
+    dell: {
+      name: 'Dell',
+      brandFactor: 0.81,
+      series: [
+        { value: 'inspiron', label: 'Inspiron (Entry/Mid)', factor: 1.0, selected: true, basePrice: 4500000 },
+        { value: 'vostro', label: 'Vostro (Small Business)', factor: 1.05, basePrice: 5000000 },
+        { value: 'latitude', label: 'Latitude (Business)', factor: 1.35, basePrice: 8500000 },
+        { value: 'xps', label: 'XPS (Premium Ultrabook)', factor: 1.7, basePrice: 14000000 },
+        { value: 'precision', label: 'Precision (Workstation)', factor: 1.6, basePrice: 16000000 },
+        { value: 'g_series', label: 'G Series (Gaming)', factor: 1.25, basePrice: 8000000 },
+        { value: 'alienware', label: 'Alienware (High Gaming)', factor: 1.9, basePrice: 18000000 }
+      ],
+      cpus: [
+        { value: 'i3_12', label: 'Intel Core i3 (12th Gen+)', seriesCompatible: ['inspiron', 'vostro'] },
+        { value: 'i5_12', label: 'Intel Core i5 (12th Gen+)', seriesCompatible: ['inspiron', 'vostro', 'latitude', 'g_series'] },
+        { value: 'i7_12', label: 'Intel Core i7 (12th Gen+)', seriesCompatible: ['inspiron', 'latitude', 'xps', 'precision', 'g_series', 'alienware'] },
+        { value: 'i9_12', label: 'Intel Core i9 (12th Gen+)', seriesCompatible: ['xps', 'precision', 'alienware'] }
+      ],
+      gpus: [
+        { value: 'integrated', label: 'Integrated (Intel UHD / Iris Xe)', factor: 0.88, seriesCompatible: ['inspiron', 'vostro', 'latitude', 'xps'] },
+        { value: 'entry', label: 'Entry (NVIDIA MX Series)', factor: 1.0, seriesCompatible: ['inspiron', 'vostro'] },
+        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.18, seriesCompatible: ['g_series', 'xps'] },
+        { value: 'high', label: 'High (NVIDIA RTX 3070/3080)', factor: 1.35, seriesCompatible: ['alienware', 'precision'] },
+        { value: 'flagship', label: 'Flagship (NVIDIA RTX 4080/4090)', factor: 1.55, seriesCompatible: ['alienware'] }
+      ]
+    },
+    hp: {
+      name: 'HP',
+      brandFactor: 0.78,
+      series: [
+        { value: 'pavilion', label: 'Pavilion (Entry/Mid)', factor: 1.0, selected: true, basePrice: 4200000 },
+        { value: 'envy', label: 'Envy (Premium)', factor: 1.3, basePrice: 8000000 },
+        { value: 'spectre', label: 'Spectre (Luxury)', factor: 1.55, basePrice: 12000000 },
+        { value: 'victus', label: 'Victus (Gaming)', factor: 1.2, basePrice: 7500000 },
+        { value: 'omen', label: 'Omen (High Gaming)', factor: 1.6, basePrice: 13000000 },
+        { value: 'elitebook', label: 'EliteBook (Business)', factor: 1.35, basePrice: 9000000 },
+        { value: 'zbook', label: 'ZBook (Workstation)', factor: 1.5, basePrice: 15000000 }
+      ],
+      cpus: [
+        { value: 'i3_12', label: 'Intel Core i3 (12th Gen+)', seriesCompatible: ['pavilion'] },
+        { value: 'i5_12', label: 'Intel Core i5 (12th Gen+)', seriesCompatible: ['pavilion', 'envy', 'victus', 'elitebook'] },
+        { value: 'i7_12', label: 'Intel Core i7 (12th Gen+)', seriesCompatible: ['pavilion', 'envy', 'spectre', 'victus', 'omen', 'elitebook', 'zbook'] },
+        { value: 'i9_12', label: 'Intel Core i9 (12th Gen+)', seriesCompatible: ['omen', 'zbook'] }
+      ],
+      gpus: [
+        { value: 'integrated', label: 'Integrated (Intel UHD / Iris Xe)', factor: 0.88, seriesCompatible: ['pavilion', 'envy', 'spectre', 'elitebook'] },
+        { value: 'entry', label: 'Entry (NVIDIA MX Series)', factor: 1.0, seriesCompatible: ['pavilion', 'envy'] },
+        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.18, seriesCompatible: ['victus', 'omen'] },
+        { value: 'high', label: 'High (NVIDIA RTX 3070/3080)', factor: 1.35, seriesCompatible: ['omen', 'zbook'] }
+      ]
+    },
+    acer: {
+      name: 'Acer',
+      brandFactor: 0.75,
+      series: [
+        { value: 'aspire', label: 'Aspire (Entry/Mid)', factor: 1.0, selected: true, basePrice: 4000000 },
+        { value: 'swift', label: 'Swift (Premium Ultrabook)', factor: 1.25, basePrice: 7500000 },
+        { value: 'predator', label: 'Predator (High Gaming)', factor: 1.65, basePrice: 13000000 },
+        { value: 'nitro', label: 'Nitro (Mid Gaming)', factor: 1.3, basePrice: 8500000 },
+        { value: 'travelmate', label: 'TravelMate (Business)', factor: 1.1, basePrice: 5500000 },
+        { value: 'conceptd', label: 'ConceptD (Creator)', factor: 1.45, basePrice: 14000000 }
+      ],
+      cpus: [
+        { value: 'i3_12', label: 'Intel Core i3 (12th Gen+)', seriesCompatible: ['aspire', 'travelmate'] },
+        { value: 'i5_12', label: 'Intel Core i5 (12th Gen+)', seriesCompatible: ['aspire', 'swift', 'nitro', 'travelmate'] },
+        { value: 'i7_12', label: 'Intel Core i7 (12th Gen+)', seriesCompatible: ['aspire', 'swift', 'nitro', 'predator', 'conceptd'] },
+        { value: 'i9_12', label: 'Intel Core i9 (12th Gen+)', seriesCompatible: ['predator', 'conceptd'] }
+      ],
+      gpus: [
+        { value: 'integrated', label: 'Integrated (Intel UHD / Iris Xe)', factor: 0.88, seriesCompatible: ['aspire', 'swift', 'travelmate'] },
+        { value: 'entry', label: 'Entry (NVIDIA MX Series)', factor: 1.0, seriesCompatible: ['aspire', 'swift'] },
+        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.18, seriesCompatible: ['nitro', 'predator'] },
+        { value: 'high', label: 'High (NVIDIA RTX 3070/3080)', factor: 1.35, seriesCompatible: ['predator', 'conceptd'] }
+      ]
+    }
+  };
+  
+  // 通用系数配置
   const CONFIG = {
-    // 品牌系数 (基于市场保有量和保值率)
-    BRAND_FACTORS: {
-      apple: 1.0,    // 苹果最保值
-      asus: 0.82,    // ASUS 中等偏上
-      lenovo: 0.80,  // Lenovo 稳定
-      dell: 0.81,    // Dell 商务本保值
-      hp: 0.78,      // HP 略低
-      acer: 0.75     // Acer 性价比品牌
-    },
-    
-    // CPU 基础价值 (单位: IDR)
-    CPU_BASE_VALUE: {
-      i3: 2800000,
-      i5: 4200000,
-      i7: 6500000,
-      i9: 8500000,
-      m1: 7000000,
-      m2: 8500000,
-      m3: 10500000,
-      ryzen5: 4000000,
-      ryzen7: 6000000
-    },
-    
-    // RAM 系数 (更合理的梯度)
-    RAM_FACTORS: {
-      4: 0.85,
-      8: 0.95,
-      16: 1.0,
-      32: 1.12,
-      64: 1.20
-    },
-    
-    // 存储系数
-    STORAGE_FACTORS: {
-      128: 0.90,
-      256: 1.0,
-      512: 1.08,
-      1024: 1.15,
-      2048: 1.22
-    },
-    
-    // 屏幕系数
-    SCREEN_FACTORS: {
-      11: 0.88,
-      13: 1.0,
-      15: 1.03,
-      17: 1.06
-    },
-    
-    // 显卡系数
-    GPU_FACTORS: {
-      integrated: 0.88,
-      entry: 1.0,
-      mid: 1.12,
-      high: 1.28
-    },
-    
-    // 电池系数 (更符合实际情况)
-    BATTERY_FACTORS: {
-      excellent: 1.0,
-      good: 0.92,
-      fair: 0.82,
-      poor: 0.70
-    },
-    
-    // 年龄系数 (更合理的折旧)
-    AGE_FACTORS: {
-      1: 0.92,  // <1年
-      2: 0.78,  // 1-2年
-      3: 0.62,  // 3-4年
-      5: 0.48   // >4年
-    },
-    
-    // 基础抵押率
+    RAM_FACTORS: { 4: 0.85, 8: 0.95, 16: 1.0, 32: 1.12, 64: 1.20 },
+    STORAGE_FACTORS: { 128: 0.90, 256: 1.0, 512: 1.08, 1024: 1.15, 2048: 1.22 },
+    SCREEN_FACTORS: { 11: 0.88, 13: 1.0, 15: 1.03, 17: 1.06 },
+    BATTERY_FACTORS: { excellent: 1.0, good: 0.92, fair: 0.82, poor: 0.70 },
+    AGE_FACTORS: { 1: 0.92, 2: 0.78, 3: 0.62, 5: 0.48 },
     BASE_PAWN_RATIO: 0.62,
-    
-    // 最高抵押率
     MAX_PAWN_RATIO: 0.72,
-    
-    // 最低估值 (IDR)
     MIN_MARKET_VALUE: 400000
   };
   
-  // ==================== DOM 元素引用 ====================
-  const DOM = {
-    brandOptions: () => document.querySelectorAll('.brand-option'),
-    cpu: () => document.getElementById('cpu'),
-    ram: () => document.getElementById('ram'),
-    storage: () => document.getElementById('storage'),
-    screen: () => document.getElementById('screen'),
-    gpu: () => document.getElementById('gpu'),
-    battery: () => document.getElementById('battery'),
-    age: () => document.getElementById('age'),
-    resultContainer: () => document.getElementById('resultContainer'),
-    steps: () => document.querySelectorAll('.form-step')
-  };
-  
-  let currentStep = 1;
+  let currentBrand = 'apple';
+  let currentSeries = null;
   
   // ==================== 辅助函数 ====================
   function formatRupiah(num) {
     return "Rp " + new Intl.NumberFormat("id-ID").format(Math.round(num));
   }
   
-  function validateSelections() {
-    const required = ['cpu', 'ram', 'storage', 'screen', 'gpu', 'battery', 'age'];
-    for (let id of required) {
-      const element = document.getElementById(id);
-      if (!element || !element.value) {
-        showError(`Harap lengkapi semua pilihan terlebih dahulu`);
-        return false;
-      }
-    }
-    return true;
+  // 获取当前选中的系列数据
+  function getCurrentSeriesData() {
+    const seriesSelect = document.getElementById('series');
+    const seriesValue = seriesSelect ? seriesSelect.value : null;
+    const brandData = BRAND_SPECS[currentBrand];
+    if (!brandData || !seriesValue) return null;
+    return brandData.series.find(s => s.value === seriesValue);
   }
   
-  function showError(message) {
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'error-message';
-    errorDiv.innerHTML = `⚠️ ${message}`;
+  // 根据品牌和系列更新CPU选项
+  function updateCpuOptions() {
+    const brandData = BRAND_SPECS[currentBrand];
+    const seriesData = getCurrentSeriesData();
+    if (!brandData || !seriesData) return;
     
-    // 如果已经有错误提示，先移除
-    const existingError = document.querySelector('.error-message');
-    if (existingError) existingError.remove();
+    const cpuSelect = document.getElementById('cpu');
+    const compatibleCpus = brandData.cpus.filter(cpu => 
+      cpu.seriesCompatible.includes(seriesData.value)
+    );
     
-    // 插入到步骤2的开头
-    const step2 = document.getElementById('step2');
-    if (step2 && currentStep === 2) {
-      step2.insertBefore(errorDiv, step2.firstChild);
-      setTimeout(() => errorDiv.remove(), 3000);
-    } else {
-      alert(message);
-    }
+    cpuSelect.innerHTML = '';
+    compatibleCpus.forEach(cpu => {
+      const option = document.createElement('option');
+      option.value = cpu.value;
+      option.textContent = cpu.label;
+      cpuSelect.appendChild(option);
+    });
+  }
+  
+  // 根据品牌和系列更新GPU选项
+  function updateGpuOptions() {
+    const brandData = BRAND_SPECS[currentBrand];
+    const seriesData = getCurrentSeriesData();
+    if (!brandData || !seriesData) return;
+    
+    const gpuSelect = document.getElementById('gpu');
+    const compatibleGpus = brandData.gpus.filter(gpu => 
+      !gpu.seriesCompatible || gpu.seriesCompatible.includes(seriesData.value)
+    );
+    
+    gpuSelect.innerHTML = '';
+    compatibleGpus.forEach(gpu => {
+      const option = document.createElement('option');
+      option.value = gpu.value;
+      option.textContent = gpu.label;
+      if (gpu.value === 'entry' || (gpu.value === 'integrated' && compatibleGpus.length === 1)) {
+        option.selected = true;
+      }
+      gpuSelect.appendChild(option);
+    });
+  }
+  
+  // 更新系列选项
+  function updateSeriesOptions() {
+    const brandData = BRAND_SPECS[currentBrand];
+    if (!brandData) return;
+    
+    const seriesSelect = document.getElementById('series');
+    seriesSelect.innerHTML = '';
+    brandData.series.forEach(series => {
+      const option = document.createElement('option');
+      option.value = series.value;
+      option.textContent = `${series.label} ${series.factor >= 1.4 ? '⭐' : ''}`;
+      if (series.selected) option.selected = true;
+      seriesSelect.appendChild(option);
+    });
+    
+    // 更新CPU和GPU
+    updateCpuOptions();
+    updateGpuOptions();
+  }
+  
+  // 当系列改变时更新
+  function onSeriesChange() {
+    updateCpuOptions();
+    updateGpuOptions();
   }
   
   // ==================== 计算函数 ====================
-  function getSelectedBrand() {
-    const activeBrand = document.querySelector('.brand-option.active');
-    return activeBrand ? activeBrand.getAttribute('data-brand') : 'asus';
-  }
-  
   function calculateMarketValue() {
-    const brand = getSelectedBrand();
-    const cpu = DOM.cpu().value;
-    const ram = parseInt(DOM.ram().value);
-    const storage = parseInt(DOM.storage().value);
-    const screen = parseInt(DOM.screen().value);
-    const gpu = DOM.gpu().value;
-    const battery = DOM.battery().value;
-    const ageYear = parseInt(DOM.age().value);
+    const brandData = BRAND_SPECS[currentBrand];
+    const seriesData = getCurrentSeriesData();
+    if (!brandData || !seriesData) return CONFIG.MIN_MARKET_VALUE;
     
-    // 获取基础价值
-    let marketValue = CONFIG.CPU_BASE_VALUE[cpu] || CONFIG.CPU_BASE_VALUE.i5;
+    const cpu = document.getElementById('cpu').value;
+    const ram = parseInt(document.getElementById('ram').value);
+    const storage = parseInt(document.getElementById('storage').value);
+    const screen = parseInt(document.getElementById('screen').value);
+    const gpu = document.getElementById('gpu').value;
+    const battery = document.getElementById('battery').value;
+    const ageYear = parseInt(document.getElementById('age').value);
     
-    // 应用所有系数
-    marketValue *= CONFIG.BRAND_FACTORS[brand];
+    // 基础价值来自系列配置
+    let marketValue = seriesData.basePrice;
+    
+    // CPU系数（基于系列基础价值再调整）
+    const cpuFactors = {
+      i3_12: 0.85, i5_12: 1.0, i7_12: 1.2, i9_12: 1.45,
+      ryzen5: 0.95, ryzen7: 1.15, ryzen9: 1.4,
+      m1: 1.0, m2: 1.15, m2_pro: 1.35, m2_max: 1.5,
+      m3: 1.25, m3_pro: 1.45, m3_max: 1.65
+    };
+    
+    // GPU系数
+    const gpuSelect = document.getElementById('gpu');
+    const gpuData = brandData.gpus.find(g => g.value === gpu);
+    const gpuFactor = gpuData ? gpuData.factor : 1.0;
+    
+    marketValue *= (cpuFactors[cpu] || 1.0);
+    marketValue *= gpuFactor;
     marketValue *= CONFIG.RAM_FACTORS[ram];
     marketValue *= CONFIG.STORAGE_FACTORS[storage];
     marketValue *= CONFIG.SCREEN_FACTORS[screen];
-    marketValue *= CONFIG.GPU_FACTORS[gpu];
     marketValue *= CONFIG.BATTERY_FACTORS[battery];
     marketValue *= CONFIG.AGE_FACTORS[ageYear];
     
-    // 确保最小值
     marketValue = Math.max(Math.round(marketValue / 10000) * 10000, CONFIG.MIN_MARKET_VALUE);
     
     return marketValue;
   }
   
   function calculatePawnValue(marketValue) {
-    const brand = getSelectedBrand();
-    const ram = parseInt(DOM.ram().value);
-    const storage = parseInt(DOM.storage().value);
-    const ageYear = parseInt(DOM.age().value);
-    const battery = DOM.battery().value;
-    const gpu = DOM.gpu().value;
+    const seriesData = getCurrentSeriesData();
+    const ram = parseInt(document.getElementById('ram').value);
+    const storage = parseInt(document.getElementById('storage').value);
+    const ageYear = parseInt(document.getElementById('age').value);
+    const battery = document.getElementById('battery').value;
+    const gpu = document.getElementById('gpu').value;
     
     let pawnRatio = CONFIG.BASE_PAWN_RATIO;
     
+    // 系列加成（高端系列抵押率更高）
+    if (seriesData && seriesData.factor >= 1.6) pawnRatio += 0.05;
+    else if (seriesData && seriesData.factor >= 1.3) pawnRatio += 0.03;
+    
     // 品牌加成
-    if (brand === 'apple') pawnRatio += 0.06;
-    if (brand === 'asus' || brand === 'dell') pawnRatio += 0.02;
+    if (currentBrand === 'apple') pawnRatio += 0.04;
     
     // 配置加成
     if (ram >= 32) pawnRatio += 0.03;
     else if (ram >= 16) pawnRatio += 0.02;
-    
     if (storage >= 1024) pawnRatio += 0.03;
     else if (storage >= 512) pawnRatio += 0.02;
-    
     if (ageYear <= 1) pawnRatio += 0.04;
     else if (ageYear <= 2) pawnRatio += 0.02;
-    
     if (battery === 'excellent') pawnRatio += 0.02;
+    if (gpu === 'high' || gpu === 'flagship') pawnRatio += 0.03;
     
-    if (gpu === 'high') pawnRatio += 0.03;
-    else if (gpu === 'mid') pawnRatio += 0.02;
-    
-    // 限制最高抵押率
     pawnRatio = Math.min(pawnRatio, CONFIG.MAX_PAWN_RATIO);
     
     return Math.round(marketValue * pawnRatio);
   }
   
   // ==================== UI 更新函数 ====================
-  function getConfigSummary(result) {
-    const cpuNames = {
-      i3: 'Core i3', i5: 'Core i5', i7: 'Core i7', i9: 'Core i9',
-      m1: 'Apple M1', m2: 'Apple M2', m3: 'Apple M3',
-      ryzen5: 'Ryzen 5', ryzen7: 'Ryzen 7'
-    };
-    
-    const gpuNames = {
-      integrated: 'Intel UHD',
-      entry: 'Entry GPU',
-      mid: 'RTX 3050/3060',
-      high: 'RTX 3070+'
-    };
-    
-    const batteryNames = {
-      excellent: 'Excellent (>85%)',
-      good: 'Good (70-85%)',
-      fair: 'Fair (50-70%)',
-      poor: 'Poor (<50%)'
-    };
-    
-    const screenSizes = {
-      11: '11-12"',
-      13: '13-14"',
-      15: '15-16"',
-      17: '17"+'
-    };
-    
-    const ageText = {
-      1: '<1 tahun',
-      2: '1-2 tahun',
-      3: '3-4 tahun',
-      5: '>4 tahun'
-    };
-    
-    return `
-      <div class="config-summary">
-        <strong>📋 Ringkasan Konfigurasi:</strong><br>
-        <span class="spec-badge">${result.brand.toUpperCase()}</span>
-        <span class="spec-badge">${cpuNames[result.cpu] || result.cpu}</span>
-        <span class="spec-badge">${result.ram} GB RAM</span>
-        <span class="spec-badge">${result.storage >= 1024 ? (result.storage/1024)+'TB' : result.storage+'GB'} SSD</span>
-        <span class="spec-badge">${screenSizes[result.screen]}</span>
-        <span class="spec-badge">${gpuNames[result.gpu]}</span>
-        <span class="spec-badge">🔋 ${batteryNames[result.battery]}</span>
-        <span class="spec-badge">📅 ${ageText[result.ageYears]}</span>
-      </div>
-    `;
-  }
-  
   function showResult() {
-    if (!validateSelections()) return;
-    
     const marketValue = calculateMarketValue();
     const pawnValue = calculatePawnValue(marketValue);
-    
     const marketMin = Math.round(marketValue * 0.92);
     const marketMax = Math.round(marketValue * 1.08);
     
-    const brand = getSelectedBrand();
-    const cpu = DOM.cpu().value;
-    const ram = parseInt(DOM.ram().value);
-    const storage = parseInt(DOM.storage().value);
-    const screen = parseInt(DOM.screen().value);
-    const gpu = DOM.gpu().value;
-    const battery = DOM.battery().value;
-    const ageYears = parseInt(DOM.age().value);
+    const brandData = BRAND_SPECS[currentBrand];
+    const seriesData = getCurrentSeriesData();
+    const cpuSelect = document.getElementById('cpu');
+    const gpuSelect = document.getElementById('gpu');
+    const ram = document.getElementById('ram').value;
+    const storage = document.getElementById('storage').value;
+    const screen = document.getElementById('screen').value;
+    const battery = document.getElementById('battery').value;
+    const ageYear = parseInt(document.getElementById('age').value);
     
-    const cpuSelect = DOM.cpu();
-    const cpuName = cpuSelect.options[cpuSelect.selectedIndex]?.text || cpu.toUpperCase();
+    const screenSizes = { 11: '11-12"', 13: '13-14"', 15: '15-16"', 17: '17"+' };
+    const batteryNames = { excellent: 'Excellent (>85%)', good: 'Good (70-85%)', fair: 'Fair (50-70%)', poor: 'Poor (<50%)' };
+    const ageText = { 1: '<1 tahun', 2: '1-2 tahun', 3: '3-4 tahun', 5: '>4 tahun' };
     
     const message = `Halo Admin JF Gadai,
 
 Saya ingin menanyakan estimasi gadai laptop:
 
-💻 *${brand.toUpperCase()}* ${cpuName}
+💻 *${brandData.name} ${seriesData.label}*
 📊 Spesifikasi:
+- Prosesor: ${cpuSelect.options[cpuSelect.selectedIndex]?.text}
 - RAM: ${ram} GB
 - Storage: ${storage >= 1024 ? (storage/1024)+'TB' : storage+'GB'} SSD
-- GPU: ${DOM.gpu().options[DOM.gpu().selectedIndex]?.text}
-- Baterai: ${DOM.battery().options[DOM.battery().selectedIndex]?.text}
-📅 Usia: ${ageYears == 1 ? '<1 tahun' : (ageYears <=2 ? '1-2 tahun' : (ageYears <=4 ? '3-4 tahun' : '>4 tahun'))}
+- GPU: ${gpuSelect.options[gpuSelect.selectedIndex]?.text}
+- Layar: ${screenSizes[screen]}
+- Baterai: ${batteryNames[battery]}
+📅 Usia: ${ageText[ageYear]}
 
 📊 Estimasi Pinjaman:
 ${formatRupiah(pawnValue)}
@@ -856,11 +1075,23 @@ Saya siap bawa laptop ke kantor hari ini. Terima kasih.`;
           ✅ Harga tetap, tidak ada tawar-menawar • Transparan & adil
         </div>
         
-        ${getConfigSummary({brand, cpu, ram, storage, screen, gpu, battery, ageYears})}
+        <div class="config-summary">
+          <strong>📋 Ringkasan Konfigurasi:</strong><br>
+          <span class="spec-badge">${brandData.name}</span>
+          <span class="spec-badge">🏷️ ${seriesData.label}</span>
+          <span class="spec-badge">${cpuSelect.options[cpuSelect.selectedIndex]?.text}</span>
+          <span class="spec-badge">${ram} GB RAM</span>
+          <span class="spec-badge">${storage >= 1024 ? (storage/1024)+'TB' : storage+'GB'} SSD</span>
+          <span class="spec-badge">${gpuSelect.options[gpuSelect.selectedIndex]?.text}</span>
+          <span class="spec-badge">📺 ${screenSizes[screen]}</span>
+          <span class="spec-badge">🔋 ${batteryNames[battery]}</span>
+          <span class="spec-badge">📅 ${ageText[ageYear]}</span>
+        </div>
         
-        <div class="trust-box" style="margin: 20px 0 10px; grid-template-columns: repeat(2,1fr);">
+        <div class="trust-box">
           <div class="trust-item">✅ Proses <strong>30 menit</strong></div>
           <div class="trust-item">🔒 Aman & terpercaya</div>
+          <div class="trust-item">📦 Box & charger asli</div>
         </div>
         
         <a href="${waUrl}" target="_blank" class="whatsapp-btn">
@@ -872,110 +1103,92 @@ Saya siap bawa laptop ke kantor hari ini. Terima kasih.`;
       </div>
     `;
     
-    DOM.resultContainer().innerHTML = resultHtml;
+    document.getElementById('resultContainer').innerHTML = resultHtml;
   }
   
   // ==================== 步骤导航 ====================
+  let currentStep = 1;
+  
   function showStep(step) {
-    const steps = DOM.steps();
+    const steps = document.querySelectorAll('.form-step');
     steps.forEach((el, idx) => {
       el.classList.toggle('active', idx + 1 === step);
     });
     currentStep = step;
-    
-    // 清除错误提示
-    const errorMsg = document.querySelector('.error-message');
-    if (errorMsg) errorMsg.remove();
-    
     window.scrollTo({ top: 120, behavior: 'smooth' });
   }
   
   // ==================== 事件绑定 ====================
   function bindEvents() {
     // 品牌切换
-    DOM.brandOptions().forEach(opt => {
+    document.querySelectorAll('.brand-option').forEach(opt => {
       opt.addEventListener('click', function() {
-        DOM.brandOptions().forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.brand-option').forEach(b => b.classList.remove('active'));
         this.classList.add('active');
-      });
-    });
-    
-    // 下一步按钮
-    const nextBtn = document.querySelector('.btn-next');
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => showStep(2));
-    }
-    
-    // 返回按钮
-    document.querySelectorAll('.btn-prev').forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (currentStep === 2) showStep(1);
-      });
-    });
-    
-    // 编辑按钮 (从步骤3返回步骤2)
-    const editBtn = document.querySelector('.btn-edit');
-    if (editBtn) {
-      editBtn.addEventListener('click', () => showStep(2));
-    }
-    
-    // 重新计算按钮 (保持在步骤3)
-    const recalcBtn = document.querySelector('.btn-recalculate');
-    if (recalcBtn) {
-      recalcBtn.addEventListener('click', () => {
-        showResult();
-      });
-    }
-    
-    // 提交计算
-    const submitBtn = document.querySelector('.btn-submit');
-    if (submitBtn) {
-      submitBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (validateSelections()) {
-          showResult();
-          showStep(3);
+        currentBrand = this.getAttribute('data-brand');
+        updateSeriesOptions();
+        
+        // 触发系列变更
+        const seriesSelect = document.getElementById('series');
+        if (seriesSelect) {
+          onSeriesChange();
         }
       });
+    });
+    
+    // 系列变更
+    const seriesSelect = document.getElementById('series');
+    if (seriesSelect) {
+      seriesSelect.addEventListener('change', onSeriesChange);
     }
     
-    // 快速操作按钮
-    const quickWa = document.getElementById('quickWaBtn');
-    if (quickWa) {
-      quickWa.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.open('https://wa.me/6289515692586?text=Halo%20JF%20Gadai%2C%20saya%20tertarik%20gadai%20laptop', '_blank');
-      });
-    }
+    // 下一步
+    document.querySelector('.btn-next')?.addEventListener('click', () => showStep(2));
     
-    // 位置按钮
-    const locationBtn = document.querySelector('.action-btn.location');
-    if (locationBtn) {
-      locationBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        alert('📍 Kantor kami: Krajan Panas I, Oro-Oro Ombowetan, \nKec. Rembang, Pasuruan, Jawa Timur 67152\n🕒 Buka: Senin-Sabtu 08:00-18:00');
+    // 返回
+    document.querySelectorAll('.btn-prev').forEach(btn => {
+      btn.addEventListener('click', () => { if (currentStep === 2) showStep(1); });
+    });
+    
+    // 编辑
+    document.querySelector('.btn-edit')?.addEventListener('click', () => showStep(2));
+    
+    // 重新计算
+    document.querySelector('.btn-recalculate')?.addEventListener('click', () => showResult());
+    
+    // 提交计算
+    document.querySelector('.btn-submit')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      showResult();
+      showStep(3);
+    });
+    
+    // 快速操作
+    document.getElementById('quickWaBtn')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open('https://wa.me/6289515692586?text=Halo%20JF%20Gadai%2C%20saya%20tertarik%20gadai%20laptop', '_blank');
+    });
+    
+    document.querySelector('.action-btn.location')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('📍 Kantor kami: Krajan Panas I, Oro-Oro Ombowetan, \nKec. Rembang, Pasuruan, Jawa Timur 67152\n🕒 Buka: Senin-Sabtu 08:00-18:00');
+    });
+    
+    // FAQ折叠
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', function() {
+        this.parentElement.classList.toggle('active');
       });
-    }
+    });
   }
   
   // ==================== 初始化 ====================
   function init() {
-    // 更新版权年份
     document.getElementById('year').textContent = new Date().getFullYear();
-    
-    // 确保只有一个品牌被选中
-    const brandOptions = DOM.brandOptions();
-    if (brandOptions.length > 0) {
-      brandOptions.forEach((opt, idx) => {
-        if (idx !== 0) opt.classList.remove('active');
-      });
-    }
-    
-    // 绑定事件
+    updateSeriesOptions();
     bindEvents();
   }
   
-  // 启动应用
   init();
 })();
 </script>
