@@ -82,36 +82,92 @@ function format(num){
   return "Rp " + num.toLocaleString("id-ID");
 }
 
-// ===== CALC =====
-function calculate(){
-  try{
-    let base = 3000000;
+<script>
+function calculateAndShow() {
+  const activeBrand = document.querySelector('.brand-option.active');
+  const brand = activeBrand?.dataset?.brand || 'lenovo';
 
-    const cpu = getVal('cpu','i5');
-    if(cpu==='i7') base += 2000000;
+  const cpu = document.getElementById('cpu')?.value || 'i5';
+  const ram = parseInt(document.getElementById('ram')?.value || 16);
+  const storage = parseInt(document.getElementById('storage')?.value || 512);
+  const gpu = document.getElementById('gpu')?.value || 'mid';
+  const age = parseInt(document.getElementById('age')?.value || 1);
 
-    const ram = parseInt(getVal('ram',16));
-    if(ram>=16) base *= 1.1;
+  const physical = document.querySelector('input[name="physical"]:checked')?.value || 'sedang';
+  const battery = document.querySelector('input[name="battery"]:checked')?.value || 'sedang';
+  const accessories = document.querySelector('input[name="accessories"]:checked')?.value || 'lengkap';
 
-    const age = parseInt(getVal('age',1));
-    if(age>=3) base *= 0.7;
+  let secondValue = getBasePrice(brand, cpu);
+  secondValue *= getRamFactor(ram) * getStorageFactor(storage) * getGpuFactor(gpu);
+  secondValue *= getAgeFactor(age) * getPhysicalFactor(physical) * getBatteryFactor(battery) * getAccessoriesFactor(accessories);
+  secondValue = Math.max(Math.round(secondValue), 400000);
 
-    const pawn = Math.round(base*0.6);
+  const marketMin = Math.round(secondValue * 0.9);
+  const marketMax = Math.round(secondValue * 1.1);
 
-    document.getElementById('resultContainer').innerHTML = `
-      <div class="estimation-card">
-        <div>Nilai Pasar</div>
-        <div class="value">${format(Math.round(base))}</div>
-        <div>Pinjaman</div>
-        <div class="value">${format(pawn)}</div>
+  const pawnRatio = getPawnRatio(physical, battery, accessories);
+  const pawnValue = Math.round(secondValue * pawnRatio);
+
+  const pawnMin = Math.round(pawnValue * 0.92);
+  const pawnMax = Math.round(pawnValue * 1.08);
+
+  // ⭐ 新增：平均值（关键转化点）
+  const pawnAvg = Math.round((pawnMin + pawnMax) / 2);
+
+  const brandName = activeBrand?.innerText || brand.toUpperCase();
+
+  // ⭐ 成交型 WhatsApp 文案（重点优化）
+  const message = `Halo Admin JF Gadai,
+
+Saya ingin gadai laptop:
+
+💻 ${brandName} | ${cpu.toUpperCase()} | RAM ${ram}GB | SSD ${storage >= 1024 ? storage/1024 + 'TB' : storage + 'GB'}
+
+📊 Estimasi pinjaman:
+${formatRupiah(pawnMin)} - ${formatRupiah(pawnMax)}
+(Rata-rata sekitar ${formatRupiah(pawnAvg)})
+
+Saya serius ingin proses hari ini, mohon info langkah selanjutnya. Terima kasih.`;
+
+  const encodedMsg = encodeURIComponent(message);
+
+  // ⭐ UI 优化（增强信任 + 引导成交）
+  const resultHtml = `
+    <div class="estimation-card">
+      
+      <div class="estimation-value">
+        <div>💰 Nilai Pasar Second</div>
+        <div class="value">${formatRupiah(marketMin)} – ${formatRupiah(marketMax)}</div>
       </div>
-    `;
-  }catch(e){
-    console.error(e);
-    alert("Error hitung");
-  }
-}
 
+      <div class="estimation-value" style="border-color:#25D366;">
+        <div>🏦 Estimasi Pinjaman</div>
+        <div class="value">${formatRupiah(pawnMin)} – ${formatRupiah(pawnMax)}</div>
+        
+        <div style="margin-top:8px;font-size:0.9rem;color:#cfe3f2;">
+          💡 Rata-rata cair: <b>${formatRupiah(pawnAvg)}</b><br>
+          Laptop kondisi bagus biasanya mendekati angka atas
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <a href="https://wa.me/6289515692586?text=${encodedMsg}" 
+           target="_blank" 
+           class="btn-whatsapp">
+           📱 Konsultasi & Proses Cepat
+        </a>
+      </div>
+
+      <div style="text-align:center;margin-top:10px;font-size:0.8rem;">
+        ✅ Semakin lengkap & mulus, semakin tinggi pencairan
+      </div>
+
+    </div>
+  `;
+
+  document.getElementById('resultContainer').innerHTML = resultHtml;
+}
+</script>
 // ===== STEP =====
 let step=1;
 
