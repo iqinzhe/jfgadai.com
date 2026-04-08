@@ -2,214 +2,628 @@
 <html lang="id-ID">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Estimasi Gadai Laptop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+<title>JF Gadai Laptop - Estimasi Gadai Cepat & Aman</title>
 
-<!-- 主样式（你原来的） -->
+<!-- 引用两个独立的CSS文件 -->
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/faq.css">
-</head>
 
+<style>
+/* 估算工具专用补充样式（与主CSS不冲突） */
+.estimation-header {
+  text-align: center;
+  padding: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+.estimation-header h2 {
+  font-size: var(--fs-hero-title);
+  color: var(--secondary-color);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  margin-bottom: var(--spacing-sm);
+}
+
+.estimation-header p {
+  color: var(--text-light);
+  font-size: var(--fs-subtitle);
+}
+
+/* 品牌选项网格 - 符合六宫格视觉 */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.brand-option {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(245, 197, 66, 0.3);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md) var(--spacing-sm);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: var(--fs-body);
+  color: var(--text-light);
+}
+
+.brand-option:hover {
+  transform: translateY(-3px);
+  border-color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.brand-option.active {
+  background: linear-gradient(135deg, rgba(245, 197, 66, 0.3), rgba(245, 197, 66, 0.1));
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  box-shadow: 0 0 15px rgba(245, 197, 66, 0.3);
+}
+
+/* 表单步骤 */
+.form-step {
+  display: none;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.form-step.active {
+  display: block;
+}
+
+/* 统一选择框样式 */
+.form-select {
+  width: 100%;
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(245, 197, 66, 0.3);
+  border-radius: var(--border-radius);
+  color: var(--light-color);
+  font-size: var(--fs-body);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-select:hover,
+.form-select:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.form-select option {
+  background: var(--dark-color);
+  color: var(--light-color);
+}
+
+/* 按钮区域 */
+.button-group {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  margin: var(--spacing-lg) 0;
+  flex-wrap: wrap;
+}
+
+/* 复用主CSS按钮样式，增加估算专用按钮 */
+.btn-primary, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: var(--fs-btn-medium);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+  color: var(--dark-color);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 197, 66, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background: rgba(245, 197, 66, 0.1);
+  transform: translateY(-2px);
+}
+
+/* 估算结果卡片 - 复用 unified-card 风格 */
+.estimation-card {
+  background: linear-gradient(135deg, rgba(15, 76, 129, 0.4), rgba(245, 197, 66, 0.2));
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  border: 2px solid rgba(245, 197, 66, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin: var(--spacing-lg) 0;
+}
+
+.estimation-card .value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin: var(--spacing-sm) 0;
+}
+
+.estimation-card .label {
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  background: #25D366;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: var(--fs-btn-large);
+  transition: all 0.3s ease;
+  margin-top: var(--spacing-md);
+  border: none;
+  cursor: pointer;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .brand-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+  }
+  
+  .estimation-card {
+    padding: var(--spacing-lg);
+  }
+  
+  .estimation-card .value {
+    font-size: 1.5rem;
+  }
+  
+  .whatsapp-btn {
+    padding: 0.7rem 1.2rem;
+    font-size: var(--fs-btn-medium);
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+</head>
 <body>
 
-<!-- HEADER -->
-<header>
-<h2>JF Gadai Laptop</h2>
-<div>Solusi Dana Cepat & Aman</div>
-</header>
+<!-- 顶部导航 - 符合 assessment-header 结构 -->
+<div class="assessment-header">
+  <div class="container">
+    <a href="#" class="back-btn" onclick="return false;">
+      <img src="https://placehold.co/30x30/0f4c81/f5c542?text=JF" alt="JF Gadai" class="logo-image" style="border-radius: 8px;">
+      <span style="font-size: var(--fs-btn-small);">JF Gadai</span>
+    </a>
+    <div style="display: flex; gap: 8px;">
+      <a href="#" class="nav-forward" onclick="return false;">
+        <span>🏠</span>
+      </a>
+      <a href="#" class="nav-forward" onclick="return false;">
+        <span>📞</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- 页面头部横幅 -->
+<div class="page-header">
+  <div class="container">
+    <h1>💻 Estimasi Gadai Laptop</h1>
+    <p>Cair cepat, aman, dan bunga ringan • Proses 30 menit</p>
+  </div>
+</div>
 
 <div class="container">
+  <!-- STEP 1: 品牌 + 配置 -->
+  <div id="step1" class="form-step active">
+    <div class="unified-card" style="margin-bottom: var(--spacing-lg);">
+      <div class="card-title">✨ Pilih Merek Laptop</div>
+      <div class="card-desc">Klik merek laptop Anda di bawah ini</div>
+      
+      <div class="brand-grid" id="brandSelection">
+        <div class="brand-option active" data-brand="apple">🍎 Apple</div>
+        <div class="brand-option" data-brand="asus">💻 ASUS</div>
+        <div class="brand-option" data-brand="lenovo">📱 Lenovo</div>
+        <div class="brand-option" data-brand="acer">🖥️ Acer</div>
+        <div class="brand-option" data-brand="hp">🖨️ HP</div>
+        <div class="brand-option" data-brand="dell">⚡ Dell</div>
+      </div>
+    </div>
 
-<h2>💻 Estimasi Gadai Laptop</h2>
+    <div class="grid-card" style="margin-bottom: var(--spacing-lg);">
+      <div class="card-icon">⚙️</div>
+      <h3>Spesifikasi Prosesor</h3>
+      <select id="cpu" class="form-select">
+        <option value="i3">Intel Core i3</option>
+        <option value="i5" selected>Intel Core i5 (Rekomendasi)</option>
+        <option value="i7">Intel Core i7</option>
+        <option value="i9">Intel Core i9</option>
+      </select>
+      
+      <h3 style="margin-top: var(--spacing-md);">💾 Kapasitas RAM</h3>
+      <select id="ram" class="form-select">
+        <option value="4">4 GB</option>
+        <option value="8">8 GB</option>
+        <option value="16" selected>16 GB</option>
+        <option value="32">32 GB</option>
+      </select>
+    </div>
 
-<!-- STEP 1 -->
-<div id="step1" class="form-step active">
+    <div class="button-group">
+      <button class="btn-primary btn-next">Selanjutnya →</button>
+    </div>
+  </div>
 
-<div id="brandSelection" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+  <!-- STEP 2: 年龄 /  kondisi -->
+  <div id="step2" class="form-step">
+    <div class="unified-card">
+      <div class="card-title">📅 Usia Laptop</div>
+      <div class="card-desc">Berapa lama laptop sudah digunakan?</div>
+      <select id="age" class="form-select">
+        <option value="1">Kurang dari 1 tahun (Like new)</option>
+        <option value="2">1 - 2 tahun</option>
+        <option value="3">3 - 4 tahun</option>
+        <option value="5">Lebih dari 4 tahun</option>
+      </select>
+      
+      <div class="trust-box" style="margin-top: var(--spacing-lg);">
+        <div class="trust-item">✅ <strong>Kondisi fisik</strong><br>normal tanpa kerusakan</div>
+        <div class="trust-item">🔋 <strong>Baterai</strong><br>masih berfungsi baik</div>
+        <div class="trust-item">📦 <strong>Kelengkapan</strong><br>charger asli</div>
+      </div>
+    </div>
+    
+    <div class="button-group">
+      <button class="btn-secondary btn-prev">← Kembali</button>
+      <button class="btn-primary btn-submit">Hitung Estimasi →</button>
+    </div>
+  </div>
 
-  <div class="brand-option active" data-brand="apple">Apple</div>
-  <div class="brand-option" data-brand="asus">ASUS</div>
-  <div class="brand-option" data-brand="lenovo">Lenovo</div>
-
-  <div class="brand-option" data-brand="acer">Acer</div>
-  <div class="brand-option" data-brand="hp">HP</div>
-  <div class="brand-option" data-brand="dell">Dell</div>
-
+  <!-- STEP 3: 结果 -->
+  <div id="step3" class="form-step">
+    <div id="resultContainer"></div>
+    <div class="button-group">
+      <button class="btn-secondary btn-prev">✏️ Edit Data</button>
+    </div>
+  </div>
 </div>
 
-<br>
-
-<select id="cpu">
-<option value="i3">i3</option>
-<option value="i5" selected>i5</option>
-<option value="i7">i7</option>
-</select>
-
-<select id="ram">
-<option value="8">8GB</option>
-<option value="16" selected>16GB</option>
-</select>
-
-<br>
-<button class="btn-next">Next</button>
+<!-- 快速操作模块 (与CSS匹配) -->
+<div class="quick-actions">
+  <div class="quick-action-card">
+    <div class="action-icon">⚡</div>
+    <div class="action-title">Proses Cepat</div>
+    <div class="action-description">Dana cair dalam 30 menit setelah survei</div>
+    <a href="#" class="action-btn whatsapp" id="quickWaBtn">Hubungi Kami</a>
+  </div>
+  <div class="quick-action-card">
+    <div class="action-icon">🔒</div>
+    <div class="action-title">Aman & Terpercaya</div>
+    <div class="action-description">Terdaftar & diawasi OJK, barang disimpan aman</div>
+    <a href="#" class="action-btn location">Cek Lokasi</a>
+  </div>
 </div>
 
-<!-- STEP 2 -->
-<div id="step2" class="form-step">
-
-<select id="age">
-<option value="1">1-2 tahun</option>
-<option value="3">3-4 tahun</option>
-</select>
-
-<br>
-<button class="btn-prev">Back</button>
-<button class="btn-submit">Hitung</button>
+<!-- FAQ 区块 - 符合 faq.css 结构 -->
+<div class="faq-section">
+  <div class="container">
+    <h2>❓ Pertanyaan Umum</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">Apakah semua merek laptop bisa digadaikan?</div>
+        <div class="faq-answer">Ya, kami menerima berbagai merek: Apple, ASUS, Lenovo, Acer, HP, Dell, dan lainnya. Nilai tergantung spesifikasi & kondisi.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Berapa lama proses penilaian?</div>
+        <div class="faq-answer">Penilaian online estimasi instan. Jika setuju, proses fisik hanya 15-30 menit di kantor kami.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Apakah laptop saya aman?</div>
+        <div class="faq-answer">100% aman. Laptop disimpan di ruang khusus dengan CCTV 24 jam dan asuransi.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Bisa gadai tanpa membawa charger?</div>
+        <div class="faq-answer">Sangat disarankan membawa charger asli untuk memaksimalkan nilai taksir.</div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- STEP 3 -->
-<div id="step3" class="form-step">
-<div id="resultContainer"></div>
-<button class="btn-prev">Edit</button>
-</div>
-
-</div>
-
-<!-- FOOTER -->
+<!-- 页脚模块 - 完全符合主CSS footer结构 -->
 <footer>
-<div>© 2026 JF Gadai Laptop</div>
-<div>WhatsApp: 6289515692586</div>
+  <div class="footer-content">
+    <div class="copyright">© 2026 JF Gadai Laptop • Solusi Dana Cepat & Aman</div>
+    <div class="company-info">JF Gadai berizin resmi • Melayani gadai laptop, smartphone, dan elektronik</div>
+    <div class="contact-info">
+      <a href="https://wa.me/6289515692586" target="_blank" class="contact-link" id="footerWaLink">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;" onerror="this.style.display='none'">
+        +62 895-1569-2586
+      </a>
+    </div>
+    <div class="operating-hours">🕒 Buka: Senin – Sabtu | 09:00 – 18:00 (Minggu & Tanggal Merah Tutup)</div>
+    <div class="security-note">🔒 Proses transparan • Bunga ringan • Tidak ada biaya tersembunyi</div>
+  </div>
 </footer>
 
+<!-- 浮动 WhatsApp -->
+<a href="https://wa.me/6289515692586?text=Halo%20JF%20Gadai%2C%20saya%20ingin%20konsultasi%20gadai%20laptop" target="_blank" class="floating-wa" id="floatingWa">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" onerror="this.style.backgroundColor='#25D366';this.innerHTML='WA'">
+</a>
+
 <script>
-// ===== FORMAT =====
-function formatRupiah(num){
-  return "Rp " + new Intl.NumberFormat("id-ID").format(num);
+// ========== 辅助函数 ==========
+function formatRupiah(num) {
+  return "Rp " + new Intl.NumberFormat("id-ID").format(Math.round(num));
 }
 
-// ===== 算法（真实版但可控）=====
-function getBasePrice(brand,cpu){
-  const brandFactor={apple:1,lenovo:0.85,asus:0.86};
-  const cpuBase={i3:2500000,i5:3800000,i7:5500000};
-  return (cpuBase[cpu]||3800000)*(brandFactor[brand]||0.85);
-}
-function getRamFactor(r){return r>=16?1.08:1}
-function getAgeFactor(a){return a==1?0.85:0.7}
-function getPawnRatio(){return 0.6}
-
-// ===== 主计算 =====
-function calculateAndShow(){
-
-const brand=document.querySelector('.brand-option.active')?.dataset.brand||'asus';
-const cpu=document.getElementById('cpu')?.value||'i5';
-const ram=parseInt(document.getElementById('ram')?.value||16);
-const age=parseInt(document.getElementById('age')?.value||1);
-
-let value=getBasePrice(brand,cpu);
-value*=getRamFactor(ram);
-value*=getAgeFactor(age);
-value=Math.max(Math.round(value),400000);
-
-const marketMin=Math.round(value*0.9);
-const marketMax=Math.round(value*1.1);
-
-const pawnValue=Math.round(value*getPawnRatio());
-const pawnMin=Math.round(pawnValue*0.92);
-const pawnMax=Math.round(pawnValue*1.08);
-const pawnAvg=Math.round((pawnMin+pawnMax)/2);
-
-const brandFactor = {
-  apple: 1,
+// 品牌系数 (参考真实市场)
+const brandFactors = {
+  apple: 1.0,
   asus: 0.86,
   lenovo: 0.85,
-  acer: 0.83,
+  acer: 0.82,
   hp: 0.84,
   dell: 0.85
 };
 
-// ===== WhatsApp =====
-const message=`Halo Admin JF Gadai,
-
-Saya ingin gadai laptop:
-
-💻 ${brand.toUpperCase()} ${cpu.toUpperCase()} | RAM ${ram}GB
-
-📊 Estimasi pinjaman:
-${formatRupiah(pawnMin)} - ${formatRupiah(pawnMax)}
-(Rata-rata ${formatRupiah(pawnAvg)})
-
-Saya siap proses hari ini.`;
-
-const wa=encodeURIComponent(message);
-
-// ===== UI =====
-document.getElementById('resultContainer').innerHTML=`
-<div class="estimation-card">
-
-<div>💰 Nilai Pasar</div>
-<div class="value">${formatRupiah(marketMin)} – ${formatRupiah(marketMax)}</div>
-
-<br>
-
-<div>🏦 Estimasi Pinjaman</div>
-<div class="value">${formatRupiah(pawnMin)} – ${formatRupiah(pawnMax)}</div>
-
-<div style="margin-top:8px">
-💡 Rata-rata: <b>${formatRupiah(pawnAvg)}</b>
-</div>
-
-<br>
-
-<a href="https://wa.me/6289515692586?text=${wa}" target="_blank">
-<button style="background:#25D366;color:white">WhatsApp Sekarang</button>
-</a>
-
-<div style="margin-top:10px;font-size:0.8rem;text-align:center;color:#cfe3f2;">
-  ✅ Proses cepat • Tanpa ribet • Bisa cair hari ini  
-  <br>
-  ⚠️ Slot terbatas hari ini
-</div>
-
-</div>
-`;
+// CPU基础价值
+function getCpuBaseValue(cpu) {
+  const map = { i3: 2800000, i5: 4200000, i7: 6500000, i9: 8500000 };
+  return map[cpu] || 4200000;
 }
 
-// ===== STEP =====
-let step=1;
-function showStep(n){
-document.querySelectorAll('.form-step').forEach((el,i)=>{
-el.classList.toggle('active',i===n-1);
-});
-step=n;
+// RAM系数
+function getRamFactor(ramGB) {
+  if (ramGB >= 32) return 1.25;
+  if (ramGB >= 16) return 1.1;
+  if (ramGB >= 8) return 1.0;
+  return 0.9;
 }
 
-// ===== INIT =====
-document.addEventListener('DOMContentLoaded',()=>{
+// 年龄系数 (年数越小越好)
+function getAgeFactor(ageYear) {
+  if (ageYear <= 1) return 0.88;   // like new
+  if (ageYear <= 2) return 0.80;
+  if (ageYear <= 4) return 0.68;
+  return 0.55;
+}
 
-document.querySelectorAll('.brand-option').forEach(el=>{
-el.addEventListener('click',()=>{
-document.querySelectorAll('.brand-option').forEach(b=>b.classList.remove('active'));
-el.classList.add('active');
-});
-});
+// 核心计算
+function calculateEstimation() {
+  // 获取选中的品牌
+  const activeBrand = document.querySelector('.brand-option.active');
+  let brand = activeBrand ? activeBrand.getAttribute('data-brand') : 'asus';
+  
+  const cpu = document.getElementById('cpu').value;
+  const ram = parseInt(document.getElementById('ram').value);
+  const ageYears = parseInt(document.getElementById('age').value);
+  
+  // 基本市值
+  let marketValue = getCpuBaseValue(cpu) * (brandFactors[brand] || 0.85);
+  marketValue = marketValue * getRamFactor(ram);
+  marketValue = marketValue * getAgeFactor(ageYears);
+  
+  // 四舍五入保底40万
+  marketValue = Math.max(Math.round(marketValue / 10000) * 10000, 400000);
+  
+  // 市值范围 ±8%
+  const marketMin = Math.round(marketValue * 0.92);
+  const marketMax = Math.round(marketValue * 1.08);
+  
+  // 贷款比例 55% - 70% (依条件)
+  let pawnRatio = 0.62;
+  if (brand === 'apple') pawnRatio = 0.68;
+  if (ram >= 16) pawnRatio += 0.02;
+  if (ageYears <= 1) pawnRatio += 0.03;
+  pawnRatio = Math.min(pawnRatio, 0.72);
+  
+  let pawnBase = Math.round(marketValue * pawnRatio);
+  const pawnMin = Math.round(pawnBase * 0.92);
+  const pawnMax = Math.round(pawnBase * 1.08);
+  const pawnAvg = Math.round((pawnMin + pawnMax) / 2);
+  
+  return { marketMin, marketMax, pawnMin, pawnMax, pawnAvg, brand: brand.toUpperCase(), cpu, ram, ageYears };
+}
 
-document.querySelector('.btn-next')?.addEventListener('click',()=>showStep(2));
+// 显示结果 + 生成WhatsApp链接
+function showResult() {
+  const result = calculateEstimation();
+  const brandName = result.brand;
+  const cpuName = document.getElementById('cpu').options[document.getElementById('cpu').selectedIndex]?.text || result.cpu.toUpperCase();
+  const ramText = result.ram + " GB";
+  
+  // 构建WA消息
+  const message = `Halo Admin JF Gadai,
 
-document.querySelectorAll('.btn-prev').forEach(btn=>{
-btn.addEventListener('click',()=>{
-if(step===2)showStep(1);
-else if(step===3)showStep(2);
-});
-});
+Saya ingin menanyakan estimasi gadai laptop:
 
-document.querySelector('.btn-submit')?.addEventListener('click',(e)=>{
-e.preventDefault();
-calculateAndShow();
-showStep(3);
-});
+💻 *${brandName}* ${cpuName} | RAM ${ramText}
+📅 Usia: ${result.ageYears == 1 ? '<1 tahun' : (result.ageYears <=2 ? '1-2 tahun' : (result.ageYears <=4 ? '3-4 tahun' : '>4 tahun'))}
 
+📊 Estimasi Pinjaman:
+${formatRupiah(result.pawnMin)} - ${formatRupiah(result.pawnMax)}
+(Rata-rata ${formatRupiah(result.pawnAvg)})
+
+Saya siap bawa laptop ke kantor hari ini. Terima kasih.`;
+
+  const waUrl = `https://wa.me/6289515692586?text=${encodeURIComponent(message)}`;
+  
+  // 渲染结果卡片
+  const resultHtml = `
+    <div class="estimation-card">
+      <div class="label">💰 Nilai Pasar (second)</div>
+      <div class="value">${formatRupiah(result.marketMin)} – ${formatRupiah(result.marketMax)}</div>
+      
+      <div style="margin: 20px 0; height: 2px; background: rgba(245,197,66,0.3);"></div>
+      
+      <div class="label">🏦 Estimasi Pinjaman (dapat cair)</div>
+      <div class="value">${formatRupiah(result.pawnMin)} – ${formatRupiah(result.pawnMax)}</div>
+      <div style="margin-top: 8px; font-size: var(--fs-body);">
+        💡 Rata-rata: <strong style="color: var(--secondary-color);">${formatRupiah(result.pawnAvg)}</strong>
+      </div>
+      
+      <div class="trust-box" style="margin: 20px 0 10px; grid-template-columns: repeat(2,1fr);">
+        <div class="trust-item">✅ Proses <strong>30 menit</strong></div>
+        <div class="trust-item">🔒 Aman & terpercaya</div>
+      </div>
+      
+      <a href="${waUrl}" target="_blank" class="whatsapp-btn">
+        📱 WhatsApp Sekarang
+      </a>
+      <div style="margin-top: 16px; font-size: var(--fs-small); color: var(--text-muted);">
+        ⚠️ *Slot terbatas hari ini* | Bawa laptop & charger asli
+      </div>
+    </div>
+  `;
+  
+  document.getElementById('resultContainer').innerHTML = resultHtml;
+  
+  // 同时更新所有浮动按钮/底部链接的预填消息（提升体验）
+  const waLinks = document.querySelectorAll('#footerWaLink, #floatingWa, #quickWaBtn');
+  waLinks.forEach(link => {
+    if (link.tagName === 'A') {
+      const shortMsg = `Halo JF Gadai, saya ingin gadai ${brandName} ${cpuName} RAM ${ramText}. Mohon info lebih lanjut.`;
+      const newUrl = `https://wa.me/6289515692586?text=${encodeURIComponent(shortMsg)}`;
+      if (!link.hasAttribute('data-custom')) {
+        link.href = newUrl;
+      }
+    }
+  });
+}
+
+// ========== 步骤切换逻辑 ==========
+let currentStep = 1;
+
+function showStep(step) {
+  document.querySelectorAll('.form-step').forEach((el, idx) => {
+    if (idx + 1 === step) {
+      el.classList.add('active');
+    } else {
+      el.classList.remove('active');
+    }
+  });
+  currentStep = step;
+  window.scrollTo({ top: 120, behavior: 'smooth' });
+}
+
+// ========== 事件绑定 & 初始化 ==========
+document.addEventListener('DOMContentLoaded', function() {
+  // 品牌切换
+  const brandOptions = document.querySelectorAll('.brand-option');
+  brandOptions.forEach(opt => {
+    opt.addEventListener('click', function() {
+      brandOptions.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+  
+  // 下一步按钮
+  const nextBtn = document.querySelector('.btn-next');
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      if (currentStep === 1) showStep(2);
+    });
+  }
+  
+  // 上一步按钮 (两个btn-prev)
+  const prevBtns = document.querySelectorAll('.btn-prev');
+  prevBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (currentStep === 2) showStep(1);
+      else if (currentStep === 3) showStep(2);
+    });
+  });
+  
+  // 提交/计算按钮
+  const submitBtn = document.querySelector('.btn-submit');
+  if (submitBtn) {
+    submitBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      showResult();
+      showStep(3);
+    });
+  }
+  
+  // FAQ 交互 (符合faq.css的展开逻辑)
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    if (question) {
+      question.addEventListener('click', () => {
+        // 切换当前active
+        const isActive = item.classList.contains('active');
+        // 可选: 关闭其他项 (提升体验)
+        faqItems.forEach(i => i.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    }
+  });
+  
+  // 预设让第一个faq展开（可选）
+  if (faqItems.length > 0) faqItems[0].classList.add('active');
+  
+  // 针对快速操作whatsapp按钮，加上默认消息（但不会覆盖计算结果后的动态）
+  const quickWa = document.getElementById('quickWaBtn');
+  if (quickWa) {
+    quickWa.addEventListener('click', (e) => {
+      if (!quickWa.href.includes('text=')) {
+        e.preventDefault();
+        window.open('https://wa.me/6289515692586?text=Halo%20JF%20Gadai%2C%20saya%20tertarik%20gadai%20laptop', '_blank');
+      }
+    });
+  }
+  
+  // 防止back-btn / nav-forward 页面跳转 (保持风格)
+  const dummyLinks = document.querySelectorAll('.back-btn, .nav-forward, .action-btn.location');
+  dummyLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      if (link.classList.contains('location')) {
+        e.preventDefault();
+        alert('📍 Kantor kami: Jl. Gadai Indah No.45, Jakarta Selatan (buka Google Maps)');
+      } else if (link.classList.contains('back-btn') || link.classList.contains('nav-forward')) {
+        e.preventDefault();
+        // 只是UI演示，不做跳转
+      }
+    });
+  });
 });
 </script>
-
 </body>
 </html>
