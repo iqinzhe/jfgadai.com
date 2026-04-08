@@ -1,151 +1,156 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id-ID">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cek Nilai Laptop Anda</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estimasi Gadai Laptop</title>
 
-  <!-- 主样式 -->
-  <link rel="stylesheet" href="/css/main.css">
-
-  <style>
-    /* 页面容器 */
-    .container {
-      max-width: 480px;
-      margin: auto;
-      padding: 1rem;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    /* 品牌选择（统一 grid-card 体系） */
-    .brand-selection {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      gap: 0.8rem;
-      margin: 1.5rem 0;
-    }
-
-    .brand-card {
-      cursor: pointer;
-      padding: 0.8rem 0.5rem;
-      text-align: center;
-      transition: all 0.2s ease;
-    }
-
-    .brand-logo {
-      height: 32px;
-      object-fit: contain;
-      margin-bottom: 0.3rem;
-      filter: brightness(0) invert(1);
-    }
-
-    .brand-card h3 {
-      font-size: 0.85rem;
-      margin: 0;
-    }
-
-    .brand-card.active {
-      border-color: var(--secondary-color);
-      background: rgba(245,197,66,0.15);
-      transform: translateY(-2px);
-    }
-
-    .brand-card.active .brand-logo {
-      filter: none;
-    }
-
-    .brand-card:hover {
-      transform: translateY(-3px);
-    }
-
-    /* 按钮 */
-    .btn-primary {
-      width: 100%;
-      padding: 12px;
-      background: var(--secondary-color);
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-
-  </style>
+<style>
+body{font-family:sans-serif;background:#0b2c4a;color:white;margin:0;padding:20px}
+.container{max-width:800px;margin:auto}
+.brand-option{display:inline-block;padding:10px;border:1px solid #fff;margin:5px;cursor:pointer;border-radius:10px}
+.brand-option.active{background:#f5c542;color:#000}
+.form-step{display:none}
+.form-step.active{display:block}
+button{padding:10px 15px;margin-top:10px;border:none;border-radius:20px;cursor:pointer}
+.btn-next,.btn-submit{background:#f5c542}
+.btn-prev{background:#444;color:#fff}
+.estimation-card{margin-top:20px;padding:20px;border:1px solid #f5c542;border-radius:15px}
+.value{font-size:20px;font-weight:bold}
+</style>
 </head>
 
 <body>
-
 <div class="container">
-  <h1>Cek Nilai Laptop Anda</h1>
 
-  <!-- 品牌选择 -->
-  <div class="brand-selection">
+<h2>💻 Estimasi Gadai Laptop</h2>
 
-    <div class="grid-card brand-card active" data-brand="apple">
-      <img src="/images/brands/apple.svg" class="brand-logo" alt="Apple">
-      <h3>Apple</h3>
-    </div>
+<!-- STEP 1 -->
+<div id="step1" class="form-step active">
 
-    <div class="grid-card brand-card" data-brand="lenovo">
-      <img src="/images/brands/lenovo.svg" class="brand-logo" alt="Lenovo">
-      <h3>Lenovo</h3>
-    </div>
+<div id="brandSelection">
+<div class="brand-option active" data-brand="apple">Apple</div>
+<div class="brand-option" data-brand="asus">ASUS</div>
+<div class="brand-option" data-brand="lenovo">Lenovo</div>
+</div>
 
-    <div class="grid-card brand-card" data-brand="dell">
-      <img src="/images/brands/dell.svg" class="brand-logo" alt="Dell">
-      <h3>Dell</h3>
-    </div>
+<select id="cpu">
+<option value="i3">i3</option>
+<option value="i5" selected>i5</option>
+<option value="i7">i7</option>
+</select>
 
-    <div class="grid-card brand-card" data-brand="asus">
-      <img src="/images/brands/asus.svg" class="brand-logo" alt="ASUS">
-      <h3>ASUS</h3>
-    </div>
+<select id="ram">
+<option value="8">8GB</option>
+<option value="16" selected>16GB</option>
+</select>
 
-    <div class="grid-card brand-card" data-brand="hp">
-      <img src="/images/brands/hp.svg" class="brand-logo" alt="HP">
-      <h3>HP</h3>
-    </div>
+<button class="btn-next">Next</button>
+</div>
 
-    <div class="grid-card brand-card" data-brand="acer">
-      <img src="/images/brands/acer.svg" class="brand-logo" alt="Acer">
-      <h3>Acer</h3>
-    </div>
+<!-- STEP 2 -->
+<div id="step2" class="form-step">
 
-    <div class="grid-card brand-card" data-brand="msi">
-      <img src="/images/brands/msi.svg" class="brand-logo" alt="MSI">
-      <h3>MSI</h3>
-    </div>
+<select id="age">
+<option value="1">1-2 tahun</option>
+<option value="3">3-4 tahun</option>
+</select>
 
-  </div>
+<button class="btn-prev">Back</button>
+<button class="btn-submit">Hitung</button>
+</div>
 
-  <!-- 下一步按钮 -->
-  <button class="btn-primary" onclick="nextStep()">
-    Lanjutkan
-  </button>
+<!-- STEP 3 -->
+<div id="step3" class="form-step">
+<div id="resultContainer"></div>
+<button class="btn-prev">Edit</button>
+</div>
 
 </div>
 
 <script>
-  // 品牌选择逻辑
-  const brandCards = document.querySelectorAll('.brand-card');
-  let selectedBrand = 'apple';
+// ===== SAFE CORE =====
+function getVal(id, def){
+  return document.getElementById(id)?.value || def;
+}
 
-  brandCards.forEach(card => {
-    card.addEventListener('click', () => {
-      brandCards.forEach(c => c.classList.remove('active'));
-      card.classList.add('active');
-      selectedBrand = card.dataset.brand;
-    });
-  });
+function getBrand(){
+  return document.querySelector('.brand-option.active')?.dataset.brand || 'asus';
+}
 
-  function nextStep() {
-    alert("Brand dipilih: " + selectedBrand);
-    // 这里后续可以跳转下一步
+function format(num){
+  return "Rp " + num.toLocaleString("id-ID");
+}
+
+// ===== CALC =====
+function calculate(){
+  try{
+    let base = 3000000;
+
+    const cpu = getVal('cpu','i5');
+    if(cpu==='i7') base += 2000000;
+
+    const ram = parseInt(getVal('ram',16));
+    if(ram>=16) base *= 1.1;
+
+    const age = parseInt(getVal('age',1));
+    if(age>=3) base *= 0.7;
+
+    const pawn = Math.round(base*0.6);
+
+    document.getElementById('resultContainer').innerHTML = `
+      <div class="estimation-card">
+        <div>Nilai Pasar</div>
+        <div class="value">${format(Math.round(base))}</div>
+        <div>Pinjaman</div>
+        <div class="value">${format(pawn)}</div>
+      </div>
+    `;
+  }catch(e){
+    console.error(e);
+    alert("Error hitung");
   }
+}
+
+// ===== STEP =====
+let step=1;
+
+function showStep(n){
+  document.querySelectorAll('.form-step').forEach((el,i)=>{
+    el.classList.toggle('active', i===n-1);
+  });
+  step=n;
+}
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded',()=>{
+
+// brand click (FIX ERROR)
+document.querySelectorAll('.brand-option').forEach(el=>{
+  el.addEventListener('click',()=>{
+    document.querySelectorAll('.brand-option').forEach(b=>b.classList.remove('active'));
+    el.classList.add('active');
+  });
+});
+
+// next
+document.querySelector('.btn-next')?.addEventListener('click',()=>showStep(2));
+
+// prev
+document.querySelectorAll('.btn-prev').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    if(step===2) showStep(1);
+    else if(step===3) showStep(2);
+  });
+});
+
+// submit
+document.querySelector('.btn-submit')?.addEventListener('click',()=>{
+  calculate();
+  showStep(3);
+});
+
+});
 </script>
 
 </body>
