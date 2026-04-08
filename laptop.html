@@ -294,12 +294,12 @@
       <strong><span class="arrow">←</span> Beranda</strong>
     </a>
     <a href="/assessment.html" class="nav-forward">
-      <strong>Gadai Motor <span class="arrow">→</span></strong>
-      <img src="/images/logo-motor.png" alt="Gadai Motor" class="nav-icon">
+      <strong>Gadai Laptop <span class="arrow">→</span></strong>
+      💻
     </a>
   </div>
-
 </header>
+
 <!-- page-header 页面头部 -->
 <div class="page-header">
   <div class="container">
@@ -499,7 +499,7 @@
   </div>
 </div>
 
-<!-- 页脚 -->
+<!-- 页脚 - 修正HTML结构 -->
 <footer id="lokasi" role="contentinfo">
   <div class="footer-content">
     <p class="copyright">
@@ -507,13 +507,15 @@
     </p>
 
     <div class="company-info">
-JF Gadai berizin resmi • Melayani gadai laptop, smartphone, dan elektronik</div>
+      JF Gadai berizin resmi • Melayani gadai laptop, smartphone, dan elektronik
+    </div>
 
     <div class="contact-info">
       <a href="https://wa.me/6289515692586" target="_blank" class="contact-link">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;">
         Chat WhatsApp Sekarang
       </a>
+    </div>
 
     <p class="operating-hours">
       ⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu
@@ -523,19 +525,16 @@ JF Gadai berizin resmi • Melayani gadai laptop, smartphone, dan elektronik</di
     </p>
   </div>
 </footer>
-  
-<script src="js/main.js"></script>
-<script>
-  // 自动更新版权年份
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-  
+
 <!-- 浮动 WhatsApp -->
 <a href="https://wa.me/6289515692586" target="_blank" class="floating-wa" id="floatingWa">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
 </a>
 
 <script>
+// 自动更新版权年份
+document.getElementById('year').textContent = new Date().getFullYear();
+
 function formatRupiah(num) {
   return "Rp " + new Intl.NumberFormat("id-ID").format(Math.round(num));
 }
