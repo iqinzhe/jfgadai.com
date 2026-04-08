@@ -668,6 +668,9 @@ function showResult() {
   const cpuSelect = document.getElementById('cpu');
   const cpuName = cpuSelect.options[cpuSelect.selectedIndex]?.text || result.cpu.toUpperCase();
   
+  // 计算固定值：取平均值并四舍五入到千位（避免纠纷）
+  const fixedPawnValue = Math.round(result.pawnAvg / 1000) * 1000;
+  
   const message = `Halo Admin JF Gadai,
 
 Saya ingin menanyakan estimasi gadai laptop:
@@ -682,8 +685,7 @@ Saya ingin menanyakan estimasi gadai laptop:
 📅 Usia: ${result.ageYears == 1 ? '<1 tahun' : (result.ageYears <=2 ? '1-2 tahun' : (result.ageYears <=4 ? '3-4 tahun' : '>4 tahun'))}
 
 📊 Estimasi Pinjaman:
-${formatRupiah(result.pawnMin)} - ${formatRupiah(result.pawnMax)}
-(Rata-rata ${formatRupiah(result.pawnAvg)})
+${formatRupiah(fixedPawnValue)}
 
 Saya siap bawa laptop ke kantor hari ini. Terima kasih.`;
 
@@ -697,9 +699,9 @@ Saya siap bawa laptop ke kantor hari ini. Terima kasih.`;
       <div style="margin: 20px 0; height: 2px; background: rgba(245,197,66,0.3);"></div>
       
       <div class="label">🏦 Estimasi Pinjaman (dapat cair)</div>
-      <div class="value">${formatRupiah(result.pawnMin)} – ${formatRupiah(result.pawnMax)}</div>
-      <div style="margin-top: 8px;">
-        💡 Rata-rata: <strong style="color: var(--secondary-color);">${formatRupiah(result.pawnAvg)}</strong>
+      <div class="value" style="font-size: 2.2rem;">${formatRupiah(fixedPawnValue)}</div>
+      <div style="margin-top: 8px; font-size: var(--fs-small); color: var(--text-muted);">
+        ✅ Harga tetap, tidak ada tawar-menawar • Transparan & adil
       </div>
       
       ${getConfigSummary(result)}
