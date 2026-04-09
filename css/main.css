@@ -26,27 +26,23 @@
   --spacing-xxl: 3rem;
 
   /* ===== 文字大小统一变量 ===== */
-  /* 桌面端字体大小 */
-  --fs-hero-title: 2.0rem;      /* 英雄区大标题 */
-  --fs-section-title: 1.8rem;    /* 区块标题 */
-  --fs-card-title: 1.5rem;       /* 卡片标题 */
-  --fs-subtitle: 1.4rem;        /* 副标题 */
-  --fs-body: 1.2rem;               /* 正文 */
-  --fs-small: 1.0rem;            /* 小字 */
-  --fs-tiny: 0.9rem;             /* 极小字（版权、提示） */
+  --fs-hero-title: 2.0rem;
+  --fs-section-title: 1.8rem;
+  --fs-card-title: 1.5rem;
+  --fs-subtitle: 1.4rem;
+  --fs-body: 1.2rem;
+  --fs-small: 1.0rem;
+  --fs-tiny: 0.9rem;
   
-  /* 按钮文字大小 */
-  --fs-btn-large: 1.15rem;       /* 大按钮 */
-  --fs-btn-medium: 1rem;          /* 中按钮 */
-  --fs-btn-small: 0.9rem;         /* 小按钮 */
+  --fs-btn-large: 1.15rem;
+  --fs-btn-medium: 1rem;
+  --fs-btn-small: 0.9rem;
   
-  /* ===== 行距统一变量 ===== */
-  --lh-tight: 1.2;               /* 标题、紧凑内容 */
-  --lh-normal: 1.4;              /* 正文标准 */
-  --lh-relaxed: 1.6;             /* 宽松正文 */
+  --lh-tight: 1.2;
+  --lh-normal: 1.4;
+  --lh-relaxed: 1.6;
 
-  /* ===== 图标统一尺寸 ===== */
-  --icon-size-large: 2.5rem;      /* 大图标（快速操作等） */
+  --icon-size-large: 2.5rem;
 }
 
 body {
@@ -64,7 +60,6 @@ body {
   padding: 0 var(--spacing-md);
 }
 
-/* 统一卡片内 emoji 大小 */
 .card-emoji {
   font-size: var(--fs-body);
   line-height: var(--lh-normal);
@@ -115,7 +110,6 @@ body {
 .delay-6 { animation-delay: 0.6s; }
 
 /* ==================== 按钮样式模块 ==================== */
-/* 基础按钮闪光效果 */
 .btn-shine {
   position: relative;
   overflow: hidden;
@@ -143,7 +137,6 @@ body {
   animation: buttonShine 1.2s ease forwards;
 }
 
-/* 主要CTA按钮 - 统一字体大小 */
 .card-cta-btn {
   display: inline-flex;
   align-items: center;
@@ -187,7 +180,6 @@ body {
   animation: buttonShine 1.2s ease forwards;
 }
 
-/* 快速操作按钮 - 统一字体大小 */
 .action-btn {
   display: inline-flex;
   align-items: center;
@@ -252,7 +244,6 @@ body {
   box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
 }
 
-/* 页脚联系按钮 - 统一正文大小 */
 .contact-link {
   display: inline-flex;
   align-items: center;
@@ -300,7 +291,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* 导航按钮 - 统一字体大小 */
 .back-btn,
 .nav-forward {
   color: var(--text-light);
@@ -468,7 +458,7 @@ body {
   line-height: var(--lh-normal);
 }
 
-/* ==================== 六宫格卡片（unified-card） ==================== */
+/* ==================== 六宫格卡片 ==================== */
 .unified-card {
   position: relative;
   background: linear-gradient(135deg, 
@@ -509,7 +499,7 @@ body {
   color: var(--secondary-color);
   font-size: var(--fs-card-title);
   font-weight: 700;
-  margin-bottom: var(--spacing-xs); 
+  margin-bottom: var(--spacing-xs);
   text-shadow: 1px 1px 2px #000;
   line-height: var(--lh-tight);
 }
@@ -517,7 +507,7 @@ body {
 .card-desc {
   color: var(--text-light);
   font-size: var(--fs-body);
-  margin-bottom: var(--spacing-md); 
+  margin-bottom: var(--spacing-md);
   line-height: var(--lh-normal);
 }
 
@@ -525,7 +515,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 0; 
+  padding: 0.5rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.1);
   color: var(--text-light);
   font-size: var(--fs-body);
@@ -542,7 +532,6 @@ body {
 }
 
 /* ==================== 贷款信息卡片（grid-card） ==================== */
-/* 外观保持原样（毛玻璃、细边框、小圆角等），内边距与 unified-card 统一 */
 .grid-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
@@ -553,13 +542,11 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  /* 移除 justify-content: space-between; 改为默认 flex-start，避免内容高度不同导致位置偏移 */
   width: 100%;
   height: 100%;
   align-items: center;
 }
 
-/* 图标与六宫格统一 */
 .grid-card .card-icon {
   font-size: var(--icon-size-large);
   margin-bottom: var(--spacing-xs);
@@ -568,7 +555,6 @@ body {
   text-align: center;
 }
 
-/* 标题与六宫格 .card-title 统一 */
 .grid-card h3 {
   color: var(--secondary-color);
   font-size: var(--fs-card-title);
@@ -580,7 +566,6 @@ body {
   text-shadow: 1px 1px 2px #000;
 }
 
-/* 正文与六宫格 .card-desc 统一 */
 .grid-card .card-content p,
 .grid-card .card-content .card-desc {
   color: var(--text-light);
@@ -589,7 +574,6 @@ body {
   margin: 0.25rem 0;
 }
 
-/* 若包含列表，与六宫格 .card-list 统一 */
 .grid-card .card-list {
   list-style: none;
   padding: 0;
@@ -660,7 +644,7 @@ body {
 
 .action-icon { 
   font-size: var(--icon-size-large);
-  margin-bottom: var(--spacing-xs); 
+  margin-bottom: var(--spacing-xs);
 }
 
 .action-title { 
@@ -668,13 +652,13 @@ body {
   font-size: var(--fs-card-title);
   font-weight: 700;
   text-shadow: 1px 1px 2px #000;
-  margin-bottom: var(--spacing-xs); 
+  margin-bottom: var(--spacing-xs);
   line-height: var(--lh-tight);
 }
 
 .action-description { 
   color: var(--text-light); 
-  margin-bottom: var(--spacing-sm); 
+  margin-bottom: var(--spacing-sm);
   font-size: var(--fs-body);
   line-height: var(--lh-normal);
 }
@@ -695,16 +679,33 @@ body {
 #hp-pawn { grid-column: 2; grid-row: 2; }
 #contact { grid-column: 3; grid-row: 2; }
 
-/* 贷款信息网格 - 自适应列数 */
+/* ✅ 贷款信息网格 - 桌面端强制4列（修复问题） */
 .balanced-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-md);
   justify-content: center;
   align-items: stretch;
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+}
+
+/* 平板设备 (769px - 1200px) 改为2列 */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .balanced-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+}
+
+/* 手机设备 (≤768px) 改为1列 */
+@media (max-width: 768px) {
+  .balanced-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
 }
 
 /* ==================== 信任区块模块 ==================== */
@@ -769,7 +770,6 @@ body {
   line-height: var(--lh-normal);
 }
 
-/* 卡片副标题 */
 .unified-card .card-subtitle {
   color: var(--secondary-color);
   font-size: var(--fs-subtitle);
@@ -791,7 +791,6 @@ footer {
   overflow: visible;
 }
 
-/* 容器 */
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -803,7 +802,6 @@ footer {
   gap: 6px;
 }
 
-/* 版权 - 统一极小字 */
 .copyright {
   font-size: var(--fs-tiny);
   color: var(--text-light);
@@ -811,7 +809,6 @@ footer {
   line-height: var(--lh-tight);
 }
 
-/* 公司信息 - 统一小字 */
 .company-info {
   font-size: var(--fs-small);
   color: var(--text-muted);
@@ -819,12 +816,10 @@ footer {
   line-height: var(--lh-normal);
 }
 
-/* 联系区域 */
 .contact-info {
   margin: 6px 0;
 }
 
-/* 联系按钮 - 统一正文大小 */
 .footer-content .contact-link {
   display: inline-flex;
   align-items: center;
@@ -854,7 +849,6 @@ footer {
   box-shadow: 0 4px 12px rgba(245, 197, 66, 0.2);
 }
 
-/* 营业时间 - 统一极小字 */
 .operating-hours {
   font-size: var(--fs-tiny);
   color: var(--text-muted);
@@ -866,7 +860,6 @@ footer {
   max-width: 500px;
 }
 
-/* 安全提示 - 统一极小字 */
 .security-note {
   font-size: var(--fs-tiny);
   color: var(--text-muted);
@@ -878,7 +871,6 @@ footer {
   line-height: var(--lh-tight);
 }
 
-/* WhatsApp 按钮轻呼吸动画 */
 #wa-contact {
   animation: waPulse 3s infinite;
 }
@@ -925,7 +917,6 @@ footer {
 /* ==================== 响应式模块 ==================== */
 /* 平板设备 (769px - 1200px) */
 @media (max-width: 1200px) and (min-width: 769px) {
-  /* 平板端字体变量调整 */
   :root {
     --fs-hero-title: 1.8rem;
     --fs-section-title: 1.6rem;
@@ -937,16 +928,11 @@ footer {
     --fs-btn-large: 1.1rem;
     --fs-btn-medium: 0.95rem;
     --fs-btn-small: 0.85rem;
-    
-    /* 平板端行距微调 */
     --lh-normal: 1.35;
     --lh-tight: 1.15;
-
-    /* 平板图标尺寸 */
     --icon-size-large: 2.2rem;
   }
 
-  /* 统一平板端卡片内边距 */
   .unified-card,
   .grid-card {
     padding: var(--spacing-md) var(--spacing-sm);
@@ -958,12 +944,10 @@ footer {
     gap: 4px 8px;
   }
 
-  /* 隐藏 emas-pawn（黄金典当） */
   #emas-pawn {
     display: none !important;
   }
   
-  /* 调整显示顺序 */
   #assessment {
     order: 1 !important;
   }
@@ -983,7 +967,6 @@ footer {
   #contact {
     order: 5 !important;
   }
-}
   
   .quick-actions { 
     flex-direction: row; 
@@ -996,17 +979,10 @@ footer {
     min-width: 280px;
     max-width: none;
   }
-  
-  /* 平板：贷款信息网格2列 */
-  .balanced-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-  }
 }
 
 /* 手机设备 (≤768px) */
 @media (max-width: 768px) {
-  /* 手机端字体变量调整 */
   :root {
     --fs-hero-title: 1.5rem;
     --fs-section-title: 1.4rem;
@@ -1018,12 +994,8 @@ footer {
     --fs-btn-large: 1.0rem;
     --fs-btn-medium: 0.9rem;
     --fs-btn-small: 0.75rem;
-    
-    /* 手机端更紧凑的行距 */
     --lh-normal: 1.3;
     --lh-tight: 1.1;
-
-    /* 手机图标尺寸 - 调整为适中大小 */
     --icon-size-large: 1.5rem;
   }
 
@@ -1063,28 +1035,15 @@ footer {
     margin: var(--spacing-md) auto;
   }
   
-  #assessment-system { order: 1; }
-  #motor-pawn { order: 2; }
-  #contact-form  {
-    display: none;
-  }
-}
-  #electronics-pawn { order: 3; }
-}
-  #our-services { order: 5; }
-  #contact-navigation { order: 6; }
-
   .gallery-grid {
     grid-template-columns: 1fr;
   }
   
-  /* 手机端六宫格卡片内边距 */
   .unified-card {
     padding: var(--spacing-sm) var(--spacing-sm);
     margin-bottom: 2px;
   }
   
-  /* 手机端贷款卡片内边距 — 单独缩小上下间距，解决图标与边框距离偏大问题 */
   .grid-card {
     padding: 0.5rem var(--spacing-sm);
     margin-bottom: 2px;
@@ -1144,13 +1103,6 @@ footer {
     font-size: var(--fs-btn-medium);
     min-width: 160px;
     line-height: var(--lh-tight);
-  }
-  
-  /* 手机：贷款信息网格1列 */
-  .balanced-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1rem;
-    margin: 1.5rem 0;
   }
   
   .grid-card .card-icon {
