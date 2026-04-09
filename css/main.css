@@ -1017,6 +1017,21 @@ footer {
     --fs-btn-large: 1.0rem;
     --fs-btn-medium: 0.9rem;
     --fs-btn-small: 0.75rem;
+
+  /* 横幅修复 - 图片完整显示不被裁剪 */
+  .full-banner {
+    height: auto;
+    max-height: 180px;
+  }
+  
+  .full-banner img {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+    object-fit: contain;      /* 改为 contain，完整显示整张图片 */
+    object-position: center center;
+  }
+}
     
     /* 手机端更紧凑的行距 */
     --lh-normal: 1.3;
