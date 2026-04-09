@@ -688,12 +688,12 @@ body {
   margin: var(--spacing-xl) auto;
 }
 
-#our-services { grid-column: 1; grid-row: 1; }
-#assessment-system { grid-column: 2; grid-row: 1; }
-#contact-form { grid-column: 3; grid-row: 1; }
-#electronics-pawn { grid-column: 1; grid-row: 2; }
-#motor-pawn { grid-column: 2; grid-row: 2; }
-#contact-navigation { grid-column: 3; grid-row: 2; }
+#gallery { grid-column: 1; grid-row: 1; }
+#assessment { grid-column: 2; grid-row: 1; }
+#emas-pawn { grid-column: 3; grid-row: 1; }  
+#laptop-pawn { grid-column: 1; grid-row: 2; }
+#hp-pawn { grid-column: 2; grid-row: 2; }
+#contact { grid-column: 3; grid-row: 2; }
 
 /* 贷款信息网格 - 自适应列数 */
 .balanced-grid {
