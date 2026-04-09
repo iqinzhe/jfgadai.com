@@ -664,20 +664,65 @@ body {
 }
 
 /* ==================== 网格布局模块 ==================== */
-.asymmetric-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto;
-  gap: 8px 12px;
-  margin: var(--spacing-xl) auto;
+/* ✅ 电脑端布局 (最小宽度 1201px) */
+@media (min-width: 1201px) {
+  .asymmetric-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 8px 12px;
+    margin: var(--spacing-xl) auto;
+  }
+
+  #assessment { grid-column: 2; grid-row: 1; }
+  #laptop-pawn { grid-column: 1; grid-row: 2; }
+  #hp-pawn { grid-column: 2; grid-row: 2; }
+  #emas-pawn { grid-column: 3; grid-row: 1; }
+  #gallery { grid-column: 1; grid-row: 1; }
+  #contact { grid-column: 3; grid-row: 2; }
 }
 
-#gallery { grid-column: 1; grid-row: 1; }
-#assessment { grid-column: 2; grid-row: 1; }
-#emas-pawn { grid-column: 3; grid-row: 1; }  
-#laptop-pawn { grid-column: 1; grid-row: 2; }
-#hp-pawn { grid-column: 2; grid-row: 2; }
-#contact { grid-column: 3; grid-row: 2; }
+/* ✅ 手机/平板端布局 (最大宽度 768px) */
+@media (max-width: 768px) {
+  .asymmetric-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 8px 12px;
+    margin: var(--spacing-md) auto;
+  }
+
+  /* 按手机端要求排列 */
+  #assessment { grid-column: 2; grid-row: 1; }
+  #laptop-pawn { grid-column: 1; grid-row: 2; }
+  #hp-pawn { grid-column: 2; grid-row: 2; }
+  #emas-pawn { display: none !important; }  /* 隐藏 */
+  #gallery { grid-column: 1; grid-row: 1; }
+  #contact { grid-column: 3; grid-row: 2; }
+
+  /* 确保 grid 只有两列，第三列的内容会被处理 */
+  .asymmetric-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ✅ 平板设备过渡 (769px - 1200px) 保持与电脑端类似但可微调 */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .asymmetric-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 8px 12px;
+  }
+
+  /* 继承电脑端布局 */
+  #assessment { grid-column: 2; grid-row: 1; }
+  #laptop-pawn { grid-column: 1; grid-row: 2; }
+  #hp-pawn { grid-column: 2; grid-row: 2; }
+  #emas-pawn { grid-column: 3; grid-row: 1; }
+  #gallery { grid-column: 1; grid-row: 1; }
+  #contact { grid-column: 3; grid-row: 2; }
+}
 
 /* ✅ 贷款信息网格 - 桌面端强制4列（修复问题） */
 .balanced-grid {
@@ -938,36 +983,6 @@ footer {
     padding: var(--spacing-md) var(--spacing-sm);
   }
 
-  .asymmetric-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 4px 8px;
-  }
-
-  #emas-pawn {
-    display: none !important;
-  }
-  
-  #assessment {
-    order: 1 !important;
-  }
-  
-  #laptop-pawn {
-    order: 2 !important;
-  }
-  
-  #hp-pawn {
-    order: 3 !important;
-  }
-  
-  #gallery {
-    order: 4 !important;
-  }
-  
-  #contact {
-    order: 5 !important;
-  }
-  
   .quick-actions { 
     flex-direction: row; 
     flex-wrap: wrap;
@@ -1026,13 +1041,6 @@ footer {
   
   .full-banner {
     height: 75px;
-  }
-  
-  .asymmetric-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    margin: var(--spacing-md) auto;
   }
   
   .gallery-grid {
