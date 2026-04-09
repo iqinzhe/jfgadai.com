@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 <title>JF Gadai HP - Estimasi Gadai Cepat & Aman</title>
 
- <!-- Favicon -->
+<!-- Favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -433,10 +433,10 @@ footer {
       <img src="/images/logo-jf.png" alt="JF Gadai" class="logo-image">
       <strong><span class="arrow">←</span> Beranda</strong>
     </a>
-<a href="/laptop.html" class="nav-forward">
-  <strong>Gadai Laptop <span class="arrow">→</span></strong>
-  <span style="font-size: 1.5rem;">💻</span>
-</a>
+    <a href="/laptop.html" class="nav-forward">
+      <strong>Gadai Laptop <span class="arrow">→</span></strong>
+      <span style="font-size: 1.5rem;">💻</span>
+    </a>
   </div>
 </header>
 
@@ -668,12 +668,6 @@ footer {
 (function() {
   'use strict';
 
-   <script src="/js/main.js"></script>
-  <script>
-    // 自动更新版权年份
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  
   // ==================== 品牌专属配置数据（已调低估值） ====================
   const BRAND_SPECS = {
     apple: {
@@ -698,11 +692,11 @@ footer {
         { value: 'dual', label: 'Dual Camera (Standar)', selected: true },
         { value: 'triple', label: 'Triple Camera (Pro Series)' }
       ],
-      basePrice: 5500000  // 从 8000000 降低
+      basePrice: 5500000
     },
     samsung: {
       name: 'Samsung',
-      brandFactor: 0.72,  // 从 0.75 降低
+      brandFactor: 0.72,
       chipsets: [
         { value: 'exynos1280', label: 'Exynos 1280 (A Series)' },
         { value: 'exynos1380', label: 'Exynos 1380 (A54)' },
@@ -723,11 +717,11 @@ footer {
         { value: 'triple', label: 'Triple Camera (Mid Range)', selected: true },
         { value: 'quad', label: 'Quad Camera (Flagship)' }
       ],
-      basePrice: 3200000  // 从 4500000 降低
+      basePrice: 3200000
     },
     xiaomi: {
       name: 'Xiaomi',
-      brandFactor: 0.60,  // 从 0.65 降低
+      brandFactor: 0.60,
       chipsets: [
         { value: 'snapdragon6', label: 'Snapdragon 6 Series (Redmi Note)' },
         { value: 'snapdragon7', label: 'Snapdragon 7 Series (Mi Lite)', selected: true },
@@ -743,11 +737,11 @@ footer {
         { value: 'triple', label: 'Triple Camera (Mid Range)', selected: true },
         { value: 'quad', label: 'Quad Camera (Flagship)' }
       ],
-      basePrice: 2500000  // 从 3500000 降低
+      basePrice: 2500000
     },
     oppo: {
       name: 'Oppo',
-      brandFactor: 0.56,  // 从 0.62 降低
+      brandFactor: 0.56,
       chipsets: [
         { value: 'mediatek', label: 'MediaTek Helio (A Series)' },
         { value: 'snapdragon6', label: 'Snapdragon 6 Series (Reno Lite)', selected: true },
@@ -762,11 +756,11 @@ footer {
         { value: 'dual', label: 'Dual Camera' },
         { value: 'triple', label: 'Triple Camera (Reno)', selected: true }
       ],
-      basePrice: 2300000  // 从 3300000 降低
+      basePrice: 2300000
     },
     vivo: {
       name: 'Vivo',
-      brandFactor: 0.54,  // 从 0.60 降低
+      brandFactor: 0.54,
       chipsets: [
         { value: 'mediatek', label: 'MediaTek Helio (Y Series)', selected: true },
         { value: 'snapdragon6', label: 'Snapdragon 6 Series (V Series)' },
@@ -780,11 +774,11 @@ footer {
         { value: 'dual', label: 'Dual Camera', selected: true },
         { value: 'triple', label: 'Triple Camera (V Series)' }
       ],
-      basePrice: 2100000  // 从 3000000 降低
+      basePrice: 2100000
     },
     realme: {
       name: 'Realme',
-      brandFactor: 0.50,  // 从 0.55 降低
+      brandFactor: 0.50,
       chipsets: [
         { value: 'snapdragon6', label: 'Snapdragon 6 Series (C Series)', selected: true },
         { value: 'snapdragon7', label: 'Snapdragon 7 Series (Number Series)' },
@@ -798,7 +792,7 @@ footer {
         { value: 'dual', label: 'Dual Camera', selected: true },
         { value: 'triple', label: 'Triple Camera' }
       ],
-      basePrice: 1900000  // 从 2800000 降低
+      basePrice: 1900000
     }
   };
   
@@ -812,9 +806,9 @@ footer {
       screen_ok: 1.0, screen_scratched: 0.88, screen_cracked: 0.65,
       body_ok: 1.0, body_scratched: 0.93, body_dent: 0.82
     },
-    BASE_PAWN_RATIO: 0.55,  // 从 0.60 降低
-    MAX_PAWN_RATIO: 0.65,   // 从 0.70 降低
-    MIN_MARKET_VALUE: 250000  // 从 300000 降低
+    BASE_PAWN_RATIO: 0.55,
+    MAX_PAWN_RATIO: 0.65,
+    MIN_MARKET_VALUE: 250000
   };
   
   let currentBrand = 'apple';
@@ -1143,8 +1137,8 @@ Saya siap bawa HP ke kantor hari ini. Terima kasih.`;
       e.preventDefault();
       alert('📍 Kantor kami: Krajan Panas I, Oro-Oro Ombowetan, \nKec. Rembang, Pasuruan, Jawa Timur 67152\n🕒 Buka: Senin-Sabtu 08:00-18:00');
     });
-    
- 
+  }
+  
   // ==================== 初始化 ====================
   function init() {
     document.getElementById('year').textContent = new Date().getFullYear();
