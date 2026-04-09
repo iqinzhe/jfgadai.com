@@ -689,16 +689,16 @@ footer {
 (function() {
   'use strict';
   
-  // ==================== 品牌专属配置数据（包含系列） ====================
+  // ==================== 品牌专属配置数据（已调低估值） ====================
   const BRAND_SPECS = {
     apple: {
       name: 'Apple MacBook',
       brandFactor: 1.0,
       series: [
-        { value: 'macbook_air', label: 'MacBook Air', factor: 1.0, selected: true, basePrice: 7000000 },
-        { value: 'macbook_pro_13', label: 'MacBook Pro 13"', factor: 1.45, basePrice: 11000000 },
-        { value: 'macbook_pro_14', label: 'MacBook Pro 14"', factor: 1.65, basePrice: 15000000 },
-        { value: 'macbook_pro_16', label: 'MacBook Pro 16"', factor: 1.85, basePrice: 19000000 }
+        { value: 'macbook_air', label: 'MacBook Air', factor: 1.0, selected: true, basePrice: 5500000 },
+        { value: 'macbook_pro_13', label: 'MacBook Pro 13"', factor: 1.35, basePrice: 8500000 },
+        { value: 'macbook_pro_14', label: 'MacBook Pro 14"', factor: 1.55, basePrice: 12000000 },
+        { value: 'macbook_pro_16', label: 'MacBook Pro 16"', factor: 1.70, basePrice: 15000000 }
       ],
       cpus: [
         { value: 'm1', label: 'Apple M1', seriesCompatible: ['macbook_air', 'macbook_pro_13'] },
@@ -715,14 +715,14 @@ footer {
     },
     asus: {
       name: 'ASUS',
-      brandFactor: 0.82,
+      brandFactor: 0.75,
       series: [
-        { value: 'vivobook', label: 'Vivobook (Entry/Mid)', factor: 1.0, selected: true, basePrice: 4500000 },
-        { value: 'zenbook', label: 'Zenbook (Premium Ultrabook)', factor: 1.35, basePrice: 8500000 },
-        { value: 'tuf', label: 'TUF Gaming (Mid Gaming)', factor: 1.25, basePrice: 8000000 },
-        { value: 'rog_strix', label: 'ROG Strix (High Gaming)', factor: 1.65, basePrice: 12000000 },
-        { value: 'rog_zephyrus', label: 'ROG Zephyrus (Premium Gaming)', factor: 1.85, basePrice: 15000000 },
-        { value: 'proart', label: 'ProArt (Creator/Workstation)', factor: 1.55, basePrice: 14000000 }
+        { value: 'vivobook', label: 'Vivobook (Entry/Mid)', factor: 1.0, selected: true, basePrice: 3500000 },
+        { value: 'zenbook', label: 'Zenbook (Premium Ultrabook)', factor: 1.25, basePrice: 6500000 },
+        { value: 'tuf', label: 'TUF Gaming (Mid Gaming)', factor: 1.18, basePrice: 6000000 },
+        { value: 'rog_strix', label: 'ROG Strix (High Gaming)', factor: 1.50, basePrice: 9500000 },
+        { value: 'rog_zephyrus', label: 'ROG Zephyrus (Premium Gaming)', factor: 1.65, basePrice: 12000000 },
+        { value: 'proart', label: 'ProArt (Creator/Workstation)', factor: 1.45, basePrice: 11000000 }
       ],
       cpus: [
         { value: 'i3_12', label: 'Intel Core i3 (12th Gen+)', seriesCompatible: ['vivobook'] },
@@ -736,22 +736,22 @@ footer {
       gpus: [
         { value: 'integrated', label: 'Integrated (Intel UHD / Iris Xe)', factor: 0.88, seriesCompatible: ['vivobook', 'zenbook'] },
         { value: 'entry', label: 'Entry (NVIDIA MX Series)', factor: 1.0, seriesCompatible: ['vivobook', 'zenbook'] },
-        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.18, seriesCompatible: ['tuf', 'rog_strix'] },
-        { value: 'high', label: 'High (NVIDIA RTX 3070/3080)', factor: 1.35, seriesCompatible: ['rog_strix', 'rog_zephyrus'] },
-        { value: 'flagship', label: 'Flagship (NVIDIA RTX 4080/4090)', factor: 1.55, seriesCompatible: ['rog_zephyrus', 'proart'] }
+        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.12, seriesCompatible: ['tuf', 'rog_strix'] },
+        { value: 'high', label: 'High (NVIDIA RTX 3070/3080)', factor: 1.25, seriesCompatible: ['rog_strix', 'rog_zephyrus'] },
+        { value: 'flagship', label: 'Flagship (NVIDIA RTX 4080/4090)', factor: 1.40, seriesCompatible: ['rog_zephyrus', 'proart'] }
       ]
     },
     lenovo: {
       name: 'Lenovo',
-      brandFactor: 0.80,
+      brandFactor: 0.73,
       series: [
-        { value: 'ideapad', label: 'Ideapad (Entry/Mid)', factor: 1.0, selected: true, basePrice: 4300000 },
-        { value: 'legion', label: 'Legion (Gaming)', factor: 1.45, basePrice: 11000000 },
-        { value: 'thinkbook', label: 'ThinkBook (Business)', factor: 1.2, basePrice: 7000000 },
-        { value: 'thinkpad_e', label: 'ThinkPad E Series', factor: 1.15, basePrice: 6500000 },
-        { value: 'thinkpad_t', label: 'ThinkPad T Series', factor: 1.45, basePrice: 10000000 },
-        { value: 'thinkpad_x1', label: 'ThinkPad X1 Carbon/Nano', factor: 1.75, basePrice: 15000000 },
-        { value: 'yoga', label: 'Yoga (Premium 2-in-1)', factor: 1.3, basePrice: 9000000 }
+        { value: 'ideapad', label: 'Ideapad (Entry/Mid)', factor: 1.0, selected: true, basePrice: 3300000 },
+        { value: 'legion', label: 'Legion (Gaming)', factor: 1.35, basePrice: 8500000 },
+        { value: 'thinkbook', label: 'ThinkBook (Business)', factor: 1.12, basePrice: 5500000 },
+        { value: 'thinkpad_e', label: 'ThinkPad E Series', factor: 1.08, basePrice: 5000000 },
+        { value: 'thinkpad_t', label: 'ThinkPad T Series', factor: 1.35, basePrice: 8000000 },
+        { value: 'thinkpad_x1', label: 'ThinkPad X1 Carbon/Nano', factor: 1.60, basePrice: 12000000 },
+        { value: 'yoga', label: 'Yoga (Premium 2-in-1)', factor: 1.20, basePrice: 7000000 }
       ],
       cpus: [
         { value: 'i3_12', label: 'Intel Core i3 (12th Gen+)', seriesCompatible: ['ideapad'] },
@@ -765,22 +765,22 @@ footer {
       gpus: [
         { value: 'integrated', label: 'Integrated (Intel UHD / Iris Xe)', factor: 0.88, seriesCompatible: ['ideapad', 'thinkbook', 'thinkpad_e', 'thinkpad_t', 'thinkpad_x1', 'yoga'] },
         { value: 'entry', label: 'Entry (NVIDIA MX Series)', factor: 1.0, seriesCompatible: ['ideapad', 'thinkbook'] },
-        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.18, seriesCompatible: ['legion'] },
-        { value: 'high', label: 'High (NVIDIA RTX 3070/3080)', factor: 1.35, seriesCompatible: ['legion'] },
-        { value: 'flagship', label: 'Flagship (NVIDIA RTX 4080/4090)', factor: 1.55, seriesCompatible: ['legion'] }
+        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.12, seriesCompatible: ['legion'] },
+        { value: 'high', label: 'High (NVIDIA RTX 3070/3080)', factor: 1.25, seriesCompatible: ['legion'] },
+        { value: 'flagship', label: 'Flagship (NVIDIA RTX 4080/4090)', factor: 1.40, seriesCompatible: ['legion'] }
       ]
     },
     dell: {
       name: 'Dell',
-      brandFactor: 0.81,
+      brandFactor: 0.74,
       series: [
-        { value: 'inspiron', label: 'Inspiron (Entry/Mid)', factor: 1.0, selected: true, basePrice: 4500000 },
-        { value: 'vostro', label: 'Vostro (Small Business)', factor: 1.05, basePrice: 5000000 },
-        { value: 'latitude', label: 'Latitude (Business)', factor: 1.35, basePrice: 8500000 },
-        { value: 'xps', label: 'XPS (Premium Ultrabook)', factor: 1.7, basePrice: 14000000 },
-        { value: 'precision', label: 'Precision (Workstation)', factor: 1.6, basePrice: 16000000 },
-        { value: 'g_series', label: 'G Series (Gaming)', factor: 1.25, basePrice: 8000000 },
-        { value: 'alienware', label: 'Alienware (High Gaming)', factor: 1.9, basePrice: 18000000 }
+        { value: 'inspiron', label: 'Inspiron (Entry/Mid)', factor: 1.0, selected: true, basePrice: 3500000 },
+        { value: 'vostro', label: 'Vostro (Small Business)', factor: 1.02, basePrice: 3800000 },
+        { value: 'latitude', label: 'Latitude (Business)', factor: 1.25, basePrice: 6500000 },
+        { value: 'xps', label: 'XPS (Premium Ultrabook)', factor: 1.55, basePrice: 11000000 },
+        { value: 'precision', label: 'Precision (Workstation)', factor: 1.48, basePrice: 12500000 },
+        { value: 'g_series', label: 'G Series (Gaming)', factor: 1.18, basePrice: 6200000 },
+        { value: 'alienware', label: 'Alienware (High Gaming)', factor: 1.75, basePrice: 15000000 }
       ],
       cpus: [
         { value: 'i3_12', label: 'Intel Core i3 (12th Gen+)', seriesCompatible: ['inspiron', 'vostro'] },
@@ -791,22 +791,22 @@ footer {
       gpus: [
         { value: 'integrated', label: 'Integrated (Intel UHD / Iris Xe)', factor: 0.88, seriesCompatible: ['inspiron', 'vostro', 'latitude', 'xps'] },
         { value: 'entry', label: 'Entry (NVIDIA MX Series)', factor: 1.0, seriesCompatible: ['inspiron', 'vostro'] },
-        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.18, seriesCompatible: ['g_series', 'xps'] },
-        { value: 'high', label: 'High (NVIDIA RTX 3070/3080)', factor: 1.35, seriesCompatible: ['alienware', 'precision'] },
-        { value: 'flagship', label: 'Flagship (NVIDIA RTX 4080/4090)', factor: 1.55, seriesCompatible: ['alienware'] }
+        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.12, seriesCompatible: ['g_series', 'xps'] },
+        { value: 'high', label: 'High (NVIDIA RTX 3070/3080)', factor: 1.25, seriesCompatible: ['alienware', 'precision'] },
+        { value: 'flagship', label: 'Flagship (NVIDIA RTX 4080/4090)', factor: 1.40, seriesCompatible: ['alienware'] }
       ]
     },
     hp: {
       name: 'HP',
-      brandFactor: 0.78,
+      brandFactor: 0.71,
       series: [
-        { value: 'pavilion', label: 'Pavilion (Entry/Mid)', factor: 1.0, selected: true, basePrice: 4200000 },
-        { value: 'envy', label: 'Envy (Premium)', factor: 1.3, basePrice: 8000000 },
-        { value: 'spectre', label: 'Spectre (Luxury)', factor: 1.55, basePrice: 12000000 },
-        { value: 'victus', label: 'Victus (Gaming)', factor: 1.2, basePrice: 7500000 },
-        { value: 'omen', label: 'Omen (High Gaming)', factor: 1.6, basePrice: 13000000 },
-        { value: 'elitebook', label: 'EliteBook (Business)', factor: 1.35, basePrice: 9000000 },
-        { value: 'zbook', label: 'ZBook (Workstation)', factor: 1.5, basePrice: 15000000 }
+        { value: 'pavilion', label: 'Pavilion (Entry/Mid)', factor: 1.0, selected: true, basePrice: 3200000 },
+        { value: 'envy', label: 'Envy (Premium)', factor: 1.20, basePrice: 6200000 },
+        { value: 'spectre', label: 'Spectre (Luxury)', factor: 1.45, basePrice: 9500000 },
+        { value: 'victus', label: 'Victus (Gaming)', factor: 1.12, basePrice: 5800000 },
+        { value: 'omen', label: 'Omen (High Gaming)', factor: 1.48, basePrice: 10500000 },
+        { value: 'elitebook', label: 'EliteBook (Business)', factor: 1.25, basePrice: 7000000 },
+        { value: 'zbook', label: 'ZBook (Workstation)', factor: 1.40, basePrice: 12000000 }
       ],
       cpus: [
         { value: 'i3_12', label: 'Intel Core i3 (12th Gen+)', seriesCompatible: ['pavilion'] },
@@ -817,20 +817,20 @@ footer {
       gpus: [
         { value: 'integrated', label: 'Integrated (Intel UHD / Iris Xe)', factor: 0.88, seriesCompatible: ['pavilion', 'envy', 'spectre', 'elitebook'] },
         { value: 'entry', label: 'Entry (NVIDIA MX Series)', factor: 1.0, seriesCompatible: ['pavilion', 'envy'] },
-        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.18, seriesCompatible: ['victus', 'omen'] },
-        { value: 'high', label: 'High (NVIDIA RTX 3070/3080)', factor: 1.35, seriesCompatible: ['omen', 'zbook'] }
+        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.12, seriesCompatible: ['victus', 'omen'] },
+        { value: 'high', label: 'High (NVIDIA RTX 3070/3080)', factor: 1.25, seriesCompatible: ['omen', 'zbook'] }
       ]
     },
     acer: {
       name: 'Acer',
-      brandFactor: 0.75,
+      brandFactor: 0.68,
       series: [
-        { value: 'aspire', label: 'Aspire (Entry/Mid)', factor: 1.0, selected: true, basePrice: 4000000 },
-        { value: 'swift', label: 'Swift (Premium Ultrabook)', factor: 1.25, basePrice: 7500000 },
-        { value: 'predator', label: 'Predator (High Gaming)', factor: 1.65, basePrice: 13000000 },
-        { value: 'nitro', label: 'Nitro (Mid Gaming)', factor: 1.3, basePrice: 8500000 },
-        { value: 'travelmate', label: 'TravelMate (Business)', factor: 1.1, basePrice: 5500000 },
-        { value: 'conceptd', label: 'ConceptD (Creator)', factor: 1.45, basePrice: 14000000 }
+        { value: 'aspire', label: 'Aspire (Entry/Mid)', factor: 1.0, selected: true, basePrice: 3000000 },
+        { value: 'swift', label: 'Swift (Premium Ultrabook)', factor: 1.18, basePrice: 5800000 },
+        { value: 'predator', label: 'Predator (High Gaming)', factor: 1.55, basePrice: 10500000 },
+        { value: 'nitro', label: 'Nitro (Mid Gaming)', factor: 1.22, basePrice: 6500000 },
+        { value: 'travelmate', label: 'TravelMate (Business)', factor: 1.05, basePrice: 4200000 },
+        { value: 'conceptd', label: 'ConceptD (Creator)', factor: 1.38, basePrice: 11000000 }
       ],
       cpus: [
         { value: 'i3_12', label: 'Intel Core i3 (12th Gen+)', seriesCompatible: ['aspire', 'travelmate'] },
@@ -841,22 +841,22 @@ footer {
       gpus: [
         { value: 'integrated', label: 'Integrated (Intel UHD / Iris Xe)', factor: 0.88, seriesCompatible: ['aspire', 'swift', 'travelmate'] },
         { value: 'entry', label: 'Entry (NVIDIA MX Series)', factor: 1.0, seriesCompatible: ['aspire', 'swift'] },
-        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.18, seriesCompatible: ['nitro', 'predator'] },
-        { value: 'high', label: 'High (NVIDIA RTX 3070/3080)', factor: 1.35, seriesCompatible: ['predator', 'conceptd'] }
+        { value: 'mid', label: 'Mid (NVIDIA RTX 3050/3060)', factor: 1.12, seriesCompatible: ['nitro', 'predator'] },
+        { value: 'high', label: 'High (NVIDIA RTX 3070/3080)', factor: 1.25, seriesCompatible: ['predator', 'conceptd'] }
       ]
     }
   };
   
-  // 通用系数配置
+  // 通用系数配置（整体调低）
   const CONFIG = {
-    RAM_FACTORS: { 4: 0.85, 8: 0.95, 16: 1.0, 32: 1.12, 64: 1.20 },
-    STORAGE_FACTORS: { 128: 0.90, 256: 1.0, 512: 1.08, 1024: 1.15, 2048: 1.22 },
-    SCREEN_FACTORS: { 11: 0.88, 13: 1.0, 15: 1.03, 17: 1.06 },
-    BATTERY_FACTORS: { excellent: 1.0, good: 0.92, fair: 0.82, poor: 0.70 },
-    AGE_FACTORS: { 1: 0.92, 2: 0.78, 3: 0.62, 5: 0.48 },
-    BASE_PAWN_RATIO: 0.62,
-    MAX_PAWN_RATIO: 0.72,
-    MIN_MARKET_VALUE: 400000
+    RAM_FACTORS: { 4: 0.82, 8: 0.92, 16: 1.0, 32: 1.08, 64: 1.15 },
+    STORAGE_FACTORS: { 128: 0.88, 256: 1.0, 512: 1.06, 1024: 1.12, 2048: 1.18 },
+    SCREEN_FACTORS: { 11: 0.88, 13: 1.0, 15: 1.02, 17: 1.04 },
+    BATTERY_FACTORS: { excellent: 1.0, good: 0.90, fair: 0.78, poor: 0.65 },
+    AGE_FACTORS: { 1: 0.90, 2: 0.76, 3: 0.60, 5: 0.46 },
+    BASE_PAWN_RATIO: 0.55,
+    MAX_PAWN_RATIO: 0.65,
+    MIN_MARKET_VALUE: 300000
   };
   
   let currentBrand = 'apple';
@@ -943,7 +943,7 @@ footer {
     updateGpuOptions();
   }
   
-  // ==================== 计算函数 ====================
+  // ==================== 计算函数（保守原则） ====================
   function calculateMarketValue() {
     const brandData = BRAND_SPECS[currentBrand];
     const seriesData = getCurrentSeriesData();
@@ -959,13 +959,15 @@ footer {
     
     let marketValue = seriesData.basePrice;
     
+    // CPU系数（保守估值）
     const cpuFactors = {
-      i3_12: 0.85, i5_12: 1.0, i7_12: 1.2, i9_12: 1.45,
-      ryzen5: 0.95, ryzen7: 1.15, ryzen9: 1.4,
-      m1: 1.0, m2: 1.15, m2_pro: 1.35, m2_max: 1.5,
-      m3: 1.25, m3_pro: 1.45, m3_max: 1.65
+      i3_12: 0.82, i5_12: 1.0, i7_12: 1.15, i9_12: 1.38,
+      ryzen5: 0.92, ryzen7: 1.10, ryzen9: 1.32,
+      m1: 1.0, m2: 1.10, m2_pro: 1.28, m2_max: 1.42,
+      m3: 1.18, m3_pro: 1.35, m3_max: 1.52
     };
     
+    // GPU系数
     const gpuSelect = document.getElementById('gpu');
     const gpuData = brandData.gpus.find(g => g.value === gpu);
     const gpuFactor = gpuData ? gpuData.factor : 1.0;
@@ -993,36 +995,36 @@ footer {
     
     let pawnRatio = CONFIG.BASE_PAWN_RATIO;
     
-    // 系列加成
-    if (seriesData && seriesData.factor >= 1.6) pawnRatio += 0.05;
-    else if (seriesData && seriesData.factor >= 1.3) pawnRatio += 0.03;
+    // 系列加成（保守）
+    if (seriesData && seriesData.factor >= 1.5) pawnRatio += 0.04;
+    else if (seriesData && seriesData.factor >= 1.2) pawnRatio += 0.02;
     
-    // 品牌加成
-    if (currentBrand === 'apple') pawnRatio += 0.04;
+    // 品牌加成（保守）
+    if (currentBrand === 'apple') pawnRatio += 0.03;
     
-    // 配置加成
-    if (ram >= 32) pawnRatio += 0.03;
-    else if (ram >= 16) pawnRatio += 0.02;
-    if (storage >= 1024) pawnRatio += 0.03;
-    else if (storage >= 512) pawnRatio += 0.02;
-    if (ageYear <= 1) pawnRatio += 0.04;
-    else if (ageYear <= 2) pawnRatio += 0.02;
-    if (battery === 'excellent') pawnRatio += 0.02;
-    if (gpu === 'high' || gpu === 'flagship') pawnRatio += 0.03;
+    // 配置加成（保守）
+    if (ram >= 32) pawnRatio += 0.02;
+    else if (ram >= 16) pawnRatio += 0.015;
+    if (storage >= 1024) pawnRatio += 0.02;
+    else if (storage >= 512) pawnRatio += 0.015;
+    if (ageYear <= 1) pawnRatio += 0.03;
+    else if (ageYear <= 2) pawnRatio += 0.015;
+    if (battery === 'excellent') pawnRatio += 0.015;
+    if (gpu === 'high' || gpu === 'flagship') pawnRatio += 0.02;
     
     pawnRatio = Math.min(pawnRatio, CONFIG.MAX_PAWN_RATIO);
     
-    // 🔥 关键修改：取整到 100,000
+    // 🔥 向下取整到 100,000（只减不加，保守原则）
     const rawValue = marketValue * pawnRatio;
-    return Math.round(rawValue / 100000) * 100000;
+    return Math.floor(rawValue / 100000) * 100000;
   }
   
   // ==================== UI 更新函数 ====================
   function showResult() {
     const marketValue = calculateMarketValue();
     const pawnValue = calculatePawnValue(marketValue);
-    const marketMin = Math.round(marketValue * 0.92);
-    const marketMax = Math.round(marketValue * 1.08);
+    const marketMin = Math.round(marketValue * 0.88);
+    const marketMax = Math.round(marketValue * 0.96);
     
     const brandData = BRAND_SPECS[currentBrand];
     const seriesData = getCurrentSeriesData();
@@ -1061,7 +1063,7 @@ Saya siap bawa laptop ke kantor hari ini. Terima kasih.`;
     
     const resultHtml = `
       <div class="estimation-card">
-        <div class="label">💰 Nilai Pasar (second)</div>
+        <div class="label">💰 Perkiraan Nilai Pasar</div>
         <div class="value">${formatRupiah(marketMin)} – ${formatRupiah(marketMax)}</div>
         
         <div style="margin: 20px 0; height: 2px; background: rgba(245,197,66,0.3);"></div>
@@ -1069,7 +1071,7 @@ Saya siap bawa laptop ke kantor hari ini. Terima kasih.`;
         <div class="label">🏦 Estimasi Pinjaman (dapat cair)</div>
         <div class="value" style="font-size: 2.2rem;">${formatRupiah(pawnValue)}</div>
         <div style="margin-top: 8px; font-size: var(--fs-small); color: var(--text-muted);">
-          ✅ Harga tetap, tidak ada tawar-menawar • Transparan & adil
+          ✅ Harga pasti • Transparan • Tidak ada tawar-menawar
         </div>
         
         <div class="config-summary">
