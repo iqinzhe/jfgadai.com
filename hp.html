@@ -352,59 +352,6 @@
   border: 1px solid var(--secondary-color);
 }
 
-.faq-section {
-  background: rgba(0, 0, 0, 0.3);
-  padding: var(--spacing-xl) 0;
-  margin-top: var(--spacing-xl);
-}
-
-.faq-section h2 {
-  text-align: center;
-  margin-bottom: var(--spacing-lg);
-}
-
-.faq-list {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-}
-
-.faq-item {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: var(--border-radius);
-  margin-bottom: var(--spacing-md);
-  overflow: hidden;
-}
-
-.faq-question {
-  padding: var(--spacing-md);
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.faq-question::after {
-  content: '+';
-  font-size: 1.5rem;
-}
-
-.faq-answer {
-  padding: 0 var(--spacing-md) var(--spacing-md);
-  display: none;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-.faq-item.active .faq-question::after {
-  content: '-';
-}
-
-.faq-item.active .faq-answer {
-  display: block;
-}
-
 footer {
   background: rgba(0, 0, 0, 0.5);
   padding: var(--spacing-xl) 0 var(--spacing-md);
@@ -1191,14 +1138,7 @@ Saya siap bawa HP ke kantor hari ini. Terima kasih.`;
       alert('📍 Kantor kami: Krajan Panas I, Oro-Oro Ombowetan, \nKec. Rembang, Pasuruan, Jawa Timur 67152\n🕒 Buka: Senin-Sabtu 08:00-18:00');
     });
     
-    // FAQ折叠
-    document.querySelectorAll('.faq-question').forEach(q => {
-      q.addEventListener('click', function() {
-        this.parentElement.classList.toggle('active');
-      });
-    });
-  }
-  
+ 
   // ==================== 初始化 ====================
   function init() {
     document.getElementById('year').textContent = new Date().getFullYear();
