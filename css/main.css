@@ -958,11 +958,32 @@ footer {
     gap: 4px 8px;
   }
 
-  #assessment-system { grid-column: 1 / span 2; grid-row: 1; }
-  #motor-pawn { grid-column: 1; grid-row: 2; }
-  #electronics-pawn { grid-column: 2; grid-row: 2; }
-  #our-services { grid-column: 1; grid-row: 3; }
-  #contact-navigation { grid-column: 2; grid-row: 3; }
+  /* 隐藏 emas-pawn（黄金典当） */
+  #emas-pawn {
+    display: none !important;
+  }
+  
+  /* 调整显示顺序 */
+  #assessment {
+    order: 1 !important;
+  }
+  
+  #laptop-pawn {
+    order: 2 !important;
+  }
+  
+  #hp-pawn {
+    order: 3 !important;
+  }
+  
+  #gallery {
+    order: 4 !important;
+  }
+  
+  #contact {
+    order: 5 !important;
+  }
+}
   
   .quick-actions { 
     flex-direction: row; 
