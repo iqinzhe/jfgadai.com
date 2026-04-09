@@ -958,11 +958,31 @@ footer {
     gap: 4px 8px;
   }
 
-  #assessment-system { grid-column: 1 / span 2; grid-row: 1; }
-  #motor-pawn { grid-column: 1; grid-row: 2; }
-  #electronics-pawn { grid-column: 2; grid-row: 2; }
-  #our-services { grid-column: 1; grid-row: 3; }
-  #contact-navigation { grid-column: 2; grid-row: 3; }
+  /* 隐藏 emas-pawn（黄金典当） */
+  #emas-pawn {
+    display: none !important;
+  }
+  
+  /* 调整显示顺序 */
+  #assessment {
+    order: 1 !important;
+  }
+  
+  #laptop-pawn {
+    order: 2 !important;
+  }
+  
+  #hp-pawn {
+    order: 3 !important;
+  }
+  
+  #gallery {
+    order: 4 !important;
+  }
+  
+  #contact {
+    order: 5 !important;
+  }
   
   .quick-actions { 
     flex-direction: row; 
@@ -983,7 +1003,7 @@ footer {
   }
 }
 
-/* 手机设备 (≤768px) */
+/* 手机设备 (≤768px) - 完全重写以确保正确显示 */
 @media (max-width: 768px) {
   /* 手机端字体变量调整 */
   :root {
@@ -991,23 +1011,38 @@ footer {
     --fs-section-title: 1.4rem;
     --fs-card-title: 1.2rem;
     --fs-subtitle: 1.1rem;
-    --fs-body: 1.0rem;
+    --fs-body: 0.9rem;
     --fs-small: 0.75rem;
     --fs-tiny: 0.65rem;
     --fs-btn-large: 1.0rem;
     --fs-btn-medium: 0.9rem;
     --fs-btn-small: 0.75rem;
+
+ /* 横幅修复 - 图片完整显示不被裁剪 */
+  .full-banner {
+    height: auto;
+    max-height: 180px;
+  }
+  
+  .full-banner img {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+    object-fit: contain;      /* 改为 contain，完整显示整张图片 */
+    object-position: center center;
+  }
+}
     
     /* 手机端更紧凑的行距 */
     --lh-normal: 1.3;
     --lh-tight: 1.1;
 
-    /* 手机图标尺寸 - 调整为适中大小 */
-    --icon-size-large: 1.5rem;
+    /* 手机图标尺寸 */
+    --icon-size-large: 1.8rem;
   }
 
   .container {
-    padding: 0 var(--spacing-md);
+    padding: 0 var(--spacing-sm);
   }
   
   .assessment-header .container {
@@ -1017,13 +1052,14 @@ footer {
   
   .back-btn,
   .nav-forward {
-    padding: 0.2rem 0.2rem;
+    padding: 0.3rem 0.4rem;
     font-size: var(--fs-btn-small);
-    gap: 1px;
+    gap: 2px;
     white-space: normal;
     text-align: center;
     flex-wrap: wrap;
     justify-content: center;
+    min-width: 60px;
   }
   
   .logo-image,
@@ -1032,96 +1068,100 @@ footer {
   }
   
   .full-banner {
-    height: 75px;
+    height: 120px;
   }
   
+  /* 手机端：将不对称网格改为垂直排列 */
   .asymmetric-grid {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 12px;
     margin: var(--spacing-md) auto;
   }
   
-  #assessment-system { order: 1; }
-  #motor-pawn { order: 2; }
-  #contact-form  {
-    display: none;
+  /* 确保所有网格项正常显示 */
+  .asymmetric-grid > * {
+    width: 100%;
   }
-}
-  #electronics-pawn { order: 3; }
-}
-  #our-services { order: 5; }
-  #contact-navigation { order: 6; }
-
+  
+  /* 手机端隐藏黄金典当卡片（如果存在） */
+  #emas-pawn {
+    display: none !important;
+  }
+  
+  /* 手机端双列图库改为单列 */
   .gallery-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
   
   /* 手机端六宫格卡片内边距 */
   .unified-card {
     padding: var(--spacing-sm) var(--spacing-sm);
-    margin-bottom: 2px;
+    margin-bottom: 0;
   }
   
-  /* 手机端贷款卡片内边距 — 单独缩小上下间距，解决图标与边框距离偏大问题 */
+  /* 手机端贷款卡片内边距优化 */
   .grid-card {
-    padding: 0.5rem var(--spacing-sm);
-    margin-bottom: 2px;
+    padding: 0.75rem var(--spacing-sm);
+    margin-bottom: 0;
   }
   
   .card-title {
     font-size: var(--fs-card-title);
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
     line-height: var(--lh-tight);
   }
   
   .card-desc {
     font-size: var(--fs-body);
     line-height: var(--lh-normal);
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.75rem;
   }
   
   .card-cta-btn {
     padding: 0.6rem 1.2rem;
     font-size: var(--fs-btn-large);
     min-width: 180px;
-    margin-top: 0.2rem;
+    margin-top: 0.5rem;
   }
   
+  /* 快速操作垂直排列 */
   .quick-actions {
     flex-direction: column;
     align-items: center;
-    gap: 2px;
+    gap: 12px;
     margin: var(--spacing-sm) auto;
   }
   
   .quick-action-card {
     width: 100%;
     max-width: 100%;
-    margin-bottom: 4px;
-    padding: var(--spacing-xs);
+    margin-bottom: 0;
+    padding: var(--spacing-sm);
   }
   
   .action-icon {
-    margin-bottom: 0.1rem;
+    font-size: var(--icon-size-large);
+    margin-bottom: 0.25rem;
   }
   
   .action-title {
     font-size: var(--fs-card-title);
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.25rem;
     line-height: var(--lh-tight);
   }
   
   .action-description {
     font-size: var(--fs-body);
     line-height: var(--lh-normal);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.5rem;
   }
   
   .action-btn {
     padding: 0.5rem 1rem;
     font-size: var(--fs-btn-medium);
-    min-width: 160px;
+    min-width: 140px;
     line-height: var(--lh-tight);
   }
   
@@ -1129,64 +1169,28 @@ footer {
   .balanced-grid {
     grid-template-columns: 1fr !important;
     gap: 1rem;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
   }
   
   .grid-card .card-icon {
-    margin-bottom: 0.05rem;
+    font-size: var(--icon-size-large);
+    margin-bottom: 0.25rem;
   }
   
   .grid-card h3 {
     font-size: var(--fs-card-title);
-    margin: 0.05rem 0;
+    margin: 0.25rem 0;
     line-height: var(--lh-tight);
   }
   
   .grid-card .card-content p,
   .grid-card .card-content .card-desc {
     font-size: var(--fs-body);
-    margin: 0.05rem 0;
+    margin: 0.15rem 0;
     line-height: var(--lh-normal);
   }
   
-  footer {
-    padding: var(--spacing-sm) 0;
-  }
-  
-  .copyright {
-    font-size: var(--fs-body);
-    line-height: var(--lh-tight);
-  }
-  
-  .contact-info {
-    flex-direction: column;
-    gap: var(--spacing-sm);
-    align-items: center;
-  }
-  
-  .footer-content .contact-link {
-    padding: 5px 10px;
-    font-size: var(--fs-small);
-    line-height: var(--lh-tight);
-  }
-  
-  .footer-content .contact-link img {
-    width: 15px;
-    height: 15px;
-  }
-  
-  .operating-hours {
-    font-size: var(--fs-tiny);
-    line-height: var(--lh-tight);
-    text-align: left;
-  }
-  
-  .security-note {
-    font-size: var(--fs-tiny);
-    line-height: var(--lh-tight);
-    text-align: left;
-  }
-  
+  /* 信任区块手机端改为单列 */
   .trust-box {
     margin: 1rem 0 0.5rem;
     padding: 0.8rem 1rem;
@@ -1199,6 +1203,48 @@ footer {
     line-height: var(--lh-normal);
   }
   
+  /* 页脚优化 */
+  footer {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .copyright {
+    font-size: var(--fs-tiny);
+    line-height: var(--lh-tight);
+  }
+  
+  .company-info {
+    font-size: var(--fs-tiny);
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: center;
+  }
+  
+  .footer-content .contact-link {
+    padding: 6px 12px;
+    font-size: var(--fs-small);
+    line-height: var(--lh-tight);
+  }
+  
+  .footer-content .contact-link img {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .operating-hours {
+    font-size: var(--fs-tiny);
+    line-height: var(--lh-tight);
+  }
+  
+  .security-note {
+    font-size: var(--fs-tiny);
+    line-height: var(--lh-tight);
+  }
+  
+  /* 浮动WhatsApp按钮手机端调整 */
   .floating-wa {
     width: 50px;
     height: 50px;
@@ -1207,7 +1253,34 @@ footer {
   }
   
   .floating-wa img {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
+  }
+  
+  /* 页面头部手机端优化 */
+  .page-header {
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+  }
+  
+  .page-header h1 {
+    font-size: var(--fs-hero-title);
+    margin-bottom: 0.5rem;
+  }
+  
+  .page-header p {
+    font-size: var(--fs-subtitle);
+  }
+  
+  /* 卡片列表项手机端优化 */
+  .card-list li {
+    padding: 0.4rem 0;
+    font-size: var(--fs-body);
+    gap: 0.4rem;
+  }
+  
+  .list-icon {
+    font-size: var(--fs-body);
+    min-width: 20px;
   }
 }
