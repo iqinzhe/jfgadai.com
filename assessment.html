@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="id-ID">
 <head>
-
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 
   <!-- JSON-LD 结构化数据 -->
   <script type="application/ld+json">
@@ -18,7 +17,6 @@
   }
 }
   </script>
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,7 +41,7 @@
     ]
   }
   </script>
-<script type="application/ld+json">
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -59,16 +57,16 @@
 }
 </script>
 
-    <!-- SEO Meta 标签 -->
+  <!-- SEO Meta 标签 -->
   <title>Cek Nilai Gadai Motor Online | Gadai BPKB & Emas Bangil Beji Gempol</title>
   <meta name="description" content="Gunakan alat assessment online JF Gadai untuk mengetahui estimasi pinjaman gadai emas, kendaraan, atau elektronik Anda dengan cepat dan aman. Proses mudah, bunga kompetitif, terpercaya di Bangil, Beji, Gempol">
   <meta name="author" content="JF Gadai">
   <meta name="robots" content="index, follow">
   
   <!-- CSS -->
-<link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" href="/css/assessment.css"> <!-- 评估样式 -->
-<link rel="stylesheet" href="/css/faq.css">        <!-- FAQ样式 -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/assessment.css">
+  <link rel="stylesheet" href="/css/faq.css">
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -80,7 +78,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#ffffff">
 
-  <!-- Open Graph（社交媒体分享）-->
+  <!-- Open Graph -->
   <meta property="og:title" content="JF Gadai Assessment | Alat Evaluasi Pinjaman">
   <meta name="description" content="Cek nilai gadai motor online dengan mudah. Layanan gadai motor, BPKB dan emas terpercaya di Bangil, Beji dan Gempol. Proses cepat, aman dan gratis.">
   <meta property="og:image" content="https://www.jfgadai.com/images/og-assessment.jpg">
@@ -97,21 +95,18 @@
 <!-- 头部导航 -->
 <header class="assessment-header">
   <div class="container">
-
     <a href="/" class="back-btn">
       <img src="/images/logo-jf.png" alt="JF Gadai" class="logo-image">
       <strong><span class="arrow">←</span> Beranda</strong>
     </a>
-
-<a href="/laptop.html" class="nav-forward">
-  <strong>Gadai Laptop <span class="arrow">→</span></strong>
-  <span style="font-size: 1.5rem;">💻</span>
-</a>
-
+    <a href="/laptop.html" class="nav-forward">
+      <strong>Gadai Laptop <span class="arrow">→</span></strong>
+      <span style="font-size: 1.5rem;">💻</span>
+    </a>
   </div>
 </header>
 
-<!-- 评估页面横幅 - 替换为page-header -->
+<!-- 评估页面横幅 -->
 <section class="page-header">
   <div class="container">
     <h1 class="fade-in">Cek Nilai Gadai Motor Online Gratis</h1>
@@ -120,498 +115,899 @@
   </div>
 </section>
 
-  <!-- 评估表单 -->
-  <main class="assessment-container">
-    <div class="container">
-      <!-- 进度指示器 -->
-      <div class="progress-bar">
-        <div class="progress-step active" data-step="1">Data Motor</div>
-        <div class="progress-step" data-step="2">Kondisi</div>
-        <div class="progress-step" data-step="3">Dokumen</div>
-        <div class="progress-step" data-step="4">Hasil</div>
+<!-- 评估表单 -->
+<main class="assessment-container">
+  <div class="container">
+    <!-- 进度指示器 -->
+    <div class="progress-bar">
+      <div class="progress-step active" data-step="1">Data Motor</div>
+      <div class="progress-step" data-step="2">Kondisi</div>
+      <div class="progress-step" data-step="3">Dokumen</div>
+      <div class="progress-step" data-step="4">Hasil</div>
+    </div>
+
+    <form id="motorAssessmentForm" class="assessment-form" method="POST" novalidate>
+
+      <!-- 步骤1: 摩托车信息 -->
+      <div class="form-step active" id="step1">
+        <h2>📋 Data Motor</h2>
+        
+        <!-- 品牌选择 -->
+        <div class="form-group">
+          <label for="brand-select">Merek Motor</label>
+          <div class="brand-selection" id="brand-select">
+            <div class="brand-option active" data-brand="honda">
+              <img src="/images/logo-honda.png" alt="Honda Motor" class="brand-logo-img" draggable="false" loading="lazy" width="88" height="42">
+              <span class="brand-name">Honda</span>
+            </div>
+            <div class="brand-option" data-brand="yamaha">
+              <img src="/images/logo-yamaha.png" alt="Yamaha Motor" class="brand-logo-img" draggable="false" loading="lazy" width="88" height="42">
+              <span class="brand-name">Yamaha</span>
+            </div>
+          </div>
+        </div>
+        
+        <input type="hidden" id="brand" name="brand" value="honda" required>
+
+        <!-- 车型选择 -->
+        <div class="form-group">
+          <label for="model">Model Motor</label>
+          <select id="model" name="model" class="form-control" required>
+            <option value="">Pilih model motor</option>
+          </select>
+        </div>
+
+        <!-- 年份和CC -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="year">Tahun Produksi</label>
+            <select id="year" name="year" class="form-control" required>
+              <option value="">Pilih tahun</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="cc">Kapasitas Mesin (CC)</label>
+            <select id="cc" name="cc" class="form-control" required>
+              <option value="">Pilih CC</option>
+              <option value="110">110cc</option>
+              <option value="125" selected>125cc</option>
+              <option value="150">150cc</option>
+              <option value="155">155cc</option>
+              <option value="160">160cc</option>
+              <option value="200">200cc</option>
+              <option value="250">250cc</option>
+              <option value="300">300cc</option>
+              <option value="500">500cc+</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 里程数 -->
+        <div class="form-group">
+          <label for="mileage">Kilometer Tempuh (KM)</label>
+          <input type="number" id="mileage" name="mileage" class="form-control" placeholder="Contoh: 15000" min="0" max="1000000" value="20000" required>
+          <div class="mileage-slider">
+            <input type="range" id="mileageSlider" min="0" max="100000" value="20000" step="1000">
+            <div class="mileage-labels">
+              <span>0 KM</span>
+              <span>50,000 KM</span>
+              <span>100,000+ KM</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-navigation">
+          <button type="button" class="btn-next">Lanjut →</button>
+        </div>
       </div>
 
-      <form id="motorAssessmentForm" class="assessment-form" method="POST" novalidate>
+      <!-- 步骤2: 车况评估 -->
+      <div class="form-step" id="step2">
+        <h2>🔍 Kondisi Motor</h2>
+        
+        <div class="condition-section">
+          <h3>Kondisi Mesin</h3>
+          <div class="condition-options">
+            <label class="condition-option">
+              <input type="radio" name="engine" value="baik" required>
+              <div class="option-content">
+                <span class="option-icon">👍</span>
+                <span class="option-title">Baik</span>
+                <span class="option-desc">Mesin halus, start mudah</span>
+              </div>
+            </label>
+            <label class="condition-option">
+              <input type="radio" name="engine" value="sedang">
+              <div class="option-content">
+                <span class="option-icon">👌</span>
+                <span class="option-title">Sedang</span>
+                <span class="option-desc">Kadang sulit start, tapi masih bisa dipakai</span>
+              </div>
+            </label>
+            <label class="condition-option">
+              <input type="radio" name="engine" value="perbaikan">
+              <div class="option-content">
+                <span class="option-icon">⚠️</span>
+                <span class="option-title">Butuh Perbaikan</span>
+                <span class="option-desc">Ada masalah mesin yang perlu diperbaiki</span>
+              </div>
+            </label>
+          </div>
+        </div>
 
-        <!-- 步骤1: 摩托车信息 -->
-        <div class="form-step active" id="step1">
-          <h2> Data Motor </h2>
-          
-          <!-- 品牌选择 -->
+        <div class="condition-section">
+          <h3>Kondisi Body & Cat</h3>
+          <div class="condition-options">
+            <label class="condition-option">
+              <input type="radio" name="body" value="mulus" required>
+              <div class="option-content">
+                <span class="option-icon">✨</span>
+                <span class="option-title">Mulus</span>
+                <span class="option-desc">Tidak ada baret/penyok, cat masih bagus</span>
+              </div>
+            </label>
+            <label class="condition-option">
+              <input type="radio" name="body" value="baret_sedikit">
+              <div class="option-content">
+                <span class="option-icon">😐</span>
+                <span class="option-title">Baret Sedikit</span>
+                <span class="option-desc">Ada baret kecil, tidak ada penyok besar</span>
+              </div>
+            </label>
+            <label class="condition-option">
+              <input type="radio" name="body" value="rusak">
+              <div class="option-content">
+                <span class="option-icon">😟</span>
+                <span class="option-title">Rusak/Penyok</span>
+                <span class="option-desc">Ada penyok/rusak yang perlu diperbaiki</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="condition-section">
+          <h3>Kelengkapan STNK & BPKB</h3>
+          <div class="condition-options">
+            <label class="condition-option">
+              <input type="radio" name="documents" value="lengkap" required>
+              <div class="option-content">
+                <span class="option-icon">✅</span>
+                <span class="option-title">Lengkap</span>
+                <span class="option-desc">STNK & BPKB asli lengkap</span>
+              </div>
+            </label>
+            <label class="condition-option">
+              <input type="radio" name="documents" value="stnk_saja">
+              <div class="option-content">
+                <span class="option-icon">📄</span>
+                <span class="option-title">STNK Saja</span>
+                <span class="option-desc">Hanya ada STNK, BPKB hilang</span>
+              </div>
+            </label>
+            <label class="condition-option">
+              <input type="radio" name="documents" value="hilang">
+              <div class="option-content">
+                <span class="option-icon">❌</span>
+                <span class="option-title">Belum Ada</span>
+                <span class="option-desc">Dokumen belum keluar/hilang</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-navigation">
+          <button type="button" class="btn-prev">← Kembali</button>
+          <button type="button" class="btn-next">Lanjut →</button>
+        </div>
+      </div>
+
+      <!-- 步骤3: 个人信息和上传 -->
+      <div class="form-step" id="step3">
+        <h2>📝 Data Pribadi</h2>
+        
+        <div class="trust-box">
+          <div class="trust-item">🔒 <strong>Koneksi Aman (HTTPS)</strong><br>Data Anda dienkripsi & dilindungi.</div>
+          <div class="trust-item">👁️ <strong>Privasi Terjaga</strong><br>Data tidak dibagikan ke pihak ketiga.</div>
+          <div class="trust-item">📍 <strong>Bisnis Lokal Terverifikasi</strong><br>JF Gadai • Bangil & Gempol.</div>
+        </div>
+
+        <div class="form-row">
           <div class="form-group">
-            <label for="brand-select">Merek Motor</label>
-            <div class="brand-selection" id="brand-select">
-              <!-- Honda -->
-              <div class="brand-option active" data-brand="honda">
-                <img
-                  src="/images/logo-honda.png"
-                  alt="Honda Motor"
-                  class="brand-logo-img"
-                  draggable="false"
-                  loading="lazy"
-                  width="88"
-                  height="42"
-                />
-                <div class="brand-logo-fallback" style="display:none">HONDA</div>
-                <span class="brand-name">Honda</span>
-              </div>
+            <label for="fullName">Nama Lengkap</label>
+            <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Nama sesuai KTP" required>
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Nomor WhatsApp</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="0812xxxxxxx" pattern="[0-9]{10,13}" required>
+          </div>
+        </div>
 
-              <!-- Yamaha -->
-              <div class="brand-option" data-brand="yamaha">
-                <img
-                  src="/images/logo-yamaha.png"
-                  alt="Yamaha Motor"
-                  class="brand-logo-img"
-                  draggable="false"
-                  loading="lazy"
-                  width="88"
-                  height="42"
-                />
-                <div class="brand-logo-fallback" style="display:none">YAMAHA</div>
-                <span class="brand-name">Yamaha</span>
-              </div>
+        <div class="form-group">
+          <label for="location">Lokasi (Kota)</label>
+          <select id="location" name="location" class="form-control" required>
+            <option value="">Pilih kota terdekat</option>
+            <option value="bangil">Bangil</option>
+            <option value="pasuruan">Pasuruan</option>
+            <option value="surabaya">Surabaya</option>
+            <option value="malang">Malang</option>
+            <option value="sidoarjo">Sidoarjo</option>
+            <option value="gresik">Gresik</option>
+            <option value="mojokerto">Mojokerto</option>
+            <option value="jombang">Jombang</option>
+            <option value="lamongan">Lamongan</option>
+          </select>
+        </div>
+
+        <!-- 照片上传 -->
+        <div class="form-group">
+          <label for="photo-upload">Foto Motor (Opsional, tapi membantu)</label>
+          <div class="photo-upload" id="photo-upload">
+            <div class="upload-area" id="uploadFront" data-position="depan">
+              <span class="upload-icon">📷</span>
+              <span class="upload-text">Depan</span>
+              <input type="file" accept="image/*" style="display: none;">
+            </div>
+            <div class="upload-area" id="uploadBack" data-position="belakang">
+              <span class="upload-icon">📷</span>
+              <span class="upload-text">Belakang</span>
+              <input type="file" accept="image/*" style="display: none;">
+            </div>
+            <div class="upload-area" id="uploadSide" data-position="samping">
+              <span class="upload-icon">📷</span>
+              <span class="upload-text">Samping</span>
+              <input type="file" accept="image/*" style="display: none;">
             </div>
           </div>
-          
-          <input type="hidden" id="brand" name="brand" value="honda" required>
+        </div>
 
-          <!-- 车型选择（动态加载） -->
-          <div class="form-group">
-            <label for="model">Model Motor</label>
-            <select id="model" name="model" class="form-control" required>
-              <option value="">Pilih model motor</option>
-            </select>
-          </div>
+        <div class="form-note">
+          <strong>Perhatian:</strong> Hasil penilaian ini hanya perkiraan awal. 
+          Nilai pasti akan ditentukan setelah pemeriksaan fisik oleh tim kami.
+        </div>
 
-          <!-- 年份和CC -->
-          <div class="form-row">
-            <div class="form-group">
-              <label for="year">Tahun Produksi</label>
-              <select id="year" name="year" class="form-control" required>
-                <option value="">Pilih tahun</option>
-                <!-- 年份将通过JS动态生成 -->
-              </select>
+        <div class="form-navigation">
+          <button type="button" class="btn-prev">← Kembali</button>
+          <button type="button" class="btn-submit">Lihat Perkiraan Nilai</button>
+        </div>
+      </div>
+
+      <!-- 步骤4: 评估结果 -->
+      <div class="form-step" id="step4">
+        <h2>💰 Perkiraan Nilai Gadai</h2>
+        
+        <div class="estimation-result">
+          <div class="estimation-card">
+            <div class="estimation-header">
+              <span class="estimation-icon">🏍️</span>
+              <h3>Perkiraan Nilai Taksiran Motor Anda</h3>
             </div>
             
-            <div class="form-group">
-              <label for="cc">Kapasitas Mesin (CC)</label>
-              <select id="cc" name="cc" class="form-control" required>
-                <option value="">Pilih CC</option>
-                <option value="110">110cc</option>
-                <option value="125" selected>125cc</option>
-                <option value="150">150cc</option>
-                <option value="155">155cc</option>
-                <option value="160">160cc</option>
-                <option value="200">200cc</option>
-                <option value="250">250cc</option>
-                <option value="300">300cc</option>
-                <option value="500">500cc+</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- 里程数 -->
-          <div class="form-group">
-            <label for="mileage">Kilometer Tempuh (KM)</label>
-            <input type="number" id="mileage" name="mileage" class="form-control" placeholder="Contoh: 15000" min="0" max="1000000" value="20000" required>
-            <div class="mileage-slider">
-              <input type="range" id="mileageSlider" min="0" max="100000" value="20000" step="1000">
-              <div class="mileage-labels">
-                <span>0 KM</span>
-                <span>50,000 KM</span>
-                <span>100,000+ KM</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-navigation">
-            <button type="button" class="btn-next">Lanjut →</button>
-          </div>
-        </div>
-
-        <!-- 步骤2: 车况评估 -->
-        <div class="form-step" id="step2">
-          <h2>🔍 Kondisi Motor</h2>
-          
-          <div class="condition-section">
-            <h3>Kondisi Mesin</h3>
-            <div class="condition-options">
-              <label class="condition-option">
-                <input type="radio" name="engine" value="baik" required>
-                <div class="option-content">
-                  <span class="option-icon">👍</span>
-                  <span class="option-title">Baik</span>
-                  <span class="option-desc">Mesin halus, start mudah</span>
-                </div>
-              </label>
-              
-              <label class="condition-option">
-                <input type="radio" name="engine" value="sedang">
-                <div class="option-content">
-                  <span class="option-icon">👌</span>
-                  <span class="option-title">Sedang</span>
-                  <span class="option-desc">Kadang sulit start, tapi masih bisa dipakai</span>
-                </div>
-              </label>
-              
-              <label class="condition-option">
-                <input type="radio" name="engine" value="perbaikan">
-                <div class="option-content">
-                  <span class="option-icon">⚠️</span>
-                  <span class="option-title">Butuh Perbaikan</span>
-                  <span class="option-desc">Ada masalah mesin yang perlu diperbaiki</span>
-                </div>
-              </label>
-            </div>
-          </div>
-
-          <div class="condition-section">
-            <h3>Kondisi Body & Cat</h3>
-            <div class="condition-options">
-              <label class="condition-option">
-                <input type="radio" name="body" value="mulus" required>
-                <div class="option-content">
-                  <span class="option-icon">✨</span>
-                  <span class="option-title">Mulus</span>
-                  <span class="option-desc">Tidak ada baret/penyok, cat masih bagus</span>
-                </div>
-              </label>
-              
-              <label class="condition-option">
-                <input type="radio" name="body" value="baret_sedikit">
-                <div class="option-content">
-                  <span class="option-icon">😐</span>
-                  <span class="option-title">Baret Sedikit</span>
-                  <span class="option-desc">Ada baret kecil, tidak ada penyok besar</span>
-                </div>
-              </label>
-              
-              <label class="condition-option">
-                <input type="radio" name="body" value="rusak">
-                <div class="option-content">
-                  <span class="option-icon">😟</span>
-                  <span class="option-title">Rusak/Penyok</span>
-                  <span class="option-desc">Ada penyok/rusak yang perlu diperbaiki</span>
-                </div>
-              </label>
-            </div>
-          </div>
-
-          <div class="condition-section">
-            <h3>Kelengkapan STNK & BPKB</h3>
-            <div class="condition-options">
-              <label class="condition-option">
-                <input type="radio" name="documents" value="lengkap" required>
-                <div class="option-content">
-                  <span class="option-icon">✅</span>
-                  <span class="option-title">Lengkap</span>
-                  <span class="option-desc">STNK & BPKB asli lengkap</span>
-                </div>
-              </label>
-              
-              <label class="condition-option">
-                <input type="radio" name="documents" value="stnk_saja">
-                <div class="option-content">
-                  <span class="option-icon">📄</span>
-                  <span class="option-title">STNK Saja</span>
-                  <span class="option-desc">Hanya ada STNK, BPKB hilang</span>
-                </div>
-              </label>
-              
-              <label class="condition-option">
-                <input type="radio" name="documents" value="hilang">
-                <div class="option-content">
-                  <span class="option-icon">❌</span>
-                  <span class="option-title">Belum Ada</span>
-                  <span class="option-desc">Dokumen belum keluar/hilang</span>
-                </div>
-              </label>
-            </div>
-          </div>
-
-          <div class="form-navigation">
-            <button type="button" class="btn-prev">← Kembali</button>
-            <button type="button" class="btn-next">Lanjut →</button>
-          </div>
-        </div>
-
-        <!-- 步骤3: 个人信息和上传 -->
-        <div class="form-step" id="step3">
-          <h2>📝 Data Pribadi</h2>
-          
-          <!-- 信任与安全提示 -->
-          <div class="trust-box">
-            <div class="trust-item">
-              🔒 <strong>Koneksi Aman (HTTPS)</strong><br>
-              Data Anda dienkripsi & dilindungi.
-            </div>
-            <div class="trust-item">
-              👁️ <strong>Privasi Terjaga</strong><br>
-              Data tidak dibagikan ke pihak ketiga.
-            </div>
-            <div class="trust-item">
-              📍 <strong>Bisnis Lokal Terverifikasi</strong><br>
-              JF Gadai • Bangil & Gempol.
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="fullName">Nama Lengkap</label>
-              <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Nama sesuai KTP" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="phoneNumber">Nomor WhatsApp</label>
-              <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="0812xxxxxxx" pattern="[0-9]{10,13}" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="location">Lokasi (Kota)</label>
-            <select id="location" name="location" class="form-control" required>
-              <option value="">Pilih kota terdekat</option>
-              <option value="bangil">Bangil</option>
-              <option value="pasuruan">Pasuruan</option>
-              <option value="surabaya">Surabaya</option>
-              <option value="malang">Malang</option>
-              <option value="sidoarjo">Sidoarjo</option>
-              <option value="gresik">Gresik</option>
-              <option value="mojokerto">Mojokerto</option>
-              <option value="jombang">Jombang</option>
-              <option value="lamongan">Lamongan</option>
-            </select>
-          </div>
-
-          <!-- 照片上传 -->
-          <div class="form-group">
-            <label for="photo-upload">Foto Motor (Opsional, tapi membantu)</label>
-            <div class="photo-upload" id="photo-upload">
-              <div class="upload-area" id="uploadFront" data-position="depan">
-                <span class="upload-icon">📷</span>
-                <span class="upload-text">Depan</span>
-                <input type="file" accept="image/*" style="display: none;">
-              </div>
-              <div class="upload-area" id="uploadBack" data-position="belakang">
-                <span class="upload-icon">📷</span>
-                <span class="upload-text">Belakang</span>
-                <input type="file" accept="image/*" style="display: none;">
-              </div>
-              <div class="upload-area" id="uploadSide" data-position="samping">
-                <span class="upload-icon">📷</span>
-                <span class="upload-text">Samping</span>
-                <input type="file" accept="image/*" style="display: none;">
-              </div>
-            </div>
-          </div>
-
-          <div class="form-note">
-            <strong>Perhatian:</strong> Hasil penilaian ini hanya perkiraan awal. 
-            Nilai pasti akan ditentukan setelah pemeriksaan fisik oleh tim kami.
-          </div>
-
-          <div class="form-navigation">
-            <button type="button" class="btn-prev">← Kembali</button>
-            <button type="button" class="btn-submit">Lihat Perkiraan Nilai</button>
-          </div>
-        </div>
-
-        <!-- 步骤4: 评估结果（优化版） -->
-        <div class="form-step" id="step4">
-          <h2>💰 Perkiraan Nilai Gadai</h2>
-          
-          <div class="estimation-result">
-            <div class="estimation-card">
-              <div class="estimation-header">
-                <span class="estimation-icon">🏍️</span>
-                <h3>Perkiraan Nilai Taksiran Motor Anda</h3>
-              </div>
-              
-              <div class="estimation-value">
-                <div class="value-range">
-                  <div class="range-min">
-                    <span class="range-label">Minimum</span>
-                    <span class="currency">Rp</span>
-                    <span id="estimatedValueMin" class="value">4.250.000</span>
-                  </div>
-                  <div class="range-separator">-</div>
-                  <div class="range-max">
-                    <span class="range-label">Maksimum</span>
-                    <span class="currency">Rp</span>
-                    <span id="estimatedValueMax" class="value">5.750.000</span>
-                  </div>
-                </div>
-                <div class="value-average">
-                  <span class="average-label">Nilai Tengah:</span>
+            <div class="estimation-value">
+              <div class="value-range">
+                <div class="range-min">
+                  <span class="range-label">Minimum</span>
                   <span class="currency">Rp</span>
-                    <span id="estimatedValueAvg" class="value">5.000.000</span>
+                  <span id="estimatedValueMin" class="value">4.250.000</span>
+                </div>
+                <div class="range-separator">-</div>
+                <div class="range-max">
+                  <span class="range-label">Maksimum</span>
+                  <span class="currency">Rp</span>
+                  <span id="estimatedValueMax" class="value">5.750.000</span>
                 </div>
               </div>
-              
-              <div class="estimation-details">
-                <p><strong>📊 Faktor Penyesuaian:</strong></p>
-                <ul class="breakdown-list">
-                  <li>Harga dasar model: <span id="basePrice">Rp 8.000.000</span></li>
-                  <li>Penyesuaian tahun (-<span id="yearPercent">12.5</span>%): <span id="yearAdjustment">-Rp 1.000.000</span></li>
-                  <li>Penyesuaian kilometer (-<span id="mileagePercent">6.25</span>%): <span id="mileageAdjustment">-Rp 500.000</span></li>
-                  <li>Kondisi mesin (-<span id="enginePercent">3.75</span>%): <span id="engineAdjustment">-Rp 300.000</span></li>
-                  <li>Kondisi body (-<span id="bodyPercent">2.5</span>%): <span id="bodyAdjustment">-Rp 200.000</span></li>
-                  <li>Kelengkapan dokumen (-<span id="docPercent">0</span>%): <span id="docAdjustment">Rp 0</span></li>
-                  <li class="total-adjustment">
-                    <strong>Total penyesuaian:</strong> <span id="totalAdjustment">-Rp 2.000.000</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div class="adjustment-info">
-                <h4>🔧 Faktor yang Dapat Mempengaruhi Nilai Akhir:</h4>
-                <div class="adjustment-factors">
-                  <div class="factor-item">
-                    <span class="factor-icon">🛠️</span>
-                    <p><strong>Kondisi teknis tambahan</strong> (rem, ban, aki, dll.)</p>
-                  </div>
-                  <div class="factor-item">
-                    <span class="factor-icon">🎨</span>
-                    <p><strong>Modifikasi & aksesoris</strong> (orisinal vs modif)</p>
-                  </div>
-                  <div class="factor-item">
-                    <span class="factor-icon">📅</span>
-                    <p><strong>Permintaan pasar saat ini</strong> untuk model tertentu</p>
-                  </div>
-                  <div class="factor-item">
-                    <span class="factor-icon">📍</span>
-                    <p><strong>Lokasi & kondisi regional</strong> pasar motor bekas</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="estimation-note">
-                <p><strong>📋 Catatan Penting:</strong></p>
-                <ul>
-                  <li>Nilai ini adalah <strong>perkiraan awal (75-85% akurat)</strong></li>
-                  <li>Nilai pasti akan ditentukan setelah <strong>inspeksi fisik oleh ahli</strong></li>
-                  <li>Estimasi ini dapat disesuaikan <strong>±15% berdasarkan kondisi aktual</strong></li>
-                  <li>Dokumen lengkap (STNK+BPKB) dapat meningkatkan nilai <strong>10-20%</strong></li>
-                  <li>Motor <strong>lebih baru & rendah kilometer</strong> = nilai lebih tinggi</li>
-                </ul>
+              <div class="value-average">
+                <span class="average-label">Nilai Tengah:</span>
+                <span class="currency">Rp</span>
+                <span id="estimatedValueAvg" class="value">5.000.000</span>
               </div>
             </div>
-
-            <!-- 行动按钮 -->
-            <div class="action-buttons">
-              <a id="whatsappButton" href="https://wa.me/6289515692586" 
-                target="_blank" 
-                class="card-cta-btn wa-btn"
-                rel="noopener noreferrer">
-                <span>💬 Konsultasi & Penyesuaian Nilai</span>
-              </a>
-              
-              <button type="button" class="btn-recalculate">
-                <span>🔄 Hitung Ulang</span>
-              </button>
-              
-              <a href="index.html" class="btn-home">
-                <span>🏠 Kembali ke Beranda</span>
-              </a>
+            
+            <div class="estimation-details">
+              <p><strong>📊 Faktor Penyesuaian:</strong></p>
+              <ul class="breakdown-list">
+                <li>Harga dasar model: <span id="basePrice">Rp 8.000.000</span></li>
+                <li>Penyesuaian tahun (-<span id="yearPercent">12.5</span>%): <span id="yearAdjustment">-Rp 1.000.000</span></li>
+                <li>Penyesuaian kilometer (-<span id="mileagePercent">6.25</span>%): <span id="mileageAdjustment">-Rp 500.000</span></li>
+                <li>Kondisi mesin (-<span id="enginePercent">3.75</span>%): <span id="engineAdjustment">-Rp 300.000</span></li>
+                <li>Kondisi body (-<span id="bodyPercent">2.5</span>%): <span id="bodyAdjustment">-Rp 200.000</span></li>
+                <li>Kelengkapan dokumen (-<span id="docPercent">0</span>%): <span id="docAdjustment">Rp 0</span></li>
+                <li class="total-adjustment"><strong>Total penyesuaian:</strong> <span id="totalAdjustment">-Rp 2.000.000</span></li>
+              </ul>
             </div>
-
-            <!-- 人工调整说明 -->
-            <div class="manual-adjustment">
-              <h4>👨‍🔧 Proses Penilaian Akhir oleh JF Gadai:</h4>
-              <div class="adjustment-process">
-                <div class="process-step">
-                  <div class="step-number">1</div>
-                  <p><strong>Inspeksi Fisik</strong><br>Pemeriksaan detail oleh ahli kami</p>
-                </div>
-                <div class="process-step">
-                  <div class="step-number">2</div>
-                  <p><strong>Analisis Pasar</strong><br>Bandingkan harga pasar terkini</p>
-                </div>
-                <div class="process-step">
-                  <div class="step-number">3</div>
-                  <p><strong>Penyesuaian Manual</strong><br>Sesuaikan dengan kondisi aktual</p>
-                </div>
-                <div class="process-step">
-                  <div class="step-number">4</div>
-                  <p><strong>Nilai Final</strong><br>Hasil taksiran yang dapat dinegosiasikan</p>
-                </div>
+            
+            <div class="adjustment-info">
+              <h4>🔧 Faktor yang Dapat Mempengaruhi Nilai Akhir:</h4>
+              <div class="adjustment-factors">
+                <div class="factor-item"><span class="factor-icon">🛠️</span><p><strong>Kondisi teknis tambahan</strong> (rem, ban, aki, dll.)</p></div>
+                <div class="factor-item"><span class="factor-icon">🎨</span><p><strong>Modifikasi & aksesoris</strong> (orisinal vs modif)</p></div>
+                <div class="factor-item"><span class="factor-icon">📅</span><p><strong>Permintaan pasar saat ini</strong> untuk model tertentu</p></div>
+                <div class="factor-item"><span class="factor-icon">📍</span><p><strong>Lokasi & kondisi regional</strong> pasar motor bekas</p></div>
               </div>
-              <p class="process-note"><em>Tim kami dapat melakukan penyesuaian ±15% dari perkiraan ini berdasarkan inspeksi fisik.</em></p>
+            </div>
+            
+            <div class="estimation-note">
+              <p><strong>📋 Catatan Penting:</strong></p>
+              <ul>
+                <li>Nilai ini adalah <strong>perkiraan awal (75-85% akurat)</strong></li>
+                <li>Nilai pasti akan ditentukan setelah <strong>inspeksi fisik oleh ahli</strong></li>
+                <li>Estimasi ini dapat disesuaikan <strong>±15% berdasarkan kondisi aktual</strong></li>
+                <li>Dokumen lengkap (STNK+BPKB) dapat meningkatkan nilai <strong>10-20%</strong></li>
+                <li>Motor <strong>lebih baru & rendah kilometer</strong> = nilai lebih tinggi</li>
+              </ul>
             </div>
           </div>
-        </div>
-      </form>
-    </div>
-  </main>
 
-  <!-- 常见问题 -->
-  <section class="faq-section">
-    <div class="container">
-      <h2>❓ Pertanyaan Umum</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <div class="faq-question">Berapa lama proses gadai motor?</div>
-          <div class="faq-answer">Proses hanya 1-2 jam, dana bisa cair hari yang sama.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Dokumen apa saja yang diperlukan?</div>
-          <div class="faq-answer">STNK, BPKB, KTP asli, dan KK pemilik.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Bunga berapa persen per bulan?</div>
-          <div class="faq-answer">Bunga 10% per bulan, sesuai dengan karakteristik pinjaman jangka pendek. Penting: Akumulasi bunga dalam jangka panjang sangat besar. Disarankan untuk menebus barang secepat mungkin..</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Bisa perpanjang gadai?</div>
-          <div class="faq-answer">Ya, bisa perpanjang dengan membayar bunga terlebih dahulu.</div>
+          <div class="action-buttons">
+            <a id="whatsappButton" href="https://wa.me/6289515692586" target="_blank" class="card-cta-btn wa-btn" rel="noopener noreferrer">
+              <span>💬 Konsultasi & Penyesuaian Nilai</span>
+            </a>
+            <button type="button" class="btn-recalculate"><span>🔄 Hitung Ulang</span></button>
+            <a href="index.html" class="btn-home"><span>🏠 Kembali ke Beranda</span></a>
+          </div>
+
+          <div class="manual-adjustment">
+            <h4>👨‍🔧 Proses Penilaian Akhir oleh JF Gadai:</h4>
+            <div class="adjustment-process">
+              <div class="process-step"><div class="step-number">1</div><p><strong>Inspeksi Fisik</strong><br>Pemeriksaan detail oleh ahli kami</p></div>
+              <div class="process-step"><div class="step-number">2</div><p><strong>Analisis Pasar</strong><br>Bandingkan harga pasar terkini</p></div>
+              <div class="process-step"><div class="step-number">3</div><p><strong>Penyesuaian Manual</strong><br>Sesuaikan dengan kondisi aktual</p></div>
+              <div class="process-step"><div class="step-number">4</div><p><strong>Nilai Final</strong><br>Hasil taksiran yang dapat dinegosiasikan</p></div>
+            </div>
+            <p class="process-note"><em>Tim kami dapat melakukan penyesuaian ±15% dari perkiraan ini berdasarkan inspeksi fisik.</em></p>
+          </div>
         </div>
       </div>
+    </form>
+  </div>
+</main>
+
+<!-- FAQ 区块 -->
+<section class="faq-section">
+  <div class="container">
+    <h2>❓ Pertanyaan Umum</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">Berapa lama proses gadai motor?</div>
+        <div class="faq-answer">Proses hanya 1-2 jam, dana bisa cair hari yang sama.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Dokumen apa saja yang diperlukan?</div>
+        <div class="faq-answer">STNK, BPKB, KTP asli, dan KK pemilik.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Bunga berapa persen per bulan?</div>
+        <div class="faq-answer">Bunga 10% per bulan, sesuai dengan karakteristik pinjaman jangka pendek.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Bisa perpanjang gadai?</div>
+        <div class="faq-answer">Ya, bisa perpanjang dengan membayar bunga terlebih dahulu.</div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
 <!-- 页脚 -->
 <footer id="lokasi" role="contentinfo">
-
   <div class="footer-content">
-    <p class="copyright">
-      © <span id="year"></span> JF Gadai
-    </p>
-    <p class="company-info">
-      JF Gadai – Melayani area Bangil • Beji • Gempol
-    </p>
-
-<a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai"
-   target="_blank"
-   class="contact-link"
-   id="wa-contact"
-   rel="noopener noreferrer"
-   aria-label="Hubungi kami via WhatsApp">
-
-  <img src="/images/logo-wa.png"
-       alt="WhatsApp"
-       width="20"
-       height="20">
-
-  Chat WhatsApp Sekarang
-
-</a>
-
-    <p class="operating-hours">
-      ⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu
-    </p>
-    <p class="security-note">
-      🔒 Situs ini menggunakan koneksi aman (HTTPS).
-    </p>
+    <p class="copyright">© <span id="year"></span> JF Gadai</p>
+    <p class="company-info">JF Gadai – Melayani area Bangil • Beji • Gempol</p>
+    <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai" target="_blank" class="contact-link" id="wa-contact" rel="noopener noreferrer">
+      <img src="/images/logo-wa.png" alt="WhatsApp" width="20" height="20">
+      Chat WhatsApp Sekarang
+    </a>
+    <p class="operating-hours">⏰ Jam kerja Mo-Fr: 08:00-18:00 | Libur Sabtu–Minggu</p>
+    <p class="security-note">🔒 Situs ini menggunakan koneksi aman (HTTPS).</p>
   </div>
-
 </footer>
 
 <script src="js/main.js"></script>
-<script src="js/faq.js"></script>           <!-- FAQ功能（轻量） -->
-<script src="js/assessment.js"></script>    <!-- 评估功能（重型） -->
+<script src="js/faq.js"></script>
+
+<!-- ==================== assessment.js 内嵌代码 ==================== -->
 <script>
+(function() {
+  'use strict';
+  
+  // ==================== 摩托车型号数据 ====================
+  const motorModels = {
+    honda: [
+      { id: 'beat', name: 'Honda Beat', basePrice: 8000000 },
+      { id: 'scoopy', name: 'Honda Scoopy', basePrice: 9000000 },
+      { id: 'vario', name: 'Honda Vario', basePrice: 10000000 },
+      { id: 'genio', name: 'Honda Genio', basePrice: 9500000 },
+      { id: 'pcx', name: 'Honda PCX', basePrice: 15000000 },
+      { id: 'adv', name: 'Honda ADV', basePrice: 18000000 },
+      { id: 'cbr150r', name: 'Honda CBR150R', basePrice: 12000000 },
+      { id: 'rebel', name: 'Honda Rebel', basePrice: 25000000 },
+      { id: 'supra', name: 'Honda Supra', basePrice: 6000000 }
+    ],
+    yamaha: [
+      { id: 'mio', name: 'Yamaha Mio', basePrice: 8500000 },
+      { id: 'gear', name: 'Yamaha Gear', basePrice: 8200000 },
+      { id: 'fino', name: 'Yamaha Fino', basePrice: 8800000 },
+      { id: 'nmax', name: 'Yamaha NMAX', basePrice: 16000000 },
+      { id: 'aerox', name: 'Yamaha Aerox', basePrice: 17000000 },
+      { id: 'r15', name: 'Yamaha R15', basePrice: 14000000 },
+      { id: 'mt15', name: 'Yamaha MT-15', basePrice: 14500000 },
+      { id: 'xmax', name: 'Yamaha XMAX', basePrice: 28000000 },
+      { id: 'jupiter', name: 'Yamaha Jupiter', basePrice: 7000000 }
+    ]
+  };
+
+  // 照片数据存储
+  const photoData = {
+    uploadFront: null,
+    uploadBack: null,
+    uploadSide: null
+  };
+
+  let currentUploadArea = null;
+
+  // ==================== 辅助函数 ====================
+  function formatRupiah(num) {
+    return new Intl.NumberFormat('id-ID').format(num);
+  }
+
+  // ==================== 加载车型 ====================
+  function loadModelsForBrand(brand) {
+    const modelSelect = document.getElementById('model');
+    if (!modelSelect) return;
+
+    modelSelect.disabled = false;
+    modelSelect.innerHTML = '<option value="">Pilih model motor</option>';
+
+    if (motorModels[brand]) {
+      motorModels[brand].forEach(model => {
+        const opt = document.createElement('option');
+        opt.value = model.id;
+        let modelName = model.name;
+        if (brand === 'honda') {
+          modelName = modelName.replace(/^Honda\s+/i, '');
+        } else if (brand === 'yamaha') {
+          modelName = modelName.replace(/^Yamaha\s+/i, '');
+        }
+        opt.textContent = modelName;
+        opt.dataset.basePrice = model.basePrice;
+        opt.dataset.fullName = model.name;
+        modelSelect.appendChild(opt);
+      });
+    }
+
+    if (modelSelect.options.length > 1) {
+      modelSelect.selectedIndex = 1;
+      modelSelect.dispatchEvent(new Event('change'));
+    }
+  }
+
+  // ==================== 年份选择 ====================
+  function initYearSelect() {
+    const yearSelect = document.getElementById('year');
+    if (!yearSelect) return;
+    
+    while (yearSelect.options.length > 1) yearSelect.remove(1);
+    
+    const currentYear = new Date().getFullYear();
+    for (let year = currentYear; year >= 2010; year--) {
+      const option = document.createElement('option');
+      option.value = year;
+      option.textContent = year;
+      yearSelect.appendChild(option);
+    }
+    yearSelect.value = '2022';
+  }
+
+  // ==================== 里程滑块 ====================
+  function updateMileageLabels(value) {
+    const labels = document.querySelectorAll('.mileage-labels span');
+    if (!labels.length) return;
+    labels.forEach(label => {
+      label.style.fontWeight = 'normal';
+      label.style.color = '';
+    });
+    if (value < 50000) {
+      labels[0].style.fontWeight = 'bold';
+      labels[0].style.color = '#f5c542';
+    } else if (value < 100000) {
+      labels[1].style.fontWeight = 'bold';
+      labels[1].style.color = '#f5c542';
+    } else {
+      labels[2].style.fontWeight = 'bold';
+      labels[2].style.color = '#f5c542';
+    }
+  }
+
+  function initMileageSlider() {
+    const mileageInput = document.getElementById('mileage');
+    const mileageSlider = document.getElementById('mileageSlider');
+    if (!mileageSlider) return;
+    
+    mileageSlider.addEventListener('input', function() {
+      mileageInput.value = this.value;
+      updateMileageLabels(this.value);
+    });
+    
+    mileageInput.addEventListener('input', function() {
+      let value = parseInt(this.value) || 0;
+      value = Math.min(Math.max(value, 0), 100000);
+      this.value = value;
+      mileageSlider.value = value;
+      updateMileageLabels(value);
+    });
+    
+    updateMileageLabels(mileageSlider.value);
+  }
+
+  // ==================== 照片上传 ====================
+  function clearPhoto(areaId) {
+    const area = document.getElementById(areaId);
+    if (!area) return;
+    
+    const preview = area.querySelector('.upload-preview');
+    if (preview) preview.remove();
+    area.classList.remove('has-image');
+    photoData[areaId] = null;
+    
+    const fileInput = area.querySelector('input[type="file"]');
+    if (fileInput) fileInput.value = '';
+  }
+
+  function previewPhoto(file, areaId) {
+    const area = document.getElementById(areaId);
+    if (!area) return;
+    
+    const existingPreview = area.querySelector('.upload-preview');
+    if (existingPreview) existingPreview.remove();
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = document.createElement('img');
+      img.className = 'upload-preview';
+      img.src = e.target.result;
+      img.alt = 'Preview foto motor';
+      area.appendChild(img);
+      area.classList.add('has-image');
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function initPhotoUpload() {
+    const uploadAreas = document.querySelectorAll('.upload-area');
+    if (!uploadAreas.length) return;
+    
+    uploadAreas.forEach(area => {
+      if (area.querySelector('.remove-photo')) return;
+      
+      const fileInput = area.querySelector('input[type="file"]');
+      
+      area.addEventListener('click', function(e) {
+        if (e.target.closest('.remove-photo')) return;
+        currentUploadArea = area.id;
+        fileInput.click();
+      });
+      
+      fileInput.addEventListener('change', function(e) {
+        if (!currentUploadArea || !this.files || this.files.length === 0) return;
+        const file = this.files[0];
+        if (!file.type.startsWith('image/')) {
+          alert('Silakan pilih file gambar (JPG, PNG, dll.)');
+          return;
+        }
+        previewPhoto(file, currentUploadArea);
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          photoData[currentUploadArea] = e.target.result;
+        };
+        reader.readAsDataURL(file);
+        this.value = '';
+      });
+      
+      if (!area.querySelector('.remove-photo')) {
+        const removeBtn = document.createElement('div');
+        removeBtn.className = 'remove-photo';
+        removeBtn.innerHTML = '×';
+        removeBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          clearPhoto(area.id);
+        });
+        area.appendChild(removeBtn);
+      }
+    });
+  }
+
+  // ==================== 步骤导航 ====================
+  let currentStepNumber = 1;
+
+  function updateProgressBar(step) {
+    const progressSteps = document.querySelectorAll('.progress-step');
+    progressSteps.forEach(progressStep => {
+      const stepNum = parseInt(progressStep.dataset.step);
+      progressStep.classList.toggle('active', stepNum <= step);
+    });
+  }
+
+  function showStep(step) {
+    const steps = document.querySelectorAll('.form-step');
+    steps.forEach((el, idx) => {
+      el.classList.toggle('active', idx + 1 === step);
+    });
+    currentStepNumber = step;
+    updateProgressBar(step);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ==================== 表单验证 ====================
+  function validateStep(stepNumber) {
+    if (stepNumber === 1) {
+      const brand = document.getElementById('brand').value;
+      const model = document.getElementById('model').value;
+      const year = document.getElementById('year').value;
+      const cc = document.getElementById('cc').value;
+      const mileage = document.getElementById('mileage').value;
+      
+      if (!brand) { alert('🚫 Silakan pilih merek motor'); return false; }
+      if (!model) { alert('🚫 Silakan pilih model motor'); return false; }
+      if (!year) { alert('🚫 Silakan pilih tahun produksi'); return false; }
+      if (!cc) { alert('🚫 Silakan pilih kapasitas mesin (CC)'); return false; }
+      if (!mileage || isNaN(mileage) || mileage < 0) { alert('🚫 Silakan isi kilometer tempuh yang valid'); return false; }
+      return true;
+    }
+    else if (stepNumber === 2) {
+      if (!document.querySelector('input[name="engine"]:checked')) { alert('🔧 Silakan pilih kondisi mesin motor Anda'); return false; }
+      if (!document.querySelector('input[name="body"]:checked')) { alert('🎨 Silakan pilih kondisi body & cat motor Anda'); return false; }
+      if (!document.querySelector('input[name="documents"]:checked')) { alert('📋 Silakan pilih kelengkapan dokumen (STNK & BPKB)'); return false; }
+      return true;
+    }
+    else if (stepNumber === 3) {
+      const fullName = document.getElementById('fullName').value.trim();
+      const phoneNumber = document.getElementById('phoneNumber').value.trim();
+      const location = document.getElementById('location').value;
+      if (!fullName) { alert('👤 Silakan isi nama lengkap Anda'); return false; }
+      if (!phoneNumber || !/^[0-9]{10,13}$/.test(phoneNumber)) { alert('📱 Silakan isi nomor WhatsApp yang valid (10-13 digit)'); return false; }
+      if (!location) { alert('📍 Silakan pilih lokasi kota terdekat Anda'); return false; }
+      return true;
+    }
+    return true;
+  }
+
+  // ==================== 估价计算 ====================
+  function calculateEstimation() {
+    if (!validateStep(3)) return;
+    
+    const brand = document.getElementById('brand').value;
+    const modelSelect = document.getElementById('model');
+    const selectedOption = modelSelect.selectedOptions[0];
+    const modelId = modelSelect.value;
+    const modelNameDisplay = selectedOption?.textContent || 'Motor';
+    const modelFullName = selectedOption?.dataset.fullName || (brand.toUpperCase() + ' ' + modelNameDisplay);
+    const yearRaw = document.getElementById('year').value;
+    const ccRaw = document.getElementById('cc').value;
+    const mileageRaw = document.getElementById('mileage').value;
+    const engine = document.querySelector('input[name="engine"]:checked')?.value;
+    const body = document.querySelector('input[name="body"]:checked')?.value;
+    const documents = document.querySelector('input[name="documents"]:checked')?.value;
+    const fullName = document.getElementById('fullName').value.trim();
+    const phoneNumber = document.getElementById('phoneNumber').value.trim();
+    const location = document.getElementById('location').value;
+    
+    const year = parseInt(yearRaw);
+    const cc = parseInt(ccRaw);
+    const mileage = parseInt(mileageRaw);
+    if (isNaN(year) || isNaN(mileage)) {
+      alert('Data tahun atau kilometer tidak valid, silakan periksa kembali.');
+      return;
+    }
+    
+    const basePrice = parseInt(selectedOption?.dataset.basePrice) || 8000000;
+    let estimatedValue = basePrice;
+    
+    // 年份调整（保守）
+    const currentYear = new Date().getFullYear();
+    const age = currentYear - year;
+    const yearDepreciation = Math.min(age * 0.045, 0.65);
+    estimatedValue *= (1 - yearDepreciation);
+    
+    // 里程调整
+    let mileageDepreciation = 0;
+    if (mileage > 80000) mileageDepreciation = 0.14;
+    else if (mileage > 50000) mileageDepreciation = 0.09;
+    else if (mileage > 30000) mileageDepreciation = 0.045;
+    else if (mileage > 10000) mileageDepreciation = 0.018;
+    estimatedValue *= (1 - mileageDepreciation);
+    
+    // 引擎状况调整
+    let engineDepreciation = 0;
+    if (engine === 'sedang') engineDepreciation = 0.07;
+    if (engine === 'perbaikan') engineDepreciation = 0.18;
+    estimatedValue *= (1 - engineDepreciation);
+    
+    // 车身状况调整
+    let bodyDepreciation = 0;
+    if (body === 'baret_sedikit') bodyDepreciation = 0.045;
+    if (body === 'rusak') bodyDepreciation = 0.13;
+    estimatedValue *= (1 - bodyDepreciation);
+    
+    // 文件调整
+    let docDepreciation = 0;
+    if (documents === 'stnk_saja') docDepreciation = 0.09;
+    if (documents === 'hilang') docDepreciation = 0.22;
+    estimatedValue *= (1 - docDepreciation);
+    
+    estimatedValue = Math.max(estimatedValue, 800000);
+    estimatedValue = Math.floor(estimatedValue / 10000) * 10000;
+    
+    // 计算范围（±12%）
+    const marketVolatility = 0.12;
+    const minValue = Math.round(estimatedValue * (1 - marketVolatility));
+    const maxValue = Math.round(estimatedValue * (1 + marketVolatility));
+    
+    // 显示结果
+    const middleValue = Math.round((minValue + maxValue) / 2);
+    
+    document.getElementById('estimatedValueMin').textContent = formatRupiah(minValue);
+    document.getElementById('estimatedValueMax').textContent = formatRupiah(maxValue);
+    document.getElementById('estimatedValueAvg').textContent = formatRupiah(middleValue);
+    
+    // 显示详细调整
+    const yearPercent = (yearDepreciation * 100).toFixed(1);
+    const mileagePercent = (mileageDepreciation * 100).toFixed(1);
+    const enginePercent = (engineDepreciation * 100).toFixed(1);
+    const bodyPercent = (bodyDepreciation * 100).toFixed(1);
+    const docPercent = (docDepreciation * 100).toFixed(1);
+    
+    document.getElementById('basePrice').textContent = 'Rp ' + formatRupiah(basePrice);
+    document.getElementById('yearPercent').textContent = yearPercent;
+    document.getElementById('yearAdjustment').textContent = '-Rp ' + formatRupiah(basePrice * yearDepreciation);
+    document.getElementById('mileagePercent').textContent = mileagePercent;
+    document.getElementById('mileageAdjustment').textContent = '-Rp ' + formatRupiah(estimatedValue * mileageDepreciation);
+    document.getElementById('enginePercent').textContent = enginePercent;
+    document.getElementById('engineAdjustment').textContent = '-Rp ' + formatRupiah(estimatedValue * engineDepreciation);
+    document.getElementById('bodyPercent').textContent = bodyPercent;
+    document.getElementById('bodyAdjustment').textContent = '-Rp ' + formatRupiah(estimatedValue * bodyDepreciation);
+    document.getElementById('docPercent').textContent = docPercent;
+    document.getElementById('docAdjustment').textContent = docDepreciation > 0 ? '-Rp ' + formatRupiah(estimatedValue * docDepreciation) : 'Rp 0';
+    
+    const totalAdjustment = basePrice - estimatedValue;
+    document.getElementById('totalAdjustment').textContent = '-Rp ' + formatRupiah(totalAdjustment);
+    
+    // 构建WhatsApp消息
+    const locationText = document.getElementById('location').selectedOptions[0]?.textContent || location;
+    const engineText = engine === 'baik' ? 'Baik' : (engine === 'sedang' ? 'Sedang' : 'Butuh Perbaikan');
+    const bodyText = body === 'mulus' ? 'Mulus' : (body === 'baret_sedikit' ? 'Baret Sedikit' : 'Rusak/Penyok');
+    const docText = documents === 'lengkap' ? 'Lengkap (STNK+BPKB)' : (documents === 'stnk_saja' ? 'STNK Saja' : 'Belum Ada');
+    
+    const message = `Halo JF Gadai, saya ${fullName} telah melakukan penilaian online.
+
+📋 DATA MOTOR:
+• Merek: ${brand.toUpperCase()}
+• Model: ${modelFullName}
+• Tahun: ${year}
+• CC: ${cc}cc
+• Kilometer: ${formatRupiah(mileage)} KM
+• Kondisi Mesin: ${engineText}
+• Kondisi Body: ${bodyText}
+• Dokumen: ${docText}
+
+💰 PERKIRAAN NILAI GADAI:
+${formatRupiah(minValue)} - ${formatRupiah(maxValue)}
+(Nilai tengah: ${formatRupiah(middleValue)})
+
+📞 KONTAK:
+• Nama: ${fullName}
+• WhatsApp: ${phoneNumber}
+• Lokasi: ${locationText}
+
+Saya ingin melakukan konsultasi lebih lanjut. Terima kasih!`;
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappBtn = document.getElementById('whatsappButton');
+    if (whatsappBtn) {
+      whatsappBtn.href = `https://wa.me/6289515692586?text=${encodedMessage}`;
+    }
+    
+    // 跳转到结果页
+    showStep(4);
+  }
+
+  // ==================== 表单重置 ====================
+  function resetAssessmentForm() {
+    document.getElementById('motorAssessmentForm').reset();
+    
+    document.querySelectorAll('.brand-option').forEach(opt => opt.classList.remove('active'));
+    const defaultBrand = document.querySelector('.brand-option[data-brand="honda"]');
+    if (defaultBrand) {
+      defaultBrand.classList.add('active');
+      document.getElementById('brand').value = 'honda';
+      loadModelsForBrand('honda');
+    }
+    
+    document.getElementById('year').value = '2022';
+    document.getElementById('mileage').value = '20000';
+    const mileageSlider = document.getElementById('mileageSlider');
+    if (mileageSlider) mileageSlider.value = '20000';
+    updateMileageLabels(20000);
+    
+    document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+    
+    document.querySelectorAll('.upload-area').forEach(area => clearPhoto(area.id));
+    Object.keys(photoData).forEach(key => photoData[key] = null);
+    
+    showStep(1);
+  }
+
+  // ==================== 事件绑定 ====================
+  function bindEvents() {
+    // 品牌选择
+    document.querySelectorAll('.brand-option').forEach(opt => {
+      opt.addEventListener('click', function(e) {
+        e.stopPropagation();
+        document.querySelectorAll('.brand-option').forEach(o => o.classList.remove('active'));
+        this.classList.add('active');
+        const brand = this.dataset.brand;
+        document.getElementById('brand').value = brand;
+        loadModelsForBrand(brand);
+      });
+    });
+    
+    // 下一步按钮
+    document.querySelectorAll('.btn-next').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const currentStep = document.querySelector('.form-step.active');
+        const stepNum = parseInt(currentStep.id.replace('step', ''));
+        if (validateStep(stepNum)) {
+          showStep(stepNum + 1);
+        }
+      });
+    });
+    
+    // 上一步按钮
+    document.querySelectorAll('.btn-prev').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const currentStep = document.querySelector('.form-step.active');
+        const stepNum = parseInt(currentStep.id.replace('step', ''));
+        if (stepNum > 1) showStep(stepNum - 1);
+      });
+    });
+    
+    // 提交按钮
+    const submitBtn = document.querySelector('.btn-submit');
+    if (submitBtn) {
+      submitBtn.addEventListener('click', calculateEstimation);
+    }
+    
+    // 重置按钮
+    const recalcBtn = document.querySelector('.btn-recalculate');
+    if (recalcBtn) {
+      recalcBtn.addEventListener('click', resetAssessmentForm);
+    }
+  }
+
+  // ==================== 初始化 ====================
+  function init() {
+    if (!document.getElementById('motorAssessmentForm')) {
+      console.log('不在估价页面，跳过初始化');
+      return;
+    }
+    
+    initYearSelect();
+    initMileageSlider();
+    initPhotoUpload();
+    loadModelsForBrand('honda');
+    bindEvents();
+    
+    // 设置默认品牌高亮
+    document.getElementById('brand').value = 'honda';
+  }
+  
   // 自动更新版权年份
   document.getElementById('year').textContent = new Date().getFullYear();
+  
+  // 启动
+  init();
+})();
 </script>
 </body>
 </html>
