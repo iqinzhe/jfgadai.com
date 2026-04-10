@@ -663,7 +663,7 @@ body {
 }
 
 /* ==================== 网格布局模块 ==================== */
-/* ✅ 电脑端布局 (最小宽度 1201px) - 按新要求排列 */
+/* ✅ 电脑端布局 (最小宽度 1201px) */
 @media (min-width: 1201px) {
   .asymmetric-grid {
     display: grid;
@@ -673,23 +673,18 @@ body {
     margin: var(--spacing-xl) auto;
   }
 
-  /* 按要求排列：
-     上左: #assessment   (grid-column: 2, grid-row: 1)
-     上中: #laptop-pawn  (grid-column: 1, grid-row: 2)
-     上右: #hp-pawn      (grid-column: 2, grid-row: 2)
-     下左: #emas-pawn    (grid-column: 3, grid-row: 1)
-     下中: #gallery      (grid-column: 1, grid-row: 1)
-     下右: #contact      (grid-column: 3, grid-row: 2)
-  */
-  #assessment   { grid-column: 2; grid-row: 1; }
-  #laptop-pawn  { grid-column: 1; grid-row: 2; }
-  #hp-pawn      { grid-column: 2; grid-row: 2; }
-  #emas-pawn    { grid-column: 3; grid-row: 1; }
-  #gallery      { grid-column: 1; grid-row: 1; }
+  /* 第1行 */
+  #assessment   { grid-column: 1; grid-row: 1; }
+  #laptop-pawn  { grid-column: 2; grid-row: 1; }
+  #hp-pawn      { grid-column: 3; grid-row: 1; }
+  
+  /* 第2行 */
+  #emas-pawn    { grid-column: 1; grid-row: 2; }
+  #gallery      { grid-column: 2; grid-row: 2; }
   #contact      { grid-column: 3; grid-row: 2; }
 }
 
-/* ✅ 平板设备过渡 (769px - 1200px) 保持与电脑端相同布局 */
+/* ✅ 平板设备 (769px - 1200px) 与电脑端相同 */
 @media (max-width: 1200px) and (min-width: 769px) {
   .asymmetric-grid {
     display: grid;
@@ -699,12 +694,11 @@ body {
     margin: var(--spacing-xl) auto;
   }
 
-  /* 与电脑端布局完全相同 */
-  #assessment   { grid-column: 2; grid-row: 1; }
-  #laptop-pawn  { grid-column: 1; grid-row: 2; }
-  #hp-pawn      { grid-column: 2; grid-row: 2; }
-  #emas-pawn    { grid-column: 3; grid-row: 1; }
-  #gallery      { grid-column: 1; grid-row: 1; }
+  #assessment   { grid-column: 1; grid-row: 1; }
+  #laptop-pawn  { grid-column: 2; grid-row: 1; }
+  #hp-pawn      { grid-column: 3; grid-row: 1; }
+  #emas-pawn    { grid-column: 1; grid-row: 2; }
+  #gallery      { grid-column: 2; grid-row: 2; }
   #contact      { grid-column: 3; grid-row: 2; }
 }
 
@@ -717,11 +711,11 @@ body {
     margin: var(--spacing-md) auto;
   }
 
-  /* 所有卡片按顺序垂直排列 */
-  #gallery,
+  /* 所有卡片按HTML顺序垂直排列 */
   #assessment,
   #laptop-pawn,
   #hp-pawn,
+  #gallery,
   #contact {
     display: flex !important;
     width: 100%;
