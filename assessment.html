@@ -505,12 +505,14 @@
 <script src="js/main.js"></script>
 <script src="js/faq.js"></script>
 
-<!-- 2. 动态年份脚本（需要确保 DOM 加载完成） -->
+<!-- 动态年份脚本（与参考文件一致，无多余检查） -->
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('year').textContent = new Date().getFullYear();
+  });
 </script>
 
-<!-- 3. assessment.js 内嵌代码 -->
+<!-- assessment.js 内嵌代码 -->
 <script>
 (function() {
   'use strict';
@@ -1007,9 +1009,12 @@ Saya ingin melakukan konsultasi lebih lanjut. Terima kasih!`;
     document.getElementById('brand').value = 'honda';
   }
   
-  // 启动
-  init();
-})();
+  // ✅ 等待 DOM 加载完成后初始化
+  document.addEventListener('DOMContentLoaded', function() {
+    init();
+  });
+  
+})();  // ← IIFE 结束
 </script>
 </body>
 </html>
