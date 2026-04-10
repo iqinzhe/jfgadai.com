@@ -56,7 +56,7 @@
     {
       "name": "Cek Lokasi Toko",
       "short_name": "Lokasi",
-      "url": "https://maps.google.com/?q=-7.6346,112.7862",
+      "url": "https://maps.google.com/?q=7°38'04.6"S 112°47'10.3"E",
       "icons": [
         {
           "src": "/icons/android-chrome-192x192.png",
