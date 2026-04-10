@@ -45,7 +45,7 @@
     {
       "name": "Hubungi WhatsApp",
       "short_name": "WhatsApp",
-      "url": "/?wa=true",
+      "url": "https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai",
       "icons": [
         {
           "src": "/icons/android-chrome-192x192.png",
@@ -56,18 +56,7 @@
     {
       "name": "Cek Lokasi Toko",
       "short_name": "Lokasi",
-      "url": "/?location=true",
-      "icons": [
-        {
-          "src": "/icons/android-chrome-192x192.png",
-          "sizes": "96x96"
-        }
-      ]
-    },
-    {
-      "name": "Cek Rating",
-      "short_name": "Rating",
-      "url": "/?rating=true",
+      "url": "https://maps.google.com/?q=-7.6346,112.7862",
       "icons": [
         {
           "src": "/icons/android-chrome-192x192.png",
