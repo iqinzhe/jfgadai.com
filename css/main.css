@@ -663,7 +663,7 @@ body {
 }
 
 /* ==================== 网格布局模块 ==================== */
-/* ✅ 电脑端布局 (最小宽度 1201px) 按照新要求重新排列六宫格 */
+/* ✅ 电脑端布局 (最小宽度 1201px) - 按新要求排列 */
 @media (min-width: 1201px) {
   .asymmetric-grid {
     display: grid;
@@ -673,7 +673,7 @@ body {
     margin: var(--spacing-xl) auto;
   }
 
-  /* 新布局：
+  /* 按要求排列：
      上左: #assessment   (grid-column: 2, grid-row: 1)
      上中: #laptop-pawn  (grid-column: 1, grid-row: 2)
      上右: #hp-pawn      (grid-column: 2, grid-row: 2)
@@ -681,15 +681,15 @@ body {
      下中: #gallery      (grid-column: 1, grid-row: 1)
      下右: #contact      (grid-column: 3, grid-row: 2)
   */
-  #gallery      { grid-column: 1; grid-row: 1; }
   #assessment   { grid-column: 2; grid-row: 1; }
-  #emas-pawn    { grid-column: 3; grid-row: 1; }
   #laptop-pawn  { grid-column: 1; grid-row: 2; }
   #hp-pawn      { grid-column: 2; grid-row: 2; }
+  #emas-pawn    { grid-column: 3; grid-row: 1; }
+  #gallery      { grid-column: 1; grid-row: 1; }
   #contact      { grid-column: 3; grid-row: 2; }
 }
 
-/* ✅ 平板设备过渡 (769px - 1200px) 保持与电脑端相同的布局 */
+/* ✅ 平板设备过渡 (769px - 1200px) 保持与电脑端相同布局 */
 @media (max-width: 1200px) and (min-width: 769px) {
   .asymmetric-grid {
     display: grid;
@@ -699,16 +699,16 @@ body {
     margin: var(--spacing-xl) auto;
   }
 
-  /* 与电脑端完全相同的布局 */
-  #gallery      { grid-column: 1; grid-row: 1; }
+  /* 与电脑端布局完全相同 */
   #assessment   { grid-column: 2; grid-row: 1; }
-  #emas-pawn    { grid-column: 3; grid-row: 1; }
   #laptop-pawn  { grid-column: 1; grid-row: 2; }
   #hp-pawn      { grid-column: 2; grid-row: 2; }
+  #emas-pawn    { grid-column: 3; grid-row: 1; }
+  #gallery      { grid-column: 1; grid-row: 1; }
   #contact      { grid-column: 3; grid-row: 2; }
 }
 
-/* ✅ 手机端布局 (≤768px) - 单列显示全部卡片（无隐藏） */
+/* ✅ 手机端布局 (≤768px) - 单列顺序显示，#emas-pawn 隐藏 */
 @media (max-width: 768px) {
   .asymmetric-grid {
     display: flex;
@@ -717,10 +717,9 @@ body {
     margin: var(--spacing-md) auto;
   }
 
-  /* 手机端单列显示，所有卡片按顺序垂直排列 */
+  /* 所有卡片按顺序垂直排列 */
   #gallery,
   #assessment,
-  #emas-pawn,
   #laptop-pawn,
   #hp-pawn,
   #contact {
@@ -728,9 +727,9 @@ body {
     width: 100%;
   }
 
-  /* 确保 emas-pawn 在手机端显示（不隐藏） */
+  /* 隐藏 #emas-pawn */
   #emas-pawn {
-    display: flex !important;
+    display: none !important;
   }
 
   /* 手机端其他样式优化（字体、间距等） */
