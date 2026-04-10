@@ -11,7 +11,23 @@
   "lang": "id",
   "dir": "ltr",
   "categories": ["finance", "business"],
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
   "icons": [
+    {
+      "src": "/icons/android-chrome-192x192.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/android-chrome-192x192.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "/icons/android-chrome-192x192.png",
       "sizes": "192x192",
@@ -23,6 +39,41 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Hubungi WhatsApp",
+      "short_name": "WhatsApp",
+      "url": "/?wa=true",
+      "icons": [
+        {
+          "src": "/icons/android-chrome-192x192.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Cek Lokasi Toko",
+      "short_name": "Lokasi",
+      "url": "/?location=true",
+      "icons": [
+        {
+          "src": "/icons/android-chrome-192x192.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Cek Rating",
+      "short_name": "Rating",
+      "url": "/?rating=true",
+      "icons": [
+        {
+          "src": "/icons/android-chrome-192x192.png",
+          "sizes": "96x96"
+        }
+      ]
     }
   ],
   "prefer_related_applications": false
