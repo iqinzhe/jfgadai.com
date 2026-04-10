@@ -505,7 +505,12 @@
 <script src="js/main.js"></script>
 <script src="js/faq.js"></script>
 
-<!-- ==================== assessment.js 内嵌代码 ==================== -->
+<!-- 2. 动态年份脚本（需要确保 DOM 加载完成） -->
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<!-- 3. assessment.js 内嵌代码 -->
 <script>
 (function() {
   'use strict';
