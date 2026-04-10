@@ -491,7 +491,7 @@
 <!-- 页脚 -->
 <footer id="lokasi" role="contentinfo">
   <div class="footer-content">
-    <p class="copyright">© <span id="year"></span> JF Gadai</p>
+    <p class="copyright">© <span id="copyright-year"></span> JF Gadai</p>
     <p class="company-info">JF Gadai – Melayani area Bangil • Beji • Gempol</p>
     <a href="https://wa.me/6289515692586?text=Halo%20saya%20ingin%20tanya%20gadai" target="_blank" class="contact-link" id="wa-contact" rel="noopener noreferrer">
       <img src="images/logo-wa.png" alt="WhatsApp" width="20" height="20">
@@ -505,10 +505,10 @@
 <script src="js/main.js"></script>
 <script src="js/faq.js"></script>
 
-<!-- 动态年份脚本（与参考文件一致，无多余检查） -->
+<!-- 动态年份脚本 -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
   });
 </script>
 
