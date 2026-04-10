@@ -116,7 +116,7 @@
     </image:image>
   </url>
 
-  <!-- 地区页：Sidoarjo -->
+  <!-- 城市页：Sidoarjo -->
   <url>
     <loc>https://www.jfgadai.com/gadai-sidoarjo.html</loc>
     <lastmod>2026-04-10</lastmod>
@@ -142,19 +142,6 @@
     </image:image>
   </url>
 
-  <!-- 产品页：Gadai HP Cepat -->
-  <url>
-    <loc>https://www.jfgadai.com/gadai-hp-cepat.html</loc>
-    <lastmod>2026-04-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.88</priority>
-    <image:image>
-      <image:loc>https://www.jfgadai.com/images/logo-wa.png</image:loc>
-      <image:title>Gadai HP Cepat Cair di Bangil</image:title>
-      <image:caption>Gadai HP cepat cair 10 menit di Bangil, Beji, Gempol. Tanpa ribet.</image:caption>
-    </image:image>
-  </url>
-
   <!-- 产品页+地区：Gadai HP Sidoarjo -->
   <url>
     <loc>https://www.jfgadai.com/gadai-hp-sidoarjo.html</loc>
@@ -168,7 +155,7 @@
     </image:image>
   </url>
 
-  <!-- 产品页：Gadai Motor Tanpa Ribet -->
+  <!-- 产品页-轻松典当：Gadai Motor Tanpa Ribet -->
   <url>
     <loc>https://www.jfgadai.com/gadai-motor-tanpa-ribet.html</loc>
     <lastmod>2026-04-10</lastmod>
@@ -181,7 +168,20 @@
     </image:image>
   </url>
 
-  <!-- ==================== 原有内容页 ==================== -->
+  <!-- 产品页-快速典当：Gadai HP Cepat -->
+  <url>
+    <loc>https://www.jfgadai.com/gadai-hp-cepat.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.88</priority>
+    <image:image>
+      <image:loc>https://www.jfgadai.com/images/logo-wa.png</image:loc>
+      <image:title>Gadai HP Cepat Cair di Bangil</image:title>
+      <image:caption>Gadai HP cepat cair 10 menit di Bangil, Beji, Gempol. Tanpa ribet.</image:caption>
+    </image:image>
+  </url>
+
+ <!-- 知识与展示页 -->
   <url>
     <loc>https://www.jfgadai.com/edukasi-gadai.html</loc>
     <lastmod>2026-04-08</lastmod>
@@ -194,7 +194,6 @@
     </image:image>
   </url>
 
-<!-- 知识与展示页：Sidoarjo -->
   <url>
     <loc>https://www.jfgadai.com/risk-to-success.html</loc>
     <lastmod>2026-04-08</lastmod>
