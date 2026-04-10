@@ -77,7 +77,7 @@
     </image:image>
   </url>
 
-  <!-- ==================== 本地/城市页 ==================== -->
+ <!-- 地区页：bangil -->
   <url>
     <loc>https://www.jfgadai.com/gadai-bangil.html</loc>
     <lastmod>2026-04-08</lastmod>
@@ -87,34 +87,6 @@
       <image:loc>https://www.jfgadai.com/images/og/gadai-bangil.jpg</image:loc>
       <image:title>Gadai Bangil</image:title>
       <image:caption>Layanan gadai terpercaya di Bangil, Beji, Gempol</image:caption>
-    </image:image>
-  </url>
-
-  <!-- ==================== 🆕 新增优化页面（临时图片统一使用 logo-wa.png） ==================== -->
-
-  <!-- 地区页：Beji -->
-  <url>
-    <loc>https://www.jfgadai.com/gadai-beji.html</loc>
-    <lastmod>2026-04-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://www.jfgadai.com/images/logo-wa.png</image:loc>
-      <image:title>Gadai Cepat Cair di Beji</image:title>
-      <image:caption>Gadai HP, motor, laptop cepat cair di Beji. Proses 10 menit.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- 通用页：Dana Cepat Cair -->
-  <url>
-    <loc>https://www.jfgadai.com/gadai-cepat-cair.html</loc>
-    <lastmod>2026-04-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://www.jfgadai.com/images/logo-wa.png</image:loc>
-      <image:title>Butuh Dana Cepat</image:title>
-      <image:caption>Solusi dana cepat di Bangil, Beji, Gempol, Sidoarjo. Gadai cair hari ini.</image:caption>
     </image:image>
   </url>
 
@@ -131,6 +103,45 @@
     </image:image>
   </url>
 
+  <!-- 地区页：Beji -->
+  <url>
+    <loc>https://www.jfgadai.com/gadai-beji.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://www.jfgadai.com/images/logo-wa.png</image:loc>
+      <image:title>Gadai Cepat Cair di Beji</image:title>
+      <image:caption>Gadai HP, motor, laptop cepat cair di Beji. Proses 10 menit.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 地区页：Sidoarjo -->
+  <url>
+    <loc>https://www.jfgadai.com/gadai-sidoarjo.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://www.jfgadai.com/images/logo-wa.png</image:loc>
+      <image:title>Gadai Cepat Cair di Sidoarjo</image:title>
+      <image:caption>Gadai HP, motor, laptop cepat cair di Sidoarjo. Tanpa ribet, proses 10 menit.</image:caption>
+    </image:image>
+  </url>
+        
+  <!-- 通用页：Dana Cepat Cair -->
+  <url>
+    <loc>https://www.jfgadai.com/gadai-cepat-cair.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.jfgadai.com/images/logo-wa.png</image:loc>
+      <image:title>Butuh Dana Cepat</image:title>
+      <image:caption>Solusi dana cepat di Bangil, Beji, Gempol, Sidoarjo. Gadai cair hari ini.</image:caption>
+    </image:image>
+  </url>
+
   <!-- 产品页：Gadai HP Cepat -->
   <url>
     <loc>https://www.jfgadai.com/gadai-hp-cepat.html</loc>
@@ -144,7 +155,7 @@
     </image:image>
   </url>
 
-  <!-- 产品页（地区）：Gadai HP Sidoarjo -->
+  <!-- 产品页+地区：Gadai HP Sidoarjo -->
   <url>
     <loc>https://www.jfgadai.com/gadai-hp-sidoarjo.html</loc>
     <lastmod>2026-04-10</lastmod>
@@ -170,19 +181,6 @@
     </image:image>
   </url>
 
-  <!-- 地区页：Sidoarjo -->
-  <url>
-    <loc>https://www.jfgadai.com/gadai-sidoarjo.html</loc>
-    <lastmod>2026-04-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://www.jfgadai.com/images/logo-wa.png</image:loc>
-      <image:title>Gadai Cepat Cair di Sidoarjo</image:title>
-      <image:caption>Gadai HP, motor, laptop cepat cair di Sidoarjo. Tanpa ribet, proses 10 menit.</image:caption>
-    </image:image>
-  </url>
-
   <!-- ==================== 原有内容页 ==================== -->
   <url>
     <loc>https://www.jfgadai.com/edukasi-gadai.html</loc>
@@ -196,6 +194,7 @@
     </image:image>
   </url>
 
+<!-- 知识与展示页：Sidoarjo -->
   <url>
     <loc>https://www.jfgadai.com/risk-to-success.html</loc>
     <lastmod>2026-04-08</lastmod>
@@ -220,6 +219,7 @@
     </image:image>
   </url>
 
+<!-- 联系页：Sidoarjo -->
   <url>
     <loc>https://www.jfgadai.com/contact.html</loc>
     <lastmod>2026-04-08</lastmod>
