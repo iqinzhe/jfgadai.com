@@ -41,6 +41,18 @@
   </url>
 
   <url>
+    <loc>https://www.jfgadai.com/laptop.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.jfgadai.com/images/og-electronics.jpg</image:loc>
+      <image:title>Gadai Laptop</image:title>
+      <image:caption>Layanan gadai laptop cepat cair, aman, terpercaya</image:caption>
+    </image:image>
+  </url>
+        
+  <url>
     <loc>https://www.jfgadai.com/hp.html</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -53,26 +65,14 @@
   </url>
 
   <url>
-    <loc>https://www.jfgadai.com/laptop.html</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://www.jfgadai.com/images/og-electronics.jpg</image:loc>
-      <image:title>Gadai Laptop</image:title>
-      <image:caption>Layanan gadai laptop cepat cair, aman, terpercaya</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://www.jfgadai.com/electronics.html</loc>
+    <loc>https://www.jfgadai.com/emas.html</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>https://www.jfgadai.com/images/og-electronics.jpg</image:loc>
-      <image:title>Gadai Elektronik</image:title>
-      <image:caption>Layanan gadai elektronik cepat cair, aman, terpercaya</image:caption>
+      <image:loc>https://www.jfgadai.com/images/logo-jf.png</image:loc>
+      <image:title>Gadai Emas</image:title>
+      <image:caption>Layanan gadai emas cepat cair, aman, terpercaya</image:caption>
     </image:image>
   </url>
 
@@ -126,19 +126,6 @@
     </image:image>
   </url>
 
-  <!-- 联系页 -->
-  <url>
-    <loc>https://www.jfgadai.com/contact.html</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-    <image:image>
-      <image:loc>https://www.jfgadai.com/images/og-contact.jpg</image:loc>
-      <image:title>Kontak JF Gadai</image:title>
-      <image:caption>Hubungi kami untuk layanan gadai cepat dan aman</image:caption>
-    </image:image>
-  </url>
-
   <!-- 展示页 -->
   <url>
     <loc>https://www.jfgadai.com/gallery.html</loc>
@@ -149,6 +136,19 @@
       <image:loc>https://www.jfgadai.com/images/gallery/jf-gadai-dana-cepat-cair-hari-ini.jpg</image:loc>
       <image:title>Butuh Dana Cepat?</image:title>
       <image:caption>JF Gadai membantu menghadapi tekanan finansial, cair hari ini</image:caption>
+    </image:image>
+  </url>
+        
+  <!-- 联系页 -->
+  <url>
+    <loc>https://www.jfgadai.com/contact.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.jfgadai.com/images/og-contact.jpg</image:loc>
+      <image:title>Kontak JF Gadai</image:title>
+      <image:caption>Hubungi kami untuk layanan gadai cepat dan aman</image:caption>
     </image:image>
   </url>
 
