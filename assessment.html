@@ -4,91 +4,118 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 
-  <!-- JSON-LD 结构化数据 -->
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "JF Gadai",
-  "alternateName": ["JF Gadai indonesia"],
-  "url": "https://www.jfgadai.com",
-  "publisher": {
-    "@id": "https://www.jfgadai.com/#organization"
-  }
-}
-  </script>
+  <!-- ✅ 合并后的结构化数据（WebSite + Organization + PawnBroker） -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "PawnBroker",
-    "name": "JF Gadai",
-    "image": "https://www.jfgadai.com/images/jf-justfast.jpg",
-    "description": "Layanan gadai motor, emas, dan barang berharga lainnya di Bangil, Beji, dan Gempol. Proses cepat, aman, dan terpercaya.",
-    "url": "https://www.jfgadai.com",
-    "telephone": "+6289515692586",
-    "priceRange": "Rp",
-    "openingHours": "Mo-Fr 08:00-18:00",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Bangil",
-      "addressRegion": "Jawa Timur",
-      "addressCountry": "ID"
-    },
-    "areaServed": [
-      {"@type":"AdministrativeArea","name":"Bangil"},
-      {"@type":"AdministrativeArea","name":"Beji"},
-      {"@type":"AdministrativeArea","name":"Gempol"}
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.jfgadai.com/#website",
+        "name": "JF Gadai",
+        "alternateName": "JF Gadai Indonesia",
+        "url": "https://www.jfgadai.com",
+        "publisher": {
+          "@id": "https://www.jfgadai.com/#organization"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.jfgadai.com/#organization",
+        "name": "JF Gadai",
+        "alternateName": "JF Gadai Indonesia",
+        "url": "https://www.jfgadai.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.jfgadai.com/images/logo-jf.png"
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "PawnBroker",
+        "@id": "https://www.jfgadai.com/assessment.html#pawnbroker",
+        "name": "JF Gadai",
+        "image": "https://www.jfgadai.com/images/jf-justfast.jpg",
+        "description": "Layanan gadai motor, emas, dan barang berharga lainnya di Bangil, Beji, dan Gempol. Proses cepat, aman, dan terpercaya.",
+        "url": "https://www.jfgadai.com",
+        "telephone": "+6289515692586",
+        "priceRange": "Rp",
+        "openingHours": ["Mo-Fr 08:00-18:00"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bangil",
+          "addressRegion": "Jawa Timur",
+          "addressCountry": "ID"
+        },
+        "areaServed": [
+          {"@type":"AdministrativeArea","name":"Bangil"},
+          {"@type":"AdministrativeArea","name":"Beji"},
+          {"@type":"AdministrativeArea","name":"Gempol"}
+        ]
+      }
     ]
   }
   </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://www.jfgadai.com/#organization",
-  "name": "JF Gadai",
-  "alternateName": "JF Gadai Indonesia",
-  "url": "https://www.jfgadai.com/",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://www.jfgadai.com/images/logo-jf.png"
-  },
-  "sameAs": []
-}
-</script>
 
-  <!-- SEO Meta 标签 -->
-  <title>Cek Nilai Gadai Motor Online | Gadai BPKB & Emas Bangil Beji Gempol - JF Gadai</title>
-  <meta name="description" content="Cek estimasi nilai gadai motor, HP, laptop, dan emas secara online di JF Gadai. Proses cepat, tanpa biaya tambahan, mudah dan transparan di Bangil, Beji, dan Gempol.">
+  <!-- ✅ WebApplication 结构化数据（标识这是一个免费评估工具） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Cek Nilai Gadai Motor Online",
+    "description": "Alat gratis untuk estimasi nilai gadai motor. Proses 3 menit, akurat 80%.",
+    "url": "https://www.jfgadai.com/assessment.html",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "IDR"
+    },
+    "author": {
+      "@id": "https://www.jfgadai.com/#organization"
+    }
+  }
+  </script>
+
+  <!-- ✅ SEO Meta 标签 -->
+  <title>Cek Nilai Gadai Motor Online Gratis | Estimasi Pinjaman Motor - JF Gadai</title>
+  <meta name="description" content="Cek estimasi nilai gadai motor online gratis hanya 3 menit. Kalkulator gadget motor untuk Honda & Yamaha. Proses cepat, transparan di Bangil, Beji, Gempol.">
+  <meta name="keywords" content="cek nilai gadai motor, estimasi gadai motor, kalkulator gadai motor, gadai motor online, nilai taksiran motor">
   <meta name="author" content="JF Gadai">
   <meta name="robots" content="index, follow">
 
-    <!-- Open Graph -->
-  <meta property="og:title" content="JF Gadai Assessment | Alat Evaluasi Pinjaman">
+  <!-- ✅ Open Graph -->
+  <meta property="og:title" content="Cek Nilai Gadai Motor Online Gratis | JF Gadai">
+  <meta property="og:description" content="Estimasi nilai gadai motor Honda & Yamaha dalam 3 menit. Gratis, akurat 80%, aman. Dapatkan perkiraan pinjaman Anda sekarang.">
   <meta property="og:url" content="https://www.jfgadai.com/assessment.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="id_ID">
   <meta property="og:site_name" content="JF Gadai">
 
-  <!-- Favicon & Web App Manifest -->
-<link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/icons/android-chrome-512x512.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#ffffff">
-
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.jfgadai.com/assessment.html">
-  
+
+  <!-- Favicon & Web App Manifest -->
+  <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/android-chrome-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#ffffff">
+
   <!-- CSS -->
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/assessment.css">
   <link rel="stylesheet" href="/css/faq.css">
 
 </head>
+<body>
+  <!-- 页面内容保持不变 -->
+</body>
+</html>
 
 <body>
 
