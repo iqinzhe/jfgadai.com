@@ -4,74 +4,95 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ✅ 唯一 Title（只能有一个） -->
-<title>Galeri Layanan Gadai Bangil | JF Gadai</title>
+<!-- ✅ 唯一 Title（优化图库/展示关键词） -->
+<title>Galeri Layanan Gadai Bangil | Foto & Materi Promosi JF Gadai</title>
 
-<meta name="description" content="Lihat galeri JF Gadai: layanan gadai motor, emas, dan elektronik dengan proses cepat & aman. Bukti profesionalisme kami.">
+<meta name="description" content="Lihat galeri foto dan materi promosi JF Gadai: layanan gadai motor, emas, HP, dan laptop dengan proses cepat & aman. Bukti profesionalisme dan transparansi kami.">
+<meta name="keywords" content="galeri gadai, foto gadai bangil, materi promosi jf gadai, poster gadai, bukti layanan gadai, JF Gadai galeri">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.jfgadai.com/">
+<link rel="canonical" href="https://www.jfgadai.com/gallery.html">
 
-<!-- ✅ Open Graph -->
-<meta property="og:title" content="JF Gadai - Layanan Gadai Terpercaya">
-<meta property="og:description" content="Gadai cepat, aman, dan transparan di Bangil & Gempol bersama JF Gadai.">
-<meta property="og:url" content="https://www.jfgadai.com/">
+<!-- ✅ Open Graph（优化描述，添加 og:locale） -->
+<meta property="og:title" content="Galeri Layanan Gadai Bangil | JF Gadai">
+<meta property="og:description" content="Lihat galeri foto dan materi promosi JF Gadai. Bukti profesionalisme layanan gadai motor, emas, HP, dan laptop di Bangil, Beji, Gempol, Sidoarjo.">
+<meta property="og:url" content="https://www.jfgadai.com/gallery.html">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="id_ID">
 <meta property="og:site_name" content="JF Gadai">
 
-<!-- ✅ WebSite（唯一） -->
+<!-- ✅ 合并后的结构化数据（与首页品牌一致） -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "https://www.jfgadai.com/#website",
-  "name": "JF Gadai",
-  "alternateName": "JF Gadai Indonesia",
-  "url": "https://www.jfgadai.com/",
-  "publisher": {
-    "@id": "https://www.jfgadai.com/#organization"
-  }
-}
-</script>
-
-<!-- ✅ Organization（唯一） -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "PawnShop",
-  "name": "JF Gadai",
-  "image": "https://www.jfgadai.com/images/jf-justfast.jpg",
-  "url": "https://www.jfgadai.com/",
-  "telephone": "+6289515692586",
-  "priceRange": "Rp",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bangil",
-    "addressRegion": "Jawa Timur",
-    "addressCountry": "ID"
-  },
-  "areaServed": [
-    "Bangil",
-    "Beji",
-    "Gempol"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.jfgadai.com/#website",
+      "name": "JF Gadai",
+      "alternateName": "JF Gadai Indonesia",
+      "url": "https://www.jfgadai.com",
+      "publisher": {
+        "@id": "https://www.jfgadai.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.jfgadai.com/#organization",
+      "name": "JF Gadai",
+      "alternateName": "JF Gadai Indonesia",
+      "url": "https://www.jfgadai.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.jfgadai.com/images/logo-jf.png"
+      },
+      "sameAs": []
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.jfgadai.com/gallery.html#webpage",
+      "name": "Galeri Layanan Gadai JF Gadai",
+      "description": "Galeri foto dan materi promosi JF Gadai, menampilkan layanan gadai motor, emas, HP, dan laptop.",
+      "url": "https://www.jfgadai.com/gallery.html",
+      "isPartOf": {
+        "@id": "https://www.jfgadai.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.jfgadai.com/#organization"
+      }
+    },
+    {
+      "@type": "ImageGallery",
+      "@id": "https://www.jfgadai.com/gallery.html#imagegallery",
+      "name": "Galeri JF Gadai",
+      "description": "Koleksi foto dan materi promosi layanan gadai JF Gadai",
+      "url": "https://www.jfgadai.com/gallery.html",
+      "isPartOf": {
+        "@id": "https://www.jfgadai.com/#website"
+      }
+    }
   ]
 }
 </script>
 
-<!-- ✅ Pawn（保留一个即可） -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "PawnBroker",
-  "name": "JF Gadai",
-  "image": "https://www.jfgadai.com/images/jf-justfast.jpg",
-  "url": "https://www.jfgadai.com/",
-  "telephone": "+6289515692586",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bangil",
-    "addressRegion": "Jawa Timur",
-    "addressCountry": "ID"
-  }
+<!-- ✅ Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17845187332"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-17845187332');
+
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+    'send_to': 'AW-17845187332/NqKjClfo5d8bEITmn71C',
+    'event_callback': callback
+  });
+  return false;
 }
 </script>
 
@@ -84,6 +105,9 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#ffffff">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/css/main.css">
 
   <style>
   /* 图库页面特定的表情符号 */
