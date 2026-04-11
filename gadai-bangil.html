@@ -4,77 +4,99 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ✅ 唯一 Title（只能有一个） -->
-<title>JF Gadai | Gadai Cepat & Aman di Bangil</title>
+<!-- ✅ 唯一 Title（独立地区页） -->
+<title>Gadai Cepat & Aman di Bangil | JF Gadai - Layanan Gadai Terpercaya</title>
 
-<meta name="description" content="JF Gadai menyediakan layanan gadai motor, emas, dan barang berharga dengan proses cepat dan aman di Bangil. Estimasi mudah, transparan, dan tanpa biaya tersembunyi.">
+<meta name="description" content="JF Gadai melayani gadai motor, emas, HP, dan laptop di Bangil. Proses cepat, aman, transparan, tanpa biaya tersembunyi. Cair hari ini!">
+<meta name="keywords" content="gadai bangil, gadai cepat bangil, layanan gadai bangil, gadai motor bangil, gadai emas bangil, JF Gadai Bangil">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.jfgadai.com/">
+<link rel="canonical" href="https://www.jfgadai.com/gadai-bangil.html">
 
 <!-- ✅ Open Graph -->
-<meta property="og:title" content="JF Gadai - Layanan Gadai Terpercaya">
-<meta property="og:description" content="Gadai cepat, aman, dan transparan di Bangil & Gempol bersama JF Gadai.">
-<meta property="og:url" content="https://www.jfgadai.com/">
+<meta property="og:title" content="Gadai Cepat & Aman di Bangil | JF Gadai">
+<meta property="og:description" content="Layanan gadai terpercaya di Bangil. Motor, emas, HP, laptop. Proses cepat, transparan, cair hari ini.">
+<meta property="og:url" content="https://www.jfgadai.com/gadai-bangil.html">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="id_ID">
 <meta property="og:site_name" content="JF Gadai">
 
-<!-- ✅ WebSite（唯一） -->
+<!-- ✅ 合并后的结构化数据（WebSite + Organization + PawnBroker） -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "https://www.jfgadai.com/#website",
-  "name": "JF Gadai",
-  "alternateName": "JF Gadai Indonesia",
-  "url": "https://www.jfgadai.com/",
-  "publisher": {
-    "@id": "https://www.jfgadai.com/#organization"
-  }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.jfgadai.com/#website",
+      "name": "JF Gadai",
+      "alternateName": "JF Gadai Indonesia",
+      "url": "https://www.jfgadai.com",
+      "publisher": {
+        "@id": "https://www.jfgadai.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.jfgadai.com/#organization",
+      "name": "JF Gadai",
+      "alternateName": "JF Gadai Indonesia",
+      "url": "https://www.jfgadai.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.jfgadai.com/images/logo-jf.png"
+      },
+      "sameAs": []
+    },
+    {
+      "@type": "PawnBroker",
+      "@id": "https://www.jfgadai.com/gadai-bangil.html#pawnbroker",
+      "name": "JF Gadai - Cabang Bangil",
+      "image": "https://www.jfgadai.com/images/jf-justfast.jpg",
+      "description": "Layanan gadai cepat dan aman di Bangil. Menerima motor, emas, HP, laptop, dan BPKB. Proses mudah, transparan, cair hari ini.",
+      "url": "https://www.jfgadai.com/gadai-bangil.html",
+      "telephone": "+6289515692586",
+      "priceRange": "Rp",
+      "openingHours": ["Mo-Fr 08:00-18:00"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Raya Bangil No. 123",
+        "addressLocality": "Bangil",
+        "addressRegion": "Jawa Timur",
+        "postalCode": "67153",
+        "addressCountry": "ID"
+      },
+      "areaServed": [
+        {"@type":"AdministrativeArea","name":"Bangil"},
+        {"@type":"AdministrativeArea","name":"Beji"},
+        {"@type":"AdministrativeArea","name":"Gempol"}
+      ]
+    }
+  ]
 }
 </script>
 
-<!-- ✅ Organization（唯一） -->
+<!-- ✅ LocalBusiness 结构化数据（增强本地搜索） -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "PawnShop",
-  "name": "JF Gadai",
-  "image": "https://www.jfgadai.com/images/jf-justfast.jpg",
-  "url": "https://www.jfgadai.com/",
+  "@type": "LocalBusiness",
+  "parentOrganization": {
+    "@id": "https://www.jfgadai.com/#organization"
+  },
+  "name": "JF Gadai Bangil",
+  "description": "Layanan gadai terpercaya di Bangil. Proses cepat, aman, dan transparan.",
+  "url": "https://www.jfgadai.com/gadai-bangil.html",
   "telephone": "+6289515692586",
-  "priceRange": "Rp",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Bangil",
     "addressRegion": "Jawa Timur",
     "addressCountry": "ID"
   },
-  "areaServed": [
-    "Bangil",
-    "Beji",
-    "Gempol"
-  ]
+  "openingHours": ["Mo-Fr 08:00-18:00"]
 }
 </script>
 
-<!-- ✅ Pawn（保留一个即可） -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "PawnBroker",
-  "name": "JF Gadai",
-  "image": "https://www.jfgadai.com/images/jf-justfast.jpg",
-  "url": "https://www.jfgadai.com/",
-  "telephone": "+6289515692586",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bangil",
-    "addressRegion": "Jawa Timur",
-    "addressCountry": "ID"
-  }
-}
-</script>
- 
 <!-- Favicon & Web App Manifest -->
 <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
@@ -85,8 +107,8 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#ffffff">
 
-  <!-- 外部主样式 -->
-  <link rel="stylesheet" href="/css/main.css">
+<!-- 外部主样式 -->
+<link rel="stylesheet" href="/css/main.css">
 
   <style>
     /* 仅保留页面专属样式，卡片样式完全复用 main.css 中的 .grid-card */
